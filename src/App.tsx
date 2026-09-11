@@ -346,121 +346,88 @@ function HomeScreen({
           <div className="flex-1 h-px" style={{ background: 'rgba(61,26,0,0.15)' }} />
         </div>
 
-        <JourneyMap chapters={chapters} onChapter={onChapter} />
+        <div className="space-y-3">
+          {chapters.map(ch => (
+            <ChapterCard key={ch.id} chapter={ch} onPress={() => onChapter(ch.id)} />
+          ))}
+        </div>
       </div>
     </div>
   )
 }
 
-// ─── Journey Map ─────────────────────────────────────────────────────────────
-function JourneyMap({ chapters, onChapter }: { chapters: Chapter[]; onChapter: (id: number) => void }) {
-  const nodePositions = [
-    { left: '24%', top: 58, labelSide: 'right' },
-    { left: '72%', top: 138, labelSide: 'left' },
-    { left: '29%', top: 224, labelSide: 'right' },
-    { left: '69%', top: 310, labelSide: 'left' },
-    { left: '43%', top: 396, labelSide: 'right' },
-  ] as const
+// ─── Chapter Card ─────────────────────────────────────────────────────────────
+function ChapterCard({ chapter, onPress }: { chapter: Chapter; onPress: () => void }) {
+  const isLocked = chapter.status === 'locked'
 
   return (
-    <div
-      className="relative overflow-hidden rounded-2xl"
-      style={{
-        height: 470,
-        background: 'linear-gradient(180deg, #F5E6C8 0%, #D9B47B 47%, #8B2421 100%)',
-        border: '2px solid rgba(78,27,16,0.35)',
-        boxShadow: 'inset 0 0 0 3px rgba(255,248,224,0.36)',
-      }}
+    <button
+      onClick={isLocked ? undefined : onPress}
+      disabled={isLocked}
+      className="w-full text-left paper-card rounded-lg overflow-hidden transition-transform active:scale-[0.98]"
+      style={{ opacity: isLocked ? 0.6 : 1 }}
     >
-      <div className="absolute -top-8 -left-10 w-40 h-24 rounded-[50%]" style={{ background: '#6A2A1E' }} />
-      <div className="absolute -top-3 -right-8 w-36 h-20 rounded-[50%]" style={{ background: '#7C3324' }} />
-      <div className="absolute bottom-0 -left-8 w-52 h-20 rounded-[50%]" style={{ background: '#67251D' }} />
-      <div className="absolute bottom-2 -right-12 w-44 h-24 rounded-[50%]" style={{ background: '#772D22' }} />
-
-      <div className="absolute top-5 left-5 text-2xl">🏯</div>
-      <div className="absolute top-9 right-6 text-xl">✦</div>
-      <div className="absolute top-[185px] right-4 text-lg">⚔</div>
-      <div className="absolute top-[270px] left-5 text-lg">✦</div>
-      <div className="absolute bottom-10 right-8 text-xl">⚜</div>
-      <div className="absolute top-[28%] left-[45%] w-2 h-2 rounded-full" style={{ background: '#A53528' }} />
-      <div className="absolute top-[58%] right-[32%] w-2.5 h-2.5 rounded-full" style={{ background: '#E4B653' }} />
-      <div className="absolute top-[74%] left-[18%] w-2 h-2 rounded-full" style={{ background: '#F0D79B' }} />
-
-      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 360 470" fill="none" aria-hidden="true">
-        <path
-          d="M88 58 C92 88 275 95 260 138 C245 180 106 177 105 224 C104 267 262 265 248 310 C234 352 165 356 155 396"
-          stroke="#F9EBD0"
-          strokeWidth="15"
-          strokeLinecap="round"
-        />
-        <path
-          d="M88 58 C92 88 275 95 260 138 C245 180 106 177 105 224 C104 267 262 265 248 310 C234 352 165 356 155 396"
-          stroke="#B8782E"
-          strokeWidth="5"
-          strokeDasharray="7 7"
-          strokeLinecap="round"
-        />
-      </svg>
-
-      {chapters.slice(0, nodePositions.length).map((chapter, index) => {
-        const position = nodePositions[index]
-        const isLocked = chapter.status === 'locked'
-        const isCurrent = chapter.status === 'current'
-        const nodeColor = isLocked ? '#8B6347' : isCurrent ? '#B52B25' : '#264B5B'
-
-        return (
-          <div
-            key={chapter.id}
-            className="absolute -translate-x-1/2"
-            style={{ left: position.left, top: position.top }}
+      {/* Header band */}
+      <div
+        className="px-4 py-2 flex items-center justify-between"
+        style={{ background: isLocked ? '#D4B896' : '#8B1A1A' }}
+      >
+        <div>
+          <span
+            className="font-hand text-xs"
+            style={{ color: isLocked ? '#7A4020' : '#F5E6D0', opacity: 0.8 }}
           >
-            <button
-              onClick={isLocked ? undefined : () => onChapter(chapter.id)}
-              disabled={isLocked}
-              aria-label={`Chương ${chapter.id}: ${chapter.year}`}
-              className="relative z-10 w-[62px] h-[62px] rounded-full flex flex-col items-center justify-center transition-transform active:scale-95 disabled:cursor-not-allowed"
-              style={{
-                background: nodeColor,
-                color: '#FFF4D8',
-                border: '4px solid #F9EBD0',
-                boxShadow: `0 4px 0 ${isLocked ? '#5D3C2A' : isCurrent ? '#731A17' : '#183441'}, 0 7px 12px rgba(53,20,10,0.3)`,
-              }}
-            >
-              <span className="font-serif font-black text-sm leading-none">{chapter.year}</span>
-              {isLocked ? (
-                <span className="text-xs mt-0.5">🔒</span>
-              ) : isCurrent ? (
-                <span className="font-sans font-bold text-[8px] mt-0.5">ĐANG HỌC</span>
-              ) : (
-                <span className="text-xs mt-0.5">✓</span>
-              )}
-            </button>
+            CHƯƠNG {String(chapter.id).padStart(2, '0')}
+          </span>
+          <div
+            className="font-serif font-bold text-lg leading-tight"
+            style={{ color: isLocked ? '#3D1A00' : '#FBF4E8' }}
+          >
+            {chapter.year}
+          </div>
+        </div>
+        <div className="text-right">
+          <div
+            className="font-serif font-bold text-sm"
+            style={{ color: isLocked ? '#7A4020' : '#F5E6D0' }}
+          >
+            "{chapter.title}"
+          </div>
+          {isLocked && <div className="text-lg mt-0.5">🔒</div>}
+          {chapter.status === 'current' && (
             <div
-              className="absolute top-1/2 -translate-y-1/2 w-24"
-              style={{
-                left: position.labelSide === 'right' ? 72 : undefined,
-                right: position.labelSide === 'left' ? 72 : undefined,
-                textAlign: position.labelSide === 'right' ? 'left' : 'right',
-              }}
+              className="font-hand text-xs"
+              style={{ color: '#F5E6D0', opacity: 0.9 }}
             >
-              <div className="font-serif font-bold text-[11px] leading-tight" style={{ color: '#3D1A00' }}>
-                {chapter.title}
-              </div>
-              <div className="font-hand text-[11px] leading-tight" style={{ color: '#6D2A1D' }}>
-                Chương {String(chapter.id).padStart(2, '0')}
+              → ĐANG HỌC
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Body */}
+      <div className="px-4 py-3">
+        <div className="font-sans text-xs leading-relaxed mb-2" style={{ color: '#5A3010' }}>
+          {chapter.subtitle}
+        </div>
+        {chapter.progress > 0 && (
+          <div>
+            <div className="flex justify-between mb-1">
+              <div className="font-hand text-xs" style={{ color: '#A0622A' }}>Tiến độ</div>
+              <div className="font-sans font-bold text-xs" style={{ color: '#8B1A1A' }}>
+                {Math.round(chapter.progress * 100)}%
               </div>
             </div>
+            <div className="h-1.5 rounded-full overflow-hidden" style={{ background: '#E8D5BA' }}>
+              <div
+                className="h-full rounded-full"
+                style={{ width: `${chapter.progress * 100}%`, background: '#8B1A1A' }}
+              />
+            </div>
           </div>
-        )
-      })}
-
-      <div
-        className="absolute bottom-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full font-hand text-sm whitespace-nowrap"
-        style={{ background: '#F7E1B2', color: '#6E251B', border: '1px solid rgba(93,38,22,0.28)' }}
-      >
-        Hành trình khám phá lịch sử
+        )}
       </div>
-    </div>
+    </button>
   )
 }
 
@@ -622,6 +589,7 @@ function LessonScreen({
   onComplete: () => void
 }) {
   const lesson = chapter.lessons[lessonIdx]
+
   const [step, setStep] = useState(0)
   const totalSteps = lesson.story.length + 1 // story steps + key points
   const isStory = step < lesson.story.length
@@ -629,6 +597,10 @@ function LessonScreen({
 
   const storyStep = isStory ? lesson.story[step] : null
   const [key, setKey] = useState(0)
+
+  if (chapter.id === 1 && lessonIdx === 0) {
+    return <Episode1954Screen onBack={onBack} />
+  }
 
   const advance = () => {
     if (step < totalSteps - 1) {
@@ -811,6 +783,381 @@ function LessonScreen({
           </button>
         )}
       </div>
+    </div>
+  )
+}
+
+// ─── Episode 01: Context Before Điện Biên Phủ ────────────────────────────────
+type EpisodeStage = 'intro' | 'video' | 'knowledge' | 'map' | 'quiz' | 'reward'
+
+const episodeQuestions = [
+  {
+    question: 'Điện Biên Phủ nằm ở khu vực nào của Việt Nam?',
+    options: ['Đông Bắc', 'Tây Bắc', 'Tây Nguyên', 'Đồng bằng Bắc Bộ'],
+    correct: 1,
+    explanation: 'Điện Biên Phủ thuộc khu vực Tây Bắc và có vị trí chiến lược quan trọng.',
+  },
+  {
+    question: 'Vì sao Pháp xây dựng Điện Biên Phủ thành một tập đoàn cứ điểm mạnh?',
+    options: ['Phát triển kinh tế địa phương', 'Xây dựng thành phố mới', 'Tạo lợi thế quân sự và kiểm soát khu vực', 'Tổ chức hội nghị quốc tế'],
+    correct: 2,
+    explanation: 'Vị trí chiến lược khiến Pháp muốn biến Điện Biên Phủ thành một cứ điểm quân sự mạnh.',
+  },
+  {
+    question: 'Bối cảnh nào dẫn đến chiến dịch Điện Biên Phủ?',
+    options: [
+      'Chiến trường thay đổi, Pháp gặp khó khăn và xây dựng cứ điểm chiến lược',
+      'Việt Nam bắt đầu phát triển đường sắt ở Tây Bắc',
+      'Một hội nghị quốc tế được tổ chức tại Điện Biên Phủ',
+      'Các bên cùng mở rộng hoạt động thương mại',
+    ],
+    correct: 0,
+    explanation: 'Tình hình chiến trường thay đổi và việc xây dựng cứ điểm đã tạo nên bối cảnh dẫn tới chiến dịch.',
+  },
+]
+
+const episodeVideoScenes = [
+  {
+    time: '00:00',
+    title: 'Đông Dương, đầu những năm 1950',
+    subtitle: 'Cuộc kháng chiến chống Pháp đang bước vào giai đoạn quyết liệt.',
+    accent: '#C79A59',
+  },
+  {
+    time: '00:26',
+    title: 'Chiến trường thay đổi',
+    subtitle: 'Pháp gặp nhiều khó khăn và tìm một nơi có thể tạo lợi thế quân sự.',
+    accent: '#A84D3F',
+  },
+  {
+    time: '00:58',
+    title: 'Điện Biên Phủ',
+    subtitle: 'Một thung lũng ở Tây Bắc trở thành vị trí chiến lược cho cuộc đối đầu quyết định.',
+    accent: '#69705C',
+  },
+]
+
+function Episode1954Screen({ onBack }: { onBack: () => void }) {
+  const [stage, setStage] = useState<EpisodeStage>('intro')
+  const [videoScene, setVideoScene] = useState(0)
+  const [interactionIndex, setInteractionIndex] = useState(0)
+  const [interactionCorrect, setInteractionCorrect] = useState<boolean | null>(null)
+  const [questionIndex, setQuestionIndex] = useState(0)
+  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null)
+  const [score, setScore] = useState(0)
+
+  const progressIndex: Record<EpisodeStage, number> = { intro: 0, video: 0, knowledge: 1, map: 2, quiz: 3, reward: 4 }
+  const question = episodeQuestions[questionIndex]
+  const isCorrect = selectedAnswer === question.correct
+  const video = episodeVideoScenes[videoScene]
+
+  const chooseAnswer = (index: number) => {
+    if (selectedAnswer !== null) return
+    setSelectedAnswer(index)
+    if (index === question.correct) setScore(currentScore => currentScore + 1)
+  }
+
+  const nextQuestion = () => {
+    if (questionIndex === episodeQuestions.length - 1) {
+      setStage('reward')
+      return
+    }
+    setQuestionIndex(index => index + 1)
+    setSelectedAnswer(null)
+  }
+
+  return (
+    <div className="absolute inset-0 z-20 flex flex-col overflow-hidden" style={{ background: '#F4E8D2' }}>
+      <EpisodeHeader stage={stage} progress={progressIndex[stage]} onBack={onBack} />
+      <div className="flex-1 overflow-y-auto px-5 pb-6">
+        {stage === 'intro' && (
+          <div className="pt-6 animate-bubble-in">
+            <div className="font-sans text-[11px] font-bold tracking-[0.18em]" style={{ color: '#A84D3F' }}>CHƯƠNG 01</div>
+            <div className="font-serif font-bold text-6xl leading-none mt-1" style={{ color: '#302820' }}>1954</div>
+            <div className="font-hand text-base mt-3" style={{ color: '#69705C' }}>TẬP 01</div>
+            <div className="font-serif font-bold text-xl leading-tight" style={{ color: '#35495B' }}>BỐI CẢNH TRƯỚC ĐIỆN BIÊN PHỦ</div>
+            <HistoricalImage />
+            <div className="flex items-center gap-3 mt-4">
+              <XPBadge text="⏱ 4 phút" />
+              <XPBadge text="⭐ +50 XP" />
+            </div>
+            <p className="font-sans text-sm leading-relaxed mt-4" style={{ color: '#4B4035' }}>
+              Trước khi Điện Biên Phủ trở thành một trận chiến quyết định, tình hình chiến trường Đông Dương đã thay đổi rất nhiều.
+            </p>
+            <PrimaryButton onClick={() => setStage('video')}>BẮT ĐẦU TẬP</PrimaryButton>
+          </div>
+        )}
+
+        {stage === 'video' && (
+          <div className="pt-5 animate-bubble-in">
+            <div className="font-serif font-bold text-xl" style={{ color: '#302820' }}>TẬP 01 · BỐI CẢNH</div>
+            <div className="relative mt-4 aspect-video overflow-hidden rounded-xl" style={{ background: '#35495B', boxShadow: '3px 4px 0 rgba(48,40,32,0.14)' }}>
+              <div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'radial-gradient(#FFF9EC 1px, transparent 1px)', backgroundSize: '13px 13px' }} />
+              <div className="absolute left-5 top-5 w-28 h-16 border-2 rounded-sm rotate-[-5deg]" style={{ borderColor: video.accent }} />
+              <div className="absolute right-6 top-8 w-20 h-20 rounded-full border-[10px]" style={{ borderColor: `${video.accent}AA` }} />
+              <div className="absolute left-7 bottom-9 font-serif text-2xl leading-tight" style={{ color: '#FFF9EC' }}>{video.title}</div>
+              <div className="absolute left-7 right-16 bottom-4 font-sans text-xs leading-relaxed" style={{ color: 'rgba(255,249,236,0.82)' }}>{video.subtitle}</div>
+              <div className="absolute right-4 bottom-4 w-10 h-10 rounded-full flex items-center justify-center" style={{ background: '#A84D3F', color: '#FFF9EC' }}>{videoScene < 2 ? '▶' : '✓'}</div>
+            </div>
+            <div className="mt-4 rounded-lg px-4 py-3 font-sans text-sm leading-relaxed" style={{ background: '#FFF9EC', border: '1px solid rgba(48,40,32,0.14)', color: '#302820' }}>
+              <span className="font-hand text-base mr-2" style={{ color: '#A84D3F' }}>{video.time}</span>
+              {video.subtitle}
+            </div>
+            <div className="mt-4 flex gap-1.5">
+              {episodeVideoScenes.map((scene, index) => <div key={scene.time} className="h-1.5 flex-1 rounded-full" style={{ background: index <= videoScene ? '#A84D3F' : '#D6C5AA' }} />)}
+            </div>
+            <div className="mt-3 font-hand text-sm" style={{ color: '#69705C' }}>Video 01 · 01:20 · phụ đề tiếng Việt</div>
+            <PrimaryButton onClick={() => videoScene < episodeVideoScenes.length - 1 ? setVideoScene(index => index + 1) : setStage('knowledge')}>
+              {videoScene < episodeVideoScenes.length - 1 ? 'XEM ĐOẠN TIẾP →' : 'CHỐT KIẾN THỨC →'}
+            </PrimaryButton>
+          </div>
+        )}
+
+        {stage === 'knowledge' && (
+          <div className="pt-5 animate-bubble-in">
+            <div className="font-serif font-bold text-2xl" style={{ color: '#302820' }}>📌 CHỐT KIẾN THỨC</div>
+            <div className="font-sans text-sm mt-1" style={{ color: '#69705C' }}>Bạn chỉ cần nhớ 3 điều</div>
+            <div className="mt-4 space-y-3">
+              <KnowledgeCard number="01" title="Tình hình chiến trường">Cuộc kháng chiến chống Pháp bước vào giai đoạn quyết liệt, trong khi quân Pháp gặp nhiều khó khăn trên chiến trường.</KnowledgeCard>
+              <KnowledgeCard number="02" title="Vị trí Điện Biên Phủ">Điện Biên Phủ nằm ở khu vực <strong>Tây Bắc</strong> và có vị trí chiến lược quan trọng.</KnowledgeCard>
+              <KnowledgeCard number="03" title="Tập đoàn cứ điểm">Pháp xây dựng Điện Biên Phủ thành một <strong>tập đoàn cứ điểm</strong> mạnh để kiểm soát khu vực và tạo lợi thế quân sự.</KnowledgeCard>
+            </div>
+            <div className="font-hand text-sm mt-4 px-2" style={{ color: '#A84D3F' }}>“3 ý này sẽ xuất hiện lại ở phần tương tác.”</div>
+            <PrimaryButton onClick={() => setStage('map')}>MÌNH ĐÃ HIỂU →</PrimaryButton>
+          </div>
+        )}
+
+        {stage === 'map' && (
+          <div className="pt-5 animate-bubble-in">
+            <EpisodeInteraction
+              index={interactionIndex}
+              correct={interactionCorrect}
+              onAnswer={isAnswerCorrect => setInteractionCorrect(isAnswerCorrect)}
+            />
+            {interactionCorrect !== null && <FeedbackCard correct={interactionCorrect}>{interactionCorrect ? <>✓ Chính xác. Bạn đã hoàn thành thử thách {interactionIndex + 1}/3. <strong>+10 XP</strong></> : <>Chưa chính xác. Hãy quan sát lại các ý vừa xem và thử lại.</>}</FeedbackCard>}
+            {interactionCorrect === true && <PrimaryButton onClick={() => {
+              if (interactionIndex === 2) {
+                setStage('quiz')
+              } else {
+                setInteractionIndex(index => index + 1)
+                setInteractionCorrect(null)
+              }
+            }}>{interactionIndex === 2 ? 'BẮT ĐẦU QUIZ →' : 'THỬ THÁCH TIẾP →'}</PrimaryButton>}
+          </div>
+        )}
+
+        {stage === 'quiz' && (
+          <div className="pt-5 animate-bubble-in">
+            <div className="font-hand text-sm" style={{ color: '#A84D3F' }}>KIỂM TRA NHANH · CÂU {questionIndex + 1}/3</div>
+            <div className="font-serif font-bold text-2xl leading-tight mt-2" style={{ color: '#302820' }}>{question.question}</div>
+            <div className="mt-5 space-y-3">
+              {question.options.map((option, index) => (
+                <QuizOption
+                  key={option}
+                  index={index}
+                  option={option}
+                  selected={selectedAnswer}
+                  correct={question.correct}
+                  onClick={() => chooseAnswer(index)}
+                />
+              ))}
+            </div>
+            {selectedAnswer !== null && (
+              <>
+                <FeedbackCard correct={isCorrect}>{isCorrect ? <>Điện Biên Phủ thuộc khu vực Tây Bắc. <strong>+10 XP</strong></> : <>Chưa chính xác. {question.explanation}</>}</FeedbackCard>
+                <PrimaryButton onClick={nextQuestion}>{questionIndex === 2 ? 'XEM PHẦN THƯỞNG →' : 'CÂU TIẾP THEO →'}</PrimaryButton>
+              </>
+            )}
+          </div>
+        )}
+
+        {stage === 'reward' && <EpisodeReward score={score} onBack={onBack} />}
+      </div>
+    </div>
+  )
+}
+
+function EpisodeHeader({ stage, progress, onBack }: { stage: EpisodeStage; progress: number; onBack: () => void }) {
+  return (
+    <div className="px-5 pt-4 pb-3 shrink-0" style={{ borderBottom: '1px solid rgba(48,40,32,0.11)' }}>
+      <div className="flex items-center justify-between">
+        <button onClick={onBack} className="font-sans text-base" style={{ color: '#35495B' }}>←</button>
+        <div className="font-sans text-[11px] font-bold tracking-[0.13em]" style={{ color: '#35495B' }}>{stage === 'intro' ? 'TẬP 01' : 'TẬP 01 · BỐI CẢNH'}</div>
+        <button className="font-sans text-lg leading-none" style={{ color: '#35495B' }}>⋯</button>
+      </div>
+      <EpisodeProgress current={progress} />
+    </div>
+  )
+}
+
+function EpisodeProgress({ current }: { current: number }) {
+  return (
+    <div className="flex items-center gap-1.5 mt-3" aria-label={`Tiến độ tập: bước ${current + 1} trên 5`}>
+      {[0, 1, 2, 3, 4].map(index => (
+        <div key={index} className="flex items-center flex-1 last:flex-none">
+          <div className="w-3 h-3 rounded-full shrink-0" style={{ background: index < current ? '#35495B' : index === current ? '#A84D3F' : '#D6C5AA' }} />
+          {index < 4 && <div className="h-px flex-1 mx-1" style={{ background: index < current ? '#35495B' : '#D6C5AA' }} />}
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function HistoricalImage() {
+  return (
+    <div className="relative mt-6 px-2 pb-2 rotate-[-2deg]">
+      <div className="absolute z-10 left-1/2 -translate-x-1/2 -top-2 w-24 h-5 rotate-[2deg]" style={{ background: 'rgba(210,186,139,0.78)' }} />
+      <div className="relative h-48 overflow-hidden rounded-sm" style={{ background: '#35495B', border: '8px solid #FFF9EC', boxShadow: '2px 4px 0 rgba(48,40,32,0.14)' }}>
+        <div className="absolute inset-0 opacity-25" style={{ backgroundImage: 'linear-gradient(30deg, transparent 48%, #F4E8D2 49%, transparent 51%), linear-gradient(-45deg, transparent 48%, #F4E8D2 49%, transparent 51%)', backgroundSize: '42px 34px' }} />
+        <div className="absolute left-9 top-7 w-28 h-28 rounded-full border-[16px]" style={{ borderColor: '#C79A59' }} />
+        <div className="absolute right-8 bottom-7 w-28 h-2 rotate-[-18deg]" style={{ background: '#A84D3F' }} />
+        <div className="absolute left-5 bottom-5 font-serif text-xl" style={{ color: '#FFF9EC' }}>Đông Dương<br />1953–1954</div>
+        <div className="absolute right-3 top-3 font-hand text-xs px-2 py-1" style={{ color: '#35495B', background: '#F4E8D2' }}>MINH HỌA BỐI CẢNH</div>
+      </div>
+      <div className="font-hand text-sm mt-3 text-right rotate-[2deg]" style={{ color: '#A84D3F' }}>“Điều gì đã dẫn tới trận chiến này?”</div>
+    </div>
+  )
+}
+
+function KnowledgeCard({ number, title, children }: { number: string; title: string; children: React.ReactNode }) {
+  return (
+    <div className="rounded-lg p-4" style={{ background: '#FFF9EC', border: '1px solid rgba(48,40,32,0.14)', boxShadow: '1px 2px 0 rgba(48,40,32,0.06)' }}>
+      <div className="flex gap-3">
+        <div className="font-serif font-bold text-lg" style={{ color: '#A84D3F' }}>{number}</div>
+        <div>
+          <div className="font-serif font-bold text-sm" style={{ color: '#35495B' }}>{title}</div>
+          <div className="font-sans text-xs leading-relaxed mt-1.5" style={{ color: '#4B4035' }}>{children}</div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function EpisodeInteraction({ index, correct, onAnswer }: { index: number; correct: boolean | null; onAnswer: (correct: boolean) => void }) {
+  const interactionTitles = [
+    'HÃY TÌM ĐIỆN BIÊN PHỦ',
+    'GHÉP ĐÚNG Ý NGHĨA',
+    'CHỌN ĐÚNG BỐI CẢNH',
+  ]
+
+  return (
+    <>
+      <div className="font-hand text-sm" style={{ color: '#A84D3F' }}>TƯƠNG TÁC {index + 1}/3</div>
+      <div className="font-serif font-bold text-2xl mt-1" style={{ color: '#302820' }}>{interactionTitles[index]}</div>
+
+      {index === 0 && (
+        <>
+          <div className="font-sans text-sm leading-relaxed mt-2" style={{ color: '#5B5044' }}>Dựa vào những gì vừa xem, hãy chọn khu vực Điện Biên Phủ trên bản đồ Việt Nam.</div>
+          <VintageMap selection={correct ? 'northwest' : null} onSelect={selection => onAnswer(selection === 'northwest')} />
+        </>
+      )}
+
+      {index === 1 && (
+        <div className="mt-5 space-y-3">
+          <div className="rounded-lg p-4" style={{ background: '#FFF9EC', border: '1px solid rgba(48,40,32,0.14)' }}>
+            <div className="font-hand text-xs" style={{ color: '#69705C' }}>KHÁI NIỆM</div>
+            <div className="font-serif font-bold text-lg mt-1" style={{ color: '#35495B' }}>Tây Bắc</div>
+          </div>
+          <div className="font-sans text-xs" style={{ color: '#69705C' }}>Chạm vào ý nghĩa phù hợp:</div>
+          <InteractionChoice onClick={() => onAnswer(true)}>Vị trí chiến lược quan trọng</InteractionChoice>
+          <InteractionChoice onClick={() => onAnswer(false)}>Nơi tổ chức hội nghị quốc tế</InteractionChoice>
+          <InteractionChoice onClick={() => onAnswer(false)}>Khu vực đồng bằng ven biển</InteractionChoice>
+        </div>
+      )}
+
+      {index === 2 && (
+        <div className="mt-5 space-y-3">
+          <div className="font-sans text-sm leading-relaxed" style={{ color: '#5B5044' }}>Vì sao Pháp xây dựng Điện Biên Phủ thành một tập đoàn cứ điểm mạnh?</div>
+          <InteractionChoice onClick={() => onAnswer(false)}>Để xây dựng một thành phố mới</InteractionChoice>
+          <InteractionChoice onClick={() => onAnswer(true)}>Để kiểm soát khu vực và tạo lợi thế quân sự</InteractionChoice>
+          <InteractionChoice onClick={() => onAnswer(false)}>Để mở rộng hoạt động thương mại</InteractionChoice>
+        </div>
+      )}
+    </>
+  )
+}
+
+function InteractionChoice({ children, onClick }: { children: string; onClick: () => void }) {
+  return (
+    <button onClick={onClick} className="w-full min-h-14 text-left rounded-lg px-4 py-3 font-sans text-sm" style={{ background: '#FFF9EC', color: '#35495B', border: '1.5px solid rgba(53,73,91,0.24)' }}>
+      {children}
+    </button>
+  )
+}
+
+function VintageMap({ selection, onSelect }: { selection: 'northwest' | 'other' | null; onSelect: (selection: 'northwest' | 'other') => void }) {
+  return (
+    <div className="relative h-72 mt-5 rounded-xl overflow-hidden" style={{ background: '#E9D5AD', border: '1.5px solid rgba(53,73,91,0.26)' }}>
+      <div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'radial-gradient(#69705C 0.8px, transparent 0.8px)', backgroundSize: '10px 10px' }} />
+      <div className="absolute left-1/2 top-8 -translate-x-1/2 w-24 h-52 rounded-[55%_45%_52%_48%] rotate-[9deg]" style={{ background: '#D8C393', border: '2px solid #69705C' }} />
+      <button onClick={() => onSelect('northwest')} className="absolute left-[28%] top-[22%] w-24 h-16 rounded-lg font-sans text-xs font-bold" style={{ background: selection === 'northwest' ? '#A84D3F' : '#FFF9EC', color: selection === 'northwest' ? '#FFF9EC' : '#35495B', border: '1.5px solid #A84D3F' }}>TÂY BẮC</button>
+      <button onClick={() => onSelect('other')} className="absolute right-[14%] top-[48%] w-24 h-14 rounded-lg font-sans text-xs font-bold" style={{ background: selection === 'other' ? '#C79A59' : '#FFF9EC', color: '#35495B', border: '1.5px solid rgba(53,73,91,0.35)' }}>MIỀN TRUNG</button>
+      <button onClick={() => onSelect('other')} className="absolute left-[20%] bottom-[10%] w-24 h-14 rounded-lg font-sans text-xs font-bold" style={{ background: selection === 'other' ? '#C79A59' : '#FFF9EC', color: '#35495B', border: '1.5px solid rgba(53,73,91,0.35)' }}>ĐỒNG BẰNG</button>
+      {selection === 'northwest' && <div className="absolute left-[42%] top-[16%] text-3xl animate-bounce">📍</div>}
+      <div className="absolute bottom-3 right-4 font-hand text-xs" style={{ color: '#69705C' }}>Bản đồ minh họa</div>
+    </div>
+  )
+}
+
+function QuizOption({ index, option, selected, correct, onClick }: { index: number; option: string; selected: number | null; correct: number; onClick: () => void }) {
+  const revealed = selected !== null
+  const isCorrect = index === correct
+  const isSelected = index === selected
+  const background = revealed && isCorrect ? '#E8EEE3' : revealed && isSelected ? '#F3DEDA' : '#FFF9EC'
+  const border = revealed && isCorrect ? '#69705C' : revealed && isSelected ? '#A84D3F' : 'rgba(48,40,32,0.16)'
+
+  return (
+    <button onClick={onClick} className="w-full text-left min-h-14 rounded-lg px-4 py-3" style={{ background, border: `1.5px solid ${border}` }}>
+      <div className="flex items-center gap-3">
+        <span className="w-7 h-7 rounded-full flex items-center justify-center font-sans font-bold text-xs shrink-0" style={{ background: '#E6D5B9', color: '#35495B' }}>{String.fromCharCode(65 + index)}</span>
+        <span className="font-sans text-sm leading-snug" style={{ color: '#302820' }}>{option}</span>
+        {revealed && isCorrect && <span className="ml-auto" style={{ color: '#69705C' }}>✓</span>}
+      </div>
+    </button>
+  )
+}
+
+function FeedbackCard({ correct, children }: { correct: boolean; children: React.ReactNode }) {
+  return (
+    <div className="mt-4 rounded-lg p-4 animate-bubble-in" style={{ background: correct ? '#E8EEE3' : '#F3DEDA', borderLeft: `4px solid ${correct ? '#69705C' : '#A84D3F'}` }}>
+      <div className="font-serif font-bold text-sm" style={{ color: correct ? '#4F5B43' : '#8C3C31' }}>{correct ? '✓ CHÍNH XÁC' : 'CHƯA CHÍNH XÁC'}</div>
+      <div className="font-sans text-xs leading-relaxed mt-1" style={{ color: '#4B4035' }}>{children}</div>
+    </div>
+  )
+}
+
+function XPBadge({ text }: { text: string }) {
+  return <span className="px-3 py-1 rounded-full font-sans text-xs font-semibold" style={{ background: '#EBD9B9', color: '#35495B' }}>{text}</span>
+}
+
+function PrimaryButton({ children, onClick }: { children: string; onClick: () => void }) {
+  return <button onClick={onClick} className="w-full min-h-14 mt-6 rounded-lg font-sans font-bold text-sm" style={{ background: '#A84D3F', color: '#FFF9EC', boxShadow: '0 3px 0 #7F382E', letterSpacing: '0.06em' }}>{children}</button>
+}
+
+function EpisodeReward({ score, onBack }: { score: number; onBack: () => void }) {
+  const perfect = score === episodeQuestions.length
+  return (
+    <div className="pt-8 animate-bubble-in">
+      <div className="rounded-xl p-5 text-center" style={{ background: '#FFF9EC', border: '1px solid rgba(48,40,32,0.16)', boxShadow: '2px 4px 0 rgba(48,40,32,0.1)' }}>
+        <div className="font-hand text-sm" style={{ color: '#69705C' }}>TẬP 01 HOÀN THÀNH</div>
+        <div className="font-serif font-bold text-2xl leading-tight mt-1" style={{ color: '#302820' }}>BỐI CẢNH TRƯỚC ĐIỆN BIÊN PHỦ</div>
+        <div className="inline-block mt-5 px-4 py-2 rotate-[-4deg] font-serif font-bold text-lg" style={{ color: '#A84D3F', border: '3px double #A84D3F' }}>ĐÃ KHÁM PHÁ</div>
+        <div className="grid grid-cols-3 gap-2 mt-6">
+          <div><div className="font-serif font-bold text-xl" style={{ color: '#35495B' }}>+50</div><div className="font-hand text-xs" style={{ color: '#69705C' }}>XP</div></div>
+          <div><div className="font-serif font-bold text-xl" style={{ color: '#35495B' }}>{score}/3</div><div className="font-hand text-xs" style={{ color: '#69705C' }}>câu đúng</div></div>
+          <div><div className="font-serif font-bold text-xl" style={{ color: '#35495B' }}>4:18</div><div className="font-hand text-xs" style={{ color: '#69705C' }}>phút</div></div>
+        </div>
+        {perfect && <div className="mt-4 font-sans text-xs font-bold tracking-wider" style={{ color: '#A84D3F' }}>PERFECT · KHÔNG CÓ CÂU TRẢ LỜI SAI</div>}
+      </div>
+      <div className="mt-5 font-hand text-sm" style={{ color: '#69705C' }}>TẬP TIẾP THEO</div>
+      <div className="mt-2 rounded-xl p-4 overflow-hidden relative" style={{ background: '#35495B', color: '#FFF9EC' }}>
+        <div className="absolute -right-4 -top-8 text-8xl opacity-10">?</div>
+        <div className="relative font-hand text-xs" style={{ color: '#E9C879' }}>TẬP 02</div>
+        <div className="relative font-serif font-bold text-lg">VÌ SAO LÀ ĐIỆN BIÊN PHỦ?</div>
+        <div className="relative font-sans text-xs leading-relaxed mt-1" style={{ color: 'rgba(255,249,236,0.82)' }}>Một thung lũng giữa núi rừng Tây Bắc lại trở thành nơi Pháp tin rằng họ có thể giành lợi thế quyết định. Vì sao?</div>
+      </div>
+      <PrimaryButton onClick={onBack}>XEM TẬP 02 →</PrimaryButton>
+      <button onClick={onBack} className="w-full py-4 font-sans text-xs" style={{ color: '#35495B' }}>VỀ CHƯƠNG 1954</button>
     </div>
   )
 }
