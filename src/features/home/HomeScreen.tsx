@@ -1,6 +1,6 @@
 import Mascot from '../../Mascot'
 import { chapters, userStats, weekDays, weekDone } from '../../data'
-import { JourneyMap } from './components/JourneyMap'
+import ChapterCard from '../../components/roadmap/ChapterCard'
 
 export function HomeScreen({
   onChapter,
@@ -107,7 +107,11 @@ export function HomeScreen({
           <div className="flex-1 h-px" style={{ background: 'rgba(61,26,0,0.15)' }} />
         </div>
 
-        <JourneyMap chapters={chapters} onChapter={onChapter} />
+        <div className="space-y-3">
+          {chapters.map(ch => (
+            <ChapterCard key={ch.id} chapter={ch} onPress={() => onChapter(ch.id)} />
+          ))}
+        </div>
       </div>
     </div>
   )
