@@ -1,4 +1,4 @@
-export type Tab = "home" | "practice" | "dautri" | "ai" | "profile"
+export type Tab = "home" | "practice" | "ai" | "profile"
 
 export type View =
   | { type: "home" }

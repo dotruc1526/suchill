@@ -4,7 +4,6 @@ export default function BottomNav({ tab, onTab }: { tab: Tab; onTab: (t: Tab) =>
   const tabs: { key: Tab; icon: string; label: string }[] = [
     { key: 'home', icon: '🏠', label: 'HỌC' },
     { key: 'practice', icon: '🧠', label: 'LUYỆN TẬP' },
-    { key: 'dautri', icon: '⚔️', label: 'ĐẤU TRÍ' },
     { key: 'ai', icon: '🤖', label: 'AI' },
     { key: 'profile', icon: '👤', label: 'HỒ SƠ' },
   ]
