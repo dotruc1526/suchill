@@ -1,7 +1,24 @@
 import Mascot from '../../Mascot'
 import { chapters, achievements, userStats } from '../../data'
 
-export function ProfileScreen({ xp }: { xp: number }) {
+export function ProfileScreen({
+  xp,
+  currentUser,
+  onPricing,
+  onLogout,
+  onResetProgress,
+}: {
+  xp?: number
+  currentUser?: any
+  onPricing?: () => void
+  onLogout?: () => void
+  onResetProgress?: () => void
+}) {
+  const currentXP = xp ?? currentUser?.progress?.xp ?? userStats.xp
+  const currentStreak = currentUser?.progress?.streak ?? userStats.streak
+  const currentLevel = currentUser?.progress?.level ?? Math.max(0, Math.floor(currentXP / 100))
+  const displayName = currentUser?.displayName || currentUser?.username || userStats.name
+
   return (
     <div className="px-4 pb-6">
       {/* Header */}
@@ -22,15 +39,23 @@ export function ProfileScreen({ xp }: { xp: number }) {
           </div>
           <div>
             <div className="font-serif font-bold text-lg" style={{ color: '#FBF4E8' }}>
-              {userStats.name}
+              {displayName}
+            </div>
+            <div
+              className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-sans font-bold uppercase tracking-wider mt-0.5 mb-1"
+              style={{ background: 'rgba(245,230,208,0.2)', color: '#FBF4E8' }}
+            >
+              <span>Cấp {currentLevel}</span>
+              <span>•</span>
+              <span>Học giả Tập sự</span>
             </div>
             <div className="flex gap-3 mt-1">
               <div className="text-center">
-                <div className="font-serif font-bold text-lg leading-none" style={{ color: '#FBF4E8' }}>🔥 {userStats.streak}</div>
+                <div className="font-serif font-bold text-lg leading-none" style={{ color: '#FBF4E8' }}>🔥 {currentStreak}</div>
                 <div className="font-hand text-xs" style={{ color: 'rgba(245,230,208,0.7)' }}>ngày</div>
               </div>
               <div className="text-center">
-                <div className="font-serif font-bold text-lg leading-none" style={{ color: '#FBF4E8' }}>⭐ {xp}</div>
+                <div className="font-serif font-bold text-lg leading-none" style={{ color: '#FBF4E8' }}>⭐ {currentXP}</div>
                 <div className="font-hand text-xs" style={{ color: 'rgba(245,230,208,0.7)' }}>XP</div>
               </div>
               <div className="text-center">
@@ -41,6 +66,59 @@ export function ProfileScreen({ xp }: { xp: number }) {
           </div>
         </div>
       </div>
+
+      {/* Account Info & Actions if user is logged in */}
+      {currentUser && (
+        <div className="mb-4">
+          <div className="font-serif font-bold text-sm mb-3" style={{ color: '#3D1A00' }}>TÀI KHOẢN</div>
+          <div className="paper-card rounded-lg p-3.5 space-y-2 text-xs font-sans">
+            <div className="flex justify-between items-center py-1 border-b border-[#C8A882]/30">
+              <span className="text-[#7A4020]">Tài khoản đăng nhập:</span>
+              <span className="font-bold text-[#2A1500]">{currentUser.username}</span>
+            </div>
+            <div className="flex justify-between items-center py-1 border-b border-[#C8A882]/30">
+              <span className="text-[#7A4020]">Danh xưng người chơi:</span>
+              <span className="font-bold text-[#8B1A1A]">{currentUser.displayName || 'Chưa đặt tên'}</span>
+            </div>
+            <div className="flex justify-between items-center py-1 border-b border-[#C8A882]/30">
+              <span className="text-[#7A4020]">Chiến tích Đấu Trí 1v1:</span>
+              <span className="font-bold text-[#3A5A2A]">
+                {currentUser.progress?.pvpWins || 0}W - {(currentUser.progress?.pvpMatches || 0) - (currentUser.progress?.pvpWins || 0)}L
+              </span>
+            </div>
+            <div className="pt-2 flex flex-col gap-2">
+              {onPricing && (
+                <button
+                  onClick={onPricing}
+                  className="w-full py-2 px-3 rounded-lg font-serif font-bold text-xs bg-[#FBF4E8] border border-[#C8A882] text-[#8B1A1A] hover:bg-[#F2E5D0] active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+                >
+                  <span>💎</span> Nâng cấp Tài khoản Cao Cấp
+                </button>
+              )}
+              {onResetProgress && (
+                <button
+                  onClick={() => {
+                    if (window.confirm("Bạn có chắc chắn muốn đặt lại toàn bộ điểm thi đấu và hồ sơ về Cấp 0 (0 EXP)?")) {
+                      onResetProgress();
+                    }
+                  }}
+                  className="w-full py-2 px-3 rounded-lg font-serif font-bold text-xs bg-[#FDE8E4] border border-[#C4341A]/30 text-[#C4341A] hover:bg-[#FCD8D2] active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                >
+                  <span>🔄</span> Đặt lại tiến độ về Cấp 0 (0 EXP)
+                </button>
+              )}
+              {onLogout && (
+                <button
+                  onClick={onLogout}
+                  className="w-full py-2 px-3 rounded-lg font-serif font-bold text-xs bg-[#E8D5BA]/60 border border-[#C8A882] text-[#7A4020] hover:bg-[#E8D5BA] active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                >
+                  <span>🚪</span> Đăng xuất tài khoản
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Journey progress */}
       <div className="mb-4">
@@ -128,4 +206,3 @@ export function ProfileScreen({ xp }: { xp: number }) {
     </div>
   )
 }
-
