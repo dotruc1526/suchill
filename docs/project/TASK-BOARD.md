@@ -105,7 +105,7 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 | DOC-012 | Product scope | Giới hạn curriculum vào kháng chiến chống Mỹ tại Việt Nam | Codex | REVIEW | DOC-010, DOC-002 | [`docs/tasks/active/DOC-012.md`](../tasks/active/DOC-012.md) | Product owner review phạm vi dài hạn và MVP một chapter mẫu nhiều lesson |
 | DOC-013 | Documentation | Rà soát quy tắc milestone và cách AI tự tìm task theo vai trò | Codex | REVIEW | DOC-010 | [`docs/tasks/active/DOC-013.md`](../tasks/active/DOC-013.md) | Product owner review; 57 Markdown files có 0 link lỗi, 0 card active/blocked/review lệch |
 | DOC-014 | GitHub readiness | Kiểm tra file chuẩn bị đưa lên GitHub và làm rõ content track Member 1 | Codex | REVIEW | DOC-010 | [`docs/tasks/active/DOC-014.md`](../tasks/active/DOC-014.md) | Product owner review; build pass, typecheck baseline còn lỗi, CONTENT-009 READY |
-| DOC-015 | Team handoff | Gán tên 5 thành viên và tạo PR tài liệu trên nhánh riêng | Codex | IN PROGRESS | DOC-010 | [`docs/tasks/active/DOC-015.md`](../tasks/active/DOC-015.md) | Điền tên, kiểm tra docs, tạo branch riêng, push và PR vào main |
+| DOC-015 | Team handoff | Gán tên 5 thành viên và tạo PR tài liệu trên nhánh riêng | Codex | REVIEW | DOC-010 | [`docs/tasks/active/DOC-015.md`](../tasks/active/DOC-015.md) | [PR #7](https://github.com/dotruc1526/suchill/pull/7) đã mở vào `main`; Product owner review |
 
 ### B. Frontend implementation — theo dependency và milestone gate Phase 9
 
@@ -179,7 +179,7 @@ Chỉ các task có status `IN PROGRESS` được coi là đang có người là
 | DOC-012 | Codex / Codex | Product owner | 2026-09-23 | Review scope kháng chiến chống Mỹ và MVP chapter mẫu | Chờ review tài liệu | Product owner chốt một chapter mẫu nhiều lesson; CONTENT-008 đã tạo |
 | DOC-013 | Codex / Codex | Product owner | 2026-09-23 | Review quy tắc milestone gate và role discovery | Chờ review tài liệu | Đã đồng bộ AGENTS/Architecture/Phase 9; tạo sáu blocked cards; link/status check OK |
 | DOC-014 | Codex / Codex | Product owner | 2026-09-23 | Review GitHub readiness và CONTENT-009 | Chờ review tài liệu | `.env.local` ignored; build pass; typecheck baseline 18 lỗi; 59 Markdown links OK |
-| DOC-015 | Codex / Codex | Product owner | 2026-09-23 | Gán tên thành viên và tạo PR docs | — | Product owner cung cấp: Thọ, Trúc, Hưng, Dương, Vinh; remote origin đã xác nhận |
+| DOC-015 | Codex / Codex | Product owner | 2026-09-23 | Review [PR #7](https://github.com/dotruc1526/suchill/pull/7) | Chờ review tài liệu | Đã gán Thọ/Trúc/Hưng/Dương/Vinh; build pass; docs links pass; nhánh riêng đã push |
 | CONTENT-006 | Trúc (Member 2) / chưa claim executor | Historical reviewer + Thọ | Chưa bắt đầu | Đánh giá video reference và chọn hướng dùng | Chờ Trúc claim file và historical reviewer được chỉ định | `episode-portrait-final.mp4` là REFERENCE_ONLY |
 | BATTLE-001 | Nhóm AI Battle / nhóm ngoài | Product + Security reviewer | 2026-09-22 | Hoàn thiện prototype và chuẩn bị gói bàn giao | Chưa có repo/branch và contract | Tính năng đang phát triển độc lập |
 
@@ -189,6 +189,7 @@ Mỗi lần handoff quan trọng thêm một dòng mới nhất ở đầu bản
 
 | Date | Task | Author | Update | Evidence / next owner |
 |---|---|---|---|---|
+| 2026-09-23 | DOC-015 | Codex | Push nhánh `codex/phase-9-team-handoff`, mở [PR #7](https://github.com/dotruc1526/suchill/pull/7) vào `main` | Product owner review PR; `.vscode` và secret/build folder không vào Git |
 | 2026-09-23 | DOC-015 | Product owner + Codex | Gán Thọ/Trúc/Hưng/Dương/Vinh vào năm lane và planned task ownership | Team ownership, task board/card; tạo branch riêng và PR tài liệu |
 | 2026-09-23 | DOC-014 / CONTENT-009 | Codex | Kiểm tra trước GitHub và tạo task nghiên cứu sơ bộ cho Member 1 ngoài milestone code | Build pass; typecheck baseline 18 lỗi; 59 Markdown links OK; Product owner review DOC-014 |
 | 2026-09-23 | DOC-013 | Codex | Đồng bộ rule duyệt từng milestone, AI tự tìm task theo vai trò; bổ sung 6 blocked cards thiếu | 57 Markdown files: 0 local link lỗi; 0 card active/blocked/review lệch; Product owner review |
