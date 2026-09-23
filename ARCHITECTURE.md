@@ -1,96 +1,150 @@
-# SỬ CHILL — FRAMEWORK & HƯỚNG DẪN QUY CHUẨN PHÁT TRIỂN
+# Sử Chill — Canonical Architecture
 
-Tài liệu này định nghĩa quy chuẩn kiến trúc (Framework Guidelines) cho dự án **Sử Chill** (Cả Giao diện UI & Tầng Dữ liệu Database / API). Tất cả thành viên phát triển hoặc công cụ AI khi thêm tính năng mới, chỉnh sửa code hoặc kết nối Database **BẮT BUỘC** phải tuân thủ các quy tắc dưới đây.
+> Status: TARGET ARCHITECTURE — Phase 5–9 approved; Milestone 0 open
+> Last updated: 2026-09-23
 
----
+Tài liệu này mô tả các ranh giới kỹ thuật mà frontend, backend và AI phải giữ. Schema chi tiết không lặp lại ở đây; nguồn chuẩn là các phase đã duyệt.
 
-## 1. CẤU TRÚC THƯ MỤC TỔNG THỂ (Full Framework Architecture)
+## 1. Bức tranh tổng thể
 
-Tất cả mã nguồn mới phải được xếp vào đúng vị trí theo mô hình **Layered & Feature-Based**:
+```text
+React UI
+  ↓
+Feature hooks / controllers
+  ↓
+Domain service interfaces
+  ├── mock adapters (phát triển và test)
+  └── Supabase adapters (production)
+          ↓
+     Supabase client với publishable key
+          ↓
+     Postgres + RLS + Storage
+
+Trusted completion/reward operations
+  ↓
+Server/Edge Function với secret chỉ ở server
+```
+
+UI không biết bảng database và không gọi Supabase/fetch trực tiếp. Adapter đổi từ mock sang Supabase nhưng contract mà UI dùng không đổi.
+
+## 2. Cấu trúc source mục tiêu
 
 ```text
 src/
-├── theme/               # 🎨 Nơi lưu Design Tokens (Bảng màu, Font chữ)
-│   └── tokens.ts
-├── components/          # 🧩 UI Dùng chung toàn ứng dụng
-│   ├── ui/              # Atom UI (Button, Card, ChoiceOption)
-│   └── layout/          # Layout (TopBar, BottomNav)
-├── features/            # 🚀 Mô-đun theo từng TÍNH NĂNG (Feature-Based)
-│   ├── home/            # Màn hình chính & Bản đồ hành trình
-│   ├── learning/        # Màn hình chương & bài học
-│   ├── quiz/            # Màn hình thử thách trắc nghiệm
-│   ├── practice/        # Ôn tập thông minh
-│   ├── ai-assistant/    # Trợ lý AI Sử Chill
-│   ├── profile/         # Hồ sơ cá nhân & Thành tựu
-│   └── visual-novel/    # Game Visual Novel tương tác (Kịch bản, Player)
-├── services/            # 🔌 TẦNG KẾT NỐI DỮ LIỆU & DATABASE (Service Layer)
-│   ├── chapterService.ts      # Quản lý Chương & Bài học
-│   ├── visualNovelService.ts  # Quản lý Game Visual Novel từ DB/Cloud
-│   └── userService.ts          # Quản lý Tiến độ, XP, Streak người dùng
-├── types/               # 🏷️ TypeScript types toàn cục
-│   └── index.ts
-└── data/                # 📚 Dữ liệu tĩnh tạm thời (Mock Data)
-    └── index.ts
+├── app/                    # route/app state/composition nếu cần
+├── theme/tokens.ts         # color, type, spacing, radius, shadow, motion
+├── components/
+│   ├── ui/                 # Button, Card, ChoiceOption, Progress...
+│   └── layout/             # TopBar, BottomNav, mobile shell
+├── features/
+│   ├── home/
+│   ├── learning/
+│   ├── quiz/
+│   ├── practice/
+│   ├── ai-assistant/
+│   ├── profile/
+│   └── visual-novel/
+├── services/
+│   ├── contracts/          # domain-facing interfaces
+│   ├── mock/               # fixtures/adapters
+│   └── supabase/           # client-safe adapters/mappers
+├── types/index.ts          # domain contracts
+├── data/                   # temporary fixture input only
+└── App.tsx                 # lightweight composition/router
+
+supabase/
+├── migrations/             # ordered, roll-forward migrations
+├── functions/              # trusted server operations if required
+└── tests/                  # RLS/database verification
+
+tests/                      # unit/component/e2e/contract tests
 ```
 
----
+`src/features/*` là canonical runtime. `src/screens/*` và prototype stack hiện có là legacy cho đến khi Milestone 0 cô lập an toàn; không xây tính năng mới trên đó.
 
-## 2. QUY CHUẨN TẦNG DỮ LIỆU & DATABASE (Data & DB Readiness)
+## 3. Ranh giới dữ liệu
 
-Ứng dụng áp dụng mô hình **Repository Pattern (Tách biệt Giao diện và Database)**:
+Ba lớp phải tách biệt:
 
-1. **Giao diện (UI Components)** **KHÔNG ĐƯỢC** kết nối trực tiếp với Database hay gọi `fetch/axios` rải rác.
-2. UI chỉ được gọi thông qua các hàm Service trong `src/services/` (ví dụ: `chapterService.getChapters()`, `visualNovelService.getStoryById()`).
-3. Khi dự án bắt đầu kết nối Database (Supabase, Firebase, Node.js REST API, PostgreSQL...):
-   - Bạn **CHỈ CẦN** nâng cấp code bên trong các file Service trong `src/services/`.
-   - Toàn bộ giao diện UI và game sẽ tự động nhận dữ liệu từ Database mà **KHÔNG CẦN SỬA CODE GIAO DIỆN**.
+1. **Domain model**: khái niệm app hiểu như `Lesson`, `StoryVersion`, `Scene`, `Progress`.
+2. **Persistence model**: row/database/storage metadata.
+3. **View model**: trạng thái trình bày riêng của màn hình.
 
-### Gợi ý Schema Database cho Game Visual Novel & App:
-* `chapters` (id, year, title, subtitle, description, unsplash_id, progress)
-* `lessons` (id, chapter_id, title, duration, visual_novel_id, status)
-* `visual_novel_stories` (id, title, description)
-* `visual_novel_scenes` (id, story_id, scene_order, title, backdrop, image_url, emotion, text)
-* `visual_novel_choices` (id, scene_id, label, response, is_correct, note)
-* `user_profiles` (user_id, xp, streak, accuracy, total_lessons, achievements)
+Mapper trong service adapter chuyển persistence model thành domain model. Component không import generated database types.
 
----
+### Content và user progress
 
-## 3. QUY CHUẨN BẢNG MÀU GIAO DIỆN (Color Palette Standards)
+- Phạm vi nội dung canonical là giai đoạn kháng chiến chống Mỹ ở Việt Nam. Curriculum dài hạn có nhiều chapter/lesson; MVP đầu tiên là một chapter mẫu với nhiều lesson đa định dạng. Product owner chọn chapter/pilot; demo Genève không mặc nhiên là nội dung phát hành.
 
-Dự án mang phong cách **Vintage Vietnamese History Scrapbook (Sổ tay lịch sử cổ điển)**. Tất cả giao diện mới phải dùng đúng mã màu trong [`src/theme/tokens.ts`](file:///c:/Users/Compuerte/Desktop/suchill/src/theme/tokens.ts):
+- Authored content: chapter, lesson, ordered lesson block, story/version, scene, choice, question, source và media.
+- User-owned state: profile/settings, lesson progress, story checkpoint, video position, attempts, completion, reward ledger và streak day.
+- Không đặt `progress` vào row chapter hoặc `status` vào row lesson dùng chung.
+- Content published là version bất biến; sửa nội dung tạo version mới để checkpoint cũ vẫn giải được.
+- ID bền vững, không dùng vị trí mảng làm identity.
 
-| Vị trí | Mã màu Hex | Ý nghĩa |
-| :--- | :--- | :--- |
-| **Nền ứng dụng** | `#F5E6D0` | Giấy cuộn cổ Parchment |
-| **Thẻ nội dung** | `#FBF4E8` | Giấy kem Cream Paper |
-| **Header / Nút chính** | `#8B1A1A` | Đỏ con dấu Stamp Burgundy |
-| **Chữ tiêu đề / Mực** | `#3D1A00` | Mực nâu đậm Deep Ink |
-| **Chữ mô tả phụ** | `#7A4020` | Nâu vừa |
-| **Đáp án ĐÚNG** | `#E8F5E2` (Nền) / `#3A5A2A` (Viền & Chữ) | Bôi xanh lá cây mộc |
-| **Đáp án SAI** | `#FDE8E4` (Nền) / `#C4341A` (Viền & Chữ) | Bôi đỏ tươi |
+Chi tiết contract: [Phase 5](docs/specs/phases/05-domain-type-contract.md), [Phase 6](docs/specs/phases/06-database-service-spec.md), [Phase 7](docs/specs/phases/07-progress-reward-analytics-spec.md).
 
----
+## 4. Service boundaries
 
-## 4. QUY CHUẨN HÌNH ẢNH & TƯ LIỆU LỊCH SỬ
+Tối thiểu có các contract:
 
-* Hình ảnh sử dụng cho các sự kiện lịch sử **phải là ảnh tư liệu thật** (Wikimedia Commons / ảnh lịch sử chính thống) hoặc tranh minh họa vector phong cách sepia giấy cổ.
-* **Tuyệt đối không** sử dụng ảnh stock hiện đại, ảnh bịa đặt hoặc không đúng mốc lịch sử.
+- `chapter/lesson service`: catalog, lesson detail và ordered blocks.
+- `visual novel service`: story version, scene graph, validation và checkpoint payload.
+- `media service`: published asset, caption/transcript/source/fallback metadata.
+- `quiz service`: question delivery, attempts và explanation.
+- `progress service`: start/resume/checkpoint/completion.
+- `user service`: profile, settings, XP/streak/achievement read model.
 
----
+Service trả về domain result/error có kiểu rõ ràng. Loading/error/offline/empty là trạng thái bắt buộc của consumer. Analytics là best-effort và không được chặn learning flow.
 
-## 5. QUY CHUẨN LỰA CHỌN ĐÁP ÁN (Choice Feedback Contract)
+## 5. Lesson và Visual Novel
 
-Mọi chức năng trắc nghiệm / lựa chọn tương tác (Visual Novel, Quiz, Thử thách) khi người dùng chọn đáp án **PHẢI** dùng lại component [`ChoiceOption`](file:///c:/Users/Compuerte/Desktop/suchill/src/components/ui/ChoiceOption.tsx) hoặc tuân theo quy tắc:
-1. Bôi xanh khi câu trả lời đúng / hợp lệ.
-2. Bôi đỏ khi câu trả lời sai.
-3. Làm mờ nhẹ các phương án chưa chọn.
+Lesson hỗ trợ ordered typed blocks: text, image/source, video, visual novel, knowledge check, recap và các block được Phase 5 cho phép. Renderer chọn component theo type thay vì hard-code từng lesson.
 
----
+Visual Novel là authored scene graph:
 
-## 6. BẢNG KIỂM TRA TRƯỚC KHI COMMIT (Developer Checklist)
+- Narrative/reflection/branching choice không mang `isCorrect`.
+- Knowledge-check choice mới có correctness và explanation.
+- Transition phải tham chiếu ID tồn tại; validator phát hiện broken link/unreachable scene.
+- Checkpoint gắn `storyVersionId` và scene/choice ID ổn định.
+- Demo Genève hiện tại chỉ là fixture kỹ thuật, không phải mẫu nội dung canonical.
 
-- [ ] File mới đã đặt đúng vị trí thư mục trong `src/features/`, `src/services/` hoặc `src/components/ui/` chưa?
-- [ ] Dữ liệu có thông qua Service Layer `src/services/` chưa?
-- [ ] Giao diện đã sử dụng đúng màu giấy cuộn (`#F5E6D0`), đỏ con dấu (`#8B1A1A`) và mực nâu (`#3D1A00`) chưa?
-- [ ] Nút lựa chọn đã bôi xanh khi đúng và bôi đỏ khi sai chưa?
-- [ ] Ảnh minh họa có đúng mốc lịch sử chưa?
+## 6. Supabase và bảo mật
+
+- Client dùng publishable/anon key qua một client boundary trong adapter.
+- Privileged/service-role secret chỉ tồn tại ở trusted backend; không có prefix `VITE_`/`NEXT_PUBLIC_` và không vào browser bundle.
+- RLS mặc định từ chối, sau đó mở policy nhỏ nhất cho published content và row thuộc user hiện tại.
+- Draft, answer key, moderation data và reward authority không public.
+- Completion/reward/streak là transaction hoặc trusted operation có idempotency key; reload/retry/race không cộng lặp.
+- Migration roll-forward; không chỉnh migration đã được dùng chung.
+
+## 7. PWA, offline và media
+
+- Release target đầu tiên là web/PWA. Capacitor không thuộc scope nếu chưa duyệt riêng.
+- Service worker chỉ cache asset/data an toàn; update flow không để app kẹt version cũ.
+- Offline có fallback rõ ràng. Pending progress phải phân biệt với backend-confirmed reward và đồng bộ idempotent.
+- Video cần poster, captions tiếng Việt, transcript, resume và fallback; không autoplay có âm thanh.
+- Member 1 bàn giao kịch bản/nguồn đã review cho Member 2 biên tập video; Member 4 gắn media đã duyệt vào lesson qua media service. Member 5 quản lý metadata/storage policy theo service/backend contract.
+- Route/scene/media lazy-load; ảnh/video có rendition phù hợp mobile và performance budget.
+
+## 8. UI architecture
+
+- Figma là thiết kế/handoff; React components là app chạy thật.
+- Tokens là nguồn duy nhất cho palette, spacing, radius, shadow, typography và motion.
+- UI primitives không chứa business logic; feature components phối hợp primitives và hooks.
+- Knowledge feedback dùng correct/incorrect; narrative selection dùng selected trung tính/primary.
+- Sound đi qua service/manager dùng chung, có mute; animation tôn trọng reduced motion.
+
+## 9. Experimental boundary
+
+AI Battle tiếp tục ở repo/branch hoặc module độc lập cho đến khi có handoff gồm rules, contract, secret boundary, test và review. Nó không được tự ghi authoritative XP/streak trước khi integration được duyệt.
+
+## 10. Change control
+
+- Mỗi thay đổi bắt đầu từ task card trong `docs/tasks/`.
+- AI tìm task từ vai trò trên task board/card và chỉ claim việc đủ dependency trong milestone đang mở hoặc content track độc lập.
+- Milestone tiếp theo chỉ mở sau khi gate có evidence, reviewer kiểm tra và Product owner duyệt rõ ràng trên task board; task riêng lẻ `DONE` không thay cho duyệt milestone.
+- Contract dùng chung phải nêu consumers và merge order.
+- Hotspot chỉ một owner tại một thời điểm.
+- Definition of Ready/Done và milestone gates nằm ở [Phase 9](docs/specs/phases/09-implementation-roadmap.md).
+- Historical/media/accessibility/release gate nằm ở [Phase 8](docs/specs/phases/08-qa-accessibility-release-spec.md).
