@@ -1,33 +1,34 @@
 # Sử Chill
 
-Ứng dụng học lịch sử Việt Nam theo lộ trình, kết hợp bài học ngắn, quiz và visual novel tương tác.
+Ứng dụng mobile-first giúp học lịch sử giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhiều chapter và lesson: bài học ngắn, Visual Novel được biên kịch trước, video, quiz, tiến độ tài khoản, XP và streak. MVP đầu tiên triển khai một chapter mẫu gồm nhiều lesson đa định dạng.
 
-## Chạy dự án
+## Trạng thái hiện tại
+
+- Phase 0–8 đã duyệt.
+- Phase 9 (roadmap triển khai) đã được product owner duyệt ngày 2026-09-23; Milestone 0 được mở.
+- Implementation đi theo task card, dependency và gate của roadmap; các milestone sau M0 chưa tự động mở.
+- Demo Genève/vĩ tuyến 17 hiện tại chỉ là fixture kỹ thuật, không phải pilot nội dung chính thức.
+- PWA là mục tiêu phát hành đầu tiên; Capacitor được xem xét sau khi PWA ổn định.
+
+## Bắt đầu đọc project
+
+1. [Quy tắc cho thành viên và AI](AGENTS.md)
+2. [Bản đồ tài liệu](docs/README.md)
+3. [Task board](docs/project/TASK-BOARD.md)
+4. [Kiến trúc canonical](ARCHITECTURE.md)
+5. [Phase 9 bản dễ duyệt](docs/specs/approval-briefs/09-implementation-roadmap-brief.md)
+
+## Chạy local
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
-## Cấu trúc visual novel
+Vite dev server có thể đã được môi trường Figma Make/Codex khởi động. Không đưa secret đặc quyền vào source hoặc biến môi trường client.
 
-```text
-src/features/visual-novel/
-  VisualNovelPlayer.tsx       # Engine hiển thị dùng chung
-  types.ts                    # Kiểu dữ liệu cho scene, choice, story
-  stories/
-    geneva-1954.ts            # Nội dung riêng của một chương
-    index.ts                  # Danh sách story có thể mở
-```
+## Cách nhận việc
 
-`VisualNovelPlayer` không chứa nội dung lịch sử. Mỗi story chỉ là dữ liệu: lời kể, backdrop, lựa chọn, phản hồi đúng/sai và ảnh tùy chọn.
+Chỉ cần nói tên hoặc vai trò của mình (ví dụ “tôi là Thọ” hoặc “tôi là Member 1”) để AI đọc board và tìm task `READY` phù hợp. Sau đó đọc task card, khai báo owner/files trước khi sửa và cập nhật checkpoint/evidence/handoff. Xem [hướng dẫn task chi tiết](docs/tasks/README.md).
 
-## Thêm một chương visual novel
-
-1. Tạo file mới trong `src/features/visual-novel/stories/`, ví dụ `dong-khoi-1960.ts`.
-2. Khai báo story với `id` riêng và danh sách `scenes`.
-3. Đăng ký story trong `stories/index.ts`.
-4. Gắn `visualNovelId` tương ứng vào lesson trong `src/data.ts`.
-5. Nếu có tranh nền, đặt tại `src/assets/scenes/<story-id>/` rồi truyền đường dẫn qua thuộc tính `image` của scene.
-
-Thêm cảnh thoại, lựa chọn hoặc ảnh mới không cần sửa `App.tsx` hay `VisualNovelPlayer.tsx`.
+Nội dung Visual Novel mới không được thêm theo cách copy trực tiếp demo cũ. Story phải đi qua screenplay, source/review, domain validator và version workflow đã duyệt trong `docs/specs/`.
