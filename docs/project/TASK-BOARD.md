@@ -113,7 +113,7 @@ Bảng này triển khai trực tiếp M0 trong Phase 9. Các task `BLOCKED` đ�
 
 | ID | Việc cần làm | Owner | Reviewer | Status | Depends on | Card | Kết quả cần đạt / bước tiếp theo |
 |---|---|---|---|---|---|---|---|
-| M0-00 | Chốt người làm, reviewer, dependency và phạm vi file | Codex + các owner được gán | Product owner | IN PROGRESS | DOC-010 | [`M0-00`](../tasks/active/M0-00.md) | Hưng và Vinh xác nhận đã đọc context, nhận đúng task; Product owner duyệt cách chia M0 |
+| M0-00 | Chốt người làm, reviewer, dependency và phạm vi file | Codex + các owner được gán | Product owner | IN PROGRESS | DOC-010 | [`M0-00`](../tasks/active/M0-00.md) | Product owner đã đồng ý tiếp tục; chờ Hưng/Vinh xác nhận phạm vi trước M0-01 |
 | M0-01 | Chạy lại baseline hiện tại | Codex | Vinh + Product owner | BLOCKED | M0-00 | [`M0-01`](../tasks/blocked/M0-01.md) | Sau M0-00, ghi evidence typecheck/build/demo trước khi sửa code |
 | M0-02 | Sửa lỗi TypeScript baseline (`FE-001`) | Hưng (Member 3) | Vinh + Codex | BLOCKED | M0-01 | [`M0-02`](../tasks/blocked/M0-02.md) | `tsc --noEmit` pass; không mở rộng sang refactor ngoài lỗi baseline |
 | M0-03 | Cô lập legacy/prototype (`FE-002`) | Hưng (Member 3) | Vinh + Codex | BLOCKED | M0-01 | [`M0-03`](../tasks/blocked/M0-03.md) | Runtime/compile dùng đường canonical, prototype được giữ an toàn |
@@ -190,7 +190,7 @@ Chỉ các task có status `IN PROGRESS` được coi là đang có người là
 
 | ID | Owner / executor | Reviewer | Started | Current next action | Blocker | Last checkpoint |
 |---|---|---|---|---|---|---|
-| M0-00 | Codex + assigned owners / Codex | Product owner | 2026-09-24 | Product owner review `active.md`; Hưng/Vinh xác nhận context và phạm vi | Chờ xác nhận của owner/reviewer | Đã tạo `active.md`, project skill và card M0-00..07; chưa sửa source/env/package |
+| M0-00 | Codex + assigned owners / Codex | Product owner | 2026-09-24 | Hưng/Vinh xác nhận context và phạm vi | Chờ xác nhận của Hưng/Vinh | Product owner đã đồng ý tiếp tục; `active.md` và card M0-00..07 sẵn sàng |
 | DOC-011 | Codex / Codex | Product owner | 2026-09-23 | Review quyết định video MVP và task CONTENT-007 | Chờ review tài liệu | Member 2 sản xuất; Member 1 script/source; Member 4 tích hợp player |
 | DOC-012 | Codex / Codex | Product owner | 2026-09-23 | Review scope kháng chiến chống Mỹ và MVP chapter mẫu | Chờ review tài liệu | Product owner chốt một chapter mẫu nhiều lesson; CONTENT-008 đã tạo |
 | DOC-013 | Codex / Codex | Product owner | 2026-09-23 | Review quy tắc milestone gate và role discovery | Chờ review tài liệu | Đã đồng bộ AGENTS/Architecture/Phase 9; tạo sáu blocked cards; link/status check OK |
@@ -205,6 +205,7 @@ Mỗi lần handoff quan trọng thêm một dòng mới nhất ở đầu bản
 
 | Date | Task | Author | Update | Evidence / next owner |
 |---|---|---|---|---|
+| 2026-09-24 | M0-00 | Product owner + Codex | Product owner đồng ý tiếp tục kế hoạch bàn giao | Tin nhắn trong task hiện tại; Hưng/Vinh xác nhận phạm vi trước khi mở M0-01 |
 | 2026-09-24 | M0-00 | Codex | Thêm root `active.md`, đề xuất model cho task kế tiếp và project skill khóa agent vào đúng scope bàn giao | Product owner review; Hưng/Vinh xác nhận; M0-01 vẫn blocked |
 | 2026-09-24 | M0-00..07 | Codex | Tạo nhánh `codex/member5-backend-qa-plan`, chia M0 thành card có owner/reviewer/dependency và làm rõ ba bước của Member 5 | Hưng/Vinh xác nhận nhận việc; Product owner review trước khi mở M0-01 |
 | 2026-09-23 | DOC-015 | Codex | Push nhánh `codex/phase-9-team-handoff`, mở [PR #7](https://github.com/dotruc1526/suchill/pull/7) vào `main` | Product owner review PR; `.vscode` và secret/build folder không vào Git |

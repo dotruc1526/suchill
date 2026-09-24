@@ -7,7 +7,7 @@
 - Task ID: `M0-01`
 - Tên: Chạy lại baseline hiện tại
 - Trạng thái: `BLOCKED`
-- Lý do blocked: `M0-00` chưa được Product owner review xong và Hưng/Vinh chưa xác nhận phạm vi.
+- Lý do blocked: Product owner đã đồng ý tiếp tục, nhưng `M0-00` còn chờ Hưng/Vinh xác nhận phạm vi.
 - Task card: [M0-01](docs/tasks/blocked/M0-01.md)
 - Milestone: M0 (`OPEN`)
 - Nhánh đề xuất sau khi mở task: `codex/member5-backend-qa-plan`
