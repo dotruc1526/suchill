@@ -1,6 +1,6 @@
 # Sử Chill — Shared Task Board
 
-> Last updated: 2026-09-23\
+> Last updated: 2026-09-24\
 > Owner: Project team\
 > Purpose: Nguồn context chung cho product owner, thành viên nhóm và AI agents
 
@@ -189,6 +189,11 @@ Mỗi lần handoff quan trọng thêm một dòng mới nhất ở đầu bản
 
 | Date | Task | Author | Update | Evidence / next owner |
 |---|---|---|---|---|
+| 2026-09-24 | CONTENT-006 | Trúc (Codex hỗ trợ) | Trúc xác nhận executor-side “mọi thứ đều oke” cho hồ sơ hiện có | Không chuyển DONE; next PO chỉ định historical/media reviewer xử lý quyền audio, nhạc/SFX, history và hướng dùng reference |
+| 2026-09-24 | CONTENT-006 | Trúc (Codex hỗ trợ) | Trúc xác nhận tranh trong danh sách đều do Codex tạo; phiên tạo/prompt/project gốc không còn lưu | active.md/CONTENT-006 cập nhật provenance; next PO chỉ định reviewer xử lý quyền audio, nhạc/SFX và hướng dùng reference |
+| 2026-09-24 | CONTENT-006 | Trúc (Codex hỗ trợ) | Hoàn tất lượt tra cứu quyền Edge TTS/font và dấu vết xuất; font bitmap có căn cứ điều kiện, quyền audio chưa xác nhận; đính chính clip oke là xác nhận tổng thể | active.md có nguồn, PCM hash và phần tranh đã được Trúc xác nhận ở checkpoint sau; PO chỉ định reviewer |
+| 2026-09-24 | CONTENT-006 | Trúc + Codex | Trúc xác nhận “clip oke” cho video `Trước cơn bão`; cập nhật phiếu 28 cue như kiểm tra nghe/xem đạt theo executor | Evidence tại `docs/tasks/active/active.md`; next Trúc hoàn thiện điều khoản/permission và chờ Product owner chỉ định reviewer |
+| 2026-09-24 | CONTENT-006 | Trúc + Codex | Tạo nhánh riêng và claim task video reference; mỗi task có một executor duy nhất, reviewer/phối hợp không tính là executor | Branch `codex/truc-content-006-video-reference`; Trúc tiếp tục xác minh file, nguồn/license và review artifact |
 | 2026-09-23 | DOC-015 | Codex | Push nhánh `codex/phase-9-team-handoff`, mở [PR #7](https://github.com/dotruc1526/suchill/pull/7) vào `main` | Product owner review PR; `.vscode` và secret/build folder không vào Git |
 | 2026-09-23 | DOC-015 | Product owner + Codex | Gán Thọ/Trúc/Hưng/Dương/Vinh vào năm lane và planned task ownership | Team ownership, task board/card; tạo branch riêng và PR tài liệu |
 | 2026-09-23 | DOC-014 / CONTENT-009 | Codex | Kiểm tra trước GitHub và tạo task nghiên cứu sơ bộ cho Member 1 ngoài milestone code | Build pass; typecheck baseline 18 lỗi; 59 Markdown links OK; Product owner review DOC-014 |
