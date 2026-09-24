@@ -10,9 +10,10 @@ Trước khi nhận hoặc sửa một task, đọc theo thứ tự:
 2. `docs/README.md` — bản đồ tài liệu.
 3. `docs/project/TASK-BOARD.md` — trạng thái, owner và dependency.
 4. `ARCHITECTURE.md` — ranh giới code và dữ liệu.
-5. Task card trong `docs/tasks/` và spec/feature doc được task liên kết.
+5. `active.md` — bàn giao đúng một task tiếp theo; xác nhận task khớp board/card trước khi làm.
+6. Task card trong `docs/tasks/` và spec/feature doc được task liên kết.
 
-Không dùng chat cũ làm nguồn sự thật duy nhất. Nếu tài liệu mâu thuẫn, ưu tiên theo thứ tự: quyết định mới nhất đã `APPROVED` → task card đang làm → kiến trúc → code hiện tại. Ghi rõ mâu thuẫn thay vì tự đổi contract.
+`active.md` là con trỏ bàn giao, không thay thế task board hoặc task card. Không dùng chat cũ làm nguồn sự thật duy nhất. Nếu tài liệu mâu thuẫn, ưu tiên theo thứ tự: quyết định mới nhất đã `APPROVED` → task card đang làm → kiến trúc → code hiện tại. Ghi rõ mâu thuẫn thay vì tự đổi contract.
 
 ## 2. Trạng thái triển khai
 
@@ -30,10 +31,11 @@ Thành viên chỉ cần nói tên hoặc vai trò của mình (ví dụ “tôi
 
 Trước khi sửa file:
 
-1. Task phải có ID, dependency hợp lệ, acceptance criteria và task card.
-2. Điền `Owner`, `Executor`, `Reviewer`, `Status`, `Started`, `Files claimed`, `Next action`.
-3. Chuyển `READY` → `IN PROGRESS`; không nhận task `BLOCKED`.
-4. Một hotspot chỉ có một owner tại một thời điểm: `package.json`/lockfile, `src/App.tsx`, `src/types/index.ts`, `src/theme/tokens.ts`, global CSS, generated DB types, migrations và PWA config.
+1. `active.md` phải ghi đúng một task; AI chỉ được làm task đó. Nếu file thiếu, stale hoặc mâu thuẫn với board/card thì dừng ở bước bàn giao, không code.
+2. Task phải có ID, dependency hợp lệ, acceptance criteria và task card.
+3. Điền `Owner`, `Executor`, `Reviewer`, `Status`, `Started`, `Files claimed`, `Next action`.
+4. Chuyển `READY` → `IN PROGRESS`; không nhận task `BLOCKED`.
+5. Một hotspot chỉ có một owner tại một thời điểm: `package.json`/lockfile, `src/App.tsx`, `src/types/index.ts`, `src/theme/tokens.ts`, global CSS, generated DB types, migrations và PWA config.
 
 Trong khi làm, cập nhật task card ở checkpoint có ý nghĩa: phần đã đạt, evidence, next action và blocker. Không dùng phần trăm cảm tính. Khi xong phần chính, chuyển `REVIEW`; reviewer mới chuyển `DONE` sau khi acceptance và evidence đạt. Handoff phải ghi files changed, test/build result, env/migration impact, known issues và bước tiếp theo.
 

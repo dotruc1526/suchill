@@ -190,7 +190,7 @@ Chỉ các task có status `IN PROGRESS` được coi là đang có người là
 
 | ID | Owner / executor | Reviewer | Started | Current next action | Blocker | Last checkpoint |
 |---|---|---|---|---|---|---|
-| M0-00 | Codex + assigned owners / Codex | Product owner | 2026-09-24 | Hưng/Vinh xác nhận context và phạm vi; Product owner review cách chia M0 | Chờ xác nhận của owner/reviewer | Đã tạo nhánh và card M0-00..07; chưa sửa source/env/package |
+| M0-00 | Codex + assigned owners / Codex | Product owner | 2026-09-24 | Product owner review `active.md`; Hưng/Vinh xác nhận context và phạm vi | Chờ xác nhận của owner/reviewer | Đã tạo `active.md`, project skill và card M0-00..07; chưa sửa source/env/package |
 | DOC-011 | Codex / Codex | Product owner | 2026-09-23 | Review quyết định video MVP và task CONTENT-007 | Chờ review tài liệu | Member 2 sản xuất; Member 1 script/source; Member 4 tích hợp player |
 | DOC-012 | Codex / Codex | Product owner | 2026-09-23 | Review scope kháng chiến chống Mỹ và MVP chapter mẫu | Chờ review tài liệu | Product owner chốt một chapter mẫu nhiều lesson; CONTENT-008 đã tạo |
 | DOC-013 | Codex / Codex | Product owner | 2026-09-23 | Review quy tắc milestone gate và role discovery | Chờ review tài liệu | Đã đồng bộ AGENTS/Architecture/Phase 9; tạo sáu blocked cards; link/status check OK |
@@ -205,6 +205,7 @@ Mỗi lần handoff quan trọng thêm một dòng mới nhất ở đầu bản
 
 | Date | Task | Author | Update | Evidence / next owner |
 |---|---|---|---|---|
+| 2026-09-24 | M0-00 | Codex | Thêm root `active.md`, đề xuất model cho task kế tiếp và project skill khóa agent vào đúng scope bàn giao | Product owner review; Hưng/Vinh xác nhận; M0-01 vẫn blocked |
 | 2026-09-24 | M0-00..07 | Codex | Tạo nhánh `codex/member5-backend-qa-plan`, chia M0 thành card có owner/reviewer/dependency và làm rõ ba bước của Member 5 | Hưng/Vinh xác nhận nhận việc; Product owner review trước khi mở M0-01 |
 | 2026-09-23 | DOC-015 | Codex | Push nhánh `codex/phase-9-team-handoff`, mở [PR #7](https://github.com/dotruc1526/suchill/pull/7) vào `main` | Product owner review PR; `.vscode` và secret/build folder không vào Git |
 | 2026-09-23 | DOC-015 | Product owner + Codex | Gán Thọ/Trúc/Hưng/Dương/Vinh vào năm lane và planned task ownership | Team ownership, task board/card; tạo branch riêng và PR tài liệu |
