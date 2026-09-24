@@ -1,6 +1,6 @@
 # Sử Chill — Shared Task Board
 
-> Last updated: 2026-09-23\
+> Last updated: 2026-09-24\
 > Owner: Project team\
 > Purpose: Nguồn context chung cho product owner, thành viên nhóm và AI agents
 
@@ -107,6 +107,21 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 | DOC-014 | GitHub readiness | Kiểm tra file chuẩn bị đưa lên GitHub và làm rõ content track Member 1 | Codex | REVIEW | DOC-010 | [`docs/tasks/active/DOC-014.md`](../tasks/active/DOC-014.md) | Product owner review; build pass, typecheck baseline còn lỗi, CONTENT-009 READY |
 | DOC-015 | Team handoff | Gán tên 5 thành viên và tạo PR tài liệu trên nhánh riêng | Codex | REVIEW | DOC-010 | [`docs/tasks/active/DOC-015.md`](../tasks/active/DOC-015.md) | [PR #7](https://github.com/dotruc1526/suchill/pull/7) đã mở vào `main`; Product owner review |
 
+### A.1 Milestone 0 — các bước thực thi hiện tại
+
+Bảng này triển khai trực tiếp M0 trong Phase 9. Các task `BLOCKED` đã có card để cả nhóm thấy thứ tự nhưng chưa được claim file hay sửa code. `M0-02`, `M0-03` và `M0-04` là bước thực thi tương ứng cho các task frontend foundation trên board; không tạo hai luồng code song song.
+
+| ID | Việc cần làm | Owner | Reviewer | Status | Depends on | Card | Kết quả cần đạt / bước tiếp theo |
+|---|---|---|---|---|---|---|---|
+| M0-00 | Chốt người làm, reviewer, dependency và phạm vi file | Codex + các owner được gán | Product owner | IN PROGRESS | DOC-010 | [`M0-00`](../tasks/active/M0-00.md) | Hưng và Vinh xác nhận đã đọc context, nhận đúng task; Product owner duyệt cách chia M0 |
+| M0-01 | Chạy lại baseline hiện tại | Codex | Vinh + Product owner | BLOCKED | M0-00 | [`M0-01`](../tasks/blocked/M0-01.md) | Sau M0-00, ghi evidence typecheck/build/demo trước khi sửa code |
+| M0-02 | Sửa lỗi TypeScript baseline (`FE-001`) | Hưng (Member 3) | Vinh + Codex | BLOCKED | M0-01 | [`M0-02`](../tasks/blocked/M0-02.md) | `tsc --noEmit` pass; không mở rộng sang refactor ngoài lỗi baseline |
+| M0-03 | Cô lập legacy/prototype (`FE-002`) | Hưng (Member 3) | Vinh + Codex | BLOCKED | M0-01 | [`M0-03`](../tasks/blocked/M0-03.md) | Runtime/compile dùng đường canonical, prototype được giữ an toàn |
+| M0-04 | Làm nhẹ app shell (`FE-004`) | Hưng (Member 3) | Vinh + Codex | BLOCKED | M0-02 | [`M0-04`](../tasks/blocked/M0-04.md) | `App.tsx` chỉ còn composition/router nhẹ và state có kiểu |
+| M0-05 | Dựng nền tảng test | Vinh (Member 5) | Hưng + Codex | BLOCKED | M0-02 | [`M0-05`](../tasks/blocked/M0-05.md) | Có skeleton unit/component/E2E và scripts chạy được |
+| M0-06 | Khóa ranh giới env và secret | Vinh (Member 5) + Product owner | Hưng + Product owner | BLOCKED | M0-01 | [`M0-06`](../tasks/blocked/M0-06.md) | Client chỉ thấy public key; có bundle check và kế hoạch rotate key cũ trước M4 |
+| M0-07 | Chuẩn hóa lệnh kiểm tra local/CI | Vinh (Member 5) | Hưng + Codex | BLOCKED | M0-05 | [`M0-07`](../tasks/blocked/M0-07.md) | Typecheck/build/test commands được tài liệu hóa và chạy ổn định |
+
 ### B. Frontend implementation — theo dependency và milestone gate Phase 9
 
 | ID | Phase | Task | Owner | Status | Depends on | Files | Acceptance / next action |
@@ -175,6 +190,7 @@ Chỉ các task có status `IN PROGRESS` được coi là đang có người là
 
 | ID | Owner / executor | Reviewer | Started | Current next action | Blocker | Last checkpoint |
 |---|---|---|---|---|---|---|
+| M0-00 | Codex + assigned owners / Codex | Product owner | 2026-09-24 | Hưng/Vinh xác nhận context và phạm vi; Product owner review cách chia M0 | Chờ xác nhận của owner/reviewer | Đã tạo nhánh và card M0-00..07; chưa sửa source/env/package |
 | DOC-011 | Codex / Codex | Product owner | 2026-09-23 | Review quyết định video MVP và task CONTENT-007 | Chờ review tài liệu | Member 2 sản xuất; Member 1 script/source; Member 4 tích hợp player |
 | DOC-012 | Codex / Codex | Product owner | 2026-09-23 | Review scope kháng chiến chống Mỹ và MVP chapter mẫu | Chờ review tài liệu | Product owner chốt một chapter mẫu nhiều lesson; CONTENT-008 đã tạo |
 | DOC-013 | Codex / Codex | Product owner | 2026-09-23 | Review quy tắc milestone gate và role discovery | Chờ review tài liệu | Đã đồng bộ AGENTS/Architecture/Phase 9; tạo sáu blocked cards; link/status check OK |
@@ -189,6 +205,7 @@ Mỗi lần handoff quan trọng thêm một dòng mới nhất ở đầu bản
 
 | Date | Task | Author | Update | Evidence / next owner |
 |---|---|---|---|---|
+| 2026-09-24 | M0-00..07 | Codex | Tạo nhánh `codex/member5-backend-qa-plan`, chia M0 thành card có owner/reviewer/dependency và làm rõ ba bước của Member 5 | Hưng/Vinh xác nhận nhận việc; Product owner review trước khi mở M0-01 |
 | 2026-09-23 | DOC-015 | Codex | Push nhánh `codex/phase-9-team-handoff`, mở [PR #7](https://github.com/dotruc1526/suchill/pull/7) vào `main` | Product owner review PR; `.vscode` và secret/build folder không vào Git |
 | 2026-09-23 | DOC-015 | Product owner + Codex | Gán Thọ/Trúc/Hưng/Dương/Vinh vào năm lane và planned task ownership | Team ownership, task board/card; tạo branch riêng và PR tài liệu |
 | 2026-09-23 | DOC-014 / CONTENT-009 | Codex | Kiểm tra trước GitHub và tạo task nghiên cứu sơ bộ cho Member 1 ngoài milestone code | Build pass; typecheck baseline 18 lỗi; 59 Markdown links OK; Product owner review DOC-014 |
