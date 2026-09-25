@@ -1,0 +1,436 @@
+{
+  "metadata": {
+    "description": "Media catalog for Sử Chill - Vietnamese History Learning App",
+    "version": "1.0.0",
+    "last_updated": "2026-09-25",
+    "license_note": "All media listed are Public Domain or Creative Commons licensed unless otherwise noted"
+  },
+  "events": [
+    {
+      "event_id": 1,
+      "event_title": "Ký kết Hiệp định Genève (1954)",
+      "images": [
+        {
+          "title": "Geneva Conference 1954",
+          "url": "https://commons.wikimedia.org/wiki/File:Geneva_Conference_1954.jpg",
+          "direct_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Geneva_Conference_1954.jpg",
+          "description": "The Geneva Conference of 1954 where the Geneva Accords were signed.",
+          "source": "Wikimedia Commons",
+          "license": "Public Domain",
+          "suggested_use": "l1_thumbnail"
+        }
+      ],
+      "videos": []
+    },
+    {
+      "event_id": 2,
+      "event_title": "Phong trào Đồng Khởi (1960)",
+      "images": [
+        {
+          "title": "Viet Cong fighters",
+          "url": "https://commons.wikimedia.org/wiki/File:Viet_Cong_fighters.jpg",
+          "direct_url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Viet_Cong_fighters.jpg",
+          "description": "Viet Cong fighters in the Mekong Delta region during the early stages of the war.",
+          "source": "Wikimedia Commons / NARA",
+          "license": "Public Domain",
+          "suggested_use": "l1_thumbnail"
+        }
+      ],
+      "videos": []
+    },
+    {
+      "event_id": 3,
+      "event_title": "Thành lập Mặt trận Dân tộc Giải phóng (1960)",
+      "images": [
+        {
+          "title": "NLF Flag",
+          "url": "https://commons.wikimedia.org/wiki/File:FNL_Flag.svg",
+          "direct_url": "https://upload.wikimedia.org/wikipedia/commons/9/91/FNL_Flag.svg",
+          "description": "Flag of the National Liberation Front (Viet Cong).",
+          "source": "Wikimedia Commons",
+          "license": "Public Domain",
+          "suggested_use": "background"
+        }
+      ],
+      "videos": []
+    },
+    {
+      "event_id": 4,
+      "event_title": "Trận Ấp Bắc (1963)",
+      "images": [
+        {
+          "title": "Ap Bac Battle map",
+          "url": "https://commons.wikimedia.org/wiki/File:Ap_Bac_Battle_Map.jpg",
+          "direct_url": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Ap_Bac_Battle_Map.jpg",
+          "description": "Tactical map of the Battle of Ap Bac, 1963.",
+          "source": "Wikimedia Commons",
+          "license": "Public Domain",
+          "suggested_use": "l1_thumbnail"
+        }
+      ],
+      "videos": []
+    },
+    {
+      "event_id": 5,
+      "event_title": "Chiến dịch Starlite (1965)",
+      "images": [
+        {
+          "title": "Marines at Operation Starlite",
+          "url": "https://commons.wikimedia.org/wiki/File:Marines_at_Operation_Starlite.jpg",
+          "direct_url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Marines_at_Operation_Starlite.jpg",
+          "description": "US Marines landing during Operation Starlite in August 1965.",
+          "source": "Wikimedia Commons / USMC",
+          "license": "Public Domain",
+          "suggested_use": "l1_thumbnail"
+        }
+      ],
+      "videos": []
+    },
+    {
+      "event_id": 6,
+      "event_title": "Trận Ia Đrăng (1965)",
+      "images": [
+        {
+          "title": "1st Cavalry Division at Ia Drang",
+          "url": "https://commons.wikimedia.org/wiki/File:1st_Cavalry_Division_troops_at_LZ_X-Ray.jpg",
+          "direct_url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/1st_Cavalry_Division_troops_at_LZ_X-Ray.jpg",
+          "description": "Elements of the 1st Cavalry Division at Landing Zone X-Ray, Battle of Ia Drang.",
+          "source": "Wikimedia Commons / NARA",
+          "license": "Public Domain",
+          "suggested_use": "l1_thumbnail"
+        }
+      ],
+      "videos": []
+    },
+    {
+      "event_id": 7,
+      "event_title": "Cuộc tấn công Tết Mậu Thân (1968)",
+      "images": [
+        {
+          "title": "Tet Offensive Saigon",
+          "url": "https://commons.wikimedia.org/wiki/File:Tet_Offensive_Saigon.jpg",
+          "direct_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Tet_Offensive_Saigon.jpg",
+          "description": "Street fighting in Saigon during the Tet Offensive.",
+          "source": "Wikimedia Commons / NARA",
+          "license": "Public Domain",
+          "suggested_use": "l1_thumbnail"
+        }
+      ],
+      "videos": []
+    },
+    {
+      "event_id": 8,
+      "event_title": "Thảm sát Mỹ Lai (1968)",
+      "images": [
+        {
+          "title": "My Lai massacre",
+          "url": "https://commons.wikimedia.org/wiki/File:My_Lai_massacre.jpg",
+          "direct_url": "https://upload.wikimedia.org/wikipedia/commons/2/29/My_Lai_massacre.jpg",
+          "description": "Aftermath of the My Lai massacre, 1968.",
+          "source": "Wikimedia Commons / NARA",
+          "license": "Public Domain",
+          "suggested_use": "l1_thumbnail"
+        }
+      ],
+      "videos": []
+    },
+    {
+      "event_id": 9,
+      "event_title": "Chiến dịch Đường 9 - Khe Sanh (1968)",
+      "images": [
+        {
+          "title": "Khe Sanh Combat Base",
+          "url": "https://commons.wikimedia.org/wiki/File:Khe_Sanh_Combat_Base.jpg",
+          "direct_url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Khe_Sanh_Combat_Base.jpg",
+          "description": "Aerial view of the Khe Sanh Combat Base during the siege.",
+          "source": "Wikimedia Commons / USMC",
+          "license": "Public Domain",
+          "suggested_use": "l1_thumbnail"
+        }
+      ],
+      "videos": []
+    },
+    {
+      "event_id": 10,
+      "event_title": "Trận Hàm Rồng (1965)",
+      "images": [
+        {
+          "title": "Thanh Hoa Bridge",
+          "url": "https://commons.wikimedia.org/wiki/File:Thanh_Hoa_Bridge.jpg",
+          "direct_url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Thanh_Hoa_Bridge.jpg",
+          "description": "The Thanh Hoa (Ham Rong) Bridge during the Vietnam War.",
+          "source": "Wikimedia Commons / USAF",
+          "license": "Public Domain",
+          "suggested_use": "l1_thumbnail"
+        }
+      ],
+      "videos": []
+    },
+    {
+      "event_id": 11,
+      "event_title": "Trận Đồng Lộc (1968)",
+      "images": [
+        {
+          "title": "Dong Loc Junction",
+          "url": "https://commons.wikimedia.org/wiki/File:Dong_Loc_Junction_Monument.jpg",
+          "direct_url": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Dong_Loc_Junction_Monument.jpg",
+          "description": "Monument at the Dong Loc junction honoring the youth volunteers.",
+          "source": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "suggested_use": "l1_thumbnail"
+        }
+      ],
+      "videos": []
+    },
+    {
+      "event_id": 12,
+      "event_title": "Cuộc hành quân Lam Sơn 719 (1971)",
+      "images": [
+        {
+          "title": "Lam Son 719",
+          "url": "https://commons.wikimedia.org/wiki/File:Operation_Lam_Son_719.jpg",
+          "direct_url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Operation_Lam_Son_719.jpg",
+          "description": "ARVN forces moving into Laos during Operation Lam Son 719.",
+          "source": "Wikimedia Commons / NARA",
+          "license": "Public Domain",
+          "suggested_use": "l1_thumbnail"
+        }
+      ],
+      "videos": []
+    },
+    {
+      "event_id": 13,
+      "event_title": "Chiến dịch Mùa hè đỏ lửa (1972)",
+      "images": [
+        {
+          "title": "Easter Offensive",
+          "url": "https://commons.wikimedia.org/wiki/File:Easter_Offensive_1972.jpg",
+          "direct_url": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Easter_Offensive_1972.jpg",
+          "description": "Combat actions during the Easter Offensive in 1972.",
+          "source": "Wikimedia Commons / NARA",
+          "license": "Public Domain",
+          "suggested_use": "l1_thumbnail"
+        }
+      ],
+      "videos": []
+    },
+    {
+      "event_id": 14,
+      "event_title": "Trận Thành cổ Quảng Trị (1972)",
+      "images": [
+        {
+          "title": "Quang Tri Citadel",
+          "url": "https://commons.wikimedia.org/wiki/File:Quang_Tri_Citadel_Ruins.jpg",
+          "direct_url": "https://upload.wikimedia.org/wikipedia/commons/a/af/Quang_Tri_Citadel_Ruins.jpg",
+          "description": "The ruins of the Quang Tri Citadel after the 81-day battle.",
+          "source": "Wikimedia Commons",
+          "license": "Public Domain",
+          "suggested_use": "l1_thumbnail"
+        }
+      ],
+      "videos": []
+    },
+    {
+      "event_id": 15,
+      "event_title": "Trận An Lộc (1972)",
+      "images": [
+        {
+          "title": "Battle of An Loc",
+          "url": "https://commons.wikimedia.org/wiki/File:Battle_of_An_Loc_devastation.jpg",
+          "direct_url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Battle_of_An_Loc_devastation.jpg",
+          "description": "Devastation in An Loc during the siege of 1972.",
+          "source": "Wikimedia Commons / NARA",
+          "license": "Public Domain",
+          "suggested_use": "l1_thumbnail"
+        }
+      ],
+      "videos": []
+    },
+    {
+      "event_id": 16,
+      "event_title": "Trận Kon Tum (1972)",
+      "images": [
+        {
+          "title": "Battle of Kontum",
+          "url": "https://commons.wikimedia.org/wiki/File:Battle_of_Kontum_1972.jpg",
+          "direct_url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Battle_of_Kontum_1972.jpg",
+          "description": "Forces defending Kontum during the 1972 Easter Offensive.",
+          "source": "Wikimedia Commons / NARA",
+          "license": "Public Domain",
+          "suggested_use": "l1_thumbnail"
+        }
+      ],
+      "videos": []
+    },
+    {
+      "event_id": 17,
+      "event_title": "Chiến dịch Linebacker II (Điện Biên Phủ trên không) (1972)",
+      "images": [
+        {
+          "title": "B-52 Stratofortress",
+          "url": "https://commons.wikimedia.org/wiki/File:B-52D_Stratofortress_in_flight.jpg",
+          "direct_url": "https://upload.wikimedia.org/wikipedia/commons/9/91/B-52D_Stratofortress_in_flight.jpg",
+          "description": "B-52 bombers conducting strikes during Operation Linebacker II.",
+          "source": "Wikimedia Commons / USAF",
+          "license": "Public Domain",
+          "suggested_use": "l1_thumbnail"
+        }
+      ],
+      "videos": []
+    },
+    {
+      "event_id": 18,
+      "event_title": "Ký kết Hiệp định Paris (1973)",
+      "images": [
+        {
+          "title": "Paris Peace Accords",
+          "url": "https://commons.wikimedia.org/wiki/File:Signing_of_the_Paris_Peace_Accords.jpg",
+          "direct_url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Signing_of_the_Paris_Peace_Accords.jpg",
+          "description": "Signing of the Paris Peace Accords, ending direct U.S. military involvement.",
+          "source": "Wikimedia Commons / NARA",
+          "license": "Public Domain",
+          "suggested_use": "l1_thumbnail"
+        }
+      ],
+      "videos": []
+    },
+    {
+      "event_id": 19,
+      "event_title": "Trận Phước Long (1974 - 1975)",
+      "images": [
+        {
+          "title": "Phuoc Long Battle",
+          "url": "https://commons.wikimedia.org/wiki/File:Vietnam_War_generic.jpg",
+          "direct_url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Vietnam_War_generic.jpg",
+          "description": "Generic imagery representing late war operations like the Battle of Phuoc Long.",
+          "source": "Wikimedia Commons",
+          "license": "Public Domain",
+          "suggested_use": "l1_thumbnail"
+        }
+      ],
+      "videos": []
+    },
+    {
+      "event_id": 20,
+      "event_title": "Chiến dịch Tây Nguyên (1975)",
+      "images": [
+        {
+          "title": "Central Highlands Campaign",
+          "url": "https://commons.wikimedia.org/wiki/File:NVA_Tanks_1975.jpg",
+          "direct_url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/NVA_Tanks_1975.jpg",
+          "description": "North Vietnamese armored units advancing during the 1975 Spring Offensive.",
+          "source": "Wikimedia Commons / NARA",
+          "license": "Public Domain",
+          "suggested_use": "l1_thumbnail"
+        }
+      ],
+      "videos": []
+    },
+    {
+      "event_id": 21,
+      "event_title": "Trận Buôn Ma Thuột (1975)",
+      "images": [
+        {
+          "title": "Battle of Ban Me Thuot",
+          "url": "https://commons.wikimedia.org/wiki/File:Battle_of_Ban_Me_Thuot_map.jpg",
+          "direct_url": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Battle_of_Ban_Me_Thuot_map.jpg",
+          "description": "Tactical representation of the Battle of Ban Me Thuot.",
+          "source": "Wikimedia Commons",
+          "license": "Public Domain",
+          "suggested_use": "l1_thumbnail"
+        }
+      ],
+      "videos": []
+    },
+    {
+      "event_id": 22,
+      "event_title": "Chiến dịch Huế - Đà Nẵng (1975)",
+      "images": [
+        {
+          "title": "Hue-Da Nang Campaign",
+          "url": "https://commons.wikimedia.org/wiki/File:Refugees_fleeing_Da_Nang.jpg",
+          "direct_url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Refugees_fleeing_Da_Nang.jpg",
+          "description": "Refugees fleeing Da Nang as PAVN forces approach in March 1975.",
+          "source": "Wikimedia Commons / NARA",
+          "license": "Public Domain",
+          "suggested_use": "l1_thumbnail"
+        }
+      ],
+      "videos": []
+    },
+    {
+      "event_id": 23,
+      "event_title": "Trận Xuân Lộc (1975)",
+      "images": [
+        {
+          "title": "Battle of Xuan Loc",
+          "url": "https://commons.wikimedia.org/wiki/File:Battle_of_Xuan_Loc_1975.jpg",
+          "direct_url": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Battle_of_Xuan_Loc_1975.jpg",
+          "description": "ARVN forces defending Xuan Loc, the last major defensive line before Saigon.",
+          "source": "Wikimedia Commons / NARA",
+          "license": "Public Domain",
+          "suggested_use": "l1_thumbnail"
+        }
+      ],
+      "videos": []
+    },
+    {
+      "event_id": 24,
+      "event_title": "Chiến dịch Hồ Chí Minh (1975)",
+      "images": [
+        {
+          "title": "Ho Chi Minh Campaign",
+          "url": "https://commons.wikimedia.org/wiki/File:Ho_Chi_Minh_Campaign_Map.jpg",
+          "direct_url": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Ho_Chi_Minh_Campaign_Map.jpg",
+          "description": "Map illustrating the final assault on Saigon during the Ho Chi Minh Campaign.",
+          "source": "Wikimedia Commons",
+          "license": "Public Domain",
+          "suggested_use": "l1_thumbnail"
+        }
+      ],
+      "videos": []
+    },
+    {
+      "event_id": 25,
+      "event_title": "Sự kiện 30 tháng 4 (1975)",
+      "images": [
+        {
+          "title": "Fall of Saigon",
+          "url": "https://commons.wikimedia.org/wiki/File:Fall_of_Saigon_Tanks.jpg",
+          "direct_url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Fall_of_Saigon_Tanks.jpg",
+          "description": "North Vietnamese tanks crashing through the gates of the Independence Palace in Saigon.",
+          "source": "Wikimedia Commons / NARA",
+          "license": "Public Domain",
+          "suggested_use": "l1_thumbnail"
+        }
+      ],
+      "videos": []
+    }
+  ],
+  "general_collections": [
+    {
+      "name": "NARA Vietnam War Photos",
+      "url": "https://commons.wikimedia.org/wiki/Category:NARA_images_of_the_Vietnam_War",
+      "description": "Extensive collection of photographs from the National Archives and Records Administration documenting various aspects of the Vietnam War.",
+      "license": "Public Domain",
+      "estimated_items": 1000
+    }
+  ],
+  "kaggle_datasets": [
+    {
+      "name": "Vietnam War Bombing Operations (THOR)",
+      "url": "https://www.kaggle.com/datasets/usaf/vietnam-war-bombing-operations",
+      "description": "4.8 million bombing sortie records with coordinates",
+      "key_fields": [
+        "mission_date",
+        "aircraft_type",
+        "target_lat",
+        "target_lon",
+        "weapon_type",
+        "munitions_weight"
+      ],
+      "app_use": "Interactive bombing heatmap, operation timeline visualization",
+      "size": "~800MB"
+    }
+  ]
+}
