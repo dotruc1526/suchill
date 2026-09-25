@@ -1,4 +1,6 @@
-import { View, Text, Button } from 'react-native';
+import { Button } from 'react-native';
+import { Box } from '../../components/Box';
+import { Text } from '../../components/Text';
 import { useTranslation } from 'react-i18next';
 import { clearToken } from '../../lib/auth';
 import { useRouter } from 'expo-router';
@@ -10,9 +12,9 @@ export default function HomeScreen() {
     router.replace('/login');
   };
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text style={{ fontSize: 24, marginBottom: 20 }}>{t('home')} - {t('welcome')}</Text>
+    <Box flex={1} justifyContent="center" alignItems="center" backgroundColor="mainBackground">
+      <Text variant="header" marginBottom="lg">{t('home')} - {t('welcome')}</Text>
       <Button title="Logout" onPress={handleLogout} />
-    </View>
+    </Box>
   );
 }

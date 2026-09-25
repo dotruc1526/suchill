@@ -1,6 +1,6 @@
 import { getToken } from './auth';
 // UPDATE THIS IP to your machine's IPv4 address
-const API_BASE_URL = 'http://192.168.1.100:5000';
+const API_BASE_URL = 'http://10.241.8.245:5000';
 async function request(path: string, options: RequestInit = {}) {
   const token = await getToken();
   const headers = new Headers(options.headers || {});

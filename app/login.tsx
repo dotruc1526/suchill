@@ -1,4 +1,6 @@
-import { View, Text, Button } from 'react-native';
+import { Button } from 'react-native';
+import { Box } from '../components/Box';
+import { Text } from '../components/Text';
 import { useRouter } from 'expo-router';
 import { saveToken } from '../lib/auth';
 import { useTranslation } from 'react-i18next';
@@ -19,9 +21,9 @@ export default function LoginScreen() {
     }
   };
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text style={{ fontSize: 24, marginBottom: 20 }}>{t('login')}</Text>
+    <Box flex={1} justifyContent="center" alignItems="center" backgroundColor="mainBackground">
+      <Text variant="header" marginBottom="lg">{t('login')}</Text>
       <Button title={t('login')} onPress={handleLogin} />
-    </View>
+    </Box>
   );
 }
