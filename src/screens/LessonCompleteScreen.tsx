@@ -1,5 +1,5 @@
 import Mascot from '../Mascot'
-import type { Lesson } from '../data'
+import type { Lesson } from '../types'
 
 export default function LessonCompleteScreen({
   lesson, onQuiz, onHome,

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Mascot from '../Mascot'
-import { aiSuggestions, initialAIConversation, type AIMessage } from '../data'
+import { aiSuggestions, initialAIConversation } from '../data'
+import type { AIMessage } from '../types'
 
 export default function AIScreen() {
   const [messages, setMessages] = useState<AIMessage[]>(initialAIConversation)
