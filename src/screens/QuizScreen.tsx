@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Mascot, { type MascotEmotion } from '../Mascot'
-import type { Chapter } from '../data'
+import type { Chapter } from '../types'
 
 export default function QuizScreen({
   chapter, onBack, onDone,

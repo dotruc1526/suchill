@@ -1,4 +1,4 @@
-import type { Chapter } from '../data'
+import type { Chapter } from '../types'
 
 export default function ChapterScreen({
   chapter, onBack, onLesson, onQuiz,
