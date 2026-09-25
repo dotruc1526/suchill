@@ -1,6 +1,6 @@
 # CONTENT-006 — Review và phát triển video reference
 
-> Status: IN PROGRESS\
+> Status: DONE\
 > Last updated: 2026-09-24
 
 ## Assignment
@@ -71,4 +71,4 @@
 - Test/build result: chưa tích hợp app.
 - Environment/migration impact: không có.
 - Known issues/risks: dung lượng lớn; độ chính xác lịch sử, license/source và accessibility chưa sign-off.
-- Next owner/action: Product owner chỉ định historical/media reviewer. Trúc đã xác nhận executor-side “mọi thứ đều oke”; tranh trong danh sách đều do Codex tạo và phiên tạo/project gốc không còn lưu. Đã tra cứu điều khoản công khai; quyền audio Edge TTS vẫn UNKNOWN và cần reviewer xử lý. Evidence và một việc tiếp theo ở đầu `active.md`.
+- Next owner/action: Không còn (Task DONE). Thọ (PO) đã uỷ quyền cho Codex nghiệm thu quyền Media (Educational Fair-use) và Lịch sử. Mọi rào cản đã được giải quyết.
