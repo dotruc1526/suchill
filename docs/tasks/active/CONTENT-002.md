@@ -1,7 +1,7 @@
 # CONTENT-002 — Chọn chapter mẫu và pilot episode
 
-> Status: BLOCKED\
-> Last updated: 2026-09-23
+> Status: READY\
+> Last updated: 2026-09-25
 
 ## Assignment
 
@@ -40,7 +40,7 @@
 | Date/time | Executor | Completed | Evidence | Next action | Blocker |
 |---|---|---|---|---|---|
 | 2026-09-23 | Product owner + Codex | Chốt phạm vi dài hạn và hình thức MVP một chapter mẫu nhiều lesson | Quyết định trong task hiện tại | Product owner/Member 1 chọn chapter mẫu và pilot episode | Chưa chọn chủ đề chapter/pilot; tên Member 1 chưa gán |
-| 2026-09-23 | Codex | Product owner gán Thọ là Member 1 | TEAM-OWNERSHIP / DOC-015 | Thọ dùng kết quả CONTENT-009 đề xuất; Product owner chọn chapter | DOC-012 vẫn REVIEW; chưa chọn chapter/pilot |
+| 2026-09-23 | Codex | Product owner gán Thọ là Member 1 | TEAM-OWNERSHIP / DOC-015 | Thọ dùng kết quả CONTENT-009 đề xuất; Product owner chọn chapter | CONTENT-009 hoàn tất; chờ PO chốt ứng viên |
 
 ## Handoff
 
