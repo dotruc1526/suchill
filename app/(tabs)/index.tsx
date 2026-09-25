@@ -6,11 +6,11 @@ import { Card } from '../../components/Card';
 import { useTranslation } from 'react-i18next';
 import { api } from '../../lib/api';
 
-type Item = { id: string; title: string; description: string };
+type Chapter = { id: number; year: string; title: string; subtitle: string; description: string; };
 
 export default function HomeScreen() {
   const { t } = useTranslation();
-  const [items, setItems] = useState<Item[]>([]);
+  const [items, setItems] = useState<Chapter[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [error, setError] = useState('');
@@ -48,7 +48,7 @@ export default function HomeScreen() {
       {loading ? (
         <Box flex={1} justifyContent="center" alignItems="center">
           <ActivityIndicator size="large" color="#5A31F4" />
-          <Text marginTop="md" color="textDim">Loading API...</Text>
+          <Text marginTop="md" color="textDim">Đang tải dữ liệu lịch sử...</Text>
         </Box>
       ) : error ? (
         <Box flex={1} justifyContent="center" alignItems="center">
@@ -57,8 +57,15 @@ export default function HomeScreen() {
       ) : (
         <FlatList
           data={items}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <Card title={item.title} description={item.description} />}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => (
+            <Card 
+              year={item.year} 
+              title={item.title} 
+              subtitle={item.subtitle} 
+              description={item.description} 
+            />
+          )}
           refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
           contentContainerStyle={{ paddingBottom: 20 }}
           showsVerticalScrollIndicator={false}
