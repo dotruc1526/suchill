@@ -1,7 +1,7 @@
 # CONTENT-008 — Bản đồ bài học cho chapter mẫu MVP
 
-> Status: BLOCKED\
-> Last updated: 2026-09-23
+> Status: READY\
+> Last updated: 2026-09-25
 
 ## Assignment
 
