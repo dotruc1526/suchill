@@ -4,7 +4,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.post('/api/auth/login', (req, res) => {
-  const { email } = req.body;
+  const body = req.body || {};
+  const email = body.email;
   if (email) res.json({ token: 'mock-jwt-token-12345' });
   else res.status(400).json({ error: 'Email required' });
 });
