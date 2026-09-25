@@ -21,6 +21,7 @@ let db;
     CREATE TABLE IF NOT EXISTS events (id INTEGER PRIMARY KEY AUTOINCREMENT, period_id INTEGER, name TEXT, year TEXT, description TEXT);
     CREATE TABLE IF NOT EXISTS lessons (id INTEGER PRIMARY KEY AUTOINCREMENT, event_id INTEGER, title TEXT, content TEXT);
     CREATE TABLE IF NOT EXISTS questions (id INTEGER PRIMARY KEY AUTOINCREMENT, lesson_id INTEGER, question TEXT, option_a TEXT, option_b TEXT, option_c TEXT, option_d TEXT, correct_answer TEXT);
+    CREATE TABLE IF NOT EXISTS notes (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER, lesson_id INTEGER, text TEXT);
     CREATE TABLE IF NOT EXISTS user_progress (user_id INTEGER, lesson_id INTEGER, completed BOOLEAN, PRIMARY KEY(user_id, lesson_id));
   `);
 
@@ -52,16 +53,22 @@ app.post('/api/auth/login', async (req, res) => {
   const { username, password } = req.body;
   const user = await db.get('SELECT * FROM users WHERE username = ? AND password = ?', [username, password]);
   if (!user) return res.status(401).json({ error: 'Invalid credentials' });
-  const today = new Date().isoOString().split('T')[0];
+  const today = new Date().toISOString().split('T')[0];
   if (user.last_active_date !== today) {
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
-    const yStr = yesterday.isoString().split('T')[0];
+    const yStr = yesterday.toISOString().split('T')[0];
     const isStreak = user.last_active_date === yStr;
     await db.run('UPDATE users SET last_active_date = ?, current_streak = ? WHERE id = ?', [today, isStreak ? user.current_streak + 1 : 1, user.id]);
     user.current_streak = isStreak ? user.current_streak + 1 : 1;
   }
   res.json({ id: user.id, username: user.username, xp: user.xp, current_streak: user.current_streak });
+});
+
+app.get('/api/lessons/:id', async (req, res) => {
+  const l = await db.get('SELECT lessons.*, events.name as event_name, events.year FROM lessons JOIN events ON lessons.event_id = events.id WHERE lessons.id = ?', [req.params.id]);
+  if (!l) return res.status(404).json({error: 'Not found'});
+  res.json({ ...l, subtitle: l.event_name, description: l.content });
 });
 
 app.get('/api/lessons', async (req, res) => {
@@ -87,4 +94,21 @@ app.get('/api/users/:id/progress', async (req, res) => {
   res.json(rows.map(r => r.lesson_id));
 });
 
+
+app.post('/api/users/:id/push-token', async (req, res) => {
+  try {
+    await db.run('ALTER TABLE users ADD COLUMN push_token TEXT').catch(e=>{});
+    await db.run('UPDATE users SET push_token = ? WHERE id = ?', [req.body.token, req.params.id]);
+    res.json({success:true});
+  } catch(e){ res.status(500).json({error:e.message}); }
+});
+
+app.post('/api/lessons/:id/notes', async (req, res) => {
+  try {
+    await db.run('INSERT INTO notes (user_id, lesson_id, text) VALUES (?, ?, ?)', [req.body.userId, req.params.id, req.body.text]);
+    res.json({success:true});
+  } catch(e){ res.status(500).json({error:e.message}); }
+});
+
+app.post("/api/push-token", (req, res) => { console.log("Received Push Token:", req.body.token); res.json({success:true}); });
 app.listen(3001, () => console.log('V2 API running on 3001'));
