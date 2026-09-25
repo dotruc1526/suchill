@@ -1,82 +1,90 @@
 const express = require('express');
 const cors = require('cors');
-const fs = require('fs');
-const path = require('path');
-const { PGlite } = require('@electric-sql/pglite');
+const sqlite3 = require('sqlite3').verbose();
+const { open } = require('sqlite');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-const USER_ID = 1;
 let db;
 
 (async function initDB() {
-  console.log('Initializing PostgreSQL (PGlite embedded)...');
-  db = new PGlite('./database_data');
-  try {
-    const check = await db.query("SELECT table_name FROM information_schema.tables WHERE table_schema='public'");
-    const hasUsers = check.rows.some(r => r.table_name === 'users');
-    if (!hasUsers) {
-      console.log('Db empty. Running schema and seed...');
-      const schemaSql = fs.readFileSync(path.join(__dirname, '..', 'database', 'schema_simple.sql'), 'utf8');
-      const seedSql = fs.readFileSync(path.join(__dirname, '..', 'database', 'seed_simple.sql'), 'utf8');
-      for(let q of schemaSql.split(';')) { if(q.trim()) await db.query(q); }
-      for(let q of seedSql.split(';')) { if(q.trim()) await db.query(q); }
-      console.log('Database seeded successfully!');
-    } else {
-      console.log('Database already exists, skipping seed.');
-    }
-  } catch(err) {
-    console.error('DBInitError:', err);
+  db = await open({
+    filename: './database.sqlite',
+    driver: sqlite3.Database
+  });
+
+  await db.exec(`
+    CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT UNIQUE, password TEXT, xp INTEGER DEFAULT 0, current_streak INTEGER DEFAULT 0, last_active_date TEXT);
+    CREATE TABLE IF NOT EXISTS periods (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, description TEXT);
+    CREATE TABLE IF NOT EXISTS events (id INTEGER PRIMARY KEY AUTOINCREMENT, period_id INTEGER, name TEXT, year TEXT, description TEXT);
+    CREATE TABLE IF NOT EXISTS lessons (id INTEGER PRIMARY KEY AUTOINCREMENT, event_id INTEGER, title TEXT, content TEXT);
+    CREATE TABLE IF NOT EXISTS questions (id INTEGER PRIMARY KEY AUTOINCREMENT, lesson_id INTEGER, question TEXT, option_a TEXT, option_b TEXT, option_c TEXT, option_d TEXT, correct_answer TEXT);
+    CREATE TABLE IF NOT EXISTS user_progress (user_id INTEGER, lesson_id INTEGER, completed BOOLEAN, PRIMARY KEY(user_id, lesson_id));
+  `);
+
+  const users = await db.all('SELECT * FROM users');
+  if (users.length === 0) {
+    await db.exec(`
+      INSERT INTO periods (name, description) VALUES ('1954-1960', 'Đấu tranh chính trị và phong trào Đồng khởi');
+      INSERT INTO events (period_id, name, year, description) VALUES (1, 'Kù kết Hiệp định Genève', '1954', 'Kết thúc chiến tranh Đông Dương');
+      INSERT INTO users (username, password, xp, current_streak, last_active_date) VALUES ('demo_user', 'password123', 0, 1, date('now'));
+      INSERT INTO lessons (event_id, title, content) VALUES (1, 'Chiến dịch Điện Biên Phủ', 'Bối canh: Qu�n Pháp xây dựng cứ điểm Điện Biên Phủ thành pháo đài b�t khả xâm phạm.\n\nDiễn biến: Sau 56 ngày đêm chiến đấu, quân dân ta đã tiêu diệt hoàn toàn cứ điểm.');
+      INSERT INTO questions (lesson_id, question, option_a, option_b, option_c, option_d, correct_answer) VALUES (1, 'Chiến dịch Điện Biên Phủ kéo dài bao nhiêu ngày đêm?', '45 ngày đêm', '56 ngày đêm', '60 ngày đêm', '72 ngày đêm', 'B');
+    `);
   }
 })();
 
-
-app.get('/api/lessons', async (req, res) => {
+app.post('/api/auth/register', async (req, res) => {
+  const { username, password } = req.body;
+  if (!username || !password) return res.status(400).json({ error: 'Missing credentials' });
   try {
-    const { rows } = await db.query('SELECT lessons.*, events.name as event_name FROM lessons JOIN events ON lessons.event_id = events.id ORDER BY lessons.id');
-    res.json(rows);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+    const result = await db.run('INSERT INTO users (username, password, last_active_date) VALUES (?, ?, date(\'now\'))', [username, password]);
+    const user = await db.get('SELECT id, username, xp, current_streak, last_active_date FROM users WHERE id = ?', [result.lastID]);
+    res.json(user);
+  } catch (e) {
+    res.status(400).json({ error: 'Username may already exist' });
   }
 });
 
-app.get('/api/lessons/:id', async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { rows } = await db.query('SELECT lessons.*, events.name as event_name FROM lessons JOIN events ON lessons.event_id = events.id WHERE lessons.id = $1', [id]);
-    if (rows.length === 0) return res.status(404).json({ error: 'Lesson not found' });
-    res.json(rows[0]);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+app.post('/api/auth/login', async (req, res) => {
+  const { username, password } = req.body;
+  const user = await db.get('SELECT * FROM users WHERE username = ? AND password = ?', [username, password]);
+  if (!user) return res.status(401).json({ error: 'Invalid credentials' });
+  const today = new Date().isoOString().split('T')[0];
+  if (user.last_active_date !== today) {
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    const yStr = yesterday.isoString().split('T')[0];
+    const isStreak = user.last_active_date === yStr;
+    await db.run('UPDATE users SET last_active_date = ?, current_streak = ? WHERE id = ?', [today, isStreak ? user.current_streak + 1 : 1, user.id]);
+    user.current_streak = isStreak ? user.current_streak + 1 : 1;
   }
+  res.json({ id: user.id, username: user.username, xp: user.xp, current_streak: user.current_streak });
+});
+
+app.get('/api/lessons', async (req, res) => {
+  const rows = await db.all('SELECT lessons.*, events.name as event_name FROM lessons JOIN events ON lessons.event_id = events.id ORDER BY lessons.id');
+  res.json(rows);
 });
 
 app.get('/api/lessons/:id/questions', async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { rows } = await db.query('SELECT * FROM questions WHERE lesson_id = $1 ORDER BY id', [id]);
-    res.json(rows);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
+  const rows = await db.all('SELECT * FROM questions WHERE lesson_id = ? ORDER BY id', [req.params.id]);
+  res.json(rows);
 });
 
 app.post('/api/lessons/:id/complete', async (req, res) => {
-  try {
-    const { id } = req.params;
-    await db.query(
-      'INSERT INTO user_progress (user_id, lesson_id, completed) VALUES ($1, $2, true) ON CONFLICT (user_id, lesson_id) DO UPDATE SYT completed = true',
-      [USER_ID, id]
-    );
-    res.json({ success: true });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
+  const { userId, score, maxScore } = req.body;
+  await db.run('INSERT OR REPLACE INTO user_progress (user_id, lesson_id, completed) VALUES (?, ?, true)', [userId, req.params.id]);
+  const xpGain = maxScore ? Math.round((score / maxScore) * 10) : 10;
+  await db.run('UPDATE users SET xp = xp + ? WHERE id = ?', [xpGain, userId]);
+  res.json({ success: true, xpEarned: xpGain });
 });
 
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log('V1 API Server running on port ' + PORT);
+app.get('/api/users/:id/progress', async (req, res) => {
+  const rows = await db.all('SELECT lesson_id FROM user_progress WHERE user_id = ? AND completed = true', [req.params.id]);
+  res.json(rows.map(r => r.lesson_id));
 });
+
+app.listen(3001, () => console.log('V2 API running on 3001'));
