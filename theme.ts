@@ -4,6 +4,6 @@ export const theme = createTheme({
   colors: { mainBackground: palette.white, text: palette.black, accent: palette.greenPrimary },
   spacing: { xs: 4, sm: 8, md: 16, lg: 24, xl: 40 },
   breakpoints: { phone: 0, tablet: 768 },
-  textVariants: { defaults: { fontSize: 16, color: 'text' } }
+  textVariants: { defaults: { fontSize: 16, color: 'text' }, header: { fontSize: 24, fontWeight: 'bold', color: 'text' } }
 });
 export type Theme = typeof theme;
