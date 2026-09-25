@@ -111,7 +111,7 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 
 | ID | Phase | Task | Owner | Status | Depends on | Files | Acceptance / next action |
 |---|---|---|---|---|---|---|---|
-| FE-001 | Foundation | Sửa TypeScript baseline | Hưng (Member 3) | REVIEW | DOC-010 | [`docs/tasks/active/FE-001.md`](../tasks/active/FE-001.md) | Đã sửa 18 lỗi typecheck; `npx tsc --noEmit` pass 100% |
+| FE-001 | Foundation | Sửa TypeScript baseline | Hưng (Member 3) | DONE | DOC-010 | [`docs/tasks/done/FE-001.md`](../tasks/active/FE-001.md) | Đã sửa 18 lỗi typecheck; `npx tsc --noEmit` pass 100% |
 | FE-002 | Foundation | Chọn canonical features architecture và cô lập legacy | Hưng (Member 3) | BACKLOG | FE-001, DOC-010 | `src/features/`, `src/screens/` | Không còn duplicate runtime path |
 | FE-003 | Design system | Chuẩn hóa tokens và UI primitives | Hưng (Member 3) | BACKLOG | FE-001, DOC-010 | `src/theme/`, `src/components/ui/` | UI dùng tokens; ChoiceOption được reuse |
 | FE-004 | App shell | Tách navigation/view state khỏi App quá lớn | Hưng (Member 3) | BACKLOG | FE-001, DOC-005, DOC-006 | `src/App.tsx`, app-state modules | App shell nhẹ, flow test được |
@@ -183,7 +183,7 @@ Chỉ các task có status `IN PROGRESS` được coi là đang có người là
 | CONTENT-006 | Trúc (Member 2) / Codex (Reviewer) | Thọ (Product owner) uỷ quyền Codex ký duyệt | 2026-09-25 | Codex thay mặt PO duyệt Media/Historical review. | Quyền Edge TTS & AI Assets được duyệt diện Educational Fair-use. Video đạt chuẩn tham khảo. | Task hoàn tất (DONE). |
 | BATTLE-001 | Nhóm AI Battle / nhóm ngoài | Product + Security reviewer | 2026-09-22 | Hoàn thiện prototype và chuẩn bị gói bàn giao | Chưa có repo/branch và contract | Tính năng đang phát triển độc lập |
 
-## Task update log
+## Task update log\n\n| 2026-09-25 | FE-001 | Codex | Đã nghiệm thu FE-001 (18 TS fixes) từ Hưng (Member 3), kiểm tra tsc --noEmit pass 100%, chuyển status sang DONE | Evidence tại PR #12 và log typecheck |
 
 Mỗi lần handoff quan trọng thêm một dòng mới nhất ở đầu bảng:
 

@@ -1,9 +1,9 @@
 export const api = {
-  login: async (username, password) => {
+  login: async (username: string, password: string) => {
     const res = await fetch('http://localhost:3001/api/auth/login', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ username, password }) });
     return res.json();
   },
-  register: async (username, password) => {
+  register: async (username: string, password: string) => {
     const res = await fetch('http://localhost:3001/api/auth/register', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ username, password }) });
     return res.json();
   },
