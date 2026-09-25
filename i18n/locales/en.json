@@ -1,1 +1,11 @@
-{"home":"Home","more":"More","settings":"Settings","about":"About","login":"Login","welcome":"Welcome to the App!"}
+{
+  "home": "Home",
+  "more": "More",
+  "settings": "Settings",
+  "about": "About",
+  "login": "Login",
+  "welcome": "Welcome to the App!",
+  "email": "Email",
+  "password": "Password",
+  "logout": "Log out"
+}

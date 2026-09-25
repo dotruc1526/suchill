@@ -1,1 +1,11 @@
-{"home":"Trang chủ","more":"Thêm","settings":"Cài đặt","about":"Giới thiệu","login":"Đăng nhập","welcome":"Chào mừng đến với ứng dụng!"}
+{
+  "home": "Trang chủ",
+  "more": "Thêm",
+  "settings": "Cài đặt",
+  "about": "Giới thiệu",
+  "login": "Đăng nhập",
+  "welcome": "Chào mừng đến với ứng dụng!",
+  "email": "Email",
+  "password": "Mật khẩu",
+  "logout": "Đăng xuất"
+}
