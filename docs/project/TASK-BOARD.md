@@ -111,7 +111,7 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 
 | ID | Phase | Task | Owner | Status | Depends on | Files | Acceptance / next action |
 |---|---|---|---|---|---|---|---|
-| FE-001 | Foundation | Sửa TypeScript baseline | Hưng (Member 3) | BACKLOG | DOC-010 | `src/` legacy/type files | `pnpm exec tsc --noEmit` pass |
+| FE-001 | Foundation | Sửa TypeScript baseline | Hưng (Member 3) | REVIEW | DOC-010 | [`docs/tasks/active/FE-001.md`](../tasks/active/FE-001.md) | Đã sửa 18 lỗi typecheck; `npx tsc --noEmit` pass 100% |
 | FE-002 | Foundation | Chọn canonical features architecture và cô lập legacy | Hưng (Member 3) | BACKLOG | FE-001, DOC-010 | `src/features/`, `src/screens/` | Không còn duplicate runtime path |
 | FE-003 | Design system | Chuẩn hóa tokens và UI primitives | Hưng (Member 3) | BACKLOG | FE-001, DOC-010 | `src/theme/`, `src/components/ui/` | UI dùng tokens; ChoiceOption được reuse |
 | FE-004 | App shell | Tách navigation/view state khỏi App quá lớn | Hưng (Member 3) | BACKLOG | FE-001, DOC-005, DOC-006 | `src/App.tsx`, app-state modules | App shell nhẹ, flow test được |
