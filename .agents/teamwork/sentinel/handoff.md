@@ -1,57 +1,40 @@
-# Handoff Report — Project Sentinel
-
-> **Agent:** Sentinel (`user_liaison`, `sentinel_reporter`, `dispatcher`, `task_router`)\
-> **Working Directory:** `C:\Users\ThinkPad P1\.gemini\antigravity\scratch\suchill_fresh\.agents\teamwork\sentinel`\
-> **Date:** 2026-09-26\
-> **Verdict:** VICTORY CONFIRMED
-
----
+# Sentinel Handoff Report — CONTENT-003: Historical source/media review pilot
 
 ## 1. Observation
-
-- **User Request:** Recorded verbatim in `C:\Users\ThinkPad P1\.gemini\antigravity\scratch\suchill_fresh\.agents\teamwork\ORIGINAL_REQUEST.md`.
-- **Routing Decision:** Evaluated request signals. Explicit markers "This is a single self-contained fix; keep it small and focused" routed to SWE Light (`teamwork_preview_swe`). No pre-flight dependency audit was required.
-- **Orchestration Execution:** `teamwork_preview_swe` (ID: `8a9969ee-ea38-447d-8fda-da613fe77805`) ran full SWE Light cycle:
-  - Round 1: `teamwork_preview_implementer_1` authored `docs/features/research-content-009.md`.
-  - Rounds 2–4: Three sequential adversarial review rounds (`teamwork_preview_reviewer`) refining source citations, claim schemas, and pedagogical lesson feasibility.
-- **Victory Audit:** Upon orchestrator's completion claim, `teamwork_preview_victory_auditor` (ID: `3190abd7-6439-4fbd-9985-6ddc8e4100f4`) was independently spawned for blocking 3-phase verification against `ORIGINAL_REQUEST.md`.
-- **Audit Verdict:** `VICTORY CONFIRMED` (all requirements R1–R5 and all acceptance criteria passed).
-- **Cleanup:** Monitoring crons cancelled; all subagents terminated per lifecycle rules.
-
----
+- **User Request**: Complete task CONTENT-003 (Historical source/media review pilot on Mậu Thân 1968), evaluating:
+  - `docs/content/PILOT-SCREENPLAY.md`
+  - `docs/content/HISTORICAL-SOURCES.md`
+  - `docs/content/RESEARCH-CANDIDATES.md`
+  - `docs/content/CURRICULUM-MAP.md`
+- **Acceptance Criteria**:
+  1. Verify factual accuracy against Vietnamese mainstream historiography ("Kháng chiến chống Mỹ cứu nước").
+  2. Verify clear fiction/perspective labeling and appropriate media sourcing.
+  3. Create `docs/tasks/done/CONTENT-003.md` indicating review outcome (`approved`/`needs revision`) and detailing any critical historical errors.
+- **Routing & Execution**:
+  - Routed to **Document Review** (`teamwork_preview_document`).
+  - Pre-flight audit by `teamwork_preview_dependency_2` returned `READY`.
+  - Orchestrator `teamwork_preview_document_1` executed a complete 3-segment tournament tree (RSA [4, 2, 1]) and cross-segment synthesis (RSA [4, 1]).
+  - Primary deliverable `docs/tasks/done/CONTENT-003.md` was generated with verdict `NEEDS_REVISION` (identifying 4 Critical defects and 15 Major recommendations).
+  - Independent post-victory audit by `teamwork_preview_document_victory_auditor_1` confirmed all deliverables and returned `VERDICT: VICTORY CONFIRMED`.
 
 ## 2. Logic Chain
-
-1. **Intake & Intent Preservation:** Verbatim capture of user prompt into `ORIGINAL_REQUEST.md` ensures authoritative intent survives context resets.
-2. **Routing per Policy:** Matching criteria 1 (single self-contained change) and 2 (explicit lightness signal) mapped the task to SWE Light.
-3. **Continuous Monitoring:** Cron 1 (Progress Reporting) and Cron 2 (Liveness Check) actively monitored orchestrator and subagent progress throughout the lifecycle.
-4. **Independent Post-Victory Verification:** Sentinel never trusts orchestrator completion claims at face value. Independent victory auditor evaluated timeline provenance, integrity/anti-cheating, and acceptance criteria.
-5. **Verdict Validation:** Victory Auditor confirmed all 5 requirements (R1–R5):
-   - R1: 4 detailed candidate topics (Điện Biên Phủ trên không, Cầu Hàm Rồng, Tuyến lửa Vĩ tuyến 17, Không quân Vận tải chiến lược & Đột kích 919) each with 5 modular lessons.
-   - R2: 21 verifiable sources prioritizing official military history (Viện Lịch sử Quân sự Việt Nam, PK-KQ, Bộ Tổng tham mưu), with strict separation of raw facts, interpretations, and narrative ideas.
-   - R3: 8 contested claims codified under Phase 3 Claim schema with wording constraints for Historical Reviewer.
-   - R4: 7-criterion comparison matrix without self-assigning canonical status.
-   - R5: Created at `docs/features/research-content-009.md` in Vietnamese.
-6. **Mandatory Cleanup:** Both background crons killed; `manage_subagents(action="kill_all")` successfully executed.
-
----
+1. **Request Intake**: Recorded verbatim to `ORIGINAL_REQUEST.md`.
+2. **Routing Decision**: Task explicitly specified "This is a document review task" with 4 target documents. Routed to Document Review (`teamwork_preview_document`), requiring pre-flight audit.
+3. **Pre-flight Audit**: Verified non-PDF markdown documents, confirming conditional PDF dependencies false. Audit returned `READY`.
+4. **Orchestration**: Dispatched `teamwork_preview_document_1`. Established progress reporting and liveness check crons.
+5. **Synthesis & Delivery**: The swarm analyzed all pilot content, producing unit reports, `DOCUMENT_REVIEW_REPORT.md`, and `docs/tasks/done/CONTENT-003.md`.
+6. **Victory Audit**: Blocked completion until `teamwork_preview_document_victory_auditor_1` independently audited timelines, integrity, and verified 5 sampled technical/historical findings against primary records. The auditor returned `VICTORY CONFIRMED`.
+7. **Cleanup**: Cancelled both background crons and terminated all subagents via `kill_all`.
 
 ## 3. Caveats
-
-- Authoritative final selection of the MVP Chapter belongs to the Product Owner at CONTENT-002 (recommendation strongly favors Chủ đề 1: 12 ngày đêm Điện Biên Phủ trên không).
-- Formal review and endorsement of the 8 historical claim wording constraints belongs to the Historical Reviewer at CONTENT-003.
-
----
+- The pilot review verdict is `NEEDS_REVISION`. While the historical spirit and core facts are sound, 4 Critical issues (pacing overload in Scene 05, invalid calendar term "31 tháng Giêng", conflicting inner-city target attribution, and relic address confusion) must be addressed by Content Lead (Member 1) before video production (`CONTENT-007`) is unblocked.
 
 ## 4. Conclusion
-
-Task CONTENT-009 has been successfully completed, verified through 3 iterative adversarial review cycles, independently audited with a VICTORY CONFIRMED verdict, and cleaned up per sentinel protocol.
-
----
+- Task CONTENT-003 has been completed successfully and verified independently.
+- The deliverable `docs/tasks/done/CONTENT-003.md` is in place.
+- All acceptance criteria are satisfied.
 
 ## 5. Verification Method
-
-- Check deliverable: `docs/features/research-content-009.md` (348 lines, ~79KB).
-- Check task card: `docs/tasks/active/CONTENT-009.md` (status: `REVIEW`).
-- Check task board: `docs/project/TASK-BOARD.md` (status: `REVIEW`).
-- Check auditor handoff: `.agents/teamwork/teamwork_preview_victory_auditor_1/handoff.md`.
+- Inspect `docs/tasks/done/CONTENT-003.md` to review the verdict, 4 Critical issues, 15 Major recommendations, and action matrix.
+- View `docs/content/DOCUMENT_TEXT_MAP.md` and `.agents/teamwork/synthesis/DOCUMENT_REVIEW_REPORT.md` for complete forensic and analytical details.
+- Check `.agents/teamwork/teamwork_preview_document_victory_auditor_1/handoff.md` for the audit report confirming `VICTORY CONFIRMED`.

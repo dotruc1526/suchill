@@ -15,12 +15,12 @@
 ## 2. Nguồn Tư liệu Chuyên đề Biệt động Sài Gòn
 3. **Biệt động Sài Gòn - Chợ Lớn - Gia Định trong Tổng tiến công và nổi dậy Xuân Mậu Thân 1968**
    - *Cơ quan phát hành:* Nhà xuất bản Quân đội Nhân dân.
-   - *Nội dung trích dẫn:* Chiến thuật tác chiến, danh sách 5 mục tiêu trọng yếu (Đại sứ quán Mỹ, Dinh Độc Lập, Đài Phát thanh, Bộ Tổng tham mưu, Biệt khu Thủ đô).
+   - *Nội dung trích dẫn:* Chiến thuật tác chiến, danh sách 5 mục tiêu trọng yếu (Đại sứ quán Mỹ, Dinh Độc Lập, Đài Phát thanh, Bộ Tổng tham mưu, Bộ Tư lệnh Hải quân).
 4. **Tư liệu từ Bảo tàng Biệt động Sài Gòn**
    - *Nguồn:* Cục Di sản văn hóa / Bảo tàng Biệt động Sài Gòn (Gia Định).
    - *Nội dung trích dẫn:* Các di tích lịch sử có thật được đưa vào Kịch bản gồm: 
      + **Tiệm phở Bình** (Số 7, đường Yên Đổ - nay là Lý Chính Thắng): Nơi đặt Sở chỉ huy Tiền phương Phân khu 6.
-     + **Hầm vũ khí bí mật 287/70 Trần Quý Cáp** (nay là đường Nguyễn Đình Chiểu): Nơi xuất phát của Đội 11 đánh vào Đại sứ quán.
+     + **Hầm vũ khí bí mật 287/70 Võ Văn Tần** (nay là đường Nguyễn Đình Chiểu): Nơi xuất phát của Đội 11 đánh vào Đại sứ quán.
      + **Tiệm may Quốc Anh**: Bình phong liên lạc.
 
 ## 3. Nguồn Tư liệu Âm thanh & Văn kiện
@@ -36,7 +36,7 @@
 Dưới đây là các kho lưu trữ chất lượng cao (HD, băng gốc) được phép sử dụng cho mục đích trích dẫn và giáo dục:
 6. **The Vietnam Center and Sam Johnson Vietnam Archive (Đại học Texas Tech - TTU)**
    - *Nội dung:* Hàng triệu trang tài liệu, hàng trăm ngàn bức ảnh, video, và băng ghi âm được số hóa. Một trong những kho lưu trữ lớn nhất thế giới về cuộc chiến.
-7. **AP Archive / British Pathé (qua Kênh YouTube)**
+7. **AP Archive / British Pathé (qua Kênh YouTube) [perspective: western_archive]**
    - *Nội dung:* Hàng ngàn thước phim quay trực tiếp trên chiến trường Việt Nam (chất lượng HD, quay màu hoặc trắng đen). Phù hợp làm tư liệu chèn vào video học tập.
 8. **Thư viện Quốc hội Mỹ (Library of Congress)**
    - *Nội dung:* Bộ sưu tập hình ảnh cá nhân và quân sự (bao gồm ảnh của phóng viên chiến trường). Cung cấp bản độ phân giải cao.

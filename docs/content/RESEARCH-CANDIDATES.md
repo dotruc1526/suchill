@@ -46,4 +46,4 @@ Kỳ tích hậu cần quân sự và ý chí kiên cường của bộ đội, 
 ---
 ## Các điểm cần Review (Gửi Historical Reviewer)
 1. Các số liệu thương vong trong Mậu Thân 1968 có sự chênh lệch giữa các nguồn trong nước và quốc tế. Cần Reviewer xác nhận lấy nguồn SGK/chính sử làm quy chuẩn (Canonical).
-2. Quyền sử dụng hình ảnh và phim tài liệu: Đa số thuộc quản lý của thông tấn xã hoặc báo chí nước ngoài. Có thể áp dụng Educational Fair-use không? Cần Media Reviewer quyết định.
+2. Quyền sử dụng hình ảnh và phim tài liệu: Đa số thuộc quản lý của thông tấn xã hoặc báo chí nước ngoài. Nghiêm cấm lưu trữ trực tiếp ảnh bản quyền thương mại; áp dụng chiến lược 4 tầng (ưu tiên di tích bảo tàng và tư liệu công quyền PD-VietnamGov). Đối với tư liệu phương Tây (Associated Press, CBS), bắt buộc gắn nhãn góc nhìn `perspective: western_archive`. Áp dụng bộ lọc mờ (Blur 15px) kèm cảnh báo `[16+ Sensitive Historic Photo]` cho ảnh chiến trường.

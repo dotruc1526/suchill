@@ -37,3 +37,22 @@ Ghi toàn bộ kết quả nghiên cứu vào tệp `docs/features/research-cont
 - [ ] Rõ ràng sự phân tách giữa fact, diễn giải và ý tưởng kể chuyện.
 - [ ] Các điểm mâu thuẫn hoặc chưa chắc chắn được highlight/đánh dấu.
 - [ ] Có bảng so sánh tổng quát giữa các chủ đề.
+
+## 2026-09-26T16:18:08Z
+
+This is a document review task.
+
+Bạn là Historical Reviewer. Hãy thực hiện task CONTENT-003: Historical source/media review pilot.
+Chủ đề pilot (chapter mẫu) đã được Product Owner chọn là Mậu Thân 1968.
+Thành viên 1 đã hoàn thành các tài liệu nội dung cho Mậu Thân tại các tệp:
+- docs/content/PILOT-SCREENPLAY.md
+- docs/content/HISTORICAL-SOURCES.md
+- docs/content/RESEARCH-CANDIDATES.md
+- docs/content/CURRICULUM-MAP.md
+
+Yêu cầu (Acceptance Criteria của CONTENT-003):
+1. Kiểm tra tính chính xác của các fact/claim chính trong các tài liệu trên, đảm bảo tuân thủ lịch sử chính thống Việt Nam (kháng chiến chống Mỹ).
+2. Kiểm tra xem fiction/perspective có được gắn nhãn rõ ràng không, và media có nguồn phù hợp không.
+3. Tạo file `docs/tasks/done/CONTENT-003.md` ghi rõ kết quả review (approved/needs revision) cho pilot. Nếu có lỗi lịch sử nghiêm trọng, hãy chỉ ra rõ ràng.
+
+Working directory: C:\Users\ThinkPad P1\.gemini\antigravity\scratch\suchill_fresh

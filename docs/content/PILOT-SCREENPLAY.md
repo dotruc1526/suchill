@@ -40,7 +40,7 @@ Bảng phân cảnh gồm 5 phân cảnh (Scene 01 – Scene 05) với đầy đ
 | **SCENE 01**<br>Đêm Giao Thừa & Mặt Hồ Phẳng Lặng | **00:00 – 00:20**<br>*(20 giây)* | • **00:00 - 00:08:** Khung hình dọc 9:16 toàn cảnh phố phường Sài Gòn đêm 30 Tết rực rỡ đèn hoa, dòng người đi du xuân trên đại lộ Nguyễn Huệ.<br>• **00:08 - 00:15:** Cận cảnh những tràng pháo Tết đỏ rực nổ tung trên thềm nhà, xác pháo bay lất phất.<br>• **00:15 - 00:20:** Đồ họa tối dần (vignette), chuyển sang hình ảnh đồng hồ cổ kính đang từng giây tích tắc đếm ngược tới nửa đêm. Chữ đồ họa hiện nổi bật: *"Sài Gòn — Đêm Giao thừa Tết Mậu Thân 1968"*. | Đêm Giao thừa Tết Mậu Thân 1968.<br><br>Giữa lòng Sài Gòn, phố phường đang rộn rã đón xuân trong sắc pháo rực rỡ và lời chúc bình an.<br><br>Đối phương tin rằng đây là thành trì bất khả xâm phạm.<br><br>Nhưng ngay dưới chân họ, một kế hoạch táo bạo, rung chuyển lịch sử đang từng giây đếm ngược... | • **SFX:** Tiếng pháo Tết giòn giã nổ râm ran từ xa đến gần.<br>• **SFX:** Tiếng tích tắc đanh gọn, chậm rãi của kim đồng hồ cơ khí.<br>• **Music:** Nhạc nền ambient trầm lắng, hơi thở căng thẳng, hồi hộp, gợi cảm giác bão tố sắp ập đến. | Sài Gòn — Đêm Giao thừa Tết Mậu Thân 1968.<br><br>Phố phường rộn rã đón xuân trong tiếng pháo nổ.<br><br>Đối phương tin rằng đây là thành trì bất khả xâm phạm.<br><br>Nhưng một kế hoạch rung chuyển lịch sử đang đếm ngược... | `verified_fact`<br>*(Viện Lịch sử Quân sự Việt Nam)* |
 | **SCENE 02**<br>Căn Hầm Bí Mật & Thế Trận Lòng Dân | **00:20 – 00:45**<br>*(25 giây)* | • **00:20 - 00:28:** Bản đồ đô thị Sài Gòn zoom nhanh vào con hẻm số 287/70 đường Trần Quý Cáp (Quận 3). Chữ địa chỉ hiện lên rõ nét.<br>• **00:28 - 00:36:** Chân dung tư liệu Anh hùng Trần Văn Lai (Năm Lai) trong trang phục nhà thầu khoán lịch lãm Mai Hồng Quế, bên cạnh người vợ kiên trung Đặng Thị Thiệp.<br>• **00:36 - 00:45:** Đồ họa 3D mặt cắt căn nhà: sàn gỗ mở ra, hé lộ căn hầm kiên cố chất đầy súng trường AK-47, súng chống tăng B40, lựu đạn và gần 2 tấn thuốc nổ TNT được bảo vệ nguyên vẹn. | Số 287/70 đường Trần Quý Cáp.<br><br>Dưới vỏ bọc nhà thầu khoán Mai Hồng Quế, chiến sĩ Biệt động Trần Văn Lai cùng vợ đã bí mật đào căn hầm ngầm ngay giữa nội đô.<br><br>Gần hai tấn vũ khí, súng AK, đạn B40 và khối thuốc nổ TNT được cất giấu an toàn suốt nhiều năm ròng nhờ sự che chở kiên trung của nhân dân Sài Gòn.<br><br>Tất cả đã sẵn sàng cho giờ xuất kích! | • **SFX:** Tiếng ván sàn gỗ kẽo kẹt mở nắp hầm bí mật.<br>• **SFX:** Âm thanh kim loại súng đạn va chạm khẽ, tiếng lau súng dứt khoát.<br>• **Music:** Nhạc giao hưởng bắt đầu chuyển điệu, dồn dập, thôi thúc, thể hiện ý chí gang thép của quân và dân ta. | Số 287/70 đường Trần Quý Cáp.<br><br>Dưới vỏ bọc thầu khoán Mai Hồng Quế, ông Năm Lai bí mật đào hầm ngầm.<br><br>Gần hai tấn vũ khí và thuốc nổ TNT được cất giấu suốt nhiều năm ròng.<br><br>Nhờ sự chở che kiên trung của lòng dân Sài Gòn. | `verified_fact`<br>*(Di tích Lịch sử Quốc gia Hầm vũ khí 287/70)* |
 | **SCENE 03**<br>Thơ Chúc Tết Bác Hồ & Hiệu Lệnh Giờ G | **00:45 – 01:10**<br>*(25 giây)* | • **00:45 - 00:53:** Chiếc radio bán dẫn thời chiến với vạch sóng màu vàng ấm áp. Sóng âm dao động theo nhịp bài thơ.<br>• **00:53 - 01:02:** Lồng giọng đọc thơ chúc Tết nguyên bản của Chủ tịch Hồ Chí Minh vang vọng: *"Xuân này hơn hẳn mấy xuân qua / Thắng trận tin vui khắp nước nhà / Nam Bắc thi đua đánh giặc Mỹ / Tiến lên! Toàn thắng ắt về ta!"*<br>• **01:02 - 01:10:** Đồ họa bản đồ hiển thị ranh giới múi giờ GMT+7 (Hà Nội) và GMT+8 (Sài Gòn). Bản đồ nội đô rực sáng Sở chỉ huy tiền phương tại Tiệm phở Bình (đường Yên Đổ). Hình ảnh Chỉ huy trưởng Tư Chu phát lệnh tác chiến rạng sáng Mùng 2 Tết. | Đúng thời khắc Giao thừa thiêng liêng, Đài Tiếng nói Việt Nam phát đi bài thơ chúc Tết của Chủ tịch Hồ Chí Minh.<br><br>Bốn câu thơ hào sảng chính là mật lệnh mở màn cuộc Tổng tiến công và nổi dậy trên toàn miền Nam.<br><br>Tại Sở chỉ huy tiền phương Tiệm phở Bình, Chỉ huy trưởng Tư Chu truyền đi mệnh lệnh lịch sử:<br><br>Giờ G đã điểm! | • **Audio Tư liệu:** Giọng đọc thơ chúc Tết hào hùng, trầm ấm của Bác Hồ phát trên sóng phát thanh (kèm tiếng rè radio cổ chân thực).<br>• **SFX:** Tiếng chuông Giao thừa ngân vang rền rĩ.<br>• **Music:** Nhạc nền đẩy lên cao trào, hòa quyện dàn dây và tiếng trống trận giục giã. | Thơ chúc Tết của Chủ tịch Hồ Chí Minh phát trên Đài Tiếng nói Việt Nam.<br><br>"Xuân này hơn hẳn mấy xuân qua...<br>Tiến lên! Toàn thắng ắt về ta!"<br><br>Đó chính là mật lệnh Tổng tiến công toàn miền Nam.<br><br>Tại Tiệm phở Bình, Chỉ huy trưởng Tư Chu phát lệnh: Giờ G đã điểm! | `verified_fact`<br>*(Đài Tiếng nói Việt Nam & Bảo tàng Biệt động)* |
-| **SCENE 04**<br>Sấm Sét Đầu Não — Năm Mục Tiêu Trọng Yếu | **01:10 – 01:40**<br>*(30 giây)* | • **01:10 - 01:18:** Màn đêm rách toạc bởi tia chớp bộc phá chói lòa! Khối thuốc nổ phá toang tường rào bê tông Tòa Đại sứ Mỹ trên đường Thống Nhất lúc 2h05 sáng. Các chiến sĩ Đội 11 Biệt động quả cảm lao qua lỗ thủng.<br>• **01:18 - 01:25:** Hình ảnh mũi tiến công thứ hai: Đội 5 Biệt động xuất kích từ hầm Trần Quý Cáp, đánh bộc phá cổng Dinh Độc Lập; Đội 4 từ tiệm may Quốc Anh chiếm lĩnh Đài Phát thanh Sài Gòn.<br>• **01:25 - 01:32:** Đồ họa 5 điểm sáng rực rỡ thọc sâu vào bản đồ Sài Gòn: *Tòa Đại sứ Mỹ, Dinh Độc Lập, Đài Phát thanh, Bộ Tổng Tham mưu, Bộ Tư lệnh Hải quân*.<br>• **01:32 - 01:40:** Cảnh chiến đấu kiên cường phi thường, khói lửa ngút trời, máy bay trực thăng Mỹ hoảng loạn quần thảo trên nóc Tòa Đại sứ. | Rạng sáng 31 tháng Giêng năm 1968.<br><br>Tiếng bộc phá sấm sét rung chuyển Sài Gòn!<br><br>Các đội Biệt động đồng loạt giáng đòn điểm huyệt vào năm mục tiêu đầu não: Tòa Đại sứ Mỹ, Dinh Độc Lập, Đài Phát thanh, Bộ Tổng Tham mưu và Bộ Tư lệnh Hải quân.<br><br>Tại Tòa Đại sứ Mỹ — pháo đài bất khả xâm phạm — 17 chiến sĩ Đội 11 đã anh dũng làm chủ trận địa suốt hơn sáu giờ đồng hồ ác liệt! | • **SFX:** Tiếng nổ bộc phá đinh tai nhức óc cực mạnh (`explosion_heavy.wav`).<br>• **SFX:** Tiếng súng AK-47 điểm xạ đanh gọn, tiếng lính Mỹ hoảng loạn kêu thét, tiếng cánh quạt trực thăng Huey gầm rú rách toạc màn đêm.<br>• **Music:** Nhạc giao hưởng cao trào cực điểm, tiết tấu dồn dập, bi tráng và hào hùng. | Rạng sáng ngày 31 tháng 1 năm 1968.<br><br>Tiếng bộc phá sấm sét rung chuyển Sài Gòn!<br><br>Đồng loạt giáng đòn vào 5 mục tiêu đầu não:<br>Tòa Đại sứ Mỹ, Dinh Độc Lập, Đài Phát thanh, Bộ Tổng Tham mưu, Bộ Tư lệnh Hải quân.<br><br>Đội 11 Biệt động làm chủ Tòa Đại sứ Mỹ suốt 6 giờ ác liệt! | `verified_fact`<br>*(Lịch sử Nam Bộ kháng chiến & Viện Lịch sử Quân sự)* |
+| **SCENE 04**<br>Sấm Sét Đầu Não — Năm Mục Tiêu Trọng Yếu | **01:10 – 01:40**<br>*(30 giây)* | • **01:10 - 01:18:** Màn đêm rách toạc bởi tia chớp bộc phá chói lòa! Khối thuốc nổ phá toang tường rào bê tông Tòa Đại sứ Mỹ trên đường Thống Nhất lúc 2h05 sáng. Các chiến sĩ Đội 11 Biệt động quả cảm lao qua lỗ thủng.<br>• **01:18 - 01:25:** Hình ảnh mũi tiến công thứ hai: Đội 5 Biệt động xuất kích từ hầm Trần Quý Cáp, đánh bộc phá cổng Dinh Độc Lập; Đội 4 từ tiệm may Quốc Anh chiếm lĩnh Đài Phát thanh Sài Gòn.<br>• **01:25 - 01:32:** Đồ họa 5 điểm sáng rực rỡ thọc sâu vào bản đồ Sài Gòn: *Tòa Đại sứ Mỹ, Dinh Độc Lập, Đài Phát thanh, Bộ Tổng Tham mưu, Bộ Tư lệnh Hải quân*.<br>• **01:32 - 01:40:** Cảnh chiến đấu kiên cường phi thường, khói lửa ngút trời, máy bay trực thăng Mỹ hoảng loạn quần thảo trên nóc Tòa Đại sứ. | Rạng sáng rạng sáng Mùng 2 Tết Mậu Thân – ngày 31 tháng 1 năm 1968.<br><br>Tiếng bộc phá sấm sét rung chuyển Sài Gòn!<br><br>Các đội Biệt động đồng loạt giáng đòn điểm huyệt vào năm mục tiêu đầu não: Tòa Đại sứ Mỹ, Dinh Độc Lập, Đài Phát thanh, Bộ Tổng Tham mưu và Bộ Tư lệnh Hải quân.<br><br>Tại Tòa Đại sứ Mỹ — pháo đài bất khả xâm phạm — 17 chiến sĩ Đội 11 đã anh dũng làm chủ trận địa suốt hơn sáu giờ đồng hồ ác liệt! | • **SFX:** Tiếng nổ bộc phá đinh tai nhức óc cực mạnh (`explosion_heavy.wav`).<br>• **SFX:** Tiếng súng AK-47 điểm xạ đanh gọn, tiếng lính Mỹ hoảng loạn kêu thét, tiếng cánh quạt trực thăng Huey gầm rú rách toạc màn đêm.<br>• **Music:** Nhạc giao hưởng cao trào cực điểm, tiết tấu dồn dập, bi tráng và hào hùng. | Rạng sáng ngày 31 tháng 1 năm 1968.<br><br>Tiếng bộc phá sấm sét rung chuyển Sài Gòn!<br><br>Đồng loạt giáng đòn vào 5 mục tiêu đầu não:<br>Tòa Đại sứ Mỹ, Dinh Độc Lập, Đài Phát thanh, Bộ Tổng Tham mưu, Bộ Tư lệnh Hải quân.<br><br>Đội 11 Biệt động làm chủ Tòa Đại sứ Mỹ suốt 6 giờ ác liệt! | `verified_fact`<br>*(Lịch sử Nam Bộ kháng chiến & Viện Lịch sử Quân sự)* |
 | **SCENE 05**<br>Bước Ngoặt Lịch Sử & Lời Hiệu Triệu Khám Phá | **01:40 – 01:50**<br>*(10 giây)* *(Tổng 110s)* | • **01:40 - 01:45:** Hình ảnh tư liệu truyền hình Mỹ (ký giả Walter Cronkite thảng thốt trên CBS News), tiêu đề các tờ báo lớn *The New York Times*, *Washington Post* rúng động trên màn hình.<br>• **01:45 - 01:50:** Chuyển cảnh mượt mà sang hình ảnh hòa bình hôm nay và biểu tượng ứng dụng Sử Chill. Nút tương tác xuất hiện mời gọi người học: *"Bắt đầu Bài 2: Sấm sét nội đô"*. | Đòn tập kích chấn động làm sụp đổ hoàn toàn ảo tưởng chiến thắng của Lầu Năm Góc, thổi bùng làn sóng phản chiến, buộc Mỹ phải xuống thang và ngồi vào bàn đàm phán Paris.<br><br>Hãy cùng bước vào Bài học 2 để trực tiếp khám phá những trận đánh huyền thoại! | • **SFX:** Tiếng máy chữ dồn dập của hãng thông tấn, tiếng phát thanh viên quốc tế vang lên ngắn.<br>• **Music:** Nhạc chuyển dần sang giai điệu tự hào, lắng đọng, ngân dài khúc khải hoàn và kết thúc dứt khoát.<br>• **SFX:** UI sound ping báo hiệu hoàn thành bài học. | Đòn tập kích làm sụp đổ ảo tưởng chiến thắng của đối phương.<br><br>Buộc Mỹ phải xuống thang và ngồi vào bàn đàm phán Paris.<br><br>Khám phá chi tiết tại Bài 2: Sấm sét nội đô! | `verified_fact` + `educational_explanation` |
 
 ---
@@ -73,7 +73,7 @@ Tại Sở chỉ huy tiền phương Tiệm phở Bình, Chỉ huy trưởng Tư
 Giờ G đã điểm!
 
 [01:10 - 01:40]
-Rạng sáng 31 tháng Giêng năm 1968.
+Rạng sáng rạng sáng Mùng 2 Tết Mậu Thân – ngày 31 tháng 1 năm 1968.
 Tiếng bộc phá sấm sét rung chuyển Sài Gòn!
 Các đội Biệt động đồng loạt giáng đòn điểm huyệt vào năm mục tiêu đầu não:
 Tòa Đại sứ Mỹ, Dinh Độc Lập, Đài Phát thanh, Bộ Tổng Tham mưu và Bộ Tư lệnh Hải quân.
@@ -134,27 +134,30 @@ Nhờ sự chở che kiên trung của lòng dân Sài Gòn. Tất cả sẵn s�
 00:01:07.000 --> 00:01:10.500
 Tại Tiệm phở Bình, Chỉ huy trưởng Tư Chu phát lệnh: Giờ G đã điểm!
 
-01:10.800 --> 01:14.000
-Rạng sáng 31 tháng Giêng năm 1968.
+00:01:10.800 --> 00:01:14.000
+Rạng sáng rạng sáng Mùng 2 Tết Mậu Thân – ngày 31 tháng 1 năm 1968.
 
-01:14.200 --> 01:17.800
+00:01:14.200 --> 00:01:17.800
 Tiếng bộc phá sấm sét rung chuyển Sài Gòn!
 
-01:18.000 --> 01:25.000
+00:01:18.000 --> 00:01:25.000
 Đồng loạt giáng đòn vào 5 mục tiêu đầu não:
 Tòa Đại sứ Mỹ, Dinh Độc Lập, Đài Phát thanh, Bộ Tổng Tham mưu, Bộ Tư lệnh Hải quân.
 
-01:25.500 --> 01:32.000
+00:01:25.500 --> 00:01:32.000
 Tại Tòa Đại sứ Mỹ — pháo đài bất khả xâm phạm...
 
-01:32.500 --> 01:40.000
+00:01:32.500 --> 00:01:40.000
 17 chiến sĩ Đội 11 Biệt động đã quả cảm làm chủ trận địa suốt hơn 6 giờ ác liệt!
 
-01:40.500 --> 01:45.500
+00:01:40.500 --> 00:01:45.500
 Đòn tập kích chấn động làm sụp đổ ảo tưởng chiến thắng của đối phương...
 
-01:46.000 --> 01:50.000
-Buộc Mỹ phải xuống thang và ngồi vào bàn đàm phán Paris!
+00:01:46.000 --> 00:01:50.000
+Buộc Đế quốc Mỹ phải xuống thang và ngồi vào bàn đàm phán Paris!
+
+00:01:50.500 --> 00:01:55.000
+Hãy chọn bài học tiếp theo để khám phá chi tiết Kháng chiến chống Mỹ cứu nước!
 ```
 
 ---

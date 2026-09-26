@@ -117,31 +117,32 @@ Chapter được thiết kế theo mô hình **Đa định dạng (Multi-format 
   - Thang điểm: 100 điểm (20 điểm/câu). Ngưỡng hoàn thành: ≥ 80 điểm (đúng 4/5 câu).
   - Phản hồi giải thích chi tiết ngay sau mỗi câu trả lời, viện dẫn điều khoản sử liệu chính xác.
 * **Ngân hàng Câu hỏi Khảo thí (Question Bank):**
-  1. *Câu 1 (Mục tiêu CLO-1):* Mật lệnh thiêng liêng nào được phát đi trên làn sóng Đài Tiếng nói Việt Nam trong đêm Giao thừa Tết Mậu Thân 1968 để báo hiệu cuộc Tổng tiến công bắt đầu?  
+  1. *Câu 1 (id: "q-mt68-01") (Mục tiêu CLO-1):* Mật lệnh thiêng liêng nào được phát đi trên làn sóng Đài Tiếng nói Việt Nam trong đêm Giao thừa Tết Mậu Thân 1968 để báo hiệu cuộc Tổng tiến công bắt đầu?  
      - A. Lời kêu gọi toàn quốc kháng chiến.  
      - B. Bài thơ chúc Tết Xuân Mậu Thân của Chủ tịch Hồ Chí Minh. *(Đáp án đúng)*  
      - C. Bản Tuyên ngôn Độc lập.  
      - D. Hiệu lệnh từ Mặt trận Giải phóng miền Trung.  
      *Giải thích:* Đúng thời khắc Giao thừa Tết Mậu Thân 1968, Đài Tiếng nói Việt Nam phát bài thơ chúc Tết của Bác Hồ: "Xuân này hơn hẳn mấy xuân qua... Tiến lên! Toàn thắng ắt về ta!". Đây chính là mật mã quy ước phát lệnh tiến công đồng loạt.
-  2. *Câu 2 (Mục tiêu CLO-2):* Lực lượng Biệt động Sài Gòn đã đồng loạt tiến công vào những mục tiêu đầu não nào tại trung tâm Sài Gòn rạng sáng 31/1/1968?  
+  2. *Câu 2 (id: "q-mt68-02") (Mục tiêu CLO-2):* Lực lượng Biệt động Sài Gòn đã đồng loạt tiến công vào những mục tiêu đầu não nào tại trung tâm Sài Gòn rạng sáng 31/1/1968?  
      - A. Sân bay Đà Nẵng, Cố đô Huế, Căn cứ Khe Sanh.  
      - B. Tòa Đại sứ Mỹ, Dinh Độc Lập, Đài Phát thanh, Bộ Tổng Tham mưu, Bộ Tư lệnh Hải quân. *(Đáp án đúng)*  
      - C. Cảng Nhà Rồng, Tòa Thị chính, Khách sạn Caravelle.  
      - D. Tổng nha Cảnh sát, Trại Davis, Căn cứ Đồng Dù.  
      *Giải thích:* 5 mục tiêu tấn công trọng yếu rúng động nội đô Sài Gòn gồm: Tòa Đại sứ Mỹ, Dinh Độc Lập, Đài Phát thanh Sài Gòn, Bộ Tổng Tham mưu Quân đội Sài Gòn và Bộ Tư lệnh Hải quân.
-  3. *Câu 3 (Mục tiêu CLO-3):* Căn hầm bí mật nào tại nội thành Sài Gòn đã cất giấu gần 2 tấn vũ khí cung cấp cho Đội 5 Biệt động tấn công Dinh Độc Lập?  
+  3. *Câu 3 (id: "q-mt68-03") (Mục tiêu CLO-3):* Căn hầm bí mật nào tại nội thành Sài Gòn đã cất giấu gần 2 tấn vũ khí cung cấp cho Đội 5 Biệt động tấn công Dinh Độc Lập?  
      - A. Căn hầm tại số 287/70 đường Trần Quý Cáp của Anh hùng Trần Văn Lai (Năm Lai). *(Đáp án đúng)*  
      - B. Hầm Địa đạo Củ Chi.  
      - C. Căn cứ Hố Bò - Trảng Bàng.  
      - D. Căn hầm bí mật tại Bến Nhà Rồng.  
      *Giải thích:* Căn hầm tại số 287/70 đường Trần Quý Cáp (nay là đường Võ Văn Tần / Nguyễn Đình Chiểu, Quận 3) do Anh hùng LLVTND Trần Văn Lai cùng vợ đào ngụy trang, cất giấu gần 2 tấn vũ khí bí mật an toàn ngay sát nách đối phương suốt nhiều năm.
-  4. *Câu 4 (Mục tiêu CLO-1):* Nguyên nhân lịch sử nào dẫn đến việc nổ súng ở Quân khu 5 và Tây Nguyên sớm hơn một ngày so với nội đô Sài Gòn và Nam Bộ?  
+  4. *Câu 4 (id: "q-mt68-04") (Mục tiêu CLO-1):* Nguyên nhân lịch sử nào dẫn đến việc nổ súng ở Quân khu 5 và Tây Nguyên sớm hơn một ngày so với nội đô Sài Gòn và Nam Bộ?  
      - A. Do lộ bí mật quân sự trước giờ xuất kích.  
      - B. Do sự khác biệt về cách tính lịch âm giữa miền Bắc (múi giờ GMT+7) và chính quyền Sài Gòn (múi giờ GMT+8) năm Đinh Mùi. *(Đáp án đúng)*  
+     *Tiền đề (Pre-instruction):* Người học cần được lưu ý ở Lesson 1 hoặc 2 về việc chia múi giờ GMT+7 và GMT+8 gây ra chênh lệch lịch.  
      - C. Do lệnh điều động quân bị sai lệch qua đường vô tuyến.  
      - D. Do thời tiết sương mù cản trở giao liên.  
      *Giải thích:* Miền Bắc áp dụng lịch theo múi giờ GMT+7 (tháng 11 thiếu, 29 ngày), nên Giao thừa là đêm 29/1; chính quyền miền Nam ban hành lịch theo GMT+8 (tháng 11 đủ, 30 ngày), nên Giao thừa chậm hơn 1 ngày (đêm 30/1). Do đó các tỉnh miền Trung nổ súng trước vào rạng sáng 30/1, còn Nam Bộ và Sài Gòn tiến công vào rạng sáng 31/1/1968 (Mùng 2 Tết).
-  5. *Câu 5 (Mục tiêu CLO-4):* Bước ngoặt lịch sử quan trọng nhất mà cuộc Tổng tiến công và nổi dậy Tết Mậu Thân 1968 mang lại là gì?  
+  5. *Câu 5 (id: "q-mt68-05") (Mục tiêu CLO-4):* Bước ngoặt lịch sử quan trọng nhất mà cuộc Tổng tiến công và nổi dậy Tết Mậu Thân 1968 mang lại là gì?  
      - A. Buộc đối phương phải đầu hàng vô điều kiện ngay tại Sài Gòn.  
      - B. Làm phá sản chiến lược "Chiến tranh cục bộ", buộc Mỹ chấm dứt ném bom miền Bắc và chấp nhận đàm phán tại Paris. *(Đáp án đúng)*  
      - C. Giải phóng hoàn toàn các đô thị lớn ở miền Nam.  
