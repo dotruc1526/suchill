@@ -1,4 +1,4 @@
-import type { Chapter } from '../../data'
+import type { Chapter } from '../../types'
 
 export default function ChapterCard({ chapter, onPress }: { chapter: Chapter; onPress: () => void }) {
   const isLocked = chapter.status === 'locked'

@@ -1,6 +1,6 @@
 # Sử Chill — Shared Task Board
 
-> Last updated: 2026-09-24\
+> Last updated: 2026-09-26\
 > Owner: Project team\
 > Purpose: Nguồn context chung cho product owner, thành viên nhóm và AI agents
 
@@ -113,7 +113,7 @@ Bảng này triển khai trực tiếp M0 trong Phase 9. Các task `BLOCKED` đ�
 
 | ID | Việc cần làm | Owner | Reviewer | Status | Depends on | Card | Kết quả cần đạt / bước tiếp theo |
 |---|---|---|---|---|---|---|---|
-| M0-00 | Chốt người làm, reviewer, dependency và phạm vi file | Codex + các owner được gán | Product owner | IN PROGRESS | DOC-010 | [`M0-00`](../tasks/active/M0-00.md) | Product owner đã đồng ý tiếp tục; chờ Hưng/Vinh xác nhận phạm vi trước M0-01 |
+| M0-00 | Chốt người làm, reviewer, dependency và phạm vi file | Codex + các owner được gán | Product owner | IN PROGRESS | DOC-010 | [`M0-00`](../tasks/active/M0-00.md) | Vinh nhận việc Member 5, báo Hưng đã nhận phần frontend; chờ Product owner review và xác nhận context/file conflict trước M0-01 |
 | M0-01 | Chạy lại baseline hiện tại | Codex | Vinh + Product owner | BLOCKED | M0-00 | [`M0-01`](../tasks/blocked/M0-01.md) | Sau M0-00, ghi evidence typecheck/build/demo trước khi sửa code |
 | M0-02 | Sửa lỗi TypeScript baseline (`FE-001`) | Hưng (Member 3) | Vinh + Codex | BLOCKED | M0-01 | [`M0-02`](../tasks/blocked/M0-02.md) | `tsc --noEmit` pass; không mở rộng sang refactor ngoài lỗi baseline |
 | M0-03 | Cô lập legacy/prototype (`FE-002`) | Hưng (Member 3) | Vinh + Codex | BLOCKED | M0-01 | [`M0-03`](../tasks/blocked/M0-03.md) | Runtime/compile dùng đường canonical, prototype được giữ an toàn |
@@ -126,7 +126,7 @@ Bảng này triển khai trực tiếp M0 trong Phase 9. Các task `BLOCKED` đ�
 
 | ID | Phase | Task | Owner | Status | Depends on | Files | Acceptance / next action |
 |---|---|---|---|---|---|---|---|
-| FE-001 | Foundation | Sửa TypeScript baseline | Hưng (Member 3) | BACKLOG | DOC-010 | `src/` legacy/type files | `pnpm exec tsc --noEmit` pass |
+| FE-001 | Foundation | Sửa TypeScript baseline | Hưng (Member 3) | REVIEW | DOC-010 | [`docs/tasks/active/FE-001.md`](../tasks/active/FE-001.md) | Đã sửa 18 lỗi typecheck; `npx tsc --noEmit` pass 100% |
 | FE-002 | Foundation | Chọn canonical features architecture và cô lập legacy | Hưng (Member 3) | BACKLOG | FE-001, DOC-010 | `src/features/`, `src/screens/` | Không còn duplicate runtime path |
 | FE-003 | Design system | Chuẩn hóa tokens và UI primitives | Hưng (Member 3) | BACKLOG | FE-001, DOC-010 | `src/theme/`, `src/components/ui/` | UI dùng tokens; ChoiceOption được reuse |
 | FE-004 | App shell | Tách navigation/view state khỏi App quá lớn | Hưng (Member 3) | BACKLOG | FE-001, DOC-005, DOC-006 | `src/App.tsx`, app-state modules | App shell nhẹ, flow test được |
@@ -157,7 +157,7 @@ Bảng này triển khai trực tiếp M0 trong Phase 9. Các task `BLOCKED` đ�
 | CONTENT-003 | 3 | Historical source/media review pilot | Historical reviewer | BLOCKED | CONTENT-002, DOC-004 | [`docs/tasks/blocked/CONTENT-003.md`](../tasks/blocked/CONTENT-003.md) | Fact, fiction, image/license review pass |
 | CONTENT-004 | 5 | Viết screenplay scene-by-scene và kịch bản/storyboard video | Thọ (Member 1) | BLOCKED | CONTENT-003, CONTENT-008, DOC-006 | [`docs/tasks/blocked/CONTENT-004.md`](../tasks/blocked/CONTENT-004.md) | Scene có objective, role, choice, source; bàn giao kịch bản video cho Trúc |
 | CONTENT-005 | 8 | Content QA và Vietnamese language review | Vinh (Member 5); Thọ phối hợp | BLOCKED | CONTENT-004, CONTENT-007, DOC-009 | [`docs/tasks/blocked/CONTENT-005.md`](../tasks/blocked/CONTENT-005.md) | Không còn critical content issue; video/caption/transcript khớp kịch bản |
-| CONTENT-006 | 3/4 | Review và phát triển `episode-portrait-final.mp4` | Trúc (Member 2); Thọ/historical reviewer phối hợp | READY | DOC-004 | [`docs/tasks/active/CONTENT-006.md`](../tasks/active/CONTENT-006.md) | Gán executor khi claim; chọn hướng dùng; hoàn tất source, transcript, caption, poster, fallback và compression |
+| CONTENT-006 | 3/4 | Review và phát triển `episode-portrait-final.mp4` | Trúc (Member 2) | IN PROGRESS | DOC-004 | [`docs/tasks/active/CONTENT-006.md`](../tasks/active/CONTENT-006.md) | Trúc là executor và historical/media reviewer; Thọ cấp quyền review objective/wording; Product owner cấp quyền chốt media/legal; media/legal chốt `APPROVED_FOR_INTERNAL_REFERENCE_ONLY`; 4 claim VERIFIED, 1 claim REVISION_REQUIRED_BEFORE_USE |
 | CONTENT-007 | MVP video | Biên tập video theo kịch bản và bàn giao cho bài học canonical | Trúc (Member 2) | BLOCKED | CONTENT-003, CONTENT-004, DOC-004 | [`docs/tasks/blocked/CONTENT-007.md`](../tasks/blocked/CONTENT-007.md) | Ít nhất một video qua source/history/media review, có caption/transcript/poster/fallback/mobile rendition; Dương tích hợp vào lesson |
 | CONTENT-008 | MVP curriculum | Lập bản đồ chapter mẫu gồm nhiều lesson đa định dạng | Thọ (Member 1) | BLOCKED | CONTENT-002, DOC-003, DOC-012 | [`docs/tasks/blocked/CONTENT-008.md`](../tasks/blocked/CONTENT-008.md) | Learning objectives, lesson order/format và pilot episode/video placement rõ; historical reviewer kiểm tra scope |
 | CONTENT-009 | Nghiên cứu nguồn sơ bộ | Thọ lập danh mục nguồn/chủ đề ứng viên trong phạm vi kháng chiến chống Mỹ | Thọ (Member 1) | READY | DOC-003, DOC-004 | [`docs/tasks/active/CONTENT-009.md`](../tasks/active/CONTENT-009.md) | Bắt đầu trong content track độc lập; tổng hợp nguồn và gợi ý chapter để Product owner chọn, chưa chốt nội dung canonical |
@@ -190,13 +190,13 @@ Chỉ các task có status `IN PROGRESS` được coi là đang có người là
 
 | ID | Owner / executor | Reviewer | Started | Current next action | Blocker | Last checkpoint |
 |---|---|---|---|---|---|---|
-| M0-00 | Codex + assigned owners / Codex | Product owner | 2026-09-24 | Hưng/Vinh xác nhận context và phạm vi | Chờ xác nhận của Hưng/Vinh | Product owner đã đồng ý tiếp tục; `active.md` và card M0-00..07 sẵn sàng |
+| M0-00 | Codex + assigned owners / Codex | Product owner | 2026-09-24 | Product owner review; Hưng/Vinh xác nhận context và file conflict | Chờ phê duyệt Product owner và evidence xác nhận của owner | Vinh giao Codex làm task Member 5, báo Hưng đã nhận phần frontend; không push khi Vinh chưa yêu cầu |
 | DOC-011 | Codex / Codex | Product owner | 2026-09-23 | Review quyết định video MVP và task CONTENT-007 | Chờ review tài liệu | Member 2 sản xuất; Member 1 script/source; Member 4 tích hợp player |
 | DOC-012 | Codex / Codex | Product owner | 2026-09-23 | Review scope kháng chiến chống Mỹ và MVP chapter mẫu | Chờ review tài liệu | Product owner chốt một chapter mẫu nhiều lesson; CONTENT-008 đã tạo |
 | DOC-013 | Codex / Codex | Product owner | 2026-09-23 | Review quy tắc milestone gate và role discovery | Chờ review tài liệu | Đã đồng bộ AGENTS/Architecture/Phase 9; tạo sáu blocked cards; link/status check OK |
 | DOC-014 | Codex / Codex | Product owner | 2026-09-23 | Review GitHub readiness và CONTENT-009 | Chờ review tài liệu | `.env.local` ignored; build pass; typecheck baseline 18 lỗi; 59 Markdown links OK |
 | DOC-015 | Codex / Codex | Product owner | 2026-09-23 | Review [PR #7](https://github.com/dotruc1526/suchill/pull/7) | Chờ review tài liệu | Đã gán Thọ/Trúc/Hưng/Dương/Vinh; build pass; docs links pass; nhánh riêng đã push |
-| CONTENT-006 | Trúc (Member 2) / chưa claim executor | Historical reviewer + Thọ | Chưa bắt đầu | Đánh giá video reference và chọn hướng dùng | Chờ Trúc claim file và historical reviewer được chỉ định | `episode-portrait-final.mp4` là REFERENCE_ONLY |
+| CONTENT-006 | Trúc (Member 2) / Trúc | Trúc (historical/media; Thọ cấp quyền objective/wording; Product owner cấp quyền media/legal) | 2026-09-24 | Nếu dùng ngoài `REFERENCE_ONLY`, tạo media package mới: sửa wording, thay/xác minh audio/nhạc/SFX, khóa manifest/hash/source export và review lại | MP4 hiện tại vẫn chứa wording cũ; audio Edge TTS, nhạc/SFX và source export chưa đủ bằng chứng publish | [Evidence và phiếu thực hiện](../tasks/active/active.md): objective accepted; media/legal `APPROVED_FOR_INTERNAL_REFERENCE_ONLY`; 4 claim VERIFIED, 1 claim REVISION_REQUIRED_BEFORE_USE; REFERENCE_ONLY |
 | BATTLE-001 | Nhóm AI Battle / nhóm ngoài | Product + Security reviewer | 2026-09-22 | Hoàn thiện prototype và chuẩn bị gói bàn giao | Chưa có repo/branch và contract | Tính năng đang phát triển độc lập |
 
 ## Task update log
@@ -205,9 +205,15 @@ Mỗi lần handoff quan trọng thêm một dòng mới nhất ở đầu bản
 
 | Date | Task | Author | Update | Evidence / next owner |
 |---|---|---|---|---|
-| 2026-09-24 | M0-00 | Product owner + Codex | Product owner đồng ý tiếp tục kế hoạch bàn giao | Tin nhắn trong task hiện tại; Hưng/Vinh xác nhận phạm vi trước khi mở M0-01 |
+| 2026-09-24 | M0-00 | Vinh + Codex | Đính chính: tin nhắn đồng ý trước đó là của Vinh (Member 5), không phải Product owner; Vinh giao Codex làm lần lượt task Member 5, chưa push | Chờ Product owner review M0-00; Vinh báo Hưng đã nhận M0-02..04 |
 | 2026-09-24 | M0-00 | Codex | Thêm root `active.md`, đề xuất model cho task kế tiếp và project skill khóa agent vào đúng scope bàn giao | Product owner review; Hưng/Vinh xác nhận; M0-01 vẫn blocked |
 | 2026-09-24 | M0-00..07 | Codex | Tạo nhánh `codex/member5-backend-qa-plan`, chia M0 thành card có owner/reviewer/dependency và làm rõ ba bước của Member 5 | Hưng/Vinh xác nhận nhận việc; Product owner review trước khi mở M0-01 |
+| 2026-09-26 | CONTENT-006 | Trúc (Codex hỗ trợ) | Đồng bộ sau quyền mới: Thọ giao Trúc review objective/wording và Product owner giao Trúc chốt media/legal; hồ sơ chỉ đạt `REFERENCE_ONLY`, không publish/integration | `active.md` và card CONTENT-006; next chỉ phát sinh nếu tạo media package mới hoặc sửa wording/audio/nhạc/SFX/source export |
+| 2026-09-24 | CONTENT-006 | Trúc (Codex hỗ trợ) | Trúc xác nhận executor-side “mọi thứ đều oke” cho hồ sơ hiện có | Không chuyển DONE; next PO chỉ định historical/media reviewer xử lý quyền audio, nhạc/SFX, history và hướng dùng reference |
+| 2026-09-24 | CONTENT-006 | Trúc (Codex hỗ trợ) | Trúc xác nhận tranh trong danh sách đều do Codex tạo; phiên tạo/prompt/project gốc không còn lưu | active.md/CONTENT-006 cập nhật provenance; next PO chỉ định reviewer xử lý quyền audio, nhạc/SFX và hướng dùng reference |
+| 2026-09-24 | CONTENT-006 | Trúc (Codex hỗ trợ) | Hoàn tất lượt tra cứu quyền Edge TTS/font và dấu vết xuất; font bitmap có căn cứ điều kiện, quyền audio chưa xác nhận; đính chính clip oke là xác nhận tổng thể | active.md có nguồn, PCM hash và phần tranh đã được Trúc xác nhận ở checkpoint sau; PO chỉ định reviewer |
+| 2026-09-24 | CONTENT-006 | Trúc + Codex | Trúc xác nhận “clip oke” cho video `Trước cơn bão`; cập nhật phiếu 28 cue như kiểm tra nghe/xem đạt theo executor | Evidence tại `docs/tasks/active/active.md`; next Trúc hoàn thiện điều khoản/permission và chờ Product owner chỉ định reviewer |
+| 2026-09-24 | CONTENT-006 | Trúc + Codex | Tạo nhánh riêng và claim task video reference; mỗi task có một executor duy nhất, reviewer/phối hợp không tính là executor | Branch `codex/truc-content-006-video-reference`; Trúc tiếp tục xác minh file, nguồn/license và review artifact |
 | 2026-09-23 | DOC-015 | Codex | Push nhánh `codex/phase-9-team-handoff`, mở [PR #7](https://github.com/dotruc1526/suchill/pull/7) vào `main` | Product owner review PR; `.vscode` và secret/build folder không vào Git |
 | 2026-09-23 | DOC-015 | Product owner + Codex | Gán Thọ/Trúc/Hưng/Dương/Vinh vào năm lane và planned task ownership | Team ownership, task board/card; tạo branch riêng và PR tài liệu |
 | 2026-09-23 | DOC-014 / CONTENT-009 | Codex | Kiểm tra trước GitHub và tạo task nghiên cứu sơ bộ cho Member 1 ngoài milestone code | Build pass; typecheck baseline 18 lỗi; 59 Markdown links OK; Product owner review DOC-014 |

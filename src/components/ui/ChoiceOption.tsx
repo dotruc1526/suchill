@@ -18,9 +18,9 @@ export function ChoiceOption({
   disabled = false,
   onClick,
 }: ChoiceOptionProps) {
-  let bg = theme.colors.cardBg
-  let border = theme.colors.borderMedium
-  let textColor = theme.colors.textPrimary
+  let bg: string = theme.colors.cardBg
+  let border: string = theme.colors.borderMedium
+  let textColor: string = theme.colors.textPrimary
   let opacity = 1
 
   if (revealed || isSelected) {

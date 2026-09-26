@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Mascot from '../Mascot'
-import type { Chapter } from '../data'
+import type { Chapter } from '../types'
 import Episode1954Screen from './Episode1954Screen'
 
 export default function LessonScreen({
