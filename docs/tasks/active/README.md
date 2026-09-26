@@ -7,6 +7,5 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây:
 - [DOC-013](./DOC-013.md) — rà soát AGENTS/Architecture và milestone gate, chờ product owner review.
 - [DOC-014](./DOC-014.md) — kiểm tra GitHub readiness và mở việc nghiên cứu nguồn sơ bộ cho Member 1.
 - [DOC-015](./DOC-015.md) — gán tên năm thành viên, tạo nhánh riêng và PR tài liệu.
-- [CONTENT-009](./CONTENT-009.md) — Member 1 có thể nhận việc tìm nguồn/chủ đề ứng viên trong content track độc lập.
 - [CONTENT-006](./CONTENT-006.md) — video reference, sẵn sàng để gán owner.
 - [BATTLE-001](./BATTLE-001.md) — prototype ngoài project, đang chờ handoff.

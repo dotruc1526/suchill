@@ -1,0 +1,8 @@
+Event_ID,Event_Name,Lesson_Segment,Media_Type,File_Path,Specific_Content_Description,Source
+EV-68-01,Mậu Thân 1968,L1: Bối cảnh trước giờ G,Video,public/media/kccm/1968-mau-than/videos/l1_context.mp4,"Đường phố Sài Gòn nhộn nhịp, cảnh chợ hoa Nguyễn Huệ, người dân sắm Tết",Cần xin phép
+EV-68-01,Mậu Thân 1968,L1: Bối cảnh trước giờ G,Image,public/media/kccm/1968-mau-than/images/radio_broadcast.jpg,Đài phát thanh Sài Gòn,Cần xin phép
+EV-68-01,Mậu Thân 1968,L2: Hiệu lệnh Hồ Chủ Tịch,Audio,public/media/kccm/1968-mau-than/audio/ho_chi_minh_poem.mp3,Thơ chúc Tết Mậu Thân của Bác Hồ,Cần xin phép
+EV-68-01,Mậu Thân 1968,L3: Tấn công Sứ quán Mỹ,Video,public/media/kccm/1968-mau-than/videos/l3_embassy.mp4,"Đặc công Việt Nam đánh vào tòa đại sứ, lỗ hổng trên tường",Cần xin phép
+EV-68-01,Mậu Thân 1968,L3: Tấn công Sứ quán Mỹ,Image,public/media/kccm/1968-mau-than/images/embassy_wall.jpg,"Lỗ thủng trên tường tòa đại sứ, cảnh lính Mỹ phòng thủ",Cần xin phép
+EV-68-01,Mậu Thân 1968,L4: Đánh chiếm đài phát thanh,Image,public/media/kccm/1968-mau-than/images/radio_station_attack.jpg,Trận chiến tại đài phát thanh,Cần xin phép
+EV-68-01,Mậu Thân 1968,L5: Ý nghĩa chiến lược,Image,public/media/kccm/1968-mau-than/images/anti_war_protest.jpg,Biểu tình phản chiến tại Mỹ (Washington DC),Cần xin phép
