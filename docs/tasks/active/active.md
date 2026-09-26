@@ -48,7 +48,7 @@ Sau khi biết dịch vụ/cách tạo, Codex có thể tìm điều khoản ch�
 
 ### Việc 2: nghe và kiểm tra phụ đề của clip đã chọn
 
-Đầu ra: phiếu kiểm tra toàn bộ 28 cue. Mở [video Trước cơn bão](../../../public/media/truoc-con-bao/episode-portrait-final.mp4), đối chiếu [phụ đề](../../../public/media/truoc-con-bao/subtitles.vtt). Trúc đã xác nhận tổng thể “clip oke”; các dòng dưới ghi lại cùng xác nhận đó, không phải sáu lượt kiểm tra độc lập có evidence riêng. Khi kiểm tra chi tiết, nghe ở tốc độ bình thường và ghi cue hoặc mốc giây khi có lỗi.
+Đầu ra: phiếu kiểm tra toàn bộ 28 cue. Mở [video Trước cơn bão](../../../public/media/kccm/1968-mau-than/videos/episode-portrait-final.mp4), đối chiếu [phụ đề](../../../public/media/truoc-con-bao/subtitles.vtt). Trúc đã xác nhận tổng thể “clip oke”; các dòng dưới ghi lại cùng xác nhận đó, không phải sáu lượt kiểm tra độc lập có evidence riêng. Khi kiểm tra chi tiết, nghe ở tốc độ bình thường và ghi cue hoặc mốc giây khi có lỗi.
 
 | Cue | Khoảng thời gian | Nội dung để nhận diện | Kết quả / lỗi |
 |---|---|---|---|
@@ -74,7 +74,7 @@ Trúc đã cập nhật kết quả provenance hiện có; Codex tổng hợp c�
 
 ## Kết quả bước 1 — nhận diện file (2026-09-24)
 
-Đã kiểm tra hai file ứng viên, tính SHA-256 từ file thực tế và đối chiếu cues/report/script trong repo. **Trúc xác nhận ngày 2026-09-24: “trước cơn bão là file đầu tiên”.** Reference dùng tiếp cho CONTENT-006 là `public/media/truoc-con-bao/episode-portrait-final.mp4`. Trúc giữ vai trò executor; Codex hỗ trợ đọc và ghi hồ sơ. Xác nhận này chốt clip cần review, không xác nhận lịch sử/license hay quan hệ byte-for-byte với bản ~67 MB được ghi trước đây.
+Đã kiểm tra hai file ứng viên, tính SHA-256 từ file thực tế và đối chiếu cues/report/script trong repo. **Trúc xác nhận ngày 2026-09-24: “trước cơn bão là file đầu tiên”.** Reference dùng tiếp cho CONTENT-006 là `public/media/kccm/1968-mau-than/videos/episode-portrait-final.mp4`. Trúc giữ vai trò executor; Codex hỗ trợ đọc và ghi hồ sơ. Xác nhận này chốt clip cần review, không xác nhận lịch sử/license hay quan hệ byte-for-byte với bản ~67 MB được ghi trước đây.
 
 | Ứng viên trong `public/media/` | Nhận diện theo cues/report hiện có | Dung lượng đo từ file |
 |---|---|---|
@@ -234,7 +234,7 @@ Hoàn tất **một gói nhận diện và đánh giá video reference** theo `C
 
 ### Trình tự thực hiện
 
-1. **Đã chốt clip theo xác nhận Trúc**: dùng `public/media/truoc-con-bao/episode-portrait-final.mp4` và SHA-256 Tập 1 đã ghi ở trên để review. Nếu file thay đổi, ghi nhận phiên bản/hash mới trước khi dùng lại evidence. Không đổi tên, ghi đè hoặc xóa media trong phần việc bàn giao này.
+1. **Đã chốt clip theo xác nhận Trúc**: dùng `public/media/kccm/1968-mau-than/videos/episode-portrait-final.mp4` và SHA-256 Tập 1 đã ghi ở trên để review. Nếu file thay đổi, ghi nhận phiên bản/hash mới trước khi dùng lại evidence. Không đổi tên, ghi đè hoặc xóa media trong phần việc bàn giao này.
 
 2. **Lập hồ sơ đánh giá**: ghi đường dẫn file được xác định, thời lượng/kích thước/khung hình, nguồn gốc và quyền sử dụng, mục tiêu học tập dự kiến, ba lựa chọn sử dụng (video-led lesson, tư liệu trong Visual Novel, nội dung mở rộng), cùng khuyến nghị có lý do. Mọi dữ kiện lịch sử phải gắn nguồn có thể truy vết; không suy diễn từ hình ảnh hoặc lời kể của AI.
 
