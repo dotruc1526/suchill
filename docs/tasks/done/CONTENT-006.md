@@ -1,6 +1,6 @@
 # CONTENT-006 — Review và phát triển video reference
 
-> Status: IN PROGRESS\
+> Status: DONE\
 > Last updated: 2026-09-24
 
 ## Assignment
