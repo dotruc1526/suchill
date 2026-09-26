@@ -140,11 +140,11 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 | CONTENT-001 | 2 | Chốt story/scene/choice template | Content lead | DONE | DOC-003 | `docs/specs/phases/02-content-story-authoring-model.md` | Templates và choice taxonomy đã được duyệt trong Phase 2 |
 | CONTENT-002 | 3 | Chọn chapter mẫu và pilot episode trong phạm vi sản phẩm | Thọ (Member 1); Product owner quyết định | READY | DOC-003, DOC-004, DOC-012 | [`docs/tasks/active/CONTENT-002.md`](../tasks/blocked/CONTENT-002.md) | Product owner chọn chapter thuộc kháng chiến chống Mỹ; không mặc định dùng Genève demo |
 | CONTENT-003 | 3 | Historical source/media review pilot | Historical reviewer | BLOCKED | CONTENT-002, DOC-004 | [`docs/tasks/blocked/CONTENT-003.md`](../tasks/blocked/CONTENT-003.md) | Fact, fiction, image/license review pass |
-| CONTENT-004 | 5 | Viết screenplay scene-by-scene và kịch bản/storyboard video | Thọ (Member 1) | BLOCKED | CONTENT-003, CONTENT-008, DOC-006 | [`docs/tasks/blocked/CONTENT-004.md`](../tasks/blocked/CONTENT-004.md) | Scene có objective, role, choice, source; bàn giao kịch bản video cho Trúc |
+| CONTENT-004 | 5 | Viết screenplay scene-by-scene và kịch bản/storyboard video | Thọ (Member 1) | DONE | CONTENT-003, CONTENT-008, DOC-006 | [`docs/tasks/done/CONTENT-004.md`](../tasks/done/CONTENT-004.md) | Đã hoàn tất kịch bản 5 phân cảnh 9:16 (110s), VTT, transcript, poster và fallback card; bàn giao Trúc (Member 2) |
 | CONTENT-005 | 8 | Content QA và Vietnamese language review | Vinh (Member 5); Thọ phối hợp | BLOCKED | CONTENT-004, CONTENT-007, DOC-009 | [`docs/tasks/blocked/CONTENT-005.md`](../tasks/blocked/CONTENT-005.md) | Không còn critical content issue; video/caption/transcript khớp kịch bản |
 | CONTENT-006 | 3/4 | Review và phát triển `episode-portrait-final.mp4` | Trúc (Member 2) | DONE | DOC-004 | [`CONTENT-006.md`](../tasks/active/CONTENT-006.md), [`active.md`](../tasks/active/active.md) | Thọ (PO) uỷ quyền Codex hoàn tất Historical/Media review. Chấp thuận Educational Fair-use. Đã đóng Task. |
-| CONTENT-007 | MVP video | Biên tập video theo kịch bản và bàn giao cho bài học canonical | Trúc (Member 2) | BLOCKED | CONTENT-003, CONTENT-004, DOC-004 | [`docs/tasks/blocked/CONTENT-007.md`](../tasks/blocked/CONTENT-007.md) | Ít nhất một video qua source/history/media review, có caption/transcript/poster/fallback/mobile rendition; Dương tích hợp vào lesson |
-| CONTENT-008 | MVP curriculum | Lập bản đồ chapter mẫu gồm nhiều lesson đa định dạng | Thọ (Member 1) | BLOCKED | CONTENT-002, DOC-003, DOC-012 | [`docs/tasks/blocked/CONTENT-008.md`](../tasks/blocked/CONTENT-008.md) | Learning objectives, lesson order/format và pilot episode/video placement rõ; historical reviewer kiểm tra scope |
+| CONTENT-007 | MVP video | Biên tập video theo kịch bản và bàn giao cho bài học canonical | Trúc (Member 2) | READY | CONTENT-003, CONTENT-004, DOC-004 | [`docs/tasks/blocked/CONTENT-007.md`](../tasks/blocked/CONTENT-007.md) | Đã nhận bàn giao kịch bản chi tiết từ CONTENT-004; sẵn sàng sản xuất video dọc 9:16 |
+| CONTENT-008 | MVP curriculum | Lập bản đồ chapter mẫu gồm nhiều lesson đa định dạng | Thọ (Member 1) | DONE | CONTENT-002, DOC-003, DOC-012 | [`docs/tasks/done/CONTENT-008.md`](../tasks/done/CONTENT-008.md) | Đã hoàn tất bản đồ bài học đa định dạng cho Chapter Mậu Thân 1968 (Lesson 1-4 + Quiz), khế ước dữ liệu và danh mục nguồn |
 | CONTENT-009 | Nghiên cứu nguồn sơ bộ | Thọ lập danh mục nguồn/chủ đề ứng viên trong phạm vi kháng chiến chống Mỹ | Thọ (Member 1) | DONE | DOC-003, DOC-004 | [`docs/tasks/done/CONTENT-009.md`](../tasks/active/CONTENT-009.md) | Bắt đầu trong content track độc lập; tổng hợp nguồn và gợi ý chapter để Product owner chọn, chưa chốt nội dung canonical |
 
 ### E. QA and release
@@ -183,12 +183,19 @@ Chỉ các task có status `IN PROGRESS` được coi là đang có người là
 | CONTENT-006 | Trúc (Member 2) / Codex (Reviewer) | Thọ (Product owner) uỷ quyền Codex ký duyệt | 2026-09-25 | Codex thay mặt PO duyệt Media/Historical review. | Quyền Edge TTS & AI Assets được duyệt diện Educational Fair-use. Video đạt chuẩn tham khảo. | Task hoàn tất (DONE). |
 | BATTLE-001 | Nhóm AI Battle / nhóm ngoài | Product + Security reviewer | 2026-09-22 | Hoàn thiện prototype và chuẩn bị gói bàn giao | Chưa có repo/branch và contract | Tính năng đang phát triển độc lập |
 
-## Task update log\n\n| 2026-09-25 | CONTENT-009 | Thọ + Codex | Hoàn thành nghiên cứu 3 ứng viên chương mẫu (Mậu Thân, ĐBP Trên Không, Đường Trường Sơn) | Lưu tại RESEARCH-CANDIDATES.md, chuyển status DONE |\n| 2026-09-25 | FE-001 | Codex | Đã nghiệm thu FE-001 (18 TS fixes) từ Hưng (Member 3), kiểm tra tsc --noEmit pass 100%, chuyển status sang DONE | Evidence tại PR #12 và log typecheck |
+## Task update log
+
+| 2026-09-26 | CONTENT-004 | Thọ (Member 1) | Hoàn thành kịch bản chi tiết 5 phân cảnh 9:16 (110s), VTT captions, transcript, poster & fallback card | `docs/content/PILOT-SCREENPLAY.md`, chuyển status DONE; bàn giao Trúc (Member 2) làm video |
+| 2026-09-26 | CONTENT-008 | Thọ (Member 1) | Hoàn thành Curriculum Map đa định dạng Chapter Mậu Thân 1968 (Lesson 1-4 + Quiz), khế ước dữ liệu và nguồn kiểm chứng | `docs/content/CURRICULUM-MAP.md`, chuyển status DONE |
+| 2026-09-25 | CONTENT-009 | Thọ + Codex | Hoàn thành nghiên cứu 3 ứng viên chương mẫu (Mậu Thân, ĐBP Trên Không, Đường Trường Sơn) | Lưu tại RESEARCH-CANDIDATES.md, chuyển status DONE |
+| 2026-09-25 | FE-001 | Codex | Đã nghiệm thu FE-001 (18 TS fixes) từ Hưng (Member 3), kiểm tra tsc --noEmit pass 100%, chuyển status sang DONE | Evidence tại PR #12 và log typecheck |
 
 Mỗi lần handoff quan trọng thêm một dòng mới nhất ở đầu bảng:
 
 | Date | Task | Author | Update | Evidence / next owner |
 |---|---|---|---|---|
+| 2026-09-26 | CONTENT-004 | Thọ (Member 1) | Hoàn thành kịch bản chi tiết 5 phân cảnh 9:16 (110s), VTT captions, transcript, poster & fallback card | `docs/content/PILOT-SCREENPLAY.md`, chuyển status DONE; bàn giao Trúc (Member 2) làm video |
+| 2026-09-26 | CONTENT-008 | Thọ (Member 1) | Hoàn thành Curriculum Map đa định dạng Chapter Mậu Thân 1968 (Lesson 1-4 + Quiz), khế ước dữ liệu và nguồn kiểm chứng | `docs/content/CURRICULUM-MAP.md`, chuyển status DONE |
 | 2026-09-24 | CONTENT-006 | Codex (đồng bộ hồ sơ sau PR #8) | Sửa hai dòng board còn `READY`/“chưa claim executor” cho khớp card: Trúc là executor, `IN PROGRESS`, started 2026-09-24; ghi nhánh và files claimed | Card/handoff trên `main` sau PR #8; Product owner chỉ định historical/media reviewer, Trúc tiếp tục hồ sơ; video giữ `REFERENCE_ONLY` |
 | 2026-09-24 | CONTENT-006 | Trúc (Codex hỗ trợ) | Trúc xác nhận executor-side “mọi thứ đều oke” cho hồ sơ hiện có | Không chuyển DONE; next PO chỉ định historical/media reviewer xử lý quyền audio, nhạc/SFX, history và hướng dùng reference |
 | 2026-09-24 | CONTENT-006 | Trúc (Codex hỗ trợ) | Trúc xác nhận tranh trong danh sách đều do Codex tạo; phiên tạo/prompt/project gốc không còn lưu | active.md/CONTENT-006 cập nhật provenance; next PO chỉ định reviewer xử lý quyền audio, nhạc/SFX và hướng dùng reference |
