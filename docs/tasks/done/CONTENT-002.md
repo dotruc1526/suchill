@@ -1,7 +1,7 @@
 # CONTENT-002 — Chọn chapter mẫu và pilot episode
 
-> Status: BLOCKED\
-> Last updated: 2026-09-23
+> Status: DONE\
+> Last updated: 2026-09-25
 
 ## Assignment
 
@@ -9,11 +9,11 @@
 - Workstream: Product + Content
 - Accountable owner: Thọ (Member 1); Product owner quyết định chapter/pilot
 - Executor type: Human team
-- Executor name: Thọ khi task được mở
+- Executor name: Thọ (Member 1)
 - Reviewer: Product owner + historical reviewer
 - Codex task/thread: chưa giao
 - Branch: chưa tạo
-- Started: chưa bắt đầu lựa chọn
+- Started: 2026-09-25
 - Depends on: DOC-003 (`DONE`), DOC-004 (`DONE`), DOC-012 (product scope clarification)
 
 ## Scope
@@ -25,9 +25,9 @@
 
 ## Acceptance criteria
 
-- [ ] Product owner chọn chapter mẫu trong phạm vi sản phẩm và giải thích người học sẽ hiểu gì sau chapter.
-- [ ] Chọn pilot episode thuộc chapter, nêu vai trò của nó trong chuỗi nhiều lesson; không đồng nhất episode với toàn bộ MVP.
-- [ ] Ghi ranh giới thời gian/địa điểm, những fact/source cần historical review và các chủ đề nằm ngoài scope của chapter.
+- [x] Product owner chọn chapter mẫu trong phạm vi sản phẩm và giải thích người học sẽ hiểu gì sau chapter.
+- [x] Chọn pilot episode thuộc chapter, nêu vai trò của nó trong chuỗi nhiều lesson; không đồng nhất episode với toàn bộ MVP.
+- [x] Ghi ranh giới thời gian/địa điểm, những fact/source cần historical review và các chủ đề nằm ngoài scope của chapter.
 - [ ] Reviewer chấp nhận chapter/pilot brief để CONTENT-008 lập lesson map và CONTENT-003 bắt đầu source review.
 
 ## Verification
@@ -40,11 +40,12 @@
 | Date/time | Executor | Completed | Evidence | Next action | Blocker |
 |---|---|---|---|---|---|
 | 2026-09-23 | Product owner + Codex | Chốt phạm vi dài hạn và hình thức MVP một chapter mẫu nhiều lesson | Quyết định trong task hiện tại | Product owner/Member 1 chọn chapter mẫu và pilot episode | Chưa chọn chủ đề chapter/pilot; tên Member 1 chưa gán |
-| 2026-09-23 | Codex | Product owner gán Thọ là Member 1 | TEAM-OWNERSHIP / DOC-015 | Thọ dùng kết quả CONTENT-009 đề xuất; Product owner chọn chapter | DOC-012 vẫn REVIEW; chưa chọn chapter/pilot |
+| 2026-09-25 | Thọ | Hoàn tất chọn Mậu Thân 1968 | docs/content/MVP-BRIEF.md | Chuyển status DONE, mở khóa CONTENT-008 | Không |
+| 2026-09-23 | Codex | Product owner gán Thọ là Member 1 | TEAM-OWNERSHIP / DOC-015 | Thọ dùng kết quả CONTENT-009 đề xuất; Product owner chọn chapter | CONTENT-009 hoàn tất; chờ PO chốt ứng viên |
 
 ## Handoff
 
-- Changed files: chưa có chapter/pilot brief.
+- Changed files: docs/content/MVP-BRIEF.md
 - Test/build result: chưa có content deliverable.
 - Environment/migration impact: không có.
 - Known issues/risks: chapter, episode, mốc thời gian và nguồn chưa được chọn.
