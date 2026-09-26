@@ -31,3 +31,22 @@
 ## 4. Nguyên tắc đối chiếu (Cross-check Rules)
 - **Về thuật ngữ:** Đã đối chiếu và sử dụng thống nhất 100% thuật ngữ "Kháng chiến chống Mỹ" theo quy chuẩn SGK Lịch sử hiện hành. Tuyệt đối loại trừ các cách gọi của phương Tây (như "Vietnam War").
 - **Về mốc thời gian:** Đã ghi chú rõ độ lệch múi giờ (Giờ Hà Nội đang áp dụng GMT+7 trong khi Sài Gòn dùng GMT+8 lúc bấy giờ) dẫn đến sự chênh lệch giờ nổ súng thực tế so với hiệu lệnh, đảm bảo tính khách quan lịch sử.
+
+## 5. Nguồn Tư liệu Quốc tế & Lưu trữ (Góc nhìn đa chiều)
+Dưới đây là các kho lưu trữ chất lượng cao (HD, băng gốc) được phép sử dụng cho mục đích trích dẫn và giáo dục:
+6. **The Vietnam Center and Sam Johnson Vietnam Archive (Đại học Texas Tech - TTU)**
+   - *Nội dung:* Hàng triệu trang tài liệu, hàng trăm ngàn bức ảnh, video, và băng ghi âm được số hóa. Một trong những kho lưu trữ lớn nhất thế giới về cuộc chiến.
+7. **AP Archive / British Pathé (qua Kênh YouTube)**
+   - *Nội dung:* Hàng ngàn thước phim quay trực tiếp trên chiến trường Việt Nam (chất lượng HD, quay màu hoặc trắng đen). Phù hợp làm tư liệu chèn vào video học tập.
+8. **Thư viện Quốc hội Mỹ (Library of Congress)**
+   - *Nội dung:* Bộ sưu tập hình ảnh cá nhân và quân sự (bao gồm ảnh của phóng viên chiến trường). Cung cấp bản độ phân giải cao.
+9. **Internet Archive (archive.org)**
+   - *Nội dung:* Thước phim tư liệu, sách báo cũ đã được số hóa. Nguồn tra cứu public domain khổng lồ.
+
+## 6. Nguồn Cổng thông tin Điện tử & Báo chí Nhà nước
+10. **Đài Truyền hình Việt Nam (VTV)**
+    - Kho tư liệu video thời sự và phim tài liệu chính thống về Kháng chiến chống Mỹ.
+11. **Thư viện Pháp luật (thuvienphapluat.vn)**
+    - Các bài viết tổng hợp tiến trình lịch sử, văn bản pháp quy thời kỳ 1954-1975.
+12. **Tạp chí Việt Nam Hội nhập (vietnamhoinhap.vn)**
+    - Phân tích bài học xây dựng lực lượng vũ trang nhân dân từ thắng lợi của cuộc Kháng chiến chống Mỹ.
