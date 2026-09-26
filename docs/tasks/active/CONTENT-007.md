@@ -1,6 +1,6 @@
 # CONTENT-007 — Video theo kịch bản cho bài học MVP
 
-> Status: BLOCKED\
+> Status: ACTIVE\
 > Last updated: 2026-09-23
 
 ## Assignment
