@@ -134,26 +134,26 @@ Nhờ sự chở che kiên trung của lòng dân Sài Gòn. Tất cả sẵn s�
 00:01:07.000 --> 00:01:10.500
 Tại Tiệm phở Bình, Chỉ huy trưởng Tư Chu phát lệnh: Giờ G đã điểm!
 
-01:10:800 --> 01:14:000
+01:10.800 --> 01:14.000
 Rạng sáng 31 tháng Giêng năm 1968.
 
-01:14:200 --> 01:17:800
+01:14.200 --> 01:17.800
 Tiếng bộc phá sấm sét rung chuyển Sài Gòn!
 
-01:18:000 --> 01:25:000
+01:18.000 --> 01:25.000
 Đồng loạt giáng đòn vào 5 mục tiêu đầu não:
 Tòa Đại sứ Mỹ, Dinh Độc Lập, Đài Phát thanh, Bộ Tổng Tham mưu, Bộ Tư lệnh Hải quân.
 
-01:25:500 --> 01:32:000
+01:25.500 --> 01:32.000
 Tại Tòa Đại sứ Mỹ — pháo đài bất khả xâm phạm...
 
-01:32:500 --> 01:40:000
+01:32.500 --> 01:40.000
 17 chiến sĩ Đội 11 Biệt động đã quả cảm làm chủ trận địa suốt hơn 6 giờ ác liệt!
 
-01:40:500 --> 01:45:500
+01:40.500 --> 01:45.500
 Đòn tập kích chấn động làm sụp đổ ảo tưởng chiến thắng của đối phương...
 
-01:46:000 --> 01:50:000
+01:46.000 --> 01:50.000
 Buộc Mỹ phải xuống thang và ngồi vào bàn đàm phán Paris!
 ```
 
