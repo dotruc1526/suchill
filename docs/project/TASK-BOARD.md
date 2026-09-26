@@ -1,6 +1,6 @@
 # Sử Chill — Shared Task Board
 
-> Last updated: 2026-09-24\
+> Last updated: 2026-09-26\
 > Owner: Project team\
 > Purpose: Nguồn context chung cho product owner, thành viên nhóm và AI agents
 
@@ -142,7 +142,7 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 | CONTENT-003 | 3 | Historical source/media review pilot | Historical reviewer | BLOCKED | CONTENT-002, DOC-004 | [`docs/tasks/blocked/CONTENT-003.md`](../tasks/blocked/CONTENT-003.md) | Fact, fiction, image/license review pass |
 | CONTENT-004 | 5 | Viết screenplay scene-by-scene và kịch bản/storyboard video | Thọ (Member 1) | BLOCKED | CONTENT-003, CONTENT-008, DOC-006 | [`docs/tasks/blocked/CONTENT-004.md`](../tasks/blocked/CONTENT-004.md) | Scene có objective, role, choice, source; bàn giao kịch bản video cho Trúc |
 | CONTENT-005 | 8 | Content QA và Vietnamese language review | Vinh (Member 5); Thọ phối hợp | BLOCKED | CONTENT-004, CONTENT-007, DOC-009 | [`docs/tasks/blocked/CONTENT-005.md`](../tasks/blocked/CONTENT-005.md) | Không còn critical content issue; video/caption/transcript khớp kịch bản |
-| CONTENT-006 | 3/4 | Review và phát triển `episode-portrait-final.mp4` | Trúc (Member 2) | DONE | DOC-004 | [`CONTENT-006.md`](../tasks/active/CONTENT-006.md), [`active.md`](../tasks/active/active.md) | Thọ (PO) uỷ quyền Codex hoàn tất Historical/Media review. Chấp thuận Educational Fair-use. Đã đóng Task. |
+| CONTENT-006 | 3/4 | Review và phát triển `episode-portrait-final.mp4` | Trúc (Member 2) | IN PROGRESS | DOC-004 | [`docs/tasks/active/CONTENT-006.md`](../tasks/active/CONTENT-006.md) | Trúc là executor và historical/media reviewer; Thọ cấp quyền review objective/wording; Product owner cấp quyền chốt media/legal; media/legal chốt `APPROVED_FOR_INTERNAL_REFERENCE_ONLY`; 4 claim VERIFIED, 1 claim REVISION_REQUIRED_BEFORE_USE |
 | CONTENT-007 | MVP video | Biên tập video theo kịch bản và bàn giao cho bài học canonical | Trúc (Member 2) | BLOCKED | CONTENT-003, CONTENT-004, DOC-004 | [`docs/tasks/blocked/CONTENT-007.md`](../tasks/blocked/CONTENT-007.md) | Ít nhất một video qua source/history/media review, có caption/transcript/poster/fallback/mobile rendition; Dương tích hợp vào lesson |
 | CONTENT-008 | MVP curriculum | Lập bản đồ chapter mẫu gồm nhiều lesson đa định dạng | Thọ (Member 1) | BLOCKED | CONTENT-002, DOC-003, DOC-012 | [`docs/tasks/blocked/CONTENT-008.md`](../tasks/blocked/CONTENT-008.md) | Learning objectives, lesson order/format và pilot episode/video placement rõ; historical reviewer kiểm tra scope |
 | CONTENT-009 | Nghiên cứu nguồn sơ bộ | Thọ lập danh mục nguồn/chủ đề ứng viên trong phạm vi kháng chiến chống Mỹ | Thọ (Member 1) | READY | DOC-003, DOC-004 | [`docs/tasks/active/CONTENT-009.md`](../tasks/active/CONTENT-009.md) | Bắt đầu trong content track độc lập; tổng hợp nguồn và gợi ý chapter để Product owner chọn, chưa chốt nội dung canonical |
@@ -180,7 +180,7 @@ Chỉ các task có status `IN PROGRESS` được coi là đang có người là
 | DOC-013 | Codex / Codex | Product owner | 2026-09-23 | Review quy tắc milestone gate và role discovery | Chờ review tài liệu | Đã đồng bộ AGENTS/Architecture/Phase 9; tạo sáu blocked cards; link/status check OK |
 | DOC-014 | Codex / Codex | Product owner | 2026-09-23 | Review GitHub readiness và CONTENT-009 | Chờ review tài liệu | `.env.local` ignored; build pass; typecheck baseline 18 lỗi; 59 Markdown links OK |
 | DOC-015 | Codex / Codex | Product owner | 2026-09-23 | Review [PR #7](https://github.com/dotruc1526/suchill/pull/7) | Chờ review tài liệu | Đã gán Thọ/Trúc/Hưng/Dương/Vinh; build pass; docs links pass; nhánh riêng đã push |
-| CONTENT-006 | Trúc (Member 2) / Codex (Reviewer) | Thọ (Product owner) uỷ quyền Codex ký duyệt | 2026-09-25 | Codex thay mặt PO duyệt Media/Historical review. | Quyền Edge TTS & AI Assets được duyệt diện Educational Fair-use. Video đạt chuẩn tham khảo. | Task hoàn tất (DONE). |
+| CONTENT-006 | Trúc (Member 2) / Trúc | Trúc (historical/media; Thọ cấp quyền objective/wording; Product owner cấp quyền media/legal) | 2026-09-24 | Nếu dùng ngoài `REFERENCE_ONLY`, tạo media package mới: sửa wording, thay/xác minh audio/nhạc/SFX, khóa manifest/hash/source export và review lại | MP4 hiện tại vẫn chứa wording cũ; audio Edge TTS, nhạc/SFX và source export chưa đủ bằng chứng publish | [Evidence và phiếu thực hiện](../tasks/active/active.md): objective accepted; media/legal `APPROVED_FOR_INTERNAL_REFERENCE_ONLY`; 4 claim VERIFIED, 1 claim REVISION_REQUIRED_BEFORE_USE; REFERENCE_ONLY |
 | BATTLE-001 | Nhóm AI Battle / nhóm ngoài | Product + Security reviewer | 2026-09-22 | Hoàn thiện prototype và chuẩn bị gói bàn giao | Chưa có repo/branch và contract | Tính năng đang phát triển độc lập |
 
 ## Task update log
@@ -189,7 +189,7 @@ Mỗi lần handoff quan trọng thêm một dòng mới nhất ở đầu bản
 
 | Date | Task | Author | Update | Evidence / next owner |
 |---|---|---|---|---|
-| 2026-09-24 | CONTENT-006 | Codex (đồng bộ hồ sơ sau PR #8) | Sửa hai dòng board còn `READY`/“chưa claim executor” cho khớp card: Trúc là executor, `IN PROGRESS`, started 2026-09-24; ghi nhánh và files claimed | Card/handoff trên `main` sau PR #8; Product owner chỉ định historical/media reviewer, Trúc tiếp tục hồ sơ; video giữ `REFERENCE_ONLY` |
+| 2026-09-26 | CONTENT-006 | Trúc (Codex hỗ trợ) | Đồng bộ sau quyền mới: Thọ giao Trúc review objective/wording và Product owner giao Trúc chốt media/legal; hồ sơ chỉ đạt `REFERENCE_ONLY`, không publish/integration | `active.md` và card CONTENT-006; next chỉ phát sinh nếu tạo media package mới hoặc sửa wording/audio/nhạc/SFX/source export |
 | 2026-09-24 | CONTENT-006 | Trúc (Codex hỗ trợ) | Trúc xác nhận executor-side “mọi thứ đều oke” cho hồ sơ hiện có | Không chuyển DONE; next PO chỉ định historical/media reviewer xử lý quyền audio, nhạc/SFX, history và hướng dùng reference |
 | 2026-09-24 | CONTENT-006 | Trúc (Codex hỗ trợ) | Trúc xác nhận tranh trong danh sách đều do Codex tạo; phiên tạo/prompt/project gốc không còn lưu | active.md/CONTENT-006 cập nhật provenance; next PO chỉ định reviewer xử lý quyền audio, nhạc/SFX và hướng dùng reference |
 | 2026-09-24 | CONTENT-006 | Trúc (Codex hỗ trợ) | Hoàn tất lượt tra cứu quyền Edge TTS/font và dấu vết xuất; font bitmap có căn cứ điều kiện, quyền audio chưa xác nhận; đính chính clip oke là xác nhận tổng thể | active.md có nguồn, PCM hash và phần tranh đã được Trúc xác nhận ở checkpoint sau; PO chỉ định reviewer |

@@ -4,22 +4,60 @@
 > Nhánh: `codex/truc-content-006-video-reference`
 > Executor duy nhất: Trúc (Member 2)
 > Trạng thái task nguồn: `IN PROGRESS`
-> Ngày bàn giao: 2026-09-24
+> Ngày bàn giao: 2026-09-26
 
 ## Bắt đầu tại đây — phiếu thực hiện tiếp theo
 
-### Checkpoint mới nhất — kiểm tra quyền và nguồn xuất (2026-09-24)
+### Checkpoint cuối — đồng bộ sau quyền mới (2026-09-26)
 
-Đã hoàn tất lượt tra cứu điều khoản công khai và kiểm tra dấu vết xuất trong phạm vi CONTENT-006. Kết quả bên dưới cập nhật các ghi chú cũ; task vẫn IN PROGRESS, video REFERENCE_ONLY. Trúc đã báo “clip oke” và “mọi thứ đều oke”; đây là xác nhận tổng thể từ executor, chưa có phiếu lỗi/thiết bị hoặc xác nhận riêng từng cue, nên không diễn giải thành QA chi tiết hoặc approval cuối đã hoàn tất.
+Thọ đã giao Trúc review learning objective/wording lịch sử và Product owner giao Trúc chốt media/legal cho CONTENT-006. Kết luận đã ghi vào hồ sơ:
+
+- Objective hiện có được chấp nhận cho mục đích tham khảo nội bộ `REFERENCE_ONLY`.
+- Bốn nhóm claim lịch sử được giữ `VERIFIED`; claim 01:17–01:29 phải sửa wording trước khi dùng lại vì cụm “tâm điểm của cả cuộc chiến” quá rộng.
+- Media/legal chỉ đạt `APPROVED_FOR_INTERNAL_REFERENCE_ONLY`; không approve publish, tích hợp lesson/VN, teaser công khai hoặc canonical media.
+- CONTENT-006 vẫn `IN PROGRESS`; không chuyển `REVIEW`/`DONE`, không mở M1, không biến video “Trước cơn bão” thành video canonical.
+
+Việc tiếp theo chỉ phát sinh nếu nhóm muốn dùng clip ngoài reference: tạo/sửa media package mới, thay hoặc chứng minh quyền audio/nhạc/SFX, khóa manifest/hash/source export, sửa wording 01:17–01:29, rồi review lại.
+
+### Checkpoint mới nhất — media/legal review decision (2026-09-25)
+
+Theo thông tin Trúc cung cấp, Product owner cũng muốn Trúc chốt phần media/legal cho CONTENT-006. Quyết định của Trúc trong phạm vi media/legal hiện có: **chỉ chấp nhận clip “Trước cơn bão” làm tài liệu tham khảo nội bộ `REFERENCE_ONLY`; không approve publish, integration hoặc canonical use**.
+
+Lý do: hồ sơ có provenance đủ để hiểu nguồn tạo ở mức executor-side, nhưng chưa có bằng chứng license/permission đủ mạnh để phát hành:
+
+- Audio Microsoft Neural TTS qua `edge-tts`: ghi nhận được công cụ, voice `vi-VN-NamMinhNeural`, rate `-25%`, pitch `+0Hz`; chưa có điều khoản áp dụng tại thời điểm tạo và chưa chứng minh quyền phát hành audio theo cách dùng này.
+- Nhạc/SFX: có dấu vết script tạo/mix, nhưng chưa có quyền/tác giả/manifest khóa vào MP4 cuối.
+- Source export cuối: file dựng ứng viên và audio/hash không khớp MP4 hiện tại; report thiếu hash final, nên không dùng làm bằng chứng chuỗi xuất cuối.
+- Asset AI/Codex: mascot AI và tranh Codex có mô tả nguồn do Trúc cung cấp, nhưng không còn model/prompt/session gốc; chấp nhận ghi provenance nội bộ, không biến thành permission release.
+- Font/Natural Earth: Natural Earth có điều khoản public domain; chữ bitmap có căn cứ theo Microsoft Font FAQ nếu không phân phối file font, nhưng điều này không giải quyết quyền audio/nhạc/SFX hoặc source export.
+
+Kết luận media/legal: `APPROVED_FOR_INTERNAL_REFERENCE_ONLY`. Nếu sau này muốn dùng clip trong lesson, Visual Novel, teaser công khai hoặc media canonical, phải tạo/sửa package mới: thay hoặc xác minh audio/nhạc/SFX, khóa manifest/hash/source export, sửa wording 01:17–01:29, tạo transcript/caption/poster/fallback/rendition cuối và chạy lại review.
+
+### Checkpoint — review learning objective và wording lịch sử (2026-09-25)
+
+Theo thông tin Trúc cung cấp, Thọ đã cấp quyền cho Trúc làm phần review learning objective và wording lịch sử của CONTENT-006. Phạm vi review này chỉ xử lý objective/wording; không thay thế Product owner sign-off, không xử lý quyền audio/nhạc/SFX/source export và không chuyển video sang canonical.
+
+Kết luận:
+
+- Learning objective hiện có được chấp nhận cho hồ sơ `REFERENCE_ONLY`: người xem nêu được mục tiêu tập trung lực lượng của Kế hoạch Navarre và mối liên hệ với việc Pháp phải phân tán lực lượng đối phó trên nhiều hướng.
+- Objective này phù hợp với nội dung lời dẫn và bốn nhóm claim đã `VERIFIED`, nhưng chưa chốt hướng tích hợp sản phẩm vì clip thuộc bối cảnh kháng chiến chống Pháp năm 1953–1954, trong khi scope canonical dài hạn của app là kháng chiến chống Mỹ ở Việt Nam.
+- Wording 01:17–01:29 không được giữ nguyên nếu dùng lại trong bài học/video publish: cụm “tâm điểm của cả cuộc chiến” quá rộng so với nguồn. Câu thay thế được duyệt ở mức wording review: “Nhưng tại sao một thung lũng ở Tây Bắc lại trở thành điểm quyết chiến chiến lược của hai bên?” Nếu cần bám sát chiến cục hơn, dùng: “...trở thành tâm điểm của cuộc đối đầu Đông Xuân 1953–1954?”
+- Vì bản MP4 hiện tại vẫn chứa wording cũ, claim cuối được ghi là `REVISION_REQUIRED_BEFORE_USE`, không phải historical sign-off cho bản video hiện tại.
+
+Task vẫn `IN PROGRESS`, video vẫn `REFERENCE_ONLY`. Product owner đã giao Trúc chốt media/legal; kết luận media/legal là chỉ dùng tham khảo nội bộ, không approve publish/integration.
+
+### Checkpoint — đối chiếu claim lịch sử (2026-09-24)
+
+Đã đối chiếu toàn bộ năm nhóm claim lịch sử trong lời dẫn với nguồn có locator ở bảng claim bên dưới. Bốn nhóm được nguồn hỗ trợ; nhóm cuối cần sửa cụm “tâm điểm của cả cuộc chiến” vì diễn đạt rộng hơn bằng chứng. Đây là kết quả review của Trúc với Codex hỗ trợ tra cứu, chưa phải kiểm tra độc lập vì Trúc đồng thời là executor. Task vẫn `IN PROGRESS`, video vẫn `REFERENCE_ONLY`.
 
 | Hạng mục | Kết quả có bằng chứng | Trạng thái / phần còn thiếu |
 |---|---|---|
-| Dịch vụ giọng đọc | README chính chủ `rany2/edge-tts` xác nhận thư viện gọi dịch vụ đọc trực tuyến của Microsoft Edge. Repo có giấy phép phần mềm riêng | Chưa tìm được điều khoản cấp quyền phát hành audio cho đúng cách dùng `edge-tts`; không suy quyền audio từ giấy phép code hoặc từ điều khoản Azure |
-| Điều khoản Microsoft | Đã đọc Microsoft Services Agreement; hai đường dẫn Edge `/en-us/edge/terms` và `/en-us/edge/terms-of-use` không tải được qua công cụ | UNKNOWN cho quyền audio. Không kết luận bị cấm; chưa biết thời điểm tạo nên chưa xác định được phiên bản điều khoản áp dụng |
+| Dịch vụ giọng đọc | README chính chủ `rany2/edge-tts` xác nhận thư viện gọi dịch vụ đọc trực tuyến của Microsoft Edge. Repo có giấy phép phần mềm riêng | Trúc chốt media/legal: chỉ chấp nhận cho `REFERENCE_ONLY`; chưa đủ bằng chứng cấp quyền publish/integration audio theo cách dùng `edge-tts` |
+| Điều khoản Microsoft | Đã đọc Microsoft Services Agreement; hai đường dẫn Edge `/en-us/edge/terms` và `/en-us/edge/terms-of-use` không tải được qua công cụ | Không kết luận bị cấm; nhưng do chưa biết thời điểm tạo/điều khoản áp dụng, không approve phát hành audio |
 | Font trong video | `illustration.py:16–23` đọc `segoeui.ttf`, `segoeuib.ttf`, `timesbd.ttf` từ Windows. Microsoft FAQ cho phép chữ/caption render thành bitmap trong video, với điều kiện không nhúng file font và tuân thủ giới hạn của phần mềm sử dụng | Có căn cứ điều khoản cho cách render; cần xác nhận nguồn font/phần mềm của bản xuất thực tế. Không phải quyền phân phối file font |
 | File dựng ứng viên | `D:/suchill-render-work/episode-portrait-steady-polished.mp4` thực sự tồn tại; đã đọc audio bằng FFmpeg | PCM s16le 90 giây đầu có SHA-256 `d7438330f4dbe4bc26ab598d0380dfccd633476f5167dfbd3ee4579a5dbe9fb5`, khác MP4 hiện tại và audio rời đã kiểm tra. Chưa xác định nguồn xuất cuối |
 | Report xuất | `lock_approved_audio.py` dự kiến ghi `finalSha256`, `approvedAudioStreamSha256`, `finalAudioStreamSha256`; report final hiện có không chứa các trường đó | Không dùng report này để chứng minh MP4 được tạo bởi lần chạy script khóa audio hiện tại |
-| Mascot/tranh/nhạc/SFX | Trúc xác nhận mascot SỬu do AI tạo, tên công cụ/model “Không nhớ”; các tranh trong danh sách đều do Codex tạo; phiên tạo/project gốc “Không còn lưu” | Nhạc/SFX và quyền audio vẫn cần reviewer xử lý; không tự điền model, prompt hoặc permission không còn bằng chứng |
+| Mascot/tranh/nhạc/SFX | Trúc xác nhận mascot SỬu do AI tạo, tên công cụ/model “Không nhớ”; các tranh trong danh sách đều do Codex tạo; phiên tạo/project gốc “Không còn lưu” | Trúc chốt media/legal: provenance đủ để lưu hồ sơ tham khảo nội bộ; không đủ để approve publish/integration nếu chưa có permission/manifest bổ sung |
 
 Nguồn tra cứu ngày 2026-09-24, để reviewer mở kiểm tra:
 
@@ -29,7 +67,7 @@ Nguồn tra cứu ngày 2026-09-24, để reviewer mở kiểm tra:
 
 Kiểm tra tái lập audio ứng viên: `ffmpeg -v error -i D:/suchill-render-work/episode-portrait-steady-polished.mp4 -t 90 -map 0:a:0 -c:a pcm_s16le -f hash -hash sha256 -`. Chỉ đọc file; không chạy script render/remux. SHA-256 MP4 hiện tại vẫn `2b7def3cd371275f73f062707b9cd212bca663b4b8e66eeb980272b5c092f0ec`.
 
-**Một việc tiếp theo:** Product owner chỉ định historical/media reviewer để quyết định quyền audio Edge TTS, quyền nhạc/SFX còn thiếu, và hướng dùng `REFERENCE_ONLY` hay yêu cầu thay asset ở task sau. Trúc đã hoàn tất phần xác nhận executor hiện có; không cần đoán hoặc tạo lại video.
+**Một việc tiếp theo:** nếu muốn dùng clip ngoài `REFERENCE_ONLY`, tạo task/media package mới để sửa wording 01:17–01:29, thay hoặc chứng minh quyền audio/nhạc/SFX, khóa manifest/hash/source export và chạy lại review. Không duyệt tích hợp/phát hành từ checkpoint này.
 
 Đây là các bước nhỏ của CONTENT-006, không phải task độc lập hoặc mở milestone mới. Executor duy nhất vẫn là Trúc; Codex hỗ trợ chuẩn bị hồ sơ. Làm lần lượt từng việc, ghi kết quả ngay trong phần này.
 
@@ -42,7 +80,7 @@ Kiểm tra tái lập audio ứng viên: `ffmpeg -v error -i D:/suchill-render-w
 | Mascot SỬu | Do AI tạo | Tên công cụ/model nếu biết: Không nhớ. File gốc hoặc nơi lưu phiên tạo: Không nhớ |
 | Tranh minh họa | Do Codex tạo | Các tranh trong sổ asset bên dưới: đều do Codex tạo. Tham chiếu phiên tạo/prompt/project gốc: Không còn lưu |
 | Giọng đọc | Microsoft Neural TTS, giọng nam tiếng Việt, đã hậu kỳ tốc độ/chất lượng | Cách dùng: Edge TTS qua thư viện `edge-tts` trong script, voice `vi-VN-NamMinhNeural`, rate `-25%`, pitch `+0Hz`. Thời điểm tạo: Không nhớ |
-| Âm thanh bản cuối | Chưa xác nhận file nguồn của audio nhúng | File hoặc lệnh/project xuất MP4 nếu còn: Không còn lưu. Vẫn nghe kiểm tra trực tiếp MP4; quyền audio cần reviewer quyết định |
+| Âm thanh bản cuối | Chưa xác nhận file nguồn của audio nhúng | File hoặc lệnh/project xuất MP4 nếu còn: Không còn lưu. Vẫn nghe kiểm tra trực tiếp MP4; media/legal decision 2026-09-25 chỉ cho phép reference nội bộ |
 
 Sau khi biết dịch vụ/cách tạo, Codex có thể tìm điều khoản chính thức tương ứng và ghi nguồn để media reviewer kiểm tra. Thông tin “AI tạo” là nguồn gốc do người tạo cung cấp, chưa tự xác nhận quyền sử dụng.
 
@@ -70,7 +108,7 @@ Mẫu ghi lỗi: `Cue … | thời điểm … | nghe/thấy … | phụ đề h
 
 ### Bàn giao sau hai việc trên
 
-Trúc đã cập nhật kết quả provenance hiện có; Codex tổng hợp các lỗi và phần nguồn còn thiếu vào task card. Product owner chỉ định người review lịch sử/media; Thọ phối hợp review objective và nội dung theo assignment. Mọi yêu cầu sửa video hoặc code phải được ghi rõ phạm vi/file claim trước khi thực hiện. CONTENT-006 giữ IN PROGRESS và video giữ REFERENCE_ONLY trong lúc reviewer quyết định phần quyền/history còn thiếu.
+Trúc đã cập nhật provenance, hoàn tất lượt đối chiếu claim phía executor, theo quyền Thọ giao đã review learning objective/wording lịch sử, và theo quyền Product owner giao đã chốt media/legal ở mức `APPROVED_FOR_INTERNAL_REFERENCE_ONLY`. Codex tổng hợp nguồn, locator và kết quả vào hồ sơ. Mọi yêu cầu sửa video hoặc code phải được ghi rõ phạm vi/file claim trước khi thực hiện. CONTENT-006 giữ `IN PROGRESS` và video giữ `REFERENCE_ONLY` vì bản media còn wording cần sửa và không được approve publish/integration.
 
 ## Kết quả bước 1 — nhận diện file (2026-09-24)
 
@@ -140,7 +178,7 @@ Thông tin này giúp đổi trạng thái từ “chưa rõ người/công cụ
 |---|---|---|
 | Natural Earth 1:50m | `scripts/media/data/natural-earth/`, hai JSON trong `public/media/shared/vietnam-map/` và `regional-map/` | Điều khoản chính thức xác nhận dữ liệu Natural Earth public domain; xác định được quyền dữ liệu nền, chưa xác nhận mọi lớp ảnh/nhãn bổ sung |
 | Mascot SỬu | `scripts/media/illustration.py` đọc `src/imports/image-1.png`; Trúc xác nhận do AI generate; tên công cụ/model cụ thể: Không nhớ | Đã có mô tả nguồn tạo từ executor; còn cần prompt/file gốc nếu có, người tạo/chủ quyền và điều khoản/quyền dùng |
-| Nền núi | `public/media/shared/su-chill-mountain-valley-background.png`; Trúc xác nhận tranh minh họa do Codex tạo | Đã xác nhận thuộc nhóm tranh Codex tạo; phiên/prompt/project gốc không còn lưu; cần reviewer quyết định quyền dùng |
+| Nền núi | `public/media/shared/su-chill-mountain-valley-background.png`; Trúc xác nhận tranh minh họa do Codex tạo | Đã xác nhận thuộc nhóm tranh Codex tạo; phiên/prompt/project gốc không còn lưu; media/legal decision 2026-09-25 chỉ cho phép reference nội bộ |
 | Thung lũng | `public/media/shared/dien-bien-phu-valley-cinematic-1080x1920.png`; Trúc xác nhận tranh minh họa do Codex tạo | Đã có mô tả nguồn tạo từ executor; cần nhãn minh họa và review địa hình/bối cảnh |
 | Binh lính Pháp | `public/media/shared/french-colonial-soldiers-northwest-1950s-1080x1920.png`; Trúc xác nhận tranh minh họa do Codex tạo | Đã có mô tả nguồn tạo từ executor; cần review quân phục/trang bị và nhãn minh họa |
 | Lính dù | `public/media/shared/french-paratroopers-dien-bien-phu-1080x1920.png`; Trúc xác nhận tranh minh họa do Codex tạo | Đã có mô tả nguồn tạo từ executor; cần review quân phục/trang bị và nhãn minh họa |
@@ -159,7 +197,7 @@ Từ khung hình đã xem: phần mở đầu dùng SỬu và hồ sơ giấy tr
 
 ### Việc còn lại cần người cung cấp/reviewer
 
-Trúc bổ sung chi tiết còn thiếu cho provenance: prompt/file gốc nếu còn, điều khoản/quyền dùng tương ứng, danh sách tranh minh họa nào do Codex tạo, và xác nhận file audio được dùng khi xuất MP4. Tên công cụ/model tạo mascot hiện ghi “Không nhớ”; giọng Microsoft Neural TTS hiện ghi cách dùng Edge TTS qua `edge-tts`. Trúc nghe toàn bộ clip để đối chiếu 28 cue (nội dung, thời điểm xuất hiện, âm thanh có ý nghĩa cần chú thích). Product owner chỉ định historical/media reviewer. AI đã hoàn tất phần kiểm tra file, rà tài liệu và lập sổ thiếu sót có thể thực hiện trong phạm vi hiện tại; chưa có cơ sở tự cấp quyền hoặc tự sign-off. Task vẫn IN PROGRESS, reference chưa đủ acceptance để REVIEW/DONE.
+Phần claim lịch sử đã được Trúc review ở mức executor-side và ghi kết quả bên dưới. Product owner đã giao Trúc chốt media/legal; Trúc chốt chỉ dùng `REFERENCE_ONLY`, không approve release. Còn thiếu nếu muốn dùng lại ngoài nội bộ: sửa câu 01:17–01:29, chứng minh hoặc thay quyền audio Edge TTS, nhạc/SFX, chuỗi nguồn/xuất cuối và permission của các asset AI/Codex không còn phiên gốc. Task vẫn `IN PROGRESS`, reference chưa đủ acceptance để `REVIEW`/`DONE`.
 
 ## Hồ sơ review sơ bộ — Trước cơn bão (2026-09-24)
 
@@ -167,7 +205,7 @@ Trạng thái: DRAFT / REFERENCE_ONLY. Kiểm kê tài liệu đã hoàn tất; 
 
 ### Mục tiêu và hướng dùng đề xuất
 
-Objective để reviewer xem xét: người xem nêu được mục tiêu tập trung lực lượng của Kế hoạch Navarre và mối liên hệ với việc Pháp phải phân tán lực lượng đối phó trên nhiều hướng. Đây là objective suy ra từ kịch bản, chưa được duyệt.
+Objective đã được Trúc review theo quyền Thọ giao: người xem nêu được mục tiêu tập trung lực lượng của Kế hoạch Navarre và mối liên hệ với việc Pháp phải phân tán lực lượng đối phó trên nhiều hướng. Objective này được chấp nhận cho hồ sơ `REFERENCE_ONLY`; chưa phải quyết định tích hợp sản phẩm.
 
 Khuyến nghị hiện tại: giữ clip làm reference để đánh giá cách trình bày video, caption và media handoff. Clip tập trung bối cảnh kháng chiến chống Pháp năm 1953–1954; không phù hợp để tự chọn làm lesson canonical của phạm vi kháng chiến chống Mỹ trong AGENTS. Đề xuất video-led lesson năm 1954 ở trao đổi trước không phải quyết định sản phẩm và không được triển khai.
 
@@ -181,28 +219,29 @@ Ba hướng của task: video-led lesson có thể tận dụng lời dẫn li�
 | VTT | `public/media/truoc-con-bao/subtitles.vtt`: 28 cue; text/start/end khớp 28 cue trong `cues.json`; không overlap, không duration âm, kết thúc 93,389 giây | Nghe đối chiếu audio thật; kiểm tra âm thanh phi lời nói cần chú thích và tốc độ đọc trên mobile |
 | Transcript | `src/data/episodeEditorial.ts` có 7 đoạn tóm tắt; lời dẫn gốc trong `scripts/media/narrative.py`; bản từ VTT ở dưới | Bản trong app không nguyên văn: thêm mốc 1946 và diễn giải, bỏ lời dẫn. Chưa thể ghi transcript khớp audio cuối |
 | Poster | Đã xem `public/media/truoc-con-bao/poster.png`: tranh dọc, SỬu trước núi/thung lũng, chữ “HELLO! SỬu đây!”, nhãn 1954 | Chưa hiển thị tên “Trước cơn bão”; cần quyết định biên tập. Chưa kiểm tra mobile/performance; file 1.799.869 byte |
-| Audio | Có `episode-audio-steady.m4a`, `voice-over.mp3`; cues khai báo `vi-VN-NamMinhNeural` | Xác nhận file audio nào thực sự được nhúng; bằng chứng quyền sử dụng giọng và nhạc/SFX |
+| Audio | Có `episode-audio-steady.m4a`, `voice-over.mp3`; cues khai báo `vi-VN-NamMinhNeural` | Media/legal decision: approved only for internal reference; không approve publish/integration khi chưa xác nhận file audio nhúng và quyền giọng/nhạc/SFX |
 | Hình/map | Script tham chiếu mascot, convoy, ảnh minh họa binh lính/thung lũng, map và icons trong `public/media/shared/`; hai JSON map mô tả Natural Earth | Manifest asset thực sự dùng trong MP4 hiện tại; tác giả/chủ quyền, nguồn gốc, license/permission và nhãn minh họa của từng asset |
 | Fallback | Có văn bản dự thảo bên dưới | Chưa được review và tích hợp, chưa có mô tả đầy đủ thông tin chỉ thể hiện bằng hình ảnh |
 | Rendition | Có `episode-portrait-upgraded-telegram.mp4` và `episode-portrait-upgraded-cinematic.mp4` | Tên file không chứng minh là rendition tương đương; cần đối chiếu nội dung/version và budget trước khi chọn |
 
 Report `episode-portrait-final-sync-verification.json` ghi hash `fcc10f8a92b370effc2c648de007939f112043f610c30a1b4aa69bc2a071d489`, khác MP4 hiện tại. Report icon-only cũng ghi hash khác và đường dẫn render khác. Không chuyển các kết quả “fullDecode passed”/“audioCorrelation” cũ thành QA pass của file hiện tại.
 
-### Nguồn lịch sử và bảng claim để reviewer tiếp tục
+### Nguồn lịch sử và kết quả đối chiếu claim
 
-- S1: [Kế hoạch Navarre — Bảo tàng Chiến thắng Điện Biên Phủ](https://btctdbp.svhttdl.dienbien.gov.vn/portal/pages/2015/Tham-vong-cua-Navarre-trong-ban-ke-hoach-mang-ten-niqdbvc3sab5.aspx). URL lấy từ `episodeEditorial.ts`; lần truy cập 2026-09-24 trả lỗi 502 qua công cụ đọc web. Chưa kiểm chứng nội dung, không kết luận link hỏng vĩnh viễn.
-- S2: [Thất bại của Kế hoạch Navarre và sự ra đời của Tập đoàn cứ điểm Điện Biên Phủ](https://svhttdl.dienbien.gov.vn/ditich/pages/2014/That-bai-cua-Ke-hoach-Navarre-va-su-ra-doi-cua-Tap-9937.aspx), Hồng Nhung, Bảo tàng Chiến thắng LS ĐBP; đăng 09-03-2014, đọc 2026-09-24. Đọc được bài; có nội dung về năm 1953, nhiều hướng tiến công và phân tán lực lượng. Footer yêu cầu sự đồng ý bằng văn bản khi phát hành lại thông tin; chưa có bằng chứng cấp phép sao chép media/nội dung từ trang. Dẫn nguồn không đồng nghĩa có quyền tái sử dụng asset.
+- S1: [Kế hoạch Na-va và chiến cục Đông Xuân 1953–1954](https://baotanglichsu.vn/vi/Articles/3097/13850/ke-hoach-na-va-va-chien-cuc-djong-xuan-1953-1954.html), Bảo tàng Lịch sử Quốc gia, đăng 15-03-2013, truy cập 2026-09-24. Locator: đoạn mở đầu “Sau gần tám năm...”; các đoạn “Theo kế hoạch Na va...”, “Về phía ta...” và phần kết về Điện Biên Phủ. Nguồn curated secondary (Tier 2 theo Phase 3).
+- S2: [Thất bại của Kế hoạch Navarre và sự ra đời của Tập đoàn cứ điểm Điện Biên Phủ](https://svhttdl.dienbien.gov.vn/ditich/pages/2014/That-bai-cua-Ke-hoach-Navarre-va-su-ra-doi-cua-Tap-9937.aspx), Hồng Nhung, Bảo tàng Chiến thắng LS ĐBP, đăng 09-03-2014, truy cập 2026-09-24. Locator: các đoạn bắt đầu “Về phía Việt Nam...”, “Trước đó từ cuối tháng 7...” và “Ngày 29 tháng 11 năm 1953...”. Nguồn curated secondary (Tier 2). Dẫn nguồn không cấp quyền sao chép media/nội dung từ trang.
+- S3: [Memorandum by the French Government, 1 September 1953](https://history.state.gov/historicaldocuments/frus1952-54v13p1/d395), *Foreign Relations of the United States, 1952–1954*, Office of the Historian, U.S. Department of State, truy cập 2026-09-24. Locator: “Forces in Indochina and Their Costs” và “Principles of Military Action in Indochina”. Đây là bản dịch tài liệu chính phủ đương thời được xuất bản trong tuyển tập ngoại giao (Tier 1/archival) và dùng để đối chiếu áp lực tài chính, chi phí cùng mục tiêu giành lại thế chủ động.
 
-| Claim / đoạn VTT | Phân loại dự kiến | Evidence / việc cần reviewer làm |
-|---|---|---|
-| 00:09–00:20, chiến tranh đã kéo dài nhiều năm | Fact + diễn giải | Cần nguồn có locator cho thời kỳ; chưa đánh dấu verified |
-| 00:20–00:39, chi phí/quân sự/thế chủ động phía Pháp | Fact + diễn giải | S1 chưa đọc được; cần chứng cứ riêng cho từng ý, tránh coi một link chứng minh cả đoạn |
-| 00:39–00:54, Navarre năm 1953 và mục tiêu | Fact + tóm tắt | S2 đoạn bắt đầu “Đầu tháng 5 năm 1953” hỗ trợ bối cảnh thời gian; mục tiêu cần đối chiếu S1/nguồn bổ sung |
-| 00:58–01:07, nhiều hướng và Pháp điều quân | Quan hệ nhân quả | S2 đoạn bắt đầu “Về phía Việt Nam” hỗ trợ sơ bộ; reviewer kiểm tra niên biểu và mức độ khái quát |
-| 01:17–01:29, Điện Biên Phủ/thung lũng Tây Bắc/tâm điểm | Fact địa lý + câu dẫn chuyện | S2 các đoạn đầu và phần cuối hỗ trợ sơ bộ; câu hỏi ở cuối là dẫn sang tập sau |
-| “một đống”, “rối như tơ vò”, SỬu chào người xem | Biên kịch/ẩn dụ | Không trình bày như lời trích lịch sử; reviewer xem tone |
+| Claim / đoạn VTT | Truth class | Nguồn + locator | Kết quả review của Trúc (2026-09-24) |
+|---|---|---|---|
+| 00:09–00:20, đầu những năm 1950 cuộc kháng chiến chống Pháp đã kéo dài nhiều năm | `verified_fact` + `educational_explanation` | S1, đoạn mở đầu “Sau gần tám năm...” | `VERIFIED`; cách nói khái quát phù hợp với niên biểu được nguồn hỗ trợ |
+| 00:20–00:39, chi phí lớn, tình hình quân sự khó khăn và Pháp khó giữ thế chủ động | `verified_fact` + `educational_explanation` | S1, ba đoạn mở đầu về tổn thất/chi phí, thế bị động và khủng hoảng; S3, “Forces in Indochina and Their Costs” | `VERIFIED`; giữ đây là lời tóm tắt, không biến số liệu của nguồn thành trích dẫn trực tiếp |
+| 00:39–00:54, Pháp triển khai Kế hoạch Navarre năm 1953 nhằm tập trung lực lượng, giành lại thế chủ động và tạo chuyển biến quân sự có lợi | `verified_fact` + tóm tắt | S1, các đoạn về tháng 5/1953 và hai bước kế hoạch; S3, “Principles of Military Action in Indochina” | `VERIFIED`; “chuyển biến quân sự có lợi” là paraphrase thận trọng của mục tiêu tạo tình hình quân sự thuận lợi |
+| 00:58–01:07, phía Việt Nam hoạt động trên nhiều hướng khiến Pháp phải điều/phân tán lực lượng đối phó | `verified_fact` + causal explanation | S1, các đoạn về chủ trương phân tán và danh sách hướng tiến công; S2, đoạn “Về phía Việt Nam...” | `VERIFIED`; quan hệ nhân quả được cả S1 và S2 hỗ trợ trong chiến cục Đông Xuân 1953–1954 |
+| 01:17–01:29, Điện Biên Phủ là thung lũng ở Tây Bắc và trở thành “tâm điểm của cả cuộc chiến” | fact địa lý + hook | S2, các đoạn về thung lũng/vị trí chiến lược và điểm quyết chiến; S1, phần Điện Biên Phủ trở thành trung tâm kế hoạch Navarre | `REVISION_REQUIRED_BEFORE_USE`; địa lý và vai trò chiến lược được hỗ trợ, nhưng “cả cuộc chiến” quá rộng. Wording được Trúc review theo quyền Thọ giao: “trở thành điểm quyết chiến chiến lược của hai bên” hoặc “trở thành tâm điểm của cuộc đối đầu Đông Xuân 1953–1954”. Bản MP4 hiện tại vẫn chứa wording cũ nên chưa được sign-off để publish/integrate |
+| “một đống”, “rối như tơ vò”, SỬu chào người xem | `educational_explanation` / biên kịch | Không dùng làm historical evidence | `VERIFIED_AS_NARRATIVE`; không phải lời trích hay fact độc lập, cần giữ tone rõ là lời dẫn của mascot |
 
-Tất cả claim vẫn CHỜ REVIEW. Không có historical reviewer được chỉ định, không có sign-off trong hồ sơ này.
+Kết quả trên hoàn tất lượt historical/wording review do Trúc thực hiện với Codex hỗ trợ tra cứu, gồm phần learning objective/wording lịch sử được Thọ cấp quyền. Product owner cũng giao Trúc chốt media/legal; Trúc chốt hồ sơ ở mức `REFERENCE_ONLY`. Một claim yêu cầu sửa trước khi dùng lại; do đó chưa có sign-off phát hành.
 
 ### Transcript dự thảo từ VTT
 
@@ -226,7 +265,7 @@ Và rồi có một cái tên bắt đầu xuất hiện. Điện Biên Phủ. M
 
 ### Handoff sau kiểm kê
 
-Executor vẫn là Trúc. Việc kế tiếp: thu thập nguồn/quyền sử dụng của từng asset theo template và đối chiếu lời dẫn/phụ đề với MP4 có hash đã chốt. Product owner cần chỉ định historical/media reviewer để tiếp nhận hồ sơ và quyết định phạm vi sử dụng. Hồ sơ đã liệt kê đủ các khoảng trống; task nguồn giữ IN PROGRESS vì kiểm tra media thực tế và nguồn/license chưa đạt acceptance. Chưa gửi thông điệp cho người khác.
+Executor vẫn là Trúc. Lượt đối chiếu historical claim phía executor đã hoàn tất; learning objective/wording lịch sử đã được Trúc review theo quyền Thọ giao; media/legal đã được Trúc chốt theo quyền Product owner giao ở mức `APPROVED_FOR_INTERNAL_REFERENCE_ONLY`. Một claim vẫn cần sửa trong bản media trước khi dùng lại ngoài nội bộ. Task giữ `IN PROGRESS` vì hướng tích hợp, bản media sửa wording, release package và acceptance publish chưa đạt. Chưa gửi thông điệp cho người khác.
 
 ## Trình tự task gốc để tham chiếu
 
@@ -240,13 +279,13 @@ Hoàn tất **một gói nhận diện và đánh giá video reference** theo `C
 
 3. **Liệt kê phần media còn thiếu**: transcript, phụ đề tiếng Việt đồng bộ (kể cả âm thanh có ý nghĩa), poster, mô tả hình ảnh quan trọng, attribution và phương án thay thế khi video không tải được. Chỉ đánh dấu đạt khi đã kiểm tra bản media cụ thể và có bằng chứng.
 
-4. **Bàn giao review**: đề nghị Product owner chỉ định historical reviewer/media reviewer. Gửi hồ sơ cho Thọ và reviewer được chỉ định; Trúc vẫn là executor duy nhất. Không chuyển `CONTENT-006` sang `DONE` khi chưa có review chuyên môn và bằng chứng đạt acceptance.
+4. **Bàn giao review**: Product owner đã giao Trúc chốt media/legal; quyết định hiện tại là `APPROVED_FOR_INTERNAL_REFERENCE_ONLY`. Không chuyển `CONTENT-006` sang `DONE` khi chưa có bản media/package đạt acceptance publish hoặc quyết định rõ ràng rằng task chỉ dừng ở hồ sơ reference.
 
 ## Phạm vi và đầu ra
 
-- **Trong phạm vi**: xác định đúng reference, lập hồ sơ nguồn/media, đề xuất hướng sử dụng và learning objective, ghi thiếu sót/điểm cần reviewer quyết định.
+- **Trong phạm vi**: xác định đúng reference, lập hồ sơ nguồn/media, đề xuất hướng sử dụng và learning objective, ghi quyết định đã chốt cùng thiếu sót nếu muốn dùng ngoài reference.
 - **Ngoài phạm vi**: sửa ứng dụng; tích hợp hoặc publish video; sản xuất video MVP theo screenplay. Video MVP thuộc `CONTENT-007`, hiện `BLOCKED` cho đến khi dependency của task đó được gỡ.
-- **Đầu ra**: một hồ sơ review được liên kết từ task card `CONTENT-006`, đủ để reviewer quyết định và người nhận task tiếp theo hiểu trạng thái media. Nếu chưa có reviewer hoặc license/source chưa rõ thì giữ blocker, không tự phê duyệt.
+- **Đầu ra**: một hồ sơ review được liên kết từ task card `CONTENT-006`, đủ để người nhận task tiếp theo hiểu trạng thái media. Product owner đã giao Trúc chốt media/legal; quyết định hiện tại chỉ cho phép reference nội bộ, không tự phê duyệt publish/integration.
 - **Executor**: Trúc. Thọ/Product owner/historical reviewer là người phối hợp hoặc reviewer, không phải đồng executor.
 
 ## Quy trình và tài liệu cần dùng
@@ -270,9 +309,9 @@ Các tài liệu này là quy trình dự án cần tuân theo; handoff này kh�
 ## Điều kiện hoàn tất và kiểm tra
 
 - [x] Đã phân biệt hai ứng viên; Trúc xác nhận “Trước cơn bão” là clip cần review.
-- [ ] Có metadata, nguồn/license status, objective và khuyến nghị có căn cứ.
-- [ ] Có danh sách trạng thái transcript, caption, poster, attribution, mô tả hình ảnh và fallback.
-- [ ] Historical/media reviewer được Product owner chỉ định và nhận hồ sơ review.
-- [ ] Task card được cập nhật evidence, blocker và next action; chỉ chuyển `REVIEW` khi gói review đã sẵn sàng.
+- [x] Có metadata, nguồn/license status, objective và khuyến nghị có căn cứ cho hồ sơ `REFERENCE_ONLY`; chưa đủ publish/integration.
+- [x] Có danh sách trạng thái transcript, caption, poster, attribution, mô tả hình ảnh và fallback; nhiều mục vẫn là draft/thiếu nếu muốn publish.
+- [x] Product owner chỉ định Trúc chốt media/legal; quyết định: `APPROVED_FOR_INTERNAL_REFERENCE_ONLY`.
+- [x] Task card được cập nhật evidence, blocker và next action; không chuyển `REVIEW` vì gói publish/integration chưa đạt.
 
 Không cần build/typecheck vì handoff này không sửa code. Trước khi kết thúc lượt làm việc, kiểm tra diff của đúng file handoff và ghi kết quả vào checkpoint task card khi có deliverable.
