@@ -111,10 +111,10 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 
 | ID | Phase | Task | Owner | Status | Depends on | Files | Acceptance / next action |
 |---|---|---|---|---|---|---|---|
-| FE-001 | Foundation | Sửa TypeScript baseline | Hưng (Member 3) | REVIEW | DOC-010 | [`docs/tasks/active/FE-001.md`](../tasks/active/FE-001.md) | Đã sửa 18 lỗi typecheck; `npx tsc --noEmit` pass 100% |
-| FE-002 | Foundation | Chọn canonical features architecture và cô lập legacy | Hưng (Member 3) | BACKLOG | FE-001, DOC-010 | `src/features/`, `src/screens/` | Không còn duplicate runtime path |
+| FE-001 | Foundation | Sửa TypeScript baseline | Hưng (Member 3) | DONE | DOC-010 | [`docs/tasks/active/FE-001.md`](../tasks/active/FE-001.md) | Đã sửa 18 lỗi typecheck; PR #12 và #13 merged vào main |
+| FE-002 | Foundation | Chọn canonical features architecture và cô lập legacy | Hưng (Member 3) | REVIEW | FE-001, DOC-010 | [`docs/tasks/active/FE-002.md`](../tasks/active/FE-002.md) | Chuyển src/screens sang src/legacy; loại bỏ duplicate runtime |
 | FE-003 | Design system | Chuẩn hóa tokens và UI primitives | Hưng (Member 3) | BACKLOG | FE-001, DOC-010 | `src/theme/`, `src/components/ui/` | UI dùng tokens; ChoiceOption được reuse |
-| FE-004 | App shell | Tách navigation/view state khỏi App quá lớn | Hưng (Member 3) | BACKLOG | FE-001, DOC-005, DOC-006 | `src/App.tsx`, app-state modules | App shell nhẹ, flow test được |
+| FE-004 | App shell | Tách navigation/view state khỏi App quá lớn | Hưng (Member 3) | REVIEW | FE-001, DOC-005, DOC-006 | [`docs/tasks/active/FE-004.md`](../tasks/active/FE-004.md) | Tách AppViewRouter; App.tsx còn 85 dòng (<150 dòng) |
 | FE-005 | VN engine | Xây player v2 trên mock adapter | Dương (Member 4) | BACKLOG | FE-003, DOC-005, DOC-006 | `src/features/visual-novel/` | Scene/choice/retry/debrief/resume/error pass |
 | FE-006 | Video | Xây video-led lesson player và tích hợp media đã duyệt | Dương (Member 4) | BACKLOG | FE-003, DOC-005, DOC-006 | `src/features/learning/` | Player chạy trên mock trước; tích hợp bài học canonical sau CONTENT-007 với caption/transcript/resume/fallback |
 | FE-007 | Quiz | Hợp nhất knowledge check và chapter quiz rules | Dương (Member 4) | BACKLOG | FE-003, DOC-006, DOC-008 | `src/features/quiz/` | Không duplicate reward; feedback accessible |

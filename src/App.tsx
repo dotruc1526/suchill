@@ -1,21 +1,12 @@
 import { useState } from 'react'
 import { TopBar } from './components/layout/TopBar'
 import { BottomNav } from './components/layout/BottomNav'
-
 import { HomeScreen } from './features/home/HomeScreen'
-import { ChapterScreen } from './features/learning/ChapterScreen'
-import { LessonScreen } from './features/learning/LessonScreen'
-import { LessonCompleteScreen } from './features/learning/LessonCompleteScreen'
-import { QuizScreen } from './features/quiz/QuizScreen'
-import { QuizResultScreen } from './features/quiz/QuizResultScreen'
 import { PracticeScreen } from './features/practice/PracticeScreen'
 import { AIScreen } from './features/ai-assistant/AIScreen'
 import { ProfileScreen } from './features/profile/ProfileScreen'
-
-import VisualNovelPlayer from './features/visual-novel/VisualNovelPlayer'
-import { getVisualNovel } from './features/visual-novel/stories'
-
-import { chapters, userStats } from './data'
+import { AppViewRouter } from './app/AppViewRouter'
+import { userStats } from './data'
 import type { Tab, View } from './types'
 
 export default function App() {
@@ -86,73 +77,16 @@ export default function App() {
           {!isOverlay && <BottomNav tab={tab} onTab={setTab} />}
         </div>
 
-        {/* ── Overlay screens ── */}
-        {view.type === 'chapter' && (() => {
-          const ch = chapters.find(c => c.id === view.chapterId)!
-          return (
-            <ChapterScreen
-              chapter={ch}
-              onBack={goHome}
-              onLesson={idx => goLesson(ch.id, idx)}
-              onQuiz={() => goQuiz(ch.id)}
-            />
-          )
-        })()}
-
-        {view.type === 'lesson' && (() => {
-          const ch = chapters.find(c => c.id === view.chapterId)!
-          const lesson = ch.lessons[view.lessonIdx]
-          const visualNovel = lesson?.visualNovelId ? getVisualNovel(lesson.visualNovelId) : undefined
-
-          if (visualNovel) {
-            return (
-              <VisualNovelPlayer
-                story={visualNovel}
-                onBack={() => goChapter(view.chapterId)}
-                onComplete={() => handleLessonDone(view.chapterId, view.lessonIdx)}
-              />
-            )
-          }
-
-          return (
-            <LessonScreen
-              chapter={ch}
-              lessonIdx={view.lessonIdx}
-              onBack={() => goChapter(view.chapterId)}
-              onComplete={() => handleLessonDone(view.chapterId, view.lessonIdx)}
-            />
-          )
-        })()}
-
-        {view.type === 'lesson-done' && (() => {
-          const ch = chapters.find(c => c.id === view.chapterId)!
-          const lesson = ch.lessons[view.lessonIdx]
-          return (
-            <LessonCompleteScreen
-              lesson={lesson}
-              onQuiz={() => goQuiz(view.chapterId)}
-              onHome={() => goChapter(view.chapterId)}
-            />
-          )
-        })()}
-
-        {view.type === 'quiz' && (() => {
-          const ch = chapters.find(c => c.id === view.chapterId)!
-          return (
-            <QuizScreen
-              chapter={ch}
-              onBack={() => goChapter(view.chapterId)}
-              onDone={(score, total) => handleQuizDone(score, total, view.chapterId)}
-            />
-          )
-        })()}
-
-        {view.type === 'quiz-result' && (
-          <QuizResultScreen
-            score={view.score}
-            total={view.total}
-            onHome={goHome}
-            onRetry={() => goQuiz(view.chapterId)}
+        {/* ── Overlay screen router ── */}
+        {isOverlay && (
+          <AppViewRouter
+            view={view}
+            goHome={goHome}
+            goChapter={goChapter}
+            goLesson={goLesson}
+            goQuiz={goQuiz}
+            handleLessonDone={handleLessonDone}
+            handleQuizDone={handleQuizDone}
           />
         )}
       </div>
