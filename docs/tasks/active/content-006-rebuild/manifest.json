@@ -1,7 +1,8 @@
 {
-  "packageId": "CONTENT-006-truoc-con-bao-rebuild-draft",
-  "status": "DRAFT_REFERENCE_ONLY_NEEDS_REVISION",
+  "packageId": "CONTENT-006-truoc-con-bao-recovered-sidecars",
+  "status": "DRAFT_REFERENCE_ONLY_RECOVERED_SIDECARS",
   "createdAt": "2026-09-27",
+  "updatedAt": "2026-09-27",
   "executor": "Truc (Member 2), Codex ho tro",
   "sourceTask": "CONTENT-006",
   "sourceVideo": {
@@ -14,30 +15,68 @@
     "audio": "AAC LC, mono, 48000 Hz",
     "copiedIntoRepo": false
   },
+  "recoveredLocalSidecars": [
+    {
+      "sourcePath": "C:/Users/Thinkpad/Desktop/suchill/dist/media/truoc-con-bao/subtitles.vtt",
+      "packagePath": "docs/tasks/active/content-006-rebuild/subtitles.vtt",
+      "role": "recovered WebVTT subtitles",
+      "sha256": "74E34B1FE478ABFDC1CCF5323DAA7BA5527B9113489857C7D02392B23C784CAB",
+      "bytes": 2392,
+      "reviewStatus": "recovered; needs listen-through before publish"
+    },
+    {
+      "sourcePath": "C:/Users/Thinkpad/Desktop/suchill/dist/media/truoc-con-bao/cues.json",
+      "packagePath": "docs/tasks/active/content-006-rebuild/cues.json",
+      "role": "recovered WordBoundary cue data",
+      "sha256": "823B3BFF4B27CBABB171F0BCD4406E78AB4737ED7AFE1E22763C1B28AB305E11",
+      "bytes": 8391,
+      "reviewStatus": "JSON parse OK; needs listen-through before publish"
+    },
+    {
+      "sourcePath": "C:/Users/Thinkpad/Desktop/suchill/dist/media/truoc-con-bao/storyboard.md",
+      "packagePath": "docs/tasks/active/content-006-rebuild/storyboard.md",
+      "role": "recovered storyboard",
+      "sha256": "49D18014A90F8F12A4F8664A9BDE6E7FD2AA4439559407D9B2950C7FE81BB246",
+      "bytes": 16464,
+      "reviewStatus": "recovered; needs editorial review before publish"
+    },
+    {
+      "sourcePath": "C:/Users/Thinkpad/Desktop/suchill/dist/media/truoc-con-bao/poster.png",
+      "packagePath": "docs/tasks/active/content-006-rebuild/poster.png",
+      "role": "recovered poster",
+      "sha256": "A5A48935DF93BE4911B6F9DA230688F8E488E3DD72CB31FD2C9E9AD66DCFF9C2",
+      "bytes": 1799869,
+      "reviewStatus": "recovered; needs editorial/accessibility review before publish"
+    },
+    {
+      "sourcePath": "C:/Users/Thinkpad/Desktop/suchill/dist/media/truoc-con-bao/episode-audio-steady.m4a",
+      "packagePath": null,
+      "role": "recovered audio candidate, not copied into repo",
+      "sha256": "BB9876CB18E0FDFC1FEA3FDC2427B86B63CABCD8ABD104B43862A5947B2F344E",
+      "bytes": 1911774,
+      "reviewStatus": "rights not cleared; not publish-approved"
+    },
+    {
+      "sourcePath": "C:/Users/Thinkpad/Desktop/suchill/dist/media/truoc-con-bao/voice-over.mp3",
+      "packagePath": null,
+      "role": "recovered voice-over candidate, not copied into repo",
+      "sha256": "DB125652DD132621112D9379FF0CFC3D6A4D6289CD72AC736CB5DD92B969B34C",
+      "bytes": 1869164,
+      "reviewStatus": "Microsoft Neural TTS via edge-tts; rights not cleared for publish"
+    }
+  ],
   "rebuiltFiles": [
     {
       "path": "docs/tasks/active/content-006-rebuild/transcript.md",
-      "role": "transcript draft",
-      "reviewStatus": "needs human listen-through"
-    },
-    {
-      "path": "docs/tasks/active/content-006-rebuild/subtitles.vtt",
-      "role": "WebVTT draft",
-      "reviewStatus": "needs revision",
-      "reviewNote": "Truc reported mismatch at cue 5, 00:13.000 --> 00:17.000."
-    },
-    {
-      "path": "docs/tasks/active/content-006-rebuild/cues.json",
-      "role": "cue timing draft",
-      "reviewStatus": "needs revision",
-      "reviewNote": "Cue 5 reported mismatched by Truc during listen-through."
+      "role": "transcript draft reconstructed from CONTENT-006 record",
+      "reviewStatus": "needs human listen-through against recovered sidecars"
     },
     {
       "path": "docs/tasks/active/content-006-rebuild/poster.jpg",
-      "role": "poster frame extracted from 00:00:01",
+      "role": "secondary poster frame extracted from source MP4 at 00:00:01",
       "sha256": "7D55AA198CDE0C1C09320D0FFE3965B6B791DD51137ADCE99A83673D968F913E",
       "bytes": 253187,
-      "reviewStatus": "needs editorial/accessibility review"
+      "reviewStatus": "secondary evidence only"
     },
     {
       "path": "docs/tasks/active/content-006-rebuild/fallback.md",
@@ -45,9 +84,16 @@
       "reviewStatus": "needs accessibility review"
     }
   ],
+  "resolvedIssues": [
+    {
+      "issue": "Draft subtitle cue 5 was reported mismatched at 00:13.000 --> 00:17.000.",
+      "resolution": "Replaced draft subtitles/cues with recovered dist sidecars. Recovered cue 5 is 00:00:11.800 --> 00:00:16.283.",
+      "status": "resolved for recovered sidecar package"
+    }
+  ],
   "rightsAndReview": {
     "historicalClaims": "4 verified; 1 revision required before use per CONTENT-006",
-    "wordingBlocker": "current MP4 still says tam diem cua ca cuoc chien",
+    "wordingBlocker": "current MP4 and recovered cues still say tam diem cua ca cuoc chien",
     "approvedReplacement": "Nhung tai sao mot thung lung o Tay Bac lai tro thanh diem quyet chien chien luoc cua hai ben?",
     "audioVoice": "Microsoft Neural TTS via edge-tts, publish permission not cleared",
     "musicSfx": "permission/manifest not cleared",
