@@ -53,6 +53,17 @@ Codex đã tạo package nháp tại [content-006-rebuild](./content-006-rebuild
 
 Kết quả kiểm tra: JSON parse OK; VTT có 28 cue và kết thúc 01:33.389; poster trích bằng FFmpeg từ MP4 chính. Cue 27 vẫn giữ wording hiện có để khớp MP4/audio, nhưng wording này vẫn `REVISION_REQUIRED_BEFORE_USE`, nên muốn publish phải re-export video với câu đã duyệt.
 
+### Checkpoint — listen-through issue (2026-09-27)
+
+Trúc nghe đối chiếu và báo phụ đề lệch từ cue 5:
+
+```text
+00:13.000 --> 00:17.000
+cuộc kháng chiến chống Pháp đã kéo dài nhiều năm rồi.
+```
+
+Codex đã ghi issue này vào package rebuild và chuyển `cues.json`/`manifest.json` sang `DRAFT_REFERENCE_ONLY_NEEDS_REVISION`. Chưa sửa timing cụ thể vì chưa có mốc đúng; việc tiếp theo là Trúc cung cấp mốc/câu đúng hoặc tiếp tục nghe chi tiết để chỉnh cue.
+
 ### Checkpoint mới nhất — media package audit (2026-09-27)
 
 Trúc đã yêu cầu tiếp tục `CONTENT-006` theo hướng làm hết phần còn lại của clip “Trước cơn bão”. Codex kiểm tra `main` sau PR #23 và các dấu vết local trước khi sửa media. Kết luận: chưa thể tạo package publish/integration trong repo hiện tại vì source package cuối không có trong Git.

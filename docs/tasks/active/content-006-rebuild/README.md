@@ -24,3 +24,6 @@ The MP4 itself is not copied into this repo. The source video hash is recorded i
 
 This package does not approve publish or integration. The MP4 still contains the wording that CONTENT-006 marked `REVISION_REQUIRED_BEFORE_USE`; audio/voice, music/SFX and source export rights are not cleared for publish. Before use outside `REFERENCE_ONLY`, Truc must replace or re-export the video with approved wording and then rerun the Phase 3/8 media review.
 
+## Listen-through issue log
+
+- 2026-09-27 — Truc reported a subtitle mismatch starting at cue 5 (`00:13.000 --> 00:17.000`, text: "cuộc kháng chiến chống Pháp đã kéo dài nhiều năm rồi."). The VTT/cue timing remains a draft and needs revision before any use outside `REFERENCE_ONLY`.

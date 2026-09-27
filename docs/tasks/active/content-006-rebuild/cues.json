@@ -1,5 +1,5 @@
 {
-  "status": "DRAFT_REFERENCE_ONLY",
+  "status": "DRAFT_REFERENCE_ONLY_NEEDS_REVISION",
   "sourceTask": "CONTENT-006",
   "sourceVideoPath": "D:/suchill-render-work/episode-portrait-no-box-text-v3.mp4",
   "sourceVideoSha256": "2B7DEF3CD371275F73F062707B9CD212BCA663B4B8E66EEB980272B5C092F0EC",
@@ -7,6 +7,7 @@
   "language": "vi",
   "notes": [
     "Cue timings were rebuilt from the CONTENT-006 record and must be checked by listening to the MP4 before any use outside REFERENCE_ONLY.",
+    "Cue 5 was reported by Truc as mismatched starting at 00:13.000 --> 00:17.000 and needs timing/text revision.",
     "Cue 27 preserves the current MP4 wording so subtitles match the surviving video; this wording remains REVISION_REQUIRED_BEFORE_USE."
   ],
   "cues": [
@@ -14,7 +15,7 @@
     { "id": 2, "start": 3.0, "end": 6.0, "text": "Trước khi nói tới Điện Biên Phủ," },
     { "id": 3, "start": 6.0, "end": 9.0, "text": "cho Sửu tua ngược thời gian một chút nha." },
     { "id": 4, "start": 9.0, "end": 13.0, "text": "Đầu những năm 1950," },
-    { "id": 5, "start": 13.0, "end": 17.0, "text": "cuộc kháng chiến chống Pháp đã kéo dài nhiều năm rồi." },
+    { "id": 5, "start": 13.0, "end": 17.0, "text": "cuộc kháng chiến chống Pháp đã kéo dài nhiều năm rồi.", "reviewStatus": "NEEDS_REVISION", "reviewNote": "Truc reported mismatch from this cue during listen-through on 2026-09-27." },
     { "id": 6, "start": 17.0, "end": 20.383, "text": "Và càng kéo dài thì chiến trường càng căng." },
     { "id": 7, "start": 20.383, "end": 23.6, "text": "Về phía Pháp," },
     { "id": 8, "start": 23.6, "end": 27.0, "text": "vấn đề bắt đầu chất thành... một đống." },
@@ -40,4 +41,3 @@
     { "id": 28, "start": 90.0, "end": 93.389, "text": "Đó là chuyện của tập sau. Đi thôi!" }
   ]
 }
-

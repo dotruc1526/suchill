@@ -1,6 +1,6 @@
 {
   "packageId": "CONTENT-006-truoc-con-bao-rebuild-draft",
-  "status": "DRAFT_REFERENCE_ONLY",
+  "status": "DRAFT_REFERENCE_ONLY_NEEDS_REVISION",
   "createdAt": "2026-09-27",
   "executor": "Truc (Member 2), Codex ho tro",
   "sourceTask": "CONTENT-006",
@@ -23,12 +23,14 @@
     {
       "path": "docs/tasks/active/content-006-rebuild/subtitles.vtt",
       "role": "WebVTT draft",
-      "reviewStatus": "needs human listen-through and timing QA"
+      "reviewStatus": "needs revision",
+      "reviewNote": "Truc reported mismatch at cue 5, 00:13.000 --> 00:17.000."
     },
     {
       "path": "docs/tasks/active/content-006-rebuild/cues.json",
       "role": "cue timing draft",
-      "reviewStatus": "needs human listen-through and timing QA"
+      "reviewStatus": "needs revision",
+      "reviewNote": "Cue 5 reported mismatched by Truc during listen-through."
     },
     {
       "path": "docs/tasks/active/content-006-rebuild/poster.jpg",
@@ -53,4 +55,3 @@
   },
   "nextAction": "If the team wants to use this clip outside REFERENCE_ONLY, re-export the MP4 with approved wording, rerun audio/subtitle QA, and resolve audio/music/SFX permission before review."
 }
-
