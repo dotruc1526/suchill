@@ -2,7 +2,6 @@
 
 Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây:
 
-- [M0-00](./M0-00.md) — đang chốt owner/reviewer, dependency và phạm vi file cho Milestone 0.
 - [DOC-011](./DOC-011.md) — chốt video của Member 2 là deliverable MVP, chờ product owner review.
 - [DOC-012](./DOC-012.md) — chốt phạm vi kháng chiến chống Mỹ và MVP một chapter mẫu nhiều lesson, chờ product owner review.
 - [DOC-013](./DOC-013.md) — rà soát AGENTS/Architecture và milestone gate, chờ product owner review.

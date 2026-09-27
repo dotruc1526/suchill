@@ -27,6 +27,12 @@ npm run dev
 
 Vite dev server có thể đã được môi trường Figma Make/Codex khởi động. Không đưa secret đặc quyền vào source hoặc biến môi trường client.
 
+## Kiểm tra chất lượng (local/CI)
+
+Sau `npm ci`, chạy `npm run quality` để kiểm tra TypeScript, client secret scan, unit, component, production build và E2E theo thứ tự fail-fast. CI dùng đúng lệnh này. Không cần Supabase credential hoặc mạng ngoài trong lúc test; E2E dùng server loopback và Chrome/Chromium đã cài trên máy. Nếu trình duyệt không nằm trong đường mặc định, đặt `CHROME_PATH` trỏ tới executable trước khi chạy. CI workflow tự provision Chrome và truyền đường dẫn này.
+
+Khi cần chạy riêng từng tầng: `npm run typecheck`, `npm run build`, `npm run test:unit`, `npm run test:component`, `npm run test:e2e`. Lưu exit code và số test pass/fail trong task card. E2E tự build trước khi chạy; cảnh báo Vite native config hiện không chặn build. `npm test` chạy cả ba tầng test, còn `npm run quality` thêm typecheck và secret scan.
+
 ## Cách nhận việc
 
 Chỉ cần nói tên hoặc vai trò của mình (ví dụ “tôi là Thọ” hoặc “tôi là Member 1”) để AI đọc board và tìm task `READY` phù hợp. Sau đó đọc task card, khai báo owner/files trước khi sửa và cập nhật checkpoint/evidence/handoff. Xem [hướng dẫn task chi tiết](docs/tasks/README.md).

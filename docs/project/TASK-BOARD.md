@@ -1,6 +1,6 @@
 # Sử Chill — Shared Task Board
 
-> Last updated: 2026-09-26\
+> Last updated: 2026-09-27\
 > Owner: Project team\
 > Purpose: Nguồn context chung cho product owner, thành viên nhóm và AI agents
 
@@ -109,18 +109,24 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 
 ### A.1 Milestone 0 — các bước thực thi hiện tại
 
-Bảng này triển khai trực tiếp M0 trong Phase 9. Các task `BLOCKED` đã có card để cả nhóm thấy thứ tự nhưng chưa được claim file hay sửa code. `M0-02`, `M0-03` và `M0-04` là bước thực thi tương ứng cho các task frontend foundation trên board; không tạo hai luồng code song song.
+Bảng này triển khai trực tiếp M0 trong Phase 9. M0-00..07 đã `DONE` trên nhánh local ngày 2026-09-27; điều này không tự mở M1 nếu Product owner chưa duyệt rõ gate M0 trên board. `M0-02`, `M0-03` và `M0-04` là bước thực thi tương ứng cho các task frontend foundation trên board; không tạo hai luồng code song song.
 
 | ID | Việc cần làm | Owner | Reviewer | Status | Depends on | Card | Kết quả cần đạt / bước tiếp theo |
 |---|---|---|---|---|---|---|---|
-| M0-00 | Chốt người làm, reviewer, dependency và phạm vi file | Codex + các owner được gán | Product owner | IN PROGRESS | DOC-010 | [`M0-00`](../tasks/active/M0-00.md) | Vinh nhận việc Member 5, báo Hưng đã nhận phần frontend; chờ Product owner review và xác nhận context/file conflict trước M0-01 |
-| M0-01 | Chạy lại baseline hiện tại | Codex | Vinh + Product owner | BLOCKED | M0-00 | [`M0-01`](../tasks/blocked/M0-01.md) | Sau M0-00, ghi evidence typecheck/build/demo trước khi sửa code |
-| M0-02 | Sửa lỗi TypeScript baseline (`FE-001`) | Hưng (Member 3) | Vinh + Codex | BLOCKED | M0-01 | [`M0-02`](../tasks/blocked/M0-02.md) | `tsc --noEmit` pass; không mở rộng sang refactor ngoài lỗi baseline |
-| M0-03 | Cô lập legacy/prototype (`FE-002`) | Hưng (Member 3) | Vinh + Codex | BLOCKED | M0-01 | [`M0-03`](../tasks/blocked/M0-03.md) | Runtime/compile dùng đường canonical, prototype được giữ an toàn |
-| M0-04 | Làm nhẹ app shell (`FE-004`) | Hưng (Member 3) | Vinh + Codex | BLOCKED | M0-02 | [`M0-04`](../tasks/blocked/M0-04.md) | `App.tsx` chỉ còn composition/router nhẹ và state có kiểu |
-| M0-05 | Dựng nền tảng test | Vinh (Member 5) | Hưng + Codex | BLOCKED | M0-02 | [`M0-05`](../tasks/blocked/M0-05.md) | Có skeleton unit/component/E2E và scripts chạy được |
-| M0-06 | Khóa ranh giới env và secret | Vinh (Member 5) + Product owner | Hưng + Product owner | BLOCKED | M0-01 | [`M0-06`](../tasks/blocked/M0-06.md) | Client chỉ thấy public key; có bundle check và kế hoạch rotate key cũ trước M4 |
-| M0-07 | Chuẩn hóa lệnh kiểm tra local/CI | Vinh (Member 5) | Hưng + Codex | BLOCKED | M0-05 | [`M0-07`](../tasks/blocked/M0-07.md) | Typecheck/build/test commands được tài liệu hóa và chạy ổn định |
+| M0-00 | Chốt người làm, reviewer, dependency và phạm vi file | Codex + các owner được gán | Product owner | DONE | DOC-010 | [`M0-00`](../tasks/done/M0-00.md) | Ảnh duyệt Product owner và xác nhận nhóm do Vinh chuyển lời; file claim không xung đột code, không tự đóng gate M0 |
+| M0-01 | Chạy lại baseline hiện tại | Codex | Vinh + Product owner | DONE | M0-00 | [`M0-01`](../tasks/done/M0-01.md) | Typecheck/build exit 0, smoke demo pass; Vinh xác nhận nhóm đã chấp nhận kết quả ngày 2026-09-26 (lời chuyển, không phải PO review trực tiếp trong repo) |
+| M0-02 | Sửa lỗi TypeScript baseline (`FE-001`) | Hưng (Member 3) | Vinh + Codex | DONE | M0-01 | [`M0-02`](../tasks/done/M0-02.md) | PR #12/#13 trong HEAD; typecheck/build exit 0; FE-001 có smoke UI; Vinh chuyển xác nhận Hưng |
+| M0-03 | Cô lập legacy/prototype (`FE-002`) | Hưng (Member 3) | Vinh + Codex | DONE | M0-01 | [`M0-03`](../tasks/done/M0-03.md) | 10 screens trong legacy, không import runtime; quality và UI smoke pass |
+| M0-04 | Làm nhẹ app shell (`FE-004`) | Hưng (Member 3) | Vinh + Codex | DONE | M0-02 | [`M0-04`](../tasks/done/M0-04.md) | App 95 dòng, typed View/router, quality và UI navigation smoke pass |
+| M0-05 | Dựng nền tảng test | Vinh (Member 5) | Hưng + Codex | DONE | M0-02 | [`M0-05`](../tasks/done/M0-05.md) | Unit 13/13, component 1/1, Chromium E2E 1/1, typecheck/build pass; Vinh chuyển xác nhận Hưng |
+| M0-06 | Khóa ranh giới env và secret | Vinh (Member 5) + Product owner | Hưng + Product owner | DONE | M0-01 | [`M0-06`](../tasks/done/M0-06.md) | Guard + scan 162 file/0 unsafe, typecheck/build + 13/13 test pass; Vinh chuyển xác nhận Hưng và Product owner ngày 2026-09-27; rotation thật trước M4 |
+| M0-07 | Chuẩn hóa lệnh kiểm tra local/CI | Vinh (Member 5) | Hưng + Codex | DONE | M0-05 | [`M0-07`](../tasks/done/M0-07.md) | Local `npm run quality` exit 0; CI workflow cùng command, kiểm tra GitHub run sau push; Vinh chuyển xác nhận Hưng |
+
+Theo yêu cầu của Vinh, [`BEQA-LOCAL-001`](../tasks/done/BEQA-LOCAL-001.md) là bản chuẩn bị độc lập trên nhánh local cho lane Backend + QA. Task này **không thay thế dependency, reviewer hoặc gate** của M0–M7; không push/merge/áp migration. Các task chính thức vẫn giữ status trong bảng cho đến khi tích hợp và kiểm chứng.
+
+| ID | Owner | Status | Scope | Evidence / next action |
+|---|---|---|---|---|
+| BEQA-LOCAL-001 | Vinh (Member 5) / Codex | DONE (local-only) | Env guard, domain v2, validator, mock contracts, pure reward policy, QA matrix | Vinh chấp nhận ngày 2026-09-26; M0-05/06/07 được nghiệm thu riêng ngày 2026-09-27; không push |
 
 ### B. Frontend implementation — theo dependency và milestone gate Phase 9
 
@@ -190,7 +196,6 @@ Chỉ các task có status `IN PROGRESS` được coi là đang có người là
 
 | ID | Owner / executor | Reviewer | Started | Current next action | Blocker | Last checkpoint |
 |---|---|---|---|---|---|---|
-| M0-00 | Codex + assigned owners / Codex | Product owner | 2026-09-24 | Product owner review; Hưng/Vinh xác nhận context và file conflict | Chờ phê duyệt Product owner và evidence xác nhận của owner | Vinh giao Codex làm task Member 5, báo Hưng đã nhận phần frontend; không push khi Vinh chưa yêu cầu |
 | DOC-011 | Codex / Codex | Product owner | 2026-09-23 | Review quyết định video MVP và task CONTENT-007 | Chờ review tài liệu | Member 2 sản xuất; Member 1 script/source; Member 4 tích hợp player |
 | DOC-012 | Codex / Codex | Product owner | 2026-09-23 | Review scope kháng chiến chống Mỹ và MVP chapter mẫu | Chờ review tài liệu | Product owner chốt một chapter mẫu nhiều lesson; CONTENT-008 đã tạo |
 | DOC-013 | Codex / Codex | Product owner | 2026-09-23 | Review quy tắc milestone gate và role discovery | Chờ review tài liệu | Đã đồng bộ AGENTS/Architecture/Phase 9; tạo sáu blocked cards; link/status check OK |
@@ -205,6 +210,20 @@ Mỗi lần handoff quan trọng thêm một dòng mới nhất ở đầu bản
 
 | Date | Task | Author | Update | Evidence / next owner |
 |---|---|---|---|---|
+| 2026-09-27 | M0 branch handoff | Vinh | Yêu cầu push nhánh local M0 lên GitHub; không yêu cầu merge main | Sau push, kiểm tra CI và cho Vinh review nhánh; M0 gate vẫn cần PO duyệt rõ |
+| 2026-09-27 | M0-02..07 | Vinh + Codex | M0-02..07 DONE local theo dependency và evidence; Hưng xác nhận qua lời Vinh chuyển, không giả là review trực tiếp; chưa push hay mở M1 | `npm run quality` exit 0, scan 162/0 unsafe, unit 13/13, component 1/1, E2E 1/1; UI Home/Practice/Chapter/Lesson và console 0 error; CI GitHub chờ push, M0 gate chờ PO duyệt rõ trên board |
+| 2026-09-27 | M0-06 | Vinh (chuyển lời Hưng) + Codex | Vinh xác nhận Hưng đã duyệt các task M0; M0-06 DONE theo acceptance và xác nhận Product owner về rotation plan | Typecheck/build, 13/13 tests, scan 162 file/0 unsafe; xác nhận Hưng là lời Vinh chuyển, không push |
+| 2026-09-27 | M0-06 | Vinh (chuyển lời Product owner) | Product owner xác nhận kế hoạch rotation đã bàn giao | Card M0-06 ghi provenance; Hưng cần review bản code mới trước DONE, không push |
+| 2026-09-27 | M0-06 | Codex | Củng cố public key guard, scanner và ma trận env/rotation; chuyển REVIEW | Typecheck/build exit 0, 13/13 tests, scan 162 file/0 unsafe; Hưng + Product owner review kế hoạch, không push |
+| 2026-09-26 | M0-01 / M0-06 | Vinh + Codex | Vinh xác nhận tất cả các bên đã chấp nhận kết quả; M0-01 DONE, M0-06 READY theo dependency | Xác nhận là lời Vinh chuyển trong chat, không giả là PO review trực tiếp trong repo; M0-06 cần verification riêng, không push |
+| 2026-09-26 | M0-00 / M0-01 | Codex | Ghi nhận xác nhận nhóm do Vinh chuyển lời cùng bằng chứng Product owner duyệt M0-00; M0-00 DONE, M0-01 READY | M0-01 chưa chạy; integration owner claim và đo baseline hiện tại trong lượt riêng; không push |
+| 2026-09-26 | M0-01 | Codex | Đo baseline hiện tại: TypeScript/build sạch; smoke Home, 4 tab, chapter, lesson choice, quiz 4/4 và console không lỗi; card REVIEW | Vinh + Product owner review evidence trong M0-01 card; chưa mở task phụ thuộc, không push |
+| 2026-09-26 | M0-00 | Codex | Đối chiếu ảnh duyệt do Vinh cung cấp và kiểm tra file claim sau khi ghép Hưng; giữ IN PROGRESS vì thiếu xác nhận đọc context của owner | `git ls-files -u` rỗng, code paths riêng, board là tài liệu chung đã ghép; Hưng/Vinh xác nhận đọc context, Product owner đóng M0-00 |
+| 2026-09-26 | BEQA-LOCAL-001 | Vinh | Review và chấp nhận bản chuẩn bị Backend + QA local; chuyển DONE local-only | Xác nhận trực tiếp trong chat; M0-05/06/07 vẫn BLOCKED theo dependency, không push |
+| 2026-09-26 | BEQA-LOCAL-001 | Codex | Sửa TS2339 trong validator local, thêm test reference cho các loại lesson block, chuyển REVIEW | Typecheck/build + 12/12 test + scan 73 files pass; Vinh review, không push |
+| 2026-09-26 | BEQA-LOCAL-001 | Codex | Nhận nhánh Hưng M0-03/M0-04 vào local; mở lại task local sau khi typecheck phát hiện TS2339 trong validator | Build + 11/11 test + scan 73 files pass; sửa `src/services/next/validation.ts:36` rồi review, không push |
+| 2026-09-24 | BEQA-LOCAL-001 | Codex | Hoàn thành bản chuẩn bị độc lập, chuyển local task sang REVIEW; không đổi status M0–M7 chính thức | 11/11 test pass, scanner 0 unsafe matches trên 69 files; Vinh review diff, không push |
+| 2026-09-24 | BEQA-LOCAL-001 | Vinh + Codex | Vinh yêu cầu thực hiện trước phần Member 5 độc lập, không chờ duyệt, không push; giữ nguyên gate/task chính thức | Claim khu vực `src/services/next/`, `src/types/v2/`, `tests/`, scripts và env example; không chạm UI/package/migration áp dụng |
 | 2026-09-24 | M0-00 | Vinh + Codex | Đính chính: tin nhắn đồng ý trước đó là của Vinh (Member 5), không phải Product owner; Vinh giao Codex làm lần lượt task Member 5, chưa push | Chờ Product owner review M0-00; Vinh báo Hưng đã nhận M0-02..04 |
 | 2026-09-24 | M0-00 | Codex | Thêm root `active.md`, đề xuất model cho task kế tiếp và project skill khóa agent vào đúng scope bàn giao | Product owner review; Hưng/Vinh xác nhận; M0-01 vẫn blocked |
 | 2026-09-24 | M0-00..07 | Codex | Tạo nhánh `codex/member5-backend-qa-plan`, chia M0 thành card có owner/reviewer/dependency và làm rõ ba bước của Member 5 | Hưng/Vinh xác nhận nhận việc; Product owner review trước khi mở M0-01 |
