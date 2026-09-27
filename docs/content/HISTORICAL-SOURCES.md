@@ -45,4 +45,13 @@ Các ID SRC-VN-01…05 trong bản quiz trước chưa có registry tương ứn
 
 ## Việc reviewer cần làm
 
-Thọ kiểm tra cách diễn đạt và learning objective; historical reviewer được chỉ định xác nhận từng claim và việc dùng nguồn báo chí; media reviewer xác nhận từng asset. Pilot và curriculum cũ vẫn cần lượt review riêng theo CONTENT-003; thay registry không tự duyệt toàn bộ chapter.
+Trúc được Thọ giao toàn bộ phần sửa và historical/learning/media review theo xác nhận ngày 2026-09-27. Codex lập bản đối chiếu, không giả chữ ký của Trúc. Trúc xác nhận trên bản cụ thể; Vinh kiểm tra kỹ thuật trước nghiệm thu.
+
+## Coverage của bản authoring v2
+
+- Pilot cue p01a → CLM-MT68-07; p02a/p02b → CLM-MT68-04; p03a/p03b → CLM-MT68-01; p04a → CLM-MT68-02; p04b → CLM-MT68-03.
+- Cue p01b/p05 và lời giải thích phương pháp là educational_explanation, không thêm dữ kiện lịch sử.
+- MAP-MT68.json và LESSON-02-STORY.json có claim/source ID ở từng node/scene; nguồn cho overview là hợp của năm node.
+- Không sử dụng lại hiệu lệnh thơ, múi giờ làm đáp án, tên vật liệu nắp hầm, số giờ giữ toàn bộ Đại sứ quán hay các diễn biến thiếu locator.
+- Diễn giải “không đồng nhất kế hoạch với kết quả” dùng để hướng dẫn đọc nguồn, không phải trích dẫn nguyên văn.
+- Giữ NEEDS_HISTORICAL_REVIEW cho đến khi Trúc ghi xác nhận trên bản narration/story cụ thể. Việc được giao quyền review không tự tạo kết quả review.
