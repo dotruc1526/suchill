@@ -1,0 +1,76 @@
+﻿{
+  "id": "quiz-mt68-chapter-assessment",
+  "title": "Đánh giá Chương: Chiến dịch Mậu Thân 1968",
+  "questions": [
+    {
+      "id": "q-mt68-01",
+      "objectiveId": "CLO-1",
+      "question": "Tính chất đặc biệt nhất của cuộc Tổng tiến công và nổi dậy Tết Mậu Thân 1968 là gì?",
+      "options": [
+        { "id": "A", "text": "Chỉ sử dụng vũ khí hiện đại để đối đầu trực diện." },
+        { "id": "B", "text": "Tiến công đồng loạt vào các đô thị, sào huyệt của địch trong dịp Tết." },
+        { "id": "C", "text": "Tập trung đánh lớn ở vùng rừng núi." },
+        { "id": "D", "text": "Nhờ viện trợ trực tiếp bằng quân đội từ quốc tế." }
+      ],
+      "correctOptionId": "B",
+      "explanation": "Điểm độc đáo và táo bạo nhất của Mậu Thân 1968 là việc chuyển hướng tấn công chiến lược thẳng vào các đô thị lớn - sào huyệt an toàn nhất của địch - vào đúng thời khắc Giao thừa.",
+      "sourceIds": ["SRC-VN-01", "SRC-VN-02"]
+    },
+    {
+      "id": "q-mt68-02",
+      "objectiveId": "CLO-2",
+      "question": "Trong chiến dịch Mậu Thân 1968 tại Sài Gòn, mục tiêu nào sau đây KHÔNG phải là một trong 5 mục tiêu đầu não bị Biệt động Sài Gòn tấn công đầu tiên?",
+      "options": [
+        { "id": "A", "text": "Tòa Đại sứ Mỹ" },
+        { "id": "B", "text": "Dinh Độc Lập" },
+        { "id": "C", "text": "Đài Phát thanh Sài Gòn" },
+        { "id": "D", "text": "Nhà tù Côn Đảo" }
+      ],
+      "correctOptionId": "D",
+      "explanation": "Năm mục tiêu đầu não bị Biệt động Sài Gòn đồng loạt tấn công là: Tòa Đại sứ Mỹ, Dinh Độc Lập, Đài Phát thanh, Bộ Tổng Tham mưu và Bộ Tư lệnh Hải quân. Nhà tù Côn Đảo nằm ở ngoài khơi, không thuộc chiến trường nội đô Sài Gòn.",
+      "sourceIds": ["SRC-VN-03"]
+    },
+    {
+      "id": "q-mt68-03",
+      "objectiveId": "CLO-3",
+      "question": "Căn hầm bí mật nào dưới đây đã được sử dụng làm nơi cất giấu gần 2 tấn vũ khí cho Đội 5 Biệt động đánh Dinh Độc Lập?",
+      "options": [
+        { "id": "A", "text": "Hầm bí mật tại Củ Chi" },
+        { "id": "B", "text": "Số 287/70 đường Võ Văn Tần (Sài Gòn)" },
+        { "id": "C", "text": "Khu rừng Sác (Cần Giờ)" },
+        { "id": "D", "text": "Số nhà 48 Hàng Ngang (Hà Nội)" }
+      ],
+      "correctOptionId": "B",
+      "explanation": "Căn hầm vũ khí bí mật số 287/70 đường Võ Văn Tần (Quận 3) do chiến sĩ Trần Văn Lai và gia đình xây dựng, là nơi xuất phát của Đội 5 Biệt động đánh Dinh Độc Lập.",
+      "sourceIds": ["SRC-VN-04"]
+    },
+    {
+      "id": "q-mt68-04",
+      "objectiveId": "CLO-1",
+      "question": "Vì sao các tỉnh miền Nam và Sài Gòn tiến công vào rạng sáng 31/01/1968 (Mùng 2 Tết) thay vì Mùng 1 Tết như kế hoạch ban đầu?",
+      "options": [
+        { "id": "A", "text": "Do lộ bí mật quân sự trước giờ xuất kích." },
+        { "id": "B", "text": "Do sự khác biệt về cách tính lịch âm giữa miền Bắc (GMT+7) và miền Nam (GMT+8)." },
+        { "id": "C", "text": "Do lệnh điều động quân bị sai lệch qua đường vĩ tuyến." },
+        { "id": "D", "text": "Do thời tiết sương mù cản trở giao liên." }
+      ],
+      "correctOptionId": "B",
+      "explanation": "Miền Bắc áp dụng lịch theo múi giờ GMT+7 (Giao thừa là đêm 29/1); trong khi miền Nam dùng lịch GMT+8 (Giao thừa chậm hơn 1 ngày, tức đêm 30/1). Sự chênh lệch lịch này dẫn đến việc Sài Gòn và Nam Bộ nổ súng vào rạng sáng 31/1 (Mùng 2 Tết).",
+      "sourceIds": ["SRC-VN-05"]
+    },
+    {
+      "id": "q-mt68-05",
+      "objectiveId": "CLO-4",
+      "question": "Bước ngoặt lịch sử quan trọng nhất mà cuộc Tổng tiến công và nổi dậy Tết Mậu Thân 1968 mang lại là gì?",
+      "options": [
+        { "id": "A", "text": "Buộc đối phương phải đầu hàng vô điều kiện ngay tại Sài Gòn." },
+        { "id": "B", "text": "Làm phá sản chiến lược 'Chiến tranh cục bộ', buộc Mỹ phải xuống thang và chấp nhận đàm phán tại Paris." },
+        { "id": "C", "text": "Giải phóng hoàn toàn các đô thị lớn ở miền Nam." },
+        { "id": "D", "text": "Thống nhất đất nước ngay trong năm 1968." }
+      ],
+      "correctOptionId": "B",
+      "explanation": "Đòn tiến công Mậu Thân làm sụp đổ ảo tưởng chiến thắng của Mỹ, làm phá sản chiến lược 'Chiến tranh cục bộ', buộc Tổng thống Johnson tuyên bố xuống thang chiến tranh và chấp nhận đàm phán tại Hội nghị Paris.",
+      "sourceIds": ["SRC-VN-01"]
+    }
+  ]
+}

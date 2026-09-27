@@ -146,6 +146,9 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 | CONTENT-007 | MVP video | Biên tập video theo kịch bản và bàn giao cho bài học canonical | Trúc (Member 2) | BLOCKED | CONTENT-003, CONTENT-004, DOC-004 | [`docs/tasks/blocked/CONTENT-007.md`](../tasks/blocked/CONTENT-007.md) | Ít nhất một video qua source/history/media review, có caption/transcript/poster/fallback/mobile rendition; Dương tích hợp vào lesson |
 | CONTENT-008 | MVP curriculum | Lập bản đồ chapter mẫu gồm nhiều lesson đa định dạng | Thọ (Member 1) | DONE | CONTENT-002, DOC-003, DOC-012 | [`docs/tasks/done/CONTENT-008.md`](../tasks/done/CONTENT-008.md) | Learning objectives, lesson order/format và pilot episode/video placement rõ; historical reviewer kiểm tra scope |
 | CONTENT-009 | Nghiên cứu nguồn sơ bộ | Thọ lập danh mục nguồn/chủ đề ứng viên trong phạm vi kháng chiến chống Mỹ | Thọ (Member 1) | REVIEW | DOC-003, DOC-004 | [`docs/tasks/active/CONTENT-009.md`](../tasks/active/CONTENT-009.md) | Đã hoàn tất nghiên cứu 4 chủ đề và Review Round 3 (Final Adversarial Review); sẵn sàng bàn giao cho Product Owner (CONTENT-002) và Historical Reviewer (CONTENT-003) |
+| CONTENT-010 | MVP curriculum | Nội dung Bài 2 (Interactive Map - Sấm sét nội đô) | Thọ (Member 1) | REVIEW | CONTENT-008 | [docs/tasks/active/CONTENT-010.md](../tasks/active/CONTENT-010.md) | Nội dung bản đồ tương tác Mậu Thân |
+| CONTENT-011 | MVP curriculum | Nội dung Bài 3 (Standard) & Bài 4 (Synthesis) | Thọ (Member 1) | REVIEW | CONTENT-008 | [docs/tasks/active/CONTENT-011.md](../tasks/active/CONTENT-011.md) | Bài giảng chi tiết Dinh Độc Lập và Sụp đổ ảo tưởng |
+| CONTENT-012 | MVP curriculum | Đóng gói Ngân hàng câu hỏi (Quiz Schema) | Thọ (Member 1) | REVIEW | CONTENT-008 | [docs/tasks/active/CONTENT-012.md](../tasks/active/CONTENT-012.md) | JSON Quiz schema đầy đủ cho 5 câu hỏi |
 
 ### E. QA and release
 
