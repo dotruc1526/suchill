@@ -38,6 +38,21 @@ Nếu nhóm vẫn muốn dùng clip này ngoài reference, **Trúc (Member 2) l�
 
 Một việc tiếp theo duy nhất: **rebuild package từ MP4 chính**, bắt đầu bằng transcript và subtitle mới. Không copy MP4 vào `main`, không publish, không tích hợp app và không chuyển `REVIEW/DONE` cho đến khi package mới đủ evidence.
 
+### Checkpoint — sidecar package rebuilt (2026-09-27)
+
+Codex đã tạo package nháp tại [content-006-rebuild](./content-006-rebuild/README.md), không copy MP4 vào repo.
+
+| File | Vai trò | Trạng thái |
+|---|---|---|
+| [transcript.md](./content-006-rebuild/transcript.md) | Transcript rebuilt từ hồ sơ CONTENT-006 | Draft; Trúc cần nghe đối chiếu |
+| [subtitles.vtt](./content-006-rebuild/subtitles.vtt) | WebVTT 28 cue | Draft; cần timing QA bằng nghe/xem MP4 |
+| [cues.json](./content-006-rebuild/cues.json) | Cue timing structured | JSON parse OK; cần nghe đối chiếu |
+| [poster.jpg](./content-006-rebuild/poster.jpg) | Poster frame 00:00:01 | SHA-256 `7D55AA198CDE0C1C09320D0FFE3965B6B791DD51137ADCE99A83673D968F913E`; cần editorial/accessibility review |
+| [fallback.md](./content-006-rebuild/fallback.md) | Fallback, alt text, visual description | Draft; cần accessibility review |
+| [manifest.json](./content-006-rebuild/manifest.json) | Hash/provenance/review status | JSON parse OK; vẫn `DRAFT_REFERENCE_ONLY` |
+
+Kết quả kiểm tra: JSON parse OK; VTT có 28 cue và kết thúc 01:33.389; poster trích bằng FFmpeg từ MP4 chính. Cue 27 vẫn giữ wording hiện có để khớp MP4/audio, nhưng wording này vẫn `REVISION_REQUIRED_BEFORE_USE`, nên muốn publish phải re-export video với câu đã duyệt.
+
 ### Checkpoint mới nhất — media package audit (2026-09-27)
 
 Trúc đã yêu cầu tiếp tục `CONTENT-006` theo hướng làm hết phần còn lại của clip “Trước cơn bão”. Codex kiểm tra `main` sau PR #23 và các dấu vết local trước khi sửa media. Kết luận: chưa thể tạo package publish/integration trong repo hiện tại vì source package cuối không có trong Git.
