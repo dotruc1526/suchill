@@ -8,35 +8,35 @@
 
 ## Bắt đầu tại đây — phiếu thực hiện tiếp theo
 
-### Checkpoint mới nhất — MP4 ứng viên còn sót lại (2026-09-27)
+### Checkpoint mới nhất — MP4 chính còn sót lại (2026-09-27)
 
-Trúc cung cấp file MP4 còn lại từ Zalo Temp:
+Trúc đính chính file MP4 đúng của “Trước cơn bão” nằm ở ổ D:
 
-`C:/Users/Thinkpad/AppData/Local/Temp/Zalo Temp/TempDownloads/episode-portrait.mp4`
+`D:/suchill-render-work/episode-portrait-no-box-text-v3.mp4`
 
 Codex kiểm tra read-only:
 
-- File tồn tại, 21.519.301 byte, last modified 2026-09-27 21:18.
-- SHA-256: `6BBC41CC30C34CF4D104AA4793460327AE77973311A6D1DBE592B9C8CAAE31B4`.
-- FFmpeg đọc được duration 01:46, video H.264 1080x1920 24 fps, audio AAC mono 48 kHz.
+- File tồn tại, 19.289.629 byte, last modified 2026-09-23 20:05.
+- SHA-256: `2B7DEF3CD371275F73F062707B9CD212BCA663B4B8E66EEB980272B5C092F0EC`.
+- FFmpeg đọc được duration 01:33.39, video H.264 1080x1920 24 fps, audio AAC mono 48 kHz.
 - Contact sheet khớp nội dung “Trước cơn bão”: mốc 1954, Kế hoạch Navarre, bản đồ, Điện Biên Phủ và teaser Tập 02.
-- File này không khớp hoàn toàn hồ sơ cũ về duration/hash, nên ghi là **MP4 ứng viên còn sót lại**, không phải package final.
+- File này khớp hash/dung lượng/duration đã ghi trong hồ sơ cũ, nên ghi là **MP4 chính còn sót lại**. File Zalo Temp `episode-portrait.mp4` là ứng viên/bản khác và không dùng làm bản chính.
 
-Trúc xác nhận các phần còn lại có lẽ đã xóa. Vì vậy package gốc vẫn mất: không còn `subtitles.vtt`, `cues.json`, transcript, poster/source export/audio project/manifest gốc. CONTENT-006 vẫn `IN PROGRESS` + `REFERENCE_ONLY`.
+Trúc xác nhận các phần còn lại có lẽ đã xóa. Vì vậy package gốc vẫn chưa đủ: không còn `subtitles.vtt`, `cues.json`, transcript, poster/source export/audio project/manifest gốc. CONTENT-006 vẫn `IN PROGRESS` + `REFERENCE_ONLY`.
 
-Nếu nhóm vẫn muốn dùng clip này ngoài reference, **Trúc (Member 2) là người rebuild package** từ MP4 ứng viên:
+Nếu nhóm vẫn muốn dùng clip này ngoài reference, **Trúc (Member 2) là người rebuild package** từ MP4 chính:
 
 | Việc rebuild | Người làm/chốt | Trạng thái sau khi mất source |
 |---|---|---|
 | Tạo lại transcript từ MP4 | Trúc | Chưa làm |
 | Tạo lại `subtitles.vtt` và cue timing | Trúc; Vinh QA kỹ thuật | Chưa làm |
 | Tạo poster mới từ frame của MP4 | Trúc | Chưa làm |
-| Áp dụng wording đã duyệt cho đoạn 01:17-01:29 | Trúc; Thọ/PO xác nhận wording nếu cần | Chưa làm, MP4 hiện vẫn là bản ứng viên |
+| Áp dụng wording đã duyệt cho đoạn 01:17-01:29 | Trúc; Thọ/PO xác nhận wording nếu cần | Chưa làm, MP4 chính hiện vẫn chứa wording cũ |
 | Xử lý audio/voice/nhạc/SFX | Trúc; PO/media/legal chốt | Chưa đủ quyền publish |
 | Lập manifest/hash/source note mới | Trúc; Vinh QA | Chưa làm |
 | Review Phase 3/8 lại | Trúc + Vinh/PO | Chưa làm |
 
-Một việc tiếp theo duy nhất: **rebuild package từ MP4 ứng viên**, bắt đầu bằng transcript và subtitle mới. Không copy MP4 vào `main`, không publish, không tích hợp app và không chuyển `REVIEW/DONE` cho đến khi package mới đủ evidence.
+Một việc tiếp theo duy nhất: **rebuild package từ MP4 chính**, bắt đầu bằng transcript và subtitle mới. Không copy MP4 vào `main`, không publish, không tích hợp app và không chuyển `REVIEW/DONE` cho đến khi package mới đủ evidence.
 
 ### Checkpoint mới nhất — media package audit (2026-09-27)
 
