@@ -1,30 +1,43 @@
-# Bài 2: Sấm sét nội đô — hồ sơ bản đồ tương tác
+# Bài 2: Sấm sét nội đô — Visual Novel đọc hồ sơ
 
-> Task: [CONTENT-010](../tasks/active/CONTENT-010.md)
-> Status: NEEDS_HISTORICAL_REVIEW; chưa phát hành.
-> Lesson ID: `lesson-mt68-02-interactive`; objective: CLO-2.
+> CONTENT-010; revision [CONTENT-014](../tasks/active/CONTENT-014.md).
+> Status: NEEDS_HISTORICAL_REVIEW. Lesson ID: `lesson-mt68-02-interactive`.
+> Story version: `story-mt68-02-v2-draft`; objective CLO-2.
+> Thời lượng dự kiến 6–8 phút gồm đọc năm thẻ và đối chiếu nguồn; chưa usability test.
 
-Mục tiêu: nhận diện năm mục tiêu và phân biệt tiến công một địa điểm với chiếm toàn bộ công trình.
+## Premise và ranh giới
 
-## Bối cảnh và các thẻ địa điểm
+Người học là người đọc tư liệu, không đóng vai chỉ huy. Lựa chọn chỉ đổi thứ tự phân tích, không thay đổi kết quả lịch sử. Không có nhân chứng, lời thoại hay hồi ký hư cấu.
+Các lời dẫn giải thích cách đọc nguồn là educational_explanation; dữ kiện ở các thẻ vẫn chờ historical review.
 
-Cuối tháng 1/1968, các đợt tiến công diễn ra tại nhiều đô thị miền Nam. Năm mục tiêu dưới đây thuộc các hướng tiến công tại Sài Gòn được nguồn ghi nhận. Không suy ra mọi nơi nổ súng cùng một phút. [SRC-MT68-01/02]
+## Nguồn chữ và metadata
 
-| Node ID | Tiêu đề | Nội dung thẻ | Claim / nguồn | Media candidate |
-|---|---|---|---|---|
-| mt68-node-embassy | Tòa Đại sứ Mỹ | Biệt động tiến vào khuôn viên Đại sứ quán; không mô tả là chiếm toàn bộ tòa nhà chính. | CLM-MT68-02 / SRC-MT68-03 | MED-MT68-01 |
-| mt68-node-palace | Dinh Độc Lập | Đội 5 tiến công Dinh; bộc phá mở cổng không nổ. | CLM-MT68-03 / SRC-MT68-04 | MED-MT68-02 |
-| mt68-node-radio | Đài Phát thanh Sài Gòn | Một mục tiêu trong các đợt tiến công nội đô. | CLM-MT68-01 / SRC-MT68-02 | MED-MT68-03 |
-| mt68-node-staff | Bộ Tổng Tham mưu | Một mục tiêu quân sự được nguồn liệt kê. | CLM-MT68-01 / SRC-MT68-02 | MED-MT68-04 |
-| mt68-node-navy | Bộ Tư lệnh Hải quân | Một mục tiêu trong các mũi tiến công tại Sài Gòn. | CLM-MT68-01 / SRC-MT68-02 | MED-MT68-05 |
+[MAP-MT68.json](./MAP-MT68.json) là nguồn duy nhất cho năm thẻ: ID, title, description, claim/source và fallback. Không chép thêm bản khác với lời cũ.
+[LESSON-02-STORY.json](./LESSON-02-STORY.json) chứa nguyên văn narration, option, response/explanation và transition.
+[Registry](./HISTORICAL-SOURCES.md) xác định locator và giới hạn. Source IDs/claim IDs của mỗi scene nằm trong JSON.
+Không có tọa độ đã xác minh: hiển thị ordered cards, không coi x/y của bản cũ là địa lý.
 
-## Giới hạn tương tác và bàn giao
+## Scene-by-scene
 
-- Đây là nội dung thẻ tham khảo; chưa thay thế screenplay Visual Novel mà curriculum yêu cầu.
-- Người học chọn thứ tự đọc; không đóng vai chỉ huy quyết định kết quả lịch sử.
-- Chưa có tọa độ đã kiểm chứng. Khi chưa có bản đồ được review, dùng danh sách thẻ.
-- Bỏ các nhận định chưa có locator về truyền hình trực tiếp, bên phá hủy đài phát thanh, tê liệt bộ chỉ huy và lượng khí tài hải quân bị phá hủy.
-- Media ID trỏ tới [catalog ứng viên](./DETAILED-MEDIA-CATALOG.csv), chưa có asset được duyệt; fallback là nội dung thẻ, không dùng đường dẫn ảnh giả.
-- [Nguồn và claim](./HISTORICAL-SOURCES.md) vẫn cần historical reviewer xác nhận.
+| Scene ID | Role / yêu cầu | Nội dung, choice và next |
+|---|---|---|
+| mt68-v2-overview | Entry/evidence; required; CLO-2 | Đọc đầy đủ năm node của map. Nút tiếp chỉ sau khi đã trình bày đủ cả năm, kể cả chế độ văn bản. Next perspective |
+| mt68-v2-perspective | Branching; required; CLO-2 | Chọn phân biệt wording hoặc kiểm tra loại bằng chứng; response ghi nhận lựa chọn. Next wording/evidence |
+| mt68-v2-wording | Evidence; optional branch; CLO-2 | Phân biệt khuôn viên/công trình; next check |
+| mt68-v2-evidence | Evidence; optional branch; CLO-2 | Phân biệt danh sách mục tiêu và kết quả trận đánh; next check |
+| mt68-v2-check | Knowledge check; required; CLO-2 | Ba option có explanation; continueAfterFeedback, không phạt sai. Mọi option next debrief |
+| mt68-v2-debrief | Synthesis; required; CLO-2 | Nhắc năm mục tiêu, giới hạn wording và nguồn; choice không thay lịch sử. Next end |
+| mt68-v2-end | End; required | Tiếp sang Bài 3, không tự cộng XP |
 
-Câu hỏi đọc hiểu: tiến công một địa điểm có đồng nghĩa chiếm toàn bộ công trình không? Đối chiếu thẻ Đại sứ quán và nguồn rồi giải thích.
+Mỗi nhánh chỉ một scene rồi hội tụ; tất cả đường tới end đi qua overview/check/debrief. RequiredMapNodeIds ở overview phải được adapter/player kiểm tra riêng: graph hợp lệ không tự chứng minh người học đã thấy đủ thẻ.
+
+## Media / accessibility / fallback
+
+Không có asset bắt buộc. Dùng nền màu, typography và text; mọi scene chạy được như danh sách chữ. Optional media candidate chỉ nằm trong catalog, không truyền thành mediaAssetId đã duyệt.
+Hai nhánh có nhãn rõ, dùng keyboard/focus; thông báo phản hồi bằng chữ, không chỉ màu. Hiện chưa có player để xác nhận hành vi này.
+Tôn trọng reduced motion; không nhạc/SFX/autoplay có âm thanh.
+
+## Bàn giao
+
+Đây là authoring JSON, chưa là DTO chuẩn để seed. Dương/Vinh cần adapter/validation khi implementation được mở; không gọi fetch trực tiếp từ UI, không tự biến draft thành published.
+Trúc nghiệm thu historical/learning/media bản này theo quyền Thọ giao. [Media review](./MEDIA-REVIEW-MT68.md) ghi evidence còn thiếu; không tự ký approval bằng kết quả kiểm tra tự động.
