@@ -22,7 +22,7 @@
       "role": "recovered WebVTT subtitles",
       "sha256": "74E34B1FE478ABFDC1CCF5323DAA7BA5527B9113489857C7D02392B23C784CAB",
       "bytes": 2392,
-      "reviewStatus": "recovered; needs listen-through before publish"
+      "reviewStatus": "listen-through pass for REFERENCE_ONLY; not publish-approved"
     },
     {
       "sourcePath": "C:/Users/Thinkpad/Desktop/suchill/dist/media/truoc-con-bao/cues.json",
@@ -30,7 +30,7 @@
       "role": "recovered WordBoundary cue data",
       "sha256": "823B3BFF4B27CBABB171F0BCD4406E78AB4737ED7AFE1E22763C1B28AB305E11",
       "bytes": 8391,
-      "reviewStatus": "JSON parse OK; needs listen-through before publish"
+      "reviewStatus": "JSON parse OK; listen-through pass for REFERENCE_ONLY; not publish-approved"
     },
     {
       "sourcePath": "C:/Users/Thinkpad/Desktop/suchill/dist/media/truoc-con-bao/storyboard.md",
@@ -91,6 +91,12 @@
       "status": "resolved for recovered sidecar package"
     }
   ],
+  "listenThrough": {
+    "date": "2026-09-27",
+    "reviewer": "Truc (Member 2)",
+    "result": "PASS_FOR_REFERENCE_ONLY",
+    "note": "Truc confirmed the recovered subtitle/cue package matches the full clip. This does not clear wording, audio, music/SFX, release, or integration blockers."
+  },
   "rightsAndReview": {
     "historicalClaims": "4 verified; 1 revision required before use per CONTENT-006",
     "wordingBlocker": "current MP4 and recovered cues still say tam diem cua ca cuoc chien",

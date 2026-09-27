@@ -30,3 +30,4 @@ This package does not approve publish or integration. The MP4 still contains the
 
 - 2026-09-27 — Truc reported a subtitle mismatch starting at cue 5 in the draft (`00:13.000 --> 00:17.000`, text: "cuộc kháng chiến chống Pháp đã kéo dài nhiều năm rồi.").
 - 2026-09-27 — Resolved for the recovered sidecar package by replacing the draft VTT/cues with the recovered WordBoundary-timed files from `dist/media/truoc-con-bao/`. Cue 5 is now `00:00:11.800 --> 00:00:16.283`.
+- 2026-09-27 — Truc completed listen-through of the recovered package and confirmed subtitle/cue timing matches the full clip. This confirms sync for the recovered sidecar package only; it does not approve publish/integration because wording and audio/music/SFX rights blockers remain.

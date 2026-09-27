@@ -8,7 +8,26 @@
 
 ## Bắt đầu tại đây — phiếu thực hiện tiếp theo
 
-### Checkpoint mới nhất — sidecar gốc đã tìm lại (2026-09-27)
+### Checkpoint mới nhất — listen-through package recovered PASS (2026-09-27)
+
+Trúc xác nhận:
+
+```text
+Tôi đã nghe lại package recovered, subtitle/cue khớp toàn clip.
+```
+
+Kết luận: package recovered đạt sync check ở mức `REFERENCE_ONLY`. Không còn blocker riêng về cue timing/subtitle sync sau khi dùng lại sidecar gốc.
+
+Giới hạn vẫn còn:
+
+- MP4/cues vẫn có wording “tâm điểm của cả cuộc chiến”, đã đánh dấu `REVISION_REQUIRED_BEFORE_USE`.
+- Quyền publish audio Microsoft Neural TTS qua `edge-tts` chưa clear.
+- Nhạc/SFX chưa có manifest/permission đủ để publish.
+- Chưa có release/integration sign-off.
+
+Một việc tiếp theo duy nhất nếu nhóm muốn dùng clip ngoài reference: **re-export video với wording đã duyệt, xử lý quyền audio/nhạc/SFX, rồi chạy lại Phase 3/8 media review**.
+
+### Checkpoint trước — sidecar gốc đã tìm lại (2026-09-27)
 
 Trúc đã tìm lại bộ sidecar gốc ở `dist/media/truoc-con-bao/`:
 
@@ -28,7 +47,7 @@ Kết quả cập nhật:
 - Package rebuild đổi từ “draft tự dựng tay” sang “recovered sidecar package”.
 - CONTENT-006 vẫn `IN PROGRESS` + `REFERENCE_ONLY`: MP4/cues vẫn còn wording “tâm điểm của cả cuộc chiến”; quyền publish audio Edge TTS, nhạc/SFX và review release vẫn chưa clear.
 
-Một việc tiếp theo duy nhất: **nghe đối chiếu package đã recovered với MP4 chính**, rồi nếu muốn dùng ngoài reference thì re-export video bằng wording đã duyệt và xử lý audio/nhạc/SFX trước khi xin review.
+Superseded by checkpoint 2026-09-27: Trúc đã nghe đối chiếu package recovered và xác nhận subtitle/cue khớp toàn clip. Nếu muốn dùng ngoài reference thì re-export video bằng wording đã duyệt và xử lý audio/nhạc/SFX trước khi xin review.
 
 ### Checkpoint trước — MP4 chính còn sót lại (2026-09-27)
 
