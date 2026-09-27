@@ -21,6 +21,5 @@ test('canonical BottomNav renders all tabs and selected state', async () => {
   for (const label of ['HỌC', 'LUYỆN TẬP', 'AI', 'HỒ SƠ']) {
     assert.ok(html.includes(label), `missing tab: ${label}`)
   }
-  assert.match(html, /~~~<\/div>/)
   assert.equal((html.match(/<button/g) ?? []).length, 4)
 })

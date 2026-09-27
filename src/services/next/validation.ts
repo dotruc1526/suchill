@@ -86,6 +86,9 @@ export function validateStoryVersion(version: StoryVersion): ValidationIssue[] {
       errors.push(issue('answer_key', path, 'Knowledge check needs a correct option'))
     }
     for (const [choiceIndex, choice] of scene.choices.entries()) {
+      if (!choice.nextSceneId && (scene.policy === 'continue_after_feedback' || choice.kind !== 'knowledge_check' || choice.isCorrect)) {
+        errors.push(issue('missing_transition', `${path}.choices[${choiceIndex}]`, 'Selected choice needs a next scene'))
+      }
       if (choice.kind !== 'knowledge_check' && 'isCorrect' in choice) {
         errors.push(issue('narrative_correctness', `${path}.choices[${choiceIndex}]`, 'Narrative choice cannot carry correctness'))
       }

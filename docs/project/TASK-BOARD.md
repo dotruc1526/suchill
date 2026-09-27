@@ -118,9 +118,9 @@ Bảng này triển khai trực tiếp M0 trong Phase 9. M0-00..07 có evidence 
 | M0-02 | Sửa lỗi TypeScript baseline (`FE-001`) | Hưng (Member 3) | Vinh + Codex | DONE | M0-01 | [`M0-02`](../tasks/done/M0-02.md) | PR #12/#13 trong HEAD; typecheck/build exit 0; FE-001 có smoke UI; Vinh chuyển xác nhận Hưng |
 | M0-03 | Cô lập legacy/prototype (`FE-002`) | Hưng (Member 3) | Vinh + Codex | DONE | M0-01 | [`M0-03`](../tasks/done/M0-03.md) | 10 screens trong legacy, không import runtime; quality và UI smoke pass |
 | M0-04 | Làm nhẹ app shell (`FE-004`) | Hưng (Member 3) | Vinh + Codex | DONE | M0-02 | [`M0-04`](../tasks/done/M0-04.md) | App 95 dòng, typed View/router, quality và UI navigation smoke pass |
-| M0-05 | Dựng nền tảng test | Vinh (Member 5) | Hưng + Codex | DONE | M0-02 | [`M0-05`](../tasks/done/M0-05.md) | Bản ghép `main` mới: unit 13/13, component 1/1, Chromium E2E 1/1, typecheck/build pass; Vinh chuyển xác nhận Hưng; chờ review PR tích hợp |
-| M0-06 | Khóa ranh giới env và secret | Vinh (Member 5) + Product owner | Hưng + Product owner | DONE | M0-01 | [`M0-06`](../tasks/done/M0-06.md) | Guard + scan 188 file/0 unsafe, typecheck/build + 13/13 test pass; Vinh chuyển xác nhận Hưng và Product owner ngày 2026-09-27; rotation thật trước M4 |
-| M0-07 | Chuẩn hóa lệnh kiểm tra local/CI | Vinh (Member 5) | Hưng + Codex | DONE | M0-05 | [`M0-07`](../tasks/done/M0-07.md) | `npm run quality` exit 0 trên bản ghép; CI nhánh gốc đạt, CI PR tích hợp chờ chạy; Vinh chuyển xác nhận Hưng |
+| M0-05 | Dựng nền tảng test | Vinh (Member 5) | Hưng + Codex | DONE | M0-02 | [`M0-05`](../tasks/done/M0-05.md) | Bản ghép `main` mới: unit 16/16, component 1/1, Chromium E2E 1/1, typecheck/build pass; Vinh chuyển xác nhận Hưng; chờ review [PR #24](https://github.com/dotruc1526/suchill/pull/24) |
+| M0-06 | Khóa ranh giới env và secret | Vinh (Member 5) + Product owner | Hưng + Product owner | DONE | M0-01 | [`M0-06`](../tasks/done/M0-06.md) | Guard + scan bundle bắt buộc 190 file/0 unsafe, typecheck/build + 16/16 unit pass; Vinh chuyển xác nhận Hưng và Product owner ngày 2026-09-27; rotation thật trước M4 |
+| M0-07 | Chuẩn hóa lệnh kiểm tra local/CI | Vinh (Member 5) | Hưng + Codex | DONE | M0-05 | [`M0-07`](../tasks/done/M0-07.md) | `npm run quality` build và scan bundle trước/sau test; chờ CI commit mới trên [PR #24](https://github.com/dotruc1526/suchill/pull/24); Vinh chuyển xác nhận Hưng |
 
 Theo yêu cầu của Vinh, [`BEQA-LOCAL-001`](../tasks/done/BEQA-LOCAL-001.md) là bản chuẩn bị độc lập cho lane Backend + QA, được Vinh chấp nhận và nằm trên nhánh bàn giao. Task này **không thay thế dependency, reviewer hoặc gate** của M0–M7; không áp migration.
 
@@ -218,7 +218,7 @@ Mỗi lần handoff quan trọng thêm một dòng mới nhất ở đầu bản
 
 | Date | Task | Author | Update | Evidence / next owner |
 |---|---|---|---|---|
-| 2026-09-27 | M0-05/06/07 integration | Codex | Đối chiếu nhánh Member 5 với `main` mới; CI trên nhánh gốc đã đạt, chuẩn bị PR tích hợp mà không đóng gate M0 | [Quality run 36296348300](https://github.com/dotruc1526/suchill/actions/runs/36296348300); giữ cập nhật content mới trên main; chờ review PR và CI mới |
+| 2026-09-27 | M0-05/06/07 integration | Codex | Đối chiếu nhánh Member 5 với `main` mới; mở [PR #24](https://github.com/dotruc1526/suchill/pull/24), sửa thứ tự scan bundle và hai guard BEQA sau review; không đóng gate M0 | Quality trên nhánh gốc và PR commit đầu đều đạt; giữ cập nhật content mới trên main; chờ CI commit sửa và review PR |
 | 2026-09-27 | M0 branch handoff | Vinh | Yêu cầu push nhánh M0 lên GitHub; không yêu cầu merge main | Nhánh `codex/member5-backend-qa-plan` đã push và CI đạt; M0 gate vẫn cần PO duyệt rõ |
 | 2026-09-27 | M0-02..07 | Vinh + Codex | M0-02..07 DONE trên nhánh bàn giao theo dependency và evidence; Hưng xác nhận qua lời Vinh chuyển, không giả là review trực tiếp; chưa mở M1 | `npm run quality` exit 0, scan 162/0 unsafe, unit 13/13, component 1/1, E2E 1/1; UI Home/Practice/Chapter/Lesson và console 0 error; CI GitHub đã đạt, M0 gate chờ PO duyệt rõ trên board |
 | 2026-09-27 | M0-06 | Vinh (chuyển lời Hưng) + Codex | Vinh xác nhận Hưng đã duyệt các task M0; M0-06 DONE theo acceptance và xác nhận Product owner về rotation plan | Typecheck/build, 13/13 tests, scan 162 file/0 unsafe; xác nhận Hưng là lời Vinh chuyển, không phải review trực tiếp trong repo |

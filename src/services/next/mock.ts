@@ -17,6 +17,8 @@ export function createMockLearningServices(
 ): LearningServices {
   const progress = new Map<string, LessonProgress>()
   const processed = new Map<string, { signature: string; result: LessonProgress }>()
+  const progressKey = (userId: string, lessonId: string) => JSON.stringify([userId, lessonId])
+  const operationKey = (userId: string, operationId: string) => JSON.stringify([userId, operationId])
   const copy = <T>(value: T): T => structuredClone(value)
   const published = <T extends { status?: string; reviewStatus?: string }>(value: T): boolean =>
     (value.status ?? value.reviewStatus) === 'published'
@@ -52,15 +54,17 @@ export function createMockLearningServices(
     },
     progress: {
       async getLessonProgress(lessonId) {
-        if (!session.userId) return failure('unauthorized')
-        return success(copy(progress.get(lessonId) ?? null))
+        const userId = session.userId
+        if (!userId) return failure('unauthorized')
+        return success(copy(progress.get(progressKey(userId, lessonId)) ?? null))
       },
       async saveCheckpoint(input) {
-        if (!session.userId) return failure('unauthorized')
+        const userId = session.userId
+        if (!userId) return failure('unauthorized')
         if (!input.operationId || !input.lessonId) return failure('validation')
         const signature = JSON.stringify([input.lessonId, input.currentBlockId ?? null,
           [...new Set(input.completedBlockIds)].sort()])
-        const previousOperation = processed.get(input.operationId)
+        const previousOperation = processed.get(operationKey(userId, input.operationId))
         if (previousOperation) {
           return previousOperation.signature === signature ? success(copy(previousOperation.result)) : failure('conflict')
         }
@@ -69,10 +73,10 @@ export function createMockLearningServices(
         const blockIds = new Set(lesson.blocks.map(block => block.id))
         if ((input.currentBlockId && !blockIds.has(input.currentBlockId)) ||
           input.completedBlockIds.some(id => !blockIds.has(id))) return failure('validation')
-        const prior = progress.get(input.lessonId)
+        const prior = progress.get(progressKey(userId, input.lessonId))
         const completedBlockIds = [...new Set([...(prior?.completedBlockIds ?? []), ...input.completedBlockIds])]
         const next: LessonProgress = {
-          userId: session.userId,
+          userId,
           lessonId: input.lessonId,
           status: prior?.status === 'completed' ? 'completed' : 'in_progress',
           currentBlockId: input.currentBlockId ?? prior?.currentBlockId,
@@ -80,8 +84,8 @@ export function createMockLearningServices(
           startedAt: prior?.startedAt ?? now(),
           updatedAt: now(),
         }
-        progress.set(input.lessonId, next)
-        processed.set(input.operationId, { signature, result: copy(next) })
+        progress.set(progressKey(userId, input.lessonId), next)
+        processed.set(operationKey(userId, input.operationId), { signature, result: copy(next) })
         return success(copy(next))
       },
     },

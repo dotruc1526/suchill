@@ -45,3 +45,18 @@ test('checkpoint is per session, idempotent and cannot mark authoritative comple
   assert.deepEqual(await a.progress.saveCheckpoint({ ...input, operationId: 'op-2', currentBlockId: 'missing' }),
     { ok: false, error: 'validation' })
 })
+
+test('checkpoint and operation IDs stay isolated when one adapter changes account', async () => {
+  const session = { userId: 'user-a' }
+  const services = createMockLearningServices(catalog, session, () => '2026-09-24T00:00:00Z')
+  const input = { lessonId: 'lesson-1', currentBlockId: 'block-1', completedBlockIds: ['block-1'], operationId: 'shared-op' }
+  const savedA = await services.progress.saveCheckpoint(input)
+  assert.equal(savedA.ok, true)
+  session.userId = 'user-b'
+  assert.deepEqual(await services.progress.getLessonProgress('lesson-1'), { ok: true, value: null })
+  const savedB = await services.progress.saveCheckpoint(input)
+  assert.equal(savedB.ok, true)
+  if (savedB.ok) assert.equal(savedB.value.userId, 'user-b')
+  session.userId = 'user-a'
+  assert.deepEqual(await services.progress.getLessonProgress('lesson-1'), savedA.ok ? { ok: true, value: savedA.value } : null)
+})

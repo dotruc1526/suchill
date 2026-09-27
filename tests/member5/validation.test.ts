@@ -60,6 +60,19 @@ test('story validator catches broken links and narrative correctness', () => {
   assert.ok(codes.includes('no_reachable_end'))
 })
 
+test('story validator requires a usable transition for every continuing choice', () => {
+  const invalid = structuredClone(story)
+  const scene = invalid.scenes[0]
+  if (scene.kind !== 'choice') throw new Error('Invalid fixture')
+  scene.choices.push({ id: 'choice-2', kind: 'knowledge_check', label: 'Other', isCorrect: false, explanation: 'Try again' })
+  assert.ok(validateStoryVersion(invalid).some(error => error.code === 'missing_transition'))
+
+  scene.policy = 'retry_until_correct'
+  assert.ok(!validateStoryVersion(invalid).some(error => error.code === 'missing_transition'))
+  scene.choices[1] = { id: 'choice-2', kind: 'knowledge_check', label: 'Other', isCorrect: true, explanation: 'Correct' }
+  assert.ok(validateStoryVersion(invalid).some(error => error.code === 'missing_transition'))
+})
+
 test('media validator requires accessibility and provenance before publication', () => {
   const media: MediaAsset = {
     id: 'media-1', kind: 'video', title: 'Video', storageRef: 'published-media/video.mp4',

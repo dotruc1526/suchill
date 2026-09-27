@@ -1,6 +1,7 @@
 import { existsSync, lstatSync, readdirSync, readFileSync } from 'node:fs'
 import { spawnSync } from 'node:child_process'
 import { join, relative, resolve } from 'node:path'
+import { isPrivateTrackedEnvPath } from './private-env-path.mjs'
 
 const root = resolve(import.meta.dirname, '../..')
 const targets = ['src', 'scripts', 'docs', 'dist']
@@ -58,7 +59,7 @@ if (tracked.status !== 0) {
   process.exitCode = 1
 } else {
   for (const name of tracked.stdout.split('\0').filter(Boolean)) {
-    if (/^\.env(?:\.|$)/.test(name) && name !== '.env.example') {
+    if (isPrivateTrackedEnvPath(name)) {
       process.stderr.write(`Unsafe tracked private env file: ${name}\n`)
       unsafeMatches++
       continue // Never read private env values.
