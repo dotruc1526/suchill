@@ -48,5 +48,9 @@
 - Changed files: docs/content/MVP-BRIEF.md
 - Test/build result: chưa có content deliverable.
 - Environment/migration impact: không có.
-- Known issues/risks: chapter, episode, mốc thời gian và nguồn chưa được chọn.
-- Next owner/action: Product owner chọn chapter/pilot cùng Thọ; chuyển task `READY` sau khi DOC-012 được review và brief có acceptance rõ.
+- Known issues/risks: chủ đề đã được ghi là do Thọ chọn trong MVP-BRIEF; historical/source/media review chưa hoàn tất.
+- Next owner/action: Thọ xác nhận ô reviewer còn trống và làm rõ dependency DOC-012 (board vẫn REVIEW); không dùng DONE của bước chọn chủ đề để duyệt phát hành.
+
+## Đồng bộ 2026-09-27
+
+Hợp nhất card blocked trùng ID vào bản hiện hành; các checkpoint 2026-09-23 đã có ở trên. Không tạo approval mới: DONE là ghi nhận có sẵn trên nhánh PR; ô reviewer chưa đạt và DOC-012 cần Thọ xác nhận trước khi coi dependency toàn bộ chuỗi đã hoàn tất.

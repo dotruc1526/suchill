@@ -6,7 +6,8 @@
 > **Slug:** `mau-than-1968`  
 > **Giai đoạn lịch sử:** Kháng chiến chống Mỹ cứu nước (1954 – 1975)  
 > **Người thực hiện:** Thọ (Member 1 — Product + Content Lead)  
-> **Trạng thái:** `APPROVED` / `PUBLISHED`  
+> **Trạng thái:** `IN_REVIEW` — outline không phải approval phát hành
+> **Review note 2026-09-27:** Bài 2 hiện mới có thẻ dữ liệu, chưa có scene graph/choice/debrief hoàn chỉnh; không tự đổi format `visual_novel`. Các đoạn outline chưa có locator tiếp tục chờ CONTENT-003, không dùng làm script đã duyệt. M1–M7 vẫn LOCKED.
 > **Tài liệu căn cứ:** [MVP-BRIEF.md](./MVP-BRIEF.md), [docs/specs/phases/01-product-learning-experience-spec.md](../specs/phases/01-product-learning-experience-spec.md), [docs/specs/phases/05-domain-type-contract.md](../specs/phases/05-domain-type-contract.md).
 
 ---
@@ -102,10 +103,10 @@ Chapter được thiết kế theo mô hình **Đa định dạng (Multi-format 
 * **Format:** `standard` tích hợp clip tư liệu âm thanh/hình ảnh ngắn.
 * **Thời lượng ước tính:** 5–6 phút.
 * **Mục tiêu học tập:** Tổng kết ý nghĩa chiến lược của cuộc Tổng tiến công và nổi dậy:
-  - Tác động tâm lý chấn động dư luận Mỹ: Hình ảnh chiến sự tại Tòa Đại sứ Mỹ được phát sóng truyền hình làm phá sản hoàn toàn tuyên truyền "chiến tranh sắp kết thúc" của Lầu Năm Góc.
-  - Tuyên bố chấn động của ký giả kỳ cựu Walter Cronkite (CBS News): "Nước Mỹ đã rơi vào thế bế tắc không lối thoát".
-  - Quyết định ngày 31/3/1968 của Tổng thống Mỹ Lyndon B. Johnson: Tuyên bố không tái tranh cử, ngừng ném bom miền Bắc Việt Nam từ vĩ tuyến 20 trở ra, và chấp nhận cử đại diện đàm phán với Chính phủ Việt Nam Dân chủ Cộng hòa tại Paris.
-  - Khẳng định: Dù quân ta chịu nhiều tổn thất anh dũng, cuộc Tổng tiến công Mậu Thân 1968 đã đạt được mục tiêu chiến lược tối cao — xoay chuyển cục diện chiến tranh, tạo tiền đề quyết định cho Hiệp định Paris 1973.
+  - Tác động truyền thông/chính trị cần nguồn và qualification như [Bài 4](./LESSON-04-SYNTHESIS.md), không khẳng định sụp đổ hoàn toàn.
+  - Chưa dùng trích dẫn Walter Cronkite: bản trước gán lời Việt không có locator. Tham khảo Bài 4 đã sửa.
+  - Đối chiếu niên biểu 31/3 và 13/5 trong Bài 4; không gộp tuyên bố chính sách với phiên họp Paris.
+  - Phân biệt tác động chính trị, bước đàm phán và kết quả quân sự; xem registry claim của Bài 4.
 
 ### 3.5. Đánh giá Chapter: Scored Quiz "Thử thách Chiến dịch Mậu Thân 1968"
 * **ID:** `quiz-mt68-chapter-assessment`
@@ -116,38 +117,10 @@ Chapter được thiết kế theo mô hình **Đa định dạng (Multi-format 
   - 5 câu hỏi trắc nghiệm khách quan đa phương án (Multiple Choice Questions), mỗi câu bao quát một khía cạnh học tập của Chapter.
   - Thang điểm: 100 điểm (20 điểm/câu). Ngưỡng hoàn thành: ≥ 80 điểm (đúng 4/5 câu).
   - Phản hồi giải thích chi tiết ngay sau mỗi câu trả lời, viện dẫn điều khoản sử liệu chính xác.
-* **Ngân hàng Câu hỏi Khảo thí (Question Bank):**
-  1. *Câu 1 (id: "q-mt68-01") (Mục tiêu CLO-1):* Mật lệnh thiêng liêng nào được phát đi trên làn sóng Đài Tiếng nói Việt Nam trong đêm Giao thừa Tết Mậu Thân 1968 để báo hiệu cuộc Tổng tiến công bắt đầu?  
-     - A. Lời kêu gọi toàn quốc kháng chiến.  
-     - B. Bài thơ chúc Tết Xuân Mậu Thân của Chủ tịch Hồ Chí Minh. *(Đáp án đúng)*  
-     - C. Bản Tuyên ngôn Độc lập.  
-     - D. Hiệu lệnh từ Mặt trận Giải phóng miền Trung.  
-     *Giải thích:* Đúng thời khắc Giao thừa Tết Mậu Thân 1968, Đài Tiếng nói Việt Nam phát bài thơ chúc Tết của Bác Hồ: "Xuân này hơn hẳn mấy xuân qua... Tiến lên! Toàn thắng ắt về ta!". Đây chính là mật mã quy ước phát lệnh tiến công đồng loạt.
-  2. *Câu 2 (id: "q-mt68-02") (Mục tiêu CLO-2):* Lực lượng Biệt động Sài Gòn đã đồng loạt tiến công vào những mục tiêu đầu não nào tại trung tâm Sài Gòn rạng sáng 31/1/1968?  
-     - A. Sân bay Đà Nẵng, Cố đô Huế, Căn cứ Khe Sanh.  
-     - B. Tòa Đại sứ Mỹ, Dinh Độc Lập, Đài Phát thanh, Bộ Tổng Tham mưu, Bộ Tư lệnh Hải quân. *(Đáp án đúng)*  
-     - C. Cảng Nhà Rồng, Tòa Thị chính, Khách sạn Caravelle.  
-     - D. Tổng nha Cảnh sát, Trại Davis, Căn cứ Đồng Dù.  
-     *Giải thích:* 5 mục tiêu tấn công trọng yếu rúng động nội đô Sài Gòn gồm: Tòa Đại sứ Mỹ, Dinh Độc Lập, Đài Phát thanh Sài Gòn, Bộ Tổng Tham mưu Quân đội Sài Gòn và Bộ Tư lệnh Hải quân.
-  3. *Câu 3 (id: "q-mt68-03") (Mục tiêu CLO-3):* Căn hầm bí mật nào tại nội thành Sài Gòn đã cất giấu gần 2 tấn vũ khí cung cấp cho Đội 5 Biệt động tấn công Dinh Độc Lập?  
-     - A. Căn hầm tại số 287/70 đường Trần Quý Cáp của Anh hùng Trần Văn Lai (Năm Lai). *(Đáp án đúng)*  
-     - B. Hầm Địa đạo Củ Chi.  
-     - C. Căn cứ Hố Bò - Trảng Bàng.  
-     - D. Căn hầm bí mật tại Bến Nhà Rồng.  
-     *Giải thích:* Căn hầm tại số 287/70 đường Trần Quý Cáp (nay là đường Võ Văn Tần / Nguyễn Đình Chiểu, Quận 3) do Anh hùng LLVTND Trần Văn Lai cùng vợ đào ngụy trang, cất giấu gần 2 tấn vũ khí bí mật an toàn ngay sát nách đối phương suốt nhiều năm.
-  4. *Câu 4 (id: "q-mt68-04") (Mục tiêu CLO-1):* Nguyên nhân lịch sử nào dẫn đến việc nổ súng ở Quân khu 5 và Tây Nguyên sớm hơn một ngày so với nội đô Sài Gòn và Nam Bộ?  
-     - A. Do lộ bí mật quân sự trước giờ xuất kích.  
-     - B. Do sự khác biệt về cách tính lịch âm giữa miền Bắc (múi giờ GMT+7) và chính quyền Sài Gòn (múi giờ GMT+8) năm Đinh Mùi. *(Đáp án đúng)*  
-     *Tiền đề (Pre-instruction):* Người học cần được lưu ý ở Lesson 1 hoặc 2 về việc chia múi giờ GMT+7 và GMT+8 gây ra chênh lệch lịch.  
-     - C. Do lệnh điều động quân bị sai lệch qua đường vô tuyến.  
-     - D. Do thời tiết sương mù cản trở giao liên.  
-     *Giải thích:* Miền Bắc áp dụng lịch theo múi giờ GMT+7 (tháng 11 thiếu, 29 ngày), nên Giao thừa là đêm 29/1; chính quyền miền Nam ban hành lịch theo GMT+8 (tháng 11 đủ, 30 ngày), nên Giao thừa chậm hơn 1 ngày (đêm 30/1). Do đó các tỉnh miền Trung nổ súng trước vào rạng sáng 30/1, còn Nam Bộ và Sài Gòn tiến công vào rạng sáng 31/1/1968 (Mùng 2 Tết).
-  5. *Câu 5 (id: "q-mt68-05") (Mục tiêu CLO-4):* Bước ngoặt lịch sử quan trọng nhất mà cuộc Tổng tiến công và nổi dậy Tết Mậu Thân 1968 mang lại là gì?  
-     - A. Buộc đối phương phải đầu hàng vô điều kiện ngay tại Sài Gòn.  
-     - B. Làm phá sản chiến lược "Chiến tranh cục bộ", buộc Mỹ chấm dứt ném bom miền Bắc và chấp nhận đàm phán tại Paris. *(Đáp án đúng)*  
-     - C. Giải phóng hoàn toàn các đô thị lớn ở miền Nam.  
-     - D. Thống nhất đất nước ngay trong năm 1968.  
-     *Giải thích:* Đòn tiến công Mậu Thân làm sụp đổ ảo tưởng chiến thắng của Mỹ, làm phá sản chiến lược "Chiến tranh cục bộ", buộc Tổng thống Johnson tuyên bố xuống thang chiến tranh, chấm dứt ném bom miền Bắc và chấp nhận ngồi vào bàn đàm phán với ta tại Hội nghị Paris.
+* **Ngân hàng câu hỏi duy nhất:** [QUIZ-MT68.json](./QUIZ-MT68.json), bản authoring đang review. Giữ ID q-mt68-01…05; bản này thay thế danh sách cũ bị lệch với JSON.
+* **Coverage:** CLO-1 → q01; CLO-2 → q02; CLO-3 → q03; CLO-4 → q04/q05.
+* **Trước kiểm tra:** đọc bối cảnh Bài 2, cơ sở hậu cần Bài 3 và niên biểu Bài 4. Câu hỏi lịch GMT+7/GMT+8 đã bỏ vì thiếu nguồn chứng minh.
+* **Giới hạn kỹ thuật:** JSON chưa là DTO/database seed đã duyệt; answer key chỉ dùng authoring/trusted backend, không đưa vào public scored-question DTO.
 
 ---
 
@@ -174,7 +147,7 @@ Tuân thủ chặt chẽ đặc tả dữ liệu tại `docs/specs/phases/05-dom
     summary: "Khám phá kế hoạch bí mật đêm Giao thừa, mạng lưới hầm vũ khí giữa lòng Sài Gòn và bước ngoặt mở đường tới Hội nghị Paris.",
     historicalPeriodLabel: "Kháng chiến chống Mỹ cứu nước (1954 - 1975)",
     estimatedMinutes: 25,
-    status: "published",
+    status: "draft",
     learningObjectiveIds: ["CLO-1", "CLO-2", "CLO-3", "CLO-4"],
     lessonRefs: [
       { id: "lesson-mt68-01-video", order: 1 },

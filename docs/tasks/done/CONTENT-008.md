@@ -5,7 +5,7 @@
 
 ## Assignment
 
-- Phase / milestone: MVP content track; hoàn tất Milestone 1
+- Phase / milestone: MVP content track; không hoàn tất hoặc mở Milestone 1
 - Workstream: Product + Content
 - Accountable owner: Thọ (Member 1)
 - Executor type: Human team / Codex
@@ -51,4 +51,8 @@
 - Test/build result: Hoàn tất 100% acceptance criteria; ripgrep kiểm tra 0 thuật ngữ cấm; tuân thủ pháp luật Việt Nam.
 - Environment/migration impact: Không có thay đổi schema hay build config.
 - Known issues/risks: Không có.
-- Next owner/action: Member 2 (Trúc) nhận kịch bản video để sản xuất (CONTENT-007); Member 4 (Dương) nhận cấu trúc lesson để dựng player (FE-006).
+- Next owner/action: Thọ review bản curriculum/quiz sửa trong PR #21; CONTENT-003 còn NEEDS_REVISION và CONTENT-007 BLOCKED, chưa bàn giao sản xuất/tích hợp.
+
+## Đính chính handoff 2026-09-27
+
+DONE là trạng thái outline đã ghi trước đây, không phải approval của nội dung sửa lần này. Các kết luận lịch sử/pháp lý và “không có rủi ro” trong handoff cũ chưa được tái xác nhận. Curriculum hiện IN_REVIEW; Thọ cần xác nhận lại acceptance của bản sửa, đặc biệt scene graph Bài 2. Hai checkpoint 2026-09-23 từ card blocked đã có ở trên; xóa bản card trùng, giữ lịch sử Git. M1–M7 vẫn LOCKED.

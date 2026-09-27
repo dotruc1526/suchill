@@ -1,10 +1,29 @@
 # CONTENT-003 — Historical source and media review pilot
 
-> Status: DONE (Review Completed)\
+> Status: REVIEW\
 > Review Verdict: **NEEDS_REVISION** (Yêu cầu hiệu chỉnh trước khi sản xuất video và mở khóa bài học)\
 > Date: 2026-09-26\
-> Reviewer: Historical Reviewer Teamwork RSA Committee\
-> Reference Report: [DOCUMENT_REVIEW_REPORT.md](../../../.gemini/antigravity/brain/f45cef43-6374-49e4-8546-86cdd27cb005/DOCUMENT_REVIEW_REPORT.md)
+> Reviewer: Historical reviewer + Thọ (Product owner); chưa có sign-off bản sửa\
+> Reference Report: đường dẫn báo cáo cũ nằm ngoài repo, không truy cập được; phần ghi nhận cũ được giữ bên dưới để truy vết.
+
+## Assignment hiện hành — 2026-09-27
+
+- Owner: Historical reviewer (Product owner cần xác nhận người ký cho pilot).
+- Executor: Trúc (sửa hồ sơ PR #21 theo quyền Thọ cấp), Codex hỗ trợ.
+- Reviewer: Thọ điều phối review lịch sử/media; AI không thay sign-off.
+- Started: 2026-09-27 (revision); Branch: `feature/content-expansion-mt68`.
+- Depends on: CONTENT-002 (board ghi DONE; card còn ô reviewer chưa xác nhận), DOC-004 (DONE).
+- Files claimed: registry/catalog, card này, board và [handoff](./PR21-HANDOFF.md).
+- Next action: reviewer kiểm tra Bài 2–4/quiz đã sửa, hoàn tất pilot và quyền từng asset.
+- Blocker: pilot còn NEEDS_REVISION; chưa cấp quyền media. Không mở CONTENT-007.
+- Acceptance: nguồn/claim truy vết được; fact/fiction và quyền media được xác nhận; verdict có người ký. Hiện chưa đủ.
+- Checkpoint: bản sửa bổ sung registry; trạng thái REVIEW không đồng nghĩa verdict APPROVED.
+- Lịch sử 2026-09-23: card ban đầu BLOCKED chờ chọn chapter và reviewer; hợp nhất card trùng từ thư mục blocked.
+- Kiểm tra/build/env: xem handoff; chỉ tài liệu, không migration.
+
+## Báo cáo cũ — lưu để truy vết, không phải phê duyệt
+
+Các nhận định dưới đây là nội dung review cũ chưa được xác nhận toàn bộ. Đặc biệt đề xuất pháp lý về blur/16+, ưu tiên độc tôn nguồn, quan hệ lịch âm và lời tuyên bố “đã phê duyệt” không phải quyết định APPROVED của nhóm. Bản sửa hiện hành và Phase 3/8 là căn cứ cho bước tiếp theo.
 
 ---
 
@@ -74,8 +93,8 @@ Tuy nhiên, hội đồng thẩm định ghi nhận **04 lỗi lịch sử & k�
 |---|---|---|
 | **Thọ (Member 1 — Content Lead)** | Hiệu chỉnh 4 lỗi Critical và các điểm Major trong `PILOT-SCREENPLAY.md`, `HISTORICAL-SOURCES.md`, `RESEARCH-CANDIDATES.md`, `CURRICULUM-MAP.md`. | PENDING_REVISION |
 | **Trúc (Member 2 — Media Lead)** | Cập nhật kịch bản dựng video, timing voiceover 110s, nắp hầm gạch bông, và WebVTT cue. Giữ task `CONTENT-007` ở trạng thái BLOCKED cho đến khi Member 1 hoàn tất bản vá. | BLOCKED |
-| **Dương (Member 4 — Frontend Lead)** | Tích hợp Schema IDs chuẩn cho Quiz và Video-led Player component theo khế ước dữ liệu đã hiệu chỉnh. | READY_FOR_DEV |
+| **Dương (Member 4 — Frontend Lead)** | Tích hợp Schema IDs chuẩn cho Quiz và Video-led Player component theo khế ước dữ liệu đã hiệu chỉnh. | BLOCKED_BY_CONTENT_AND_MILESTONE |
 | **Vinh (Member 5 — QA Lead)** | Đối soát lại toàn bộ checklist sau khi Member 1 phát hành bản cập nhật. | PENDING_QA |
 
 ---
-*Báo cáo Thẩm định Nhiệm vụ CONTENT-003 được phê duyệt và lưu trữ chính thức tại kho tài liệu nhiệm vụ hoàn tất.*
+*Báo cáo cũ chưa là sign-off; xem assignment và blocker hiện hành ở đầu card.*

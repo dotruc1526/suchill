@@ -1,27 +1,29 @@
-﻿# Bài 4: Bức điện từ Sài Gòn (Synthesis)
+# Bài 4: Bước ngoặt Paris
 
-**Chương:** Chiến dịch Mậu Thân 1968
-**Loại bài học:** Tổng hợp & Đánh giá (Synthesis)
-**Mục tiêu (CLO-4):** Phân tích bước ngoặt chiến lược của sự kiện và hệ quả đối với Mỹ.
+> Task: [CONTENT-011](../tasks/active/CONTENT-011.md)
+> Status: NEEDS_HISTORICAL_REVIEW; chưa phát hành.
+> Lesson ID: `lesson-mt68-04-synthesis`; objective: CLO-4.
 
-## Nội dung bài giảng
+Mục tiêu: phân biệt diễn biến quân sự, tác động chính trị và các bước ngoại giao; tránh diễn giải một nguyên nhân duy nhất.
 
-### Cú sốc từ Lầu Năm Góc
-Trước Tết Mậu Thân 1968, các báo cáo tình báo và quân sự của Mỹ đều khẳng định: Quân Giải phóng đang suy yếu, "ánh sáng đã le lói cuối đường hầm". Thế nhưng, hình ảnh tòa Đại sứ Mỹ rực lửa, Dinh Độc Lập bị tấn công, và 5 thành phố, hàng chục thị xã trên khắp miền Nam đồng loạt nổi dậy đã làm sụp đổ hoàn toàn bản báo cáo lạc quan đó.
+## Tác động và niên biểu
 
-Cảnh sát trưởng Sài Gòn Nguyễn Ngọc Loan bắn chết một chiến sĩ đặc công ngay trên đường phố đã được máy quay của phương Tây ghi lại, thổi bùng lên làn sóng phẫn nộ và biểu tình phản chiến mạnh mẽ chưa từng có tại Mỹ. 
+Theo Office of the Historian, Mậu Thân góp phần làm suy giảm sự ủng hộ chiến tranh tại Mỹ. Đây là tổng thuật từ cơ quan Mỹ, cần đọc cùng nguồn Việt Nam; không có nghĩa chiến tranh kết thúc năm 1968. [CLM-MT68-05 / SRC-MT68-01]
 
-### Bước ngoặt chiến lược
-Tổng tiến công và nổi dậy Mậu Thân 1968 tuy gặp tổn thất, nhưng đã đạt được đòn đánh chiến lược vô tiền khoáng hậu: **Làm sụp đổ ý chí xâm lược của Đế quốc Mỹ**.
+Ngày 31/3/1968, Johnson tuyên bố không tranh cử nhiệm kỳ tiếp theo. Tổng thuật ghi chính sách hạn chế ném bom miền Bắc từ phía bắc vĩ tuyến 20; không diễn đạt thành ngừng ném bom toàn bộ miền Bắc ngay tháng 3. [CLM-MT68-05 / SRC-MT68-01]
 
-Thực tế chiến trường đã làm phá sản hoàn toàn chiến lược "Chiến tranh cục bộ". Tháng 3/1968, Tổng thống Mỹ L.B. Johnson phải lên truyền hình tuyên bố: 
-1. Đơn phương ngừng ném bom bắn phá miền Bắc từ vĩ tuyến 20 trở ra.
-2. Từ chối tái tranh cử Tổng thống Mỹ nhiệm kỳ 2.
-3. Chấp nhận ngồi vào bàn đàm phán tại Paris để tìm giải pháp hòa bình.
+Ngày 13/5/1968, phiên họp toàn thể đầu tiên giữa đại diện Việt Nam Dân chủ Cộng hòa và Mỹ diễn ra tại Paris. Đây là bước đàm phán, không phải ngày ký Hiệp định Paris 1973. [CLM-MT68-06 / SRC-MT68-06]
 
-### Kết luận
-Mậu Thân 1968 không chỉ là một chiến dịch quân sự, mà còn là một đòn tâm lý chiến lược (shock and awe) xuất sắc. Cánh cửa hòa bình tại Paris đã được mở ra bằng xương máu và sự hy sinh kiên cường của các chiến sĩ cách mạng ngay trên các hè phố Sài Gòn.
+## Diễn giải giáo dục
 
-## Nguồn tư liệu hình ảnh
-- `media/loc/walter-cronkite-news-1968.jpg`: Nhà báo Walter Cronkite đưa tin về Tết Mậu Thân trên CBS.
-- `media/western_archive/anti-war-protest-us-68.jpg`: Biểu tình phản chiến tại Mỹ.
+Phân biệt kết quả tại một mục tiêu, thay đổi dư luận và quyết định ngoại giao. Không dùng “sụp đổ hoàn toàn” hoặc “shock and awe” thay cho giải thích có nguồn.
+
+Câu hỏi suy ngẫm: vì sao bắt đầu đàm phán không đồng nghĩa chiến tranh kết thúc?
+
+## Media và giới hạn
+
+MED-MT68-07/08 là đầu mối tìm tư liệu truyền thông và phản chiến, chưa được cấp quyền dùng. Fallback là niên biểu trên. Chưa đưa ảnh hành quyết vào bài khi thiếu đánh giá phù hợp đối tượng học.
+
+Không dùng câu gán cho Walter Cronkite như trích dẫn nguyên văn; không suy luận một phóng sự là nguyên nhân duy nhất của quyết định Johnson.
+
+[Nguồn và claim](./HISTORICAL-SOURCES.md) · [Catalog ứng viên](./DETAILED-MEDIA-CATALOG.csv).

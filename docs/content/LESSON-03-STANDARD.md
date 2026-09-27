@@ -1,19 +1,28 @@
-﻿# Bài 3: Dinh Độc Lập - Biểu tượng sụp đổ (Standard Lesson)
+# Bài 3: Thế trận lòng dân — hầm vũ khí và Đội 5
 
-**Chương:** Chiến dịch Mậu Thân 1968
-**Loại bài học:** Lý thuyết tiêu chuẩn (Standard)
-**Mục tiêu (CLO-3):** Hiểu được tính chất ác liệt và ý chí kiên trung của các chiến sĩ thông qua trận đánh Dinh Độc Lập.
+> Task: [CONTENT-011](../tasks/active/CONTENT-011.md)
+> Status: NEEDS_HISTORICAL_REVIEW; chưa phát hành.
+> Lesson ID: `lesson-mt68-03-standard`; objective: CLO-3.
 
-## Nội dung bài giảng
+Mục tiêu: giải thích vai trò của cơ sở cất giấu vũ khí, phân biệt khâu chuẩn bị với kết quả trận đánh.
 
-Giữa trung tâm Sài Gòn, Dinh Độc Lập là biểu tượng quyền lực tối cao của chính quyền Việt Nam Cộng hòa, được bảo vệ với hệ thống phòng thủ dày đặc. 
+## Cơ sở chuẩn bị
 
-Để chuẩn bị cho đòn đánh vào đầu não này, từ nhiều năm trước, chiến sĩ Biệt động Trần Văn Lai (tức Năm Lai, Mai Hồng Quế) cùng vợ đã bí mật đào căn hầm chứa vũ khí tại số 287/70 đường Võ Văn Tần (nay thuộc Quận 3). Dưới vỏ bọc là một thầu khoán, căn hầm đã che giấu an toàn gần hai tấn vũ khí, súng AK, đạn B40 và khối thuốc nổ TNT ngay trong lòng địch.
+Di tích tại số 287/70 Võ Văn Tần gắn với Trần Văn Lai và việc cất giấu vũ khí phục vụ trận đánh Dinh Độc Lập. Đội 5 nhận vũ khí tại đây trước khi xuất kích. Không gọi Võ Văn Tần là tên đường đã dùng năm 1968; không đổi địa chỉ thành Nguyễn Đình Chiểu chỉ vì hai hẻm thông nhau. [CLM-MT68-04 / SRC-MT68-05]
 
-Rạng sáng Mùng 2 Tết Mậu Thân, Đội 5 Biệt động gồm 15 chiến sĩ xuất kích từ căn hầm bí mật này. Ngay từ phút đầu, đòn bộc phá đã làm sập cổng phụ của Dinh Độc Lập. Quân địch bất ngờ, hoảng loạn, nhưng do có ưu thế tuyệt đối về quân số và hỏa lực nên nhanh chóng tổ chức phản kích.
+## Trận đánh và giới hạn của kế hoạch
 
-Trận chiến diễn ra vô cùng ác liệt. Dù phải đối mặt với xe tăng và trực thăng vũ trang, Đội 5 vẫn bám trụ chiến đấu đến cùng, không một ai đầu hàng. Hầu hết các chiến sĩ đã anh dũng hy sinh. Trận đánh Dinh Độc Lập không chỉ là một đòn quân sự chớp nhoáng, mà còn là bản hùng ca về ý chí sắt đá, lòng quả cảm của lực lượng Biệt động Sài Gòn, minh chứng cho việc cách mạng có thể đánh vào bất cứ nơi nào, dù là nơi an toàn nhất của đối phương.
+Theo bài viết ghi lại lời kể các thành viên Đội 5, lực lượng gồm 15 người. Bộc phá mở cổng không nổ; đơn vị tiếp tục chiến đấu rồi rút vào một ngôi nhà để cố thủ. Bài viết ghi bảy người còn lại bị bắt. Không kể kết quả bằng câu “bộc phá làm sập cổng” hoặc “hầu hết hy sinh”. [CLM-MT68-03 / SRC-MT68-04]
 
-## Nguồn tư liệu hình ảnh
-- `media/vn-history/vo-van-tan-hatch.jpg`: Hình ảnh nắp hầm vũ khí 287/70 Võ Văn Tần.
-- `media/vn-history/dinh-doc-lap-battle-68.jpg`: Tình hình chiến đấu tại khu vực Dinh Độc Lập.
+## Diễn giải giáo dục
+
+Cơ sở hậu cần bí mật giúp chuẩn bị hoạt động trong đô thị, nhưng không bảo đảm kế hoạch tác chiến đạt mục tiêu. Cần tách sự chuẩn bị, tinh thần chiến đấu và kết quả thực tế khi đọc tư liệu.
+
+Câu hỏi suy ngẫm: nguồn nào chứng minh vai trò căn hầm, nguồn nào kể kết quả trận đánh? Đây là câu hỏi đọc hiểu, không chấm điểm cảm xúc.
+
+## Media và nguồn
+
+- MED-MT68-06: ảnh di tích sau chiến tranh; nếu được cấp quyền, caption phải ghi thời điểm chụp, không coi là ảnh trận đánh 1968.
+- MED-MT68-02: ứng viên ảnh Dinh, chưa duyệt quyền và niên đại.
+- Fallback là văn bản trên; alt/caption cuối chỉ viết sau khi chọn asset.
+- [Nguồn và claim](./HISTORICAL-SOURCES.md) · [Catalog ứng viên](./DETAILED-MEDIA-CATALOG.csv). Chưa có historical/media sign-off.

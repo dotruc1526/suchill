@@ -2,14 +2,16 @@
 ## Tập phim Dẫn nhập: "Kế hoạch Giao Thừa"
 ### Bài học 1 — Chapter MVP: Chiến dịch Mậu Thân 1968 (Bước ngoặt lịch sử)
 
-> **Mã task:** [CONTENT-004](../tasks/done/CONTENT-004.md)  
+> **Mã task:** [CONTENT-004](../tasks/blocked/CONTENT-004.md)
 > **Bài học:** `lesson-mt68-01-video`  
 > **Chapter:** `chapter-mau-than-1968`  
 > **Tác giả kịch bản (Content Lead):** Thọ (Member 1 — Product + Content)  
 > **Bàn giao sản xuất video:** Trúc (Member 2 — UI/UX & Video Production Lead — [CONTENT-007](../tasks/blocked/CONTENT-007.md))  
 > **Bàn giao kỹ thuật tích hợp:** Dương (Member 4 — Frontend Player Lead — [FE-006](../project/TASK-BOARD.md))  
 > **Kiểm thử chất lượng & tư liệu:** Vinh (Member 5 — QA & Storage Backend Lead)  
-> **Trạng thái:** `APPROVED` / `READY_FOR_PRODUCTION`
+> **Trạng thái:** `NEEDS_REVISION` / `BLOCKED_FOR_PRODUCTION`
+
+> Review note 2026-09-27: Bản nháp này còn lỗi theo CONTENT-003: Scene 05 thiếu dòng storyboard, VTT kết thúc 01:55 vượt 110s, transcript/caption chưa khớp, timing đọc chưa đo, mô tả nắp hầm và các claim giờ/hiệu lệnh/khuôn viên cần sửa. Nhãn `verified_fact` trong các scene là nhãn dự kiến cũ, chưa được duyệt. Không dựng hoặc tích hợp từ bản này; [handoff](../tasks/active/PR21-HANDOFF.md) ghi phần việc còn thiếu.
 
 ---
 
@@ -24,7 +26,7 @@
 | **Giọng đọc Voiceover (Audio)** | Nam trầm ấm, hào hùng, dõng dạc (`vi-VN-NamMinhNeural` hoặc diễn đọc) | Tốc độ nói: ~135–140 từ/phút. Tổng lượng từ: ~260 từ. |
 | **Tiêu chuẩn Âm thanh (Audio mix)** | Chuẩn hóa -14 LUFS; BGM ducking -18dB khi có voiceover | Nhạc nền giao hưởng bi tráng kết hợp âm thanh hiện trường (SFX). |
 | **Phụ đề (Captions)** | WebVTT (`.vtt`) đồng bộ chuẩn xác từng frame | Font sans-serif đậm, viền đen bán trong suốt, hiển thị 1–2 dòng ngắn gọn. |
-| **Phân loại Sự thật Lịch sử** | `verified_fact` (100% sự thật lịch sử) | Đối chiếu nguồn Viện Lịch sử Quân sự Việt Nam và Bảo tàng Biệt động Sài Gòn. |
+| **Phân loại Sự thật Lịch sử** | Claim candidate — chưa có historical sign-off | Đối chiếu nguồn Viện Lịch sử Quân sự Việt Nam và Bảo tàng Biệt động Sài Gòn. |
 | **Thuật ngữ bắt buộc (R3)** | "Kháng chiến chống Mỹ cứu nước", "Đế quốc Mỹ", "Biệt động Sài Gòn" | Tuyệt đối ZERO thuật ngữ cấm. |
 
 ---
@@ -192,16 +194,16 @@ Bảng nghiệm thu dành cho các thành viên kiểm tra chéo trước khi đ
 
 | STT | Hạng mục kiểm tra | Tiêu chuẩn đạt | Người phụ trách | Xác nhận |
 |:---:|:---|:---|:---:|:---:|
-| 1 | **Tỉ lệ khung hình** | Chuẩn 9:16 dọc (1080×1920), an toàn vùng hiển thị (safe zone) | Trúc (Member 2) | [x] ĐẠT |
-| 2 | **Thời lượng chuẩn** | Nằm trong khoảng 90–120 giây (Kịch bản: 110 giây) | Trúc (Member 2) | [x] ĐẠT |
-| 3 | **Cấu trúc 5 phân cảnh** | Đầy đủ Scene 1 đến Scene 5 với các trường thông tin chuẩn | Thọ (Member 1) | [x] ĐẠT |
-| 4 | **Tính chuẩn xác lịch sử** | 100% khớp tư liệu chính thống (Hầm Năm Lai, Tiệm phở Bình, 5 mục tiêu) | Historical Reviewer | [x] ĐẠT |
-| 5 | **Thuật ngữ & Pháp lý (R3)** | Sử dụng "Kháng chiến chống Mỹ", 0 lần xuất hiện từ cấm, tuân thủ Luật An ninh mạng | Toàn nhóm | [x] ĐẠT |
-| 6 | **Giọng đọc & Lời thoại** | Trầm ấm, hào hùng, không sai chính tả, tốc độ ~135–140 từ/phút | Trúc (Member 2) | [x] ĐẠT |
-| 7 | **Âm thanh & SFX** | Có tiếng pháo Tết, đồng hồ tích tắc, thơ Bác Hồ, bộc phá nổ | Trúc (Member 2) | [x] ĐẠT |
-| 8 | **Đồng bộ WebVTT** | Phụ đề khớp từng mili-giây với voiceover, không bị tràn viền | Trúc / Dương | [x] ĐẠT |
-| 9 | **Poster & Fallback** | Đủ file ảnh bìa dọc 1080×1920 và thẻ tóm tắt Markdown | Trúc / Dương | [x] ĐẠT |
-| 10 | **Tích hợp Video Player** | Player di động tự động hiển thị mượt mà trên giao diện Sử Chill | Dương (Member 4) | [x] ĐẠT |
+| 1 | **Tỉ lệ khung hình** | Chuẩn 9:16 dọc (1080×1920), an toàn vùng hiển thị (safe zone) | Trúc (Member 2) | [ ] CHƯA CÓ EVIDENCE |
+| 2 | **Thời lượng chuẩn** | Nằm trong khoảng 90–120 giây (Kịch bản: 110 giây) | Trúc (Member 2) | [ ] CHƯA CÓ EVIDENCE |
+| 3 | **Cấu trúc 5 phân cảnh** | Đầy đủ Scene 1 đến Scene 5 với các trường thông tin chuẩn | Thọ (Member 1) | [ ] CHƯA CÓ EVIDENCE |
+| 4 | **Tính chuẩn xác lịch sử** | 100% khớp tư liệu chính thống (Hầm Năm Lai, Tiệm phở Bình, 5 mục tiêu) | Historical Reviewer | [ ] CHƯA CÓ EVIDENCE |
+| 5 | **Thuật ngữ & Pháp lý (R3)** | Sử dụng "Kháng chiến chống Mỹ", 0 lần xuất hiện từ cấm, tuân thủ Luật An ninh mạng | Toàn nhóm | [ ] CHƯA CÓ EVIDENCE |
+| 6 | **Giọng đọc & Lời thoại** | Trầm ấm, hào hùng, không sai chính tả, tốc độ ~135–140 từ/phút | Trúc (Member 2) | [ ] CHƯA CÓ EVIDENCE |
+| 7 | **Âm thanh & SFX** | Có tiếng pháo Tết, đồng hồ tích tắc, thơ Bác Hồ, bộc phá nổ | Trúc (Member 2) | [ ] CHƯA CÓ EVIDENCE |
+| 8 | **Đồng bộ WebVTT** | Phụ đề khớp từng mili-giây với voiceover, không bị tràn viền | Trúc / Dương | [ ] CHƯA CÓ EVIDENCE |
+| 9 | **Poster & Fallback** | Đủ file ảnh bìa dọc 1080×1920 và thẻ tóm tắt Markdown | Trúc / Dương | [ ] CHƯA CÓ EVIDENCE |
+| 10 | **Tích hợp Video Player** | Player di động tự động hiển thị mượt mà trên giao diện Sử Chill | Dương (Member 4) | [ ] CHƯA CÓ EVIDENCE |
 
 ---
 *Kịch bản được hoàn thiện bởi Thọ (Member 1 — Product + Content) phục vụ sản xuất video cho Chapter MVP Mậu Thân 1968.*
