@@ -1,14 +1,39 @@
 # Bàn giao công việc tiếp theo — Trúc (Member 2)
 
 > Task nguồn: [`CONTENT-006`](./CONTENT-006.md)
-> Nhánh: `codex/truc-content-006-video-reference`
+> Nhánh: `codex/content006-media-package-audit`
 > Executor duy nhất: Trúc (Member 2)
 > Trạng thái task nguồn: `IN PROGRESS`
-> Ngày bàn giao: 2026-09-26
+> Ngày bàn giao: 2026-09-27
 
 ## Bắt đầu tại đây — phiếu thực hiện tiếp theo
 
-### Checkpoint cuối — đồng bộ sau quyền mới (2026-09-26)
+### Checkpoint mới nhất — media package audit (2026-09-27)
+
+Trúc đã yêu cầu tiếp tục `CONTENT-006` theo hướng làm hết phần còn lại của clip “Trước cơn bão”. Codex kiểm tra `main` sau PR #23 và các dấu vết local trước khi sửa media. Kết luận: chưa thể tạo package publish/integration trong repo hiện tại vì source package cuối không có trong Git.
+
+Kết quả kiểm tra:
+
+- `public/media/truoc-con-bao/` không tồn tại trong checkout `main`; `git ls-files` chỉ có hồ sơ docs cho CONTENT-006, không có MP4/VTT/poster/cues/audio của clip.
+- `scripts/media` local là untracked và hiện chỉ còn thư mục `work/` với scene/cue images, `vendor/` và `__pycache__`; không có script nguồn, MP4, audio cuối, VTT hoặc manifest final để rebuild an toàn.
+- `branches/1956-tap-1` có prototype cũ và script tạo video 99 giây 1280x720, nhưng không có `public/media` output và không khớp package CONTENT-006 đang được hồ sơ mô tả là 93 giây 1080x1920.
+- Vì vậy không sửa subtitle/audio/video, không ghi là đã publish-ready, không chuyển `REVIEW`/`DONE`, không mở M1 và không coi video là canonical.
+
+Nếu nhóm muốn dùng clip ngoài `REFERENCE_ONLY`, Trúc cần cung cấp hoặc claim một package nguồn đầy đủ:
+
+| Thành phần bắt buộc | Trạng thái hiện tại | Việc cần có trước khi sửa/review lại |
+|---|---|---|
+| MP4 final hoặc source export | Không có tracked `public/media/truoc-con-bao/episode-portrait-final.mp4` trên `main` | Đưa đúng file/version cần sửa vào workspace hoặc cung cấp đường dẫn nguồn được phép claim |
+| Subtitle/cue/transcript final | Không có tracked `subtitles.vtt`, `cues.json` hoặc transcript khớp audio cuối | Tạo bản mới dùng wording đã duyệt, rồi đối chiếu audio thật |
+| Wording 01:17-01:29 | Câu sửa đã được duyệt ở mức wording, chưa áp dụng vào media | Dùng: “Nhưng tại sao một thung lũng ở Tây Bắc lại trở thành điểm quyết chiến chiến lược của hai bên?”; biến thể hẹp hơn: “...trở thành tâm điểm của cuộc đối đầu Đông Xuân 1953-1954?” |
+| Audio/voice | Quyền Edge TTS vẫn chỉ đủ giữ `REFERENCE_ONLY` theo hồ sơ hiện có | Thay audio bằng nguồn có quyền rõ hoặc cung cấp điều khoản/permission áp dụng cho bản đã tạo |
+| Nhạc/SFX | Chưa có manifest/permission/hash final | Cung cấp manifest quyền hoặc thay bằng âm thanh tự tạo/được phép dùng, có hash |
+| Poster/rendition/fallback | Chưa có package cuối trong Git | Tạo poster, mobile rendition, transcript/fallback và mô tả hình ảnh khớp bản final |
+| Manifest/hash | Report cũ không khóa được MP4 hiện tại | Tạo manifest final gồm SHA-256 từng file, nguồn, license/permission, reviewer và ngày kiểm tra |
+
+Một việc tiếp theo duy nhất: **gom/cung cấp source package final của “Trước cơn bão”**. Khi package có đủ file, mới sửa wording/audio và chạy lại Phase 3/8 checklist. Nếu không có package nguồn, CONTENT-006 giữ `IN PROGRESS` + `REFERENCE_ONLY` và không có thao tác media an toàn để làm tiếp.
+
+### Checkpoint trước — đồng bộ sau quyền mới (2026-09-26)
 
 Thọ đã giao Trúc review learning objective/wording lịch sử và Product owner giao Trúc chốt media/legal cho CONTENT-006. Kết luận đã ghi vào hồ sơ:
 
@@ -86,7 +111,7 @@ Sau khi biết dịch vụ/cách tạo, Codex có thể tìm điều khoản ch�
 
 ### Việc 2: nghe và kiểm tra phụ đề của clip đã chọn
 
-Đầu ra: phiếu kiểm tra toàn bộ 28 cue. Mở [video Trước cơn bão](../../../public/media/truoc-con-bao/episode-portrait-final.mp4), đối chiếu [phụ đề](../../../public/media/truoc-con-bao/subtitles.vtt). Trúc đã xác nhận tổng thể “clip oke”; các dòng dưới ghi lại cùng xác nhận đó, không phải sáu lượt kiểm tra độc lập có evidence riêng. Khi kiểm tra chi tiết, nghe ở tốc độ bình thường và ghi cue hoặc mốc giây khi có lỗi.
+Đầu ra: phiếu kiểm tra toàn bộ 28 cue. Bản kiểm tra cũ dùng đường dẫn dự kiến `public/media/truoc-con-bao/episode-portrait-final.mp4` và `public/media/truoc-con-bao/subtitles.vtt`; các file này hiện không có trên `main`, nên cần cung cấp lại package nguồn trước khi kiểm tra chi tiết. Trúc đã xác nhận tổng thể “clip oke”; các dòng dưới ghi lại cùng xác nhận đó, không phải sáu lượt kiểm tra độc lập có evidence riêng. Khi kiểm tra chi tiết, nghe ở tốc độ bình thường và ghi cue hoặc mốc giây khi có lỗi.
 
 | Cue | Khoảng thời gian | Nội dung để nhận diện | Kết quả / lỗi |
 |---|---|---|---|

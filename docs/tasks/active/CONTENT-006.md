@@ -1,7 +1,7 @@
 # CONTENT-006 — Review và phát triển video reference
 
 > Status: IN PROGRESS\
-> Last updated: 2026-09-26
+> Last updated: 2026-09-27
 
 ## Assignment
 
@@ -12,7 +12,7 @@
 - Executor name: Trúc
 - Reviewer: Trúc (historical/media reviewer; Thọ cấp quyền review learning objective/wording lịch sử; Product owner cấp quyền chốt media/legal cho CONTENT-006)
 - Codex task/thread: —
-- Branch: `codex/truc-content-006-video-reference`
+- Branch: `codex/content006-media-package-audit`
 - Started: 2026-09-24
 - Depends on: DOC-004 (`DONE`)
 
@@ -41,6 +41,7 @@ Reference-only checkpoint đã chốt: learning objective/wording được Trúc
 
 | Date/time | Executor | Completed | Evidence | Next action | Blocker |
 |---|---|---|---|---|---|
+| 2026-09-27 | Trúc (Codex hỗ trợ) | Bắt đầu lượt tạo/sửa media package ngoài `REFERENCE_ONLY`, nhưng xác nhận `main` hiện không có tracked `public/media/truoc-con-bao/` hoặc source package đủ để dựng lại | `git ls-files`; kiểm tra workspace: `public/media/truoc-con-bao` không tồn tại; `scripts/media` local chỉ còn derived frame/cue images, không có MP4/audio/VTT/script nguồn; `branches/1956-tap-1` là prototype cũ khác spec | Cung cấp hoặc claim package nguồn hoàn chỉnh rồi mới sửa wording/audio/nhạc/SFX/hash; dùng câu sửa đã duyệt cho đoạn 01:17-01:29 | Thiếu MP4/source export/VTT/audio/poster/manifest final trong repo; không thể approve publish/integration từ evidence hiện có |
 | 2026-09-22 | Codex (review only) | Ghi nhận video 1080×1920, khoảng 93 giây, khoảng 67 MB là `REFERENCE_ONLY` | External local reference | Gán content/video owner và chọn hướng dùng | Chưa có owner; chưa source/history review |
 | 2026-09-23 | Codex | Product owner gán Trúc là Member 2, owner dự kiến của video reference | TEAM-OWNERSHIP / DOC-015 | Trúc claim task và chọn hướng đánh giá; historical reviewer kiểm tra nguồn | Chưa claim media file; historical reviewer chưa được chỉ định |
 | 2026-09-24 | Trúc | Claim task `CONTENT-006` trên nhánh riêng; Trúc là executor duy nhất, Thọ/historical reviewer/Product owner chỉ review hoặc phối hợp | Task card + task board | Tìm đúng đường dẫn `episode-portrait-final.mp4`, lập review artifact, chọn hướng dùng và learning objective | Historical reviewer chưa được chỉ định; chưa xác minh source/license |
@@ -50,6 +51,8 @@ Reference-only checkpoint đã chốt: learning objective/wording được Trúc
 | 2026-09-24 | Trúc (Codex hỗ trợ) | Đối chiếu năm nhóm claim lời dẫn với ba nguồn có locator; bốn nhóm `VERIFIED`, một nhóm `NEEDS_REVISION` vì cụm “tâm điểm của cả cuộc chiến” quá rộng | Bảng claim và nguồn S1–S3 trong `active.md` | Superseded by 2026-09-25: Trúc đã chốt objective/wording và media/legal cho reference-only | Trúc đồng thời là executor; bản MP4 hiện tại vẫn cần sửa wording nếu dùng lại |
 
 ## Handoff
+
+- Checkpoint media package audit 2026-09-27: theo yêu cầu tiếp tục CONTENT-006, Codex kiểm tra `main` sau PR #23 và các dấu vết local trước khi sửa media. Kết quả: package publish/integration chưa thể tạo trong repo hiện tại vì không có tracked `public/media/truoc-con-bao/episode-portrait-final.mp4`, `subtitles.vtt`, audio cuối, poster, cues/source export hoặc manifest/hash final. Thư mục local `scripts/media` trong checkout hiện chỉ còn file work derived như scene/cue images và vendor; nhánh/thư mục `branches/1956-tap-1` chứa prototype cũ 99 giây 1280x720, không phải source final 93 giây 1080x1920 đang được hồ sơ CONTENT-006 đánh giá. Không sửa code/media, không chuyển REVIEW/DONE, không mở M1 và không coi clip là canonical. Nếu muốn đi tiếp ngoài `REFERENCE_ONLY`, người nhận task phải cung cấp package nguồn đầy đủ rồi dùng wording đã duyệt: “Nhưng tại sao một thung lũng ở Tây Bắc lại trở thành điểm quyết chiến chiến lược của hai bên?” hoặc biến thể “...trở thành tâm điểm của cuộc đối đầu Đông Xuân 1953-1954?”.
 
 - Checkpoint đồng bộ 2026-09-26: sau khi Thọ giao Trúc review learning objective/wording và Product owner giao Trúc chốt media/legal, hồ sơ CONTENT-006 được đồng bộ ở trạng thái `IN PROGRESS` + `REFERENCE_ONLY`. Trúc đã chấp nhận objective cho mục đích reference nội bộ, xác định wording 01:17–01:29 phải sửa trước khi dùng lại, và chốt media/legal là `APPROVED_FOR_INTERNAL_REFERENCE_ONLY`. Không chuyển `REVIEW`/`DONE`, không coi video là canonical, không mở M1. Docs-only; không build/typecheck vì không sửa code/media. Next: không có việc bắt buộc ngay nếu chỉ giữ reference; nếu muốn dùng ngoài reference, tạo media package mới và review lại.
 
@@ -86,5 +89,5 @@ Reference-only checkpoint đã chốt: learning objective/wording được Trúc
 - Changed files: docs only.
 - Test/build result: chưa tích hợp app.
 - Environment/migration impact: không có.
-- Known issues/risks: một claim cần sửa wording trong bản media; audio Edge TTS, nhạc/SFX và chuỗi xuất cuối chưa đủ bằng chứng publish; accessibility/mobile package chưa đạt.
-- Next owner/action: nếu muốn dùng ngoài `REFERENCE_ONLY`, tạo task/media package mới để sửa wording, thay hoặc chứng minh quyền audio/nhạc/SFX, khóa manifest/hash/source export và chạy lại review. Video hiện chỉ `REFERENCE_ONLY`.
+- Known issues/risks: một claim cần sửa wording trong bản media; audio Edge TTS, nhạc/SFX và chuỗi xuất cuối chưa đủ bằng chứng publish; package media/source final hiện không có trong `main`; accessibility/mobile package chưa đạt.
+- Next owner/action: nếu muốn dùng ngoài `REFERENCE_ONLY`, cung cấp package nguồn đầy đủ hoặc tạo task rebuild media riêng để sửa wording, thay hoặc chứng minh quyền audio/nhạc/SFX, khóa manifest/hash/source export và chạy lại review. Video hiện chỉ `REFERENCE_ONLY`.
