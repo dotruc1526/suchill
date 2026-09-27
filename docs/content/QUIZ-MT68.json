@@ -1,0 +1,150 @@
+{
+  "id": "quiz-mt68-chapter-assessment",
+  "title": "Đánh giá Chương: Chiến dịch Mậu Thân 1968",
+  "questions": [
+    {
+      "id": "q-mt68-01",
+      "objectiveId": "CLO-1",
+      "question": "Đợt tiến công đầu năm 1968 mở rộng vào loại địa bàn nào được nêu trong bài?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Chỉ các căn cứ rừng núi"
+        },
+        {
+          "id": "B",
+          "text": "Nhiều đô thị miền Nam"
+        },
+        {
+          "id": "C",
+          "text": "Chỉ các đảo xa bờ"
+        },
+        {
+          "id": "D",
+          "text": "Chỉ các tuyến biên giới"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": "Bối cảnh Bài 2 nêu các đợt tiến công vào đô thị cuối tháng 1; không khẳng định mọi nơi cùng một thời điểm.",
+      "sourceIds": [
+        "SRC-MT68-01"
+      ]
+    },
+    {
+      "id": "q-mt68-02",
+      "objectiveId": "CLO-2",
+      "question": "Địa điểm nào có trong danh sách mục tiêu nội đô ở Bài 2?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Căn cứ Khe Sanh"
+        },
+        {
+          "id": "B",
+          "text": "Nhà tù Côn Đảo"
+        },
+        {
+          "id": "C",
+          "text": "Sân bay Đà Nẵng"
+        },
+        {
+          "id": "D",
+          "text": "Đài Phát thanh Sài Gòn"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanation": "Đối chiếu danh sách năm thẻ Bài 2: Đài Phát thanh Sài Gòn thuộc nhóm mục tiêu được nguồn liệt kê.",
+      "sourceIds": [
+        "SRC-MT68-02"
+      ]
+    },
+    {
+      "id": "q-mt68-03",
+      "objectiveId": "CLO-3",
+      "question": "Căn hầm gắn với Trần Văn Lai có vai trò nào trong phần chuẩn bị được Bài 3 mô tả?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Nơi cất giấu và nhận vũ khí"
+        },
+        {
+          "id": "B",
+          "text": "Nơi tổ chức đàm phán"
+        },
+        {
+          "id": "C",
+          "text": "Đài phát thanh công khai"
+        },
+        {
+          "id": "D",
+          "text": "Trạm chỉ huy toàn bộ chiến trường miền Nam"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": "Bài 3 trình bày chức năng hậu cần của cơ sở; không gán cho căn hầm vai trò chỉ huy toàn chiến trường.",
+      "sourceIds": [
+        "SRC-MT68-05"
+      ]
+    },
+    {
+      "id": "q-mt68-04",
+      "objectiveId": "CLO-4",
+      "question": "Mốc 13/5/1968 trong Bài 4 gắn với sự kiện nào?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Ký Hiệp định Paris"
+        },
+        {
+          "id": "B",
+          "text": "Tuyên bố không tranh cử của Johnson"
+        },
+        {
+          "id": "C",
+          "text": "Phiên họp toàn thể đầu tiên giữa đại diện Việt Nam Dân chủ Cộng hòa và Mỹ tại Paris"
+        },
+        {
+          "id": "D",
+          "text": "Kết thúc toàn bộ chiến tranh"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": "Đây là mốc phiên họp trong quá trình đàm phán; xem Document 230, không nhầm với ký hiệp định.",
+      "sourceIds": [
+        "SRC-MT68-06"
+      ]
+    },
+    {
+      "id": "q-mt68-05",
+      "objectiveId": "CLO-4",
+      "question": "Cách diễn giải nào phù hợp với giới hạn nguồn được nêu ở Bài 4?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Mậu Thân làm chiến tranh kết thúc ngay"
+        },
+        {
+          "id": "B",
+          "text": "Mậu Thân góp phần thay đổi dư luận và chính sách, cần phân biệt từng bước ngoại giao"
+        },
+        {
+          "id": "C",
+          "text": "Một phóng sự quyết định toàn bộ chính sách"
+        },
+        {
+          "id": "D",
+          "text": "Bắt đầu đàm phán đồng nghĩa ký ngay hiệp định"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": "Cần phân biệt tác động chính trị với kết quả quân sự và các mốc ngoại giao, tránh quy về một nguyên nhân duy nhất.",
+      "sourceIds": [
+        "SRC-MT68-01",
+        "SRC-MT68-06"
+      ]
+    }
+  ],
+  "status": "draft",
+  "reviewStatus": "NEEDS_HISTORICAL_REVIEW",
+  "authoringOnly": true
+}

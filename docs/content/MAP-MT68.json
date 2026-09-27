@@ -1,0 +1,47 @@
+﻿{
+  "id": "map-mau-than-1968",
+  "title": "Sấm sét nội đô",
+  "description": "5 mục tiêu đầu não bị Biệt động Sài Gòn tấn công rạng sáng Mùng 2 Tết Mậu Thân 1968.",
+  "nodes": [
+    {
+      "id": "node-embassy",
+      "coordinates": { "x": 65, "y": 40 },
+      "title": "Tòa Đại sứ Mỹ",
+      "forces": "Đội 11 Biệt động (17 chiến sĩ)",
+      "description": "Đặc công dùng thuốc nổ phá tường rào, đánh chiếm và làm chủ Tòa Đại sứ trong hơn 6 giờ đồng hồ, gây chấn động nước Mỹ.",
+      "mediaRef": "File:MPs_escort_a_Vietcong_captive_out_of_the_US_Embassy_on_31_January_1968.jpg"
+    },
+    {
+      "id": "node-palace",
+      "coordinates": { "x": 50, "y": 55 },
+      "title": "Dinh Độc Lập",
+      "forces": "Đội 5 Biệt động",
+      "description": "Xuất kích từ hầm vũ khí bí mật 287/70 Võ Văn Tần, Đội 5 đánh sập cổng phụ và kiên cường chiến đấu chặn viện binh địch.",
+      "mediaRef": "File:Reunification_Palace,_Ho_Chi_Minh_City.jpg"
+    },
+    {
+      "id": "node-radio",
+      "coordinates": { "x": 80, "y": 45 },
+      "title": "Đài Phát thanh",
+      "forces": "Đội 4 Biệt động",
+      "description": "Đánh chiếm đài phát thanh nhằm phát lời kêu gọi nổi dậy. Địch buộc phải phá hủy chính đài phát thanh của mình để phản kích.",
+      "mediaRef": "Category:Tet_Offensive"
+    },
+    {
+      "id": "node-jgs",
+      "coordinates": { "x": 20, "y": 20 },
+      "title": "Bộ Tổng Tham mưu",
+      "forces": "Cụm Biệt động",
+      "description": "Cơ quan đầu não quân sự cao nhất của quân đội Sài Gòn bị tập kích, gây tê liệt hệ thống chỉ huy địch trong những giờ đầu.",
+      "mediaRef": "File:Tet_Offensive_attack_on_Tan_Son_Nhut_and_JGS_31_January_1968.jpg"
+    },
+    {
+      "id": "node-navy",
+      "coordinates": { "x": 75, "y": 70 },
+      "title": "Bộ Tư lệnh Hải quân",
+      "forces": "Cụm Biệt động",
+      "description": "Cụm mục tiêu ven sông bị tập kích chớp nhoáng, phá hủy nhiều khí tài, thể hiện khả năng vươn tới mọi ngóc ngách của Biệt động.",
+      "mediaRef": "Category:Republic_of_Vietnam_Navy"
+    }
+  ]
+}
