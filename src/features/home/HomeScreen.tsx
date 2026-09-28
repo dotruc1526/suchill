@@ -27,11 +27,11 @@ export function HomeScreen({
 
       {/* Streak card */}
       <div
-        className="paper-card rounded-lg p-3 flex items-center gap-3"
+        className="paper-card rounded-lg p-3 flex flex-wrap items-center gap-3"
         style={{ borderLeft: '4px solid #C4341A' }}
       >
-        <span className="text-3xl">🔥</span>
-        <div>
+        <span className="text-3xl shrink-0">🔥</span>
+        <div className="min-w-[150px] flex-1">
           <div className="font-serif font-bold text-base" style={{ color: '#C4341A' }}>
             {userStats.streak} NGÀY LIÊN TIẾP
           </div>
@@ -39,7 +39,7 @@ export function HomeScreen({
             Bạn đã khám phá lịch sử {userStats.streak} ngày liên tiếp!
           </div>
         </div>
-        <div className="ml-auto flex gap-1">
+        <div className="ml-auto flex shrink-0 gap-1">
           {weekDays.map((d, i) => (
             <div key={d} className="flex flex-col items-center">
               <div
