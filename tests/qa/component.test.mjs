@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict'
+import { readFile } from 'node:fs/promises'
 import { after, test } from 'node:test'
 import React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
@@ -12,6 +13,11 @@ const vite = await createServer({
 
 after(async () => vite.close())
 
+test('document opts into display around device safe areas', async () => {
+  const html = await readFile(new URL('../../index.html', import.meta.url), 'utf8')
+  assert.match(html, /name="viewport"[^>]*viewport-fit=cover/)
+})
+
 test('canonical BottomNav renders all tabs and selected state', async () => {
   const { BottomNav } = await vite.ssrLoadModule('/src/components/layout/BottomNav.tsx')
   const html = renderToStaticMarkup(
@@ -22,7 +28,8 @@ test('canonical BottomNav renders all tabs and selected state', async () => {
     assert.ok(html.includes(label), `missing tab: ${label}`)
   }
   assert.equal((html.match(/<button/g) ?? []).length, 4)
-  assert.ok(html.includes('safe-area-inset-bottom'))
+  assert.ok(html.includes('max(16px, env(safe-area-inset-bottom))'))
+  assert.ok(html.includes('min-height:44px'))
   assert.ok(html.includes('aria-current="page"'))
 })
 
@@ -32,7 +39,7 @@ test('canonical TopBar renders streak, xp and safe-area header', async () => {
     React.createElement(TopBar, { xp: 120, streak: 5, achievements: 3 }),
   )
   assert.ok(html.includes('role="banner"'))
-  assert.ok(html.includes('safe-area-inset-top'))
+  assert.ok(html.includes('max(16px, env(safe-area-inset-top))'))
   assert.ok(html.includes('120'))
   assert.ok(html.includes('5'))
   assert.ok(!html.includes('letter-spacing:0.03em') && !html.includes('letterSpacing'))

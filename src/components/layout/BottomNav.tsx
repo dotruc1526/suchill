@@ -1,4 +1,5 @@
 import type { Tab } from '../../types'
+import { theme } from '../../theme/tokens'
 
 const NAV_TABS: { key: Tab; icon: string; label: string }[] = [
   { key: 'home', icon: '🏠', label: 'HỌC' },
@@ -9,43 +10,32 @@ const NAV_TABS: { key: Tab; icon: string; label: string }[] = [
 
 export function BottomNav({ tab, onTab }: { tab: Tab; onTab: (t: Tab) => void }) {
   return (
-    <nav
-      role="navigation"
-      aria-label="Thanh điều hướng chính"
-      className="shrink-0 flex items-end justify-around px-2 pb-2 pt-1"
+    <nav aria-label="Thanh điều hướng chính" className="grid grid-cols-4 shrink-0"
       style={{
-        borderTop: '1.5px solid rgba(61,26,0,0.15)',
-        background: '#EDD9B8',
-        minHeight: 60,
-        paddingBottom: 'max(8px, env(safe-area-inset-bottom))',
+        borderTop: `1px solid ${theme.colors.borderLight}`,
+        background: theme.colors.navBg,
+        padding: theme.spacing.sm,
+        gap: theme.spacing.xs,
+        paddingBottom: `max(${theme.spacing.base}, env(safe-area-inset-bottom))`,
+        paddingLeft: `max(${theme.spacing.sm}, env(safe-area-inset-left))`,
+        paddingRight: `max(${theme.spacing.sm}, env(safe-area-inset-right))`,
       }}
     >
-      {NAV_TABS.map(t => (
+      {NAV_TABS.map(({ key, icon, label }) => (
         <button
-          key={t.key}
-          onClick={() => onTab(t.key)}
-          aria-current={tab === t.key ? 'page' : undefined}
-          className="flex flex-col items-center gap-0.5 px-3 py-1 transition-all"
-          style={{ minWidth: 48 }}
+          key={key}
+          type="button"
+          onClick={() => onTab(key)}
+          aria-current={tab === key ? 'page' : undefined}
+          className="flex min-w-0 flex-col items-center justify-center gap-1 px-1 py-1 transition-colors"
+          style={{
+            minHeight: theme.layout.touchTarget,
+            borderRadius: theme.radius.sm,
+            color: tab === key ? theme.colors.primary : theme.colors.textMuted,
+          }}
         >
-          <span className="text-lg leading-none">{t.icon}</span>
-          <span
-            className="font-sans font-bold leading-none"
-            style={{
-              fontSize: 9,
-              color: tab === t.key ? '#8B1A1A' : '#A0622A',
-            }}
-          >
-            {t.label}
-          </span>
-          {tab === t.key && (
-            <div
-              className="font-hand"
-              style={{ color: '#8B1A1A', fontSize: 10, lineHeight: 1, marginTop: -2 }}
-            >
-              ~~~
-            </div>
-          )}
+          <span aria-hidden="true" className="text-lg leading-none">{icon}</span>
+          <span className="font-sans text-[9px] font-bold leading-none">{label}</span>
         </button>
       ))}
     </nav>
