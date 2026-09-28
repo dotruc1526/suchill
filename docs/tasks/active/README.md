@@ -2,7 +2,6 @@
 
 Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây:
 
-- [CONTENT-016](./CONTENT-016.md) — product rule mỗi chapter có một flagship Visual Novel và brief Lesson 2 SAM-2 cho chapter 1972; chờ Thọ/Trúc review.
 - [M1-07](./M1-07.md) — khắc phục narrative choice, Modal focus và token hard-code; Hưng triển khai, Trúc review UI/UX, Vinh review accessibility/QA trước khi Product Owner audit gate M1.
 
 - [DOC-011](./DOC-011.md) — chốt video của Member 2 là deliverable MVP, chờ product owner review.

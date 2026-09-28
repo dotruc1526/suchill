@@ -1,9 +1,17 @@
 # CONTENT-016 — Claim/source và media boundary cho Visual Novel SAM-2
 
-> Status: READY FOR TRÚC RE-REVIEW — chưa phải historical/media approval\
+> Status: APPROVED FOR AUTHORING BRIEF — chưa duyệt narration/media production\
 > Reviewer: Trúc\
 > Consumer: [Lesson 2 Visual Novel brief](./LESSON-02-VISUAL-NOVEL-1972.md)\
 > Rule: claim chưa `APPROVED` không được đưa thành narration fact hoặc `StoryVersion` publishable.
+
+## Điều kiện Product Owner khi approve PR #45
+
+1. **Phạm vi:** PR #45 chỉ duyệt Authoring Brief và khung minh chứng sử liệu của `CONTENT-016`; chưa duyệt Full Narration và chưa tạo `StoryVersion` JSON.
+2. **Cổng sử liệu:** `CLM-1972-VN-001..005` vẫn chờ thẩm định câu chữ chi tiết. Khi Thọ viết narration, Trúc phải duyệt từng câu chứa fact trước khi sản xuất.
+3. **Cổng bản quyền:** media vẫn `NO_ASSET_SELECTED` hoặc bị khóa; lesson phải chạy hoàn chỉnh bằng text-first fallback cho đến khi từng asset có quyền sử dụng và metadata được duyệt.
+
+Thọ đã approve product/learning với ba điều kiện trên; Trúc đã approve historical/media boundary của brief. Hai approval này đóng `CONTENT-016` ở cấp **brief**, không nâng claim, narration hay asset thành `APPROVED` cho sản xuất.
 
 ## 1. Source register có locator
 

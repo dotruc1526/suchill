@@ -1,6 +1,6 @@
 # CONTENT-016 — Flagship Visual Novel cho mỗi chapter canonical
 
-> Status: REVIEW\
+> Status: DONE\
 > Last updated: 2026-09-28
 
 ## Assignment
@@ -31,8 +31,8 @@
 - [x] Authoring brief có stable IDs, scene flow, choice taxonomy, knowledge check, debrief, accessibility/media fallback và review gates.
 - [x] Có claim/source matrix cho SAM-2/S-75 Dvina, kíp chiến đấu, nhiễu, “vạch nhiễu tìm thù” và B-52; claim thiếu locator bị khóa khỏi narration/StoryVersion.
 - [x] Có historical/fiction/media boundary và bảng source/license/alt/caption/transcript/fallback; không asset ngoài nào được mặc định approve.
-- [ ] Thọ xác nhận product/learning direction.
-- [ ] Trúc xác nhận historical framing, source/fiction/media boundary trước khi viết story JSON chi tiết.
+- [x] Thọ xác nhận product/learning direction, kèm ba điều kiện PO về phạm vi brief, cổng sử liệu và cổng bản quyền.
+- [x] Trúc xác nhận historical framing, source/fiction/media boundary ở cấp authoring brief; từng câu narration vẫn cần duyệt lại.
 
 ## Verification
 
@@ -47,11 +47,12 @@
 | 2026-09-28 | Codex | Hoàn tất product addendum, curriculum update và scene-flow brief; chuyển REVIEW | `git diff --check` pass; validator Mậu Thân pass: 5 nodes, 7 scenes, 6 paths, 5 quiz, 9 narration/VTT cues; các link mới của CONTENT-016 tồn tại | Thọ review product/learning; Trúc review historical/media | Repo còn một số link task cũ trỏ sai thư mục do card đã di chuyển, không phát sinh từ CONTENT-016 |
 | 2026-09-28 | Trúc review + Codex remediation | Trúc chưa approve vì thiếu claim/source locator và media boundary; bổ sung evidence package, khóa claim/asset chưa đủ bằng chứng và loại mechanic kỹ thuật chưa được review | `docs/content/CONTENT-016-EVIDENCE.md`; tái sử dụng source registry có page/chapter locator, không tự nâng review status | Thọ approve product/learning; Trúc re-review claim locator và media boundary | `SRC-1972-02/03` và phần ECM của `SRC-LB2-04` vẫn cần locator hẹp do reviewer đọc trực tiếp trước narration |
 | 2026-09-28 | Codex — feedback round 2 | Bổ sung ba nguồn Báo QĐND với ngày, section và paragraph locator cho SAM-2/S-75, kíp chiến đấu, nhiễu, B-52 và “vạch nhiễu tìm thù”; thu hẹp claim phối hợp; làm rõ media chưa chọn không chặn PR brief | `CLM-1972-VN-001..005` chuyển `READY_FOR_TRUC_REVIEW`, không tự đánh dấu `APPROVED`; text-first fallback vẫn bắt buộc | Trúc xác nhận locator/historical-media boundary; sau đó chờ Thọ review product/learning | Không còn `BLOCKED_LOCATOR` trong phạm vi brief; narration/StoryVersion và asset vẫn bị khóa đến khi reviewer xác nhận |
+| 2026-09-28 | Thọ + Trúc + Product Owner | Thọ approve product/learning với ba điều kiện ràng buộc; Trúc approve historical/media boundary; đóng task ở cấp authoring brief | Product Owner xác nhận hai review; GitHub PR #45 ready, 2/2 checks pass, không conflict, một approving review có write access | Merge PR #45; tạo task riêng khi bắt đầu Full Narration/StoryVersion/media selection | Claim 001..005, từng câu narration và mọi asset vẫn phải qua gate riêng trước production |
 
 ## Handoff
 
 - Changed files: product rule, app plan, curriculum 1972, authoring brief Lesson 2, task card/index/board.
 - Test/build result: docs-only; `git diff --check` pass; validator Mậu Thân pass; các link mới tồn tại. Link scan toàn repo vẫn thấy một số link task cũ trỏ sai thư mục do card đã di chuyển, ngoài scope CONTENT-016.
 - Environment/migration impact: không có.
-- Known issues/risks: brief không phải story version publishable; nguồn web đã có locator hẹp nhưng vẫn cần Trúc xác nhận. Tên nhân vật, lời thoại, claim và media cụ thể vẫn phải qua review trước khi authoring chi tiết.
-- Next owner/action: Trúc re-review historical/media trước; sau đó chờ Thọ review product/learning. Chỉ sau các approval mới tạo task viết `StoryVersion`/scene JSON; Dương không tích hợp trước khi M2/M3 mở.
+- Known issues/risks: approval chỉ áp dụng cho authoring brief. Claim 001..005 chưa duyệt ở cấp câu narration; chưa có asset được cấp phép; chưa có `StoryVersion` JSON.
+- Next owner/action: merge PR #45. Khi bắt đầu Full Narration/StoryVersion/media, tạo task và file claim mới; Trúc duyệt từng câu lịch sử, media phải có quyền/metadata, và text-first fallback luôn hoạt động. Dương không tích hợp trước khi M2/M3 mở.

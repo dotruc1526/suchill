@@ -1,6 +1,6 @@
 # Lesson 2 — Kíp chiến đấu SAM-2: Flagship Visual Novel brief
 
-> Status: DRAFT / READY_FOR_TRUC_REVIEW\
+> Status: AUTHORING BRIEF APPROVED — narration/StoryVersion/media chưa được duyệt\
 > Task: `CONTENT-016`\
 > Proposed lesson ID: `lesson-1972-02-visual-novel`\
 > Proposed story ID: `story-1972-sam2`\
@@ -44,10 +44,10 @@ Mục tiêu dự kiến: CLO-2 và CLO-3. Thời lượng mục tiêu: 6–10 ph
 - Reduced motion; không autoplay âm thanh. Media optional phải có alt/caption/transcript/fallback và license evidence.
 - Mobile 375px/430px, tiếng Việt dài và thiết bị yếu là acceptance bắt buộc.
 
-## Deliverable tiếp theo sau review
+## Deliverable tiếp theo sau khi brief được duyệt
 
-1. Thọ khóa objective, pacing và learner role.
-2. Trúc review [claim/source và media boundary package](./CONTENT-016-EVIDENCE.md), xác nhận các locator hẹp đang `READY_FOR_TRUC_REVIEW` và trạng thái claim được phép authoring.
-3. Content author viết narration/choice/explanation scene-by-scene.
-4. Vinh/Dương map authoring sang `StoryVersion` contract và chạy validator khi M2/M3 được mở.
+1. Tạo task/file claim riêng cho Full Narration, `StoryVersion` JSON và media khi milestone/dependency cho phép.
+2. Thọ viết narration/choice/explanation scene-by-scene; Trúc duyệt từng câu chứa claim lịch sử trước production.
+3. Media chỉ được chọn khi có quyền sử dụng và metadata; text-first fallback vẫn là luồng hoàn chỉnh bắt buộc.
+4. Vinh/Dương map authoring đã duyệt sang `StoryVersion` contract và chạy validator khi M2/M3 được mở.
 5. Chỉ story version đã review/publish mới được runtime hoặc seed sử dụng.
