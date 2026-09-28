@@ -43,8 +43,8 @@ export const theme = {
   },
 
   fonts: {
-    serif: 'font-serif',         // Playfair Display (Năm, Tiêu đề chương)
-    hand: 'font-hand',           // Caveat (Chữ viết tay nhãn, ghi chú)
+    serif: 'font-serif',         // Inter alias for legacy heading classes
+    hand: 'font-hand',           // Inter alias for legacy note classes
     sans: 'font-sans',           // Inter (Nội dung bài học, nút bấm)
   },
 

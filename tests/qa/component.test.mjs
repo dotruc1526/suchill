@@ -31,6 +31,8 @@ test('canonical BottomNav renders all tabs and selected state', async () => {
   assert.ok(html.includes('max(16px, env(safe-area-inset-bottom))'))
   assert.ok(html.includes('min-height:44px'))
   assert.ok(html.includes('aria-current="page"'))
+  assert.equal((html.match(/<svg/g) ?? []).length, 4)
+  assert.doesNotMatch(html, /🏠|🧠|🤖|👤/)
 })
 
 test('canonical TopBar renders streak, xp and safe-area header', async () => {
@@ -43,6 +45,19 @@ test('canonical TopBar renders streak, xp and safe-area header', async () => {
   assert.ok(html.includes('120'))
   assert.ok(html.includes('5'))
   assert.ok(!html.includes('letter-spacing:0.03em') && !html.includes('letterSpacing'))
+  assert.equal((html.match(/<svg/g) ?? []).length, 3)
+  assert.doesNotMatch(html, /🔥|⭐|🏆/)
+})
+
+test('runtime typography loads only Inter and keeps legacy class aliases', async () => {
+  const css = await readFile(new URL('../../src/index.css', import.meta.url), 'utf8')
+
+  assert.match(css, /family=Inter/)
+  assert.doesNotMatch(css, /Playfair\+Display|Caveat/)
+  assert.match(css, /--font-serif:\s*var\(--font-sans\)/)
+  assert.match(css, /--font-hand:\s*var\(--font-sans\)/)
+  assert.match(css, /margin:\s*0/)
+  assert.match(css, /line-height:\s*1\.5/)
 })
 
 test('UI primitives render with design tokens', async () => {

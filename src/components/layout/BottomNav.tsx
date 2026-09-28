@@ -1,11 +1,12 @@
+import { BookOpenIcon, BrainIcon, MessageCircleIcon, type NavIcon, UserRoundIcon } from '../icons/NavIcon'
 import type { Tab } from '../../types'
 import { theme } from '../../theme/tokens'
 
-const NAV_TABS: { key: Tab; icon: string; label: string }[] = [
-  { key: 'home', icon: '🏠', label: 'HỌC' },
-  { key: 'practice', icon: '🧠', label: 'LUYỆN TẬP' },
-  { key: 'ai', icon: '🤖', label: 'AI' },
-  { key: 'profile', icon: '👤', label: 'HỒ SƠ' },
+const NAV_TABS: { key: Tab; icon: NavIcon; label: string }[] = [
+  { key: 'home', icon: BookOpenIcon, label: 'HỌC' },
+  { key: 'practice', icon: BrainIcon, label: 'LUYỆN TẬP' },
+  { key: 'ai', icon: MessageCircleIcon, label: 'AI' },
+  { key: 'profile', icon: UserRoundIcon, label: 'HỒ SƠ' },
 ]
 
 export function BottomNav({ tab, onTab }: { tab: Tab; onTab: (t: Tab) => void }) {
@@ -21,7 +22,7 @@ export function BottomNav({ tab, onTab }: { tab: Tab; onTab: (t: Tab) => void })
         paddingRight: `max(${theme.spacing.sm}, env(safe-area-inset-right))`,
       }}
     >
-      {NAV_TABS.map(({ key, icon, label }) => (
+      {NAV_TABS.map(({ key, icon: Icon, label }) => (
         <button
           key={key}
           type="button"
@@ -34,7 +35,7 @@ export function BottomNav({ tab, onTab }: { tab: Tab; onTab: (t: Tab) => void })
             color: tab === key ? theme.colors.primary : theme.colors.textMuted,
           }}
         >
-          <span aria-hidden="true" className="text-lg leading-none">{icon}</span>
+          <Icon size={20} aria-hidden="true" />
           <span className="font-sans text-[9px] font-bold leading-none">{label}</span>
         </button>
       ))}
