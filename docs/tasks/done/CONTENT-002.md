@@ -28,7 +28,7 @@
 - [x] Product owner chọn chapter mẫu trong phạm vi sản phẩm và giải thích người học sẽ hiểu gì sau chapter.
 - [x] Chọn pilot episode thuộc chapter, nêu vai trò của nó trong chuỗi nhiều lesson; không đồng nhất episode với toàn bộ MVP.
 - [x] Ghi ranh giới thời gian/địa điểm, những fact/source cần historical review và các chủ đề nằm ngoài scope của chapter.
-- [ ] Reviewer chấp nhận chapter/pilot brief để CONTENT-008 lập lesson map và CONTENT-003 bắt đầu source review.
+- [x] Reviewer chấp nhận chapter/pilot brief để CONTENT-008 lập lesson map và CONTENT-003 bắt đầu source review.
 
 ## Verification
 
