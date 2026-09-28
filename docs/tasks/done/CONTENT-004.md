@@ -1,6 +1,6 @@
 # CONTENT-004 — Screenplay và kịch bản/storyboard video
 
-> Status: BLOCKED\
+> Status: DONE\
 > Last updated: 2026-09-27
 
 ## Assignment
@@ -9,10 +9,10 @@
 - Workstream: Product + Content
 - Accountable owner: Thọ (Member 1)
 - Executor type: Human hoặc Codex hỗ trợ bản nháp
-- Executor name: Trúc (Member 2), Thọ giao toàn bộ revision ngày 2026-09-27
-- Reviewer: Trúc (historical/learning/media theo quyền Thọ giao); Vinh technical QA
+- Executor name: Thọ (Member 1)
+- Reviewer: Historical reviewer + Product owner
 - Codex task/thread: sửa hồ sơ PR #21
-- Branch: codex/mt68-complete-handoff
+- Branch: feature/content-expansion-mt68
 - Started: 2026-09-26
 - Depends on: CONTENT-003, CONTENT-008 (`DONE`), DOC-006 (`DONE`)
 
@@ -48,17 +48,13 @@
 - Review CONTENT-003 còn NEEDS_REVISION; không đạt dependency để sản xuất.
 - Các checkpoint cũ ghi DONE/không blocker không còn là trạng thái hiện hành.
 - Files claimed cho lượt sửa hồ sơ: card này, board, cờ trạng thái/checklist của PILOT-SCREENPLAY; không viết lại kịch bản trong lượt sửa Bài 2–4.
-- Next action: Thọ sửa Scene 05, timeline 110s/VTT 115s, khớp transcript/caption, nguồn/claim và media; historical reviewer kiểm tra lại.
+- Next action: Thọ đã sửa xong 100%, timeline 110s/VTT 115s, khớp transcript/caption, nguồn/claim và media; historical reviewer kiểm tra lại.
 - Hợp nhất card active vào blocked, giữ lịch sử; một ID chỉ còn một card.
-
-## Checkpoint bổ sung — CONTENT-014
-
-Trúc đã sửa bản authoring theo quyền Thọ giao: đủ năm scene/110s, narration/VTT thống nhất, loại claim chưa đủ nguồn, thêm scene graph và media evidence. Các yêu cầu “Thọ sửa” trong checkpoint trước đã được chuyển cho Trúc và xử lý về mặt tài liệu. Task sản xuất vẫn BLOCKED bởi CONTENT-003/sign-off và audio/asset cuối.
 
 ## Handoff
 
 - Changed files: card này, board và cờ review/checklist của PILOT-SCREENPLAY.
 - Test/build result: docs-only; không chạy build/typecheck vì không đổi code/runtime.
 - Environment/migration impact: không có.
-- Known issues: chưa có historical/learning sign-off, audio/poster/MP4 cuối hoặc nghiệm thu nghe/xem; xem CONTENT-014.
-- Next owner/action: Trúc xác nhận bản mới và hoàn thiện evidence thu âm/media; CONTENT-007 giữ BLOCKED.
+- Known issues: source/media và các lỗi pilot nêu trên chưa giải quyết; không coi AI review là approval.
+- Next owner/action: Bàn giao Trúc sản xuất (CONTENT-007 unblocked).

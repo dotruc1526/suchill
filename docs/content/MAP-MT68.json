@@ -1,47 +1,92 @@
-﻿{
+{
   "id": "map-mau-than-1968",
   "title": "Sấm sét nội đô",
-  "description": "5 mục tiêu đầu não bị Biệt động Sài Gòn tấn công rạng sáng Mùng 2 Tết Mậu Thân 1968.",
+  "status": "draft",
+  "authoringOnly": true,
+  "reviewStatus": "NEEDS_HISTORICAL_REVIEW",
+  "presentation": "ordered_cards",
+  "coordinateSystem": null,
+  "notes": "Không phải bản đồ địa lý; x/y trước đây là placeholder đã bỏ. Không fetch trực tiếp từ UI.",
   "nodes": [
     {
-      "id": "node-embassy",
-      "coordinates": { "x": 65, "y": 40 },
+      "id": "mt68-node-embassy",
+      "legacyDraftId": "node-embassy",
+      "order": 1,
       "title": "Tòa Đại sứ Mỹ",
-      "forces": "Đội 11 Biệt động (17 chiến sĩ)",
-      "description": "Đặc công dùng thuốc nổ phá tường rào, đánh chiếm và làm chủ Tòa Đại sứ trong hơn 6 giờ đồng hồ, gây chấn động nước Mỹ.",
-      "mediaRef": "File:MPs_escort_a_Vietcong_captive_out_of_the_US_Embassy_on_31_January_1968.jpg"
+      "description": "Biệt động tiến vào khuôn viên; không đồng nhất với chiếm toàn bộ tòa nhà.",
+      "claimIds": [
+        "CLM-MT68-02"
+      ],
+      "sourceIds": [
+        "SRC-MT68-03"
+      ],
+      "mediaRef": null,
+      "optionalMediaCandidateId": "MED-MT68-01",
+      "fallbackText": "Biệt động tiến vào khuôn viên; không đồng nhất với chiếm toàn bộ tòa nhà."
     },
     {
-      "id": "node-palace",
-      "coordinates": { "x": 50, "y": 55 },
+      "id": "mt68-node-palace",
+      "legacyDraftId": "node-palace",
+      "order": 2,
       "title": "Dinh Độc Lập",
-      "forces": "Đội 5 Biệt động",
-      "description": "Xuất kích từ hầm vũ khí bí mật 287/70 Võ Văn Tần, Đội 5 đánh sập cổng phụ và kiên cường chiến đấu chặn viện binh địch.",
-      "mediaRef": "File:Reunification_Palace,_Ho_Chi_Minh_City.jpg"
+      "description": "Đội 5 tiến công Dinh; bộc phá mở cổng không nổ.",
+      "claimIds": [
+        "CLM-MT68-03"
+      ],
+      "sourceIds": [
+        "SRC-MT68-04"
+      ],
+      "mediaRef": null,
+      "optionalMediaCandidateId": "MED-MT68-02",
+      "fallbackText": "Đội 5 tiến công Dinh; bộc phá mở cổng không nổ."
     },
     {
-      "id": "node-radio",
-      "coordinates": { "x": 80, "y": 45 },
-      "title": "Đài Phát thanh",
-      "forces": "Đội 4 Biệt động",
-      "description": "Đánh chiếm đài phát thanh nhằm phát lời kêu gọi nổi dậy. Địch buộc phải phá hủy chính đài phát thanh của mình để phản kích.",
-      "mediaRef": "Category:Tet_Offensive"
+      "id": "mt68-node-radio",
+      "legacyDraftId": "node-radio",
+      "order": 3,
+      "title": "Đài Phát thanh Sài Gòn",
+      "description": "Một mục tiêu được nguồn liệt kê trong tiến công nội đô.",
+      "claimIds": [
+        "CLM-MT68-01"
+      ],
+      "sourceIds": [
+        "SRC-MT68-02"
+      ],
+      "mediaRef": null,
+      "optionalMediaCandidateId": "MED-MT68-03",
+      "fallbackText": "Một mục tiêu được nguồn liệt kê trong tiến công nội đô."
     },
     {
-      "id": "node-jgs",
-      "coordinates": { "x": 20, "y": 20 },
+      "id": "mt68-node-staff",
+      "legacyDraftId": "node-jgs",
+      "order": 4,
       "title": "Bộ Tổng Tham mưu",
-      "forces": "Cụm Biệt động",
-      "description": "Cơ quan đầu não quân sự cao nhất của quân đội Sài Gòn bị tập kích, gây tê liệt hệ thống chỉ huy địch trong những giờ đầu.",
-      "mediaRef": "File:Tet_Offensive_attack_on_Tan_Son_Nhut_and_JGS_31_January_1968.jpg"
+      "description": "Một mục tiêu quân sự trong danh sách của nguồn.",
+      "claimIds": [
+        "CLM-MT68-01"
+      ],
+      "sourceIds": [
+        "SRC-MT68-02"
+      ],
+      "mediaRef": null,
+      "optionalMediaCandidateId": "MED-MT68-04",
+      "fallbackText": "Một mục tiêu quân sự trong danh sách của nguồn."
     },
     {
-      "id": "node-navy",
-      "coordinates": { "x": 75, "y": 70 },
+      "id": "mt68-node-navy",
+      "legacyDraftId": "node-navy",
+      "order": 5,
       "title": "Bộ Tư lệnh Hải quân",
-      "forces": "Cụm Biệt động",
-      "description": "Cụm mục tiêu ven sông bị tập kích chớp nhoáng, phá hủy nhiều khí tài, thể hiện khả năng vươn tới mọi ngóc ngách của Biệt động.",
-      "mediaRef": "Category:Republic_of_Vietnam_Navy"
+      "description": "Một mục tiêu trong các mũi tiến công tại Sài Gòn.",
+      "claimIds": [
+        "CLM-MT68-01"
+      ],
+      "sourceIds": [
+        "SRC-MT68-02"
+      ],
+      "mediaRef": null,
+      "optionalMediaCandidateId": "MED-MT68-05",
+      "fallbackText": "Một mục tiêu trong các mũi tiến công tại Sài Gòn."
     }
   ]
 }

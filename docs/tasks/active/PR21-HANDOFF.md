@@ -1,44 +1,34 @@
-# Bàn giao sửa PR #21
+# Bàn giao hiện hành sau PR #21
 
-> Status: REVIEW
-> Started: 2026-09-27
+> Status: REVIEW bản authoring; không phải sign-off phát hành.
+> PR #21 đã merge tại cd89038; main khi bắt đầu lượt này: 165b9ac (đã có PR #22).
+> Task thực hiện: [CONTENT-014](./CONTENT-014.md).
 
-- Owner: Thọ (Member 1).
-- Executor: Trúc (Member 2), Codex hỗ trợ; Thọ cấp quyền sửa PR #21 theo xác nhận của Trúc ngày 2026-09-27.
-- Reviewer: Thọ kiểm tra lại nội dung; Vinh kiểm tra quiz/metadata. Chưa có sign-off cho bản sửa này.
-- Branch làm việc: `codex/pr21-content-fixes`; nhánh PR: `feature/content-expansion-mt68`.
-- Task: sửa deliverable đang review của CONTENT-010/011/012; đồng bộ hồ sơ CONTENT-003/004 liên quan trực tiếp.
-- Dependency: CONTENT-008 ghi DONE trên nhánh PR; đây là sửa bản nháp theo review, không mở milestone hay production.
-- Files claimed: Bài 2–4, quiz, HISTORICAL-SOURCES, hai CSV media; CURRICULUM-MAP (quiz/quote/cờ review); PILOT-SCREENPLAY (cờ review/checklist); MVP-BRIEF (link); board; card CONTENT-003/004/010/011/012, card CONTENT-002/008 (hợp nhất bản trùng và giới hạn handoff); blocked README và file này.
-- Acceptance: sửa fact sai và câu hỏi không có căn cứ; source ID có locator; media chưa đủ bằng chứng không được coi là cleared; board/card thống nhất; kiểm tra Markdown/JSON/CSV và diff.
-- Next action: Thọ review bản sửa trên PR #21; Vinh kiểm tra JSON/metadata; chưa merge hoặc xác nhận DONE.
+## Quyền và người phụ trách
 
-## Kết quả bản sửa
+Thọ đã giao Trúc toàn bộ phần sửa còn lại theo xác nhận của Trúc ngày 2026-09-27. Trúc là executor và phụ trách review historical/learning/media; không còn chờ Thọ cấp lại quyền. Codex chuẩn bị nội dung/evidence; không ký xác nhận nghe/xem hoặc quyền giọng thay Trúc. Vinh phụ trách technical QA theo lane.
+Branch: `codex/mt68-complete-handoff`; mở PR mới vào main vì PR #21 đã merge.
 
-- Bài 2: phân biệt khuôn viên/tòa nhà Đại sứ quán, bỏ diễn biến chưa có locator, node/media ID ổn định và fallback văn bản; không tự đổi format VN.
-- Bài 3: bộc phá không nổ; bỏ khẳng định thương vong không chính xác; nối nguồn kể lại trận đánh và nguồn về di tích.
-- Bài 4: qualification cho quan hệ nhân quả, tách niên biểu chính sách/đàm phán; bỏ quote gán cho Cronkite trong curriculum.
-- Quiz: bỏ câu hỏi lịch pháp thiếu căn cứ, giữ năm question ID và coverage CLO-1…4; dùng registry nguồn cụ thể. JSON là authoring-only, chưa seed/DTO.
-- Media: cả 8 ứng viên chưa được duyệt; category không phải asset; bỏ clearance suy đoán ở CSV nghiên cứu. Không tải hoặc sửa media.
-- Hồ sơ: CONTENT-003 REVIEW/NEEDS_REVISION, CONTENT-004 BLOCKED; CONTENT-010/011/012 REVIEW, executor Trúc. Hợp nhất bốn card trùng ID 002/003/004/008, giữ checkpoint và lịch sử Git.
-- Pilot: thu hồi cờ READY_FOR_PRODUCTION và checklist ĐẠT chưa có evidence; chưa viết lại toàn bộ kịch bản.
+## Đã xử lý
 
-## Verification
+- Pilot đủ năm scene, 110s; narration JSON và VTT dùng cùng chữ; bỏ thơ/hiệu lệnh/lịch/giờ/nắp hầm chưa đủ nguồn.
+- Bài 2 có bảy scene, hai nhánh hội tụ, knowledge check/feedback, debrief và end; overview yêu cầu đủ năm node.
+- MAP-MT68 mới trên main bị lặp lỗi “đánh sập cổng/chiếm toàn bộ” đã sửa; bỏ tọa độ giả, đồng bộ source/claim/ID và fallback.
+- Curriculum/production notes dùng đúng format VN, service boundary và authoring-only; Member 4 là Dương.
+- Media 04 có evidence PD-USGov nhưng chưa duyệt phạm vi dùng; media 08 là CC BY 2.0 của David Wilson, không phải Public Domain. Ứng viên khác không dùng trong phương án bắt buộc.
+- Visual kế hoạch dùng chữ/sơ đồ nhóm tự tạo; không nhạc/SFX, clip CBS hoặc audio reference chưa đủ quyền.
 
-- JSON parse: 5 câu; IDs duy nhất, correctOptionId nằm trong options, objective/source ID có đích.
-- CSV parse: 8 media ID duy nhất, tất cả UNVERIFIED/BLOCKED; CSV nghiên cứu 10 dòng chưa cleared.
-- Kết quả: diff --check đạt; board/card 010/011/012 cùng REVIEW; không còn ID card CONTENT trùng. Quét toàn bộ docs còn đúng hai link media ngoài Git của CONTENT-006, không có local-path lỗi mới trong phần sửa. Chưa kiểm tra mọi URL media bên ngoài; catalog vẫn UNVERIFIED.
-- Không chạy build/typecheck: chỉ sửa Markdown/JSON authoring/CSV trong docs; không đổi source, dependency hoặc runtime. Chưa kiểm thử mapper/seed; không tuyên bố JSON sẵn sàng production.
-- Không có tác động environment/migration.
+## Verification và file bàn giao
 
-## Acceptance còn thiếu — Thọ cần review trước khi merge
+Chạy `node docs/content/validate-mt68-authoring.mjs` để kiểm tra scene/branch/coverage, reference ID, quiz và narration/VTT. Evidence kết quả cuối trong card CONTENT-014.
+Các file thay đổi nằm trong claim CONTENT-014. Không đổi runtime/DB, không environment/migration. Không chạy app build/typecheck vì chỉ đổi authoring docs/data và trình kiểm tra riêng; không xác nhận DTO/seed production.
 
-1. Historical/learning sign-off cho bản sửa Bài 2–4 và quiz; chấp nhận tier nguồn báo chí phải có người xác nhận.
-2. Bài 2 còn thiếu screenplay VN/scene graph/choice/debrief theo curriculum; bản đồ chưa có tọa độ đã kiểm chứng.
-3. Pilot: Scene 05, 110s so với cue cuối 115s, lời dẫn/phụ đề, claim giờ/hiệu lệnh/lịch, vật liệu nắp hầm và thử đọc cần xử lý ở CONTENT-004 sau CONTENT-003.
-4. Quyền từng ảnh/audio/nhạc/SFX, item source, attribution, caption/alt và asset cuối chưa đầy đủ.
-5. Thọ làm rõ ô reviewer chưa đạt ở CONTENT-002 và DOC-012 còn REVIEW; DONE outline CONTENT-008 không duyệt nội dung sửa lần này.
-6. Hai link media local của CONTENT-006 không có trong worktree sạch; đó là media ngoài Git đã có từ trước, không sửa hồ sơ CONTENT-006 trong PR này.
+## Việc Trúc còn cần hoàn tất bằng bằng chứng thực tế
 
-Không tự chuyển DONE, không tự merge. CONTENT-006 vẫn IN PROGRESS/REFERENCE_ONLY; CONTENT-007 BLOCKED; M1–M7 LOCKED.
-- Blocker: quyền từng media và historical sign-off chưa đủ; pilot còn lỗi từ CONTENT-003, CONTENT-007 vẫn BLOCKED. CONTENT-006 giữ IN PROGRESS và REFERENCE_ONLY; M1–M7 LOCKED.
+1. Đọc bản narration/story mới và ghi historical/learning sign-off trên phiên bản cụ thể.
+2. Cung cấp/thu narration có quyền; chưa có file thu mới hay consent để kiểm tra. Đo cue thực tế, chỉnh caption theo audio.
+3. Xuất MP4/poster/source export/manifest/hash và QA mobile/accessibility khi dependency cho phép.
+4. Nếu chọn ảnh optional, xác nhận caption/alt/crop/attribution và phạm vi license. Không cần ảnh này cho phương án chữ.
+5. Trạng thái cũ CONTENT-002/008 và DOC-012 còn ghi nhận chưa nhất quán về acceptance; quyền sửa lần này không tự xác nhận các approval quá khứ.
+
+CONTENT-004/007 còn BLOCKED cho sản xuất; CONTENT-014 chỉ hoàn tất phần authoring để review. CONTENT-006 vẫn IN PROGRESS/REFERENCE_ONLY; M1–M7 LOCKED. Không merge thay người dùng.
