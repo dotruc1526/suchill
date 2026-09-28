@@ -2,7 +2,7 @@
 
 Các phase trong thư mục này áp dụng cho **toàn bộ ứng dụng**, không chỉ Visual Novel. Visual Novel là feature trọng tâm được dùng để kiểm tra nhiều quyết định UX/content, nhưng database, service, progress, QA và roadmap là cấu trúc chung của Sử Chill.
 
-> Delivery mode: Phase 0–9 `APPROVED`; Milestone 0 mở từ 2026-09-23. Task implementation theo dependency và milestone gate.
+> Delivery mode: Phase 0–9 `APPROVED`; M0 closed and Milestone 1 open from 2026-09-28. Task implementation theo dependency và milestone gate.
 
 ## Trạng thái
 

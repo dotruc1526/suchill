@@ -1,7 +1,7 @@
 # Sử Chill — Canonical Architecture
 
-> Status: TARGET ARCHITECTURE — Phase 5–9 approved; Milestone 0 open
-> Last updated: 2026-09-23
+> Status: TARGET ARCHITECTURE — Phase 5–9 approved; M0 closed, Milestone 1 open
+> Last updated: 2026-09-28
 
 Tài liệu này mô tả các ranh giới kỹ thuật mà frontend, backend và AI phải giữ. Schema chi tiết không lặp lại ở đây; nguồn chuẩn là các phase đã duyệt.
 
@@ -60,7 +60,7 @@ supabase/
 tests/                      # unit/component/e2e/contract tests
 ```
 
-`src/features/*` là canonical runtime. `src/screens/*` và prototype stack hiện có là legacy cho đến khi Milestone 0 cô lập an toàn; không xây tính năng mới trên đó.
+`src/features/*` là canonical runtime. M0 đã cô lập `src/screens/*` và prototype stack vào legacy; không xây tính năng mới trên đó.
 
 ## 3. Ranh giới dữ liệu
 

@@ -55,4 +55,4 @@
 
 ## Đính chính handoff 2026-09-27
 
-DONE là trạng thái outline đã ghi trước đây, không phải approval của nội dung sửa lần này. Các kết luận lịch sử/pháp lý và “không có rủi ro” trong handoff cũ chưa được tái xác nhận. Curriculum hiện IN_REVIEW; Thọ cần xác nhận lại acceptance của bản sửa, đặc biệt scene graph Bài 2. Hai checkpoint 2026-09-23 từ card blocked đã có ở trên; xóa bản card trùng, giữ lịch sử Git. M1–M7 vẫn LOCKED.
+DONE là trạng thái outline đã ghi trước đây, không phải approval của nội dung sửa lần này. Các kết luận lịch sử/pháp lý và “không có rủi ro” trong handoff cũ chưa được tái xác nhận. Curriculum hiện IN_REVIEW; Thọ cần xác nhận lại acceptance của bản sửa, đặc biệt scene graph Bài 2. Hai checkpoint 2026-09-23 từ card blocked đã có ở trên; xóa bản card trùng, giữ lịch sử Git. M1 đang OPEN; M2–M7 vẫn LOCKED.

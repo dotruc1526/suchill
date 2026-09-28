@@ -36,7 +36,7 @@ Codex/integration owner giữ thứ tự merge, giải quyết thay đổi contr
 
 M0 → M7 là thứ tự **gate**, không phải yêu cầu cả năm người chờ nhau làm từng việc một. Trong milestone đang mở, các task không phụ thuộc nhau có thể chạy cùng lúc nếu đã có task card, owner/reviewer và file claim riêng. Milestone sau chỉ mở khi gate của milestone trước có evidence, reviewer/QA kiểm tra và Product owner duyệt trên task board.
 
-- Sau khi M0 được duyệt, Member 2 làm thiết kế M1. Member 5 có thể trao đổi ý tưởng contract M2, nhưng chỉ claim/triển khai task M2 sau khi M1 được duyệt mở M2.
+- M0 đã được duyệt đóng và M1 đang mở: Member 2 nhận `M1-01` để làm thiết kế/token handoff. Sau khi Hưng review, Member 3 mới claim `FE-003`/M1-02. Member 5 có thể trao đổi ý tưởng contract M2, nhưng chỉ claim/triển khai task M2 sau khi M1 được duyệt mở M2.
 - Member 1 có thể nhận `CONTENT-009` để tìm nguồn và so sánh chủ đề ứng viên ngay khi M0 đang mở. Đây là content track độc lập, không mở M1/M2 và không biến nghiên cứu thành nội dung canonical. Sau đó Product owner chọn chapter/pilot ở `CONTENT-002`; Member 1 mới lập curriculum map `CONTENT-008` và screenplay `CONTENT-004` theo dependency. Nội dung chỉ được seed/publish sau historical review và backend gate M4.
 - Member 3 làm shell/primitives, Member 4 làm feature UI trên mock, Member 5 làm service/test trong các file riêng; mọi shared contract phải thống nhất consumer và merge order trước.
 - M4 cần contract M2; M5 cần backend M4; PWA polish M6 cần learning flow và progress phù hợp; M7 release cần tất cả gate còn lại và pilot đã duyệt.

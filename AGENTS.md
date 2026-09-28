@@ -17,8 +17,8 @@ Không dùng chat cũ làm nguồn sự thật duy nhất. Nếu tài liệu mâ
 ## 2. Trạng thái triển khai
 
 - Phase 0–9: `APPROVED` (Phase 9 được product owner duyệt ngày 2026-09-23).
-- **Spec-first freeze đã kết thúc**; Milestone 0 được mở theo roadmap Phase 9. Task implementation vẫn phải có card, dependency và file claim trước khi sửa.
-- Các milestone sau M0 chỉ bắt đầu khi gate và dependency tương ứng đạt **và Product owner duyệt rõ ràng milestone trước đó trên task board**. Task `DONE` riêng lẻ không tự mở milestone tiếp theo.
+- **Spec-first freeze đã kết thúc**; M0 đã được đóng và Milestone 1 được mở theo roadmap Phase 9 ngày 2026-09-28. Task implementation vẫn phải có card, dependency và file claim trước khi sửa.
+- Các milestone sau M1 chỉ bắt đầu khi gate và dependency tương ứng đạt **và Product owner duyệt rõ ràng milestone trước đó trên task board**. Task `DONE` riêng lẻ không tự mở milestone tiếp theo.
 - Demo Genève/vĩ tuyến 17 hiện tại là fixture kỹ thuật, không phải pilot/canonical content hay chuẩn nội dung mục tiêu.
 - Nội dung canonical chỉ nằm trong phạm vi kháng chiến chống Mỹ ở Việt Nam; ví dụ lịch sử ngoài phạm vi trong tài liệu cũ chỉ minh họa cấu trúc học, không tự trở thành lesson phát hành.
 - AI Battle là track thử nghiệm độc lập; chưa tích hợp reward/XP thật nếu chưa qua review contract và bảo mật.
