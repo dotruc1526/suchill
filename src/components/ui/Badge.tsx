@@ -2,19 +2,24 @@ import React from 'react'
 import { theme } from '../../theme/tokens'
 
 type BadgeProps = React.HTMLAttributes<HTMLSpanElement> & {
-  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'neutral'
+  variant?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'neutral'
   size?: 'sm' | 'md'
 }
 
 export function Badge({
   children,
-  variant = 'neutral',
+  variant = 'default',
   size = 'md',
   className = '',
   style,
   ...props
 }: BadgeProps) {
   const variantStyles = {
+    default: {
+      background: 'rgba(61, 26, 0, 0.08)',
+      color: theme.colors.textPrimary,
+      border: `1px solid ${theme.colors.borderLight}`,
+    },
     primary: {
       background: 'rgba(139, 26, 26, 0.12)',
       color: theme.colors.primary,
@@ -34,6 +39,11 @@ export function Badge({
       background: 'rgba(196, 52, 26, 0.12)',
       color: theme.colors.accentRed,
       border: `1px solid rgba(196, 52, 26, 0.25)`,
+    },
+    error: {
+      background: theme.colors.incorrect.bg,
+      color: theme.colors.incorrect.text,
+      border: `1px solid ${theme.colors.incorrect.border}`,
     },
     neutral: {
       background: 'rgba(61, 26, 0, 0.08)',

@@ -23,6 +23,7 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
     <div
       role="dialog"
       aria-modal="true"
+      aria-labelledby={title ? 'modal-title' : undefined}
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs animate-fade-in"
       onClick={onClose}
     >
@@ -36,7 +37,7 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
       >
         {title && (
           <div className="flex items-center justify-between pb-3 mb-3 border-b border-[rgba(61,26,0,0.12)]">
-            <h3 className="font-serif font-bold text-lg" style={{ color: theme.colors.textPrimary }}>
+            <h3 id="modal-title" className="font-serif font-bold text-lg" style={{ color: theme.colors.textPrimary }}>
               {title}
             </h3>
             <button

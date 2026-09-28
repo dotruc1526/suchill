@@ -50,10 +50,10 @@ export const theme = {
 
   radius: {
     none: '0px',
-    sm: '4px',
-    md: '8px',
-    lg: '12px',
-    xl: '16px',
+    sm: '6px',
+    md: '12px',
+    lg: '16px',
+    xl: '24px',
     full: '9999px',
   },
 

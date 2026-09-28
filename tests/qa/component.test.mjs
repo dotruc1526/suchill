@@ -23,6 +23,7 @@ test('canonical BottomNav renders all tabs and selected state', async () => {
   }
   assert.equal((html.match(/<button/g) ?? []).length, 4)
   assert.ok(html.includes('safe-area-inset-bottom'))
+  assert.ok(html.includes('aria-current="page"'))
 })
 
 test('canonical TopBar renders streak, xp and safe-area header', async () => {
@@ -34,17 +35,19 @@ test('canonical TopBar renders streak, xp and safe-area header', async () => {
   assert.ok(html.includes('safe-area-inset-top'))
   assert.ok(html.includes('120'))
   assert.ok(html.includes('5'))
+  assert.ok(!html.includes('letter-spacing:0.03em') && !html.includes('letterSpacing'))
 })
 
 test('UI primitives render with design tokens', async () => {
   const { Badge } = await vite.ssrLoadModule('/src/components/ui/Badge.tsx')
   const { Progress } = await vite.ssrLoadModule('/src/components/ui/Progress.tsx')
   const { IconButton } = await vite.ssrLoadModule('/src/components/ui/IconButton.tsx')
+  const { Modal } = await vite.ssrLoadModule('/src/components/ui/Modal.tsx')
 
   const badgeHtml = renderToStaticMarkup(
-    React.createElement(Badge, { variant: 'primary' }, 'Chiến dịch Mậu Thân 1968'),
+    React.createElement(Badge, { variant: 'error' }, 'Sai rồi'),
   )
-  assert.ok(badgeHtml.includes('Chiến dịch Mậu Thân 1968'))
+  assert.ok(badgeHtml.includes('Sai rồi'))
 
   const progressHtml = renderToStaticMarkup(
     React.createElement(Progress, { value: 75, max: 100 }),
@@ -55,6 +58,13 @@ test('UI primitives render with design tokens', async () => {
     React.createElement(IconButton, { ariaLabel: 'Đóng hộp thoại' }, '✕'),
   )
   assert.ok(iconBtnHtml.includes('aria-label="Đóng hộp thoại"'))
+  assert.ok(iconBtnHtml.includes('min-w-[44px]') && iconBtnHtml.includes('min-h-[44px]'))
+
+  const modalHtml = renderToStaticMarkup(
+    React.createElement(Modal, { isOpen: true, onClose: () => {}, title: 'Thông báo' }, 'Nội dung modal'),
+  )
+  assert.ok(modalHtml.includes('aria-labelledby="modal-title"'))
+  assert.ok(modalHtml.includes('id="modal-title"'))
 })
 
 test('Shared states render properly with Vietnamese content', async () => {

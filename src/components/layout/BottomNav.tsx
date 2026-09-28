@@ -24,6 +24,7 @@ export function BottomNav({ tab, onTab }: { tab: Tab; onTab: (t: Tab) => void })
         <button
           key={t.key}
           onClick={() => onTab(t.key)}
+          aria-current={tab === t.key ? 'page' : undefined}
           className="flex flex-col items-center gap-0.5 px-3 py-1 transition-all"
           style={{ minWidth: 48 }}
         >

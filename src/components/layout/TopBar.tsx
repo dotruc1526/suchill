@@ -26,7 +26,7 @@ export function TopBar({ xp, streak, achievements }: { xp: number; streak: numbe
         />
         <span
           className="font-serif font-bold text-base whitespace-nowrap"
-          style={{ color: '#3D1A00', letterSpacing: '0.03em' }}
+          style={{ color: '#3D1A00' }}
         >
           Sử chill
         </span>
