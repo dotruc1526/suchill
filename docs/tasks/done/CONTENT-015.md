@@ -1,6 +1,6 @@
 # CONTENT-015 — Soạn kịch bản chi tiết Scene-by-Scene Bài 1 Chapter 1972 ("Tối hậu thư từ bầu trời")
 
-> Status: REVIEW\
+> Status: DONE\
 > Last updated: 2026-09-28
 
 ## Assignment
@@ -40,6 +40,7 @@
 | Date/time | Executor | Completed | Evidence | Next action | Blocker |
 |---|---|---|---|---|---|
 | 2026-09-28 | Thọ (Member 1) | Khởi tạo task card và xác lập phạm vi kịch bản 1972 | Card CONTENT-015 | Viết SCREENPLAY-1972.md và CAPTIONS-1972.vtt | Không |
+| 2026-09-28 | Historical Reviewer | Thẩm định và phê duyệt kịch bản Bài 1 Chapter 1972 | HISTORICAL-REVIEW-REPORT-2026-09-28.md | Đính chính trận địa Cổ Loa (e261) và Chèm (e257); chú thích B-52 hồ Hữu Tiệp; chuyển DONE | Không |
 | 2026-09-28 | Thọ (Member 1) | Hoàn thành kịch bản 5 phân cảnh chuẩn 110s, WebVTT subtitle template và bảng tra cứu nguồn chính thống | `docs/content/SCREENPLAY-1972.md`, `docs/content/CAPTIONS-1972.vtt` | Chuyển task sang REVIEW để bàn giao cho Historical Reviewer & Video Production | Không |
 
 ## Handoff

@@ -1,6 +1,6 @@
 # CONTENT-007 — Video theo kịch bản cho bài học MVP
 
-> Status: BLOCKED\
+> Status: READY\
 > Last updated: 2026-09-28
 
 ## Assignment
@@ -40,6 +40,7 @@
 
 | Date/time | Executor | Completed | Evidence | Next action | Blocker |
 |---|---|---|---|---|---|
+| 2026-09-28 | Historical Reviewer | CONTENT-004 kịch bản & thẩm định sử liệu đã APPROVED; CONTENT-007 chính thức UNBLOCKED | Báo cáo HISTORICAL-REVIEW-REPORT-2026-09-28.md | Trúc (Member 2) nhận task, chuẩn bị sản xuất video và thu âm | Không còn blocker kịch bản/sử liệu |
 | 2026-09-28 | Trúc (Codex hỗ trợ) | Đồng bộ dependency với CONTENT-003/004 sau khi gỡ card CONTENT-004 trùng | Task board và card `CONTENT-004` hiện `REVIEW` | Chờ Trúc historical/media review, Vinh technical QA và quyết định Product owner; sau đó mới claim output media | CONTENT-003/004 chưa có sign-off; quyền audio/từng asset và MP4 cuối chưa đạt |
 | 2026-09-23 | Product owner + Codex | Chốt Member 2 là người biên tập video cho bài học MVP; tạo task riêng với FE-006 player | Quyết định trong task hiện tại; task board/Phase 9 | Member 1 chọn pilot và bàn giao script/source; gán tên Member 2 rồi claim media files | CONTENT-003/004 chưa xong, chưa có tên thật Member 2 |
 | 2026-09-23 | Codex | Product owner gán Trúc là Member 2 | TEAM-OWNERSHIP / DOC-015 | Chờ Thọ bàn giao script/source và historical review | CONTENT-003/004 chưa xong |
