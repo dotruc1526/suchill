@@ -2,9 +2,13 @@ import brandLogo from '../../imports/su-chill-logo-transparent.png'
 
 export function TopBar({ xp, streak, achievements }: { xp: number; streak: number; achievements: number }) {
   return (
-    <div
+    <header
+      role="banner"
       className="relative flex items-center justify-between px-4 py-2 shrink-0"
-      style={{ borderBottom: '1.5px solid rgba(61,26,0,0.12)' }}
+      style={{
+        borderBottom: '1.5px solid rgba(61,26,0,0.12)',
+        paddingTop: 'max(8px, env(safe-area-inset-top))',
+      }}
     >
       <div className="flex items-center gap-1.5">
         <span className="text-base">🔥</span>
@@ -22,7 +26,7 @@ export function TopBar({ xp, streak, achievements }: { xp: number; streak: numbe
         />
         <span
           className="font-serif font-bold text-base whitespace-nowrap"
-          style={{ color: '#3D1A00', letterSpacing: '0.03em' }}
+          style={{ color: '#3D1A00' }}
         >
           Sử chill
         </span>
@@ -38,7 +42,7 @@ export function TopBar({ xp, streak, achievements }: { xp: number; streak: numbe
           <span className="font-sans font-bold text-xs" style={{ color: '#7A4020' }}>{achievements}</span>
         </div>
       </div>
-    </div>
+    </header>
   )
 }
 
