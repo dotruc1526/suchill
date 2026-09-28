@@ -7,7 +7,6 @@
 - [M1-01](./M1-01.md) — token contract/design handoff đã được triển khai trong FE-003 và QA xác nhận sau PR #33.
 - [M1-04](./M1-04.md) — layout/navigation safe-area và BottomNav touch target đã được Vinh QA xác nhận trong PR #40.
 - [M1-05](./M1-05.md) — motion/reduced-motion/sound/mute foundation đã được review trong PR #33; không bao gồm feature polish.
-- [M1-06](./M1-06.md) — component QA showcase/accessibility evidence đạt; chờ Product owner quyết định gate M1.
 - [FE-003](./FE-003.md) — tokens/UI primitives/shared states đạt review UI/UX và QA; PR #33 merged, quality pass.
 - [BEQA-LOCAL-001](./BEQA-LOCAL-001.md) — Vinh chấp nhận bản chuẩn bị Backend + QA local ngày 2026-09-26; không thay thế nghiệm thu các task M0 chính thức.
 - [M0-00](./M0-00.md) — Product owner duyệt phân task qua ảnh chat; Vinh chuyển xác nhận nhóm ngày 2026-09-26, không thay thế gate M0.
