@@ -22,11 +22,13 @@ Sau khi hoàn thành Chapter này, người học sẽ có khả năng:
 - **Mục tiêu:** (CLO-1) Nêu bật sự ngông cuồng của Mỹ khi tuyên bố "đưa miền Bắc Việt Nam về thời kỳ đồ đá", và sự chuẩn bị tĩnh lặng của Hà Nội trước đêm 18/12.
 - **Vai trò người học (Roleplay):** Quan sát viên tại Hầm chỉ huy Tác chiến Phòng không Không quân.
 
-### Lesson 2: Kíp chiến đấu SAM-2 (Interactive Diagram)
-- **Định dạng:** Bản đồ/Sơ đồ Tương tác (Interactive)
+### Lesson 2: Kíp chiến đấu SAM-2 (Flagship Visual Novel)
+- **Định dạng:** Visual Novel scene-based; sơ đồ SAM-2 là artifact tương tác trong story, có text fallback.
 - **Mục tiêu:** (CLO-2, CLO-3) 
-- **Nội dung tương tác:** Người dùng sẽ bấm vào các thành phần của một bệ phóng tên lửa S-75 Dvina và xe điều khiển (Đài radar Fan Song). 
-- **Điểm nhấn:** Khái niệm "vạch nhiễu tìm thù" - cách trắc thủ Việt Nam dùng mắt thường và kinh nghiệm để đoán dải nhiễu B-52 trên màn hình radar.
+- **Vai trò người học:** Người quan sát/phân tích hồ sơ huấn luyện; lựa chọn chỉ đổi góc đọc, không thay đổi kết quả lịch sử.
+- **Nội dung tương tác:** Khám phá vai trò trong kíp chiến đấu, chọn đọc quy trình phối hợp hoặc dấu hiệu nhiễu, hội tụ ở knowledge check và debrief.
+- **Authoring brief:** [LESSON-02-VISUAL-NOVEL-1972.md](./LESSON-02-VISUAL-NOVEL-1972.md).
+- **Điểm nhấn:** Visual Novel là trải nghiệm trọng tâm; sơ đồ và artifact hỗ trợ scene thay vì trở thành một lesson tách rời.
 
 ### Lesson 3: 12 Ngày đêm rực lửa (Standard Reading)
 - **Định dạng:** Bài giảng chữ (Standard)

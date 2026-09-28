@@ -9,6 +9,8 @@
 
 > **Product scope clarification — 2026-09-23:** Sử Chill tập trung dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhiều chapter và lesson đa định dạng. MVP đầu tiên là một chapter mẫu gồm nhiều lesson; Visual Novel/pilot episode chỉ là một phần của chapter. Những ví dụ Genève/Điện Biên Phủ trong bản Phase 1 này được giữ để minh họa cấu trúc học, không phải curriculum canonical hoặc lựa chọn pilot.
 
+> **Product owner addendum — 2026-09-28:** Visual Novel là highlight feature. Mỗi chapter canonical phải có tối thiểu một flagship Visual Novel lesson dài 6–10 phút theo learning objective phù hợp và qua content/historical review. Quy tắc này không biến mọi lesson thành Visual Novel: video, standard, interactive artifact và quiz vẫn được dùng khi phù hợp hơn. Nếu chapter chưa có nội dung đủ nguồn và an toàn để làm Visual Novel, chapter đó chưa đạt curriculum gate thay vì ép hư cấu hoặc game hóa sự kiện.
+
 ## 1. Mục tiêu
 
 Xác định Visual Novel tồn tại để làm gì trong Sử Chill, người học cần đạt được gì, một episode vận hành theo learning loop nào và điều kiện nào chứng minh trải nghiệm có giá trị học tập.

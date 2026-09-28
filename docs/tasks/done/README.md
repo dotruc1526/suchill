@@ -2,6 +2,7 @@
 
 Đặt task card đã được reviewer xác nhận `DONE` tại đây. Không xóa checkpoint/evidence cũ.
 
+- [CONTENT-016](./CONTENT-016.md) — Thọ và Trúc đã approve flagship Visual Novel authoring brief; narration/StoryVersion/media tiếp tục chịu gate riêng.
 - [DOC-010](./DOC-010.md) — Phase 9 và context hardening; product owner duyệt ngày 2026-09-23.
 - [DOC-016](./DOC-016.md) — Product owner duyệt đóng M0 và mở M1 ngày 2026-09-28.
 - [M1-01](./M1-01.md) — token contract/design handoff đã được triển khai trong FE-003 và QA xác nhận sau PR #33.
