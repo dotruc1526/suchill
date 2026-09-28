@@ -1,9 +1,9 @@
 # Lesson 2 — Kíp chiến đấu SAM-2: Flagship Visual Novel brief
 
-> Status: DRAFT / READY_FOR_TRUC_REVIEW
-> Task: `CONTENT-016`  
-> Proposed lesson ID: `lesson-1972-02-visual-novel`  
-> Proposed story ID: `story-1972-sam2`  
+> Status: DRAFT / READY_FOR_TRUC_REVIEW\
+> Task: `CONTENT-016`\
+> Proposed lesson ID: `lesson-1972-02-visual-novel`\
+> Proposed story ID: `story-1972-sam2`\
 > Proposed first version ID: `story-1972-sam2-v1-draft`
 
 Claim/source locator, historical/fiction boundary và media package bắt buộc nằm tại [CONTENT-016-EVIDENCE.md](./CONTENT-016-EVIDENCE.md). Brief này không được chuyển thành narration hoặc `StoryVersion` trước khi các gate trong evidence package đạt.

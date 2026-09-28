@@ -1,8 +1,8 @@
 # CONTENT-016 — Claim/source và media boundary cho Visual Novel SAM-2
 
-> Status: READY FOR TRÚC RE-REVIEW — chưa phải historical/media approval
-> Reviewer: Trúc  
-> Consumer: [Lesson 2 Visual Novel brief](./LESSON-02-VISUAL-NOVEL-1972.md)  
+> Status: READY FOR TRÚC RE-REVIEW — chưa phải historical/media approval\
+> Reviewer: Trúc\
+> Consumer: [Lesson 2 Visual Novel brief](./LESSON-02-VISUAL-NOVEL-1972.md)\
 > Rule: claim chưa `APPROVED` không được đưa thành narration fact hoặc `StoryVersion` publishable.
 
 ## 1. Source register có locator
