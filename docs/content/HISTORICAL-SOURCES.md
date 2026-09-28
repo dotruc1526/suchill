@@ -57,3 +57,26 @@ Trúc được Thọ giao toàn bộ phần sửa và historical/learning/media 
 - Không sử dụng lại hiệu lệnh thơ, múi giờ làm đáp án, tên vật liệu nắp hầm, số giờ giữ toàn bộ Đại sứ quán hay các diễn biến thiếu locator.
 - Diễn giải “không đồng nhất kế hoạch với kết quả” dùng để hướng dẫn đọc nguồn, không phải trích dẫn nguyên văn.
 - Giữ NEEDS_HISTORICAL_REVIEW cho đến khi Trúc ghi xác nhận trên bản narration/story cụ thể. Việc được giao quyền review không tự tạo kết quả review.
+## 6. Nguồn Cổng thông tin Điện tử & Báo chí Nhà nước
+10. **Đài Truyền hình Việt Nam (VTV)**
+    - Kho tư liệu video thời sự và phim tài liệu chính thống về Kháng chiến chống Mỹ.
+11. **Thư viện Pháp luật (thuvienphapluat.vn)**
+    - Các bài viết tổng hợp tiến trình lịch sử, văn bản pháp quy thời kỳ 1954-1975.
+12. **Tạp chí Việt Nam Hội nhập (vietnamhoinhap.vn)**
+    - Phân tích bài học xây dựng lực lượng vũ trang nhân dân từ thắng lợi của cuộc Kháng chiến chống Mỹ.
+
+
+## Source Registry (Machine-readable)
+
+| SRC-MT68-01 | Đại cương Lịch sử Việt Nam Tập 3 | NXB Giáo dục Việt Nam | verified_fact |
+| SRC-MT68-02 | Lịch sử Nam Bộ kháng chiến Tập 2 (1954-1975) | NXB Chính trị Quốc gia Sự thật | verified_fact |
+| SRC-MT68-03 | Biệt động Sài Gòn - Chợ Lớn - Gia Định trong Tổng tiến công và nổi dậy Xuân Mậu Thân 1968 | NXB Quân đội Nhân dân | verified_fact |
+| SRC-MT68-04 | Tư liệu Bảo tàng Biệt động Sài Gòn | Cục Di sản văn hóa | verified_fact |
+| SRC-MT68-05 | Thơ chúc Tết Mậu Thân 1968 của Chủ tịch Hồ Chí Minh & Di tích Hầm vũ khí 287/70 Võ Văn Tần | Đài Tiếng nói Việt Nam & Bảo tàng | verified_fact |
+| SRC-MT68-06 | The Vietnam Center and Sam Johnson Vietnam Archive | Texas Tech University | cross_reference |
+
+## Claim Registry
+
+| CLM-MT68-01 | Năm mục tiêu đầu não tại Sài Gòn: Tòa Đại sứ Mỹ, Dinh Độc Lập, Đài Phát thanh, Bộ Tổng Tham mưu, Bộ Tư lệnh Hải quân | verified_fact |
+| CLM-MT68-02 | Đội 11 Biệt động đánh vào Tòa Đại sứ Mỹ, làm chủ trận địa hơn 6 giờ | verified_fact |
+| CLM-MT68-03 | Giờ nổ súng thực tế tại Sài Gòn: rạng sáng Mồng 2 Tết (31/01/1968), có độ lệch múi giờ GMT+7/GMT+8 | verified_fact |
