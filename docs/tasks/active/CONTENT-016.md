@@ -20,7 +20,7 @@
 
 - In scope: ghi product rule mỗi chapter canonical có tối thiểu một flagship Visual Novel lesson; cập nhật draft chapter 1972; tạo authoring brief scene-by-scene cho Lesson 2 SAM-2.
 - Out of scope: tự duyệt fact/media, viết lời thoại gán cho nhân vật thật, tạo story JSON publishable, seed database, sửa runtime/player hoặc mở milestone implementation.
-- Files claimed: `docs/specs/phases/01-product-learning-experience-spec.md`, `docs/project/APP-PLAN.md`, `docs/content/CURRICULUM-MAP-1972.md`, `docs/content/LESSON-02-VISUAL-NOVEL-1972.md`, card/index/board liên quan.
+- Files claimed: `docs/specs/phases/01-product-learning-experience-spec.md`, `docs/project/APP-PLAN.md`, `docs/content/CURRICULUM-MAP-1972.md`, `docs/content/LESSON-02-VISUAL-NOVEL-1972.md`, `docs/content/CONTENT-016-EVIDENCE.md`, card/index/board liên quan.
 - Shared-contract consumers: CONTENT-013/015 và content chapter tương lai; FE-005; domain/story validators; QA-001/002/004/005.
 
 ## Acceptance criteria
@@ -29,6 +29,8 @@
 - [x] Rule vẫn yêu cầu lesson đáp ứng tiêu chí learning value, source và historical safety của Phase 1–3.
 - [x] Chapter 1972 có một flagship Visual Novel rõ vị trí, objective và quan hệ với video/quiz.
 - [x] Authoring brief có stable IDs, scene flow, choice taxonomy, knowledge check, debrief, accessibility/media fallback và review gates.
+- [x] Có claim/source matrix cho SAM-2/S-75 Dvina, kíp chiến đấu, nhiễu, “vạch nhiễu tìm thù” và B-52; claim thiếu locator bị khóa khỏi narration/StoryVersion.
+- [x] Có historical/fiction/media boundary và bảng source/license/alt/caption/transcript/fallback; không asset ngoài nào được mặc định approve.
 - [ ] Thọ xác nhận product/learning direction.
 - [ ] Trúc xác nhận historical framing, source/fiction/media boundary trước khi viết story JSON chi tiết.
 
@@ -43,11 +45,12 @@
 |---|---|---|---|---|---|
 | 2026-09-28 | Product Owner + Codex | Chốt định hướng mỗi chapter canonical có ít nhất một flagship Visual Novel; chọn Lesson 2 SAM-2 của chapter 1972 | Product Owner instruction; Phase 1 criteria; curriculum 1972 draft | Thọ/Trúc review brief và yêu cầu sửa nếu có | Chưa có story JSON/historical sign-off cho narration chi tiết |
 | 2026-09-28 | Codex | Hoàn tất product addendum, curriculum update và scene-flow brief; chuyển REVIEW | `git diff --check` pass; validator Mậu Thân pass: 5 nodes, 7 scenes, 6 paths, 5 quiz, 9 narration/VTT cues; các link mới của CONTENT-016 tồn tại | Thọ review product/learning; Trúc review historical/media | Repo còn một số link task cũ trỏ sai thư mục do card đã di chuyển, không phát sinh từ CONTENT-016 |
+| 2026-09-28 | Trúc review + Codex remediation | Trúc chưa approve vì thiếu claim/source locator và media boundary; bổ sung evidence package, khóa claim/asset chưa đủ bằng chứng và loại mechanic kỹ thuật chưa được review | `docs/content/CONTENT-016-EVIDENCE.md`; tái sử dụng source registry có page/chapter locator, không tự nâng review status | Thọ approve product/learning; Trúc re-review claim locator và media boundary | `SRC-1972-02/03` và phần ECM của `SRC-LB2-04` vẫn cần locator hẹp do reviewer đọc trực tiếp trước narration |
 
 ## Handoff
 
 - Changed files: product rule, app plan, curriculum 1972, authoring brief Lesson 2, task card/index/board.
 - Test/build result: docs-only; `git diff --check` pass; validator Mậu Thân pass; các link mới tồn tại. Link scan toàn repo vẫn thấy một số link task cũ trỏ sai thư mục do card đã di chuyển, ngoài scope CONTENT-016.
 - Environment/migration impact: không có.
-- Known issues/risks: brief không phải story version publishable; tên nhân vật, lời thoại, claim/source locator và media cụ thể phải qua review trước khi authoring chi tiết.
+- Known issues/risks: brief không phải story version publishable; `SRC-1972-02/03` và phần ECM của `SRC-LB2-04` còn cần locator hẹp do reviewer đọc trực tiếp. Tên nhân vật, lời thoại, claim và media cụ thể vẫn phải qua review trước khi authoring chi tiết.
 - Next owner/action: Thọ review product/learning; Trúc review historical/media. Sau approval mới tạo task viết `StoryVersion`/scene JSON; Dương không tích hợp trước khi M2/M3 mở.
