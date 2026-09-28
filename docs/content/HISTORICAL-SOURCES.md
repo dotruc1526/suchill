@@ -4,7 +4,7 @@
 > Access date: 2026-09-27. Người tra cứu: Trúc, Codex hỗ trợ.
 > Reviewer/sign-off: chưa xác nhận. Có nguồn không đồng nghĩa đã APPROVED.
 
-Review lại 2026-09-28: xem [kết quả từng cue](../tasks/active/CONTENT-003-004-REVIEW.md). SRC-MT68-02 chưa truy cập lại được (redirect loop); giữ CLM-MT68-01 chờ evidence, không đánh dấu VERIFIED. Các source khác đã đọc được chỉ hỗ trợ wording giới hạn, chưa thay human sign-off.
+Review lại 2026-09-28: xem [kết quả từng cue](../tasks/active/CONTENT-003-004-REVIEW.md). SRC-MT68-02 cũ của QĐND chưa truy cập lại được (redirect loop), nên CLM-MT68-01 được thay bằng hai nguồn đọc được: TTDN/TTXVN và Nhân Dân. Các source đã đọc được chỉ hỗ trợ wording giới hạn, chưa thay human sign-off.
 
 ## Registry có locator
 
@@ -13,7 +13,8 @@ Các ID dưới đây dùng cho Bài 2–4 và quiz sửa lần này. Ngôn ng�
 | ID | Title / author or institution / publisher | Loại / ngày | Canonical URL và relevant locator | Supports claims / giới hạn |
 |---|---|---|---|---|
 | SRC-MT68-01 | U.S. Involvement in the Vietnam War: The Tet Offensive, 1968 — Office of the Historian, U.S. Department of State | curated_educational; không ghi ngày | [Bài tổng thuật](https://history.state.gov/milestones/1961-1968/tet), đoạn mở đầu; đoạn bắt đầu “The first phase”; hai đoạn cuối | CLM-MT68-05/07; góc nhìn cơ quan Mỹ, trang đã ngừng cập nhật |
-| SRC-MT68-02 | Người chỉ huy biệt động Sài Gòn–Gia Định tài ba — Báo Quân đội nhân dân | curated_educational; ngày cần kiểm tra lại | [Bài viết](https://www.qdnd.vn/phong-su-dieu-tra/phong-su/nguoi-chi-huy-biet-dong-sai-gon-gia-dinh-tai-ba-449193), đoạn liệt kê “5 điểm” trong lời kể về Nguyễn Đức Hùng | CLM-MT68-01; hỗ trợ danh sách mục tiêu, không chứng minh toàn bộ diễn biến từng trận |
+| SRC-MT68-02 | Biệt động Sài Gòn - “cú đấm thép” Xuân Mậu Thân 1968 - Bài 3: Những chiến công hiển hách — Thông tin Đối ngoại / Ban Tuyên giáo Trung ương, nguồn baotintuc.vn | curated_educational; 2022-02-02 | [Bài viết](https://ttdn.vn/nghien-cuu-trao-doi/ly-luan-thuc-tien/biet-dong-sai-gon-cu-dam-thep-xuan-mau-than-1968-bai-3-nhung-chien-cong-hien-hach-72809), đoạn “5 mục tiêu chiến lược” và các đoạn nêu từng mục tiêu | CLM-MT68-01; hỗ trợ danh sách năm mục tiêu, không chứng minh mọi mục tiêu bị chiếm hoặc diễn biến chi tiết từng trận |
+| SRC-MT68-07 | Sức mạnh phi thường của nữ chiến sĩ biệt động duy nhất tấn công Dinh Độc Lập Tết Mậu Thân 68 — Báo Nhân Dân | primary (phỏng vấn nhân chứng) kèm biên tập; 2025 | [Bài chuyên đề](https://nhandan.vn/special/bietdongsaigon-chinnghia/index.html), đoạn các đội biệt động lần lượt tấn công và caption “5 mục tiêu trọng yếu” | CLM-MT68-01; nguồn đối chiếu cho danh sách năm mục tiêu, đồng thời hỗ trợ riêng mũi Dinh Độc Lập của Đội 5 |
 | SRC-MT68-03 | “Viet Cong Invade American Embassy” — ADST, tái đăng lời kể E. Allan Wendt | primary (lời kể người tham dự) kèm biên tập; bản kể đăng 1981 | [Bài ADST](https://adst.org/2013/07/viet-cong-invade-american-embassy-the-1968-tet-offensive/), mở đầu phân biệt grounds/building và lời kể Wendt | CLM-MT68-02; perspective: western_archive; không lấy ngày ở lời dẫn làm nguồn duy nhất vì có khác biệt niên biểu |
 | SRC-MT68-04 | Đêm mùa Xuân năm ấy… — Trà My và Đặng Giang, Báo Nhân Dân | primary (phỏng vấn nhân chứng) kèm biên tập; 2013-02-14 | [Bài viết](https://nhandan.vn/dem-mua-xuan-nam-ay-post382619.html), đoạn “Họ là tổ biệt động”, “Đội hình tiến công” và lời kể Võ Thị Minh Nghĩa | CLM-MT68-03; chỉ dùng quy mô đội, bộc phá không nổ và người bị bắt; không suy diễn tỷ lệ thương vong |
 | SRC-MT68-05 | Căn nhà 287/70 - địa chỉ đỏ mang tên “Biệt động Sài Gòn” — Mỹ Trang, VOH | curated_educational; 2023-08-22 | [Bài khảo sát di tích](https://voh.com.vn/du-lich/can-nha-287-70-dia-chi-do-mang-ten-biet-dong-sai-gon-492233.html), đoạn địa chỉ, Trần Văn Lai, Đội 5 nhận vũ khí | CLM-MT68-04; địa chỉ/ảnh hiện trạng, không phải ảnh trận đánh |
@@ -25,7 +26,7 @@ Tất cả dòng: review_status = NEEDS_HISTORICAL_REVIEW; reviewer = pending; c
 
 | Claim ID | Text/reference và truth class | Source IDs | Wording constraint |
 |---|---|---|---|
-| CLM-MT68-01 | Năm node trong Bài 2; fact candidate | SRC-MT68-02 | Danh sách mục tiêu không chứng minh mọi mục tiêu bị chiếm |
+| CLM-MT68-01 | Năm node trong Bài 2; fact candidate | SRC-MT68-02, SRC-MT68-07 | Danh sách mục tiêu không chứng minh mọi mục tiêu bị chiếm |
 | CLM-MT68-02 | Thẻ Đại sứ quán; fact candidate | SRC-MT68-03 | Phân biệt khuôn viên với tòa nhà |
 | CLM-MT68-03 | Đội 5 và kết quả bộc phá ở Bài 3; fact candidate | SRC-MT68-04 | Không nói cổng bị đánh sập; không suy diễn thương vong |
 | CLM-MT68-04 | Cơ sở 287/70 và nhận vũ khí; fact candidate | SRC-MT68-05 | Địa chỉ theo bài khảo sát, tránh lẫn tên đường lịch sử/hiện đại |

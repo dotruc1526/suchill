@@ -1,7 +1,7 @@
 # CONTENT-003 — Historical source and media review pilot
 
 > Status: REVIEW\
-> Review Verdict: **NEEDS_REVISION** (Yêu cầu hiệu chỉnh trước khi sản xuất video và mở khóa bài học)\
+> Review Verdict: **NEEDS_SIGNOFF_AND_MEDIA_EVIDENCE** (nguồn năm mục tiêu đã có thay thế đọc được; còn cần reviewer sign-off, audio/media evidence và QA trước khi sản xuất video)\
 > Date: 2026-09-26\
 > Reviewer: Trúc theo quyền Thọ giao; chưa có sign-off bản mới\
 > Reference Report: đường dẫn báo cáo cũ nằm ngoài repo, không truy cập được; phần ghi nhận cũ được giữ bên dưới để truy vết.
@@ -15,9 +15,9 @@
 - Status: REVIEW; Started: 2026-09-28; Branch: `codex/content-status-sync`.
 - Files claimed: `docs/content/HISTORICAL-SOURCES.md`, `PILOT-SCREENPLAY.md`, `CURRICULUM-MAP.md`; card CONTENT-003/004, task board và `CONTENT-003-004-REVIEW.md` cùng thư mục.
 - Scope: review bản authoring, sửa regression của ba tài liệu về bản có source/claim và narration v2; không claim sản xuất CONTENT-007.
-- Next action: Trúc bổ sung nguồn đọc được cho CLM-MT68-01, xác nhận historical/learning và nguồn audio; Vinh review kỹ thuật. Xem [báo cáo](./CONTENT-003-004-REVIEW.md).
-- Checkpoint: đã sửa regression ba tài liệu, validator PASS; bốn nhóm fact pilot có nguồn hỗ trợ, nhóm năm mục tiêu chưa đọc lại được URL. Verdict vẫn NEEDS_REVISION.
-- Blocker: CONTENT-002 còn ô reviewer chưa xác nhận; historical/media sign-off và audio chưa có evidence. Chỉ review/sửa bản nháp hiện hữu.
+- Next action: Trúc ghi sign-off historical/learning trên bản review, chọn nguồn audio có quyền; Vinh review kỹ thuật. Xem [báo cáo](./CONTENT-003-004-REVIEW.md).
+- Checkpoint: đã sửa regression ba tài liệu, validator PASS; CLM-MT68-01 có nguồn thay thế đọc được từ TTDN/TTXVN và Nhân Dân. Verdict vẫn chưa APPROVED vì thiếu chữ ký reviewer, audio/media evidence và QA.
+- Blocker: CONTENT-002 còn ô reviewer chưa xác nhận; historical/media sign-off, audio và QA kỹ thuật còn thiếu. Chỉ review/sửa bản nháp hiện hữu.
 
 ### Assignment trước lượt review
 
