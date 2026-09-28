@@ -1,7 +1,7 @@
 # Sử Chill — Team Ownership
 
 > Status: TEAM SLOTS ASSIGNED; task claims still required\
-> Last updated: 2026-09-23
+> Last updated: 2026-09-28
 
 File này trả lời câu hỏi “ai phụ trách phần nào?”. `TASK-BOARD.md` cho biết toàn project có những việc gì; task card cho biết chi tiết một việc; file này cho biết ranh giới trách nhiệm của năm thành viên.
 
@@ -11,14 +11,14 @@ File này trả lời câu hỏi “ai phụ trách phần nào?”. `TASK-BOARD
 
 | Slot | Tên thành viên | Lane chính | Trách nhiệm | Reviewer chéo đề xuất |
 |---|---|---|---|---|
-| Member 1 | Thọ | Product + Content | lập curriculum nhiều chapter, chọn chapter mẫu và các lesson MVP, kịch bản video/story, nguồn, lịch sử, nghiệm thu | Historical reviewer / product owner |
+| Member 1 | Thọ | Product + Content; đồng thời Product Owner theo xác nhận ngày 2026-09-28 | lập curriculum nhiều chapter, chọn chapter mẫu và các lesson MVP, kịch bản video/story, nguồn, lịch sử, nghiệm thu | Historical reviewer |
 | Member 2 | Trúc | UI/UX Figma + video production | flow, visual, variants, biên tập video theo kịch bản, assets và handoff | Thọ + historical reviewer (video); Hưng (UI) |
 | Member 3 | Hưng | Frontend Foundation | app shell, tokens, primitives, routing, PWA | Vinh |
 | Member 4 | Dương | Frontend Learning | lesson, Visual Novel, video, quiz, profile UI | Hưng / Vinh |
 | Member 5 | Vinh | Backend + QA | services, Supabase, RLS, progress/reward, automated tests | Hưng / product owner |
 | Integration owner | Codex, trừ khi đổi | Cross-lane integration | contract, merge order, end-to-end verification và handoff | Product owner |
 
-Một người có thể hỗ trợ lane khác, nhưng mỗi task vẫn chỉ có một accountable owner. Tên năm thành viên đã được gán theo quyết định Product owner ngày 2026-09-23; từng task vẫn phải được claim riêng trước khi làm. Historical reviewer chưa được chỉ định.
+Một người có thể hỗ trợ lane khác, nhưng mỗi task vẫn chỉ có một accountable owner. Tên năm thành viên đã được gán theo quyết định Product owner ngày 2026-09-23; từng task vẫn phải được claim riêng trước khi làm. Theo xác nhận của Product Owner ngày 2026-09-28, Trúc (Member 2) được chỉ định chính thức làm Historical Reviewer cho nội dung pilot Mậu Thân trong CONTENT-003. Việc chỉ định này không thay thế review từng bản cụ thể, technical QA của Vinh hoặc phê duyệt Product Owner; task chỉ chuyển DONE sau khi reviewer ghi nhận kết quả trên bản hiện hành.
 
 ## 1.1 Việc cụ thể và đầu ra của từng thành viên
 
