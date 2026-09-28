@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict'
+import { readFile } from 'node:fs/promises'
 import { after, test } from 'node:test'
 import React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
@@ -11,6 +12,11 @@ const vite = await createServer({
 })
 
 after(async () => vite.close())
+
+test('document opts into display around device safe areas', async () => {
+  const html = await readFile(new URL('../../index.html', import.meta.url), 'utf8')
+  assert.match(html, /name="viewport"[^>]*viewport-fit=cover/)
+})
 
 test('canonical BottomNav renders all tabs and selected state', async () => {
   const { BottomNav } = await vite.ssrLoadModule('/src/components/layout/BottomNav.tsx')
