@@ -2,8 +2,6 @@
 
 Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây:
 
-- [M1-04](./M1-04.md) — Hưng nghiệm thu layout/navigation canonical và safe-area; chờ Vinh review.
-
 - [DOC-011](./DOC-011.md) — chốt video của Member 2 là deliverable MVP, chờ product owner review.
 - [DOC-012](./DOC-012.md) — chốt phạm vi kháng chiến chống Mỹ và MVP một chapter mẫu nhiều lesson, chờ product owner review.
 - [DOC-013](./DOC-013.md) — rà soát AGENTS/Architecture và milestone gate, chờ product owner review.
