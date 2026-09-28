@@ -80,10 +80,10 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 ### Chưa có
 
 - Canonical pilot episode được product owner chọn và qua review.
-- Domain types v2 đã duyệt ở mức đặc tả; bản chuẩn bị source tách biệt nằm trên nhánh bàn giao Member 5, chưa nối vào UI/runtime.
+- Domain types v2 đã duyệt ở mức đặc tả nhưng chưa triển khai source.
 - Supabase schema/RLS/services thật.
 - Account progress/streak backend.
-- Test foundation M0 đã có trên nhánh bàn giao Member 5 nhưng chưa vào `main`; các release gate đầy đủ vẫn chưa có.
+- Automated tests và release gates.
 
 ## Task board
 
@@ -107,35 +107,14 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 | DOC-014 | GitHub readiness | Kiểm tra file chuẩn bị đưa lên GitHub và làm rõ content track Member 1 | Codex | REVIEW | DOC-010 | [`docs/tasks/active/DOC-014.md`](../tasks/active/DOC-014.md) | Product owner review; build pass, typecheck baseline còn lỗi, CONTENT-009 READY |
 | DOC-015 | Team handoff | Gán tên 5 thành viên và tạo PR tài liệu trên nhánh riêng | Codex | REVIEW | DOC-010 | [`docs/tasks/active/DOC-015.md`](../tasks/active/DOC-015.md) | [PR #7](https://github.com/dotruc1526/suchill/pull/7) đã mở vào `main`; Product owner review |
 
-### A.1 Milestone 0 — các bước thực thi hiện tại
-
-Bảng này triển khai trực tiếp M0 trong Phase 9. M0-00..07 có evidence và được ghi `DONE` trên nhánh bàn giao của Vinh; M0-05/06/07 đã có CI đạt trên nhánh đó, nhưng chưa tích hợp vào `main`. Điều này không tự mở M1 nếu Product owner chưa duyệt rõ gate M0 trên board. `M0-02`, `M0-03` và `M0-04` là bước thực thi tương ứng cho các task frontend foundation trên board; trạng thái FE-002/FE-004 và card tương ứng vẫn cần được reviewer đồng bộ trước khi đóng gate.
-
-| ID | Việc cần làm | Owner | Reviewer | Status | Depends on | Card | Kết quả cần đạt / bước tiếp theo |
-|---|---|---|---|---|---|---|---|
-| M0-00 | Chốt người làm, reviewer, dependency và phạm vi file | Codex + các owner được gán | Product owner | DONE | DOC-010 | [`M0-00`](../tasks/done/M0-00.md) | Ảnh duyệt Product owner và xác nhận nhóm do Vinh chuyển lời; file claim không xung đột code, không tự đóng gate M0 |
-| M0-01 | Chạy lại baseline hiện tại | Codex | Vinh + Product owner | DONE | M0-00 | [`M0-01`](../tasks/done/M0-01.md) | Typecheck/build exit 0, smoke demo pass; Vinh xác nhận nhóm đã chấp nhận kết quả ngày 2026-09-26 (lời chuyển, không phải PO review trực tiếp trong repo) |
-| M0-02 | Sửa lỗi TypeScript baseline (`FE-001`) | Hưng (Member 3) | Vinh + Codex | DONE | M0-01 | [`M0-02`](../tasks/done/M0-02.md) | PR #12/#13 trong HEAD; typecheck/build exit 0; FE-001 có smoke UI; Vinh chuyển xác nhận Hưng |
-| M0-03 | Cô lập legacy/prototype (`FE-002`) | Hưng (Member 3) | Vinh + Codex | DONE | M0-01 | [`M0-03`](../tasks/done/M0-03.md) | 10 screens trong legacy, không import runtime; quality và UI smoke pass |
-| M0-04 | Làm nhẹ app shell (`FE-004`) | Hưng (Member 3) | Vinh + Codex | DONE | M0-02 | [`M0-04`](../tasks/done/M0-04.md) | App 95 dòng, typed View/router, quality và UI navigation smoke pass |
-| M0-05 | Dựng nền tảng test | Vinh (Member 5) | Hưng + Codex | DONE | M0-02 | [`M0-05`](../tasks/done/M0-05.md) | Bản ghép `main` mới: unit 16/16, component 1/1, Chromium E2E 1/1, typecheck/build pass; Vinh chuyển xác nhận Hưng; chờ review [PR #24](https://github.com/dotruc1526/suchill/pull/24) |
-| M0-06 | Khóa ranh giới env và secret | Vinh (Member 5) + Product owner | Hưng + Product owner | DONE | M0-01 | [`M0-06`](../tasks/done/M0-06.md) | Guard + scan bundle bắt buộc 190 file/0 unsafe, typecheck/build + 16/16 unit pass; Vinh chuyển xác nhận Hưng và Product owner ngày 2026-09-27; rotation thật trước M4 |
-| M0-07 | Chuẩn hóa lệnh kiểm tra local/CI | Vinh (Member 5) | Hưng + Codex | DONE | M0-05 | [`M0-07`](../tasks/done/M0-07.md) | `npm run quality` build và scan bundle trước/sau test; chờ CI commit mới trên [PR #24](https://github.com/dotruc1526/suchill/pull/24); Vinh chuyển xác nhận Hưng |
-
-Theo yêu cầu của Vinh, [`BEQA-LOCAL-001`](../tasks/done/BEQA-LOCAL-001.md) là bản chuẩn bị độc lập cho lane Backend + QA, được Vinh chấp nhận và nằm trên nhánh bàn giao. Task này **không thay thế dependency, reviewer hoặc gate** của M0–M7; không áp migration.
-
-| ID | Owner | Status | Scope | Evidence / next action |
-|---|---|---|---|---|
-| BEQA-LOCAL-001 | Vinh (Member 5) / Codex | DONE (nhánh bàn giao) | Env guard, domain v2, validator, mock contracts, pure reward policy, QA matrix | Vinh chấp nhận ngày 2026-09-26; M0-05/06/07 được nghiệm thu riêng ngày 2026-09-27 |
-
 ### B. Frontend implementation — theo dependency và milestone gate Phase 9
 
 | ID | Phase | Task | Owner | Status | Depends on | Files | Acceptance / next action |
 |---|---|---|---|---|---|---|---|
-| FE-001 | Foundation | Sửa TypeScript baseline | Hưng (Member 3) | DONE | DOC-010 | [`docs/tasks/active/FE-001.md`](../tasks/active/FE-001.md) | Đã sửa 18 lỗi typecheck; PR #12 và #13 merged vào main |
-| FE-002 | Foundation | Chọn canonical features architecture và cô lập legacy | Hưng (Member 3) | REVIEW | FE-001, DOC-010 | [`docs/tasks/active/FE-002.md`](../tasks/active/FE-002.md) | Chuyển src/screens sang src/legacy; loại bỏ duplicate runtime |
+| FE-001 | Foundation | Sửa TypeScript baseline | Hưng (Member 3) | REVIEW | DOC-010 | [`docs/tasks/active/FE-001.md`](../tasks/active/FE-001.md) | Đã sửa 18 lỗi typecheck; `npx tsc --noEmit` pass 100% |
+| FE-002 | Foundation | Chọn canonical features architecture và cô lập legacy | Hưng (Member 3) | BACKLOG | FE-001, DOC-010 | `src/features/`, `src/screens/` | Không còn duplicate runtime path |
 | FE-003 | Design system | Chuẩn hóa tokens và UI primitives | Hưng (Member 3) | BACKLOG | FE-001, DOC-010 | `src/theme/`, `src/components/ui/` | UI dùng tokens; ChoiceOption được reuse |
-| FE-004 | App shell | Tách navigation/view state khỏi App quá lớn | Hưng (Member 3) | REVIEW | FE-001, DOC-005, DOC-006 | [`docs/tasks/active/FE-004.md`](../tasks/active/FE-004.md) | Tách AppViewRouter; App.tsx còn 85 dòng (<150 dòng) |
+| FE-004 | App shell | Tách navigation/view state khỏi App quá lớn | Hưng (Member 3) | BACKLOG | FE-001, DOC-005, DOC-006 | `src/App.tsx`, app-state modules | App shell nhẹ, flow test được |
 | FE-005 | VN engine | Xây player v2 trên mock adapter | Dương (Member 4) | BACKLOG | FE-003, DOC-005, DOC-006 | `src/features/visual-novel/` | Scene/choice/retry/debrief/resume/error pass |
 | FE-006 | Video | Xây video-led lesson player và tích hợp media đã duyệt | Dương (Member 4) | BACKLOG | FE-003, DOC-005, DOC-006 | `src/features/learning/` | Player chạy trên mock trước; tích hợp bài học canonical sau CONTENT-007 với caption/transcript/resume/fallback |
 | FE-007 | Quiz | Hợp nhất knowledge check và chapter quiz rules | Dương (Member 4) | BACKLOG | FE-003, DOC-006, DOC-008 | `src/features/quiz/` | Không duplicate reward; feedback accessible |
@@ -160,20 +139,18 @@ Theo yêu cầu của Vinh, [`BEQA-LOCAL-001`](../tasks/done/BEQA-LOCAL-001.md) 
 |---|---|---|---|---|---|---|---|
 | CONTENT-001 | 2 | Chốt story/scene/choice template | Content lead | DONE | DOC-003 | `docs/specs/phases/02-content-story-authoring-model.md` | Templates và choice taxonomy đã được duyệt trong Phase 2 |
 | CONTENT-002 | 3 | Chọn chapter mẫu và pilot episode trong phạm vi sản phẩm | Thọ (Member 1); Product owner quyết định | DONE | DOC-003, DOC-004, DOC-012 | [`docs/tasks/done/CONTENT-002.md`](../tasks/done/CONTENT-002.md) | Product owner chọn chapter thuộc kháng chiến chống Mỹ; không mặc định dùng Genève demo |
-| CONTENT-003 | 3 | Historical source/media review pilot | Trúc (historical/media reviewer) | REVIEW | CONTENT-002, DOC-004 | [`docs/tasks/active/CONTENT-003.md`](../tasks/active/CONTENT-003.md) | Authoring đã sửa qua CONTENT-014; còn audio/media cuối và human sign-off, chưa mở CONTENT-007 |
-| CONTENT-004 | 5 | Viết screenplay scene-by-scene và kịch bản/storyboard video | Thọ (Member 1) | BLOCKED | CONTENT-003, CONTENT-008, DOC-006 | [`docs/tasks/blocked/CONTENT-004.md`](../tasks/blocked/CONTENT-004.md) | Trúc đã sửa authoring theo CONTENT-014; còn sign-off/audio/media cuối, chưa sản xuất |
+| CONTENT-003 | 3 | Historical source/media review pilot | Historical reviewer | REVIEW | CONTENT-002, DOC-004 | [`docs/tasks/active/CONTENT-003.md`](../tasks/active/CONTENT-003.md) | NEEDS_REVISION; Trúc sửa PR #21 theo quyền Thọ cấp; còn pilot/media và human sign-off, chưa mở CONTENT-007 |
+| CONTENT-004 | 5 | Viết screenplay scene-by-scene và kịch bản/storyboard video | Thọ (Member 1) | DONE | CONTENT-003, CONTENT-008, DOC-006 | [`docs/tasks/done/CONTENT-004.md`](../tasks/blocked/CONTENT-004.md) | Thọ sửa pilot sau CONTENT-003; 110s/VTT, storyboard, claim và media chưa đạt; chưa sản xuất |
 | CONTENT-005 | 8 | Content QA và Vietnamese language review | Vinh (Member 5); Thọ phối hợp | BLOCKED | CONTENT-004, CONTENT-007, DOC-009 | [`docs/tasks/blocked/CONTENT-005.md`](../tasks/blocked/CONTENT-005.md) | Không còn critical content issue; video/caption/transcript khớp kịch bản |
-| CONTENT-006 | 3/4 | Review và phát triển `episode-portrait-final.mp4` | Trúc (Member 2) | IN PROGRESS | DOC-004 | [`docs/tasks/active/CONTENT-006.md`](../tasks/active/CONTENT-006.md) | Giữ `REFERENCE_ONLY`; đã rebuild sidecar draft từ MP4 chính, nhưng VTT/transcript cần nghe đối chiếu và MP4 vẫn cần re-export wording nếu dùng ngoài reference |
+| CONTENT-006 | 3/4 | Review và phát triển `episode-portrait-final.mp4` | Trúc (Member 2) | IN PROGRESS | DOC-004 | [`docs/tasks/active/CONTENT-006.md`](../tasks/active/CONTENT-006.md) | Trúc là executor và historical/media reviewer; Thọ cấp quyền review objective/wording; Product owner cấp quyền chốt media/legal; media/legal chốt `APPROVED_FOR_INTERNAL_REFERENCE_ONLY`; 4 claim VERIFIED, 1 claim REVISION_REQUIRED_BEFORE_USE |
 | CONTENT-007 | MVP video | Biên tập video theo kịch bản và bàn giao cho bài học canonical | Trúc (Member 2) | BLOCKED | CONTENT-003, CONTENT-004, DOC-004 | [`docs/tasks/blocked/CONTENT-007.md`](../tasks/blocked/CONTENT-007.md) | Ít nhất một video qua source/history/media review, có caption/transcript/poster/fallback/mobile rendition; Dương tích hợp vào lesson |
 | CONTENT-008 | MVP curriculum | Lập bản đồ chapter mẫu gồm nhiều lesson đa định dạng | Thọ (Member 1) | DONE | CONTENT-002, DOC-003, DOC-012 | [`docs/tasks/done/CONTENT-008.md`](../tasks/done/CONTENT-008.md) | Learning objectives, lesson order/format và pilot episode/video placement rõ; historical reviewer kiểm tra scope |
 | CONTENT-009 | Nghiên cứu nguồn sơ bộ | Thọ lập danh mục nguồn/chủ đề ứng viên trong phạm vi kháng chiến chống Mỹ | Thọ (Member 1) | REVIEW | DOC-003, DOC-004 | [`docs/tasks/active/CONTENT-009.md`](../tasks/active/CONTENT-009.md) | Đã hoàn tất nghiên cứu 4 chủ đề và Review Round 3 (Final Adversarial Review); sẵn sàng bàn giao cho Product Owner (CONTENT-002) và Historical Reviewer (CONTENT-003) |
-| CONTENT-010 | MVP curriculum | Nội dung Bài 2 (Interactive Map - Sấm sét nội đô) | Thọ (Member 1) | REVIEW | CONTENT-008 | [docs/tasks/active/CONTENT-010.md](../tasks/active/CONTENT-010.md) | Trúc được giao toàn bộ revision; nội dung/graph cập nhật tại CONTENT-014; chờ Trúc sign-off và Vinh QA |
-| CONTENT-011 | MVP curriculum | Nội dung Bài 3 (Standard) & Bài 4 (Synthesis) | Thọ (Member 1) | REVIEW | CONTENT-008 | [docs/tasks/active/CONTENT-011.md](../tasks/active/CONTENT-011.md) | Trúc được giao toàn bộ revision; nội dung/graph cập nhật tại CONTENT-014; chờ Trúc sign-off và Vinh QA |
-| CONTENT-012 | MVP curriculum | Đóng gói Ngân hàng câu hỏi (Quiz Schema) | Thọ (Member 1) | REVIEW | CONTENT-008 | [docs/tasks/active/CONTENT-012.md](../tasks/active/CONTENT-012.md) | Trúc được giao toàn bộ revision; nội dung/graph cập nhật tại CONTENT-014; chờ Trúc sign-off và Vinh QA |
-| CONTENT-014 | Content revision | Hoàn thiện gói authoring Mậu Thân sau PR #21 | Trúc (Member 2) | REVIEW | DOC-003, DOC-004, DOC-006, DOC-009 | [CONTENT-014](../tasks/active/CONTENT-014.md) | Pilot/scene graph/map/media đã sửa và validator PASS; chờ review bản authoring, không mở sản xuất/milestone |
+| CONTENT-010 | MVP curriculum | Nội dung Bài 2 (Interactive Map - Sấm sét nội đô) | Thọ (Member 1) | REVIEW | CONTENT-008 | [docs/tasks/active/CONTENT-010.md](../tasks/active/CONTENT-010.md) | Trúc sửa theo quyền Thọ cấp; Thọ/Vinh review; nguồn và media còn chờ sign-off; xem handoff PR21 |
+| CONTENT-011 | MVP curriculum | Nội dung Bài 3 (Standard) & Bài 4 (Synthesis) | Thọ (Member 1) | REVIEW | CONTENT-008 | [docs/tasks/active/CONTENT-011.md](../tasks/active/CONTENT-011.md) | Trúc sửa theo quyền Thọ cấp; Thọ/Vinh review; nguồn và media còn chờ sign-off; xem handoff PR21 |
+| CONTENT-012 | MVP curriculum | Đóng gói Ngân hàng câu hỏi (Quiz Schema) | Thọ (Member 1) | REVIEW | CONTENT-008 | [docs/tasks/active/CONTENT-012.md](../tasks/active/CONTENT-012.md) | Trúc sửa theo quyền Thọ cấp; Thọ/Vinh review; nguồn và media còn chờ sign-off; xem handoff PR21 |
 
 ### E. QA and release
-
 
 | ID | Phase | Task | Owner | Status | Depends on | Files | Acceptance / next action |
 |---|---|---|---|---|---|---|---|
@@ -201,18 +178,17 @@ Chỉ các task có status `IN PROGRESS` được coi là đang có người là
 
 | ID | Owner / executor | Reviewer | Started | Current next action | Blocker | Last checkpoint |
 |---|---|---|---|---|---|---|
-| CONTENT-014 | Trúc / Trúc | Trúc nội dung/media; Vinh QA | 2026-09-27 | REVIEW: authoring v2, validator và diff PASS | Chờ review authoring; audio/file cuối và sign-off phát hành chưa có | Branch `codex/mt68-complete-handoff`; file claim/evidence và next action trong [card](../tasks/active/CONTENT-014.md) |
-| CONTENT-003 | Trúc / Trúc | Trúc historical/media; Vinh QA | 2026-09-27 | REVIEW bản authoring mới | Chưa có sign-off và audio/asset cuối | Branch `codex/mt68-complete-handoff`; claim registry/catalog/card/board; [handoff](../tasks/active/PR21-HANDOFF.md) |
-| CONTENT-010 | Thọ / Trúc | Trúc historical/learning/media; Vinh QA | 2026-09-27 | REVIEW Bài 2 và nguồn năm node | Graph đã có; chờ sign-off và media cuối | Branch `codex/mt68-complete-handoff`; claim Bài 2/card; [handoff](../tasks/active/PR21-HANDOFF.md) |
-| CONTENT-011 | Thọ / Trúc | Thọ; historical/media reviewer | 2026-09-27 | REVIEW Bài 3–4 sau sửa fact/wording | Historical/media sign-off | Branch `codex/mt68-complete-handoff`; claim Bài 3–4/card; [handoff](../tasks/active/PR21-HANDOFF.md) |
-| CONTENT-012 | Thọ / Trúc | Vinh (QA); Thọ (objective) | 2026-09-27 | REVIEW năm câu hỏi và source ID | Chưa xác nhận mapper/seed contract; authoring-only | Branch `codex/mt68-complete-handoff`; claim quiz/card; [handoff](../tasks/active/PR21-HANDOFF.md) |
+| CONTENT-003 | Historical reviewer / Trúc (sửa hồ sơ) | Thọ điều phối historical/media sign-off | 2026-09-27 | REVIEW; kiểm tra nguồn/claim và hoàn tất pilot | NEEDS_REVISION; quyền media chưa rõ | Branch `feature/content-expansion-mt68`; claim registry/catalog/card/board; [handoff](../tasks/active/PR21-HANDOFF.md) |
+| CONTENT-010 | Thọ / Trúc | Thọ; historical/media reviewer | 2026-09-27 | REVIEW Bài 2 và nguồn năm node | Thiếu scene graph VN và media được duyệt | Branch `feature/content-expansion-mt68`; claim Bài 2/card; [handoff](../tasks/active/PR21-HANDOFF.md) |
+| CONTENT-011 | Thọ / Trúc | Thọ; historical/media reviewer | 2026-09-27 | REVIEW Bài 3–4 sau sửa fact/wording | Historical/media sign-off | Branch `feature/content-expansion-mt68`; claim Bài 3–4/card; [handoff](../tasks/active/PR21-HANDOFF.md) |
+| CONTENT-012 | Thọ / Trúc | Vinh (QA); Thọ (objective) | 2026-09-27 | REVIEW năm câu hỏi và source ID | Chưa xác nhận mapper/seed contract; authoring-only | Branch `feature/content-expansion-mt68`; claim quiz/card; [handoff](../tasks/active/PR21-HANDOFF.md) |
 | CONTENT-009 | Thọ (Member 1) / Teamwork Reviewer | Historical reviewer + Product owner | 2026-09-26 | Bàn giao hồ sơ nghiên cứu 4 chủ đề và 8 Claim metadata cho CONTENT-002 / CONTENT-003 | Chờ Product Owner họp chọn Chapter mẫu tại CONTENT-002 | Hoàn tất Review Round 3 (Final Adversarial Review): Đính chính ngày truyền thống không quân, nhân sự Pa Thí/Truông Bồn, bổ sung toàn diện verified facts cho 100% lessons, chuẩn hóa bidirectional supports_claims và Phase 3 schema |
 | DOC-011 | Codex / Codex | Product owner | 2026-09-23 | Review quyết định video MVP và task CONTENT-007 | Chờ review tài liệu | Member 2 sản xuất; Member 1 script/source; Member 4 tích hợp player |
 | DOC-012 | Codex / Codex | Product owner | 2026-09-23 | Review scope kháng chiến chống Mỹ và MVP chapter mẫu | Chờ review tài liệu | Product owner chốt một chapter mẫu nhiều lesson; CONTENT-008 đã tạo |
 | DOC-013 | Codex / Codex | Product owner | 2026-09-23 | Review quy tắc milestone gate và role discovery | Chờ review tài liệu | Đã đồng bộ AGENTS/Architecture/Phase 9; tạo sáu blocked cards; link/status check OK |
 | DOC-014 | Codex / Codex | Product owner | 2026-09-23 | Review GitHub readiness và CONTENT-009 | Chờ review tài liệu | `.env.local` ignored; build pass; typecheck baseline 18 lỗi; 59 Markdown links OK |
 | DOC-015 | Codex / Codex | Product owner | 2026-09-23 | Review [PR #7](https://github.com/dotruc1526/suchill/pull/7) | Chờ review tài liệu | Đã gán Thọ/Trúc/Hưng/Dương/Vinh; build pass; docs links pass; nhánh riêng đã push |
-| CONTENT-006 | Trúc (Member 2) / Trúc | Trúc (historical/media; Thọ cấp quyền objective/wording; Product owner cấp quyền media/legal) | 2026-09-24 | Nếu muốn dùng ngoài reference, re-export video với wording đã duyệt và review lại Phase 3/8 | MP4/cues vẫn chứa wording cũ “tâm điểm của cả cuộc chiến”; quyền audio Edge TTS, nhạc/SFX và release sign-off chưa clear | [Evidence và phiếu thực hiện](../tasks/active/active.md): package recovered listen-through PASS cho `REFERENCE_ONLY`; cue 5 fixed; vẫn không publish/integration |
+| CONTENT-006 | Trúc (Member 2) / Trúc | Trúc (historical/media; Thọ cấp quyền objective/wording; Product owner cấp quyền media/legal) | 2026-09-24 | Nếu dùng ngoài `REFERENCE_ONLY`, tạo media package mới: sửa wording, thay/xác minh audio/nhạc/SFX, khóa manifest/hash/source export và review lại | MP4 hiện tại vẫn chứa wording cũ; audio Edge TTS, nhạc/SFX và source export chưa đủ bằng chứng publish | [Evidence và phiếu thực hiện](../tasks/active/active.md): objective accepted; media/legal `APPROVED_FOR_INTERNAL_REFERENCE_ONLY`; 4 claim VERIFIED, 1 claim REVISION_REQUIRED_BEFORE_USE; REFERENCE_ONLY |
 | BATTLE-001 | Nhóm AI Battle / nhóm ngoài | Product + Security reviewer | 2026-09-22 | Hoàn thiện prototype và chuẩn bị gói bàn giao | Chưa có repo/branch và contract | Tính năng đang phát triển độc lập |
 
 ## Task update log
@@ -221,30 +197,6 @@ Mỗi lần handoff quan trọng thêm một dòng mới nhất ở đầu bản
 
 | Date | Task | Author | Update | Evidence / next owner |
 |---|---|---|---|---|
-| 2026-09-27 | CONTENT-006 | Trúc | Nghe lại package recovered và xác nhận subtitle/cue khớp toàn clip | `content-006-rebuild` đạt sync check ở mức `REFERENCE_ONLY`; next nếu dùng ngoài reference là re-export wording đã duyệt và xử lý audio/nhạc/SFX |
-| 2026-09-27 | CONTENT-006 | Trúc (Codex hỗ trợ) | Trúc tìm lại sidecar gốc trong `dist/media/truoc-con-bao/`; package rebuild thay draft VTT/cues bằng recovered VTT/cues/storyboard/poster; lỗi cue 5 resolved theo timing gốc `00:00:11.800 --> 00:00:16.283` | `docs/tasks/active/content-006-rebuild/`; next Trúc nghe đối chiếu package recovered, clip vẫn `REFERENCE_ONLY` vì wording/audio/nhạc/SFX/release chưa clear |
-| 2026-09-27 | CONTENT-006 | Trúc | Nghe đối chiếu package draft và báo phụ đề lệch từ cue 5 `00:13.000 --> 00:17.000` | Package rebuild chuyển `NEEDS_REVISION`; next Trúc cung cấp mốc/câu đúng để sửa VTT/cues |
-| 2026-09-27 | CONTENT-006 | Trúc (Codex hỗ trợ) | Rebuild sidecar package nháp từ MP4 chính: transcript, VTT 28 cue, cues JSON, poster frame, fallback/alt và manifest; không copy MP4 vào repo | `docs/tasks/active/content-006-rebuild/`; next Trúc nghe đối chiếu và chỉ re-export/publish sau khi sửa wording + quyền audio/nhạc/SFX |
-| 2026-09-27 | CONTENT-006 | Trúc (Codex hỗ trợ) | Trúc đính chính MP4 chính là `D:/suchill-render-work/episode-portrait-no-box-text-v3.mp4`; file khớp hash/duration hồ sơ cũ, nhưng các phần còn lại có lẽ đã xóa nên package gốc không đủ publish | Card CONTENT-006 và `active.md`; next Trúc rebuild transcript/VTT/poster/manifest từ MP4 chính nếu vẫn muốn dùng ngoài `REFERENCE_ONLY` |
-| 2026-09-27 | CONTENT-006 | Trúc (Codex hỗ trợ) | Kiểm tra khả năng tạo media package sau PR #23; `main` không có tracked MP4/VTT/audio/poster/manifest/source export của “Trước cơn bão”, local chỉ có derived frame images và prototype cũ không khớp final | Card CONTENT-006 và `active.md`; next Trúc cung cấp/claim source package final trước khi sửa wording/audio hoặc review publish |
-| 2026-09-27 | M0-05/06/07 integration | Codex | Đối chiếu nhánh Member 5 với `main` mới; mở [PR #24](https://github.com/dotruc1526/suchill/pull/24), sửa thứ tự scan bundle và hai guard BEQA sau review; không đóng gate M0 | Quality trên nhánh gốc và PR commit đầu đều đạt; giữ cập nhật content mới trên main; chờ CI commit sửa và review PR |
-| 2026-09-27 | M0 branch handoff | Vinh | Yêu cầu push nhánh M0 lên GitHub; không yêu cầu merge main | Nhánh `codex/member5-backend-qa-plan` đã push và CI đạt; M0 gate vẫn cần PO duyệt rõ |
-| 2026-09-27 | M0-02..07 | Vinh + Codex | M0-02..07 DONE trên nhánh bàn giao theo dependency và evidence; Hưng xác nhận qua lời Vinh chuyển, không giả là review trực tiếp; chưa mở M1 | `npm run quality` exit 0, scan 162/0 unsafe, unit 13/13, component 1/1, E2E 1/1; UI Home/Practice/Chapter/Lesson và console 0 error; CI GitHub đã đạt, M0 gate chờ PO duyệt rõ trên board |
-| 2026-09-27 | M0-06 | Vinh (chuyển lời Hưng) + Codex | Vinh xác nhận Hưng đã duyệt các task M0; M0-06 DONE theo acceptance và xác nhận Product owner về rotation plan | Typecheck/build, 13/13 tests, scan 162 file/0 unsafe; xác nhận Hưng là lời Vinh chuyển, không phải review trực tiếp trong repo |
-| 2026-09-27 | M0-06 | Vinh (chuyển lời Product owner) | Product owner xác nhận kế hoạch rotation đã bàn giao | Card M0-06 ghi provenance; xác nhận kế hoạch không đồng nghĩa đã rotate key |
-| 2026-09-27 | M0-06 | Codex | Củng cố public key guard, scanner và ma trận env/rotation; chuyển REVIEW | Typecheck/build exit 0, 13/13 tests, scan 162 file/0 unsafe; Hưng + Product owner review kế hoạch |
-| 2026-09-26 | M0-01 / M0-06 | Vinh + Codex | Vinh xác nhận tất cả các bên đã chấp nhận kết quả; M0-01 DONE, M0-06 READY theo dependency | Xác nhận là lời Vinh chuyển trong chat, không giả là PO review trực tiếp trong repo; M0-06 cần verification riêng, không push |
-| 2026-09-26 | M0-00 / M0-01 | Codex | Ghi nhận xác nhận nhóm do Vinh chuyển lời cùng bằng chứng Product owner duyệt M0-00; M0-00 DONE, M0-01 READY | M0-01 chưa chạy; integration owner claim và đo baseline hiện tại trong lượt riêng; không push |
-| 2026-09-26 | M0-01 | Codex | Đo baseline hiện tại: TypeScript/build sạch; smoke Home, 4 tab, chapter, lesson choice, quiz 4/4 và console không lỗi; card REVIEW | Vinh + Product owner review evidence trong M0-01 card; chưa mở task phụ thuộc, không push |
-| 2026-09-26 | M0-00 | Codex | Đối chiếu ảnh duyệt do Vinh cung cấp và kiểm tra file claim sau khi ghép Hưng; giữ IN PROGRESS vì thiếu xác nhận đọc context của owner | `git ls-files -u` rỗng, code paths riêng, board là tài liệu chung đã ghép; Hưng/Vinh xác nhận đọc context, Product owner đóng M0-00 |
-| 2026-09-26 | BEQA-LOCAL-001 | Vinh | Review và chấp nhận bản chuẩn bị Backend + QA local; chuyển DONE local-only | Xác nhận trực tiếp trong chat; M0-05/06/07 vẫn BLOCKED theo dependency, không push |
-| 2026-09-26 | BEQA-LOCAL-001 | Codex | Sửa TS2339 trong validator local, thêm test reference cho các loại lesson block, chuyển REVIEW | Typecheck/build + 12/12 test + scan 73 files pass; Vinh review, không push |
-| 2026-09-26 | BEQA-LOCAL-001 | Codex | Nhận nhánh Hưng M0-03/M0-04 vào local; mở lại task local sau khi typecheck phát hiện TS2339 trong validator | Build + 11/11 test + scan 73 files pass; sửa `src/services/next/validation.ts:36` rồi review, không push |
-| 2026-09-24 | BEQA-LOCAL-001 | Codex | Hoàn thành bản chuẩn bị độc lập, chuyển local task sang REVIEW; không đổi status M0–M7 chính thức | 11/11 test pass, scanner 0 unsafe matches trên 69 files; Vinh review diff, không push |
-| 2026-09-24 | BEQA-LOCAL-001 | Vinh + Codex | Vinh yêu cầu thực hiện trước phần Member 5 độc lập, không chờ duyệt, không push; giữ nguyên gate/task chính thức | Claim khu vực `src/services/next/`, `src/types/v2/`, `tests/`, scripts và env example; không chạm UI/package/migration áp dụng |
-| 2026-09-24 | M0-00 | Vinh + Codex | Đính chính: tin nhắn đồng ý trước đó là của Vinh (Member 5), không phải Product owner; Vinh giao Codex làm lần lượt task Member 5, chưa push | Chờ Product owner review M0-00; Vinh báo Hưng đã nhận M0-02..04 |
-| 2026-09-24 | M0-00 | Codex | Thêm root `active.md`, đề xuất model cho task kế tiếp và project skill khóa agent vào đúng scope bàn giao | Product owner review; Hưng/Vinh xác nhận; M0-01 vẫn blocked |
-| 2026-09-24 | M0-00..07 | Codex | Tạo nhánh `codex/member5-backend-qa-plan`, chia M0 thành card có owner/reviewer/dependency và làm rõ ba bước của Member 5 | Hưng/Vinh xác nhận nhận việc; Product owner review trước khi mở M0-01 |
 | 2026-09-26 | CONTENT-006 | Trúc (Codex hỗ trợ) | Đồng bộ sau quyền mới: Thọ giao Trúc review objective/wording và Product owner giao Trúc chốt media/legal; hồ sơ chỉ đạt `REFERENCE_ONLY`, không publish/integration | `active.md` và card CONTENT-006; next chỉ phát sinh nếu tạo media package mới hoặc sửa wording/audio/nhạc/SFX/source export |
 
 | 2026-09-26 | CONTENT-009 | Teamwork Reviewer (Round 3) | Hoàn thành Review Round 3 (Final Adversarial Review): Sửa nhầm lẫn ngày truyền thống không quân (03/4 là ngày đánh thắng trận đầu), đính chính tên phi công Pa Thí (Đinh Công Vượng thay vì Đinh Tôn) và chỉ huy Truông Bồn (Trần Thị Doãn); bổ sung đầy đủ verified facts cho 100% bài học ở cả 4 chủ đề; chuẩn hóa schema Phase 3 hai chiều (supports_claims, text_or_reference, historical_scope, reviewer) | Evidence tại docs/features/research-content-009.md; bàn giao PO (CONTENT-002) & Historical Reviewer (CONTENT-003) |
@@ -313,3 +265,5 @@ AI phải đọc task board trước khi làm việc. Nếu task `BLOCKED` hoặ
 - Content task có review/source status.
 - Backend task có migration/RLS/security evidence.
 - Task board cập nhật status, evidence và handoff note.
+
+
