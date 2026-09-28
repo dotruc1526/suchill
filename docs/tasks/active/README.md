@@ -2,7 +2,7 @@
 
 Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây:
 
-- [M1-06](./M1-06.md) — Product owner blocker fix for component QA; awaiting final quality and PO re-audit.
+- [M1-07](./M1-07.md) — khắc phục narrative choice, Modal focus và token hard-code; Hưng triển khai, Trúc review UI/UX, Vinh review accessibility/QA trước khi Product Owner audit gate M1.
 
 - [DOC-011](./DOC-011.md) — chốt video của Member 2 là deliverable MVP, chờ product owner review.
 - [DOC-012](./DOC-012.md) — chốt phạm vi kháng chiến chống Mỹ và MVP một chapter mẫu nhiều lesson, chờ product owner review.
