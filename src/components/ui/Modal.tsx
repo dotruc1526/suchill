@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { theme } from '../../theme/tokens'
 
 type ModalProps = {
@@ -9,12 +9,64 @@ type ModalProps = {
 }
 
 export function Modal({ isOpen, onClose, title, children }: ModalProps) {
+  const dialogRef = useRef<HTMLDivElement>(null)
+  const previouslyFocusedRef = useRef<HTMLElement | null>(null)
+
   useEffect(() => {
+    if (!isOpen) return
+
+    previouslyFocusedRef.current = document.activeElement instanceof HTMLElement
+      ? document.activeElement
+      : null
+
+    const focusableSelector = [
+      'a[href]',
+      'button:not([disabled])',
+      'textarea:not([disabled])',
+      'input:not([disabled])',
+      'select:not([disabled])',
+      '[tabindex]:not([tabindex="-1"])',
+    ].join(',')
+
+    const getFocusable = () => Array.from(
+      dialogRef.current?.querySelectorAll<HTMLElement>(focusableSelector) ?? [],
+    )
+
+    const focusables = getFocusable()
+    ;(focusables[0] ?? dialogRef.current)?.focus()
+
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isOpen) onClose()
+      if (e.key === 'Escape') {
+        onClose()
+        return
+      }
+
+      if (e.key !== 'Tab') return
+
+      const currentFocusables = getFocusable()
+      if (currentFocusables.length === 0) {
+        e.preventDefault()
+        dialogRef.current?.focus()
+        return
+      }
+
+      const first = currentFocusables[0]
+      const last = currentFocusables[currentFocusables.length - 1]
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault()
+        first.focus()
+      }
     }
+
     window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+      previouslyFocusedRef.current?.focus()
+    }
   }, [isOpen, onClose])
 
   if (!isOpen) return null
@@ -24,14 +76,18 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
       role="dialog"
       aria-modal="true"
       aria-labelledby={title ? 'modal-title' : undefined}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs animate-fade-in"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-xs animate-fade-in"
+      ref={dialogRef}
+      tabIndex={-1}
       onClick={onClose}
+      style={{ background: theme.colors.overlay }}
     >
       <div
         className="w-full max-w-sm rounded-lg p-5 paper-card shadow-xl relative animate-scale-up"
         style={{
           background: theme.colors.cardBg,
           border: `1.5px solid ${theme.colors.borderDark}`,
+          boxShadow: theme.shadows.modal,
         }}
         onClick={e => e.stopPropagation()}
       >

@@ -16,19 +16,19 @@ export function Badge({
 }: BadgeProps) {
   const variantStyles = {
     default: {
-      background: 'rgba(61, 26, 0, 0.08)',
+      background: theme.colors.surfaceMuted,
       color: theme.colors.textPrimary,
       border: `1px solid ${theme.colors.borderLight}`,
     },
     primary: {
-      background: 'rgba(139, 26, 26, 0.12)',
+      background: theme.colors.primarySoft,
       color: theme.colors.primary,
-      border: `1px solid rgba(139, 26, 26, 0.25)`,
+      border: `1px solid ${theme.colors.primaryBorder}`,
     },
     secondary: {
-      background: 'rgba(30, 45, 90, 0.12)',
+      background: theme.colors.secondarySoft,
       color: theme.colors.secondary,
-      border: `1px solid rgba(30, 45, 90, 0.25)`,
+      border: `1px solid ${theme.colors.secondaryBorder}`,
     },
     success: {
       background: theme.colors.correct.bg,
@@ -36,9 +36,9 @@ export function Badge({
       border: `1px solid ${theme.colors.correct.border}`,
     },
     warning: {
-      background: 'rgba(196, 52, 26, 0.12)',
+      background: theme.colors.accentSoft,
       color: theme.colors.accentRed,
-      border: `1px solid rgba(196, 52, 26, 0.25)`,
+      border: `1px solid ${theme.colors.accentBorder}`,
     },
     error: {
       background: theme.colors.incorrect.bg,
@@ -46,7 +46,7 @@ export function Badge({
       border: `1px solid ${theme.colors.incorrect.border}`,
     },
     neutral: {
-      background: 'rgba(61, 26, 0, 0.08)',
+      background: theme.colors.surfaceMuted,
       color: theme.colors.textSecondary,
       border: `1px solid ${theme.colors.borderLight}`,
     },

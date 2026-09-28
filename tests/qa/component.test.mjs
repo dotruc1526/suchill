@@ -46,15 +46,34 @@ test('canonical TopBar renders streak, xp and safe-area header', async () => {
 })
 
 test('UI primitives render with design tokens', async () => {
+  const { Button } = await vite.ssrLoadModule('/src/components/ui/Button.tsx')
   const { Badge } = await vite.ssrLoadModule('/src/components/ui/Badge.tsx')
+  const { ChoiceOption } = await vite.ssrLoadModule('/src/components/ui/ChoiceOption.tsx')
   const { Progress } = await vite.ssrLoadModule('/src/components/ui/Progress.tsx')
   const { IconButton } = await vite.ssrLoadModule('/src/components/ui/IconButton.tsx')
   const { Modal } = await vite.ssrLoadModule('/src/components/ui/Modal.tsx')
+
+  const buttonHtml = renderToStaticMarkup(
+    React.createElement(Button, { variant: 'primary' }, 'Bắt đầu'),
+  )
+  assert.ok(buttonHtml.includes('Bắt đầu'))
 
   const badgeHtml = renderToStaticMarkup(
     React.createElement(Badge, { variant: 'error' }, 'Sai rồi'),
   )
   assert.ok(badgeHtml.includes('Sai rồi'))
+
+  const narrativeChoiceHtml = renderToStaticMarkup(
+    React.createElement(ChoiceOption, { label: 'Suy ngẫm', isSelected: true }),
+  )
+  assert.ok(!narrativeChoiceHtml.includes('✓'))
+  assert.ok(!narrativeChoiceHtml.includes('#E8F5E2'))
+  assert.ok(narrativeChoiceHtml.includes('Suy ngẫm'))
+
+  const correctChoiceHtml = renderToStaticMarkup(
+    React.createElement(ChoiceOption, { label: 'Đáp án', isSelected: true, revealed: true, correct: true }),
+  )
+  assert.ok(correctChoiceHtml.includes('✓'))
 
   const progressHtml = renderToStaticMarkup(
     React.createElement(Progress, { value: 75, max: 100 }),
@@ -72,6 +91,27 @@ test('UI primitives render with design tokens', async () => {
   )
   assert.ok(modalHtml.includes('aria-labelledby="modal-title"'))
   assert.ok(modalHtml.includes('id="modal-title"'))
+  assert.ok(modalHtml.includes('tabindex="-1"'))
+})
+
+test('Modal source contains focus trap and focus restoration behavior', async () => {
+  const source = await readFile(new URL('../../src/components/ui/Modal.tsx', import.meta.url), 'utf8')
+  assert.match(source, /previouslyFocusedRef/)
+  assert.match(source, /document\.activeElement/)
+  assert.match(source, /querySelectorAll<HTMLElement>/)
+  assert.match(source, /e\.key !== 'Tab'/)
+  assert.match(source, /previouslyFocusedRef\.current\?\.focus\(\)/)
+})
+
+test('M1 primitives route color and shadow decisions through tokens', async () => {
+  const files = ['Button.tsx', 'Badge.tsx', 'ChoiceOption.tsx', 'Progress.tsx']
+  for (const file of files) {
+    const source = await readFile(new URL(`../../src/components/ui/${file}`, import.meta.url), 'utf8')
+    assert.ok(source.includes('theme.'), `${file} should use theme tokens`)
+    assert.doesNotMatch(source, /rgba\(61,\s*26,\s*0/)
+    assert.doesNotMatch(source, /rgba\(139,\s*26,\s*26/)
+    assert.doesNotMatch(source, /#[0-9A-Fa-f]{6}/)
+  }
 })
 
 test('Shared states render properly with Vietnamese content', async () => {

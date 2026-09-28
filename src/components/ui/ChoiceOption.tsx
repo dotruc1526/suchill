@@ -23,18 +23,31 @@ export function ChoiceOption({
   let textColor: string = theme.colors.textPrimary
   let opacity = 1
 
-  if (revealed || isSelected) {
-    if (correct === false) {
-      bg = theme.colors.incorrect.bg
-      border = theme.colors.incorrect.border
-      textColor = theme.colors.incorrect.text
-    } else {
-      bg = theme.colors.correct.bg
-      border = theme.colors.correct.border
-      textColor = theme.colors.correct.text
-    }
+  if (revealed && correct === true) {
+    bg = theme.colors.correct.bg
+    border = theme.colors.correct.border
+    textColor = theme.colors.correct.text
+  } else if (revealed && correct === false) {
+    bg = theme.colors.incorrect.bg
+    border = theme.colors.incorrect.border
+    textColor = theme.colors.incorrect.text
+  } else if (isSelected) {
+    bg = theme.colors.selected.bg
+    border = theme.colors.selected.border
+    textColor = theme.colors.selected.text
   }
 
+  const showIncorrect = revealed && isSelected && correct === false
+  const showCorrect = revealed && isSelected && correct === true
+
+  if (disabled) {
+    opacity = 0.65
+  }
+
+  /*
+   * Narrative/reflection choices pass only `isSelected`; they must stay neutral.
+   * Correct/incorrect visuals are shown only after `revealed` and explicit correctness.
+   */
   return (
     <button
       onClick={onClick}
@@ -44,20 +57,19 @@ export function ChoiceOption({
         background: bg,
         color: textColor,
         border: `1.5px solid ${border}`,
-        boxShadow: isSelected ? '0 0 0 2px rgba(61,26,0,0.1)' : '1px 2px 0 rgba(61,26,0,0.06)',
+        boxShadow: isSelected ? theme.shadows.selected : theme.shadows.card,
         opacity,
       }}
     >
       <div className="flex items-center justify-between gap-2">
         <span className="leading-snug">{label}</span>
-        {isSelected && correct === false && (
+        {showIncorrect && (
           <span className="font-bold text-base shrink-0" style={{ color: theme.colors.incorrect.text }}>✗</span>
         )}
-        {isSelected && correct !== false && (
+        {showCorrect && (
           <span className="font-bold text-base shrink-0" style={{ color: theme.colors.correct.text }}>✓</span>
         )}
       </div>
     </button>
   )
 }
-
