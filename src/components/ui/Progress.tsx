@@ -26,7 +26,7 @@ export function Progress({
       className={`w-full overflow-hidden rounded-full ${className}`}
       style={{
         height: `${height}px`,
-        background: 'rgba(61, 26, 0, 0.1)',
+        background: theme.colors.progressTrack,
         ...style,
       }}
       {...props}
