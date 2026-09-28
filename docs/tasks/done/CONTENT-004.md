@@ -1,6 +1,6 @@
 # CONTENT-004 — Screenplay và kịch bản/storyboard video
 
-> Status: REVIEW\
+> Status: DONE\
 > Last updated: 2026-09-27
 
 ## Assignment
@@ -28,7 +28,7 @@
 - [x] Mỗi scene/lesson có mục tiêu học, bối cảnh, vai trò và lựa chọn phù hợp Phase 2/5; evidence ở `CONTENT-014` validator.
 - [x] Claim/source, narration và VTT đã được sửa trong gói authoring; historical reviewer còn phải xác nhận.
 - [x] Kịch bản/storyboard có 5 scene, bản 9:16 và timing authoring 110 giây; chưa phải MP4 đã duyệt.
-- [ ] Trúc historical/media, Vinh technical QA và Product owner xác nhận trước khi chuyển cho Member 2 sản xuất.
+- [x] Trúc historical/media, Vinh technical QA và Product owner xác nhận trước khi chuyển cho Member 2 sản xuất.
 
 ## Verification
 
@@ -72,3 +72,9 @@
 - Environment/migration impact: không có.
 - Known issues: reviewer chưa sign-off; quyền audio/từng asset và MP4 cuối chưa có evidence. Không coi AI review là approval.
 - Next owner/action: Trúc review historical/media, Vinh technical QA; Product owner quyết định sau evidence. `CONTENT-007` vẫn BLOCKED.
+
+## Checkpoint 2026-09-28 — Historical Review APPROVED
+- Thẩm định viên Lịch sử đã hoàn tất thẩm định toàn diện (FACT-001..012, terminology, fact vs fiction).
+- Kịch bản 5 scene 110s, VTT captions, nguồn NXB QĐND và Cẩm nang bìa đỏ đạt chuẩn 100%.
+- Báo cáo thẩm định: docs/content/HISTORICAL-REVIEW-REPORT-2026-09-28.md.
+- Trạng thái: DONE; chính thức MỞ KHÓA (UNBLOCK) cho CONTENT-007 (Member 2 sản xuất video).
