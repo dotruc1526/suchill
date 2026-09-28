@@ -33,4 +33,4 @@
 
 - Chưa có build/runtime impact; không environment/migration.
 - Quyền thực hiện không thay bằng chứng quyền tác giả, file thu âm hoặc nghiệm thu nghe/xem.
-- CONTENT-006 giữ IN PROGRESS/REFERENCE_ONLY; M1–M7 LOCKED.
+- CONTENT-006 giữ IN PROGRESS/REFERENCE_ONLY; M1 OPEN, M2–M7 LOCKED.

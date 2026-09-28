@@ -5,7 +5,7 @@
 
 ## Assignment
 
-- Phase / milestone: MVP content track; M1–M7 vẫn LOCKED
+- Phase / milestone: MVP content track; M1 đang OPEN, M2–M7 vẫn LOCKED
 - Workstream: Product + Content
 - Accountable owner: Thọ (Member 1)
 - Executor type: Human hoặc Codex hỗ trợ bản nháp
