@@ -15,9 +15,9 @@
 - Status: REVIEW; Started: 2026-09-28; Branch: `codex/content-status-sync`.
 - Files claimed: `docs/content/HISTORICAL-SOURCES.md`, `PILOT-SCREENPLAY.md`, `CURRICULUM-MAP.md`; card CONTENT-003/004, task board và `CONTENT-003-004-REVIEW.md` cùng thư mục.
 - Scope: review bản authoring, sửa regression của ba tài liệu về bản có source/claim và narration v2; không claim sản xuất CONTENT-007.
-- Next action: Trúc chọn nguồn audio có quyền và ghi evidence; Vinh review kỹ thuật; Product owner quyết định gate sau các evidence đó. Xem [báo cáo](./CONTENT-003-004-REVIEW.md).
-- Checkpoint: đã sửa regression ba tài liệu, validator PASS; CLM-MT68-01 có nguồn thay thế đọc được từ TTDN/TTXVN và Nhân Dân. Trúc sign-off historical/learning cho gói authoring v2; không phải phê duyệt media hay phát hành.
-- Blocker: audio/media evidence, QA kỹ thuật của Vinh và quyết định gate của Product owner còn thiếu. `CONTENT-007` không được mở chỉ từ sign-off này.
+- Next action: Trúc lưu evidence Azure AI Speech paid tier trước khi tạo audio; sau đó Vinh review kỹ thuật và Product owner quyết định gate. Xem [báo cáo](./CONTENT-003-004-REVIEW.md) và [hồ sơ media](../../content/MEDIA-REVIEW-MT68.md).
+- Checkpoint: đã sửa regression ba tài liệu, validator PASS; CLM-MT68-01 có nguồn thay thế đọc được từ TTDN/TTXVN và Nhân Dân. Trúc sign-off historical/learning cho gói authoring v2; đã chọn đường quyền audio Azure AI Speech TTS paid tier/prebuilt `vi-VN-NamMinhNeural`, nhưng chưa có chứng từ tài khoản hay audio thật.
+- Blocker: evidence Azure paid tier/output audio, QA kỹ thuật của Vinh và quyết định gate của Product owner còn thiếu. `CONTENT-007` không được mở chỉ từ sign-off hoặc lựa chọn nhà cung cấp.
 
 ### Historical/learning sign-off — Trúc, 2026-09-28
 

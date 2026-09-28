@@ -37,7 +37,7 @@ Tra cứu ngày 2026-09-28. SUPPORTED chỉ nghĩa nguồn đọc được hỗ 
 
 Đọc đủ tám dòng catalog và MEDIA-REVIEW-MT68. MED-01/02/03/05/06/07 còn BLOCKED; MED-04/08 NEEDS_MEDIA_REVIEW theo hồ sơ có sẵn. Không tái xác nhận license của asset chưa dùng trong lượt này. Tất cả chỉ là candidate optional, không gắn vào pilot bắt buộc.
 
-Phương án hiện hành: chữ/sơ đồ nguyên bản, narration mới có quyền; không nhạc/SFX, không bản ghi thơ, không clip CBS, không audio Edge TTS từ CONTENT-006. Chưa có audio, font/source thiết kế hoặc file xuất thật để duyệt. Quyền thực hiện review không thay evidence quyền sử dụng.
+Phương án hiện hành: chữ/sơ đồ nguyên bản, narration mới theo Azure AI Speech TTS **paid tier** với prebuilt `vi-VN-NamMinhNeural`; không nhạc/SFX, không bản ghi thơ, không clip CBS, không audio Edge TTS từ CONTENT-006. Lý do và evidence path ở [MEDIA-REVIEW-MT68](../../content/MEDIA-REVIEW-MT68.md): Product Terms cấp output use right cho prebuilt voice ở paid tier, còn Edge Read Aloud/`edge-tts` không có grant tái phân phối công khai. Chưa có chứng từ subscription paid tier, audio, font/source thiết kế hoặc file xuất thật để duyệt; quyền thực hiện review không thay evidence quyền sử dụng.
 
 Phân biệt gate: trước sản xuất cần script/claim được duyệt và phương án quyền media rõ; MP4/poster/hash/playback là đầu ra phải nghiệm thu trong CONTENT-007, không phải điều kiện phải có MP4 trước khi bắt đầu tạo MP4. Historical/learning sign-off đã được Trúc ghi ngày 2026-09-28; CONTENT-007 vẫn BLOCKED vì evidence audio/media, QA kỹ thuật và Product owner gate còn thiếu.
 
@@ -52,7 +52,7 @@ Kết luận này không là sign-off audio/media, không duyệt MP4/poster/rel
 | Việc | Executor | Đầu ra cần có |
 |---|---|---|
 | Ghi quyết định historical/learning trên bản review này | Trúc | Hoàn thành 2026-09-28; sign-off bị giới hạn cho gói authoring v2, không phải duyệt media/release |
-| Chọn nguồn giọng đọc có quyền | Trúc | Người đọc/dịch vụ, phạm vi cho phép, evidence; chưa cần MP4 cuối |
+| Chọn nguồn giọng đọc có quyền | Trúc | Đã chọn Azure AI Speech paid tier + prebuilt `vi-VN-NamMinhNeural`; còn chứng từ tài khoản/tier và output hash trước khi dùng |
 | Kiểm tra độc lập kỹ thuật revision | Vinh | Validator, diff và đồng nhất các file; không suy ra approval từ review PR #23 cũ |
 | Xác nhận ô reviewer CONTENT-002 và quyết định gate production | Thọ | Quyết định ghi vào card/board sau review, không tự mở M1 |
 
@@ -62,5 +62,5 @@ Kết luận này không là sign-off audio/media, không duyệt MP4/poster/rel
 - `git diff --check` và local Markdown links của file thay đổi được kiểm tra trước bàn giao.
 - Không chạy app build/typecheck: revision chỉ tài liệu authoring và hồ sơ review, không thay runtime/dependency/migration. Validator nội dung là kiểm tra liên quan; không chứng minh media playback, quyền sử dụng hay lịch sử tự động.
 - Không environment/migration impact. CONTENT-003/004 giữ REVIEW, CONTENT-007 BLOCKED; CONTENT-006 giữ IN PROGRESS/REFERENCE_ONLY, M0 OPEN.
-- Update 2026-09-28: CLM-MT68-01 đã có locator thay thế đọc được từ TTDN/TTXVN và Nhân Dân; Trúc đã ghi sign-off historical/learning có giới hạn cho gói authoring v2. Việc còn lại là chọn nguồn audio có quyền, evidence media, Vinh QA kỹ thuật và Product owner gate.
+- Update 2026-09-28: CLM-MT68-01 đã có locator thay thế đọc được từ TTDN/TTXVN và Nhân Dân; Trúc đã ghi sign-off historical/learning có giới hạn cho gói authoring v2. Đã chọn Azure AI Speech TTS paid tier/prebuilt `vi-VN-NamMinhNeural`; việc còn lại là chứng từ paid tier/output audio, evidence media, Vinh QA kỹ thuật và Product owner gate.
 - GitHub API đọc PR #29 gặp rate limit; không dùng lỗi API để kết luận PR đã merge. Nhánh được cập nhật dựa trên remote main đã fetch; không merge vào main trong lượt này.

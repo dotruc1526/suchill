@@ -28,14 +28,23 @@ Narration phải thu mới và có quyền sử dụng; nhạc/SFX không dùng.
 
 ## File cuối và audio
 
-Chưa có bản thu narration mới, tên người đọc, ngày thu, đồng ý sử dụng, source export hoặc hash. Quyền được Thọ giao review không thay các tài liệu này.
-Trúc có thể tự thu giọng của mình hoặc cung cấp bản thu có quyền; hồ sơ cần tên file, người đọc, phạm vi cho phép sử dụng, ngày và hash. Nếu chọn TTS, lưu nhà cung cấp/gói tài khoản/điều khoản áp dụng và chứng từ tại thời điểm tạo; không cần chia sẻ secret.
+### Quyết định nguồn giọng đọc — 2026-09-28
+
+Nguồn được chọn cho narration mới là **Azure AI Speech Text to Speech paid tier**, dùng prebuilt neural voice `vi-VN-NamMinhNeural` (Vietnamese, male). Không dùng `edge-tts`, Edge Read Aloud hoặc audio Edge TTS của CONTENT-006: Microsoft không có tài liệu công khai cấp quyền rõ ràng để ghi và tái phân phối output Read Aloud/`edge-tts`.
+
+- [Microsoft Product Terms — Text-to-Speech Services](https://www.microsoft.com/licensing/terms/en-US/productoffering/MicrosoftAzureServices/EAEAS/SpecificUseRights) ghi rằng khách hàng **paid tier TTS Service** có thể dùng output audio của prebuilt neural voices, kể cả mục đích thương mại.
+- [Azure Speech language and voice support](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support?tabs=language-identification) liệt kê `vi-VN-NamMinhNeural` là prebuilt neural voice tiếng Việt.
+- Không tạo custom voice, không mô phỏng người thật và không dùng voice talent; vì vậy không áp dụng luồng consent của custom neural voice. Phần lời đọc vẫn phải là narration đã được sign-off và không được gây hiểu lầm là lời kể nhân chứng.
+
+Trạng thái quyền audio: **LICENSE_PATH_SELECTED__ACCOUNT_EVIDENCE_PENDING**. Đây chưa là evidence đủ để publish: Product Terms chỉ áp dụng khi audio thật được tạo bởi tài khoản/gói Azure paid tier của nhóm. Trước khi thu/export, Trúc phải lưu bản không chứa secret gồm: tên subscription/resource hoặc invoice/portal screenshot che thông tin nhạy cảm, ngày tạo, service `Azure AI Speech TTS`, tier paid, voice, SSML/rate nếu dùng, tên file output và SHA-256. Nếu không chứng minh được paid tier, đổi sang bản thu người đọc có văn bản cho phép sử dụng; không quay lại dùng Edge Read Aloud/`edge-tts`.
+
+Chưa có bản thu narration mới, source export hoặc hash. Quyền được Thọ giao review không thay các tài liệu này.
 
 Poster/sơ đồ chữ do nhóm tạo cần source file, font/license thực tế, ngày xuất, rendition và hash. Hiện mới có thiết kế trong screenplay, chưa có file để nghiệm thu.
 
 ## Trạng thái còn thiếu
 
-- Historical/learning sign-off cho bản narration/story mới.
-- Trúc chọn hoặc thu audio hợp lệ; đo timing và đồng bộ caption theo audio.
+- Historical/learning sign-off cho bản narration/story mới. **Đã hoàn thành có giới hạn ngày 2026-09-28.**
+- Trúc dùng Azure AI Speech paid tier theo quyết định trên hoặc bản thu có consent; lưu evidence tài khoản/quyền, đo timing và đồng bộ caption theo audio.
 - Xuất MP4/poster/manifest, kiểm tra mobile/fallback/keyboard/caption trên player khi task mở.
 - Nếu dùng ảnh optional: nghiệm thu item, caption/alt/crop, attribution và điều kiện phạm vi sử dụng trước tích hợp.

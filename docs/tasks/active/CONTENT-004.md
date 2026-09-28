@@ -47,8 +47,8 @@
 
 - Card `DONE` và card `BLOCKED` trước đây cùng tồn tại cho `CONTENT-004`; board còn liên kết nhầm sang card blocked. Theo `AGENTS.md` và `docs/tasks/README.md`, acceptance cuối cần reviewer xác nhận, nên task được hợp nhất thành một card `REVIEW`, không phải `DONE` hay `BLOCKED`.
 - Bản sửa authoring do Trúc thực hiện theo quyền Thọ giao đã có evidence ở `CONTENT-014`: 5 scene, narration/VTT khớp 110 giây, claim/source và media catalog được validator kiểm tra. Đây là deliverable để review, không phải sign-off phát hành.
-- Next action: Trúc chọn nguồn audio có quyền và ghi evidence; Vinh chạy technical QA. Chỉ khi evidence media, QA và Product owner ghi quyết định rõ thì mới xem dependency của `CONTENT-007` đạt.
-- Blocker: quyền audio/từng asset, QA kỹ thuật và Product owner gate chưa có; `CONTENT-007` giữ `BLOCKED`.
+- Next action: Trúc lưu evidence Azure AI Speech paid tier trước khi tạo audio; Vinh chạy technical QA. Chỉ khi evidence media, QA và Product owner ghi quyết định rõ thì mới xem dependency của `CONTENT-007` đạt.
+- Blocker: chứng từ Azure paid tier/output audio, quyền từng asset, QA kỹ thuật và Product owner gate chưa có; `CONTENT-007` giữ `BLOCKED`.
 
 ## Checkpoint 2026-09-27 — thay thế kết luận DONE trước đây
 
@@ -72,4 +72,4 @@
 - Test/build result: `node docs/content/validate-mt68-authoring.mjs` PASS theo `CONTENT-014`; docs-only, không có runtime change từ lượt đồng bộ trạng thái.
 - Environment/migration impact: không có.
 - Known issues: quyền audio/từng asset, QA kỹ thuật và MP4 cuối chưa có evidence. Không coi AI review là approval.
-- Next owner/action: Trúc chọn audio/media evidence, Vinh technical QA; Product owner quyết định sau evidence. `CONTENT-007` vẫn BLOCKED.
+- Next owner/action: Trúc lưu evidence Azure AI Speech paid tier và audio output, Vinh technical QA; Product owner quyết định sau evidence. `CONTENT-007` vẫn BLOCKED.

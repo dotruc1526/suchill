@@ -28,7 +28,7 @@ Fact candidate là ghi chú authoring đang chờ review, không phải giá tr�
 
 - Dọc 9:16; mục tiêu 1080×1920, H.264/AAC nếu có audio. Không ghi rằng rendition đã tồn tại.
 - Visual mặc định là chữ/sơ đồ do nhóm tạo; không dùng ảnh stock, ảnh di tích hiện đại như ảnh trận đánh, clip CBS, bản ghi thơ hoặc audio Edge TTS chưa rõ quyền.
-- Narration dự kiến thu mới bởi người có quyền cho phép sử dụng giọng, hoặc dịch vụ TTS với bằng chứng điều khoản áp dụng cho tài khoản/gói sử dụng. Chưa chọn/chi tiền dịch vụ.
+- Narration dùng Azure AI Speech TTS **paid tier**, prebuilt `vi-VN-NamMinhNeural`; xem [hồ sơ media](./MEDIA-REVIEW-MT68.md). Không dùng Edge Read Aloud/`edge-tts`. Chưa có evidence subscription paid tier hoặc file audio thật, nên không được tạo/export cho đến khi Trúc lưu evidence quyền áp dụng cho tài khoản/gói.
 - Nhạc/SFX: không dùng trong bản này; không phát sinh dependency giấy phép nhạc.
 - Timing cue là lịch dự kiến, chưa phải đo âm thanh. Trúc đọc thử từng cue, nếu vượt thì sửa câu/thời gian và tạo lại VTT, không ép tốc độ để đạt 110s.
 - VTT bản nháp có câu đầy đủ; ở khâu dựng cần wrap theo font/viewport và đo tốc độ đọc, không suy ra accessibility đạt chỉ từ timestamp.
@@ -41,7 +41,7 @@ Fact candidate là ghi chú authoring đang chờ review, không phải giá tr�
 - [x] Đủ năm scene, cue cuối 110s, lời đọc và VTT đồng nhất.
 - [x] Loại khỏi bản nháp các claim về hiệu lệnh thơ, nguyên nhân lịch pháp, giờ Đại sứ quán chính xác chưa đối chiếu và vật liệu nắp hầm.
 - [x] Có source cho lời dẫn fact và phương án visual/fallback.
-- [ ] Trúc xác nhận historical/learning review bản v2.
+- [x] Trúc sign-off historical/learning có giới hạn cho bản v2 ngày 2026-09-28.
 - [ ] Có audio hợp lệ và đo timing, poster/MP4 cuối, manifest/hash, phụ đề đồng bộ bản xuất.
 - [ ] Media/mobile/accessibility QA đạt trước khi mở sản xuất/tích hợp chính thức.
 
