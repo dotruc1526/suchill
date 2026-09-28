@@ -1,9 +1,9 @@
 # CONTENT-003 — Historical source and media review pilot
 
 > Status: REVIEW\
-> Review Verdict: **NEEDS_SIGNOFF_AND_MEDIA_EVIDENCE** (nguồn năm mục tiêu đã có thay thế đọc được; còn cần reviewer sign-off, audio/media evidence và QA trước khi sản xuất video)\
+> Review Verdict: **HISTORICAL_LEARNING_SIGNED_OFF__MEDIA_AUDIO_QA_PENDING** (Trúc đã sign-off phần historical/learning của gói authoring v2; audio/media evidence, QA kỹ thuật và quyết định gate của Product owner vẫn còn trước khi sản xuất video)\
 > Date: 2026-09-26\
-> Reviewer: Trúc theo quyền Thọ giao; chưa có sign-off bản mới\
+> Reviewer: Trúc theo quyền Thọ giao; historical/learning sign-off ngày 2026-09-28, trong phạm vi ghi bên dưới\
 > Reference Report: đường dẫn báo cáo cũ nằm ngoài repo, không truy cập được; phần ghi nhận cũ được giữ bên dưới để truy vết.
 
 ## Assignment hiện hành — 2026-09-27
@@ -15,9 +15,19 @@
 - Status: REVIEW; Started: 2026-09-28; Branch: `codex/content-status-sync`.
 - Files claimed: `docs/content/HISTORICAL-SOURCES.md`, `PILOT-SCREENPLAY.md`, `CURRICULUM-MAP.md`; card CONTENT-003/004, task board và `CONTENT-003-004-REVIEW.md` cùng thư mục.
 - Scope: review bản authoring, sửa regression của ba tài liệu về bản có source/claim và narration v2; không claim sản xuất CONTENT-007.
-- Next action: Trúc ghi sign-off historical/learning trên bản review, chọn nguồn audio có quyền; Vinh review kỹ thuật. Xem [báo cáo](./CONTENT-003-004-REVIEW.md).
-- Checkpoint: đã sửa regression ba tài liệu, validator PASS; CLM-MT68-01 có nguồn thay thế đọc được từ TTDN/TTXVN và Nhân Dân. Verdict vẫn chưa APPROVED vì thiếu chữ ký reviewer, audio/media evidence và QA.
-- Blocker: CONTENT-002 còn ô reviewer chưa xác nhận; historical/media sign-off, audio và QA kỹ thuật còn thiếu. Chỉ review/sửa bản nháp hiện hữu.
+- Next action: Trúc chọn nguồn audio có quyền và ghi evidence; Vinh review kỹ thuật; Product owner quyết định gate sau các evidence đó. Xem [báo cáo](./CONTENT-003-004-REVIEW.md).
+- Checkpoint: đã sửa regression ba tài liệu, validator PASS; CLM-MT68-01 có nguồn thay thế đọc được từ TTDN/TTXVN và Nhân Dân. Trúc sign-off historical/learning cho gói authoring v2; không phải phê duyệt media hay phát hành.
+- Blocker: audio/media evidence, QA kỹ thuật của Vinh và quyết định gate của Product owner còn thiếu. `CONTENT-007` không được mở chỉ từ sign-off này.
+
+### Historical/learning sign-off — Trúc, 2026-09-28
+
+Trúc xác nhận phần historical/learning của gói authoring v2 sau đây **đủ để tiếp tục lập kế hoạch sản xuất**, với giới hạn bắt buộc:
+
+- [Registry nguồn/claim](../../content/HISTORICAL-SOURCES.md), [screenplay](../../content/PILOT-SCREENPLAY.md), `PILOT-NARRATION.json`, `PILOT-CAPTIONS.vtt`, `MAP-MT68.json` và `LESSON-02-STORY.json` ở bản được đối chiếu trong [báo cáo review](./CONTENT-003-004-REVIEW.md).
+- CLM-MT68-01 dùng `SRC-MT68-02` (TTDN/TTXVN) và `SRC-MT68-07` (Nhân Dân); chỉ xác nhận danh sách năm mục tiêu, không suy ra mọi mục tiêu bị chiếm hay diễn biến chi tiết từng mũi.
+- Mục tiêu CLO-1/CLO-3, narration ngoài bối cảnh và phần giải thích cách đọc nguồn phù hợp với gói hiện hành; không trình bày diễn giải giáo dục như lời nhân chứng hoặc kết quả lịch sử có thể thay đổi.
+
+Sign-off này không xác nhận quyền sử dụng audio/từng asset, không xác nhận timing audio hoặc caption trên bản xuất, không duyệt MP4/poster phát hành và không thay QA kỹ thuật của Vinh hay quyết định gate của Product owner. Vì vậy `CONTENT-003` giữ `REVIEW` và `CONTENT-007` giữ `BLOCKED`.
 
 ### Assignment trước lượt review
 

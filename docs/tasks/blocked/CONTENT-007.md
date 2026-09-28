@@ -40,7 +40,8 @@
 
 | Date/time | Executor | Completed | Evidence | Next action | Blocker |
 |---|---|---|---|---|---|
-| 2026-09-28 | Trúc (Codex hỗ trợ) | Đồng bộ dependency với CONTENT-003/004 sau khi gỡ card CONTENT-004 trùng | Task board và card `CONTENT-004` hiện `REVIEW` | Chờ Trúc historical/media review, Vinh technical QA và quyết định Product owner; sau đó mới claim output media | CONTENT-003/004 chưa có sign-off; quyền audio/từng asset và MP4 cuối chưa đạt |
+| 2026-09-28 | Trúc (Codex hỗ trợ) | Đồng bộ dependency với CONTENT-003/004 sau khi gỡ card CONTENT-004 trùng | Task board và card `CONTENT-004` hiện `REVIEW` | Checkpoint này được thay bởi sign-off historical/learning cùng ngày; chờ evidence media, Vinh technical QA và quyết định Product owner trước khi claim output media | Audio/media evidence, QA kỹ thuật và Product owner gate chưa đạt |
+| 2026-09-28 | Trúc (historical/learning reviewer) | Ghi sign-off historical/learning có giới hạn cho gói authoring v2 | `CONTENT-003` và `CONTENT-003-004-REVIEW.md`; không là media/release approval | Chọn nguồn audio có quyền, thu evidence media; Vinh QA kỹ thuật, sau đó Product owner quyết định gate | Audio/media evidence, QA kỹ thuật và Product owner gate chưa đạt; task giữ `BLOCKED` |
 | 2026-09-23 | Product owner + Codex | Chốt Member 2 là người biên tập video cho bài học MVP; tạo task riêng với FE-006 player | Quyết định trong task hiện tại; task board/Phase 9 | Member 1 chọn pilot và bàn giao script/source; gán tên Member 2 rồi claim media files | CONTENT-003/004 chưa xong, chưa có tên thật Member 2 |
 | 2026-09-23 | Codex | Product owner gán Trúc là Member 2 | TEAM-OWNERSHIP / DOC-015 | Chờ Thọ bàn giao script/source và historical review | CONTENT-003/004 chưa xong |
 
@@ -49,5 +50,5 @@
 - Changed files: chưa có media asset.
 - Test/build result: chưa sản xuất/tích hợp video.
 - Environment/migration impact: chưa xác định; Member 5 review storage/metadata trước tích hợp.
-- Known issues/risks: pilot authoring đang REVIEW; historical/media sign-off, quyền audio/từng asset và MP4 cuối chưa có. Không dùng CONTENT-006 làm bản mặc định.
-- Next owner/action: Trúc hoàn tất review CONTENT-003; Vinh QA; Product owner quyết định. Trúc chỉ nhận CONTENT-007 sau khi dependency đạt; Dương tích hợp bằng FE-006 sau media review.
+- Known issues/risks: pilot authoring đang REVIEW; historical/learning đã sign-off có giới hạn, nhưng quyền audio/từng asset, evidence media, QA kỹ thuật và MP4 cuối chưa có. Không dùng CONTENT-006 làm bản mặc định.
+- Next owner/action: Trúc chọn audio/media có quyền và ghi evidence; Vinh QA; Product owner quyết định. Trúc chỉ nhận CONTENT-007 sau khi dependency đạt; Dương tích hợp bằng FE-006 sau media review.

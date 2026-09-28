@@ -1,6 +1,6 @@
 # CONTENT-003/004 — Review và bàn giao 2026-09-28
 
-Owner/executor: Trúc (Member 2); Codex thực hiện review hỗ trợ theo yêu cầu. Reviewer: Trúc historical/learning/media, Vinh technical QA. Branch: `codex/content-status-sync`. Status: REVIEW, verdict NEEDS_SIGNOFF_AND_MEDIA_EVIDENCE; không phải chữ ký duyệt của Trúc/Vinh.
+Owner/executor: Trúc (Member 2); Codex thực hiện review hỗ trợ theo yêu cầu. Reviewer: Trúc historical/learning/media, Vinh technical QA. Branch: `codex/content-status-sync`. Status: REVIEW, verdict HISTORICAL_LEARNING_SIGNED_OFF__MEDIA_AUDIO_QA_PENDING. Trúc sign-off historical/learning ngày 2026-09-28 trong phạm vi bên dưới; đây không phải sign-off media/release hoặc QA của Vinh.
 
 ## Bản được kiểm tra và regression đã sửa
 
@@ -39,13 +39,19 @@ Tra cứu ngày 2026-09-28. SUPPORTED chỉ nghĩa nguồn đọc được hỗ 
 
 Phương án hiện hành: chữ/sơ đồ nguyên bản, narration mới có quyền; không nhạc/SFX, không bản ghi thơ, không clip CBS, không audio Edge TTS từ CONTENT-006. Chưa có audio, font/source thiết kế hoặc file xuất thật để duyệt. Quyền thực hiện review không thay evidence quyền sử dụng.
 
-Phân biệt gate: trước sản xuất cần script/claim được duyệt và phương án quyền media rõ; MP4/poster/hash/playback là đầu ra phải nghiệm thu trong CONTENT-007, không phải điều kiện phải có MP4 trước khi bắt đầu tạo MP4. CONTENT-007 vẫn BLOCKED vì source/sign-off còn thiếu.
+Phân biệt gate: trước sản xuất cần script/claim được duyệt và phương án quyền media rõ; MP4/poster/hash/playback là đầu ra phải nghiệm thu trong CONTENT-007, không phải điều kiện phải có MP4 trước khi bắt đầu tạo MP4. Historical/learning sign-off đã được Trúc ghi ngày 2026-09-28; CONTENT-007 vẫn BLOCKED vì evidence audio/media, QA kỹ thuật và Product owner gate còn thiếu.
+
+## Historical/learning sign-off — Trúc, 2026-09-28
+
+Trúc chấp nhận phần historical/learning của đúng gói authoring v2 được liệt kê ở phần “Bản được kiểm tra”, để tiếp tục **lập kế hoạch sản xuất**. Kết luận dựa trên đối chiếu cue ở trên, trong đó CLM-MT68-01 có hai locator thay thế đọc được (TTDN/TTXVN và Nhân Dân), vẫn giữ wording giới hạn: danh sách năm mục tiêu không chứng minh mọi mục tiêu bị chiếm. CLO-1/CLO-3, narration ngoài bối cảnh và nhãn diễn giải giáo dục được chấp nhận cho mục tiêu học hiện hành.
+
+Kết luận này không là sign-off audio/media, không duyệt MP4/poster/release, không xác nhận playback/timing caption và không thay QA độc lập của Vinh hoặc quyết định gate của Product owner. `CONTENT-003`/`CONTENT-004` giữ `REVIEW`; `CONTENT-007` giữ `BLOCKED`.
 
 ## Công việc còn lại — mỗi dòng một người thực hiện
 
 | Việc | Executor | Đầu ra cần có |
 |---|---|---|
-| Ghi quyết định historical/learning trên bản review này | Trúc | Verdict có ngày và bản tài liệu cụ thể; CLM-MT68-01 đã có nguồn thay thế đọc được, còn cần Trúc ký kết luận reviewer |
+| Ghi quyết định historical/learning trên bản review này | Trúc | Hoàn thành 2026-09-28; sign-off bị giới hạn cho gói authoring v2, không phải duyệt media/release |
 | Chọn nguồn giọng đọc có quyền | Trúc | Người đọc/dịch vụ, phạm vi cho phép, evidence; chưa cần MP4 cuối |
 | Kiểm tra độc lập kỹ thuật revision | Vinh | Validator, diff và đồng nhất các file; không suy ra approval từ review PR #23 cũ |
 | Xác nhận ô reviewer CONTENT-002 và quyết định gate production | Thọ | Quyết định ghi vào card/board sau review, không tự mở M1 |
@@ -56,5 +62,5 @@ Phân biệt gate: trước sản xuất cần script/claim được duyệt và
 - `git diff --check` và local Markdown links của file thay đổi được kiểm tra trước bàn giao.
 - Không chạy app build/typecheck: revision chỉ tài liệu authoring và hồ sơ review, không thay runtime/dependency/migration. Validator nội dung là kiểm tra liên quan; không chứng minh media playback, quyền sử dụng hay lịch sử tự động.
 - Không environment/migration impact. CONTENT-003/004 giữ REVIEW, CONTENT-007 BLOCKED; CONTENT-006 giữ IN PROGRESS/REFERENCE_ONLY, M0 OPEN.
-- Update 2026-09-28: CLM-MT68-01 đã có locator thay thế đọc được từ TTDN/TTXVN và Nhân Dân. Việc còn lại không phải tìm nguồn năm mục tiêu nữa mà là Trúc ghi sign-off reviewer, chọn nguồn audio có quyền và Vinh QA kỹ thuật.
+- Update 2026-09-28: CLM-MT68-01 đã có locator thay thế đọc được từ TTDN/TTXVN và Nhân Dân; Trúc đã ghi sign-off historical/learning có giới hạn cho gói authoring v2. Việc còn lại là chọn nguồn audio có quyền, evidence media, Vinh QA kỹ thuật và Product owner gate.
 - GitHub API đọc PR #29 gặp rate limit; không dùng lỗi API để kết luận PR đã merge. Nhánh được cập nhật dựa trên remote main đã fetch; không merge vào main trong lượt này.

@@ -26,9 +26,10 @@
 ## Acceptance criteria
 
 - [x] Mỗi scene/lesson có mục tiêu học, bối cảnh, vai trò và lựa chọn phù hợp Phase 2/5; evidence ở `CONTENT-014` validator.
-- [x] Claim/source, narration và VTT đã được sửa trong gói authoring; historical reviewer còn phải xác nhận.
+- [x] Claim/source, narration và VTT đã được sửa trong gói authoring; historical/learning reviewer đã sign-off có giới hạn ngày 2026-09-28.
 - [x] Kịch bản/storyboard có 5 scene, bản 9:16 và timing authoring 110 giây; chưa phải MP4 đã duyệt.
-- [ ] Trúc historical/media, Vinh technical QA và Product owner xác nhận trước khi chuyển cho Member 2 sản xuất.
+- [x] Trúc sign-off historical/learning cho gói authoring v2 ngày 2026-09-28; không phải sign-off media/release.
+- [ ] Audio/media evidence, Vinh technical QA và Product owner gate xác nhận trước khi chuyển cho Member 2 sản xuất.
 
 ## Verification
 
@@ -46,8 +47,8 @@
 
 - Card `DONE` và card `BLOCKED` trước đây cùng tồn tại cho `CONTENT-004`; board còn liên kết nhầm sang card blocked. Theo `AGENTS.md` và `docs/tasks/README.md`, acceptance cuối cần reviewer xác nhận, nên task được hợp nhất thành một card `REVIEW`, không phải `DONE` hay `BLOCKED`.
 - Bản sửa authoring do Trúc thực hiện theo quyền Thọ giao đã có evidence ở `CONTENT-014`: 5 scene, narration/VTT khớp 110 giây, claim/source và media catalog được validator kiểm tra. Đây là deliverable để review, không phải sign-off phát hành.
-- Next action: Trúc review lịch sử/media của pilot; Vinh chạy technical QA. Chỉ khi hai review và Product owner ghi quyết định rõ thì mới xem dependency của `CONTENT-007` đạt.
-- Blocker: chưa có historical/media sign-off, quyền audio/từng asset và bản MP4 cuối; `CONTENT-007` giữ `BLOCKED`.
+- Next action: Trúc chọn nguồn audio có quyền và ghi evidence; Vinh chạy technical QA. Chỉ khi evidence media, QA và Product owner ghi quyết định rõ thì mới xem dependency của `CONTENT-007` đạt.
+- Blocker: quyền audio/từng asset, QA kỹ thuật và Product owner gate chưa có; `CONTENT-007` giữ `BLOCKED`.
 
 ## Checkpoint 2026-09-27 — thay thế kết luận DONE trước đây
 
@@ -63,12 +64,12 @@
 ### Review 2026-09-28 — bản hiện hành
 
 - Trúc yêu cầu thực hiện review; Codex khôi phục screenplay/curriculum/registry authoring v2 bị regression. [Báo cáo và handoff](./CONTENT-003-004-REVIEW.md) là checkpoint mới nhất, thay các kết luận kiểm tra cũ.
-- Validator PASS sau sửa; nguồn danh sách năm mục tiêu chưa đọc lại được. Chưa có human sign-off hay evidence audio hợp lệ; status giữ REVIEW.
+- Validator PASS sau sửa; nguồn danh sách năm mục tiêu đã có locator thay thế đọc được và Trúc sign-off historical/learning cho gói authoring v2. Chưa có evidence audio/media hợp lệ hoặc QA kỹ thuật; status giữ REVIEW.
 - MP4/poster cuối là đầu ra CONTENT-007 cần nghiệm thu sau sản xuất; blocker trước sản xuất là nguồn/script/sign-off và phương án quyền media.
 - Build/typecheck không chạy vì thay đổi chỉ tài liệu authoring; không runtime/env/migration impact.
 
 - Changed files: authoring evidence trong `CONTENT-014`; hồ sơ hiện hành: card này và task board.
 - Test/build result: `node docs/content/validate-mt68-authoring.mjs` PASS theo `CONTENT-014`; docs-only, không có runtime change từ lượt đồng bộ trạng thái.
 - Environment/migration impact: không có.
-- Known issues: reviewer chưa sign-off; quyền audio/từng asset và MP4 cuối chưa có evidence. Không coi AI review là approval.
-- Next owner/action: Trúc review historical/media, Vinh technical QA; Product owner quyết định sau evidence. `CONTENT-007` vẫn BLOCKED.
+- Known issues: quyền audio/từng asset, QA kỹ thuật và MP4 cuối chưa có evidence. Không coi AI review là approval.
+- Next owner/action: Trúc chọn audio/media evidence, Vinh technical QA; Product owner quyết định sau evidence. `CONTENT-007` vẫn BLOCKED.
