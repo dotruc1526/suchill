@@ -8,6 +8,19 @@
 
 ## Assignment hiện hành — 2026-09-27
 
+## Lượt review và sửa regression — 2026-09-28
+
+- Owner / Executor: Trúc; Codex thực hiện đối chiếu và sửa tài liệu theo yêu cầu.
+- Reviewer: Trúc historical/learning/media; Vinh technical QA.
+- Status: REVIEW; Started: 2026-09-28; Branch: `codex/content-status-sync`.
+- Files claimed: `docs/content/HISTORICAL-SOURCES.md`, `PILOT-SCREENPLAY.md`, `CURRICULUM-MAP.md`; card CONTENT-003/004, task board và `CONTENT-003-004-REVIEW.md` cùng thư mục.
+- Scope: review bản authoring, sửa regression của ba tài liệu về bản có source/claim và narration v2; không claim sản xuất CONTENT-007.
+- Next action: Trúc bổ sung nguồn đọc được cho CLM-MT68-01, xác nhận historical/learning và nguồn audio; Vinh review kỹ thuật. Xem [báo cáo](./CONTENT-003-004-REVIEW.md).
+- Checkpoint: đã sửa regression ba tài liệu, validator PASS; bốn nhóm fact pilot có nguồn hỗ trợ, nhóm năm mục tiêu chưa đọc lại được URL. Verdict vẫn NEEDS_REVISION.
+- Blocker: CONTENT-002 còn ô reviewer chưa xác nhận; historical/media sign-off và audio chưa có evidence. Chỉ review/sửa bản nháp hiện hữu.
+
+### Assignment trước lượt review
+
 - Owner: Trúc (historical/media review theo quyền Thọ giao ngày 2026-09-27).
 - Executor: Trúc (sửa hồ sơ PR #21 theo quyền Thọ cấp), Codex hỗ trợ.
 - Reviewer: Trúc phụ trách historical/learning/media; Vinh technical QA. Codex không thay sign-off.
