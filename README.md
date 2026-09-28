@@ -25,6 +25,8 @@ npm ci
 npm run dev
 ```
 
+Local development supports Node 24 or 26 with npm 10+. CI currently pins Node 26. The test scripts avoid Node-version-specific directory discovery so `npm run quality` can be reproduced on local Node 24+ and CI.
+
 Vite dev server có thể đã được môi trường Figma Make/Codex khởi động. Không đưa secret đặc quyền vào source hoặc biến môi trường client.
 
 ## Kiểm tra chất lượng (local/CI)

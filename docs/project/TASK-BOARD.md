@@ -199,6 +199,7 @@ Mỗi lần handoff quan trọng thêm một dòng mới nhất ở đầu bản
 
 | Date | Task | Author | Update | Evidence / next owner |
 |---|---|---|---|---|
+| 2026-09-28 | M0-05/M0-06/M0-07 | Vinh (Member 5) / Codex hỗ trợ | Hoàn thiện hai thiếu sót gate M0: sửa `test:unit` để local Node 24+ không gọi thư mục bằng `node --test`, ghi Node supported range và đồng bộ handoff sau khi PR #24 đã merge/CI xanh | `npm run quality` exit 0: typecheck/build, scan 203 file/0 unsafe, unit 16/16, component 1/1, E2E 1/1; PR #24 `MERGED` commit `eedff39`, Quality checks `SUCCESS`; PO quyết định đóng M0/mở M1 |
 | 2026-09-28 | CONTENT-003/004 | Trúc (Codex hỗ trợ) | Sửa regression ba tài liệu từ 50bcd1f về authoring v2; review từng cue và media plan; validator PASS | [Review/handoff](../tasks/active/CONTENT-003-004-REVIEW.md); nguồn CLM-MT68-01 chưa đọc lại được, chờ sign-off/audio và Vinh QA |
 | 2026-09-28 | CONTENT-003/004/007 | Trúc (Codex hỗ trợ) | Đồng bộ board/card: gỡ hai card mâu thuẫn của CONTENT-004, chuyển thành một card `REVIEW`; sửa link/status board và làm rõ CONTENT-007 vẫn `BLOCKED` | Trúc review historical/media, Vinh technical QA; Product owner mới quyết định mở production sau sign-off |
 | 2026-09-28 | FE-004 | Vinh (reviewer) / Codex ghi nhận | Vinh xác nhận bản bổ sung đạt yêu cầu; FE-004 `DONE` trên card và board, không tự đóng M0 | App 87 dòng; `npm run quality` exit 0; browser smoke pass; lời xác nhận trực tiếp “a thấy ok rồi” |
