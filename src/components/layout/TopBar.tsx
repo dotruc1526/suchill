@@ -1,46 +1,33 @@
+import { Flame, Star, Trophy } from 'lucide-react'
 import brandLogo from '../../imports/su-chill-logo-transparent.png'
+import { theme } from '../../theme/tokens'
 
 export function TopBar({ xp, streak, achievements }: { xp: number; streak: number; achievements: number }) {
   return (
     <header
       role="banner"
-      className="relative flex items-center justify-between px-4 py-2 shrink-0"
+      className="ui-wrap shrink-0"
       style={{
-        borderBottom: '1.5px solid rgba(61,26,0,0.12)',
-        paddingTop: 'max(8px, env(safe-area-inset-top))',
+        borderBottom: `1px solid ${theme.colors.borderLight}`,
+        padding: theme.spacing.base,
+        paddingTop: `max(${theme.spacing.base}, env(safe-area-inset-top))`,
+        paddingLeft: `max(${theme.spacing.base}, env(safe-area-inset-left))`,
+        paddingRight: `max(${theme.spacing.base}, env(safe-area-inset-right))`,
       }}
     >
-      <div className="flex items-center gap-1.5">
-        <span className="text-base">🔥</span>
-        <div>
-          <div className="font-serif font-bold text-sm leading-none" style={{ color: '#C4341A' }}>{streak}</div>
-          <div className="font-hand text-[10px] leading-none" style={{ color: '#7A4020' }}>NGÀY</div>
+      <div className="flex items-center justify-between" style={{ gap: theme.spacing.sm }}>
+        <div className="flex items-center min-w-0" style={{ gap: theme.spacing.sm }}>
+          <img src={brandLogo} alt="Logo Sử Chill" className="w-10 h-10 object-contain shrink-0" />
+          <span className="font-serif font-bold" style={{ color: theme.colors.textPrimary, fontSize: '1.125rem' }}>
+            Sử Chill
+          </span>
         </div>
+        <span className="sr-only">Thanh trạng thái học tập</span>
       </div>
-
-      <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-1.5" aria-label="Sử Chill">
-        <img
-          src={brandLogo}
-          alt="Logo Sử Chill"
-          className="w-10 h-9 object-contain shrink-0"
-        />
-        <span
-          className="font-serif font-bold text-base whitespace-nowrap"
-          style={{ color: '#3D1A00' }}
-        >
-          Sử chill
-        </span>
-      </div>
-
-      <div className="flex items-center gap-3">
-        <div className="flex items-center gap-1">
-          <span className="text-sm">⭐</span>
-          <span className="font-sans font-bold text-xs" style={{ color: '#7A4020' }}>{xp}</span>
-        </div>
-        <div className="flex items-center gap-1">
-          <span className="text-sm">🏆</span>
-          <span className="font-sans font-bold text-xs" style={{ color: '#7A4020' }}>{achievements}</span>
-        </div>
+      <div className="grid grid-cols-3" style={{ gap: theme.spacing.sm, marginTop: theme.spacing.sm, color: theme.colors.textSecondary }}>
+        <span aria-label={`${streak} ngày liên tiếp`}><Flame size={16} aria-hidden="true" className="inline" /> {streak} ngày</span>
+        <span aria-label={`${xp} XP`}><Star size={16} aria-hidden="true" className="inline" /> {xp} XP</span>
+        <span aria-label={`${achievements} huy hiệu`}><Trophy size={16} aria-hidden="true" className="inline" /> {achievements} huy hiệu</span>
       </div>
     </header>
   )

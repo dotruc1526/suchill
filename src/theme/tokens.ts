@@ -80,6 +80,10 @@ export const theme = {
     durationSlow: '400ms',
     easeDefault: 'cubic-bezier(0.4, 0, 0.2, 1)',
   },
+
+  layout: {
+    touchTarget: 44,
+  },
 } as const
 
 export type Theme = typeof theme
