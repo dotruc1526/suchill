@@ -149,6 +149,7 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 | CONTENT-010 | MVP curriculum | Nội dung Bài 2 (Interactive Map - Sấm sét nội đô) | Thọ (Member 1) | REVIEW | CONTENT-008 | [docs/tasks/active/CONTENT-010.md](../tasks/active/CONTENT-010.md) | Trúc sửa theo quyền Thọ cấp; Thọ/Vinh review; nguồn và media còn chờ sign-off; xem handoff PR21 |
 | CONTENT-011 | MVP curriculum | Nội dung Bài 3 (Standard) & Bài 4 (Synthesis) | Thọ (Member 1) | REVIEW | CONTENT-008 | [docs/tasks/active/CONTENT-011.md](../tasks/active/CONTENT-011.md) | Trúc sửa theo quyền Thọ cấp; Thọ/Vinh review; nguồn và media còn chờ sign-off; xem handoff PR21 |
 | CONTENT-012 | MVP curriculum | Đóng gói Ngân hàng câu hỏi (Quiz Schema) | Thọ (Member 1) | REVIEW | CONTENT-008 | [docs/tasks/active/CONTENT-012.md](../tasks/active/CONTENT-012.md) | Trúc sửa theo quyền Thọ cấp; Thọ/Vinh review; nguồn và media còn chờ sign-off; xem handoff PR21 |
+| CONTENT-013 | Lập khung giáo trình Chapter Điện Biên Phủ trên không 1972 | Thọ (Member 1) | REVIEW | CONTENT-009 | [docs/tasks/active/CONTENT-013.md](../tasks/active/CONTENT-013.md) | Thọ đã hoàn thành draft, chờ PO duyệt |
 
 ### E. QA and release
 
@@ -182,6 +183,7 @@ Chỉ các task có status `IN PROGRESS` được coi là đang có người là
 | CONTENT-010 | Thọ / Trúc | Thọ; historical/media reviewer | 2026-09-27 | REVIEW Bài 2 và nguồn năm node | Thiếu scene graph VN và media được duyệt | Branch `feature/content-expansion-mt68`; claim Bài 2/card; [handoff](../tasks/active/PR21-HANDOFF.md) |
 | CONTENT-011 | Thọ / Trúc | Thọ; historical/media reviewer | 2026-09-27 | REVIEW Bài 3–4 sau sửa fact/wording | Historical/media sign-off | Branch `feature/content-expansion-mt68`; claim Bài 3–4/card; [handoff](../tasks/active/PR21-HANDOFF.md) |
 | CONTENT-012 | Thọ / Trúc | Vinh (QA); Thọ (objective) | 2026-09-27 | REVIEW năm câu hỏi và source ID | Chưa xác nhận mapper/seed contract; authoring-only | Branch `feature/content-expansion-mt68`; claim quiz/card; [handoff](../tasks/active/PR21-HANDOFF.md) |
+| CONTENT-013 | Lập khung giáo trình Chapter Điện Biên Phủ trên không 1972 | Thọ (Member 1) | REVIEW | CONTENT-009 | [docs/tasks/active/CONTENT-013.md](../tasks/active/CONTENT-013.md) | Thọ đã hoàn thành draft, chờ PO duyệt |
 | CONTENT-009 | Thọ (Member 1) / Teamwork Reviewer | Historical reviewer + Product owner | 2026-09-26 | Bàn giao hồ sơ nghiên cứu 4 chủ đề và 8 Claim metadata cho CONTENT-002 / CONTENT-003 | Chờ Product Owner họp chọn Chapter mẫu tại CONTENT-002 | Hoàn tất Review Round 3 (Final Adversarial Review): Đính chính ngày truyền thống không quân, nhân sự Pa Thí/Truông Bồn, bổ sung toàn diện verified facts cho 100% lessons, chuẩn hóa bidirectional supports_claims và Phase 3 schema |
 | DOC-011 | Codex / Codex | Product owner | 2026-09-23 | Review quyết định video MVP và task CONTENT-007 | Chờ review tài liệu | Member 2 sản xuất; Member 1 script/source; Member 4 tích hợp player |
 | DOC-012 | Codex / Codex | Product owner | 2026-09-23 | Review scope kháng chiến chống Mỹ và MVP chapter mẫu | Chờ review tài liệu | Product owner chốt một chapter mẫu nhiều lesson; CONTENT-008 đã tạo |
