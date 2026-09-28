@@ -31,4 +31,4 @@ Các file thay đổi nằm trong claim CONTENT-014. Không đổi runtime/DB, k
 4. Nếu chọn ảnh optional, xác nhận caption/alt/crop/attribution và phạm vi license. Không cần ảnh này cho phương án chữ.
 5. Trạng thái cũ CONTENT-002/008 và DOC-012 còn ghi nhận chưa nhất quán về acceptance; quyền sửa lần này không tự xác nhận các approval quá khứ.
 
-CONTENT-004 đang REVIEW, còn CONTENT-007 vẫn BLOCKED cho sản xuất; CONTENT-014 chỉ hoàn tất phần authoring để review. CONTENT-006 vẫn IN PROGRESS/REFERENCE_ONLY; M1–M7 LOCKED. Không merge thay người dùng.
+CONTENT-004 đang REVIEW, còn CONTENT-007 vẫn BLOCKED cho sản xuất; CONTENT-014 chỉ hoàn tất phần authoring để review. CONTENT-006 vẫn IN PROGRESS/REFERENCE_ONLY; M1 OPEN, M2–M7 LOCKED. Không merge thay người dùng.

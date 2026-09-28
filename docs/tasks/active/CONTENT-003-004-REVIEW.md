@@ -56,5 +56,5 @@ Phân biệt gate: trước sản xuất cần script/claim được duyệt và
 - PASS sau sửa: `node docs/content/validate-mt68-authoring.mjs`: 5 node, 7 scene, 6 đường đi kết thúc, 5 quiz, 9 cue 110s; ID nguồn/claim và local link trong tập validator hợp lệ.
 - `git diff --check` và local Markdown links của file thay đổi được kiểm tra trước bàn giao.
 - Không chạy app build/typecheck: revision chỉ tài liệu authoring và hồ sơ review, không thay runtime/dependency/migration. Validator nội dung là kiểm tra liên quan; không chứng minh media playback, quyền sử dụng hay lịch sử tự động.
-- Không environment/migration impact. CONTENT-003/004 giữ REVIEW, CONTENT-007 BLOCKED; CONTENT-006 giữ IN PROGRESS/REFERENCE_ONLY, M0 OPEN.
+- Không environment/migration impact. CONTENT-003/004 giữ REVIEW, CONTENT-007 BLOCKED; CONTENT-006 giữ IN PROGRESS/REFERENCE_ONLY, M1 OPEN.
 - GitHub API đọc PR #29 gặp rate limit; không dùng lỗi API để kết luận PR đã merge. Nhánh được cập nhật dựa trên remote main đã fetch; không merge vào main trong lượt này.

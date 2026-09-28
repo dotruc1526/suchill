@@ -39,7 +39,7 @@ Không ghi tiến độ bằng phần trăm cảm tính. Dùng acceptance checkl
 
 ## Delivery rule hiện tại
 
-Phase 9 đã được product owner duyệt ngày 2026-09-23; `SPEC-FIRST FREEZE` kết thúc và Milestone 0 được mở:
+Phase 9 đã được product owner duyệt ngày 2026-09-23; `SPEC-FIRST FREEZE` kết thúc. Product owner đã duyệt đóng M0 và mở Milestone 1 ngày 2026-09-28:
 
 - Phase 0 và Phase 1: `APPROVED`.
 - Phase 2: `APPROVED`.
@@ -50,15 +50,16 @@ Phase 9 đã được product owner duyệt ngày 2026-09-23; `SPEC-FIRST FREEZE
 - Phase 7: `APPROVED`.
 - Phase 8: `APPROVED`.
 - Phase 9: `APPROVED`.
-- Task implementation chỉ bắt đầu khi dependency đạt, có task card, owner/reviewer và file claim. M1–M7 chỉ mở sau khi Product owner duyệt gate milestone trước trên board này.
+- Task implementation chỉ bắt đầu khi dependency đạt, có task card, owner/reviewer và file claim. M2–M7 chỉ mở sau khi Product owner duyệt gate milestone trước trên board này.
 - Demo Genève vẫn là fixture kỹ thuật; pilot canonical cần content/historical review riêng.
 
 ### Milestone gate
 
 | Milestone | Trạng thái | Điều kiện để mở milestone kế tiếp | Product owner approval |
 |---|---|---|---|
-| M0 | OPEN | Gate M0 trong Phase 9 có evidence và reviewer kiểm tra | Chưa duyệt đóng M0 |
-| M1–M7 | LOCKED | Mở từng milestone sau khi milestone trước được duyệt | Chưa có |
+| M0 | DONE | Typecheck/build/test, canonical/legacy boundary và client-secret scan đã đạt | Product owner approved close, 2026-09-28; evidence: `fe4072b`, GitHub Quality run #31 success, local `npm run quality` pass with Chrome |
+| M1 | OPEN | Gate M1 trong Phase 9 có evidence và reviewer kiểm tra | Product owner approved open, 2026-09-28 |
+| M2–M7 | LOCKED | Mở từng milestone sau khi milestone trước được duyệt | Chưa có |
 
 `DONE` của từng task không tự mở milestone tiếp theo. Executor ghi evidence theo gate Phase 9; reviewer/QA kiểm tra; Product owner duyệt rõ ràng và ghi ngày, evidence, milestone được mở vào bảng này trước khi nhóm bắt đầu implementation milestone kế tiếp. Content track có task/dependency riêng: Member 1 có thể nhận `CONTENT-009` nghiên cứu nguồn sơ bộ trong khi M0 đang mở; việc đó không mở milestone implementation hoặc chốt nội dung canonical.
 
@@ -106,6 +107,8 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 | DOC-013 | Documentation | Rà soát quy tắc milestone và cách AI tự tìm task theo vai trò | Codex | DONE | DOC-010 | [`docs/tasks/done/DOC-013.md`](../tasks/done/DOC-013.md) | Product owner review; 57 Markdown files có 0 link lỗi, 0 card active/blocked/review lệch |
 | DOC-014 | GitHub readiness | Kiểm tra file chuẩn bị đưa lên GitHub và làm rõ content track Member 1 | Codex | DONE | DOC-010 | [`docs/tasks/done/DOC-014.md`](../tasks/done/DOC-014.md) | Product owner review; build pass, typecheck baseline còn lỗi, CONTENT-009 READY |
 | DOC-015 | Team handoff | Gán tên 5 thành viên và tạo PR tài liệu trên nhánh riêng | Codex | DONE | DOC-010 | [`docs/tasks/done/DOC-015.md`](../tasks/done/DOC-015.md) | [PR #7](https://github.com/dotruc1526/suchill/pull/7) đã mở vào `main`; Product owner review |
+| DOC-016 | Milestone gate | Ghi quyết định Product owner đóng M0 và mở M1 | Product owner | DONE | M0-00..07 | [`docs/tasks/done/DOC-016.md`](../tasks/done/DOC-016.md) | M0 đóng/M1 mở ngày 2026-09-28; source-of-truth và handoff đã đồng bộ |
+| M1-01 | Design system | Figma handoff và token contract | Trúc (Member 2) | REVIEW | Gate M0 | [`docs/tasks/active/M1-01.md`](../tasks/active/M1-01.md) | Trúc bàn giao [`TOKEN-HANDOFF.md`](../engineering/TOKEN-HANDOFF.md); Hưng review để mở FE-003/M1-02 |
 
 ### B. Frontend implementation — theo dependency và milestone gate Phase 9
 
@@ -113,7 +116,7 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 |---|---|---|---|---|---|---|---|
 | FE-001 | Foundation | Sửa TypeScript baseline | Hưng (Member 3) | DONE | DOC-010 | [`docs/tasks/done/FE-001.md`](../tasks/done/FE-001.md) | Đã sửa 18 lỗi typecheck; PR #12/#13 merged vào main; Vinh nghiệm thu M0-02, card đồng bộ ngày 2026-09-28 |
 | FE-002 | Foundation | Chọn canonical features architecture và cô lập legacy | Hưng (Member 3) | DONE | FE-001, DOC-010 | [`docs/tasks/done/FE-002.md`](../tasks/done/FE-002.md) | Vinh nghiệm thu: 10 screens trong legacy, không import runtime; `npm run quality` pass ngày 2026-09-28 |
-| FE-003 | Design system | Chuẩn hóa tokens và UI primitives | Hưng (Member 3) | REVIEW | FE-001, DOC-010 | [`docs/tasks/active/FE-003.md`](../tasks/active/FE-003.md) | Tokens đầy đủ; primitives Badge, Progress, IconButton, Modal, States |
+| FE-003 | Design system | Chuẩn hóa tokens và UI primitives (M1-02) | Hưng (Member 3) | REVIEW | M1-01, FE-001, DOC-010 | [`docs/tasks/active/FE-003.md`](../tasks/active/FE-003.md) | Tokens đầy đủ; primitives Badge, Progress, IconButton, Modal, States |
 | FE-004 | App shell | Tách navigation/view state khỏi App quá lớn | Hưng (Member 3); Codex bổ sung theo yêu cầu Vinh | DONE | FE-001, DOC-005, DOC-006 | [`docs/tasks/done/FE-004.md`](../tasks/done/FE-004.md) | `tab/view` state ở hook riêng, App 87 dòng; quality + navigation smoke pass; Vinh nghiệm thu ngày 2026-09-28 |
 | FE-005 | VN engine | Xây player v2 trên mock adapter | Dương (Member 4) | BACKLOG | FE-003, DOC-005, DOC-006 | `src/features/visual-novel/` | Scene/choice/retry/debrief/resume/error pass |
 | FE-006 | Video | Xây video-led lesson player và tích hợp media đã duyệt | Dương (Member 4) | BACKLOG | FE-003, DOC-005, DOC-006 | `src/features/learning/` | Player chạy trên mock trước; tích hợp bài học canonical sau CONTENT-007 với caption/transcript/resume/fallback |
@@ -179,6 +182,7 @@ Chỉ các task có status `IN PROGRESS` được coi là đang có người là
 
 | ID | Owner / executor | Reviewer | Started | Current next action | Blocker | Last checkpoint |
 |---|---|---|---|---|---|---|
+| M1-01 | Trúc (Member 2) / Trúc + Codex | Hưng (Member 3) | 2026-09-28 | Hưng review tài liệu token contract để nghiệm thu M1-01 sang DONE | None | Branch `truc/m1-01-token-handoff`; file [`docs/engineering/TOKEN-HANDOFF.md`](../engineering/TOKEN-HANDOFF.md) |
 | CONTENT-003 | Trúc / Trúc | Trúc historical/media; Vinh technical QA | 2026-09-27; review 2026-09-28 | Bổ sung nguồn đọc được cho CLM-MT68-01; chốt review và nguồn audio | Source năm mục tiêu chưa đọc lại được; sign-off/audio còn thiếu | Branch `codex/content-status-sync`; claim 3 tài liệu authoring + card/board/report; [review](../tasks/active/CONTENT-003-004-REVIEW.md); validator PASS |
 | CONTENT-004 | Thọ / Thọ; Trúc sửa regression theo ủy quyền | Trúc historical/media; Vinh technical QA | 2026-09-26; review 2026-09-28 | Vinh kiểm tra revision; Thọ quyết định gate sau source/sign-off | CONTENT-003 còn NEEDS_REVISION; CONTENT-007 BLOCKED | Branch `codex/content-status-sync`; screenplay/narration/VTT đã đồng nhất; [review](../tasks/active/CONTENT-003-004-REVIEW.md) |
 | CONTENT-010 | Thọ / Trúc | Thọ; historical/media reviewer | 2026-09-27 | REVIEW Bài 2 và nguồn năm node | Thiếu scene graph VN và media được duyệt | Branch `feature/content-expansion-mt68`; claim Bài 2/card; [handoff](../tasks/active/PR21-HANDOFF.md) |
@@ -199,6 +203,9 @@ Mỗi lần handoff quan trọng thêm một dòng mới nhất ở đầu bản
 
 | Date | Task | Author | Update | Evidence / next owner |
 |---|---|---|---|---|
+| 2026-09-28 | M1-01 | Trúc (Member 2) / Codex hỗ trợ | Hoàn thành tài liệu Token Contract & Design Handoff theo Phase 9 và AGENTS.md; chuyển REVIEW | [`docs/engineering/TOKEN-HANDOFF.md`](../engineering/TOKEN-HANDOFF.md); Hưng review để mở FE-003/M1-02 |
+| 2026-09-28 | DOC-016 / Gate M0 | Product owner + Codex | Product owner duyệt đóng M0 và mở M1 sau audit; tạo M1-01 `READY` cho Trúc, còn M2–M7 locked | `main` = `origin/main` tại `fe4072b`; GitHub Quality #31 success; local `npm run quality` pass với Chrome (typecheck/build, scan 204 file/0 unsafe, 16 unit, 1 component, 1 E2E) |
+| 2026-09-28 | M0-05/M0-06/M0-07 | Vinh (Member 5) / Codex hỗ trợ | Hoàn thiện hai thiếu sót gate M0: sửa `test:unit` để local Node 24+ không gọi thư mục bằng `node --test`, ghi Node supported range và đồng bộ handoff sau khi PR #24 đã merge/CI xanh | `npm run quality` exit 0: typecheck/build, scan 203 file/0 unsafe, unit 16/16, component 1/1, E2E 1/1; PR #24 `MERGED` commit `eedff39`, Quality checks `SUCCESS`; PO quyết định đóng M0/mở M1 |
 | 2026-09-28 | CONTENT-003/004 | Trúc (Codex hỗ trợ) | Sửa regression ba tài liệu từ 50bcd1f về authoring v2; review từng cue và media plan; validator PASS | [Review/handoff](../tasks/active/CONTENT-003-004-REVIEW.md); nguồn CLM-MT68-01 chưa đọc lại được, chờ sign-off/audio và Vinh QA |
 | 2026-09-28 | CONTENT-003/004/007 | Trúc (Codex hỗ trợ) | Đồng bộ board/card: gỡ hai card mâu thuẫn của CONTENT-004, chuyển thành một card `REVIEW`; sửa link/status board và làm rõ CONTENT-007 vẫn `BLOCKED` | Trúc review historical/media, Vinh technical QA; Product owner mới quyết định mở production sau sign-off |
 | 2026-09-28 | FE-004 | Vinh (reviewer) / Codex ghi nhận | Vinh xác nhận bản bổ sung đạt yêu cầu; FE-004 `DONE` trên card và board, không tự đóng M0 | App 87 dòng; `npm run quality` exit 0; browser smoke pass; lời xác nhận trực tiếp “a thấy ok rồi” |

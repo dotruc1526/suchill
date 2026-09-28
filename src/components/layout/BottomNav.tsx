@@ -9,12 +9,15 @@ const NAV_TABS: { key: Tab; icon: string; label: string }[] = [
 
 export function BottomNav({ tab, onTab }: { tab: Tab; onTab: (t: Tab) => void }) {
   return (
-    <div
+    <nav
+      role="navigation"
+      aria-label="Thanh điều hướng chính"
       className="shrink-0 flex items-end justify-around px-2 pb-2 pt-1"
       style={{
         borderTop: '1.5px solid rgba(61,26,0,0.15)',
         background: '#EDD9B8',
         minHeight: 60,
+        paddingBottom: 'max(8px, env(safe-area-inset-bottom))',
       }}
     >
       {NAV_TABS.map(t => (
@@ -44,7 +47,7 @@ export function BottomNav({ tab, onTab }: { tab: Tab; onTab: (t: Tab) => void })
           )}
         </button>
       ))}
-    </div>
+    </nav>
   )
 }
 

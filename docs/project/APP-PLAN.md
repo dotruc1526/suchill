@@ -6,7 +6,7 @@
 
 ## Delivery mode đã chốt
 
-Project đã hoàn tất giai đoạn **spec-first implementation freeze** khi Phase 9 được duyệt ngày 2026-09-23. Milestone 0 hiện được mở; các milestone sau theo dependency và gate:
+Project đã hoàn tất giai đoạn **spec-first implementation freeze** khi Phase 9 được duyệt ngày 2026-09-23. M0 đã đóng và Milestone 1 được mở ngày 2026-09-28; các milestone sau theo dependency và gate:
 
 - Hoàn thành và duyệt Phase 0–9 trước khi bắt đầu implementation Visual Novel mới.
 - Sau khi Phase 9 được duyệt, Codex nhận triển khai end-to-end frontend, backend, database migration, integration và verification theo roadmap đã chốt.
@@ -446,9 +446,9 @@ Một feature chỉ sẵn sàng để code khi có:
 
 ## 11. Việc nhóm nên làm ngay
 
-1. Phase 9 đã được duyệt; đọc [approval brief](../specs/approval-briefs/09-implementation-roadmap-brief.md) và roadmap chi tiết để bắt đầu Milestone 0.
+1. M0 đã được Product owner duyệt đóng; đọc [approval brief](../specs/approval-briefs/09-implementation-roadmap-brief.md), roadmap chi tiết và task board để bắt đầu task đủ điều kiện của Milestone 1.
 2. Tên năm thành viên đã có ở [team ownership](./TEAM-OWNERSHIP.md); cần chỉ định historical reviewer và claim từng task.
-3. Tạo/claim task card M0-00, xác nhận dependency, reviewer và file ownership; sau đó chạy baseline M0-01.
+3. Trúc nhận M1-01 để bàn giao token contract; sau reviewer Hưng, Hưng mới claim FE-003/M1-02 và các hotspot source liên quan.
 4. Chọn pilot canonical và làm content review theo task card; không đưa demo Genève vào production như nội dung chính thức.
 
 ## 12. Điều kiện hoàn thành toàn bộ MVP
