@@ -4,6 +4,8 @@
 
 - [DOC-010](./DOC-010.md) — Phase 9 và context hardening; product owner duyệt ngày 2026-09-23.
 - [DOC-016](./DOC-016.md) — Product owner duyệt đóng M0 và mở M1 ngày 2026-09-28.
+- [M1-01](./M1-01.md) — token contract/design handoff đã được triển khai trong FE-003 và QA xác nhận sau PR #33.
+- [FE-003](./FE-003.md) — tokens/UI primitives/shared states đạt review UI/UX và QA; PR #33 merged, quality pass.
 - [BEQA-LOCAL-001](./BEQA-LOCAL-001.md) — Vinh chấp nhận bản chuẩn bị Backend + QA local ngày 2026-09-26; không thay thế nghiệm thu các task M0 chính thức.
 - [M0-00](./M0-00.md) — Product owner duyệt phân task qua ảnh chat; Vinh chuyển xác nhận nhóm ngày 2026-09-26, không thay thế gate M0.
 - [M0-01](./M0-01.md) — baseline typecheck/build/smoke-test đạt; Vinh xác nhận nhóm đã chấp nhận kết quả ngày 2026-09-26, không thay thế gate M0.
