@@ -1,6 +1,6 @@
 # Lesson 2 — Kíp chiến đấu SAM-2: Flagship Visual Novel brief
 
-> Status: DRAFT / NEEDS_PRODUCT_AND_HISTORICAL_REVIEW  
+> Status: DRAFT / READY_FOR_TRUC_REVIEW
 > Task: `CONTENT-016`  
 > Proposed lesson ID: `lesson-1972-02-visual-novel`  
 > Proposed story ID: `story-1972-sam2`  
@@ -47,7 +47,7 @@ Mục tiêu dự kiến: CLO-2 và CLO-3. Thời lượng mục tiêu: 6–10 ph
 ## Deliverable tiếp theo sau review
 
 1. Thọ khóa objective, pacing và learner role.
-2. Trúc review [claim/source và media boundary package](./CONTENT-016-EVIDENCE.md), khóa locator thực sự đã đọc và trạng thái claim được phép authoring.
+2. Trúc review [claim/source và media boundary package](./CONTENT-016-EVIDENCE.md), xác nhận các locator hẹp đang `READY_FOR_TRUC_REVIEW` và trạng thái claim được phép authoring.
 3. Content author viết narration/choice/explanation scene-by-scene.
 4. Vinh/Dương map authoring sang `StoryVersion` contract và chạy validator khi M2/M3 được mở.
 5. Chỉ story version đã review/publish mới được runtime hoặc seed sử dụng.
