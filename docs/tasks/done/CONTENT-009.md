@@ -1,6 +1,6 @@
 # CONTENT-009 — Nghiên cứu nguồn và chủ đề ứng viên cho chapter mẫu
 
-> Status: REVIEW\
+> Status: DONE\
 > Last updated: 2026-09-26
 
 ## Assignment
@@ -55,3 +55,9 @@
   - Toàn bộ 8 claims mâu thuẫn giữa nguồn Việt Nam và quốc tế (số lượng B-52, MiG bắn hạ B-52, trận Hàm Rồng, trận Pa Thí, bom tàu chiến Hòn La, đạn pháo Ngô Thị Tuyển, súng trường bắn phản lực) đã được mã hóa chuẩn hóa schema Phase 3 với `review_status: NEEDS_HISTORICAL_REVIEW`, cần Historical Reviewer chính thức thẩm định và phê duyệt tại CONTENT-003.
   - Chủ đề 4 có rủi ro chi phí đồ họa cao (4 bối cảnh, 3 loại buồng lái khác nhau), Content Team và Reviewer kiến nghị không chọn làm MVP pilot mà dành cho bản mở rộng; ưu tiên tuyệt đối chọn Chủ đề 1 làm Chapter MVP.
 - Next owner/action: Thọ chuyển giao tài liệu nghiên cứu cho Product Owner ra quyết định chọn Chapter mẫu tại CONTENT-002 và chuyển giao cho Historical Reviewer thẩm định tại CONTENT-003.
+
+## Product Owner Sign-off
+
+- **Date:** 2026-09-28
+- **Signed by:** Thọ (Product Owner)
+- **Verdict:** APPROVED — All acceptance criteria met.

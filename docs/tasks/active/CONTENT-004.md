@@ -60,6 +60,13 @@
 
 ## Handoff
 
+### Review 2026-09-28 — bản hiện hành
+
+- Trúc yêu cầu thực hiện review; Codex khôi phục screenplay/curriculum/registry authoring v2 bị regression. [Báo cáo và handoff](./CONTENT-003-004-REVIEW.md) là checkpoint mới nhất, thay các kết luận kiểm tra cũ.
+- Validator PASS sau sửa; nguồn danh sách năm mục tiêu chưa đọc lại được. Chưa có human sign-off hay evidence audio hợp lệ; status giữ REVIEW.
+- MP4/poster cuối là đầu ra CONTENT-007 cần nghiệm thu sau sản xuất; blocker trước sản xuất là nguồn/script/sign-off và phương án quyền media.
+- Build/typecheck không chạy vì thay đổi chỉ tài liệu authoring; không runtime/env/migration impact.
+
 - Changed files: authoring evidence trong `CONTENT-014`; hồ sơ hiện hành: card này và task board.
 - Test/build result: `node docs/content/validate-mt68-authoring.mjs` PASS theo `CONTENT-014`; docs-only, không có runtime change từ lượt đồng bộ trạng thái.
 - Environment/migration impact: không có.
