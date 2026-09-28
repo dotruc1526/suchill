@@ -9,6 +9,6 @@
 - [M0-02](./M0-02.md) — typecheck/build đạt trên HEAD có PR #12/#13; Vinh chuyển xác nhận Hưng ngày 2026-09-27.
 - [M0-03](./M0-03.md) — cô lập 10 screens legacy, boundary/quality/UI smoke đạt.
 - [M0-04](./M0-04.md) — App 95 dòng, typed router, quality và navigation smoke đạt.
-- [M0-05](./M0-05.md) — unit/component/E2E smoke đạt; không thêm dependency; Vinh chuyển xác nhận Hưng ngày 2026-09-27.
-- [M0-07](./M0-07.md) — `npm run quality` pass; CI nhánh gốc đã đạt, bản ghép mới chờ CI khi mở PR.
+- [M0-05](./M0-05.md) — unit/component/E2E smoke đạt; không thêm dependency runtime; PR #24 đã merge, bổ sung fix reproducibility Node 24 ngày 2026-09-28.
+- [M0-07](./M0-07.md) — `npm run quality` contract local/CI đạt; PR #24 đã merge và CI xanh; Node 24/26 support được ghi trong package/README.
 - [M0-06](./M0-06.md) — env/secret guard và scan đạt; Hưng và Product owner xác nhận qua lời Vinh ngày 2026-09-27; rotation thật trước M4.
