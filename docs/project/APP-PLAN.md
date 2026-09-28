@@ -21,6 +21,7 @@ Sử Chill là ứng dụng mobile-first giúp người trẻ học lịch sử 
 - Hành trình chapter/lesson.
 - Micro-learning 5–10 phút.
 - Visual Novel có kiểm soát độ chính xác lịch sử.
+- Mỗi chapter canonical có tối thiểu một flagship Visual Novel lesson; các lesson còn lại vẫn chọn format theo learning objective.
 - Quiz và personalized review.
 - XP, streak và achievement.
 - AI history assistant dựa trên nguồn đã kiểm chứng.
@@ -44,7 +45,7 @@ MVP cần tạo được một learning loop hoàn chỉnh:
 - Một chapter mẫu thuộc phạm vi kháng chiến chống Mỹ ở Việt Nam, gồm nhiều lesson đa định dạng; đây là bước phát hành đầu, không phải toàn bộ curriculum dài hạn. Số lượng và chủ đề lesson do Member 1 chốt trong curriculum map sau khi chọn pilot.
 - Home learning journey.
 - Chapter và lesson navigation.
-- Một Visual Novel engine dùng chung.
+- Một Visual Novel engine dùng chung và ít nhất một flagship Visual Novel lesson trong mỗi chapter canonical.
 - Ít nhất một video được Member 2 biên tập theo kịch bản/nguồn đã duyệt và đặt trong bài học canonical của MVP; có phụ đề, transcript, poster và fallback khi media lỗi. Vị trí và hình thức video trong bài do kịch bản quyết định.
 - Ít nhất một pilot episode canonical trong chapter mẫu do product owner chọn và đã qua content review; không mặc định dùng demo Genève hiện tại.
 - Lesson thường và quiz.
