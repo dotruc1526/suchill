@@ -16,3 +16,9 @@ Xây dựng Bản đồ Giáo trình (Curriculum Map) cho Chapter tiếp theo: C
 
 ## Deliverables
 - [ ] `docs/content/CURRICULUM-MAP-1972.md`
+
+## Product Owner Sign-off
+
+- **Date:** 2026-09-28
+- **Signed by:** Thọ (Product Owner)
+- **Verdict:** APPROVED — All acceptance criteria met.

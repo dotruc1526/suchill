@@ -1,14 +1,138 @@
 # Bàn giao công việc tiếp theo — Trúc (Member 2)
 
 > Task nguồn: [`CONTENT-006`](./CONTENT-006.md)
-> Nhánh: `codex/truc-content-006-video-reference`
+> Nhánh: `codex/content006-media-package-audit`
 > Executor duy nhất: Trúc (Member 2)
 > Trạng thái task nguồn: `IN PROGRESS`
-> Ngày bàn giao: 2026-09-26
+> Ngày bàn giao: 2026-09-27
 
 ## Bắt đầu tại đây — phiếu thực hiện tiếp theo
 
-### Checkpoint cuối — đồng bộ sau quyền mới (2026-09-26)
+### Checkpoint mới nhất — listen-through package recovered PASS (2026-09-27)
+
+Trúc xác nhận:
+
+```text
+Tôi đã nghe lại package recovered, subtitle/cue khớp toàn clip.
+```
+
+Kết luận: package recovered đạt sync check ở mức `REFERENCE_ONLY`. Không còn blocker riêng về cue timing/subtitle sync sau khi dùng lại sidecar gốc.
+
+Giới hạn vẫn còn:
+
+- MP4/cues vẫn có wording “tâm điểm của cả cuộc chiến”, đã đánh dấu `REVISION_REQUIRED_BEFORE_USE`.
+- Quyền publish audio Microsoft Neural TTS qua `edge-tts` chưa clear.
+- Nhạc/SFX chưa có manifest/permission đủ để publish.
+- Chưa có release/integration sign-off.
+
+Một việc tiếp theo duy nhất nếu nhóm muốn dùng clip ngoài reference: **re-export video với wording đã duyệt, xử lý quyền audio/nhạc/SFX, rồi chạy lại Phase 3/8 media review**.
+
+### Checkpoint trước — sidecar gốc đã tìm lại (2026-09-27)
+
+Trúc đã tìm lại bộ sidecar gốc ở `dist/media/truoc-con-bao/`:
+
+- `subtitles.vtt`
+- `cues.json`
+- `episode-audio-steady.m4a`
+- `voice-over.mp3`
+- `storyboard.md`
+- `poster.png`
+
+Codex đã copy các file nhẹ cần review vào [content-006-rebuild](./content-006-rebuild/README.md): `subtitles.vtt`, `cues.json`, `storyboard.md`, `poster.png`. MP4 và audio không copy vào docs; chỉ ghi path/hash trong `manifest.json`.
+
+Kết quả cập nhật:
+
+- Lỗi lệch phụ đề cue 5 ở bản draft đã được xử lý bằng sidecar gốc. Cue 5 hiện là `00:00:11.800 --> 00:00:16.283`, text “cuộc kháng chiến chống Pháp đã kéo dài nhiều năm rồi.”
+- `cues.json` gốc ghi timing source là `WordBoundary`, voice `vi-VN-NamMinhNeural`, rate `-25%`, pitch `+0Hz`, duration 93.389 giây.
+- Package rebuild đổi từ “draft tự dựng tay” sang “recovered sidecar package”.
+- CONTENT-006 vẫn `IN PROGRESS` + `REFERENCE_ONLY`: MP4/cues vẫn còn wording “tâm điểm của cả cuộc chiến”; quyền publish audio Edge TTS, nhạc/SFX và review release vẫn chưa clear.
+
+Superseded by checkpoint 2026-09-27: Trúc đã nghe đối chiếu package recovered và xác nhận subtitle/cue khớp toàn clip. Nếu muốn dùng ngoài reference thì re-export video bằng wording đã duyệt và xử lý audio/nhạc/SFX trước khi xin review.
+
+### Checkpoint trước — MP4 chính còn sót lại (2026-09-27)
+
+Trúc đính chính file MP4 đúng của “Trước cơn bão” nằm ở ổ D:
+
+`D:/suchill-render-work/episode-portrait-no-box-text-v3.mp4`
+
+Codex kiểm tra read-only:
+
+- File tồn tại, 19.289.629 byte, last modified 2026-09-23 20:05.
+- SHA-256: `2B7DEF3CD371275F73F062707B9CD212BCA663B4B8E66EEB980272B5C092F0EC`.
+- FFmpeg đọc được duration 01:33.39, video H.264 1080x1920 24 fps, audio AAC mono 48 kHz.
+- Contact sheet khớp nội dung “Trước cơn bão”: mốc 1954, Kế hoạch Navarre, bản đồ, Điện Biên Phủ và teaser Tập 02.
+- File này khớp hash/dung lượng/duration đã ghi trong hồ sơ cũ, nên ghi là **MP4 chính còn sót lại**. File Zalo Temp `episode-portrait.mp4` là ứng viên/bản khác và không dùng làm bản chính.
+
+Superseded by checkpoint 2026-09-27: Trúc đã tìm lại `subtitles.vtt`, `cues.json`, `storyboard.md`, `poster.png` và audio candidates trong `dist/media/truoc-con-bao/`. Source export cuối và quyền publish audio/nhạc/SFX vẫn chưa đủ.
+
+Nếu nhóm vẫn muốn dùng clip này ngoài reference, **Trúc (Member 2) là người rebuild package** từ MP4 chính:
+
+| Việc rebuild | Người làm/chốt | Trạng thái sau khi mất source |
+|---|---|---|
+| Tạo lại transcript từ MP4 | Trúc | Đã có transcript draft; cần nghe đối chiếu |
+| Tạo lại `subtitles.vtt` và cue timing | Trúc; Vinh QA kỹ thuật | Đã tìm lại sidecar gốc; cue 5 fixed theo WordBoundary timing |
+| Tạo poster mới từ frame của MP4 | Trúc | Đã có poster recovered `poster.png` và poster frame phụ `poster.jpg` |
+| Áp dụng wording đã duyệt cho đoạn 01:17-01:29 | Trúc; Thọ/PO xác nhận wording nếu cần | Chưa làm, MP4 chính hiện vẫn chứa wording cũ |
+| Xử lý audio/voice/nhạc/SFX | Trúc; PO/media/legal chốt | Chưa đủ quyền publish |
+| Lập manifest/hash/source note mới | Trúc; Vinh QA | Đã cập nhật manifest recovered sidecars; cần reviewer kiểm |
+| Review Phase 3/8 lại | Trúc + Vinh/PO | Chưa làm |
+
+Một việc tiếp theo duy nhất: **nghe đối chiếu package recovered với MP4 chính**. Không copy MP4 vào `main`, không publish, không tích hợp app và không chuyển `REVIEW/DONE` cho đến khi package mới đủ evidence.
+
+### Checkpoint — sidecar package rebuilt (2026-09-27)
+
+Codex đã tạo package nháp tại [content-006-rebuild](./content-006-rebuild/README.md), không copy MP4 vào repo.
+
+| File | Vai trò | Trạng thái |
+|---|---|---|
+| [transcript.md](./content-006-rebuild/transcript.md) | Transcript rebuilt từ hồ sơ CONTENT-006 | Draft; Trúc cần nghe đối chiếu |
+| [subtitles.vtt](./content-006-rebuild/subtitles.vtt) | WebVTT 28 cue recovered từ `dist` | Cue 5 fixed theo source timing; cần nghe đối chiếu tổng thể |
+| [cues.json](./content-006-rebuild/cues.json) | Cue timing structured recovered từ `dist` | JSON parse OK; WordBoundary timing; cần nghe đối chiếu |
+| [storyboard.md](./content-006-rebuild/storyboard.md) | Storyboard recovered từ `dist` | Cần editorial review |
+| [poster.png](./content-006-rebuild/poster.png) | Poster recovered từ `dist` | SHA-256 `A5A48935DF93BE4911B6F9DA230688F8E488E3DD72CB31FD2C9E9AD66DCFF9C2`; cần editorial/accessibility review |
+| [poster.jpg](./content-006-rebuild/poster.jpg) | Poster frame phụ 00:00:01 | Secondary evidence; không phải poster gốc |
+| [fallback.md](./content-006-rebuild/fallback.md) | Fallback, alt text, visual description | Draft; cần accessibility review |
+| [manifest.json](./content-006-rebuild/manifest.json) | Hash/provenance/review status | JSON parse OK; vẫn `DRAFT_REFERENCE_ONLY` |
+
+Kết quả kiểm tra: JSON parse OK; VTT có 28 cue và kết thúc 01:33.389; poster gốc đã tìm lại. Cue 27 vẫn giữ wording hiện có để khớp MP4/audio, nhưng wording này vẫn `REVISION_REQUIRED_BEFORE_USE`, nên muốn publish phải re-export video với câu đã duyệt.
+
+### Checkpoint — listen-through issue (2026-09-27)
+
+Trúc nghe đối chiếu và báo phụ đề lệch từ cue 5:
+
+```text
+00:13.000 --> 00:17.000
+cuộc kháng chiến chống Pháp đã kéo dài nhiều năm rồi.
+```
+
+Superseded by checkpoint 2026-09-27: sidecar gốc đã được tìm lại, cue 5 chuyển về `00:00:11.800 --> 00:00:16.283`. Không còn blocker riêng cho cue 5, nhưng vẫn cần nghe đối chiếu toàn clip trước mọi use ngoài `REFERENCE_ONLY`.
+
+### Checkpoint mới nhất — media package audit (2026-09-27)
+
+Trúc đã yêu cầu tiếp tục `CONTENT-006` theo hướng làm hết phần còn lại của clip “Trước cơn bão”. Codex kiểm tra `main` sau PR #23 và các dấu vết local trước khi sửa media. Kết luận: chưa thể tạo package publish/integration trong repo hiện tại vì source package cuối không có trong Git.
+
+Kết quả kiểm tra:
+
+- `public/media/truoc-con-bao/` không tồn tại trong checkout `main`; `git ls-files` chỉ có hồ sơ docs cho CONTENT-006, không có MP4/VTT/poster/cues/audio của clip.
+- `scripts/media` local là untracked và hiện chỉ còn thư mục `work/` với scene/cue images, `vendor/` và `__pycache__`; không có script nguồn, MP4, audio cuối, VTT hoặc manifest final để rebuild an toàn.
+- `branches/1956-tap-1` có prototype cũ và script tạo video 99 giây 1280x720, nhưng không có `public/media` output và không khớp package CONTENT-006 đang được hồ sơ mô tả là 93 giây 1080x1920.
+- Vì vậy không sửa subtitle/audio/video, không ghi là đã publish-ready, không chuyển `REVIEW`/`DONE`, không mở M1 và không coi video là canonical.
+
+Nếu nhóm muốn dùng clip ngoài `REFERENCE_ONLY`, Trúc cần cung cấp hoặc claim một package nguồn đầy đủ:
+
+| Thành phần bắt buộc | Trạng thái hiện tại | Việc cần có trước khi sửa/review lại |
+|---|---|---|
+| MP4 final hoặc source export | Không có tracked `public/media/truoc-con-bao/episode-portrait-final.mp4` trên `main` | Đưa đúng file/version cần sửa vào workspace hoặc cung cấp đường dẫn nguồn được phép claim |
+| Subtitle/cue/transcript final | Không có tracked `subtitles.vtt`, `cues.json` hoặc transcript khớp audio cuối | Tạo bản mới dùng wording đã duyệt, rồi đối chiếu audio thật |
+| Wording 01:17-01:29 | Câu sửa đã được duyệt ở mức wording, chưa áp dụng vào media | Dùng: “Nhưng tại sao một thung lũng ở Tây Bắc lại trở thành điểm quyết chiến chiến lược của hai bên?”; biến thể hẹp hơn: “...trở thành tâm điểm của cuộc đối đầu Đông Xuân 1953-1954?” |
+| Audio/voice | Quyền Edge TTS vẫn chỉ đủ giữ `REFERENCE_ONLY` theo hồ sơ hiện có | Thay audio bằng nguồn có quyền rõ hoặc cung cấp điều khoản/permission áp dụng cho bản đã tạo |
+| Nhạc/SFX | Chưa có manifest/permission/hash final | Cung cấp manifest quyền hoặc thay bằng âm thanh tự tạo/được phép dùng, có hash |
+| Poster/rendition/fallback | Chưa có package cuối trong Git | Tạo poster, mobile rendition, transcript/fallback và mô tả hình ảnh khớp bản final |
+| Manifest/hash | Report cũ không khóa được MP4 hiện tại | Tạo manifest final gồm SHA-256 từng file, nguồn, license/permission, reviewer và ngày kiểm tra |
+
+Một việc tiếp theo duy nhất: **gom/cung cấp source package final của “Trước cơn bão”**. Khi package có đủ file, mới sửa wording/audio và chạy lại Phase 3/8 checklist. Nếu không có package nguồn, CONTENT-006 giữ `IN PROGRESS` + `REFERENCE_ONLY` và không có thao tác media an toàn để làm tiếp.
+
+### Checkpoint trước — đồng bộ sau quyền mới (2026-09-26)
 
 Thọ đã giao Trúc review learning objective/wording lịch sử và Product owner giao Trúc chốt media/legal cho CONTENT-006. Kết luận đã ghi vào hồ sơ:
 
@@ -86,7 +210,7 @@ Sau khi biết dịch vụ/cách tạo, Codex có thể tìm điều khoản ch�
 
 ### Việc 2: nghe và kiểm tra phụ đề của clip đã chọn
 
-Đầu ra: phiếu kiểm tra toàn bộ 28 cue. Mở [video Trước cơn bão](../../../public/media/truoc-con-bao/episode-portrait-final.mp4), đối chiếu [phụ đề](../../../public/media/truoc-con-bao/subtitles.vtt). Trúc đã xác nhận tổng thể “clip oke”; các dòng dưới ghi lại cùng xác nhận đó, không phải sáu lượt kiểm tra độc lập có evidence riêng. Khi kiểm tra chi tiết, nghe ở tốc độ bình thường và ghi cue hoặc mốc giây khi có lỗi.
+Đầu ra: phiếu kiểm tra toàn bộ 28 cue. Bản kiểm tra cũ dùng đường dẫn dự kiến `public/media/truoc-con-bao/episode-portrait-final.mp4` và `public/media/truoc-con-bao/subtitles.vtt`; các file này hiện không có trên `main`, nên cần cung cấp lại package nguồn trước khi kiểm tra chi tiết. Trúc đã xác nhận tổng thể “clip oke”; các dòng dưới ghi lại cùng xác nhận đó, không phải sáu lượt kiểm tra độc lập có evidence riêng. Khi kiểm tra chi tiết, nghe ở tốc độ bình thường và ghi cue hoặc mốc giây khi có lỗi.
 
 | Cue | Khoảng thời gian | Nội dung để nhận diện | Kết quả / lỗi |
 |---|---|---|---|

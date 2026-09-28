@@ -1,13 +1,25 @@
-﻿# Sổ tay Sản xuất (Production Hand-off Notes)
-**Người lập:** Thọ (Member 1 - Content Lead)
-**Bàn giao cho:** Trúc (Member 2 - Video) & Dũng (Member 4 - Frontend)
+# Gói authoring Mậu Thân — bản sửa sau PR #21
 
-## 1. Dành cho Dựng Video (Member 2)
-### Định hướng Cảm xúc (Tone & Pacing)
-- **Scene 01 - 02 (Trước giờ G):** Nhạc nền trầm, bí ẩn. Giọng đọc Voiceover phải thể hiện sự tĩnh lặng trước cơn bão. Nhấn mạnh bài thơ của Bác Hồ (cần làm mờ âm thanh nền để giọng Bác vang lên rõ ràng).
-- **Scene 03 - 04 (Bùng nổ):** Cắt cảnh nhanh, dồn dập (Fast cut). Chuyển âm thanh bộc phá cực mạnh tại mốc `02h45`. Chú ý dùng đúng hình ảnh Tòa Đại sứ Mỹ từ `DETAILED-MEDIA-CATALOG.csv`.
-- **Scene 05 (Kết luận):** Giọng đọc chậm lại, mang tính vĩ mô. Hiển thị cảnh Walter Cronkite và biểu tình phản chiến để nhấn mạnh tác động tâm lý.
+- Executor: Trúc (Member 2), Thọ đã giao toàn bộ revision.
+- Consumer frontend: Dương (Member 4); technical QA/backend: Vinh (Member 5).
+- Status: REVIEW bản nháp; chưa sản xuất/tích hợp hoặc phát hành.
 
-## 2. Dành cho Lập trình UI (Member 4)
-- **Bản đồ Tương tác (Bài 2):** Tôi đã trích xuất toàn bộ text từ Markdown sang cấu trúc JSON thuần túy tại tệp `docs/content/MAP-MT68.json`. Bạn chỉ cần fetch file này và map vào component UI. Độ dài chuỗi text đã được tôi cắt gọt (dưới 150 ký tự mỗi Node) để đảm bảo không bị tràn giao diện trên màn hình điện thoại (Mobile-first).
-- **Ngân hàng câu hỏi (Quiz):** Dữ liệu Quiz nằm tại `docs/content/QUIZ-MT68.json`. Đã bao gồm đủ `id`, `options`, và `explanation`. Đảm bảo UI hiện pop-up giải thích (explanation) mỗi khi user trả lời sai.
+## Video
+
+Đọc [PILOT-SCREENPLAY.md](./PILOT-SCREENPLAY.md). Nguồn lời đọc duy nhất là [PILOT-NARRATION.json](./PILOT-NARRATION.json); [VTT](./PILOT-CAPTIONS.vtt) khớp chữ, tổng 110s. Năm scene có đủ cue. Bỏ yêu cầu bản ghi thơ, clip Cronkite, tiếng nổ/nhạc và giờ lịch sử chưa đối chiếu.
+
+Visual dự kiến: thẻ chữ/sơ đồ không địa lý; không giả làm tư liệu gốc. Chưa tạo MP4/audio/poster. Trúc cần thu thử giọng hợp lệ, đo timing, xuất manifest/hash và QA nghe/xem trước production acceptance.
+
+## Bài 2 và dữ liệu
+
+- [MAP-MT68.json](./MAP-MT68.json): năm thẻ có source/claim ID; không có x/y giả. ID cũ lưu ở legacyDraftId để người nhận nhận diện migration bản nháp.
+- [LESSON-02-STORY.json](./LESSON-02-STORY.json): bảy scene, hai nhánh đọc hội tụ, knowledge check và debrief/end. Required overview buộc đọc đủ năm node.
+- [LESSON-02-INTERACTIVE.md](./LESSON-02-INTERACTIVE.md) mô tả điều kiện coverage, fiction/learner agency và source.
+- Đây là JSON authoring mở rộng để bàn giao, chưa phải service DTO hoặc migration. Vinh/Dương cần mapper và validator runtime riêng khi milestone cho phép.
+- UI đi qua feature hook → service → adapter, không fetch trực tiếp file authoring.
+- Quiz answer key chỉ thuộc authoring/trusted backend; không đưa nguyên file scored quiz vào client.
+- Không có cam kết dưới 150 ký tự cho mọi chuỗi; UI cần wrap tiếng Việt và kiểm tra mobile.
+
+## Media và next action
+
+[MEDIA-REVIEW-MT68.md](./MEDIA-REVIEW-MT68.md) ghi từng quyết định license/caption và những ứng viên loại khỏi phương án bắt buộc. Trúc nghiệm thu nội dung theo quyền được giao; QA kỹ thuật vẫn cần evidence. CONTENT-006 giữ REFERENCE_ONLY; không dùng clip cũ thay pilot này; M1–M7 LOCKED.
