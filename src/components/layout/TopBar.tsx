@@ -1,4 +1,3 @@
-import { Flame, Star, Trophy } from 'lucide-react'
 import brandLogo from '../../imports/su-chill-logo-transparent.png'
 import { theme } from '../../theme/tokens'
 
@@ -25,9 +24,9 @@ export function TopBar({ xp, streak, achievements }: { xp: number; streak: numbe
         <span className="sr-only">Thanh trạng thái học tập</span>
       </div>
       <div className="grid grid-cols-3" style={{ gap: theme.spacing.sm, marginTop: theme.spacing.sm, color: theme.colors.textSecondary }}>
-        <span aria-label={`${streak} ngày liên tiếp`}><Flame size={16} aria-hidden="true" className="inline" /> {streak} ngày</span>
-        <span aria-label={`${xp} XP`}><Star size={16} aria-hidden="true" className="inline" /> {xp} XP</span>
-        <span aria-label={`${achievements} huy hiệu`}><Trophy size={16} aria-hidden="true" className="inline" /> {achievements} huy hiệu</span>
+        <span aria-label={`${streak} ngày liên tiếp`}>🔥 {streak} ngày</span>
+        <span aria-label={`${xp} XP`}>⭐ {xp} XP</span>
+        <span aria-label={`${achievements} huy hiệu`}>🏆 {achievements} huy hiệu</span>
       </div>
     </header>
   )

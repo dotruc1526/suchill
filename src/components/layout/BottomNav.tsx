@@ -1,13 +1,12 @@
-import { BookOpen, Brain, MessageCircle, UserRound } from 'lucide-react'
 import type { Tab } from '../../types'
 import { theme } from '../../theme/tokens'
 
-const NAV_TABS = [
-  { key: 'home', icon: BookOpen, label: 'HỌC' },
-  { key: 'practice', icon: Brain, label: 'LUYỆN TẬP' },
-  { key: 'ai', icon: MessageCircle, label: 'AI' },
-  { key: 'profile', icon: UserRound, label: 'HỒ SƠ' },
-] as const
+const NAV_TABS: { key: Tab; icon: string; label: string }[] = [
+  { key: 'home', icon: '🏠', label: 'HỌC' },
+  { key: 'practice', icon: '🧠', label: 'LUYỆN TẬP' },
+  { key: 'ai', icon: '🤖', label: 'AI' },
+  { key: 'profile', icon: '👤', label: 'HỒ SƠ' },
+]
 
 export function BottomNav({ tab, onTab }: { tab: Tab; onTab: (t: Tab) => void }) {
   return (
@@ -22,7 +21,7 @@ export function BottomNav({ tab, onTab }: { tab: Tab; onTab: (t: Tab) => void })
         paddingRight: `max(${theme.spacing.sm}, env(safe-area-inset-right))`,
       }}
     >
-      {NAV_TABS.map(({ key, icon: Icon, label }) => (
+      {NAV_TABS.map(({ key, icon, label }) => (
         <button
           key={key}
           type="button"
@@ -35,7 +34,7 @@ export function BottomNav({ tab, onTab }: { tab: Tab; onTab: (t: Tab) => void })
             color: tab === key ? theme.colors.primary : theme.colors.textMuted,
           }}
         >
-          <Icon size={20} aria-hidden="true" />
+          <span aria-hidden="true" className="text-lg leading-none">{icon}</span>
           <span className="font-sans text-[9px] font-bold leading-none">{label}</span>
         </button>
       ))}
