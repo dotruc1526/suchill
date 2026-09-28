@@ -1,4 +1,5 @@
 import React from 'react'
+import { theme } from '../../theme/tokens'
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: 'primary' | 'secondary' | 'outline'
@@ -16,9 +17,13 @@ export function Button({
   const baseStyles = 'font-sans font-bold rounded-sm transition-all active:scale-[0.97] flex items-center justify-center gap-2'
   
   const variantStyles = {
-    primary: { background: '#8B1A1A', color: '#F5E6D0' },
-    secondary: { background: '#1E2D5A', color: '#F5E6D0' },
-    outline: { background: 'transparent', color: '#7A4020', border: '1.5px solid rgba(61,26,0,0.2)' },
+    primary: { background: theme.colors.primary, color: theme.colors.primaryText },
+    secondary: { background: theme.colors.secondary, color: theme.colors.primaryText },
+    outline: {
+      background: 'transparent',
+      color: theme.colors.textSecondary,
+      border: `1.5px solid ${theme.colors.borderMedium}`,
+    },
   }[variant]
 
   const sizeStyles = {
@@ -37,4 +42,3 @@ export function Button({
     </button>
   )
 }
-

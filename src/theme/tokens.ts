@@ -12,6 +12,7 @@ export const theme = {
     cardBg: '#FBF4E8',           // Nền thẻ giấy kem (Cream Paper)
     activeBg: '#EDD9B8',         // Nền khi được chọn
     navBg: '#EDD9B8',            // Nền thanh điều hướng đáy
+    overlay: 'rgba(0,0,0,0.5)',  // Nền phủ modal
 
     // Brand & Accents
     primary: '#8B1A1A',          // Đỏ con dấu (Stamp Burgundy)
@@ -35,11 +36,25 @@ export const theme = {
       border: '#C4341A',         // Viền đỏ tươi
       text: '#C4341A',           // Chữ đỏ tươi
     },
+    selected: {
+      bg: '#F5E6D0',             // Selected trung tính cho narrative/reflection
+      border: '#8B1A1A',
+      text: '#3D1A00',
+      ring: 'rgba(139,26,26,0.18)',
+    },
 
     // Borders & Lines
     borderLight: 'rgba(61,26,0,0.12)',
     borderMedium: 'rgba(61,26,0,0.2)',
     borderDark: 'rgba(61,26,0,0.35)',
+    surfaceMuted: 'rgba(61,26,0,0.08)',
+    progressTrack: 'rgba(61,26,0,0.1)',
+    primarySoft: 'rgba(139,26,26,0.12)',
+    primaryBorder: 'rgba(139,26,26,0.25)',
+    secondarySoft: 'rgba(30,45,90,0.12)',
+    secondaryBorder: 'rgba(30,45,90,0.25)',
+    accentSoft: 'rgba(196,52,26,0.12)',
+    accentBorder: 'rgba(196,52,26,0.25)',
   },
 
   fonts: {
@@ -70,6 +85,7 @@ export const theme = {
   shadows: {
     card: '1px 2px 0 rgba(61,26,0,0.08)',
     cardHover: '2px 4px 0 rgba(61,26,0,0.12)',
+    selected: '0 0 0 2px rgba(139,26,26,0.18)',
     stamp: '0 2px 4px rgba(139,26,26,0.25)',
     modal: '0 10px 25px -5px rgba(61,26,0,0.2)',
   },
