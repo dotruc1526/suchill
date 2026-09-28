@@ -1,6 +1,6 @@
 # Sử Chill — Shared Task Board
 
-> Last updated: 2026-09-27\
+> Last updated: 2026-09-28\
 > Owner: Project team\
 > Purpose: Nguồn context chung cho product owner, thành viên nhóm và AI agents
 
@@ -139,8 +139,8 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 |---|---|---|---|---|---|---|---|
 | CONTENT-001 | 2 | Chốt story/scene/choice template | Content lead | DONE | DOC-003 | `docs/specs/phases/02-content-story-authoring-model.md` | Templates và choice taxonomy đã được duyệt trong Phase 2 |
 | CONTENT-002 | 3 | Chọn chapter mẫu và pilot episode trong phạm vi sản phẩm | Thọ (Member 1); Product owner quyết định | DONE | DOC-003, DOC-004, DOC-012 | [`docs/tasks/done/CONTENT-002.md`](../tasks/done/CONTENT-002.md) | Product owner chọn chapter thuộc kháng chiến chống Mỹ; không mặc định dùng Genève demo |
-| CONTENT-003 | 3 | Historical source/media review pilot | Historical reviewer | REVIEW | CONTENT-002, DOC-004 | [`docs/tasks/active/CONTENT-003.md`](../tasks/active/CONTENT-003.md) | NEEDS_REVISION; Trúc sửa PR #21 theo quyền Thọ cấp; còn pilot/media và human sign-off, chưa mở CONTENT-007 |
-| CONTENT-004 | 5 | Viết screenplay scene-by-scene và kịch bản/storyboard video | Thọ (Member 1) | DONE | CONTENT-003, CONTENT-008, DOC-006 | [`docs/tasks/done/CONTENT-004.md`](../tasks/blocked/CONTENT-004.md) | Thọ sửa pilot sau CONTENT-003; 110s/VTT, storyboard, claim và media chưa đạt; chưa sản xuất |
+| CONTENT-003 | 3 | Historical source/media review pilot | Trúc (Member 2) | REVIEW | CONTENT-002, DOC-004 | [`docs/tasks/active/CONTENT-003.md`](../tasks/active/CONTENT-003.md) | REVIEW bản sửa pilot; còn historical/media sign-off, quyền audio/từng asset và MP4 cuối; chưa mở CONTENT-007 |
+| CONTENT-004 | 5 | Viết screenplay scene-by-scene và kịch bản/storyboard video | Thọ (Member 1) | REVIEW | CONTENT-003, CONTENT-008, DOC-006 | [`docs/tasks/active/CONTENT-004.md`](../tasks/active/CONTENT-004.md) | Deliverable authoring đã có; Trúc historical/media và Vinh QA cần sign-off trước khi mở CONTENT-007 |
 | CONTENT-005 | 8 | Content QA và Vietnamese language review | Vinh (Member 5); Thọ phối hợp | BLOCKED | CONTENT-004, CONTENT-007, DOC-009 | [`docs/tasks/blocked/CONTENT-005.md`](../tasks/blocked/CONTENT-005.md) | Không còn critical content issue; video/caption/transcript khớp kịch bản |
 | CONTENT-006 | 3/4 | Review và phát triển `episode-portrait-final.mp4` | Trúc (Member 2) | IN PROGRESS | DOC-004 | [`docs/tasks/active/CONTENT-006.md`](../tasks/active/CONTENT-006.md) | Trúc là executor và historical/media reviewer; Thọ cấp quyền review objective/wording; Product owner cấp quyền chốt media/legal; media/legal chốt `APPROVED_FOR_INTERNAL_REFERENCE_ONLY`; 4 claim VERIFIED, 1 claim REVISION_REQUIRED_BEFORE_USE |
 | CONTENT-007 | MVP video | Biên tập video theo kịch bản và bàn giao cho bài học canonical | Trúc (Member 2) | BLOCKED | CONTENT-003, CONTENT-004, DOC-004 | [`docs/tasks/blocked/CONTENT-007.md`](../tasks/blocked/CONTENT-007.md) | Ít nhất một video qua source/history/media review, có caption/transcript/poster/fallback/mobile rendition; Dương tích hợp vào lesson |
@@ -179,7 +179,8 @@ Chỉ các task có status `IN PROGRESS` được coi là đang có người là
 
 | ID | Owner / executor | Reviewer | Started | Current next action | Blocker | Last checkpoint |
 |---|---|---|---|---|---|---|
-| CONTENT-003 | Historical reviewer / Trúc (sửa hồ sơ) | Thọ điều phối historical/media sign-off | 2026-09-27 | REVIEW; kiểm tra nguồn/claim và hoàn tất pilot | NEEDS_REVISION; quyền media chưa rõ | Branch `feature/content-expansion-mt68`; claim registry/catalog/card/board; [handoff](../tasks/active/PR21-HANDOFF.md) |
+| CONTENT-003 | Trúc / Trúc | Trúc historical/media; Vinh technical QA | 2026-09-27 | REVIEW source/claim, narration/VTT và evidence từng asset của pilot | Chưa có human sign-off, quyền audio/từng asset và MP4 cuối; chưa mở CONTENT-007 | Branch `codex/mt68-complete-handoff`; [card](../tasks/active/CONTENT-003.md) |
+| CONTENT-004 | Thọ / Thọ | Trúc historical/media; Vinh technical QA | 2026-09-26 | REVIEW screenplay/storyboard 5 scene, narration/VTT và media catalog | Chờ CONTENT-003 review + quyền audio/từng asset; CONTENT-007 giữ BLOCKED | [Card hợp nhất](../tasks/active/CONTENT-004.md); evidence authoring ở [CONTENT-014](../tasks/active/CONTENT-014.md) |
 | CONTENT-010 | Thọ / Trúc | Thọ; historical/media reviewer | 2026-09-27 | REVIEW Bài 2 và nguồn năm node | Thiếu scene graph VN và media được duyệt | Branch `feature/content-expansion-mt68`; claim Bài 2/card; [handoff](../tasks/active/PR21-HANDOFF.md) |
 | CONTENT-011 | Thọ / Trúc | Thọ; historical/media reviewer | 2026-09-27 | REVIEW Bài 3–4 sau sửa fact/wording | Historical/media sign-off | Branch `feature/content-expansion-mt68`; claim Bài 3–4/card; [handoff](../tasks/active/PR21-HANDOFF.md) |
 | CONTENT-012 | Thọ / Trúc | Vinh (QA); Thọ (objective) | 2026-09-27 | REVIEW năm câu hỏi và source ID | Chưa xác nhận mapper/seed contract; authoring-only | Branch `feature/content-expansion-mt68`; claim quiz/card; [handoff](../tasks/active/PR21-HANDOFF.md) |
@@ -199,6 +200,7 @@ Mỗi lần handoff quan trọng thêm một dòng mới nhất ở đầu bản
 
 | Date | Task | Author | Update | Evidence / next owner |
 |---|---|---|---|---|
+| 2026-09-28 | CONTENT-003/004/007 | Trúc (Codex hỗ trợ) | Đồng bộ board/card: gỡ hai card mâu thuẫn của CONTENT-004, chuyển thành một card `REVIEW`; sửa link/status board và làm rõ CONTENT-007 vẫn `BLOCKED` | Trúc review historical/media, Vinh technical QA; Product owner mới quyết định mở production sau sign-off |
 | 2026-09-26 | CONTENT-006 | Trúc (Codex hỗ trợ) | Đồng bộ sau quyền mới: Thọ giao Trúc review objective/wording và Product owner giao Trúc chốt media/legal; hồ sơ chỉ đạt `REFERENCE_ONLY`, không publish/integration | `active.md` và card CONTENT-006; next chỉ phát sinh nếu tạo media package mới hoặc sửa wording/audio/nhạc/SFX/source export |
 
 | 2026-09-26 | CONTENT-009 | Teamwork Reviewer (Round 3) | Hoàn thành Review Round 3 (Final Adversarial Review): Sửa nhầm lẫn ngày truyền thống không quân (03/4 là ngày đánh thắng trận đầu), đính chính tên phi công Pa Thí (Đinh Công Vượng thay vì Đinh Tôn) và chỉ huy Truông Bồn (Trần Thị Doãn); bổ sung đầy đủ verified facts cho 100% bài học ở cả 4 chủ đề; chuẩn hóa schema Phase 3 hai chiều (supports_claims, text_or_reference, historical_scope, reviewer) | Evidence tại docs/features/research-content-009.md; bàn giao PO (CONTENT-002) & Historical Reviewer (CONTENT-003) |

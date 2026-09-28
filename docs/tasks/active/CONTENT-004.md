@@ -1,6 +1,6 @@
 # CONTENT-004 — Screenplay và kịch bản/storyboard video
 
-> Status: DONE\
+> Status: REVIEW\
 > Last updated: 2026-09-27
 
 ## Assignment
@@ -10,9 +10,9 @@
 - Accountable owner: Thọ (Member 1)
 - Executor type: Human hoặc Codex hỗ trợ bản nháp
 - Executor name: Thọ (Member 1)
-- Reviewer: Historical reviewer + Product owner
+- Reviewer: Trúc (historical/media) + Vinh (technical QA); Product owner quyết định mở production sau review
 - Codex task/thread: sửa hồ sơ PR #21
-- Branch: feature/content-expansion-mt68
+- Branch: `codex/content-status-sync` (hồ sơ đồng bộ); evidence authoring: `codex/mt68-complete-handoff`
 - Started: 2026-09-26
 - Depends on: CONTENT-003, CONTENT-008 (`DONE`), DOC-006 (`DONE`)
 
@@ -20,15 +20,15 @@
 
 - In scope: screenplay scene-by-scene và kịch bản/storyboard cho Pilot Video "Kế hoạch Giao Thừa" (Lesson 1) trong chapter mẫu Mậu Thân 1968; ghi rõ objectives, fact/source, visual cues chuẩn 9:16 dọc (1080x1920), voiceover, SFX/BGM, phụ đề WebVTT, truth classification (`verified_fact`), full transcript, poster frame và fallback card spec để bàn giao cho Trúc (Member 2) sản xuất video.
 - Out of scope: tự dựng/biên tập file MP4 cuối cùng (thuộc trách nhiệm Member 2/CONTENT-007), tự publish bài học mà chưa qua QA.
-- Files claimed: `docs/content/PILOT-SCREENPLAY.md`.
+- Files claimed: `docs/content/PILOT-SCREENPLAY.md`, `PILOT-NARRATION.json`, `PILOT-CAPTIONS.vtt`, `HISTORICAL-SOURCES.md`, `DETAILED-MEDIA-CATALOG.csv`, card này và `docs/project/TASK-BOARD.md`.
 - Shared-contract consumers: Member 2/CONTENT-007, Member 4/FE-005/006, CONTENT-005.
 
 ## Acceptance criteria
 
-- [ ] Mỗi scene/lesson có mục tiêu học, bối cảnh, vai trò và lựa chọn phù hợp Phase 2/5.
-- [ ] Các câu lịch sử gắn nguồn; fiction/perspective được nêu rõ để historical reviewer kiểm tra.
-- [ ] Kịch bản/storyboard video đủ rõ để Member 2 dựng, có lời dẫn/hình/media và vị trí trong lesson (video dọc 9:16, 110s, 5 phân cảnh).
-- [ ] Product owner và historical reviewer review trước khi chuyển cho Member 2 sản xuất.
+- [x] Mỗi scene/lesson có mục tiêu học, bối cảnh, vai trò và lựa chọn phù hợp Phase 2/5; evidence ở `CONTENT-014` validator.
+- [x] Claim/source, narration và VTT đã được sửa trong gói authoring; historical reviewer còn phải xác nhận.
+- [x] Kịch bản/storyboard có 5 scene, bản 9:16 và timing authoring 110 giây; chưa phải MP4 đã duyệt.
+- [ ] Trúc historical/media, Vinh technical QA và Product owner xác nhận trước khi chuyển cho Member 2 sản xuất.
 
 ## Verification
 
@@ -42,19 +42,26 @@
 | 2026-09-23 | Codex | Tạo card và nêu handoff Member 1 → Member 2 | Task board / DOC-013 | Chờ curriculum map và historical source review | CONTENT-003/008 chưa xong |
 | 2026-09-26 | Thọ (Member 1) | Hoàn thành Screenplay chi tiết phân cảnh 9:16 cho Pilot Video "Kế hoạch Giao Thừa" (5 scenes, 110s, VTT, transcript, poster, fallback) | `docs/content/PILOT-SCREENPLAY.md` | Bàn giao cho Member 2 (Trúc) sản xuất video qua CONTENT-007; chuyển task DONE | Không |
 
+## Checkpoint 2026-09-28 — đồng bộ trạng thái
+
+- Card `DONE` và card `BLOCKED` trước đây cùng tồn tại cho `CONTENT-004`; board còn liên kết nhầm sang card blocked. Theo `AGENTS.md` và `docs/tasks/README.md`, acceptance cuối cần reviewer xác nhận, nên task được hợp nhất thành một card `REVIEW`, không phải `DONE` hay `BLOCKED`.
+- Bản sửa authoring do Trúc thực hiện theo quyền Thọ giao đã có evidence ở `CONTENT-014`: 5 scene, narration/VTT khớp 110 giây, claim/source và media catalog được validator kiểm tra. Đây là deliverable để review, không phải sign-off phát hành.
+- Next action: Trúc review lịch sử/media của pilot; Vinh chạy technical QA. Chỉ khi hai review và Product owner ghi quyết định rõ thì mới xem dependency của `CONTENT-007` đạt.
+- Blocker: chưa có historical/media sign-off, quyền audio/từng asset và bản MP4 cuối; `CONTENT-007` giữ `BLOCKED`.
+
 ## Checkpoint 2026-09-27 — thay thế kết luận DONE trước đây
 
 - Trúc được Thọ cấp quyền sửa hồ sơ PR #21; executor screenplay vẫn là Thọ.
 - Review CONTENT-003 còn NEEDS_REVISION; không đạt dependency để sản xuất.
 - Các checkpoint cũ ghi DONE/không blocker không còn là trạng thái hiện hành.
 - Files claimed cho lượt sửa hồ sơ: card này, board, cờ trạng thái/checklist của PILOT-SCREENPLAY; không viết lại kịch bản trong lượt sửa Bài 2–4.
-- Next action: Thọ đã sửa xong 100%, timeline 110s/VTT 115s, khớp transcript/caption, nguồn/claim và media; historical reviewer kiểm tra lại.
-- Hợp nhất card active vào blocked, giữ lịch sử; một ID chỉ còn một card.
+- Next action: superseded by checkpoint 2026-09-28.
+- Lịch sử cũ từng có hai card; bản hiện hành chỉ dùng card `REVIEW` này.
 
 ## Handoff
 
-- Changed files: card này, board và cờ review/checklist của PILOT-SCREENPLAY.
-- Test/build result: docs-only; không chạy build/typecheck vì không đổi code/runtime.
+- Changed files: authoring evidence trong `CONTENT-014`; hồ sơ hiện hành: card này và task board.
+- Test/build result: `node docs/content/validate-mt68-authoring.mjs` PASS theo `CONTENT-014`; docs-only, không có runtime change từ lượt đồng bộ trạng thái.
 - Environment/migration impact: không có.
-- Known issues: source/media và các lỗi pilot nêu trên chưa giải quyết; không coi AI review là approval.
-- Next owner/action: Bàn giao Trúc sản xuất (CONTENT-007 unblocked).
+- Known issues: reviewer chưa sign-off; quyền audio/từng asset và MP4 cuối chưa có evidence. Không coi AI review là approval.
+- Next owner/action: Trúc review historical/media, Vinh technical QA; Product owner quyết định sau evidence. `CONTENT-007` vẫn BLOCKED.
