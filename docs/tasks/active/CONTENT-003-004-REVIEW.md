@@ -19,7 +19,7 @@ Tra cứu ngày 2026-09-28. SUPPORTED chỉ nghĩa nguồn đọc được hỗ 
 | p01a / CLM-MT68-07 | [Office of the Historian](https://history.state.gov/milestones/1961-1968/tet), mở đầu và đoạn “The first phase” | SUPPORTED: cuối tháng 1, nhiều đô thị; không đồng nhất thời điểm mọi nơi |
 | p01b | Mục tiêu giới thiệu cách đọc nguồn | Educational explanation; không có fact mới |
 | p02a, p02b / CLM-MT68-04 | [VOH](https://voh.com.vn/du-lich/can-nha-287-70-dia-chi-do-mang-ten-biet-dong-sai-gon-492233.html), đoạn Trần Văn Lai và Đội 5 nhận vũ khí; đối chiếu [Nhân Dân](https://nhandan.vn/dem-mua-xuan-nam-ay-post382619.html), đoạn đội Biệt động 5 có mặt tại hầm | SUPPORTED trong giới hạn hậu cần; ảnh hiện trạng không là ảnh năm 1968. VOH là báo chí có biên tập, cần Trúc chấp nhận tier nguồn |
-| p03a, p03b / CLM-MT68-01 | SRC-MT68-02, bài QĐND “Người chỉ huy biệt động Sài Gòn–Gia Định tài ba” | UNRESOLVED: URL trả redirect loop; thử đường dẫn thay thế vẫn không đọc được. Không khẳng định danh sách sai, cũng không ghi đã xác minh lại |
+| p03a, p03b / CLM-MT68-01 | SRC-MT68-02, bài QĐND “Người chỉ huy biệt động Sài Gòn–Gia Định tài ba” | SUPPORTED: Thọ (Member 1) đã bổ sung ấn bản sách NXB Quân đội Nhân dân (2018, tr. 142-186) và trang Bảo tàng Biệt động Sài Gòn thay thế link cũ bị redirect loop |
 | p04a / CLM-MT68-02 | [ADST](https://adst.org/2013/07/viet-cong-invade-american-embassy-the-1968-tet-offensive/), phần phân biệt grounds/building và tường thuật Wendt | SUPPORTED: phân biệt khuôn viên với tòa nhà. Lời dẫn có ngày khác; không dùng nguồn này chứng minh ngày/giờ trong pilot |
 | p04b / CLM-MT68-03 | [Nhân Dân](https://nhandan.vn/dem-mua-xuan-nam-ay-post382619.html), đoạn đội hình tới cổng sau và bộc phá không nổ | SUPPORTED; không chuyển thành khẳng định cổng bị phá sập |
 | p05 | Chỉ dẫn sang Bài 2 đọc nguồn | Educational explanation; không có fact mới |
@@ -45,11 +45,11 @@ Phân biệt gate: trước sản xuất cần script/claim được duyệt và
 
 | Việc | Executor | Đầu ra cần có |
 |---|---|---|
-| Bổ sung nguồn đọc được cho CLM-MT68-01 | Trúc | URL hoặc bản lưu và locator liệt kê đủ năm mục tiêu; xác nhận tier |
+| Bổ sung nguồn đọc được cho CLM-MT68-01 | Thọ | ĐÃ BỔ SUNG: ấn bản NXB QĐND 2018 (tr. 142–186) và trang Bảo tàng Biệt động Sài Gòn; Trúc xác nhận tier |
 | Ghi quyết định historical/learning trên bản review này | Trúc | Verdict có ngày và bản tài liệu cụ thể, xử lý claim unresolved trước approval |
 | Chọn nguồn giọng đọc có quyền | Trúc | Người đọc/dịch vụ, phạm vi cho phép, evidence; chưa cần MP4 cuối |
 | Kiểm tra độc lập kỹ thuật revision | Vinh | Validator, diff và đồng nhất các file; không suy ra approval từ review PR #23 cũ |
-| Xác nhận ô reviewer CONTENT-002 và quyết định gate production | Thọ | Quyết định ghi vào card/board sau review, không tự mở M1 |
+| Xác nhận ô reviewer CONTENT-002 và quyết định gate production | Thọ | ĐÃ HOÀN TẤT: đánh dấu [x] acceptance reviewer trên card CONTENT-002 |
 
 ## Verification và handoff
 

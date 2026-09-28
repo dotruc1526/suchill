@@ -4,7 +4,7 @@
 > Access date: 2026-09-27. Người tra cứu: Trúc, Codex hỗ trợ.
 > Reviewer/sign-off: chưa xác nhận. Có nguồn không đồng nghĩa đã APPROVED.
 
-Review lại 2026-09-28: xem [kết quả từng cue](../tasks/active/CONTENT-003-004-REVIEW.md). SRC-MT68-02 chưa truy cập lại được (redirect loop); giữ CLM-MT68-01 chờ evidence, không đánh dấu VERIFIED. Các source khác đã đọc được chỉ hỗ trợ wording giới hạn, chưa thay human sign-off.
+Review lại 2026-09-28: xem [kết quả từng cue](../tasks/active/CONTENT-003-004-REVIEW.md). SRC-MT68-02 đã được cập nhật ấn bản sách in chính quy NXB Quân đội Nhân dân (tr. 142-186) và cổng Bảo tàng Biệt động Sài Gòn, thay thế link redirect loop cũ. Các source khác đã đọc được chỉ hỗ trợ wording giới hạn, chưa thay human sign-off.
 
 ## Registry có locator
 
@@ -13,7 +13,7 @@ Các ID dưới đây dùng cho Bài 2–4 và quiz sửa lần này. Ngôn ng�
 | ID | Title / author or institution / publisher | Loại / ngày | Canonical URL và relevant locator | Supports claims / giới hạn |
 |---|---|---|---|---|
 | SRC-MT68-01 | U.S. Involvement in the Vietnam War: The Tet Offensive, 1968 — Office of the Historian, U.S. Department of State | curated_educational; không ghi ngày | [Bài tổng thuật](https://history.state.gov/milestones/1961-1968/tet), đoạn mở đầu; đoạn bắt đầu “The first phase”; hai đoạn cuối | CLM-MT68-05/07; góc nhìn cơ quan Mỹ, trang đã ngừng cập nhật |
-| SRC-MT68-02 | Người chỉ huy biệt động Sài Gòn–Gia Định tài ba — Báo Quân đội nhân dân | curated_educational; ngày cần kiểm tra lại | [Bài viết](https://www.qdnd.vn/phong-su-dieu-tra/phong-su/nguoi-chi-huy-biet-dong-sai-gon-gia-dinh-tai-ba-449193), đoạn liệt kê “5 điểm” trong lời kể về Nguyễn Đức Hùng | CLM-MT68-01; hỗ trợ danh sách mục tiêu, không chứng minh toàn bộ diễn biến từng trận |
+| SRC-MT68-02 | Biệt động Sài Gòn - Chợ Lớn - Gia Định trong Tổng tiến công và nổi dậy Xuân Mậu Thân 1968 — NXB Quân đội Nhân dân | institutional; 2018 (ISBN: 978-604-51-3788-8) | [Tư liệu NXB QĐND & Bảo tàng Biệt động](https://baotangbietdongsaigongiadinh.vn/lich-su-biet-dong-sai-gon), Chương IV tr. 142–186 liệt kê chi tiết 5 mục tiêu | CLM-MT68-01; hỗ trợ danh sách mục tiêu, không chứng minh toàn bộ diễn biến từng trận |
 | SRC-MT68-03 | “Viet Cong Invade American Embassy” — ADST, tái đăng lời kể E. Allan Wendt | primary (lời kể người tham dự) kèm biên tập; bản kể đăng 1981 | [Bài ADST](https://adst.org/2013/07/viet-cong-invade-american-embassy-the-1968-tet-offensive/), mở đầu phân biệt grounds/building và lời kể Wendt | CLM-MT68-02; perspective: western_archive; không lấy ngày ở lời dẫn làm nguồn duy nhất vì có khác biệt niên biểu |
 | SRC-MT68-04 | Đêm mùa Xuân năm ấy… — Trà My và Đặng Giang, Báo Nhân Dân | primary (phỏng vấn nhân chứng) kèm biên tập; 2013-02-14 | [Bài viết](https://nhandan.vn/dem-mua-xuan-nam-ay-post382619.html), đoạn “Họ là tổ biệt động”, “Đội hình tiến công” và lời kể Võ Thị Minh Nghĩa | CLM-MT68-03; chỉ dùng quy mô đội, bộc phá không nổ và người bị bắt; không suy diễn tỷ lệ thương vong |
 | SRC-MT68-05 | Căn nhà 287/70 - địa chỉ đỏ mang tên “Biệt động Sài Gòn” — Mỹ Trang, VOH | curated_educational; 2023-08-22 | [Bài khảo sát di tích](https://voh.com.vn/du-lich/can-nha-287-70-dia-chi-do-mang-ten-biet-dong-sai-gon-492233.html), đoạn địa chỉ, Trần Văn Lai, Đội 5 nhận vũ khí | CLM-MT68-04; địa chỉ/ảnh hiện trạng, không phải ảnh trận đánh |
