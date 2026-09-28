@@ -111,10 +111,10 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 
 | ID | Phase | Task | Owner | Status | Depends on | Files | Acceptance / next action |
 |---|---|---|---|---|---|---|---|
-| FE-001 | Foundation | Sửa TypeScript baseline | Hưng (Member 3) | DONE | DOC-010 | [`docs/tasks/done/FE-001.md`](../tasks/done/FE-001.md) | Đã sửa 18 lỗi typecheck; `npx tsc --noEmit` pass 100% |
-| FE-002 | Foundation | Chọn canonical features architecture và cô lập legacy | Hưng (Member 3) | BACKLOG | FE-001, DOC-010 | `src/features/`, `src/screens/` | Không còn duplicate runtime path |
+| FE-001 | Foundation | Sửa TypeScript baseline | Hưng (Member 3) | DONE | DOC-010 | [`docs/tasks/done/FE-001.md`](../tasks/done/FE-001.md) | Đã sửa 18 lỗi typecheck; PR #12/#13 merged vào main; Vinh nghiệm thu M0-02, card đồng bộ ngày 2026-09-28 |
+| FE-002 | Foundation | Chọn canonical features architecture và cô lập legacy | Hưng (Member 3) | DONE | FE-001, DOC-010 | [`docs/tasks/done/FE-002.md`](../tasks/done/FE-002.md) | Vinh nghiệm thu: 10 screens trong legacy, không import runtime; `npm run quality` pass ngày 2026-09-28 |
 | FE-003 | Design system | Chuẩn hóa tokens và UI primitives | Hưng (Member 3) | BACKLOG | FE-001, DOC-010 | `src/theme/`, `src/components/ui/` | UI dùng tokens; ChoiceOption được reuse |
-| FE-004 | App shell | Tách navigation/view state khỏi App quá lớn | Hưng (Member 3) | BACKLOG | FE-001, DOC-005, DOC-006 | `src/App.tsx`, app-state modules | App shell nhẹ, flow test được |
+| FE-004 | App shell | Tách navigation/view state khỏi App quá lớn | Hưng (Member 3); Codex bổ sung theo yêu cầu Vinh | DONE | FE-001, DOC-005, DOC-006 | [`docs/tasks/done/FE-004.md`](../tasks/done/FE-004.md) | `tab/view` state ở hook riêng, App 87 dòng; quality + navigation smoke pass; Vinh nghiệm thu ngày 2026-09-28 |
 | FE-005 | VN engine | Xây player v2 trên mock adapter | Dương (Member 4) | BACKLOG | FE-003, DOC-005, DOC-006 | `src/features/visual-novel/` | Scene/choice/retry/debrief/resume/error pass |
 | FE-006 | Video | Xây video-led lesson player và tích hợp media đã duyệt | Dương (Member 4) | BACKLOG | FE-003, DOC-005, DOC-006 | `src/features/learning/` | Player chạy trên mock trước; tích hợp bài học canonical sau CONTENT-007 với caption/transcript/resume/fallback |
 | FE-007 | Quiz | Hợp nhất knowledge check và chapter quiz rules | Dương (Member 4) | BACKLOG | FE-003, DOC-006, DOC-008 | `src/features/quiz/` | Không duplicate reward; feedback accessible |
@@ -198,6 +198,8 @@ Mỗi lần handoff quan trọng thêm một dòng mới nhất ở đầu bản
 
 | Date | Task | Author | Update | Evidence / next owner |
 |---|---|---|---|---|
+| 2026-09-28 | FE-004 | Vinh (reviewer) / Codex ghi nhận | Vinh xác nhận bản bổ sung đạt yêu cầu; FE-004 `DONE` trên card và board, không tự đóng M0 | App 87 dòng; `npm run quality` exit 0; browser smoke pass; lời xác nhận trực tiếp “a thấy ok rồi” |
+| 2026-09-28 | FE-004 | Codex theo yêu cầu Vinh | Bổ sung tách `tab/view` state khỏi App, chuyển REVIEW để Vinh nghiệm thu; không tự đóng M0 | App 87 dòng; `npm run quality` exit 0; browser smoke 4 tab, VN, quiz/result, lesson/completion, console 0 error |
 | 2026-09-28 | DOC-011/012/013/014/015, FE-001, CONTENT-009, CONTENT-013 | Thọ (Product Owner) | PO nghiệm thu đồng loạt 8 task đạt acceptance criteria; chuyển DONE. CONTENT-003/010/011/012 giữ REVIEW chờ Trúc (Historical Reviewer) và Vinh (QA) | Task cards chuyển sang docs/tasks/done/; board cập nhật |
 | 2026-09-26 | CONTENT-006 | Trúc (Codex hỗ trợ) | Đồng bộ sau quyền mới: Thọ giao Trúc review objective/wording và Product owner giao Trúc chốt media/legal; hồ sơ chỉ đạt `REFERENCE_ONLY`, không publish/integration | `active.md` và card CONTENT-006; next chỉ phát sinh nếu tạo media package mới hoặc sửa wording/audio/nhạc/SFX/source export |
 
@@ -267,5 +269,3 @@ AI phải đọc task board trước khi làm việc. Nếu task `BLOCKED` hoặ
 - Content task có review/source status.
 - Backend task có migration/RLS/security evidence.
 - Task board cập nhật status, evidence và handoff note.
-
-

@@ -6,30 +6,22 @@ import { PracticeScreen } from './features/practice/PracticeScreen'
 import { AIScreen } from './features/ai-assistant/AIScreen'
 import { ProfileScreen } from './features/profile/ProfileScreen'
 import { AppViewRouter } from './app/AppViewRouter'
+import { useAppNavigation } from './app/useAppNavigation'
 import { userStats } from './data'
-import type { Tab, View } from './types'
 
 export default function App() {
-  const [tab, setTab] = useState<Tab>('home')
-  const [view, setView] = useState<View>({ type: 'home' })
+  const navigation = useAppNavigation()
   const [xp, setXP] = useState(userStats.xp)
-
-  const goHome = () => setView({ type: 'home' })
-  const goChapter = (id: number) => setView({ type: 'chapter', chapterId: id })
-  const goLesson = (cid: number, idx: number) => setView({ type: 'lesson', chapterId: cid, lessonIdx: idx })
-  const goQuiz = (cid: number) => setView({ type: 'quiz', chapterId: cid })
 
   const handleLessonDone = (cid: number, lidx: number) => {
     setXP(x => x + 10)
-    setView({ type: 'lesson-done', chapterId: cid, lessonIdx: lidx })
+    navigation.showLessonDone(cid, lidx)
   }
 
   const handleQuizDone = (score: number, total: number, cid: number) => {
     setXP(x => x + score * 10)
-    setView({ type: 'quiz-result', score, total, chapterId: cid })
+    navigation.showQuizResult(cid, score, total)
   }
-
-  const isOverlay = view.type !== 'home'
 
   return (
     <div
@@ -56,35 +48,35 @@ export default function App() {
 
         {/* ── Main content (Tabs) ── */}
         <div className="flex flex-col flex-1 overflow-hidden z-10">
-          {!isOverlay && (
+          {!navigation.isOverlay && (
             <TopBar xp={xp} streak={userStats.streak} achievements={userStats.achievements} />
           )}
 
-          {!isOverlay && (
+          {!navigation.isOverlay && (
             <div className="flex-1 overflow-y-auto">
-              {tab === 'home' && (
+              {navigation.tab === 'home' && (
                 <HomeScreen
-                  onChapter={goChapter}
-                  onLesson={(cid, idx) => goLesson(cid, idx)}
+                  onChapter={navigation.goChapter}
+                  onLesson={navigation.goLesson}
                 />
               )}
-              {tab === 'practice' && <PracticeScreen />}
-              {tab === 'ai' && <AIScreen />}
-              {tab === 'profile' && <ProfileScreen xp={xp} />}
+              {navigation.tab === 'practice' && <PracticeScreen />}
+              {navigation.tab === 'ai' && <AIScreen />}
+              {navigation.tab === 'profile' && <ProfileScreen xp={xp} />}
             </div>
           )}
 
-          {!isOverlay && <BottomNav tab={tab} onTab={setTab} />}
+          {!navigation.isOverlay && <BottomNav tab={navigation.tab} onTab={navigation.selectTab} />}
         </div>
 
         {/* ── Overlay screen router ── */}
-        {isOverlay && (
+        {navigation.isOverlay && (
           <AppViewRouter
-            view={view}
-            goHome={goHome}
-            goChapter={goChapter}
-            goLesson={goLesson}
-            goQuiz={goQuiz}
+            view={navigation.view}
+            goHome={navigation.goHome}
+            goChapter={navigation.goChapter}
+            goLesson={navigation.goLesson}
+            goQuiz={navigation.goQuiz}
             handleLessonDone={handleLessonDone}
             handleQuizDone={handleQuizDone}
           />
