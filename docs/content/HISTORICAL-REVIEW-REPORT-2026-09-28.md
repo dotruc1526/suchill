@@ -106,7 +106,8 @@ VERDICT: APPROVED
   - `CONTENT-010` ➔ **DONE**
   - `CONTENT-011` ➔ **DONE**
   - `CONTENT-015` ➔ **DONE**
-  - `CONTENT-016` ➔ **DONE** (Luồng sam2-v1-perspective đã được sửa để bắt buộc đi qua cả 2 nội dung trước knowledge check)
+  - `CONTENT-016` ➔ **DONE**
+  - `CONTENT-017` ➔ **APPROVED BY HISTORICAL REVIEWER** (Trúc thẩm định sử liệu kịch bản 8 cảnh và sơ đồ SAM-2; claims CLM-1972-VN-001..005 đạt chuẩn; luồng học đã sửa để người học đi qua đủ 2 nội dung trước knowledge check)
 - **Các task được MỞ KHÓA (UNBLOCKED):**
   - 🔓 **`CONTENT-007` (Sản xuất video bài học):** Đã đủ kịch bản, lời dẫn, nguồn được duyệt; chuyển cho Trúc (Member 2) bắt tay vào sản xuất video!
   - 🔓 **`FE-005` & `FE-006`:** Dương (Member 4) có thể tích hợp dữ liệu câu chuyện và video player lên màn hình ứng dụng.

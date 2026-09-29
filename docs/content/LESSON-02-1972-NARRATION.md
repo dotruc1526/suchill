@@ -58,42 +58,37 @@
 ---
 
 ### PHÂN CẢNH 3: `sam2-v1-perspective` — Góc nhìn nghiên cứu
-* **Định dạng:** Branching Choice (Lựa chọn rẽ nhánh)
-* **Visual Cue:** Bảng lựa chọn trực quan nổi bật trên nền giao diện học tập với hai hướng tiếp cận chuyên sâu.
-* **Tiêu đề câu hỏi:** "Để thấu hiểu bí quyết đánh bại siêu pháo đài bay B-52, bạn muốn tìm hiểu khía cạnh chiến thuật nào trước?"
-* **Các lựa chọn:**
-  * **Lựa chọn A:** *"Quy trình phối hợp nhịp nhàng trong cabin"*
-    * Phản hồi: *"Cùng phân tích quy trình hiệp đồng 3 chiều giữa các trắc thủ và đài radar Fan Song."*
-    * Đích đến: ➔ `sam2-v1-coordination`
-  * **Lựa chọn B:** *"Kỹ thuật 'vạch nhiễu tìm thù' trên màn radar"*
-    * Phản hồi: *"Cùng giải mã cách trắc thủ Việt Nam nhận diện tín hiệu B-52 giữa các tầng nhiễu điện tử theo Cẩm nang bìa đỏ."*
-    * Đích đến: ➔ `sam2-v1-interference`
-* **Nguyên tắc:** Lựa chọn hoàn toàn trung tính (Neutral), không có đúng/sai, không chấm điểm, chỉ đổi góc đọc tài liệu.
+* **Định dạng:** Narration (Lời dẫn định hướng nghiên cứu)
+* **Visual Cue:** Bảng định hướng trực quan nổi bật trên nền giao diện học tập giới thiệu hai khía cạnh chiến thuật then chốt mà người học sẽ lần lượt khám phá: quy trình hiệp đồng trong cabin và nghệ thuật vạch nhiễu trên màn radar.
+* **Lời dẫn (Narration):**
+  > "Để thấu hiểu bí quyết đánh bại siêu pháo đài bay B-52, chúng ta sẽ tìm hiểu quy trình phối hợp nhịp nhàng trong cabin và kỹ thuật 'vạch nhiễu tìm thù'."
+* **Phân loại sử liệu:** `educational_explanation`
 * **Mã Claim & Nguồn:** `CLM-1972-VN-006`
+* **Chuyển cảnh:** ➔ `sam2-v1-coordination`
 
 ---
 
 ### PHÂN CẢNH 4: `sam2-v1-coordination` — Bốn khối óc, một nhịp thở
-* **Định dạng:** Narration (Lời dẫn nhánh phối hợp)
+* **Định dạng:** Narration (Lời dẫn quy trình hiệp đồng kíp trắc thủ)
 * **Visual Cue:** Cận cảnh đôi bàn tay trắc thủ xoay nhẹ vô lăng vi chỉnh; vạch chuẩn trên hai màn hình góc tà và phương vị dần hội tụ; ngón tay Sĩ quan điều khiển đặt sẵn trên nút bấm đỏ "Phóng".
 * **Audio Cue:** Khẩu lệnh khẩu đội mô phỏng: tiếng đếm cự ly dồn dập, tiếng đóng mở rơ-le tiếp điểm điện tử.
 * **Lời dẫn (Narration):**
   > "Trong cabin, trắc thủ phương vị quay vô lăng giữ mục tiêu trên trục ngang, trắc thủ góc tà bám chắc góc ngẩng thẳng đứng, còn trắc thủ cự ly liên tục đếm ngược khoảng cách (40km... 35km... 30km). Sĩ quan điều khiển tổng hợp cả 3 nguồn tham số, phán đoán thời điểm đài radar Fan Song khóa mục tiêu để phát lệnh phóng đạn. Sai số một phần giây hoặc lệch một độ góc sẽ khiến tên lửa trượt khỏi mục tiêu ở trần bay trên 10.000 mét."
 * **Phân loại sử liệu:** `verified_fact` + `educational_explanation`
 * **Mã Claim & Nguồn:** `CLM-1972-VN-002`, `CLM-1972-VN-005` | *Nguồn: `SRC-1972-02`, `SRC-1972-WEB-02`*
-* **Chuyển cảnh:** Hội tụ về ➔ `sam2-v1-check`
+* **Chuyển cảnh:** Đi tiếp sang nội dung thứ hai ➔ `sam2-v1-interference`
 
 ---
 
 ### PHÂN CẢNH 5: `sam2-v1-interference` — Nghệ thuật vạch nhiễu tìm thù
-* **Định dạng:** Narration (Lời dẫn nhánh nhận diện nhiễu)
+* **Định dạng:** Narration (Lời dẫn nhận diện tín hiệu mục tiêu trong nhiễu)
 * **Visual Cue:** Minh họa màn hình radar chằng chịt các vệt sáng quét ngang quét dọc (nhiễu rải thảm kim loại và nhiễu tích cực); hình ảnh cuốn tài liệu gáy đỏ *"Cách đánh B-52 của bộ đội tên lửa"* đặt trên bàn chỉ huy.
 * **Audio Cue:** Tiếng rít rè rè của tạp âm điện tử tần số cao, xen lẫn nhịp quét đều đặn của tia sáng màn huỳnh quang.
 * **Lời dẫn (Narration):**
   > "Mỗi tốp B-52 được bảo vệ bởi hàng chục máy bay hộ tống cùng hàng trăm máy phát nhiễu rải thảm tích cực và tiêu cực, tạo nên dải nhiễu sáng rực như 'bó chổi chà' che kín màn huỳnh quang. Theo hướng dẫn của cuốn 'Cẩm nang bìa đỏ Cách đánh B-52' (10/1972), trắc thủ bằng mắt thường và kinh nghiệm săn B-52 tại Vĩnh Linh đã tìm ra quy luật: dải nhiễu B-52 đậm đặc hơn, có độ mịn, gợn sóng đặc trưng và di chuyển ổn định hơn nhiễu của máy bay chiến thuật."
 * **Phân loại sử liệu:** `verified_fact`
 * **Mã Claim & Nguồn:** `CLM-1972-VN-003`, `CLM-1972-VN-004`, `CLM-1972-VN-005` | *Nguồn: `SRC-1972-03` ("Cẩm nang bìa đỏ"), `SRC-1972-WEB-01`, `SRC-1972-WEB-03`*
-* **Chuyển cảnh:** Hội tụ về ➔ `sam2-v1-check`
+* **Chuyển cảnh:** Sau khi hoàn thành đủ cả hai nội dung, chuyển sang ➔ `sam2-v1-check`
 
 ---
 
