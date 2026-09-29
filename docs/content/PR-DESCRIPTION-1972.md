@@ -44,11 +44,21 @@ Pull Request này bàn giao trọn vẹn gói nội dung hoàn chỉnh đầu ti
 
 ---
 
-## 📚 Ma trận Bằng chứng & Trích dẫn Nguồn sử liệu (Evidence & Citation Matrix)
+### 📚 Ma trận Bằng chứng & Trích dẫn Nguồn sử liệu (Evidence & Citation Matrix)
 
-Toàn bộ 4 bài học đều được đối chiếu và trích dẫn trực tiếp từ các tài liệu chính thống có mã số trang và các Cổng thông tin điện tử Nhà nước / Báo chí Quân đội chính thống:
+### 1. Bảng Trích Dẫn Nguồn trên các Trang Chính Thống
 
-### 1. Sách in & Công trình lịch sử chính quy:
+| Trang chính thống | Tiêu đề bài viết tư liệu | Link bài viết (Click để mở) | Dữ kiện lịch sử được bảo chứng | Bài học áp dụng |
+|---|---|---|---|---|
+| **Báo điện tử Chính phủ** | *Hà Nội - Điện Biên Phủ trên không 1972: Sức mạnh Việt Nam và tầm vóc thời đại* | [baochinhphu.vn](https://baochinhphu.vn/ha-noi-dien-bien-phu-tren-khong-1972-suc-manh-viet-nam-va-tam-voc-thoi-dai-102221209145629429.htm) | Toàn cảnh 12 ngày đêm, bắn rơi 81 máy bay (34 B-52, 16 chiếc rơi tại chỗ), buộc Mỹ ký Hiệp định Paris 1973 | **Bài 1, Bài 3, Bài 4** |
+| **Báo Quân đội nhân dân** | *Bài 2: Chuẩn bị chu đáo, kỹ lưỡng trên tất cả mọi mặt* | [qdnd.vn](https://ct.qdnd.vn/ho-so-tu-lieu/bai-2-chuan-bi-chu-dao-ky-luong-tren-tat-ca-moi-mat-521888) | Tên lửa SAM-2 (S-75 Dvina), vai trò radar trước nhiễu điện tử, thuật ngữ *"vạch nhiễu tìm thù"*, phổ biến Cẩm nang bìa đỏ | **Bài 1, Bài 2** |
+| **Báo Quân đội nhân dân** | *Hạ con "ngáo ộp" đầu tiên* | [qdnd.vn](https://ct.qdnd.vn/chan-dung-nguoi-linh/ha-con-ngao-op-dau-tien-528517) | Tiểu đoàn 59 (Trung đoàn 261) phóng 2 đạn SAM-2 bắn rơi chiếc B-52 đầu tiên tại cánh đồng Chuôm, Phù Lỗ lúc 20h13 đêm 18/12 | **Bài 2** |
+| **Báo Quân đội nhân dân** | *Huyền thoại tên lửa SAM-2* | [qdnd.vn](https://ct.qdnd.vn/phong-su-dieu-tra/huyen-thoai-ten-lua-sam-2-528519) | Cấu trúc kíp chiến đấu SAM-2 trong cabin Xe K, môi trường tác chiến điện tử ECM tháng 12/1972 | **Bài 2, Bài 4** |
+| **Báo Nhân Dân** | *"Pháo đài bay" B-52 đầu tiên đã bị hạ gục như thế* | [nhandan.vn](https://nhandan.vn/phao-dai-bay-b52-dau-tien-da-bi-ha-guc-nhu-the-post440097.html) | Tuyến lửa Vĩnh Linh 1966-1967 nghiên cứu cách đánh B-52, quá trình hình thành tài liệu "Cẩm nang bìa đỏ", SA-75 SAM-2 | **Bài 1, Bài 2** |
+| **Báo Nhân Dân** | *Thắng lợi của sức mạnh đại đoàn kết dân tộc* | [nhandan.vn](https://nhandan.vn/thang-loi-cua-suc-manh-dai-doan-ket-dan-toc-post385567.html) | Tội ác bom rải thảm B-52 tại phố Khâm Thiên đêm 26/12 (287 người chết, 290 người bị thương) và Bệnh viện Bạch Mai | **Bài 3, Bài 4** |
+| **Tạp chí Cộng sản** | *Chiến thắng "Điện Biên Phủ trên không" - Ý chí, bản lĩnh và trí tuệ Việt Nam* | [tapchicongsan.org.vn](https://www.tapchicongsan.org.vn/en_US/web/guest/dang-uy-khoi-doanh-nghiep-trung-uong/-/2018/826621/view_content) | Phân tích đòn bẻ gãy ý chí tập kích Linebacker II, tác động trực tiếp buộc Nixon tuyên bố ngừng ném bom ngày 30/12/1972 | **Bài 3, Bài 4** |
+
+### 2. Sách in & Công trình lịch sử chính quy:
 | Mã nguồn | Tài liệu tham chiếu | Cơ quan / Tác giả & Năm XB | Vị trí tham chiếu cụ thể (Locator) | Bài học áp dụng |
 |---|---|---|---|---|
 | `SRC-LB2-01` | *Lịch sử Quân đội nhân dân Việt Nam (1944 - 1975)* | Viện LSQSVN (NXB QĐND, 2005) | Chương IX: Đánh bại cuộc tập kích đường không, tr. 620–652 | Bài 1, Bài 3, Bài 4 |
@@ -58,17 +68,6 @@ Toàn bộ 4 bài học đều được đối chiếu và trích dẫn trực t
 | `SRC-1972-03` | *Cách đánh B-52 của bộ đội tên lửa* ("Cẩm nang bìa đỏ") | BTL PK-KQ (10/1972) | Tài liệu hiện vật: quy tắc nhận dạng dải nhiễu bản chất B-52 | Bài 1, Bài 2 |
 | `SRC-LB2-04` | *Linebacker II: A View from the Rock* | Karl J. Eschmann (Air University Press, 1989) | Thống kê phi vụ B-52 xuất kích từ Guam & U-Tapao, tổn thất phía Mỹ | Bài 1, Bài 3 |
 | `SRC-LB2-05` | *Winged Shield, Winged Sword (Vol. II)* | USAF History Program (1997, ISBN 0-16-049009-X) | Trang 340–348: Kế hoạch Linebacker II và tác động tới Hiệp định Paris | Bài 1, Bài 3, Bài 4 |
-
-### 2. Cổng Thông tin điện tử & Báo chí Nhà nước / Quân đội chính thống (Direct Links):
-| Cơ quan / Báo chính thống | Tiêu đề bài viết kiểm chứng | Đường dẫn trực tiếp (Click để kiểm chứng) | Dữ kiện bảo chứng |
-|---|---|---|---|
-| **Báo điện tử Chính phủ** | *Hà Nội - Điện Biên Phủ trên không: Sức mạnh Việt Nam và tầm vóc thời đại* | [baochinhphu.vn](https://baochinhphu.vn/ha-noi-dien-bien-phu-tren-khong-1972-suc-manh-viet-nam-va-tam-voc-thoi-dai-102221209145629429.htm) | Toàn cảnh 12 ngày đêm, 81 máy bay (34 B-52), Hiệp định Paris |
-| **Báo Quân đội nhân dân** | *Bài 2: Chuẩn bị chu đáo, kỹ lưỡng trên tất cả mọi mặt* | [qdnd.vn](https://ct.qdnd.vn/ho-so-tu-lieu/bai-2-chuan-bi-chu-dao-ky-luong-tren-tat-ca-moi-mat-521888) | SAM-2, vai trò radar trước nhiễu, thuật ngữ "vạch nhiễu tìm thù" |
-| **Báo Quân đội nhân dân** | *Hạ con "ngáo ộp" đầu tiên* | [qdnd.vn](https://ct.qdnd.vn/chan-dung-nguoi-linh/ha-con-ngao-op-dau-tien-528517) | Tiểu đoàn 59 bắn rơi B-52 đầu tiên tại Chuôm, Phù Lỗ đêm 18/12 |
-| **Báo Quân đội nhân dân** | *Huyền thoại tên lửa SAM-2* | [qdnd.vn](https://ct.qdnd.vn/phong-su-dieu-tra/huyen-thoai-ten-lua-sam-2-528519) | Kíp chiến đấu SAM-2, môi trường tác chiến điện tử ECM tháng 12/1972 |
-| **Báo Nhân Dân** | *"Pháo đài bay" B-52 đầu tiên đã bị hạ gục như thế* | [nhandan.vn](https://nhandan.vn/phao-dai-bay-b52-dau-tien-da-bi-ha-guc-nhu-the-post440097.html) | Tuyến lửa Vĩnh Linh 1966-1967, tài liệu cẩm nang bìa đỏ, SA-75 |
-| **Báo Nhân Dân** | *Thắng lợi của sức mạnh đại đoàn kết dân tộc* | [nhandan.vn](https://nhandan.vn/thang-loi-cua-suc-manh-dai-doan-ket-dan-toc-post385567.html) | Bom B-52 tàn sát Khâm Thiên đêm 26/12 (287 người chết, 290 người bị thương) |
-| **Tạp chí Cộng sản** | *Chiến thắng "Điện Biên Phủ trên không" - Ý chí, bản lĩnh và trí tuệ Việt Nam* | [tapchicongsan.org.vn](https://www.tapchicongsan.org.vn/en_US/web/guest/dang-uy-khoi-doanh-nghiep-trung-uong/-/2018/826621/view_content) | Ý nghĩa chiến lược bẻ gãy ý chí xâm lược, đòn bẩy ngoại giao Paris |
 
 ---
 
