@@ -42,15 +42,15 @@
 ### PHÂN CẢNH 2: `sam2-v1-crew` — Cấu trúc Kíp chiến đấu SAM-2
 * **Định dạng:** Interactive Artifact / Evidence (Khám phá Sơ đồ)
 * **Visual Cue:** Sơ đồ khái quát hệ thống khí tài và vị trí kíp chiến đấu trong Cabin xe K. Người học có thể bấm/chuyển qua từng vị trí hoặc đọc danh sách Text-first:
-  1. **Xe K / PA-00:** Thùng xe điều khiển trung tâm.
-  2. **Sĩ quan điều khiển:** Vị trí chỉ huy và phát lệnh phóng đạn.
-  3. **Trắc thủ phương vị:** Theo dõi và bám sát mục tiêu theo hướng ngang (phương vị).
-  4. **Trắc thủ góc tà:** Theo dõi và bám sát mục tiêu theo góc ngẩng (độ cao).
-  5. **Trắc thủ cự ly:** Theo dõi cự ly tiếp cận của mục tiêu.
-  6. **Đài radar Fan Song (SNR-75):** Ăng-ten phát sóng bám sát và phát lệnh điều khiển.
-  7. **Bệ phóng SM-90 & Tên lửa S-75 Dvina:** Khí tài chấp hành hỏa lực.
+  1. **Cabin điều khiển (Xe K):** Trung tâm hiệp đồng tác chiến của kíp chiến đấu.
+  2. **Vị trí chỉ huy cabin:** Điều phối chung hoạt động hiệp đồng.
+  3. **Vị trí theo dõi hướng (Phương vị):** Theo dõi thông tin mục tiêu theo hướng không gian.
+  4. **Vị trí theo dõi góc ngẩng (Góc tà):** Theo dõi thông tin mục tiêu theo độ cao.
+  5. **Vị trí theo dõi cự ly:** Theo dõi khoảng cách tiếp cận của mục tiêu.
+  6. **Đài radar dẫn đường Fan Song:** Hệ thống radar phát hiện và dẫn đường của tổ hợp SAM-2.
+  7. **Bệ phóng & Tên lửa S-75 Dvina:** Khí tài chấp hành hỏa lực.
 * **Lời dẫn (Narration):**
-  > "Hãy quan sát sơ đồ tổ chức kíp chiến đấu và hệ thống khí tài SAM-2 (S-75 Dvina). Trong một thùng xe điều khiển chật hẹp, kíp chiến đấu tạo thành một khối thống nhất: Sĩ quan điều khiển cùng các trắc thủ phương vị, góc tà, cự ly. Mỗi vị trí theo dõi một trục không gian, phối hợp đồng bộ để bảo đảm độ chính xác của đường đạn."
+  > "Hãy quan sát sơ đồ khái quát hệ thống khí tài và tổ chức kíp chiến đấu SAM-2 (S-75 Dvina). Trong cabin điều khiển, kíp chiến đấu tạo thành một khối thống nhất, hiệp đồng nhịp nhàng giữa các vị trí để theo dõi không gian và xử lý thông tin mục tiêu."
 * **Phân loại sử liệu:** `verified_fact`
 * **Mã Claim & Nguồn:** `CLM-1972-VN-001`, `CLM-1972-VN-002` | *Nguồn: `SRC-1972-02`, `SRC-1972-WEB-02` (ảnh kíp chiến đấu TĐ 57)*
 * **Chuyển cảnh:** ➔ `sam2-v1-perspective`
@@ -73,7 +73,7 @@
 * **Visual Cue:** Màn hình huỳnh quang hiển thị tọa độ mục tiêu; kíp trắc thủ tập trung theo dõi các tham số không gian.
 * **Audio Cue:** Tiếng quạt gió làm mát, tiếng tín hiệu điện tử đều đặn trong buồng lái.
 * **Lời dẫn (Narration):**
-  > "Trong cabin điều khiển, kíp chiến đấu phối hợp chặt chẽ theo dõi các tham số mục tiêu trên màn hiện sóng radar. Sĩ quan điều khiển cùng các trắc thủ theo dõi đồng bộ các hướng tọa độ không gian để xác định phần tử bắn và thời cơ phát lệnh, bảo đảm độ chính xác cao khi tên lửa tiếp cận mục tiêu ở trần bay chiến lược."
+  > "Trong cabin điều khiển, kíp chiến đấu phối hợp chặt chẽ để quan sát và xử lý các thông tin mục tiêu trên màn hiện sóng radar. Tinh thần hiệp đồng đồng bộ giữa các vị trí là yếu tố quyết định giúp đơn vị nắm chắc tình hình trên không và thực hiện nhiệm vụ chiến đấu bảo vệ bầu trời."
 * **Phân loại sử liệu:** `verified_fact` + `educational_explanation`
 * **Mã Claim & Nguồn:** `CLM-1972-VN-002`, `CLM-1972-VN-005` | *Nguồn: `SRC-1972-02`, `SRC-1972-WEB-02`*
 * **Chuyển cảnh:** Đi tiếp sang nội dung thứ hai ➔ `sam2-v1-interference`
@@ -96,15 +96,15 @@
 * **Định dạng:** Knowledge Check (Câu hỏi trắc nghiệm kiểm tra kiến thức)
 * **Tiêu đề:** "Theo tư liệu lịch sử và cuốn 'Cẩm nang bìa đỏ', yếu tố then chốt nào giúp kíp tên lửa SAM-2 tiêu diệt được B-52 giữa 'rừng' nhiễu điện tử dày đặc?"
 * **Phương án lựa chọn:**
-  1. **Lựa chọn 1:** *"Tên lửa SAM-2 có đầu dò nhiệt tự động bay tới mà không cần radar mặt đất hướng dẫn."*
+  1. **Lựa chọn 1:** *"Tên lửa SAM-2 tự động tìm mục tiêu mà không cần sự phối hợp từ hệ thống radar mặt đất."*
      * **Kết quả:** `isCorrect: false`
-     * **Giải thích (Explanation):** Chưa chính xác. Tên lửa SAM-2 (S-75 Dvina) là hệ dẫn lệnh vô tuyến từ đài radar mặt đất (Fan Song), đòi hỏi kíp trắc thủ mặt đất phải bám sát mục tiêu liên tục trong suốt đường bay.
-  2. **Lựa chọn 2:** *"Kíp trắc thủ phân tích bản chất dải nhiễu theo kinh nghiệm Cẩm nang bìa đỏ, phối hợp chặt chẽ các tham số và chọn thời điểm phát sóng thích hợp."*
+     * **Giải thích (Explanation):** Chưa chính xác. SAM-2 hoạt động dựa trên sự phối hợp chặt chẽ với hệ thống radar và kíp chiến đấu mặt đất để phát hiện và xử lý thông tin mục tiêu.
+  2. **Lựa chọn 2:** *"Bộ đội tên lửa đúc kết kinh nghiệm nhận diện dải nhiễu từ Cẩm nang bìa đỏ và hiệp đồng tác chiến linh hoạt."*
      * **Kết quả:** `isCorrect: true`
-     * **Giải thích (Explanation):** Chính xác! Trọng tâm của việc khắc phục nhiễu là nhận diện quy luật dải nhiễu và sử dụng radar một cách linh hoạt, hiệp đồng hiệu quả nhằm giảm thiểu nguy cơ bị tên lửa chống bức xạ của đối phương bám bắt.
-  3. **Lựa chọn 3:** *"Đài radar tăng tối đa công suất phát sóng liên tục suốt cuộc không kích để áp đảo máy gây nhiễu của đối phương."*
+     * **Giải thích (Explanation):** Chính xác! Trọng tâm của việc khắc phục nhiễu là nhận diện quy luật dải nhiễu dựa trên kinh nghiệm từ cuốn 'Cẩm nang bìa đỏ' và tinh thần hiệp đồng tác chiến linh hoạt của bộ đội phòng không.
+  3. **Lựa chọn 3:** *"Đài radar phát sóng liên tục không ngừng nghỉ để lấn át toàn bộ các nguồn gây nhiễu."*
      * **Kết quả:** `isCorrect: false`
-     * **Giải thích (Explanation):** Không chính xác. Việc phát sóng liên tục làm tăng nguy cơ để lộ vị trí trước tên lửa chống bức xạ Shrike tự dẫn theo cánh sóng. Trong thực tế, bộ đội phòng không đã áp dụng linh hoạt nhiều biện pháp như hiệp đồng quan sát, hạn chế thời gian phát sóng và chọn thời điểm thích hợp để vừa bám sát mục tiêu vừa bảo vệ khí tài.
+     * **Giải thích (Explanation):** Không chính xác. Trong thực tế, việc sử dụng radar đòi hỏi sự tính toán cẩn trọng và hiệp đồng linh hoạt để vừa theo dõi được mục tiêu, vừa bảo đảm an toàn cho khí tài trước các biện pháp chế áp điện tử và hỏa lực của đối phương.
 * **Mã Claim & Nguồn:** `CLM-1972-VN-002`, `CLM-1972-VN-003`, `CLM-1972-VN-004` | *Nguồn: `SRC-1972-01`, `SRC-1972-03`, `SRC-1972-WEB-01`*
 * **Chuyển cảnh:** Cả 3 phương án đều điều hướng về ➔ `sam2-v1-debrief`
 
@@ -134,10 +134,10 @@
 | Phân cảnh | Claim ID | Phân loại | Tài liệu đối chiếu | Trích dẫn cụ thể |
 |---|---|---|---|---|
 | `sam2-v1-briefing` | `CLM-1972-VN-001`, `005` | Fact | Báo QĐND Cuối tuần (06/12/2017) | Đoạn về tên lửa SAM-2 đối đầu B-52 |
-| `sam2-v1-crew` | `CLM-1972-VN-001`, `002` | Fact | Lịch sử Tên lửa PK / Báo QĐND | Kíp chiến đấu 4 vị trí & đài Fan Song |
+| `sam2-v1-crew` | `CLM-1972-VN-001`, `002` | Fact | Lịch sử Tên lửa PK / Báo QĐND | Hệ thống khí tài và hiệp đồng kíp chiến đấu SAM-2 |
 | `sam2-v1-perspective` | `CLM-1972-VN-006` | Sư phạm | Quy tắc thiết kế Visual Novel | Lựa chọn rẽ nhánh trung tính |
-| `sam2-v1-coordination` | `CLM-1972-VN-002` | Fact | Báo QĐND (23/12/2022) | Hiệp đồng giữa SQ điều khiển và 3 trắc thủ |
-| `sam2-v1-interference` | `CLM-1972-VN-003`, `004` | Fact | *Cẩm nang bìa đỏ* (10/1972) / QĐND | Đặc trưng dải nhiễu B-52 mịn, di chuyển ổn định |
-| `sam2-v1-check` | `CLM-1972-VN-002`, `004` | Fact + Sư phạm | Lịch sử QCPK-KQ / Cẩm nang | Phát sóng ngắn, hiệp đồng bám sát |
+| `sam2-v1-coordination` | `CLM-1972-VN-002` | Fact | Báo QĐND (23/12/2022) | Hiệp đồng tác chiến kíp chiến đấu trong cabin |
+| `sam2-v1-interference` | `CLM-1972-VN-003`, `004` | Fact | *Cẩm nang bìa đỏ* (10/1972) / QĐND | Quy luật dải nhiễu B-52 trong môi trường tác chiến điện tử |
+| `sam2-v1-check` | `CLM-1972-VN-002`, `004` | Fact + Sư phạm | Lịch sử QCPK-KQ / Cẩm nang | Nhận diện dải nhiễu và hiệp đồng tác chiến linh hoạt |
 | `sam2-v1-debrief` | `CLM-1972-VN-004`, `005` | Sư phạm | Tổng kết CLO-2 và CLO-3 | Tinh thần làm chủ khoa học công nghệ |
 | `sam2-v1-end` | — | Hệ thống | Khung giáo trình Chapter 1972 | Điều hướng tiếp nối sang Bài 3 |
