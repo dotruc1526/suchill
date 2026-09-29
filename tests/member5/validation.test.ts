@@ -1,7 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { validateLesson, validateMediaAsset, validateStoryVersion } from '../../src/services/next/validation.ts'
-import type { Lesson, MediaAsset, StoryVersion } from '../../src/types/v2/content.ts'
+import { validateChapter, validateHistoricalClaim, validateLesson, validateMediaAsset, validateStoryVersion } from '../../src/services/next/validation.ts'
+import type { Chapter, HistoricalClaim, Lesson, MediaAsset, StoryVersion } from '../../src/types/v2/content.ts'
 
 const lesson: Lesson = {
   id: 'lesson-1', chapterId: 'chapter-1', slug: 'sample', title: 'Sample', summary: '',
@@ -20,6 +20,23 @@ const story: StoryVersion = {
     { id: 'scene-2', kind: 'end', summary: 'Done', sourceIds: [], claimIds: [] },
   ],
 }
+const chapter: Chapter = {
+  id: 'chapter-1', slug: 'sample', title: 'Sample', summary: '', historicalPeriodLabel: '',
+  learningObjectiveIds: ['objective-1'], lessonRefs: [{ id: 'lesson-1', order: 0 }],
+  estimatedMinutes: 5, status: 'published',
+}
+
+test('chapter and lesson validators check stable references, status and ordered identities', () => {
+  assert.deepEqual(validateChapter(chapter, { lessonIds: new Set(['lesson-1']), approvedLessonIds: new Set(['lesson-1']) }), [])
+  const chapterIssues = validateChapter(chapter, { lessonIds: new Set(), approvedLessonIds: new Set() })
+  assert.ok(chapterIssues.some(error => error.code === 'missing_lesson'))
+  assert.ok(chapterIssues.some(error => error.code === 'unapproved_lesson'))
+
+  const invalid = { ...lesson, status: 'live', chapterId: '' } as unknown as Lesson
+  const lessonCodes = validateLesson(invalid).map(error => error.code)
+  assert.ok(lessonCodes.includes('invalid_status'))
+  assert.ok(lessonCodes.includes('missing_chapter'))
+})
 
 test('lesson validator accepts referenced block and rejects duplicate order', () => {
   assert.deepEqual(validateLesson(lesson, { documentIds: new Set(['document-1']) }), [])
@@ -73,6 +90,24 @@ test('story validator requires a usable transition for every continuing choice',
   assert.ok(validateStoryVersion(invalid).some(error => error.code === 'missing_transition'))
 })
 
+test('story validator checks source, claim and published media references', () => {
+  const invalid = structuredClone(story)
+  invalid.status = 'published'
+  invalid.sourceIds = ['source-missing']
+  invalid.publishedAt = '2026-09-29T00:00:00Z'
+  const first = invalid.scenes[0]
+  first.sourceIds.push('source-missing')
+  first.claimIds.push('claim-missing')
+  const codes = validateStoryVersion(invalid, {
+    sourceIds: new Set(), approvedSourceIds: new Set(), claimIds: new Set(), approvedClaimIds: new Set(),
+    mediaAssetIds: new Set(), approvedMediaAssetIds: new Set(),
+  }).map(error => error.code)
+  assert.ok(codes.includes('missing_source'))
+  assert.ok(codes.includes('missing_claim'))
+  assert.ok(codes.includes('unapproved_source'))
+  assert.ok(codes.includes('unapproved_claim'))
+})
+
 test('media validator requires accessibility and provenance before publication', () => {
   const media: MediaAsset = {
     id: 'media-1', kind: 'video', title: 'Video', storageRef: 'published-media/video.mp4',
@@ -81,4 +116,25 @@ test('media validator requires accessibility and provenance before publication',
   const codes = validateMediaAsset(media).map(error => error.code)
   assert.ok(codes.includes('media_provenance'))
   assert.ok(codes.includes('media_accessibility'))
+})
+
+test('media validator detects invalid review status and unknown provenance', () => {
+  const invalid = {
+    id: 'media-2', kind: 'image', title: 'Image', storageRef: 'draft/image.png', sourceIds: ['source-x'], reviewStatus: 'live',
+  } as unknown as MediaAsset
+  const codes = validateMediaAsset(invalid, { sourceIds: new Set() }).map(error => error.code)
+  assert.ok(codes.includes('invalid_status'))
+  assert.ok(codes.includes('missing_source'))
+})
+
+test('published historical claims require known approved sources', () => {
+  const claim: HistoricalClaim = {
+    id: 'claim-1', statement: 'A reviewed statement.', kind: 'fact', sourceIds: ['source-1'], reviewStatus: 'published',
+  }
+  assert.deepEqual(validateHistoricalClaim(claim, {
+    sourceIds: new Set(['source-1']), approvedSourceIds: new Set(['source-1']),
+  }), [])
+  const codes = validateHistoricalClaim(claim, { sourceIds: new Set(['source-1']), approvedSourceIds: new Set() })
+    .map(error => error.code)
+  assert.ok(codes.includes('unapproved_source'))
 })

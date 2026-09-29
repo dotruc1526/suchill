@@ -1,7 +1,8 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { createMockLearningServices } from '../../src/services/next/mock.ts'
-import type { Chapter, Lesson } from '../../src/types/v2/content.ts'
+import type { Chapter, Lesson, MultipleChoiceQuestion, QuestionSet } from '../../src/types/v2/content.ts'
+import type { ScoredQuizSubmission } from '../../src/services/next/contracts.ts'
 
 const chapter: Chapter = {
   id: 'chapter-1', slug: 'sample', title: 'Sample', summary: '', historicalPeriodLabel: '',
@@ -14,8 +15,18 @@ const lesson: Lesson = {
   prerequisites: [], status: 'published',
   blocks: [{ id: 'block-1', order: 0, required: true, kind: 'text', documentId: 'doc-1' }],
 }
+const questionSet: QuestionSet = { id: 'set-1', title: 'Sample quiz', questionIds: ['q-1'], learningObjectiveIds: [], mode: 'scored' }
+const question: MultipleChoiceQuestion = {
+  id: 'q-1', prompt: 'Question?', optionIds: ['option-a', 'option-b'], explanation: 'Review the source.',
+  sourceIds: [], difficulty: 'intro', status: 'published',
+}
 const catalog = { chapters: [chapter, { ...chapter, id: 'draft', status: 'draft' as const }],
-  lessons: [lesson], storyVersions: [], mediaAssets: [] }
+  lessons: [lesson], storyVersions: [], mediaAssets: [], quizzes: [{
+    status: 'published' as const,
+    set: questionSet,
+    questions: [question],
+    grade: () => ({ attemptId: 'attempt-1', score: 1, total: 1, passed: true }),
+  }] }
 
 test('read services expose published content only and return copies', async () => {
   const services = createMockLearningServices(catalog, { userId: 'user-a' })
@@ -59,4 +70,57 @@ test('checkpoint and operation IDs stay isolated when one adapter changes accoun
   if (savedB.ok) assert.equal(savedB.value.userId, 'user-b')
   session.userId = 'user-a'
   assert.deepEqual(await services.progress.getLessonProgress('lesson-1'), savedA.ok ? { ok: true, value: savedA.value } : null)
+})
+
+test('quiz reads omit answer keys and scored submissions are trusted and idempotent', async () => {
+  const session = { userId: 'user-a', displayName: 'Vinh', locale: 'vi-VN' as const }
+  const services = createMockLearningServices(catalog, session)
+  const delivered = await services.quiz.getQuestionSet('set-1')
+  assert.equal(delivered.ok, true)
+  if (!delivered.ok) return
+  assert.deepEqual(delivered.value.questions[0].optionIds, ['option-a', 'option-b'])
+  assert.equal('correctOptionId' in delivered.value.questions[0], false)
+
+  const input = { operationId: 'quiz-op-1', questionSetId: 'set-1', answers: [{ questionId: 'q-1', selectedOptionIds: ['option-a'] }] }
+  const first = await services.quiz.submitScoredAttempt(input)
+  assert.deepEqual(first, { ok: true, value: { attemptId: 'attempt-1', score: 1, total: 1, passed: true } })
+  assert.deepEqual(await services.quiz.submitScoredAttempt(input), first)
+  assert.deepEqual(await services.quiz.submitScoredAttempt({ ...input, answers: [{ ...input.answers[0], selectedOptionIds: ['option-b'] }] }),
+    { ok: false, error: 'conflict' })
+  assert.deepEqual(await services.users.getCurrentProfile(), { ok: true, value: { id: 'user-a', displayName: 'Vinh', locale: 'vi-VN' } })
+
+  session.userId = 'user-b'
+  const secondUser = await services.quiz.submitScoredAttempt(input)
+  assert.equal(secondUser.ok, true)
+  assert.deepEqual(await services.users.getCurrentProfile(), { ok: true, value: { id: 'user-b', displayName: 'Vinh', locale: 'vi-VN' } })
+})
+
+test('quiz adapter rejects unknown options and strips client correctness fields before grading', async () => {
+  let graded: ScoredQuizSubmission | undefined
+  const guardedCatalog = {
+    ...catalog,
+    quizzes: catalog.quizzes?.map(fixture => ({
+      ...fixture,
+      grade(input: ScoredQuizSubmission) {
+        graded = input
+        return Object.assign({ attemptId: 'attempt-guarded', score: 0, total: 1, passed: false }, { xpAwarded: 999 })
+      },
+    })),
+  }
+  const services = createMockLearningServices(guardedCatalog, { userId: 'user-a' })
+  const invalid = await services.quiz.submitScoredAttempt({
+    operationId: 'quiz-op-2', questionSetId: 'set-1',
+    answers: [{ questionId: 'q-1', selectedOptionIds: ['unknown-option'] }],
+  })
+  assert.deepEqual(invalid, { ok: false, error: 'validation' })
+
+  const untrusted = {
+    operationId: 'quiz-op-3', questionSetId: 'set-1', isCorrect: true,
+    answers: [{ questionId: 'q-1', selectedOptionIds: ['option-a'], isCorrect: true }],
+  } as unknown as ScoredQuizSubmission
+  const submitted = await services.quiz.submitScoredAttempt(untrusted)
+  assert.equal(submitted.ok, true)
+  if (submitted.ok) assert.equal('xpAwarded' in submitted.value, false)
+  assert.equal(graded && 'isCorrect' in (graded as unknown as Record<string, unknown>), false)
+  assert.equal(graded && 'isCorrect' in (graded.answers[0] as unknown as Record<string, unknown>), false)
 })

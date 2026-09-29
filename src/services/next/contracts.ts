@@ -1,4 +1,4 @@
-import type { Chapter, Lesson, MediaAsset, StoryVersion } from '../../types/v2/content.ts'
+import type { Chapter, Lesson, Locale, MediaAsset, MultipleChoiceQuestion, QuestionSet, StoryVersion } from '../../types/v2/content.ts'
 import type { LessonProgress } from '../../types/v2/progress.ts'
 
 export type ServiceErrorCode = 'not_found' | 'unauthorized' | 'offline' | 'validation' | 'conflict' | 'server_error'
@@ -29,10 +29,32 @@ export interface ProgressService {
   getLessonProgress(lessonId: string): Promise<Result<LessonProgress | null>>
   saveCheckpoint(input: SaveLessonCheckpoint): Promise<Result<LessonProgress>>
 }
+export type QuestionSetDelivery = { set: QuestionSet; questions: MultipleChoiceQuestion[] }
+export type ScoredQuizSubmission = {
+  operationId: string
+  questionSetId: string
+  answers: Array<{ questionId: string; selectedOptionIds: string[] }>
+}
+export type ScoredQuizReceipt = {
+  attemptId: string
+  score: number
+  total: number
+  passed: boolean
+}
+export interface QuizService {
+  getQuestionSet(questionSetId: string): Promise<Result<QuestionSetDelivery>>
+  submitScoredAttempt(input: ScoredQuizSubmission): Promise<Result<ScoredQuizReceipt>>
+}
+export type CurrentUserProfile = { id: string; displayName: string; locale: Locale }
+export interface UserService {
+  getCurrentProfile(): Promise<Result<CurrentUserProfile | null>>
+}
 export type LearningServices = {
   chapters: ChapterService
   lessons: LessonService
   stories: VisualNovelService
   media: MediaService
   progress: ProgressService
+  quiz: QuizService
+  users: UserService
 }
