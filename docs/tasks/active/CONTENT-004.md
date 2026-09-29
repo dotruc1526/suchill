@@ -1,11 +1,11 @@
 # CONTENT-004 — Screenplay và kịch bản/storyboard video
 
-> Status: DONE\
-> Last updated: 2026-09-27
+> Status: REVIEW\
+> Last updated: 2026-09-28
 
 ## Assignment
 
-- Phase / milestone: MVP content track; M1 đang OPEN, M2–M7 vẫn LOCKED
+- Phase / milestone: MVP content track; độc lập với M2 đang OPEN
 - Workstream: Product + Content
 - Accountable owner: Thọ (Member 1)
 - Executor type: Human hoặc Codex hỗ trợ bản nháp
@@ -26,9 +26,9 @@
 ## Acceptance criteria
 
 - [x] Mỗi scene/lesson có mục tiêu học, bối cảnh, vai trò và lựa chọn phù hợp Phase 2/5; evidence ở `CONTENT-014` validator.
-- [x] Claim/source, narration và VTT đã được sửa trong gói authoring; historical reviewer còn phải xác nhận.
+- [x] Claim/source, narration và VTT đã được sửa trong gói authoring; historical review đã đạt ngày 2026-09-28.
 - [x] Kịch bản/storyboard có 5 scene, bản 9:16 và timing authoring 110 giây; chưa phải MP4 đã duyệt.
-- [x] Trúc historical/media, Vinh technical QA và Product owner xác nhận trước khi chuyển cho Member 2 sản xuất.
+- [ ] Trúc media, Vinh technical QA và Product owner xác nhận handoff trước khi chuyển cho Member 2 sản xuất.
 
 ## Verification
 
@@ -60,9 +60,9 @@
 
 ## Handoff
 
-### Review 2026-09-28 — bản hiện hành
+### Review snapshot 2026-09-28 — đã được verdict APPROVED bên dưới thay thế
 
-- Trúc yêu cầu thực hiện review; Codex khôi phục screenplay/curriculum/registry authoring v2 bị regression. [Báo cáo và handoff](./CONTENT-003-004-REVIEW.md) là checkpoint mới nhất, thay các kết luận kiểm tra cũ.
+- Trúc yêu cầu thực hiện review; Codex khôi phục screenplay/curriculum/registry authoring v2 bị regression. [Báo cáo và handoff](../active/CONTENT-003-004-REVIEW.md) là checkpoint mới nhất, thay các kết luận kiểm tra cũ.
 - Validator PASS sau sửa; nguồn danh sách năm mục tiêu chưa đọc lại được. Chưa có human sign-off hay evidence audio hợp lệ; status giữ REVIEW.
 - MP4/poster cuối là đầu ra CONTENT-007 cần nghiệm thu sau sản xuất; blocker trước sản xuất là nguồn/script/sign-off và phương án quyền media.
 - Build/typecheck không chạy vì thay đổi chỉ tài liệu authoring; không runtime/env/migration impact.
@@ -71,10 +71,17 @@
 - Test/build result: `node docs/content/validate-mt68-authoring.mjs` PASS theo `CONTENT-014`; docs-only, không có runtime change từ lượt đồng bộ trạng thái.
 - Environment/migration impact: không có.
 - Known issues: reviewer chưa sign-off; quyền audio/từng asset và MP4 cuối chưa có evidence. Không coi AI review là approval.
-- Next owner/action: Trúc review historical/media, Vinh technical QA; Product owner quyết định sau evidence. `CONTENT-007` vẫn BLOCKED.
+- Next owner/action tại thời điểm snapshot: Trúc review historical/media, Vinh technical QA; kết luận này đã được checkpoint APPROVED mới hơn thay thế.
 
-## Checkpoint 2026-09-28 — Historical Review APPROVED
+## Checkpoint 2026-09-28 — Historical Review APPROVED (không phải task-level sign-off)
 - Thẩm định viên Lịch sử đã hoàn tất thẩm định toàn diện (FACT-001..012, terminology, fact vs fiction).
 - Kịch bản 5 scene 110s, VTT captions, nguồn NXB QĐND và Cẩm nang bìa đỏ đạt chuẩn 100%.
 - Báo cáo thẩm định: docs/content/HISTORICAL-REVIEW-REPORT-2026-09-28.md.
-- Trạng thái: DONE; chính thức MỞ KHÓA (UNBLOCK) cho CONTENT-007 (Member 2 sản xuất video).
+- Phạm vi lịch sử/ngôn ngữ đạt; verdict này không xác nhận technical QA, media hoặc task-level handoff. Task giữ `REVIEW` và production giữ `BLOCKED` cho đến khi `CONTENT-014` có Vinh sign-off, media evidence đạt và artifact pilot/review record nhất quán.
+
+## Handoff hiện hành
+
+- Changed files/evidence: screenplay, narration, captions, source registry, historical review report, card và task board.
+- Test result: authoring validator PASS theo CONTENT-014; thay đổi docs/content không có runtime, environment hoặc migration impact.
+- Known issues: Vinh chưa technical-QA task-level handoff; catalog hiện có 6/8 media item chưa đủ evidence và 2/8 còn `NEEDS_MEDIA_REVIEW` theo `CONTENT-014`.
+- Next owner/action: Vinh xác nhận technical QA/handoff và Trúc hoàn tất media sign-off; chỉ sau đó reviewer mới chuyển task `DONE` và Product owner xem xét mở CONTENT-007.
