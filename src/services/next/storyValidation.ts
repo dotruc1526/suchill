@@ -1,5 +1,5 @@
 import type { StoryVersion, VisualNovelScene } from '../../types/v2/content.ts'
-import { checkReferences, issue, requireStatus, requireUnique, type ContentLookup, type ValidationIssue } from './validationUtils.ts'
+import { checkReferences, issue, requireLookup, requireStatus, requireUnique, type ContentLookup, type ValidationIssue } from './validationUtils.ts'
 
 function sceneLinks(scene: VisualNovelScene): string[] {
   return scene.kind === 'choice'
@@ -17,6 +17,10 @@ export function validateStoryVersion(version: StoryVersion, lookup: ContentLooku
   errors.push(...checkReferences(version.sourceIds, lookup.sourceIds, 'sourceIds', 'missing_source'))
   errors.push(...requireUnique(version.sourceIds, 'sourceIds', 'source_reference'))
   if (version.status === 'published') {
+    if (version.sourceIds.length) {
+      errors.push(...requireLookup(lookup, 'sourceIds', 'sourceIds'))
+      errors.push(...requireLookup(lookup, 'approvedSourceIds', 'sourceIds'))
+    }
     errors.push(...checkReferences(version.sourceIds, lookup.approvedSourceIds, 'sourceIds', 'unapproved_source'))
   }
   errors.push(...requireUnique(version.scenes.map(scene => scene.id), 'scenes', 'scene_id'))
@@ -29,6 +33,14 @@ export function validateStoryVersion(version: StoryVersion, lookup: ContentLooku
     errors.push(...checkReferences(scene.sourceIds, lookup.sourceIds, `${path}.sourceIds`, 'missing_source'))
     errors.push(...checkReferences(scene.claimIds, lookup.claimIds, `${path}.claimIds`, 'missing_claim'))
     if (version.status === 'published') {
+      if (scene.sourceIds.length) {
+        errors.push(...requireLookup(lookup, 'sourceIds', `${path}.sourceIds`))
+        errors.push(...requireLookup(lookup, 'approvedSourceIds', `${path}.sourceIds`))
+      }
+      if (scene.claimIds.length) {
+        errors.push(...requireLookup(lookup, 'claimIds', `${path}.claimIds`))
+        errors.push(...requireLookup(lookup, 'approvedClaimIds', `${path}.claimIds`))
+      }
       errors.push(...checkReferences(scene.sourceIds, lookup.approvedSourceIds, `${path}.sourceIds`, 'unapproved_source'))
       errors.push(...checkReferences(scene.claimIds, lookup.approvedClaimIds, `${path}.claimIds`, 'unapproved_claim'))
     }
@@ -37,6 +49,10 @@ export function validateStoryVersion(version: StoryVersion, lookup: ContentLooku
     }
     if (scene.kind === 'media' && version.status === 'published' && lookup.approvedMediaAssetIds && !lookup.approvedMediaAssetIds.has(scene.mediaAssetId)) {
       errors.push(issue('unapproved_media', `${path}.mediaAssetId`, 'Published story references media that is not approved/published'))
+    }
+    if (scene.kind === 'media' && version.status === 'published') {
+      errors.push(...requireLookup(lookup, 'mediaAssetIds', `${path}.mediaAssetId`))
+      errors.push(...requireLookup(lookup, 'approvedMediaAssetIds', `${path}.mediaAssetId`))
     }
     for (const nextId of sceneLinks(scene)) {
       if (!byId.has(nextId)) errors.push(issue('broken_transition', path, `Target scene does not exist: ${nextId}`))

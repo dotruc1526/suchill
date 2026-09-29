@@ -46,3 +46,7 @@ export function checkReferences(
   return values.flatMap((value, index) => !value.trim() || (known && !known.has(value))
     ? [issue(code, `${path}[${index}]`, `Missing or unknown reference: ${value || '<empty>'}`)] : [])
 }
+
+export function requireLookup(lookup: ContentLookup, key: keyof ContentLookup, path: string): ValidationIssue[] {
+  return lookup[key] ? [] : [issue('lookup_required', path, `A ${key} lookup is required to validate published content`)]
+}

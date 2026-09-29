@@ -30,7 +30,9 @@ test('domain validators and mock reads agree on published references', async () 
   }), [])
   const broken = validateStoryVersion(story, { sourceIds: new Set() })
   assert.ok(broken.some(issue => issue.code === 'missing_source'))
-  assert.deepEqual(validateStoryVersion(story, { sourceIds: new Set(['source-contract']) }), [])
+  assert.deepEqual(validateStoryVersion(story, {
+    sourceIds: new Set(['source-contract']), approvedSourceIds: new Set(['source-contract']),
+  }), [])
 
   const services: LearningServices = createMockLearningServices({
     chapters: [chapter], lessons: [lesson], storyVersions: [story], mediaAssets: [],

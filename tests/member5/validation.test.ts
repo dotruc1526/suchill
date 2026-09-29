@@ -39,7 +39,9 @@ test('chapter and lesson validators check stable references, status and ordered 
 })
 
 test('lesson validator accepts referenced block and rejects duplicate order', () => {
-  assert.deepEqual(validateLesson(lesson, { documentIds: new Set(['document-1']) }), [])
+  assert.deepEqual(validateLesson(lesson, {
+    chapterIds: new Set(['chapter-1']), documentIds: new Set(['document-1']), approvedDocumentIds: new Set(['document-1']),
+  }), [])
   const invalid = { ...lesson, blocks: [...lesson.blocks, { ...lesson.blocks[0], id: 'block-2' }] }
   assert.ok(validateLesson(invalid).some(error => error.code === 'block_order'))
 })
@@ -57,12 +59,18 @@ test('lesson validator resolves each block kind to its own reference lookup', ()
   }
   const lookup = {
     documentIds: new Set(['document-1', 'document-2']),
+    approvedDocumentIds: new Set(['document-1', 'document-2']),
     storyVersionIds: new Set(['story-1']),
+    approvedStoryVersionIds: new Set(['story-1']),
     mediaAssetIds: new Set(['media-1']),
+    approvedMediaAssetIds: new Set(['media-1']),
     questionSetIds: new Set(['questions-1']),
+    approvedQuestionSetIds: new Set(['questions-1']),
+    chapterIds: new Set(['chapter-1']),
   }
   assert.deepEqual(validateLesson(mixed, lookup), [])
-  assert.deepEqual(validateLesson(mixed, { ...lookup, questionSetIds: new Set() }).map(error => error.path), ['blocks[4]'])
+  assert.ok(validateLesson(mixed, { ...lookup, questionSetIds: new Set() })
+    .some(error => error.code === 'missing_reference' && error.path === 'blocks[4]'))
 })
 
 test('story validator catches broken links and narrative correctness', () => {
@@ -137,4 +145,11 @@ test('published historical claims require known approved sources', () => {
   const codes = validateHistoricalClaim(claim, { sourceIds: new Set(['source-1']), approvedSourceIds: new Set() })
     .map(error => error.code)
   assert.ok(codes.includes('unapproved_source'))
+})
+
+test('published content fails closed when approval lookups are omitted', () => {
+  assert.ok(validateChapter(chapter).some(error => error.code === 'lookup_required'))
+  assert.ok(validateLesson(lesson).some(error => error.code === 'lookup_required'))
+  assert.ok(validateStoryVersion({ ...story, status: 'published', sourceIds: ['source-1'], publishedAt: '2026-09-29T00:00:00Z' })
+    .some(error => error.code === 'lookup_required'))
 })

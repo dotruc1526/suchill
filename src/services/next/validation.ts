@@ -1,5 +1,5 @@
 import type { Chapter, HistoricalClaim, Lesson, MediaAsset } from '../../types/v2/content.ts'
-import { checkReferences, issue, requireStatus, requireUnique, type ContentLookup, type ValidationIssue } from './validationUtils.ts'
+import { checkReferences, issue, requireLookup, requireStatus, requireUnique, type ContentLookup, type ValidationIssue } from './validationUtils.ts'
 
 export { validateStoryVersion } from './storyValidation.ts'
 export type { ContentLookup, ValidationIssue } from './validationUtils.ts'
@@ -17,6 +17,10 @@ export function validateChapter(chapter: Chapter, lookup: ContentLookup = {}): V
   }
   errors.push(...checkReferences(chapter.lessonRefs.map(ref => ref.id), lookup.lessonIds, 'lessonRefs', 'missing_lesson'))
   if (chapter.status === 'published') {
+    if (chapter.lessonRefs.length) {
+      errors.push(...requireLookup(lookup, 'lessonIds', 'lessonRefs'))
+      errors.push(...requireLookup(lookup, 'approvedLessonIds', 'lessonRefs'))
+    }
     errors.push(...checkReferences(chapter.lessonRefs.map(ref => ref.id), lookup.approvedLessonIds, 'lessonRefs', 'unapproved_lesson'))
   }
   return errors
@@ -64,6 +68,14 @@ export function validateLesson(lesson: Lesson, lookup: ContentLookup = {}): Vali
       const approved = block.kind === 'text' || block.kind === 'recap' ? lookup.approvedDocumentIds
         : block.kind === 'visual_novel' ? lookup.approvedStoryVersionIds
           : block.kind === 'video' ? lookup.approvedMediaAssetIds : lookup.approvedQuestionSetIds
+      const knownKey = block.kind === 'text' || block.kind === 'recap' ? 'documentIds'
+        : block.kind === 'visual_novel' ? 'storyVersionIds'
+          : block.kind === 'video' ? 'mediaAssetIds' : 'questionSetIds'
+      const approvedKey = block.kind === 'text' || block.kind === 'recap' ? 'approvedDocumentIds'
+        : block.kind === 'visual_novel' ? 'approvedStoryVersionIds'
+          : block.kind === 'video' ? 'approvedMediaAssetIds' : 'approvedQuestionSetIds'
+      errors.push(...requireLookup(lookup, knownKey, path))
+      errors.push(...requireLookup(lookup, approvedKey, path))
       if (approved && !approved.has(ref)) errors.push(issue('unapproved_reference', path, 'Published lesson references content that is not approved/published'))
     }
     if (block.kind === 'video' && block.required && block.completionPolicy === 'optional') {
@@ -73,6 +85,7 @@ export function validateLesson(lesson: Lesson, lookup: ContentLookup = {}): Vali
   if (lesson.status === 'published' && lesson.learningObjectiveIds.length === 0) {
     errors.push(issue('objective', 'learningObjectiveIds', 'Published lesson needs an objective'))
   }
+  if (lesson.status === 'published') errors.push(...requireLookup(lookup, 'chapterIds', 'chapterId'))
   return errors
 }
 
@@ -85,6 +98,10 @@ export function validateMediaAsset(asset: MediaAsset, lookup: ContentLookup = {}
   errors.push(...checkReferences(asset.sourceIds, lookup.sourceIds, 'sourceIds', 'missing_source'))
   errors.push(...requireUnique(asset.sourceIds, 'sourceIds', 'source_reference'))
   if (asset.reviewStatus === 'published' || asset.reviewStatus === 'approved') {
+    if (asset.sourceIds.length) {
+      errors.push(...requireLookup(lookup, 'sourceIds', 'sourceIds'))
+      errors.push(...requireLookup(lookup, 'approvedSourceIds', 'sourceIds'))
+    }
     errors.push(...checkReferences(asset.sourceIds, lookup.approvedSourceIds, 'sourceIds', 'unapproved_source'))
   }
   if (!asset.storageRef.trim()) errors.push(issue('storage_ref', 'storageRef', 'Media storage reference is required'))
@@ -113,6 +130,10 @@ export function validateHistoricalClaim(claim: HistoricalClaim, lookup: ContentL
   errors.push(...checkReferences(claim.sourceIds, lookup.sourceIds, 'sourceIds', 'missing_source'))
   if (claim.reviewStatus === 'approved' || claim.reviewStatus === 'published') {
     if (claim.sourceIds.length === 0) errors.push(issue('claim_source', 'sourceIds', 'Approved claim needs at least one source'))
+    if (claim.sourceIds.length) {
+      errors.push(...requireLookup(lookup, 'sourceIds', 'sourceIds'))
+      errors.push(...requireLookup(lookup, 'approvedSourceIds', 'sourceIds'))
+    }
     errors.push(...checkReferences(claim.sourceIds, lookup.approvedSourceIds, 'sourceIds', 'unapproved_source'))
   }
   return errors
