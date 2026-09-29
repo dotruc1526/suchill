@@ -2,7 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { createMockLearningServices } from '../../src/services/next/mock.ts'
 import type { Chapter, Lesson, MultipleChoiceQuestion, QuestionSet } from '../../src/types/v2/content.ts'
-import type { ScoredQuizSubmission } from '../../src/services/next/contracts.ts'
+import type { QuizOption, ScoredQuizSubmission } from '../../src/services/next/contracts.ts'
 
 const chapter: Chapter = {
   id: 'chapter-1', slug: 'sample', title: 'Sample', summary: '', historicalPeriodLabel: '',
@@ -16,9 +16,10 @@ const lesson: Lesson = {
   blocks: [{ id: 'block-1', order: 0, required: true, kind: 'text', documentId: 'doc-1' }],
 }
 const questionSet: QuestionSet = { id: 'set-1', title: 'Sample quiz', questionIds: ['q-1'], learningObjectiveIds: [], mode: 'scored' }
-const question: MultipleChoiceQuestion = {
+const question: MultipleChoiceQuestion & { options: QuizOption[] } = {
   id: 'q-1', prompt: 'Question?', optionIds: ['option-a', 'option-b'], explanation: 'Review the source.',
   sourceIds: [], difficulty: 'intro', status: 'published',
+  options: [{ id: 'option-b', label: 'Phương án B' }, { id: 'option-a', label: 'Phương án A' }],
 }
 const catalog = { chapters: [chapter, { ...chapter, id: 'draft', status: 'draft' as const }],
   lessons: [lesson], storyVersions: [], mediaAssets: [], quizzes: [{
@@ -80,10 +81,14 @@ test('quiz reads omit answer keys and scored submissions are trusted and idempot
   if (!delivered.ok) return
   assert.deepEqual(delivered.value.questions[0].optionIds, ['option-a', 'option-b'])
   assert.equal('correctOptionId' in delivered.value.questions[0], false)
+  assert.deepEqual(delivered.value.questions[0].options, [{ id: 'option-a', label: 'Phương án A' }, { id: 'option-b', label: 'Phương án B' }])
+  assert.equal('explanation' in delivered.value.questions[0], false)
 
   const input = { operationId: 'quiz-op-1', questionSetId: 'set-1', answers: [{ questionId: 'q-1', selectedOptionIds: ['option-a'] }] }
   const first = await services.quiz.submitScoredAttempt(input)
-  assert.deepEqual(first, { ok: true, value: { attemptId: 'attempt-1', score: 1, total: 1, passed: true } })
+  assert.deepEqual(first, { ok: true, value: { attemptId: 'attempt-1', score: 1, total: 1, passed: true,
+    feedback: [{ questionId: 'q-1', explanation: 'Review the source.' }],
+  } })
   assert.deepEqual(await services.quiz.submitScoredAttempt(input), first)
   assert.deepEqual(await services.quiz.submitScoredAttempt({ ...input, answers: [{ ...input.answers[0], selectedOptionIds: ['option-b'] }] }),
     { ok: false, error: 'conflict' })
@@ -123,4 +128,32 @@ test('quiz adapter rejects unknown options and strips client correctness fields 
   if (submitted.ok) assert.equal('xpAwarded' in submitted.value, false)
   assert.equal(graded && 'isCorrect' in (graded as unknown as Record<string, unknown>), false)
   assert.equal(graded && 'isCorrect' in (graded.answers[0] as unknown as Record<string, unknown>), false)
+})
+
+test('quiz delivery rejects missing, duplicate or unlabeled options', async () => {
+  for (const options of [[], [{ id: 'option-a', label: 'A' }],
+    [{ id: 'option-a', label: 'A' }, { id: 'option-a', label: 'Duplicate' }],
+    [{ id: 'option-a', label: 'A' }, { id: 'option-b', label: '  ' }],
+    [{ id: 'option-a', label: 'A' }, { id: 'unknown', label: 'B' }]]) {
+    const fixture = { ...catalog.quizzes[0], questions: [{ ...question, options }] }
+    const service = createMockLearningServices({ ...catalog, quizzes: [fixture] }, { userId: 'a' })
+    assert.deepEqual(await service.quiz.getQuestionSet('set-1'), { ok: false, error: 'not_found' })
+  }
+})
+
+test('quiz delivery allowlists option labels and question/set fields even when fixtures carry answer keys', async () => {
+  const fixture = { ...catalog.quizzes[0],
+    set: { ...questionSet, answerKey: 'option-a' },
+    questions: [{ ...question, answerKey: 'option-a', isCorrect: true,
+      options: question.options.map(option => ({ ...option, isCorrect: option.id === 'option-a', explanation: 'Private feedback' })),
+    }],
+  }
+  const service = createMockLearningServices({ ...catalog, quizzes: [fixture] }, { userId: 'a' })
+  const delivery = await service.quiz.getQuestionSet('set-1')
+  assert.equal(delivery.ok, true)
+  if (!delivery.ok) return
+  assert.doesNotMatch(JSON.stringify(delivery.value), /answerKey|isCorrect|explanation/)
+  delivery.value.questions[0].options[0].label = 'Mutated'
+  const again = await service.quiz.getQuestionSet('set-1')
+  assert.equal(again.ok && again.value.questions[0].options[0].label, 'Phương án A')
 })

@@ -1,11 +1,12 @@
 import type { Chapter, Lesson, Locale, MediaAsset, MultipleChoiceQuestion, PublishStatus, QuestionSet, StoryVersion } from '../../types/v2/content.ts'
-import type { LessonProgress } from '../../types/v2/progress.ts'
-import { failure, success, type LearningServices, type ScoredQuizReceipt, type ScoredQuizSubmission } from './contracts.ts'
+import { createMockProgressService, createMockProgressStore, type MockProgressStore } from './mockProgress.ts'
+import { createMockMediaService, type MockMediaResource } from './mockMedia.ts'
+import { failure, success, type LearningServices, type QuizOption, type ScoredQuizReceipt, type ScoredQuizSubmission } from './contracts.ts'
 
 export type MockQuizFixture = {
   status: PublishStatus
   set: QuestionSet
-  questions: MultipleChoiceQuestion[]
+  questions: Array<MultipleChoiceQuestion & { options: QuizOption[] }>
   /** Trusted fixture hook; answer keys never appear in the delivered question payload. */
   grade: (input: ScoredQuizSubmission) => ScoredQuizReceipt
 }
@@ -15,6 +16,7 @@ export type MockCatalog = {
   lessons: Lesson[]
   storyVersions: StoryVersion[]
   mediaAssets: MediaAsset[]
+  mediaResources?: MockMediaResource[]
   quizzes?: MockQuizFixture[]
 }
 
@@ -23,12 +25,9 @@ export function createMockLearningServices(
   catalog: MockCatalog,
   session: { userId: string; displayName?: string; locale?: Locale },
   now: () => string = () => new Date().toISOString(),
+  progressStore: MockProgressStore = createMockProgressStore(),
 ): LearningServices {
-  const progress = new Map<string, LessonProgress>()
-  const processed = new Map<string, { signature: string; result: LessonProgress }>()
   const processedQuizzes = new Map<string, { signature: string; result: ScoredQuizReceipt }>()
-  const progressKey = (userId: string, lessonId: string) => JSON.stringify([userId, lessonId])
-  const operationKey = (userId: string, operationId: string) => JSON.stringify([userId, operationId])
   const copy = <T>(value: T): T => structuredClone(value)
   const published = <T extends { status?: string; reviewStatus?: string }>(value: T): boolean =>
     (value.status ?? value.reviewStatus) === 'published'
@@ -36,10 +35,15 @@ export function createMockLearningServices(
   const resolveQuiz = (questionSetId: string) => {
     const quiz = catalog.quizzes?.find(item => item.set.id === questionSetId)
     if (!quiz || quiz.status !== 'published' || !quiz.questions.every(published)) return null
+    if (quiz.questions.some(question => !question.options?.length ||
+      new Set(question.optionIds).size !== question.optionIds.length ||
+      new Set(question.options.map(option => option.id)).size !== question.options.length ||
+      question.options.length !== question.optionIds.length ||
+      question.options.some(option => !option.label.trim() || !question.optionIds.includes(option.id)))) return null
     const questions = new Map(quiz.questions.map(question => [question.id, question]))
     if (questions.size !== quiz.questions.length || new Set(quiz.set.questionIds).size !== quiz.set.questionIds.length) return null
     const ordered = quiz.set.questionIds.map(id => questions.get(id))
-    return ordered.some(question => !question) ? null : { fixture: quiz, questions: ordered as MultipleChoiceQuestion[] }
+    return ordered.some(question => !question) ? null : { fixture: quiz, questions: ordered as MockQuizFixture['questions'] }
   }
 
   return {
@@ -64,55 +68,24 @@ export function createMockLearningServices(
         return story ? success(copy(story)) : failure('not_found')
       },
     },
-    media: {
-      async getResolvedAsset(mediaAssetId) {
-        const asset = catalog.mediaAssets.find(item => item.id === mediaAssetId && published(item))
-        // A mock URI is intentionally non-network and cannot be used as production content.
-        return asset ? success({ ...copy(asset), url: `mock://media/${encodeURIComponent(asset.id)}` }) : failure('not_found')
-      },
-    },
-    progress: {
-      async getLessonProgress(lessonId) {
-        const userId = session.userId
-        if (!userId) return failure('unauthorized')
-        return success(copy(progress.get(progressKey(userId, lessonId)) ?? null))
-      },
-      async saveCheckpoint(input) {
-        const userId = session.userId
-        if (!userId) return failure('unauthorized')
-        if (!input.operationId || !input.lessonId) return failure('validation')
-        const signature = JSON.stringify([input.lessonId, input.currentBlockId ?? null,
-          [...new Set(input.completedBlockIds)].sort()])
-        const previousOperation = processed.get(operationKey(userId, input.operationId))
-        if (previousOperation) {
-          return previousOperation.signature === signature ? success(copy(previousOperation.result)) : failure('conflict')
-        }
-        const lesson = catalog.lessons.find(item => item.id === input.lessonId && published(item))
-        if (!lesson) return failure('not_found')
-        const blockIds = new Set(lesson.blocks.map(block => block.id))
-        if ((input.currentBlockId && !blockIds.has(input.currentBlockId)) ||
-          input.completedBlockIds.some(id => !blockIds.has(id))) return failure('validation')
-        const prior = progress.get(progressKey(userId, input.lessonId))
-        const completedBlockIds = [...new Set([...(prior?.completedBlockIds ?? []), ...input.completedBlockIds])]
-        const next: LessonProgress = {
-          userId,
-          lessonId: input.lessonId,
-          status: prior?.status === 'completed' ? 'completed' : 'in_progress',
-          currentBlockId: input.currentBlockId ?? prior?.currentBlockId,
-          completedBlockIds,
-          startedAt: prior?.startedAt ?? now(),
-          updatedAt: now(),
-        }
-        progress.set(progressKey(userId, input.lessonId), next)
-        processed.set(operationKey(userId, input.operationId), { signature, result: copy(next) })
-        return success(copy(next))
-      },
-    },
+    media: createMockMediaService(catalog),
+    progress: createMockProgressService(catalog, session, now, progressStore),
     quiz: {
       async getQuestionSet(questionSetId) {
         const quiz = resolveQuiz(questionSetId)
         if (!quiz) return failure('not_found')
-        return success(copy({ set: quiz.fixture.set, questions: quiz.questions }))
+        const set = quiz.fixture.set
+        return success(copy({
+          set: { id: set.id, title: set.title, questionIds: set.questionIds, learningObjectiveIds: set.learningObjectiveIds, mode: set.mode },
+          questions: quiz.questions.map(question => ({
+            id: question.id, prompt: question.prompt, optionIds: question.optionIds,
+            sourceIds: question.sourceIds, difficulty: question.difficulty,
+            options: question.optionIds.map(id => {
+              const option = question.options.find(item => item.id === id)!
+              return { id: option.id, label: option.label }
+            }),
+          })),
+        }))
       },
       async submitScoredAttempt(input) {
         const userId = session.userId
@@ -153,6 +126,7 @@ export function createMockLearningServices(
           score: graded.score,
           total: graded.total,
           passed: graded.passed === true,
+          feedback: quiz.questions.map(question => ({ questionId: question.id, explanation: question.explanation })),
         }
         processedQuizzes.set(key, { signature, result })
         return success(copy(result))

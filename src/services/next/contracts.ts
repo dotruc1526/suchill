@@ -1,5 +1,5 @@
 import type { Chapter, Lesson, Locale, MediaAsset, MultipleChoiceQuestion, QuestionSet, StoryVersion } from '../../types/v2/content.ts'
-import type { LessonProgress } from '../../types/v2/progress.ts'
+import type { EpisodeProgress, LessonProgress, VideoProgress } from '../../types/v2/progress.ts'
 
 export type ServiceErrorCode = 'not_found' | 'unauthorized' | 'offline' | 'validation' | 'conflict' | 'server_error'
 export type Result<T> = { ok: true; value: T } | { ok: false; error: ServiceErrorCode }
@@ -17,7 +17,15 @@ export interface VisualNovelService {
   getVersion(storyVersionId: string): Promise<Result<StoryVersion>>
 }
 export interface MediaService {
-  getResolvedAsset(mediaAssetId: string): Promise<Result<MediaAsset & { url: string }>>
+  getResolvedAsset(mediaAssetId: string): Promise<Result<ResolvedMediaAsset>>
+}
+export type ResolvedTextResource = { id: string; url: string; locale: Locale; label: string }
+export type ResolvedMediaAsset = Omit<MediaAsset, 'storageRef' | 'posterMediaId' | 'captionTrackRefs' | 'transcriptRef'> & {
+  url: string
+  poster?: { id: string; url: string; altText: string }
+  captionTracks: ResolvedTextResource[]
+  transcript?: ResolvedTextResource
+  fallback?: { kind: 'transcript'; url: string } | { kind: 'poster'; url: string; altText: string }
 }
 export type SaveLessonCheckpoint = {
   lessonId: string
@@ -28,8 +36,28 @@ export type SaveLessonCheckpoint = {
 export interface ProgressService {
   getLessonProgress(lessonId: string): Promise<Result<LessonProgress | null>>
   saveCheckpoint(input: SaveLessonCheckpoint): Promise<Result<LessonProgress>>
+  getEpisodeProgress(storyVersionId: string): Promise<Result<EpisodeProgress | null>>
+  saveEpisodeCheckpoint(input: SaveEpisodeCheckpoint): Promise<Result<EpisodeProgress>>
+  recordChoice(input: RecordStoryChoice): Promise<Result<EpisodeProgress>>
+  getVideoProgress(lessonId: string, blockId: string): Promise<Result<VideoProgress | null>>
+  saveVideoPosition(input: SaveVideoPosition): Promise<Result<VideoProgress>>
+  getResumePoint(lessonId: string): Promise<Result<ResumePoint>>
 }
-export type QuestionSetDelivery = { set: QuestionSet; questions: MultipleChoiceQuestion[] }
+export type StoryCheckpointContext = { lessonId: string; blockId: string; storyVersionId: string; operationId: string }
+export type SaveEpisodeCheckpoint = StoryCheckpointContext & { currentSceneId: string; visitedSceneIds: string[] }
+export type RecordStoryChoice = StoryCheckpointContext & { sceneId: string; choiceId: string }
+export type SaveVideoPosition = {
+  lessonId: string; blockId: string; operationId: string
+  positionSeconds: number; watchedRanges: Array<{ start: number; end: number }>
+}
+export type ResumePoint =
+  | { kind: 'block'; lessonId: string; blockId: string }
+  | { kind: 'visual_novel'; lessonId: string; blockId: string; storyVersionId: string; progress: EpisodeProgress | null; sceneId: string }
+  | { kind: 'video'; lessonId: string; blockId: string; progress: VideoProgress | null; positionSeconds: number }
+export type QuizOption = { id: string; label: string }
+/** Explanation/answer keys are withheld from question delivery until trusted grading. */
+export type DeliveredQuestion = Omit<MultipleChoiceQuestion, 'explanation' | 'status'> & { options: QuizOption[] }
+export type QuestionSetDelivery = { set: QuestionSet; questions: DeliveredQuestion[] }
 export type ScoredQuizSubmission = {
   operationId: string
   questionSetId: string
@@ -40,6 +68,7 @@ export type ScoredQuizReceipt = {
   score: number
   total: number
   passed: boolean
+  feedback?: Array<{ questionId: string; explanation: string }>
 }
 export interface QuizService {
   getQuestionSet(questionSetId: string): Promise<Result<QuestionSetDelivery>>
