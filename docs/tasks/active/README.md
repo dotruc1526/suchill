@@ -1,14 +1,22 @@
 # Active task cards
 
-Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây:
+Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOCKED` nằm trong `../blocked/`; task đã được reviewer xác nhận nằm trong `../done/`.
 
-- [M1-07](./M1-07.md) — khắc phục narrative choice, Modal focus và token hard-code; Hưng triển khai, Trúc review UI/UX, Vinh review accessibility/QA trước khi Product Owner audit gate M1.
+> Last synchronized: 2026-09-29 — PR #61 documentation review
 
-- [DOC-011](./DOC-011.md) — chốt video của Member 2 là deliverable MVP, chờ product owner review.
-- [DOC-012](./DOC-012.md) — chốt phạm vi kháng chiến chống Mỹ và MVP một chapter mẫu nhiều lesson, chờ product owner review.
-- [DOC-013](./DOC-013.md) — rà soát AGENTS/Architecture và milestone gate, chờ product owner review.
-- [DOC-014](./DOC-014.md) — kiểm tra GitHub readiness và mở việc nghiên cứu nguồn sơ bộ cho Member 1.
-- [DOC-015](./DOC-015.md) — gán tên năm thành viên, tạo nhánh riêng và PR tài liệu.
-- [CONTENT-009](./CONTENT-009.md) — Member 1 có thể nhận việc tìm nguồn/chủ đề ứng viên trong content track độc lập.
-- [CONTENT-006](./CONTENT-006.md) — video reference, sẵn sàng để gán owner.
-- [BATTLE-001](./BATTLE-001.md) — prototype ngoài project, đang chờ handoff.
+## Content track
+
+- [M2-01](./M2-01.md) — `REVIEW`; PR #61 đã merge và quality pass, chờ reviewer chuyển task sang `DONE`.
+- [CONTENT-003](./CONTENT-003.md) — `REVIEW`; hoàn tất phần historical/media review còn lại và technical QA cho hồ sơ pilot.
+- [CONTENT-004](./CONTENT-004.md) — `REVIEW`; historical review đạt, chờ technical QA/media/handoff sign-off.
+- [CONTENT-010](./CONTENT-010.md) — `REVIEW`; historical review đạt, chờ technical QA/media/handoff sign-off.
+- [CONTENT-011](./CONTENT-011.md) — `REVIEW`; historical review đạt, chờ technical QA/media/handoff sign-off.
+- [CONTENT-006](./CONTENT-006.md) — `IN PROGRESS`; video cũ chỉ `APPROVED_FOR_INTERNAL_REFERENCE_ONLY`, không phải media canonical.
+- [CONTENT-012](./CONTENT-012.md) — `REVIEW`; ngân hàng câu hỏi chờ content/media và technical QA sign-off.
+- [CONTENT-014](./CONTENT-014.md) — `REVIEW`; authoring remediation và validator đã đạt, chờ Vinh xác nhận task-level handoff.
+
+## Experimental track
+
+- [BATTLE-001](./BATTLE-001.md) — `IN PROGRESS (external)`; chờ repo/demo/rules/security handoff trước integration review.
+
+Các file `active.md`, `CONTENT-003-004-REVIEW.md`, `PR21-HANDOFF.md`, `BEQA-LOCAL-001-MATRIX.md` và `M1-PR-REVIEW-GUIDE.md` là evidence/handoff, không phải task card độc lập.

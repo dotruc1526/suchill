@@ -56,4 +56,4 @@ Phương án authoring bắt buộc dùng chữ/sơ đồ nguyên bản; ảnh t
 
 ## Gate còn lại
 
-Trúc xác nhận historical/learning/media cho bản cụ thể, Vinh kiểm tra technical QA; pilot cần audio/poster/video thật và kiểm tra nghe/xem. Không ghi DONE/APPROVED thay người kiểm tra. CONTENT-006 vẫn REFERENCE_ONLY; M0 đã đóng, M1 đang mở, M2–M7 vẫn locked.
+Trúc xác nhận historical/learning/media cho bản cụ thể, Vinh kiểm tra technical QA; pilot cần audio/poster/video thật và kiểm tra nghe/xem. Không ghi DONE/APPROVED thay người kiểm tra. CONTENT-006 vẫn REFERENCE_ONLY; M0/M1 đã đóng, M2 kỹ thuật đang OPEN, nhưng content/media production vẫn BLOCKED cho đến khi artifact pilot có sign-off.

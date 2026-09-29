@@ -7,7 +7,7 @@
 - Executor: Trúc; Codex hỗ trợ. Một executor duy nhất.
 - Reviewer: Trúc phụ trách historical/learning/media theo quyền được giao; Vinh giữ vai trò technical QA. Chưa ghi nhận sign-off bản mới.
 - Branch: `codex/mt68-complete-handoff`, base main `165b9ac`; PR #21 đã merge.
-- Depends on: DOC-003/004/006/009 đã DONE; bản nháp PR #21 đã có trên main. Đây là task sửa tài liệu/authoring, không claim sản xuất; `CONTENT-004` đang `REVIEW` và `CONTENT-007` vẫn `BLOCKED`.
+- Depends on: DOC-003/004/006/009 đã DONE; bản nháp PR #21 đã có trên main. Đây là task sửa tài liệu/authoring, không claim sản xuất. `CONTENT-004` giữ `REVIEW` cùng gói technical QA/media/handoff này; `CONTENT-007` hiện BLOCKED cho đến khi artifact pilot và review record nhất quán.
 - Files claimed: `docs/content/PILOT-SCREENPLAY.md`, `PILOT-NARRATION.json`, `PILOT-CAPTIONS.vtt`, `LESSON-02-INTERACTIVE.md`, `LESSON-02-STORY.json`, `MAP-MT68.json`, `PRODUCTION-NOTES.md`, `CURRICULUM-MAP.md`, `HISTORICAL-SOURCES.md`, `DETAILED-MEDIA-CATALOG.csv`, `MEDIA-REVIEW-MT68.md`; board, card CONTENT-003/004/010/011/012 và PR21-HANDOFF.
 - Next action: Trúc review bản authoring và Vinh kiểm tra kỹ thuật trong PR tiếp nối; chưa xác nhận phát hành hoặc sản xuất.
 - File claim bổ sung: `docs/content/validate-mt68-authoring.mjs`, kiểm tra graph/ID/nguồn/timing/VTT cho các file trong task, không sửa runtime.
@@ -33,4 +33,4 @@
 
 - Chưa có build/runtime impact; không environment/migration.
 - Quyền thực hiện không thay bằng chứng quyền tác giả, file thu âm hoặc nghiệm thu nghe/xem.
-- CONTENT-006 giữ IN PROGRESS/REFERENCE_ONLY; M1 OPEN, M2–M7 LOCKED.
+- CONTENT-006 giữ IN PROGRESS/REFERENCE_ONLY; M2 OPEN, M3–M7 LOCKED.
