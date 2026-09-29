@@ -73,7 +73,7 @@
 * **Visual Cue:** Màn hình huỳnh quang hiển thị tọa độ mục tiêu; kíp trắc thủ tập trung theo dõi các tham số không gian.
 * **Audio Cue:** Tiếng quạt gió làm mát, tiếng tín hiệu điện tử đều đặn trong buồng lái.
 * **Lời dẫn (Narration):**
-  > "Trong cabin điều khiển, kíp chiến đấu phối hợp chặt chẽ để quan sát và xử lý các thông tin mục tiêu trên màn hiện sóng radar. Tinh thần hiệp đồng đồng bộ giữa các vị trí là yếu tố quyết định giúp đơn vị nắm chắc tình hình trên không và thực hiện nhiệm vụ chiến đấu bảo vệ bầu trời."
+  > "Trong cabin điều khiển, kíp chiến đấu phối hợp để quan sát và xử lý thông tin mục tiêu trên màn hiện sóng radar. Sự hiệp đồng giữa các vị trí hỗ trợ đơn vị theo dõi tình hình trên không và thực hiện nhiệm vụ bảo vệ bầu trời."
 * **Phân loại sử liệu:** `verified_fact` + `educational_explanation`
 * **Mã Claim & Nguồn:** `CLM-1972-VN-002`, `CLM-1972-VN-005` | *Nguồn: `SRC-1972-02`, `SRC-1972-WEB-02`*
 * **Chuyển cảnh:** Đi tiếp sang nội dung thứ hai ➔ `sam2-v1-interference`
