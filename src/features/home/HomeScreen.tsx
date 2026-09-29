@@ -1,6 +1,8 @@
 import Mascot from '../../Mascot'
 import { chapters, userStats, weekDays, weekDone } from '../../data'
+import { FlameIcon, HandIcon } from '../../components/icons/NavIcon'
 import ChapterCard from '../../components/roadmap/ChapterCard'
+import { theme } from '../../theme/tokens'
 
 export function HomeScreen({
   onChapter,
@@ -19,34 +21,38 @@ export function HomeScreen({
     <div className="pb-4 px-4 space-y-4">
       {/* Greeting */}
       <div className="pt-4">
-        <div className="font-hand text-2xl" style={{ color: '#3D1A00' }}>XIN CHÀO 👋</div>
-        <div className="font-sans text-sm mt-0.5" style={{ color: '#7A4020' }}>
+        <div className="flex items-center gap-2 font-hand text-2xl" style={{ color: theme.colors.textPrimary }}>
+          <span>XIN CHÀO</span>
+          <HandIcon size={24} aria-hidden="true" />
+        </div>
+        <div className="font-sans text-sm mt-0.5" style={{ color: theme.colors.textSecondary }}>
           Hôm nay bạn muốn khám phá điều gì?
         </div>
       </div>
 
       {/* Streak card */}
       <div
+        data-testid="home-streak-card"
         className="paper-card rounded-lg p-3 flex flex-wrap items-center gap-3"
-        style={{ borderLeft: '4px solid #C4341A' }}
+        style={{ borderLeft: `4px solid ${theme.colors.accentRed}` }}
       >
-        <span className="text-3xl shrink-0">🔥</span>
-        <div className="min-w-[150px] flex-1">
-          <div className="font-serif font-bold text-base" style={{ color: '#C4341A' }}>
+        <FlameIcon size={32} aria-hidden="true" className="shrink-0" style={{ color: theme.colors.accentRed }} />
+        <div className="min-w-0 flex-1">
+          <div data-testid="home-streak-title" className="whitespace-nowrap font-serif font-bold text-[15px]" style={{ color: theme.colors.accentRed }}>
             {userStats.streak} NGÀY LIÊN TIẾP
           </div>
-          <div className="font-sans text-xs" style={{ color: '#7A4020' }}>
+          <div className="font-sans text-xs" style={{ color: theme.colors.textSecondary }}>
             Bạn đã khám phá lịch sử {userStats.streak} ngày liên tiếp!
           </div>
         </div>
-        <div className="ml-auto flex shrink-0 gap-1">
+        <div data-testid="home-streak-days" className="flex w-full shrink-0 justify-center gap-1">
           {weekDays.map((d, i) => (
             <div key={d} className="flex flex-col items-center">
               <div
                 className="w-6 h-6 rounded-sm flex items-center justify-center text-xs"
                 style={{
-                  background: weekDone[i] ? '#8B1A1A' : '#E8D5BA',
-                  color: weekDone[i] ? '#F5E6D0' : '#A0622A',
+                  background: weekDone[i] ? theme.colors.primary : theme.colors.activeBg,
+                  color: weekDone[i] ? theme.colors.primaryText : theme.colors.textMuted,
                   fontSize: weekDone[i] ? 10 : 8,
                   fontWeight: 600,
                 }}

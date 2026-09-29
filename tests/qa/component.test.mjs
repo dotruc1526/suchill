@@ -1,12 +1,14 @@
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { after, test } from 'node:test'
+import { fileURLToPath } from 'node:url'
 import React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { createServer } from 'vite'
 
 const vite = await createServer({
   configFile: false,
+  resolve: { alias: { '@': fileURLToPath(new URL('../../src', import.meta.url)) } },
   server: { middlewareMode: true, hmr: false },
   appType: 'custom',
 })
@@ -47,6 +49,20 @@ test('canonical TopBar renders streak, xp and safe-area header', async () => {
   assert.ok(!html.includes('letter-spacing:0.03em') && !html.includes('letterSpacing'))
   assert.equal((html.match(/<svg/g) ?? []).length, 3)
   assert.doesNotMatch(html, /🔥|⭐|🏆/)
+})
+
+test('home decorative greeting and streak icons are hidden from screen readers', async () => {
+  const { HomeScreen } = await vite.ssrLoadModule('/src/features/home/HomeScreen.tsx')
+  const { theme } = await vite.ssrLoadModule('/src/theme/tokens.ts')
+  const html = renderToStaticMarkup(React.createElement(HomeScreen, { onChapter: () => {}, onLesson: () => {} }))
+
+  assert.match(html, /<svg[^>]*aria-hidden="true"/)
+  assert.equal((html.match(/aria-hidden="true"/g) ?? []).length, 2)
+  assert.doesNotMatch(html, /aria-label="(?:Lời chào|Chuỗi ngày học)"/)
+  assert.ok(html.includes('data-testid="home-streak-card"'))
+  for (const color of [theme.colors.accentRed, theme.colors.primary, theme.colors.primaryText, theme.colors.activeBg, theme.colors.textMuted]) {
+    assert.ok(html.includes(color), `rendered streak UI should use token color ${color}`)
+  }
 })
 
 test('runtime typography loads only Inter and keeps legacy class aliases', async () => {
