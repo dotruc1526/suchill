@@ -82,6 +82,24 @@ Toàn bộ 3 script kiểm thử của Chapter 1972 và quét an toàn mã ngu�
 
 ---
 
+## 🛠️ Khắc phục 5 điểm thẩm định sử liệu theo ý kiến của Trúc (Historical Reviewer)
+
+Toàn bộ 5 điểm phản hồi trên PR #54 đã được rà soát và khắc phục triệt để trên cả hai nhánh `content/tho-lesson-02-1972-vn-v2` và `content/tho-chapter-1972-package`:
+1. **Scene 2/4 & Sơ đồ SAM-2 (Quy trình kíp chiến đấu & mốc cự ly):**
+   - Loại bỏ các mô tả cơ khí vi mô chưa đủ chứng cứ sách vở cấp trang ("thao tác tay quay", "vô lăng vi chỉnh"), loại bỏ khẩu lệnh dồn dập và đếm ngược cự ly giả lập ("40km... 35km... 30km").
+   - Giữ văn phong hiệp đồng tổng quát đúng chuẩn `CLM-1972-VN-002` trong `CONTENT-016-EVIDENCE.md`.
+2. **Scene 5 (Số lượng máy gây nhiễu & từ ngữ chưa kiểm chứng):**
+   - Đính chính số liệu gây nhiễu: Tốp 3 chiếc B-52 mang 45 máy gây nhiễu (chuẩn hóa theo bài viết trên Báo Quân đội nhân dân `SRC-1972-WEB-01`), không dùng từ ước lệ "hàng trăm máy phát nhiễu".
+   - Loại bỏ các từ ngữ văn chương/tiếng lóng chưa kiểm chứng ("bó chổi chà") và mô tả cảm quan màn hiện sóng ("độ mịn, gợn sóng đặc trưng").
+3. **Scene 6 Knowledge Check (Tên lửa chống bức xạ Shrike):**
+   - Điều chỉnh phương án và lời giải thích: không tuyệt đối hóa "hễ phát sóng liên tục là lập tức bị Shrike tiêu diệt", mà làm rõ việc phát sóng liên tục làm tăng nguy cơ bị Shrike bám bắt và phân tích nghệ thuật tắt/bật sóng linh hoạt của bộ đội tên lửa.
+4. **Trạng thái phê duyệt Story JSON:**
+   - Điều chỉnh `reviewStatus` trong `LESSON-02-1972-STORY.json` từ `"approved"` về `"ready_for_review"`, tuân thủ nguyên tắc không tự phong phê duyệt trước khi có sign-off chính thức từ Trúc và Product Owner.
+5. **Làm rõ phạm vi kiểm thử tự động:**
+   - Cập nhật task card `CONTENT-017`: Ghi nhận `validate-1972-authoring.mjs` có vai trò kiểm tra tính toàn vẹn cú pháp, liên kết đồ thị cảnh (graph reachability) và text-fallback; tính chuẩn xác sử liệu do con người (Trúc & PO) thẩm định dựa trên Ma trận Bằng chứng.
+
+---
+
 ## 📋 Checklist Review
 - [ ] **Trúc (Historical Reviewer)**: Thẩm định sử liệu và ngôn ngữ toàn bộ 4 bài học Chapter 1972 theo Ma trận Bằng chứng trên.
 - [ ] **Hưng (Architecture)**: Xác nhận cấu trúc dữ liệu JSON (Story JSON, Diagram JSON, Quiz JSON) khớp với domain types v2.
