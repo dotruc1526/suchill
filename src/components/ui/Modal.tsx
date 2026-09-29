@@ -92,7 +92,10 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
         onClick={e => e.stopPropagation()}
       >
         {title && (
-          <div className="flex items-center justify-between pb-3 mb-3 border-b border-[rgba(61,26,0,0.12)]">
+          <div
+            className="flex items-center justify-between pb-3 mb-3 border-b"
+            style={{ borderBottomColor: theme.colors.borderLight }}
+          >
             <h3 id="modal-title" className="font-serif font-bold text-lg" style={{ color: theme.colors.textPrimary }}>
               {title}
             </h3>
