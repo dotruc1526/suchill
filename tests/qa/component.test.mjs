@@ -122,10 +122,15 @@ test('UI primitives render with design tokens', async () => {
 test('Modal source contains focus trap and focus restoration behavior', async () => {
   const source = await readFile(new URL('../../src/components/ui/Modal.tsx', import.meta.url), 'utf8')
   assert.match(source, /previouslyFocusedRef/)
+  assert.match(source, /onCloseRef\.current = onClose/)
+  assert.match(source, /onCloseRef\.current\(\)/)
   assert.match(source, /document\.activeElement/)
   assert.match(source, /querySelectorAll<HTMLElement>/)
   assert.match(source, /e\.key !== 'Tab'/)
+  assert.match(source, /focusIsOutside/)
   assert.match(source, /previouslyFocusedRef\.current\?\.focus\(\)/)
+  assert.match(source, /\}, \[isOpen\]\)/)
+  assert.doesNotMatch(source, /\[isOpen, onClose\]/)
 })
 
 test('M1 primitives route color and shadow decisions through tokens', async () => {
