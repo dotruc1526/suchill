@@ -1,6 +1,6 @@
 # Bài 4: Bước ngoặt Paris
 
-> Task: [CONTENT-011](../tasks/active/CONTENT-011.md)
+> Task: [CONTENT-011](../tasks/done/CONTENT-011.md)
 > Status: NEEDS_HISTORICAL_REVIEW; chưa phát hành.
 > Lesson ID: `lesson-mt68-04-synthesis`; objective: CLO-4.
 

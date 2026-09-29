@@ -19,7 +19,7 @@
 
 - In scope: Soạn kịch bản chi tiết (Screenplay scene-by-scene) cho Bài 1 "Tối hậu thư từ bầu trời" thuộc Chapter 1972 (Chiến dịch 12 ngày đêm Điện Biên Phủ trên không); chuẩn tỷ lệ 9:16 dọc (1080x1920), thời lượng chuẩn 110 giây (5 phân cảnh), đầy đủ visual cues, voiceover, SFX/BGM, WebVTT subtitle template, phân loại sự thật lịch sử (`verified_fact`, `educational_explanation`), và trích dẫn nguồn lịch sử chính thống (Quân chủng PK-KQ, Viện Lịch sử Quân sự Việt Nam).
 - Out of scope: Dựng video MP4 (việc của Member 2/Trúc), lập trình player (việc của Member 4/Dương).
-- Files claimed: `docs/tasks/active/CONTENT-015.md`, `docs/content/SCREENPLAY-1972.md`, `docs/content/CAPTIONS-1972.vtt`, `docs/project/TASK-BOARD.md`.
+- Files changed: `docs/tasks/done/CONTENT-015.md`, `docs/content/SCREENPLAY-1972.md`, `docs/content/CAPTIONS-1972.vtt`, `docs/project/TASK-BOARD.md`.
 - Shared-contract consumers: Member 2 (Video production), Member 4 (Frontend learning), Historical Reviewer.
 
 ## Acceptance criteria
@@ -45,8 +45,8 @@
 
 ## Handoff
 
-- Changed files: `docs/tasks/active/CONTENT-015.md`, `docs/content/SCREENPLAY-1972.md`, `docs/content/CAPTIONS-1972.vtt`, `docs/project/TASK-BOARD.md`.
+- Changed files: `docs/tasks/done/CONTENT-015.md`, `docs/content/SCREENPLAY-1972.md`, `docs/content/CAPTIONS-1972.vtt`, `docs/project/TASK-BOARD.md`.
 - Test/build result: Docs-only, không ảnh hưởng runtime; WebVTT cú pháp chuẩn RFC.
 - Environment/migration impact: Không có.
-- Known issues/risks: Chờ review nguồn và phân cảnh từ Historical Reviewer.
-- Next owner/action: Trúc (Member 2) nhận kịch bản chuẩn bị tài nguyên video khi có phê duyệt.
+- Known issues/risks: media/audio/video sản xuất từ kịch bản vẫn cần quyền sử dụng và review riêng trước publish.
+- Next owner/action: Trúc (Member 2) có thể nhận kịch bản đã duyệt để chuẩn bị task sản xuất video phù hợp.

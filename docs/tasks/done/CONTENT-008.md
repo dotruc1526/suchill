@@ -51,8 +51,8 @@
 - Test/build result: Hoàn tất 100% acceptance criteria; ripgrep kiểm tra 0 thuật ngữ cấm; tuân thủ pháp luật Việt Nam.
 - Environment/migration impact: Không có thay đổi schema hay build config.
 - Known issues/risks: Không có.
-- Next owner/action: Thọ review bản curriculum/quiz sửa trong PR #21; CONTENT-003 còn NEEDS_REVISION và CONTENT-007 BLOCKED, chưa bàn giao sản xuất/tích hợp.
+- Next owner/action: curriculum outline đã DONE; các revision chi tiết theo card riêng. Historical verdict ngày 2026-09-28 đã mở khóa CONTENT-007 ở trạng thái READY.
 
 ## Đính chính handoff 2026-09-27
 
-DONE là trạng thái outline đã ghi trước đây, không phải approval của nội dung sửa lần này. Các kết luận lịch sử/pháp lý và “không có rủi ro” trong handoff cũ chưa được tái xác nhận. Curriculum hiện IN_REVIEW; Thọ cần xác nhận lại acceptance của bản sửa, đặc biệt scene graph Bài 2. Hai checkpoint 2026-09-23 từ card blocked đã có ở trên; xóa bản card trùng, giữ lịch sử Git. M1 đang OPEN; M2–M7 vẫn LOCKED.
+Checkpoint này ghi nhận trạng thái revision tại ngày 2026-09-27. Historical verdict ngày 2026-09-28 và quyết định milestone ngày 2026-09-29 đã thay thế phần trạng thái: CONTENT-008 giữ DONE, CONTENT-007 READY, M2 OPEN và M3–M7 LOCKED.

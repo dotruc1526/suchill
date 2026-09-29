@@ -1,6 +1,6 @@
 # Bàn giao hiện hành sau PR #21
 
-> Status: REVIEW bản authoring; không phải sign-off phát hành.
+> Status: HISTORICAL HANDOFF — các trạng thái task trong tài liệu này đã được verdict ngày 2026-09-28 thay thế; xem task board/card hiện hành.
 > PR #21 đã merge tại cd89038; main khi bắt đầu lượt này: 165b9ac (đã có PR #22).
 > Task thực hiện: [CONTENT-014](./CONTENT-014.md).
 
@@ -31,4 +31,4 @@ Các file thay đổi nằm trong claim CONTENT-014. Không đổi runtime/DB, k
 4. Nếu chọn ảnh optional, xác nhận caption/alt/crop/attribution và phạm vi license. Không cần ảnh này cho phương án chữ.
 5. Trạng thái cũ CONTENT-002/008 và DOC-012 còn ghi nhận chưa nhất quán về acceptance; quyền sửa lần này không tự xác nhận các approval quá khứ.
 
-CONTENT-004 đang REVIEW, còn CONTENT-007 vẫn BLOCKED cho sản xuất; CONTENT-014 chỉ hoàn tất phần authoring để review. CONTENT-006 vẫn IN PROGRESS/REFERENCE_ONLY; M1 OPEN, M2–M7 LOCKED. Không merge thay người dùng.
+Tại thời điểm lập handoff, CONTENT-004 còn REVIEW và CONTENT-007 còn BLOCKED. Trạng thái này đã được historical verdict ngày 2026-09-28 thay thế: CONTENT-004 DONE, CONTENT-007 READY. CONTENT-014 vẫn REVIEW; CONTENT-006 vẫn IN PROGRESS/REFERENCE_ONLY; M2 OPEN, M3–M7 LOCKED.

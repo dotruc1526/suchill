@@ -1,11 +1,11 @@
 # CONTENT-004 — Screenplay và kịch bản/storyboard video
 
 > Status: DONE\
-> Last updated: 2026-09-27
+> Last updated: 2026-09-28
 
 ## Assignment
 
-- Phase / milestone: MVP content track; M1 đang OPEN, M2–M7 vẫn LOCKED
+- Phase / milestone: MVP content track; độc lập với M2 đang OPEN
 - Workstream: Product + Content
 - Accountable owner: Thọ (Member 1)
 - Executor type: Human hoặc Codex hỗ trợ bản nháp
@@ -60,9 +60,9 @@
 
 ## Handoff
 
-### Review 2026-09-28 — bản hiện hành
+### Review snapshot 2026-09-28 — đã được verdict APPROVED bên dưới thay thế
 
-- Trúc yêu cầu thực hiện review; Codex khôi phục screenplay/curriculum/registry authoring v2 bị regression. [Báo cáo và handoff](./CONTENT-003-004-REVIEW.md) là checkpoint mới nhất, thay các kết luận kiểm tra cũ.
+- Trúc yêu cầu thực hiện review; Codex khôi phục screenplay/curriculum/registry authoring v2 bị regression. [Báo cáo và handoff](../active/CONTENT-003-004-REVIEW.md) là checkpoint mới nhất, thay các kết luận kiểm tra cũ.
 - Validator PASS sau sửa; nguồn danh sách năm mục tiêu chưa đọc lại được. Chưa có human sign-off hay evidence audio hợp lệ; status giữ REVIEW.
 - MP4/poster cuối là đầu ra CONTENT-007 cần nghiệm thu sau sản xuất; blocker trước sản xuất là nguồn/script/sign-off và phương án quyền media.
 - Build/typecheck không chạy vì thay đổi chỉ tài liệu authoring; không runtime/env/migration impact.
@@ -71,10 +71,17 @@
 - Test/build result: `node docs/content/validate-mt68-authoring.mjs` PASS theo `CONTENT-014`; docs-only, không có runtime change từ lượt đồng bộ trạng thái.
 - Environment/migration impact: không có.
 - Known issues: reviewer chưa sign-off; quyền audio/từng asset và MP4 cuối chưa có evidence. Không coi AI review là approval.
-- Next owner/action: Trúc review historical/media, Vinh technical QA; Product owner quyết định sau evidence. `CONTENT-007` vẫn BLOCKED.
+- Next owner/action tại thời điểm snapshot: Trúc review historical/media, Vinh technical QA; kết luận này đã được checkpoint APPROVED mới hơn thay thế.
 
 ## Checkpoint 2026-09-28 — Historical Review APPROVED
 - Thẩm định viên Lịch sử đã hoàn tất thẩm định toàn diện (FACT-001..012, terminology, fact vs fiction).
 - Kịch bản 5 scene 110s, VTT captions, nguồn NXB QĐND và Cẩm nang bìa đỏ đạt chuẩn 100%.
 - Báo cáo thẩm định: docs/content/HISTORICAL-REVIEW-REPORT-2026-09-28.md.
 - Trạng thái: DONE; chính thức MỞ KHÓA (UNBLOCK) cho CONTENT-007 (Member 2 sản xuất video).
+
+## Handoff hiện hành
+
+- Changed files/evidence: screenplay, narration, captions, source registry, historical review report, card và task board.
+- Test result: authoring validator PASS theo CONTENT-014; thay đổi docs/content không có runtime, environment hoặc migration impact.
+- Known issues: quyền audio/media và MP4 cuối thuộc acceptance của CONTENT-007, không làm CONTENT-004 quay lại REVIEW.
+- Next owner/action: Trúc claim CONTENT-007 và bắt đầu production; Vinh kiểm tra media/accessibility trước publish.

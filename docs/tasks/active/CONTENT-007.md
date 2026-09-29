@@ -41,7 +41,7 @@
 | Date/time | Executor | Completed | Evidence | Next action | Blocker |
 |---|---|---|---|---|---|
 | 2026-09-28 | Historical Reviewer | CONTENT-004 kịch bản & thẩm định sử liệu đã APPROVED; CONTENT-007 chính thức UNBLOCKED | Báo cáo HISTORICAL-REVIEW-REPORT-2026-09-28.md | Trúc (Member 2) nhận task, chuẩn bị sản xuất video và thu âm | Không còn blocker kịch bản/sử liệu |
-| 2026-09-28 | Trúc (Codex hỗ trợ) | Đồng bộ dependency với CONTENT-003/004 sau khi gỡ card CONTENT-004 trùng | Task board và card `CONTENT-004` hiện `REVIEW` | Chờ Trúc historical/media review, Vinh technical QA và quyết định Product owner; sau đó mới claim output media | CONTENT-003/004 chưa có sign-off; quyền audio/từng asset và MP4 cuối chưa đạt |
+| 2026-09-29 | Codex | Đồng bộ dependency theo verdict mới nhất: CONTENT-004 DONE và historical review đã mở khóa production | `docs/content/HISTORICAL-REVIEW-REPORT-2026-09-28.md`; task board/card | Trúc claim branch, Started và media output path rồi chuyển IN PROGRESS | Không còn blocker trước production; media/audio/MP4 cuối vẫn phải review trước publish |
 | 2026-09-23 | Product owner + Codex | Chốt Member 2 là người biên tập video cho bài học MVP; tạo task riêng với FE-006 player | Quyết định trong task hiện tại; task board/Phase 9 | Member 1 chọn pilot và bàn giao script/source; gán tên Member 2 rồi claim media files | CONTENT-003/004 chưa xong, chưa có tên thật Member 2 |
 | 2026-09-23 | Codex | Product owner gán Trúc là Member 2 | TEAM-OWNERSHIP / DOC-015 | Chờ Thọ bàn giao script/source và historical review | CONTENT-003/004 chưa xong |
 
@@ -50,5 +50,5 @@
 - Changed files: chưa có media asset.
 - Test/build result: chưa sản xuất/tích hợp video.
 - Environment/migration impact: chưa xác định; Member 5 review storage/metadata trước tích hợp.
-- Known issues/risks: pilot authoring đang REVIEW; historical/media sign-off, quyền audio/từng asset và MP4 cuối chưa có. Không dùng CONTENT-006 làm bản mặc định.
-- Next owner/action: Trúc hoàn tất review CONTENT-003; Vinh QA; Product owner quyết định. Trúc chỉ nhận CONTENT-007 sau khi dependency đạt; Dương tích hợp bằng FE-006 sau media review.
+- Known issues/risks: quyền audio/từng asset và MP4 cuối chưa có; đây là acceptance của production/release, không còn là blocker nhận task. Không dùng CONTENT-006 làm bản mặc định.
+- Next owner/action: Trúc claim branch, Started và media output path, chuyển task sang IN PROGRESS rồi sản xuất theo screenplay đã duyệt. Vinh QA media/accessibility; Dương tích hợp bằng FE-006 sau media review và milestone phù hợp.

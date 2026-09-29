@@ -1,6 +1,6 @@
 # CONTENT-003/004 — Review và bàn giao 2026-09-28
 
-Owner/executor: Trúc (Member 2); Codex thực hiện review hỗ trợ theo yêu cầu. Reviewer: Trúc historical/learning/media, Vinh technical QA. Branch: `codex/content-status-sync`. Status: REVIEW, verdict NEEDS_REVISION; không phải chữ ký duyệt của Trúc/Vinh.
+Owner/executor: Trúc (Member 2); Codex thực hiện review hỗ trợ theo yêu cầu. Reviewer: Trúc historical/learning/media, Vinh technical QA. Branch: `codex/content-status-sync`. Đây là review snapshot trước verdict chính thức ngày 2026-09-28; kết luận `CONTENT-004 REVIEW`/`CONTENT-007 BLOCKED` bên dưới đã bị thay thế bởi `HISTORICAL-REVIEW-REPORT-2026-09-28.md`. `CONTENT-003` vẫn REVIEW cho phần hồ sơ còn lại.
 
 ## Bản được kiểm tra và regression đã sửa
 
@@ -56,5 +56,5 @@ Phân biệt gate: trước sản xuất cần script/claim được duyệt và
 - PASS sau sửa: `node docs/content/validate-mt68-authoring.mjs`: 5 node, 7 scene, 6 đường đi kết thúc, 5 quiz, 9 cue 110s; ID nguồn/claim và local link trong tập validator hợp lệ.
 - `git diff --check` và local Markdown links của file thay đổi được kiểm tra trước bàn giao.
 - Không chạy app build/typecheck: revision chỉ tài liệu authoring và hồ sơ review, không thay runtime/dependency/migration. Validator nội dung là kiểm tra liên quan; không chứng minh media playback, quyền sử dụng hay lịch sử tự động.
-- Không environment/migration impact. CONTENT-003/004 giữ REVIEW, CONTENT-007 BLOCKED; CONTENT-006 giữ IN PROGRESS/REFERENCE_ONLY, M1 OPEN.
+- Không environment/migration impact. Kết luận tại thời điểm review là CONTENT-003/004 REVIEW và CONTENT-007 BLOCKED; verdict mới hơn đã chuyển CONTENT-004 DONE, CONTENT-007 READY. CONTENT-006 giữ IN PROGRESS/REFERENCE_ONLY; M2 OPEN.
 - GitHub API đọc PR #29 gặp rate limit; không dùng lỗi API để kết luận PR đã merge. Nhánh được cập nhật dựa trên remote main đã fetch; không merge vào main trong lượt này.
