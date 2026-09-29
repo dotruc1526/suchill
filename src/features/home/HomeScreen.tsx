@@ -1,5 +1,6 @@
 import Mascot from '../../Mascot'
 import { chapters, userStats, weekDays, weekDone } from '../../data'
+import { FlameIcon, HandIcon } from '../../components/icons/NavIcon'
 import ChapterCard from '../../components/roadmap/ChapterCard'
 
 export function HomeScreen({
@@ -19,7 +20,10 @@ export function HomeScreen({
     <div className="pb-4 px-4 space-y-4">
       {/* Greeting */}
       <div className="pt-4">
-        <div className="font-hand text-2xl" style={{ color: '#3D1A00' }}>XIN CHÀO 👋</div>
+        <div className="flex items-center gap-2 font-hand text-2xl" style={{ color: '#3D1A00' }}>
+          <span>XIN CHÀO</span>
+          <HandIcon size={24} aria-label="Lời chào" />
+        </div>
         <div className="font-sans text-sm mt-0.5" style={{ color: '#7A4020' }}>
           Hôm nay bạn muốn khám phá điều gì?
         </div>
@@ -30,9 +34,9 @@ export function HomeScreen({
         className="paper-card rounded-lg p-3 flex flex-wrap items-center gap-3"
         style={{ borderLeft: '4px solid #C4341A' }}
       >
-        <span className="text-3xl shrink-0">🔥</span>
-        <div className="min-w-[150px] flex-1">
-          <div className="font-serif font-bold text-base" style={{ color: '#C4341A' }}>
+        <FlameIcon size={32} aria-label="Chuỗi ngày học" className="shrink-0" style={{ color: '#C4341A' }} />
+        <div className="min-w-0 flex-1">
+          <div className="whitespace-nowrap font-serif font-bold text-[15px]" style={{ color: '#C4341A' }}>
             {userStats.streak} NGÀY LIÊN TIẾP
           </div>
           <div className="font-sans text-xs" style={{ color: '#7A4020' }}>

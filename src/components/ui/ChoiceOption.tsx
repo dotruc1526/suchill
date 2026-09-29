@@ -1,33 +1,33 @@
 import React from 'react'
 import { theme } from '../../theme/tokens'
 
-type ChoiceOptionProps = {
+type ChoiceOptionBaseProps = {
   label: string
   isSelected?: boolean
-  correct?: boolean
-  revealed?: boolean
   disabled?: boolean
   onClick?: () => void
 }
 
-export function ChoiceOption({
-  label,
-  isSelected = false,
-  correct,
-  revealed = false,
-  disabled = false,
-  onClick,
-}: ChoiceOptionProps) {
+type ChoiceOptionProps = ChoiceOptionBaseProps & (
+  | { type: 'knowledge'; correct: boolean; revealed?: boolean }
+  | { type: 'narrative' | 'reflection'; correct?: never; revealed?: never }
+)
+
+export function ChoiceOption(props: ChoiceOptionProps) {
+  const { label, isSelected = false, disabled = false, onClick } = props
+  const isKnowledge = props.type === 'knowledge'
+  const isRevealed = isKnowledge && props.revealed === true
+  const isCorrect = isKnowledge && props.correct
   let bg: string = theme.colors.cardBg
   let border: string = theme.colors.borderMedium
   let textColor: string = theme.colors.textPrimary
   let opacity = 1
 
-  if (revealed && correct === true) {
+  if (isRevealed && isCorrect) {
     bg = theme.colors.correct.bg
     border = theme.colors.correct.border
     textColor = theme.colors.correct.text
-  } else if (revealed && correct === false) {
+  } else if (isRevealed && isSelected) {
     bg = theme.colors.incorrect.bg
     border = theme.colors.incorrect.border
     textColor = theme.colors.incorrect.text
@@ -37,16 +37,19 @@ export function ChoiceOption({
     textColor = theme.colors.selected.text
   }
 
-  const showIncorrect = revealed && isSelected && correct === false
-  const showCorrect = revealed && isSelected && correct === true
+  const feedback = isRevealed && (isCorrect || isSelected)
+    ? isCorrect
+      ? { icon: '✓', label: 'Đúng', color: theme.colors.correct.text }
+      : { icon: '✗', label: 'Sai', color: theme.colors.incorrect.text }
+    : null
 
   if (disabled) {
     opacity = 0.65
   }
 
   /*
-   * Narrative/reflection choices pass only `isSelected`; they must stay neutral.
-   * Correct/incorrect visuals are shown only after `revealed` and explicit correctness.
+   * The discriminated `type` prevents narrative/reflection choices from carrying
+   * correctness. Knowledge feedback appears only after reveal.
    */
   return (
     <button
@@ -63,11 +66,11 @@ export function ChoiceOption({
     >
       <div className="flex items-center justify-between gap-2">
         <span className="leading-snug">{label}</span>
-        {showIncorrect && (
-          <span className="font-bold text-base shrink-0" style={{ color: theme.colors.incorrect.text }}>✗</span>
-        )}
-        {showCorrect && (
-          <span className="font-bold text-base shrink-0" style={{ color: theme.colors.correct.text }}>✓</span>
+        {feedback && (
+          <span className="flex shrink-0 items-center gap-1 font-bold" style={{ color: feedback.color }}>
+            <span aria-hidden="true" className="text-base">{feedback.icon}</span>
+            <span className="text-xs">{feedback.label}</span>
+          </span>
         )}
       </div>
     </button>
