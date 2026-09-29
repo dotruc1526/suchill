@@ -92,20 +92,20 @@ VERDICT: APPROVED
 [x] Timeline reviewed
 [x] Names and locations reviewed
 [x] Media sources reviewed
-[x] Copyright status reviewed
+[ ] Copyright/media evidence complete (catalog hiện có 6/8 item thiếu evidence, 2/8 `NEEDS_MEDIA_REVIEW`)
 [x] No Critical issues
 [x] No Major issues remaining (all remediated)
 ```
 
 ---
 
-## 7. Dependency & Mở khóa Nhiệm vụ tiếp theo
+## 7. Dependency & trạng thái nhiệm vụ tiếp theo
 
-- **Các task đã được phê duyệt chuyển `DONE`:**
-  - `CONTENT-004` ➔ **DONE**
-  - `CONTENT-010` ➔ **DONE**
-  - `CONTENT-011` ➔ **DONE**
+- **Kết quả historical/language review:**
+  - `CONTENT-004` ➔ **APPROVED trong phạm vi historical/language review; task giữ REVIEW**
+  - `CONTENT-010` ➔ **APPROVED trong phạm vi historical/language review; task giữ REVIEW**
+  - `CONTENT-011` ➔ **APPROVED trong phạm vi historical/language review; task giữ REVIEW**
   - `CONTENT-015` ➔ **DONE**
-- **Các task được MỞ KHÓA (UNBLOCKED):**
-  - 🔓 **`CONTENT-007` (Sản xuất video bài học):** Đã đủ kịch bản, lời dẫn, nguồn được duyệt; chuyển cho Trúc (Member 2) bắt tay vào sản xuất video!
-  - 🔓 **`FE-005` & `FE-006`:** Dương (Member 4) có thể tích hợp dữ liệu câu chuyện và video player lên màn hình ứng dụng.
+- **Các task chưa được mở khóa bởi review này:**
+  - `CONTENT-007` giữ `BLOCKED` cho đến khi artifact pilot/review record nhất quán và technical QA/media/handoff có sign-off.
+  - `FE-005` và `FE-006` vẫn tuân theo dependency/milestone trên task board; historical review không tự mở implementation.

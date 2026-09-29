@@ -31,4 +31,4 @@ Các file thay đổi nằm trong claim CONTENT-014. Không đổi runtime/DB, k
 4. Nếu chọn ảnh optional, xác nhận caption/alt/crop/attribution và phạm vi license. Không cần ảnh này cho phương án chữ.
 5. Trạng thái cũ CONTENT-002/008 và DOC-012 còn ghi nhận chưa nhất quán về acceptance; quyền sửa lần này không tự xác nhận các approval quá khứ.
 
-Tại thời điểm lập handoff, CONTENT-004 còn REVIEW và CONTENT-007 còn BLOCKED. Historical verdict ngày 2026-09-28 hỗ trợ chuyển CONTENT-004 sang DONE, nhưng chưa đủ để mở CONTENT-007 khi artifact pilot vẫn ghi `NEEDS_HISTORICAL_REVIEW`; CONTENT-007 tiếp tục BLOCKED chờ owner/reviewer đồng bộ. CONTENT-014 vẫn REVIEW; CONTENT-006 vẫn IN PROGRESS/REFERENCE_ONLY; M2 kỹ thuật OPEN, M3–M7 LOCKED.
+CONTENT-004 và CONTENT-007 lần lượt giữ `REVIEW` và `BLOCKED`. Historical verdict ngày 2026-09-28 chỉ hoàn tất phạm vi sử liệu/ngôn ngữ; không thay technical QA, media hoặc task-level handoff khi artifact pilot vẫn ghi `NEEDS_HISTORICAL_REVIEW`. CONTENT-014 vẫn REVIEW; CONTENT-006 vẫn IN PROGRESS/REFERENCE_ONLY; M2 kỹ thuật OPEN, M3–M7 LOCKED.

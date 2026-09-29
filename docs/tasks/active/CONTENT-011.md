@@ -1,6 +1,6 @@
 # CONTENT-011 — Nội dung Bài 3 và Bài 4
 
-> Status: DONE
+> Status: REVIEW
 > Last updated: 2026-09-28
 
 ## Assignment
@@ -12,15 +12,15 @@
 - Branch revision hiện hành: `codex/mt68-complete-handoff`; PR #21 đã merge.
 - Depends on: CONTENT-008 (DONE trên nhánh PR); sửa bản nháp trong content track, không mở M1.
 - Files claimed: `docs/content/LESSON-03-STANDARD.md`, `docs/content/LESSON-04-SYNTHESIS.md`; card này. Registry/catalog/board do cùng executor Trúc đồng bộ theo [handoff PR21](../active/PR21-HANDOFF.md).
-- Next action: consumer dùng bản đã duyệt; media runtime vẫn phải qua gate tích hợp/phát hành riêng.
-- Blocker: không còn blocker ở phạm vi authoring của task này.
+- Next action: Vinh xác nhận technical QA/handoff và Trúc hoàn tất media sign-off trong CONTENT-014.
+- Blocker: CONTENT-014 còn `REVIEW`; 6/8 media item chưa đủ evidence và 2/8 còn `NEEDS_MEDIA_REVIEW`.
 
 ## Acceptance
 
 - [x] Sửa diễn biến bộc phá; phân biệt diễn giải và fact; niên biểu ngoại giao có nguồn.
 - [x] Reviewer xác nhận nội dung/learning objective.
-- [x] Media có quyền, caption/alt/fallback và nguồn item cụ thể trước phát hành.
-- [x] Technical QA và handoff được xác nhận.
+- [ ] Media có quyền, caption/alt/fallback và nguồn item cụ thể trước phát hành.
+- [ ] Technical QA và handoff được xác nhận.
 
 ## Checkpoint
 
@@ -29,4 +29,4 @@
 
 - Checkpoint bổ sung 2026-09-27: Trúc được giao toàn bộ revision; [CONTENT-014](../active/CONTENT-014.md) chứa bản authoring và kiểm tra mới. Không ký sign-off thay người review.
 
-- Checkpoint 2026-09-28: Historical Reviewer hoàn tất thẩm định (Báo cáo HISTORICAL-REVIEW-REPORT-2026-09-28.md). Nội dung Bài 3 (Hầm vũ khí 287/70, Đội 5) và Bài 4 (Bước ngoặt Paris, niên biểu ngoại giao) đạt chuẩn 100%. Trạng thái: DONE.
+- Checkpoint 2026-09-28: Historical Reviewer hoàn tất thẩm định (Báo cáo HISTORICAL-REVIEW-REPORT-2026-09-28.md). Nội dung Bài 3 (Hầm vũ khí 287/70, Đội 5) và Bài 4 (Bước ngoặt Paris, niên biểu ngoại giao) đạt phạm vi sử liệu/ngôn ngữ. Verdict này không thay technical QA/media sign-off; task giữ `REVIEW`.

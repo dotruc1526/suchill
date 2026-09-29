@@ -1,6 +1,6 @@
 # CONTENT-004 — Screenplay và kịch bản/storyboard video
 
-> Status: DONE\
+> Status: REVIEW\
 > Last updated: 2026-09-28
 
 ## Assignment
@@ -26,9 +26,9 @@
 ## Acceptance criteria
 
 - [x] Mỗi scene/lesson có mục tiêu học, bối cảnh, vai trò và lựa chọn phù hợp Phase 2/5; evidence ở `CONTENT-014` validator.
-- [x] Claim/source, narration và VTT đã được sửa trong gói authoring; historical reviewer còn phải xác nhận.
+- [x] Claim/source, narration và VTT đã được sửa trong gói authoring; historical review đã đạt ngày 2026-09-28.
 - [x] Kịch bản/storyboard có 5 scene, bản 9:16 và timing authoring 110 giây; chưa phải MP4 đã duyệt.
-- [x] Trúc historical/media, Vinh technical QA và Product owner xác nhận trước khi chuyển cho Member 2 sản xuất.
+- [ ] Trúc media, Vinh technical QA và Product owner xác nhận handoff trước khi chuyển cho Member 2 sản xuất.
 
 ## Verification
 
@@ -73,15 +73,15 @@
 - Known issues: reviewer chưa sign-off; quyền audio/từng asset và MP4 cuối chưa có evidence. Không coi AI review là approval.
 - Next owner/action tại thời điểm snapshot: Trúc review historical/media, Vinh technical QA; kết luận này đã được checkpoint APPROVED mới hơn thay thế.
 
-## Checkpoint 2026-09-28 — Historical Review APPROVED
+## Checkpoint 2026-09-28 — Historical Review APPROVED (không phải task-level sign-off)
 - Thẩm định viên Lịch sử đã hoàn tất thẩm định toàn diện (FACT-001..012, terminology, fact vs fiction).
 - Kịch bản 5 scene 110s, VTT captions, nguồn NXB QĐND và Cẩm nang bìa đỏ đạt chuẩn 100%.
 - Báo cáo thẩm định: docs/content/HISTORICAL-REVIEW-REPORT-2026-09-28.md.
-- Trạng thái authoring: DONE; báo cáo tổng hợp đề xuất mở CONTENT-007, nhưng production vẫn BLOCKED cho đến khi `PILOT-SCREENPLAY.md` và `HISTORICAL-SOURCES.md` được content owner/historical reviewer sign-off nhất quán.
+- Phạm vi lịch sử/ngôn ngữ đạt; verdict này không xác nhận technical QA, media hoặc task-level handoff. Task giữ `REVIEW` và production giữ `BLOCKED` cho đến khi `CONTENT-014` có Vinh sign-off, media evidence đạt và artifact pilot/review record nhất quán.
 
 ## Handoff hiện hành
 
 - Changed files/evidence: screenplay, narration, captions, source registry, historical review report, card và task board.
 - Test result: authoring validator PASS theo CONTENT-014; thay đổi docs/content không có runtime, environment hoặc migration impact.
-- Known issues: quyền audio/media và MP4 cuối thuộc acceptance của CONTENT-007, không làm CONTENT-004 quay lại REVIEW.
-- Next owner/action: Content owner/historical reviewer hoàn tất sign-off trên artifact pilot; sau đó Trúc mới claim CONTENT-007 và bắt đầu production. Vinh kiểm tra media/accessibility trước publish.
+- Known issues: Vinh chưa technical-QA task-level handoff; catalog hiện có 6/8 media item chưa đủ evidence và 2/8 còn `NEEDS_MEDIA_REVIEW` theo `CONTENT-014`.
+- Next owner/action: Vinh xác nhận technical QA/handoff và Trúc hoàn tất media sign-off; chỉ sau đó reviewer mới chuyển task `DONE` và Product owner xem xét mở CONTENT-007.
