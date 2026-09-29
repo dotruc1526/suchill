@@ -41,16 +41,16 @@
 
 ### PHÂN CẢNH 2: `sam2-v1-crew` — Cấu trúc Kíp chiến đấu SAM-2
 * **Định dạng:** Interactive Artifact / Evidence (Khám phá Sơ đồ)
-* **Visual Cue:** Sơ đồ bố trí khí tài và vị trí kíp chiến đấu trong Cabin xe K. Người học có thể bấm/chuyển qua từng vị trí hoặc đọc danh sách Text-first:
+* **Visual Cue:** Sơ đồ khái quát hệ thống khí tài và vị trí kíp chiến đấu trong Cabin xe K. Người học có thể bấm/chuyển qua từng vị trí hoặc đọc danh sách Text-first:
   1. **Xe K / PA-00:** Thùng xe điều khiển trung tâm.
-  2. **Sĩ quan điều khiển:** Ngồi giữa, chỉ huy và bấm nút phóng đạn.
-  3. **Trắc thủ phương vị:** Tay quay ngang, bám mục tiêu theo hướng la bàn.
-  4. **Trắc thủ góc tà:** Tay quay đứng, bám độ cao và góc nâng.
-  5. **Trắc thủ cự ly:** Bám khoảng cách (km) và báo cự ly phóng hiệu quả.
+  2. **Sĩ quan điều khiển:** Vị trí chỉ huy và phát lệnh phóng đạn.
+  3. **Trắc thủ phương vị:** Theo dõi và bám sát mục tiêu theo hướng ngang (phương vị).
+  4. **Trắc thủ góc tà:** Theo dõi và bám sát mục tiêu theo góc ngẩng (độ cao).
+  5. **Trắc thủ cự ly:** Theo dõi cự ly tiếp cận của mục tiêu.
   6. **Đài radar Fan Song (SNR-75):** Ăng-ten phát sóng bám sát và phát lệnh điều khiển.
   7. **Bệ phóng SM-90 & Tên lửa S-75 Dvina:** Khí tài chấp hành hỏa lực.
 * **Lời dẫn (Narration):**
-  > "Hãy quan sát sơ đồ tổ chức kíp chiến đấu và hệ thống khí tài SAM-2 (S-75 Dvina). Trong một thùng xe điều khiển chật hẹp, 4 con người tạo thành một khối thống nhất: Sĩ quan điều khiển cùng 3 trắc thủ phương vị, góc tà, cự ly. Mỗi vị trí giữ một trục không gian quyết định độ chính xác của đường đạn."
+  > "Hãy quan sát sơ đồ tổ chức kíp chiến đấu và hệ thống khí tài SAM-2 (S-75 Dvina). Trong một thùng xe điều khiển chật hẹp, kíp chiến đấu tạo thành một khối thống nhất: Sĩ quan điều khiển cùng các trắc thủ phương vị, góc tà, cự ly. Mỗi vị trí theo dõi một trục không gian, phối hợp đồng bộ để bảo đảm độ chính xác của đường đạn."
 * **Phân loại sử liệu:** `verified_fact`
 * **Mã Claim & Nguồn:** `CLM-1972-VN-001`, `CLM-1972-VN-002` | *Nguồn: `SRC-1972-02`, `SRC-1972-WEB-02` (ảnh kíp chiến đấu TĐ 57)*
 * **Chuyển cảnh:** ➔ `sam2-v1-perspective`
@@ -68,12 +68,12 @@
 
 ---
 
-### PHÂN CẢNH 4: `sam2-v1-coordination` — Bốn khối óc, một nhịp thở
-* **Định dạng:** Narration (Lời dẫn quy trình hiệp đồng kíp trắc thủ)
-* **Visual Cue:** Cận cảnh đôi bàn tay trắc thủ xoay nhẹ vô lăng vi chỉnh; vạch chuẩn trên hai màn hình góc tà và phương vị dần hội tụ; ngón tay Sĩ quan điều khiển đặt sẵn trên nút bấm đỏ "Phóng".
-* **Audio Cue:** Khẩu lệnh khẩu đội mô phỏng: tiếng đếm cự ly dồn dập, tiếng đóng mở rơ-le tiếp điểm điện tử.
+### PHÂN CẢNH 4: `sam2-v1-coordination` — Hiệp đồng tác chiến trong cabin
+* **Định dạng:** Narration (Lời dẫn hiệp đồng kíp trắc thủ)
+* **Visual Cue:** Màn hình huỳnh quang hiển thị tọa độ mục tiêu; kíp trắc thủ tập trung theo dõi các tham số không gian.
+* **Audio Cue:** Tiếng quạt gió làm mát, tiếng tín hiệu điện tử đều đặn trong buồng lái.
 * **Lời dẫn (Narration):**
-  > "Trong cabin, trắc thủ phương vị quay vô lăng giữ mục tiêu trên trục ngang, trắc thủ góc tà bám chắc góc ngẩng thẳng đứng, còn trắc thủ cự ly liên tục đếm ngược khoảng cách (40km... 35km... 30km). Sĩ quan điều khiển tổng hợp cả 3 nguồn tham số, phán đoán thời điểm đài radar Fan Song khóa mục tiêu để phát lệnh phóng đạn. Sai số một phần giây hoặc lệch một độ góc sẽ khiến tên lửa trượt khỏi mục tiêu ở trần bay trên 10.000 mét."
+  > "Trong cabin điều khiển, kíp chiến đấu phối hợp chặt chẽ theo dõi các tham số mục tiêu trên màn hiện sóng radar. Sĩ quan điều khiển cùng các trắc thủ theo dõi đồng bộ các hướng tọa độ không gian để xác định phần tử bắn và thời cơ phát lệnh, bảo đảm độ chính xác cao khi tên lửa tiếp cận mục tiêu ở trần bay chiến lược."
 * **Phân loại sử liệu:** `verified_fact` + `educational_explanation`
 * **Mã Claim & Nguồn:** `CLM-1972-VN-002`, `CLM-1972-VN-005` | *Nguồn: `SRC-1972-02`, `SRC-1972-WEB-02`*
 * **Chuyển cảnh:** Đi tiếp sang nội dung thứ hai ➔ `sam2-v1-interference`
@@ -85,7 +85,7 @@
 * **Visual Cue:** Minh họa màn hình radar chằng chịt các vệt sáng quét ngang quét dọc (nhiễu rải thảm kim loại và nhiễu tích cực); hình ảnh cuốn tài liệu gáy đỏ *"Cách đánh B-52 của bộ đội tên lửa"* đặt trên bàn chỉ huy.
 * **Audio Cue:** Tiếng rít rè rè của tạp âm điện tử tần số cao, xen lẫn nhịp quét đều đặn của tia sáng màn huỳnh quang.
 * **Lời dẫn (Narration):**
-  > "Mỗi tốp B-52 được bảo vệ bởi hàng chục máy bay hộ tống cùng hàng trăm máy phát nhiễu rải thảm tích cực và tiêu cực, tạo nên dải nhiễu sáng rực như 'bó chổi chà' che kín màn huỳnh quang. Theo hướng dẫn của cuốn 'Cẩm nang bìa đỏ Cách đánh B-52' (10/1972), trắc thủ bằng mắt thường và kinh nghiệm săn B-52 tại Vĩnh Linh đã tìm ra quy luật: dải nhiễu B-52 đậm đặc hơn, có độ mịn, gợn sóng đặc trưng và di chuyển ổn định hơn nhiễu của máy bay chiến thuật."
+  > "Mỗi tốp ba chiếc B-52 được trang bị tới 45 máy gây nhiễu, kết hợp cùng máy bay chiến thuật rải nhiễu tiêu cực tạo nên màn nhiễu dày đặc che lấp tín hiệu mục tiêu trên màn huỳnh quang. Theo tài liệu 'Cẩm nang bìa đỏ Cách đánh B-52' (10/1972), bộ đội tên lửa đã đúc kết kinh nghiệm từ thực tiễn chiến trường Vĩnh Linh để tìm ra quy luật chuyển động và đặc tính dải nhiễu của B-52, từ đó phát hiện mục tiêu thực giữa màn nhiễu phức tạp."
 * **Phân loại sử liệu:** `verified_fact`
 * **Mã Claim & Nguồn:** `CLM-1972-VN-003`, `CLM-1972-VN-004`, `CLM-1972-VN-005` | *Nguồn: `SRC-1972-03` ("Cẩm nang bìa đỏ"), `SRC-1972-WEB-01`, `SRC-1972-WEB-03`*
 * **Chuyển cảnh:** Sau khi hoàn thành đủ cả hai nội dung, chuyển sang ➔ `sam2-v1-check`
@@ -99,12 +99,12 @@
   1. **Lựa chọn 1:** *"Tên lửa SAM-2 có đầu dò nhiệt tự động bay tới mà không cần radar mặt đất hướng dẫn."*
      * **Kết quả:** `isCorrect: false`
      * **Giải thích (Explanation):** Chưa chính xác. Tên lửa SAM-2 (S-75 Dvina) là hệ dẫn lệnh vô tuyến từ đài radar mặt đất (Fan Song), đòi hỏi kíp trắc thủ mặt đất phải bám sát mục tiêu liên tục trong suốt đường bay.
-  2. **Lựa chọn 2:** *"Kíp trắc thủ phân tích bản chất dải nhiễu theo kinh nghiệm Cẩm nang bìa đỏ, phối hợp 3 chiều và chọn thời cơ phát sóng chớp nhoáng."*
+  2. **Lựa chọn 2:** *"Kíp trắc thủ phân tích bản chất dải nhiễu theo kinh nghiệm Cẩm nang bìa đỏ, phối hợp chặt chẽ các tham số và chọn thời điểm phát sóng thích hợp."*
      * **Kết quả:** `isCorrect: true`
-     * **Giải thích (Explanation):** Chính xác! Đỉnh cao của nghệ thuật 'vạch nhiễu tìm thù' là trí tuệ, bản lĩnh của kíp trắc thủ nhận diện đúng dải nhiễu thực của B-52 và hạn chế phát sóng để tránh tên lửa tự dẫn chống bức xạ Shrike của địch.
+     * **Giải thích (Explanation):** Chính xác! Trọng tâm của việc khắc phục nhiễu là nhận diện quy luật dải nhiễu và sử dụng radar một cách linh hoạt, hiệp đồng hiệu quả nhằm giảm thiểu nguy cơ bị tên lửa chống bức xạ của đối phương bám bắt.
   3. **Lựa chọn 3:** *"Đài radar tăng tối đa công suất phát sóng liên tục suốt cuộc không kích để áp đảo máy gây nhiễu của đối phương."*
      * **Kết quả:** `isCorrect: false`
-     * **Giải thích (Explanation):** Không chính xác. Nếu mở máy phát sóng liên tục, đài radar sẽ lập tức bị máy bay Mỹ định vị và phóng tên lửa Shrike tiêu diệt trận địa. Kíp chỉ phát sóng ngắn trong thời khắc quyết định.
+     * **Giải thích (Explanation):** Không chính xác. Việc phát sóng liên tục làm tăng nguy cơ để lộ vị trí trước tên lửa chống bức xạ Shrike tự dẫn theo cánh sóng. Trong thực tế, bộ đội phòng không đã áp dụng linh hoạt nhiều biện pháp như hiệp đồng quan sát, hạn chế thời gian phát sóng và chọn thời điểm thích hợp để vừa bám sát mục tiêu vừa bảo vệ khí tài.
 * **Mã Claim & Nguồn:** `CLM-1972-VN-002`, `CLM-1972-VN-003`, `CLM-1972-VN-004` | *Nguồn: `SRC-1972-01`, `SRC-1972-03`, `SRC-1972-WEB-01`*
 * **Chuyển cảnh:** Cả 3 phương án đều điều hướng về ➔ `sam2-v1-debrief`
 

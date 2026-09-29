@@ -4,7 +4,7 @@
   "versionNumber": 1,
   "status": "draft",
   "authoringOnly": true,
-  "reviewStatus": "approved",
+  "reviewStatus": "ready_for_review",
   "createdAt": "2026-09-28T00:00:00+07:00",
   "startSceneId": "sam2-v1-briefing",
   "learningObjectiveIds": [
@@ -42,7 +42,7 @@
       "id": "sam2-v1-crew",
       "kind": "evidence",
       "title": "Cấu trúc kíp chiến đấu SAM-2",
-      "text": "Hãy quan sát sơ đồ tổ chức kíp chiến đấu và hệ thống khí tài SAM-2 (S-75 Dvina). Trong một thùng xe điều khiển chật hẹp, 4 con người tạo thành một khối thống nhất: Sĩ quan điều khiển cùng 3 trắc thủ phương vị, góc tà, cự ly. Mỗi vị trí giữ một trục không gian quyết định độ chính xác của đường đạn.",
+      "text": "Hãy quan sát sơ đồ tổ chức kíp chiến đấu và hệ thống khí tài SAM-2 (S-75 Dvina). Trong một thùng xe điều khiển chật hẹp, kíp chiến đấu tạo thành một khối thống nhất: Sĩ quan điều khiển cùng các trắc thủ phương vị, góc tà, cự ly. Mỗi vị trí theo dõi một trục không gian, phối hợp đồng bộ để bảo đảm độ chính xác của đường đạn.",
       "sourceIds": [
         "SRC-1972-02",
         "SRC-1972-WEB-01",
@@ -79,8 +79,8 @@
     {
       "id": "sam2-v1-coordination",
       "kind": "narration",
-      "title": "Bốn khối óc, một nhịp thở",
-      "text": "Trong cabin, trắc thủ phương vị quay vô lăng giữ mục tiêu trên trục ngang, trắc thủ góc tà bám chắc góc ngẩng thẳng đứng, còn trắc thủ cự ly liên tục đếm ngược khoảng cách (40km... 35km... 30km). Sĩ quan điều khiển tổng hợp cả 3 nguồn tham số, phán đoán thời điểm đài radar Fan Song khóa mục tiêu để phát lệnh phóng đạn. Sai số một phần giây hoặc lệch một độ góc sẽ khiến tên lửa trượt khỏi mục tiêu ở trần bay trên 10.000 mét.",
+      "title": "Hiệp đồng tác chiến trong cabin",
+      "text": "Trong cabin điều khiển, kíp chiến đấu phối hợp chặt chẽ theo dõi các tham số mục tiêu trên màn hiện sóng radar. Sĩ quan điều khiển cùng các trắc thủ theo dõi đồng bộ các hướng tọa độ không gian để xác định phần tử bắn và thời cơ phát lệnh, bảo đảm độ chính xác cao khi tên lửa tiếp cận mục tiêu ở trần bay chiến lược.",
       "sourceIds": [
         "SRC-1972-02",
         "SRC-1972-WEB-02"
@@ -96,7 +96,7 @@
       "id": "sam2-v1-interference",
       "kind": "narration",
       "title": "Nghệ thuật vạch nhiễu tìm thù",
-      "text": "Mỗi tốp B-52 được bảo vệ bởi hàng chục máy bay hộ tống cùng hàng trăm máy phát nhiễu rải thảm tích cực và tiêu cực, tạo nên dải nhiễu sáng rực như 'bó chổi chà' che kín màn huỳnh quang. Theo hướng dẫn của cuốn 'Cẩm nang bìa đỏ Cách đánh B-52' (10/1972), trắc thủ bằng mắt thường và kinh nghiệm săn B-52 tại Vĩnh Linh đã tìm ra quy luật: dải nhiễu B-52 đậm đặc hơn, có độ mịn, gợn sóng đặc trưng và di chuyển ổn định hơn nhiễu của máy bay chiến thuật.",
+      "text": "Mỗi tốp ba chiếc B-52 được trang bị tới 45 máy gây nhiễu, kết hợp cùng máy bay chiến thuật rải nhiễu tiêu cực tạo nên màn nhiễu dày đặc che lấp tín hiệu mục tiêu trên màn huỳnh quang. Theo tài liệu 'Cẩm nang bìa đỏ Cách đánh B-52' (10/1972), bộ đội tên lửa đã đúc kết kinh nghiệm từ thực tiễn chiến trường Vĩnh Linh để tìm ra quy luật chuyển động và đặc tính dải nhiễu của B-52, từ đó phát hiện mục tiêu thực giữa màn nhiễu phức tạp.",
       "sourceIds": [
         "SRC-1972-03",
         "SRC-1972-WEB-01",
@@ -139,9 +139,9 @@
         {
           "id": "sam2-check-skill",
           "kind": "knowledge_check",
-          "label": "Kíp trắc thủ phân tích bản chất dải nhiễu theo kinh nghiệm Cẩm nang bìa đỏ, phối hợp 3 chiều và chọn thời cơ phát sóng chớp nhoáng",
+          "label": "Kíp trắc thủ phân tích bản chất dải nhiễu theo kinh nghiệm Cẩm nang bìa đỏ, phối hợp chặt chẽ các tham số và chọn thời điểm phát sóng thích hợp",
           "isCorrect": true,
-          "explanation": "Chính xác! Đỉnh cao của nghệ thuật 'vạch nhiễu tìm thù' là trí tuệ, bản lĩnh của kíp trắc thủ nhận diện đúng dải nhiễu thực của B-52 và hạn chế phát sóng để tránh tên lửa tự dẫn chống bức xạ Shrike của địch.",
+          "explanation": "Chính xác! Trọng tâm của việc khắc phục nhiễu là nhận diện quy luật dải nhiễu và sử dụng radar một cách linh hoạt, hiệp đồng hiệu quả nhằm giảm thiểu nguy cơ bị tên lửa chống bức xạ của đối phương bám bắt.",
           "nextSceneId": "sam2-v1-debrief"
         },
         {
@@ -149,7 +149,7 @@
           "kind": "knowledge_check",
           "label": "Đài radar tăng tối đa công suất phát sóng liên tục suốt cuộc không kích để áp đảo máy gây nhiễu của đối phương",
           "isCorrect": false,
-          "explanation": "Không chính xác. Nếu mở máy phát sóng liên tục, đài radar sẽ lập tức bị máy bay Mỹ định vị và phóng tên lửa Shrike tiêu diệt trận địa. Kíp chỉ phát sóng ngắn trong thời khắc quyết định.",
+          "explanation": "Không chính xác. Việc phát sóng liên tục làm tăng nguy cơ để lộ vị trí trước tên lửa chống bức xạ Shrike tự dẫn theo cánh sóng. Trong thực tế, bộ đội phòng không đã áp dụng linh hoạt nhiều biện pháp như hiệp đồng quan sát, hạn chế thời gian phát sóng và chọn thời điểm thích hợp để vừa bám sát mục tiêu vừa bảo vệ khí tài.",
           "nextSceneId": "sam2-v1-debrief"
         }
       ]

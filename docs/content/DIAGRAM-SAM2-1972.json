@@ -26,8 +26,8 @@
       "claimId": "CLM-1972-VN-002",
       "sourceId": "SRC-1972-WEB-02",
       "summary": "Trung tâm chỉ huy tác chiến của kíp chiến đấu tiểu đoàn tên lửa phòng không.",
-      "description": "Nơi làm việc tập trung của Sĩ quan điều khiển và 3 trắc thủ góc tà, phương vị, cự ly. Toàn bộ thông tin từ radar Fan Song được phản ánh lên các màn huỳnh quang trong xe để kíp phân tích, xác định tọa độ và điều khiển tên lửa.",
-      "textFallback": "Xe điều khiển là thùng xe tác chiến khép kín, chứa hệ thống màn hình hiển thị radar và cụm điều khiển trung tâm nơi kíp 4 người ngồi sát cánh chiến đấu."
+      "description": "Nơi làm việc tập trung của Sĩ quan điều khiển và các trắc thủ theo dõi tọa độ mục tiêu. Toàn bộ thông tin từ radar Fan Song được phản ánh lên các màn huỳnh quang trong xe để kíp phân tích tham số và hiệp đồng điều khiển tên lửa.",
+      "textFallback": "Xe điều khiển là thùng xe tác chiến khép kín, chứa hệ thống màn hình hiển thị radar và cụm điều khiển trung tâm nơi kíp chiến đấu phối hợp làm việc."
     },
     {
       "id": "sam2-node-officer",
@@ -37,8 +37,8 @@
       "claimId": "CLM-1972-VN-002",
       "sourceId": "SRC-1972-WEB-01",
       "summary": "Người chỉ huy trực tiếp kíp trắc thủ trong cabin tác chiến.",
-      "description": "Quan sát toàn cảnh màn hình, phân tích tình huống chiến thuật, tổng hợp tọa độ từ 3 trắc thủ, chọn phương pháp bám sát mục tiêu (bám tự động hoặc bám bằng tay), và bấm nút phóng tên lửa khi có lệnh của Tiểu đoàn trưởng.",
-      "textFallback": "Sĩ quan điều khiển ngồi ở vị trí trung tâm, giữ vai trò tổng hợp mệnh lệnh và quyết định thời điểm phát sóng radar, bắt mục tiêu và kích hoạt phóng tên lửa."
+      "description": "Theo dõi toàn cảnh màn hiện sóng, tổng hợp tham số từ các trắc thủ và chỉ huy thời điểm phát lệnh phóng tên lửa theo phương án tác chiến của tiểu đoàn.",
+      "textFallback": "Sĩ quan điều khiển ngồi ở vị trí trung tâm, giữ vai trò tổng hợp tham số tọa độ và chỉ huy thời điểm phóng đạn."
     },
     {
       "id": "sam2-node-azimuth",
@@ -48,8 +48,8 @@
       "claimId": "CLM-1972-VN-002",
       "sourceId": "SRC-1972-WEB-02",
       "summary": "Phụ trách bám sát mục tiêu theo mặt phẳng nằm ngang (phương vị).",
-      "description": "Theo dõi màn huỳnh quang phương vị, quay tay quay vô lăng để giữ vạch chuẩn bám đúng trục dải nhiễu B-52, đảm bảo cánh sóng radar luôn hướng thẳng vào mục tiêu theo trục ngang.",
-      "textFallback": "Trắc thủ phương vị điều khiển tay quay ngang để đưa tâm sóng radar trùng khớp với hướng bay ngang của máy bay đối phương."
+      "description": "Theo dõi màn huỳnh quang phương vị, điều khiển bám sát hướng bay của mục tiêu theo trục ngang, giữ tín hiệu mục tiêu ở vị trí tối ưu.",
+      "textFallback": "Trắc thủ phương vị theo dõi và điều chỉnh để bám sát hướng bay ngang của mục tiêu trên màn hiện sóng."
     },
     {
       "id": "sam2-node-elevation",
@@ -59,8 +59,8 @@
       "claimId": "CLM-1972-VN-002",
       "sourceId": "SRC-1972-WEB-02",
       "summary": "Phụ trách bám sát độ cao và góc nâng mục tiêu (góc tà).",
-      "description": "Theo dõi màn huỳnh quang góc tà, thao tác vô lăng đứng để xác định góc nâng của mục tiêu so với mặt đất. Phối hợp với trắc thủ phương vị để khóa chặt mục tiêu trong không gian 3 chiều.",
-      "textFallback": "Trắc thủ góc tà điều khiển tay quay đứng để xác định độ cao bay và góc ngẩng của chùm sóng radar hướng lên máy bay."
+      "description": "Theo dõi màn huỳnh quang góc tà, xác định góc ngẩng của chùm sóng radar hướng lên mục tiêu, phối hợp cùng trắc thủ phương vị để bám sát mục tiêu trong không gian.",
+      "textFallback": "Trắc thủ góc tà theo dõi và điều chỉnh để bám sát góc nâng và độ cao của mục tiêu trên màn hiện sóng."
     },
     {
       "id": "sam2-node-range",
@@ -70,8 +70,8 @@
       "claimId": "CLM-1972-VN-002",
       "sourceId": "SRC-1972-WEB-02",
       "summary": "Phụ trách đo khoảng cách từ trận địa đến mục tiêu.",
-      "description": "Xác định cự ly máy bay địch trên màn huỳnh quang cự ly; liên tục báo cự ly (km) cho Sĩ quan điều khiển để tính toán thời điểm phóng đạn tối ưu (vùng tiêu diệt hiệu quả).",
-      "textFallback": "Trắc thủ cự ly đo đạc khoảng cách thực tế, thông báo các mốc cự ly 40km, 35km, 30km để kíp quyết định cự ly phóng đạn."
+      "description": "Theo dõi màn huỳnh quang cự ly, cung cấp thông số khoảng cách từ mục tiêu đến trận địa để kíp chiến đấu xác định vùng phóng hiệu quả.",
+      "textFallback": "Trắc thủ cự ly theo dõi khoảng cách tiếp cận của mục tiêu để hỗ trợ kíp chiến đấu xác định cự ly thích hợp."
     },
     {
       "id": "sam2-node-radar",
