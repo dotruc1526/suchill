@@ -1,0 +1,151 @@
+{
+  "id": "quiz-1972-chapter-assessment",
+  "title": "Đánh giá Chương: Chiến dịch Điện Biên Phủ trên không 1972",
+  "questions": [
+    {
+      "id": "q-1972-01",
+      "objectiveId": "CLO-1",
+      "question": "Mục đích chiến lược chủ yếu của chính quyền Mỹ khi phát động cuộc tập kích đường không Linebacker II cuối tháng 12/1972 là gì?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Tiêu diệt toàn bộ lực lượng hải quân miền Bắc"
+        },
+        {
+          "id": "B",
+          "text": "Gây sức ép quân sự tối đa buộc Việt Nam chấp nhận sửa đổi các điều khoản Hiệp định Paris theo ý Mỹ"
+        },
+        {
+          "id": "C",
+          "text": "Mở đường cho quân đội Mỹ đổ bộ đường bộ ra Hà Nội"
+        },
+        {
+          "id": "D",
+          "text": "Chiếm đóng vĩnh viễn các sân bay quân sự tại miền Bắc"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": "Không quân Mỹ phát động Linebacker II nhằm dùng sức mạnh bom rải thảm B-52 để ép phái đoàn Việt Nam tại Hội nghị Paris phải nhượng bộ và chấp nhận các điều khoản có lợi cho Mỹ.",
+      "sourceIds": [
+        "SRC-LB2-01",
+        "SRC-LB2-05"
+      ]
+    },
+    {
+      "id": "q-1972-02",
+      "objectiveId": "CLO-2",
+      "question": "Thành phần nào giữ vai trò trung tâm chỉ huy, tổng hợp tham số từ 3 trắc thủ và bấm nút phóng đạn trong kíp chiến đấu tên lửa SAM-2 tại Xe điều khiển (Cabin K)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Sĩ quan điều khiển"
+        },
+        {
+          "id": "B",
+          "text": "Nhân viên bảo quản đạn tại bệ phóng"
+        },
+        {
+          "id": "C",
+          "text": "Trắc thủ cự ly"
+        },
+        {
+          "id": "D",
+          "text": "Đài trưởng radar cảnh giới xa"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": "Trong Cabin Xe K, Sĩ quan điều khiển là người trực tiếp chỉ huy kíp 3 trắc thủ (phương vị, góc tà, cự ly), chọn phương pháp bám sát và bấm nút phóng đạn theo lệnh của Tiểu đoàn trưởng.",
+      "sourceIds": [
+        "SRC-1972-01",
+        "SRC-1972-02"
+      ]
+    },
+    {
+      "id": "q-1972-03",
+      "objectiveId": "CLO-3",
+      "question": "Để khắc chế màn nhiễu điện tử dày đặc của B-52 và tránh tên lửa tự dẫn Shrike của đối phương, bộ đội tên lửa Việt Nam đã áp dụng biện pháp then chốt nào được đúc kết trong cuốn 'Cẩm nang bìa đỏ'?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Luôn mở radar phát sóng liên tục suốt đêm để rà soát bầu trời"
+        },
+        {
+          "id": "B",
+          "text": "Bám sát dải nhiễu mịn chuyển động đều và chỉ phát sóng chớp nhoáng (3–5 giây) trước khi phóng đạn"
+        },
+        {
+          "id": "C",
+          "text": "Tắt toàn bộ hệ thống tên lửa và chỉ dựa vào pháo cao xạ tầm thấp"
+        },
+        {
+          "id": "D",
+          "text": "Chờ máy bay địch hạ thấp độ cao xuống dưới 1.000m mới bắt đầu phát hiện"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": "Tài liệu 'Cách đánh B-52 của bộ đội tên lửa' chỉ rõ: B-52 tạo dải nhiễu mịn, sáng rực và di chuyển đều đặn; trắc thủ bám tâm dải nhiễu và hạn chế phát sóng liên tục để không bị tên lửa Shrike đánh phá trận địa.",
+      "sourceIds": [
+        "SRC-1972-03",
+        "SRC-1972-WEB-01"
+      ]
+    },
+    {
+      "id": "q-1972-04",
+      "objectiveId": "CLO-4",
+      "question": "Đêm tập kích quy mô lớn nhất của Không quân Mỹ trong chiến dịch (với hơn 100 lần chiếc B-52 rải thảm tàn phá khu phố Khâm Thiên) diễn ra vào thời điểm nào?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Đêm 18/12/1972"
+        },
+        {
+          "id": "B",
+          "text": "Đêm 20/12/1972"
+        },
+        {
+          "id": "C",
+          "text": "Đêm 26/12/1972"
+        },
+        {
+          "id": "D",
+          "text": "Đêm 29/12/1972"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": "Đêm 26/12/1972, Mỹ huy động 105 lần chiếc B-52 tập kích ồ ạt từ nhiều hướng, rải thảm bom tàn phá khu phố Khâm Thiên. Lưới lửa phòng không giáng trả đanh thép, bắn rơi 8 chiếc B-52 trong một đêm.",
+      "sourceIds": [
+        "SRC-LB2-02",
+        "SRC-LB2-03"
+      ]
+    },
+    {
+      "id": "q-1972-05",
+      "objectiveId": "CLO-4",
+      "question": "Thắng lợi 12 ngày đêm 'Điện Biên Phủ trên không' đã trực tiếp dẫn tới kết quả mang tính bước ngoặt nào trên mặt trận ngoại giao?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Mỹ tuyên bố rút khỏi Hội nghị Paris vô điều kiện"
+        },
+        {
+          "id": "B",
+          "text": "Mỹ buộc phải ngừng ném bom từ vĩ tuyến 20 trở ra (30/12/1972) và chấp nhận ký Hiệp định Paris (27/01/1973)"
+        },
+        {
+          "id": "C",
+          "text": "Các nước đồng minh của Mỹ cử thêm quân viễn chinh vào miền Nam"
+        },
+        {
+          "id": "D",
+          "text": "Hội đàm Paris bị kéo dài thêm 2 năm mà không đạt được thỏa thuận"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": "Tổn thất nặng nề của B-52 buộc Tổng thống Nixon phải ra lệnh ngừng ném bom ngày 30/12/1972 và nối lại đàm phán, dẫn tới việc ký kết Hiệp định Paris ngày 27/01/1973, buộc toàn bộ quân Mỹ phải rút khỏi Việt Nam.",
+      "sourceIds": [
+        "SRC-LB2-01",
+        "SRC-LB2-05"
+      ]
+    }
+  ]
+}
