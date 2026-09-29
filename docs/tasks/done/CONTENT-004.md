@@ -77,11 +77,11 @@
 - Thẩm định viên Lịch sử đã hoàn tất thẩm định toàn diện (FACT-001..012, terminology, fact vs fiction).
 - Kịch bản 5 scene 110s, VTT captions, nguồn NXB QĐND và Cẩm nang bìa đỏ đạt chuẩn 100%.
 - Báo cáo thẩm định: docs/content/HISTORICAL-REVIEW-REPORT-2026-09-28.md.
-- Trạng thái: DONE; chính thức MỞ KHÓA (UNBLOCK) cho CONTENT-007 (Member 2 sản xuất video).
+- Trạng thái authoring: DONE; báo cáo tổng hợp đề xuất mở CONTENT-007, nhưng production vẫn BLOCKED cho đến khi `PILOT-SCREENPLAY.md` và `HISTORICAL-SOURCES.md` được content owner/historical reviewer sign-off nhất quán.
 
 ## Handoff hiện hành
 
 - Changed files/evidence: screenplay, narration, captions, source registry, historical review report, card và task board.
 - Test result: authoring validator PASS theo CONTENT-014; thay đổi docs/content không có runtime, environment hoặc migration impact.
 - Known issues: quyền audio/media và MP4 cuối thuộc acceptance của CONTENT-007, không làm CONTENT-004 quay lại REVIEW.
-- Next owner/action: Trúc claim CONTENT-007 và bắt đầu production; Vinh kiểm tra media/accessibility trước publish.
+- Next owner/action: Content owner/historical reviewer hoàn tất sign-off trên artifact pilot; sau đó Trúc mới claim CONTENT-007 và bắt đầu production. Vinh kiểm tra media/accessibility trước publish.
