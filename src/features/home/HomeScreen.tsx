@@ -39,7 +39,7 @@ export function HomeScreen({
             Bạn đã khám phá lịch sử {userStats.streak} ngày liên tiếp!
           </div>
         </div>
-        <div className="ml-auto flex shrink-0 gap-1">
+        <div className="flex w-full shrink-0 justify-center gap-1">
           {weekDays.map((d, i) => (
             <div key={d} className="flex flex-col items-center">
               <div
