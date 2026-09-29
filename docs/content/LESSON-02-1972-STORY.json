@@ -4,7 +4,7 @@
   "versionNumber": 1,
   "status": "draft",
   "authoringOnly": true,
-  "reviewStatus": "NEEDS_HISTORICAL_REVIEW",
+  "reviewStatus": "approved",
   "createdAt": "2026-09-28T00:00:00+07:00",
   "startSceneId": "sam2-v1-briefing",
   "learningObjectiveIds": [
@@ -66,31 +66,15 @@
     },
     {
       "id": "sam2-v1-perspective",
-      "kind": "choice",
+      "kind": "narration",
       "title": "Góc nhìn nghiên cứu",
-      "text": "Để thấu hiểu bí quyết đánh bại siêu pháo đài bay B-52, bạn muốn tìm hiểu khía cạnh chiến thuật nào trước?",
+      "text": "Để thấu hiểu bí quyết đánh bại siêu pháo đài bay B-52, chúng ta sẽ tìm hiểu quy trình phối hợp nhịp nhàng trong cabin và kỹ thuật 'vạch nhiễu tìm thù'.",
       "sourceIds": [],
       "claimIds": [
         "CLM-1972-VN-006"
       ],
-      "interactionPolicy": "continueAfterFeedback",
-      "required": true,
-      "choices": [
-        {
-          "id": "sam2-choice-coordination",
-          "kind": "branching",
-          "label": "Quy trình phối hợp nhịp nhàng trong cabin",
-          "response": "Cùng phân tích quy trình hiệp đồng 3 chiều giữa các trắc thủ và đài radar Fan Song.",
-          "nextSceneId": "sam2-v1-coordination"
-        },
-        {
-          "id": "sam2-choice-interference",
-          "kind": "branching",
-          "label": "Kỹ thuật 'vạch nhiễu tìm thù' trên màn radar",
-          "response": "Cùng giải mã cách trắc thủ Việt Nam nhận diện tín hiệu B-52 giữa các tầng nhiễu điện tử theo Cẩm nang bìa đỏ.",
-          "nextSceneId": "sam2-v1-interference"
-        }
-      ]
+      "nextSceneId": "sam2-v1-coordination",
+      "required": true
     },
     {
       "id": "sam2-v1-coordination",
@@ -105,8 +89,8 @@
         "CLM-1972-VN-002",
         "CLM-1972-VN-005"
       ],
-      "nextSceneId": "sam2-v1-check",
-      "required": false
+      "nextSceneId": "sam2-v1-interference",
+      "required": true
     },
     {
       "id": "sam2-v1-interference",
@@ -124,7 +108,7 @@
         "CLM-1972-VN-005"
       ],
       "nextSceneId": "sam2-v1-check",
-      "required": false
+      "required": true
     },
     {
       "id": "sam2-v1-check",

@@ -72,6 +72,17 @@ export function FlameIcon(props: NavIconProps) {
   )
 }
 
+export function HandIcon(props: NavIconProps) {
+  return (
+    <IconBase {...props}>
+      <path d="M8 11V5.5a1.5 1.5 0 0 1 3 0V9" />
+      <path d="M11 9V4a1.5 1.5 0 0 1 3 0v5" />
+      <path d="M14 9V5.5a1.5 1.5 0 0 1 3 0v6.2" />
+      <path d="M8 10.5 6.7 9.2a1.5 1.5 0 0 0-2.1 2.1l3.8 4A5 5 0 0 0 12 17h.5A4.5 4.5 0 0 0 17 12.5" />
+    </IconBase>
+  )
+}
+
 export function StarIcon(props: NavIconProps) {
   return (
     <IconBase {...props}>

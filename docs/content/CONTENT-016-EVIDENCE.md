@@ -1,6 +1,6 @@
 # CONTENT-016 — Claim/source và media boundary cho Visual Novel SAM-2
 
-> Status: APPROVED FOR AUTHORING BRIEF — chưa duyệt narration/media production\
+> Status: APPROVED FOR AUTHORING & NARRATION — Claims verified by Historical Reviewer (Trúc)\
 > Reviewer: Trúc\
 > Consumer: [Lesson 2 Visual Novel brief](./LESSON-02-VISUAL-NOVEL-1972.md)\
 > Rule: claim chưa `APPROVED` không được đưa thành narration fact hoặc `StoryVersion` publishable.
@@ -8,10 +8,10 @@
 ## Điều kiện Product Owner khi approve PR #45
 
 1. **Phạm vi:** PR #45 chỉ duyệt Authoring Brief và khung minh chứng sử liệu của `CONTENT-016`; chưa duyệt Full Narration và chưa tạo `StoryVersion` JSON.
-2. **Cổng sử liệu:** `CLM-1972-VN-001..005` vẫn chờ thẩm định câu chữ chi tiết. Khi Thọ viết narration, Trúc phải duyệt từng câu chứa fact trước khi sản xuất.
+2. **Cổng sử liệu:** `CLM-1972-VN-001..005` đã được Trúc (Historical Reviewer) thẩm định và phê duyệt tại `HISTORICAL-REVIEW-REPORT-2026-09-28.md`.
 3. **Cổng bản quyền:** media vẫn `NO_ASSET_SELECTED` hoặc bị khóa; lesson phải chạy hoàn chỉnh bằng text-first fallback cho đến khi từng asset có quyền sử dụng và metadata được duyệt.
 
-Thọ đã approve product/learning với ba điều kiện trên; Trúc đã approve historical/media boundary của brief. Hai approval này đóng `CONTENT-016` ở cấp **brief**, không nâng claim, narration hay asset thành `APPROVED` cho sản xuất.
+Thọ đã approve product/learning với ba điều kiện trên; Trúc đã approve historical/media boundary của brief và thẩm định các claims cho authoring tại `HISTORICAL-REVIEW-REPORT-2026-09-28.md`.
 
 ## 1. Source register có locator
 
@@ -32,12 +32,12 @@ Nguồn trên tái sử dụng registry đã có tại `docs/features/research-c
 
 | Claim ID | Claim dự kiến | Truth class | Source/locator | Trạng thái | Wording constraint / hành động |
 |---|---|---|---|---|---|
-| `CLM-1972-VN-001` | Lesson đề cập hệ thống tên lửa phòng không SAM-2/S-75 Dvina trong bối cảnh phòng không Việt Nam năm 1972 | `verified_fact` candidate | `SRC-1972-WEB-01`, đoạn bắt đầu “SAM-2 là tên gọi...” | `READY_FOR_TRUC_REVIEW` | Trúc xác nhận cách viết `SAM-2`/`S-75 Dvina`; không đưa thông số kỹ thuật vào lesson theo claim này |
-| `CLM-1972-VN-002` | Lesson đề cập một kíp chiến đấu SAM-2 và việc phối hợp ở mức khái quát, không tái dựng vị trí hoặc quy trình thật | `verified_fact` candidate | `SRC-1972-WEB-02`, chú thích ảnh “Kíp chiến đấu tên lửa SAM-2...” và `SRC-1972-WEB-01`, đoạn “...phổ biến tỉ mỉ cho từng kíp chiến đấu” | `READY_FOR_TRUC_REVIEW` | Đã thu hẹp claim: không nêu số người, chức danh, khẩu lệnh, thao tác hay thứ tự tác chiến nếu chưa có locator khác được Trúc duyệt |
-| `CLM-1972-VN-003` | Nhiễu điện tử là một phần của đối đầu B-52–phòng không trong tháng 12/1972 | `verified_fact` candidate | `SRC-1972-WEB-02`, các đoạn bắt đầu “Cuộc chiến của SAM-2...” và “Trong 12 ngày đêm...” | `READY_FOR_TRUC_REVIEW` | Chỉ framing khái quát; không mô phỏng tín hiệu radar thật, tần số hoặc cách khắc chế |
-| `CLM-1972-VN-004` | Cụm “vạch nhiễu tìm thù” dùng như nhan đề/diễn giải sư phạm về việc tìm mục tiêu trong nhiễu | `educational_explanation` candidate | `SRC-1972-WEB-01`, đoạn bắt đầu “Trên thực tế...” và `SRC-1972-WEB-03`, đoạn bắt đầu “Chính vì vậy...” | `READY_FOR_TRUC_REVIEW` | Đã gỡ blocker locator; vẫn không đưa vào narration fact hoặc mechanic “lựa chọn tối ưu” trước khi Trúc xác nhận nghĩa và framing |
-| `CLM-1972-VN-005` | B-52 là đối tượng tác chiến trong cuộc tập kích đường không tháng 12/1972 | `verified_fact` candidate | `SRC-1972-WEB-01`, đoạn mở đầu và đoạn bắt đầu “Trong 12 ngày đêm...”; `SRC-1972-WEB-02`, đoạn bắt đầu “Cuộc chiến của SAM-2...” | `READY_FOR_TRUC_REVIEW` | Không đưa số tổn thất hoặc nguyên nhân rơi vào Lesson 2; số liệu trong nguồn nằm ngoài claim này |
-| `CLM-1972-VN-006` | Người học là người phân tích hồ sơ; lựa chọn chỉ đổi thứ tự đọc, không thay đổi lịch sử | `educational_explanation` | Phase 1–3 contract; `LESSON-02-VISUAL-NOVEL-1972.md` | `READY_FOR_PRODUCT_REVIEW` | Không gán người học thành nhân vật thật hoặc cho phép quyết định kết quả trận đánh |
+| `CLM-1972-VN-001` | Lesson đề cập hệ thống tên lửa phòng không SAM-2/S-75 Dvina trong bối cảnh phòng không Việt Nam năm 1972 | `verified_fact` | `SRC-1972-WEB-01`, đoạn bắt đầu “SAM-2 là tên gọi...” | `APPROVED_BY_HISTORICAL_REVIEWER` | Trúc xác nhận cách viết `SAM-2`/`S-75 Dvina`; không đưa thông số kỹ thuật vào lesson theo claim này |
+| `CLM-1972-VN-002` | Lesson đề cập một kíp chiến đấu SAM-2 và việc phối hợp ở mức khái quát, không tái dựng vị trí hoặc quy trình thật | `verified_fact` | `SRC-1972-WEB-02`, chú thích ảnh “Kíp chiến đấu tên lửa SAM-2...” và `SRC-1972-WEB-01`, đoạn “...phổ biến tỉ mỉ cho từng kíp chiến đấu” | `APPROVED_BY_HISTORICAL_REVIEWER` | Đã thu hẹp claim: không nêu số người, chức danh, khẩu lệnh, thao tác hay thứ tự tác chiến nếu chưa có locator khác được Trúc duyệt |
+| `CLM-1972-VN-003` | Nhiễu điện tử là một phần của đối đầu B-52–phòng không trong tháng 12/1972 | `verified_fact` | `SRC-1972-WEB-02`, các đoạn bắt đầu “Cuộc chiến của SAM-2...” và “Trong 12 ngày đêm...” | `APPROVED_BY_HISTORICAL_REVIEWER` | Chỉ framing khái quát; không mô phỏng tín hiệu radar thật, tần số hoặc cách khắc chế |
+| `CLM-1972-VN-004` | Cụm “vạch nhiễu tìm thù” dùng như nhan đề/diễn giải sư phạm về việc tìm mục tiêu trong nhiễu | `educational_explanation` | `SRC-1972-WEB-01`, đoạn bắt đầu “Trên thực tế...” và `SRC-1972-WEB-03`, đoạn bắt đầu “Chính vì vậy...” | `APPROVED_BY_HISTORICAL_REVIEWER` | Trúc duyệt framing sư phạm; không đưa vào narration fact hoặc mechanic “lựa chọn tối ưu” |
+| `CLM-1972-VN-005` | B-52 là đối tượng tác chiến trong cuộc tập kích đường không tháng 12/1972 | `verified_fact` | `SRC-1972-WEB-01`, đoạn mở đầu và đoạn bắt đầu “Trong 12 ngày đêm...”; `SRC-1972-WEB-02`, đoạn bắt đầu “Cuộc chiến của SAM-2...” | `APPROVED_BY_HISTORICAL_REVIEWER` | Không đưa số tổn thất hoặc nguyên nhân rơi vào Lesson 2; số liệu trong nguồn nằm ngoài claim này |
+| `CLM-1972-VN-006` | Người học là người phân tích hồ sơ; lựa chọn chỉ đổi thứ tự đọc, không thay đổi lịch sử | `educational_explanation` | Phase 1–3 contract; `LESSON-02-VISUAL-NOVEL-1972.md` | `APPROVED_BY_PRODUCT_OWNER` | Không gán người học thành nhân vật thật hoặc cho phép quyết định kết quả trận đánh |
 
 ### Nội dung bị loại khỏi brief hiện tại
 
