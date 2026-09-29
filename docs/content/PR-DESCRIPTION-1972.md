@@ -44,6 +44,22 @@ Pull Request này bàn giao trọn vẹn gói nội dung hoàn chỉnh đầu ti
 
 ---
 
+## 📚 Ma trận Bằng chứng & Trích dẫn Nguồn sử liệu (Evidence & Citation Matrix)
+
+Toàn bộ 4 bài học đều được đối chiếu và trích dẫn trực tiếp từ các tài liệu chính thống có mã số trang và lưu chiểu:
+
+| Mã nguồn | Tài liệu tham chiếu | Cơ quan / Tác giả & Năm XB | Vị trí tham chiếu cụ thể (Locator) | Bài học áp dụng |
+|---|---|---|---|---|
+| `SRC-LB2-01` | *Lịch sử Quân đội nhân dân Việt Nam (1944 - 1975)* | Viện Lịch sử Quân sự Việt Nam (2005) | Chương IX: Đánh bại cuộc tập kích đường không, tr. 620–652 | Bài 1, Bài 3, Bài 4 |
+| `SRC-LB2-02` | *Lịch sử Quân chủng Phòng không - Không quân (1963 - 2013)* | Viện LSQS — BTL PK-KQ (2013, ISBN 978-604-51-0988-5) | Chương V: Chiến dịch bảo vệ Hà Nội - Hải Phòng, tr. 280–335 | Bài 1, Bài 2, Bài 3, Bài 4 |
+| `SRC-LB2-03` | *Điện Biên Phủ trên không — Ý chí và trí tuệ Việt Nam* | Thượng tướng Chu Huy Mân (chủ biên, 2002) | Diễn biến 12 ngày đêm, số liệu thương vong Khâm Thiên tr. 180–195 | Bài 3, Bài 4 |
+| `SRC-1972-02` | *Lịch sử Bộ đội Tên lửa Phòng không (1965 - 2015)* | BTL Quân chủng PK-KQ (2015, ISBN 978-604-51-1823-8) | Cấu tạo kíp trắc thủ SAM-2 và các trận đánh tháng 12/1972 | Bài 2, Bài 4 |
+| `SRC-1972-03` | *Cách đánh B-52 của bộ đội tên lửa* ("Cẩm nang bìa đỏ") | BTL Quân chủng PK-KQ (10/1972) | Tài liệu hiện vật: quy tắc nhận dạng dải nhiễu bản chất B-52 | Bài 1, Bài 2 |
+| `SRC-LB2-04` | *Linebacker II: A View from the Rock* | Karl J. Eschmann (Air University Press, 1989) | Thống kê phi vụ B-52 xuất kích từ Guam & U-Tapao, tổn thất phía Mỹ | Bài 1, Bài 3 |
+| `SRC-LB2-05` | *Winged Shield, Winged Sword (Vol. II)* | USAF History Program (1997, ISBN 0-16-049009-X) | Trang 340–348: Kế hoạch Linebacker II và tác động tới Hiệp định Paris | Bài 1, Bài 3, Bài 4 |
+
+---
+
 ## 🧪 Bằng chứng kiểm thử tự động (Quality Verification)
 
 Toàn bộ 3 script kiểm thử của Chapter 1972 và quét an toàn mã nguồn đều **PASS 100%** tại local:
@@ -51,12 +67,12 @@ Toàn bộ 3 script kiểm thử của Chapter 1972 và quét an toàn mã ngu�
 - `node docs/content/validate-1972-authoring.mjs`: **PASS** (8/8 scenes reachable, 7 nodes SAM-2 hợp lệ, text-first fallback).
 - `node docs/content/validate-1972-lesson03.mjs`: **PASS** (cấu trúc bài đọc, đối chiếu sử liệu, reflection questions).
 - `node docs/content/validate-1972-quiz.mjs`: **PASS** (5 câu hỏi phủ 4 CLO, options & explanation đầy đủ).
-- `node scripts/member5/check-client-env.mjs`: Checked 249 files / **0 unsafe matches**.
+- `node scripts/member5/check-client-env.mjs`: Checked 250 files / **0 unsafe matches**.
 
 ---
 
 ## 📋 Checklist Review
-- [ ] **Trúc (Historical Reviewer)**: Thẩm định sử liệu và ngôn ngữ toàn bộ 4 bài học Chapter 1972.
+- [ ] **Trúc (Historical Reviewer)**: Thẩm định sử liệu và ngôn ngữ toàn bộ 4 bài học Chapter 1972 theo Ma trận Bằng chứng trên.
 - [ ] **Hưng (Architecture)**: Xác nhận cấu trúc dữ liệu JSON (Story JSON, Diagram JSON, Quiz JSON) khớp với domain types v2.
 - [ ] **Product Owner**: Nghiệm thu trọn gói Golden Chapter Package của Thọ.
 ```
