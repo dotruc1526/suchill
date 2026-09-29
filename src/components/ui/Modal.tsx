@@ -11,6 +11,11 @@ type ModalProps = {
 export function Modal({ isOpen, onClose, title, children }: ModalProps) {
   const dialogRef = useRef<HTMLDivElement>(null)
   const previouslyFocusedRef = useRef<HTMLElement | null>(null)
+  const onCloseRef = useRef(onClose)
+
+  useEffect(() => {
+    onCloseRef.current = onClose
+  }, [onClose])
 
   useEffect(() => {
     if (!isOpen) return
@@ -37,7 +42,7 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        onClose()
+        onCloseRef.current()
         return
       }
 
@@ -53,10 +58,11 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
       const first = currentFocusables[0]
       const last = currentFocusables[currentFocusables.length - 1]
 
-      if (e.shiftKey && document.activeElement === first) {
+      const focusIsOutside = !dialogRef.current?.contains(document.activeElement)
+      if (e.shiftKey && (document.activeElement === first || focusIsOutside)) {
         e.preventDefault()
         last.focus()
-      } else if (!e.shiftKey && document.activeElement === last) {
+      } else if (!e.shiftKey && (document.activeElement === last || focusIsOutside)) {
         e.preventDefault()
         first.focus()
       }
@@ -67,7 +73,7 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
       window.removeEventListener('keydown', handleKeyDown)
       previouslyFocusedRef.current?.focus()
     }
-  }, [isOpen, onClose])
+  }, [isOpen])
 
   if (!isOpen) return null
 
@@ -92,7 +98,10 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
         onClick={e => e.stopPropagation()}
       >
         {title && (
-          <div className="flex items-center justify-between pb-3 mb-3 border-b border-[rgba(61,26,0,0.12)]">
+          <div
+            className="flex items-center justify-between pb-3 mb-3 border-b"
+            style={{ borderBottomColor: theme.colors.borderLight }}
+          >
             <h3 id="modal-title" className="font-serif font-bold text-lg" style={{ color: theme.colors.textPrimary }}>
               {title}
             </h3>

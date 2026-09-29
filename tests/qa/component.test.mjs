@@ -79,16 +79,26 @@ test('UI primitives render with design tokens', async () => {
   assert.ok(badgeHtml.includes('Sai rồi'))
 
   const narrativeChoiceHtml = renderToStaticMarkup(
-    React.createElement(ChoiceOption, { label: 'Suy ngẫm', isSelected: true }),
+    React.createElement(ChoiceOption, { type: 'narrative', label: 'Suy ngẫm', isSelected: true }),
   )
   assert.ok(!narrativeChoiceHtml.includes('✓'))
+  assert.ok(!narrativeChoiceHtml.includes('Đúng') && !narrativeChoiceHtml.includes('Sai'))
   assert.ok(!narrativeChoiceHtml.includes('#E8F5E2'))
   assert.ok(narrativeChoiceHtml.includes('Suy ngẫm'))
 
   const correctChoiceHtml = renderToStaticMarkup(
-    React.createElement(ChoiceOption, { label: 'Đáp án', isSelected: true, revealed: true, correct: true }),
+    React.createElement(ChoiceOption, {
+      type: 'knowledge', label: 'Đáp án', isSelected: true, revealed: true, correct: true,
+    }),
   )
-  assert.ok(correctChoiceHtml.includes('✓'))
+  assert.ok(correctChoiceHtml.includes('✓') && correctChoiceHtml.includes('Đúng'))
+
+  const incorrectChoiceHtml = renderToStaticMarkup(
+    React.createElement(ChoiceOption, {
+      type: 'knowledge', label: 'Lựa chọn sai', isSelected: true, revealed: true, correct: false,
+    }),
+  )
+  assert.ok(incorrectChoiceHtml.includes('✗') && incorrectChoiceHtml.includes('Sai'))
 
   const progressHtml = renderToStaticMarkup(
     React.createElement(Progress, { value: 75, max: 100 }),
@@ -112,14 +122,19 @@ test('UI primitives render with design tokens', async () => {
 test('Modal source contains focus trap and focus restoration behavior', async () => {
   const source = await readFile(new URL('../../src/components/ui/Modal.tsx', import.meta.url), 'utf8')
   assert.match(source, /previouslyFocusedRef/)
+  assert.match(source, /onCloseRef\.current = onClose/)
+  assert.match(source, /onCloseRef\.current\(\)/)
   assert.match(source, /document\.activeElement/)
   assert.match(source, /querySelectorAll<HTMLElement>/)
   assert.match(source, /e\.key !== 'Tab'/)
+  assert.match(source, /focusIsOutside/)
   assert.match(source, /previouslyFocusedRef\.current\?\.focus\(\)/)
+  assert.match(source, /\}, \[isOpen\]\)/)
+  assert.doesNotMatch(source, /\[isOpen, onClose\]/)
 })
 
 test('M1 primitives route color and shadow decisions through tokens', async () => {
-  const files = ['Button.tsx', 'Badge.tsx', 'ChoiceOption.tsx', 'Progress.tsx']
+  const files = ['Button.tsx', 'Badge.tsx', 'ChoiceOption.tsx', 'Modal.tsx', 'Progress.tsx']
   for (const file of files) {
     const source = await readFile(new URL(`../../src/components/ui/${file}`, import.meta.url), 'utf8')
     assert.ok(source.includes('theme.'), `${file} should use theme tokens`)
