@@ -14,7 +14,7 @@
 ## 1. Bối cảnh và Mục tiêu Nghiên cứu
 
 ### 1.1. Bối cảnh thực hiện
-Theo định hướng của dự án Sử Chill ([DOC-012](../tasks/active/DOC-012.md) và [TASK-BOARD](../project/TASK-BOARD.md)), phạm vi nội dung trọng tâm của sản phẩm là **Giai đoạn Kháng chiến chống Mỹ cứu nước tại Việt Nam**. Dự án không sử dụng nội dung demo Genève làm mặc định mà hướng tới việc xây dựng một Chapter lịch sử mẫu hoàn chỉnh, gồm nhiều bài học (lessons) đa định dạng (Interactive Visual Novel, Video tài liệu giáo dục, Phân tích sa bàn chiến thuật, Trắc nghiệm tri thức).
+Theo định hướng của dự án Sử Chill ([DOC-012](../tasks/done/DOC-012.md) và [TASK-BOARD](../project/TASK-BOARD.md)), phạm vi nội dung trọng tâm của sản phẩm là **Giai đoạn Kháng chiến chống Mỹ cứu nước tại Việt Nam**. Dự án không sử dụng nội dung demo Genève làm mặc định mà hướng tới việc xây dựng một Chapter lịch sử mẫu hoàn chỉnh, gồm nhiều bài học (lessons) đa định dạng (Interactive Visual Novel, Video tài liệu giáo dục, Phân tích sa bàn chiến thuật, Trắc nghiệm tri thức).
 
 Nhiệm vụ **CONTENT-009** được triển khai độc lập trong Content Track nhằm khảo sát, nghiên cứu các chủ đề ứng viên thuộc mảng **Chiến tranh trên không (Air War)** — một trong những mặt trận khốc liệt, giàu tính kịch tính và thể hiện rõ nét nhất nghệ thuật quân sự phòng không nhân dân Việt Nam.
 

@@ -1,6 +1,6 @@
 # Nghiên cứu nguồn và chủ đề ứng viên (Kháng chiến chống Mỹ)
 
-> Thuộc Task: [CONTENT-009](../tasks/active/CONTENT-009.md)
+> Thuộc Task: [CONTENT-009](../tasks/done/CONTENT-009.md)
 > Người thực hiện: Thọ (Member 1) + Codex
 
 Dưới đây là danh sách các chủ đề (Chapter) ứng viên tiềm năng cho giai đoạn Kháng chiến chống Mỹ ở Việt Nam, được thiết kế để phù hợp với cấu trúc "Chapter gồm nhiều Lesson đa định dạng".

@@ -2,7 +2,7 @@
 
 **Epic:** Content Production (Phase 2 Expansion)
 **Owner:** Thọ (Member 1)
-**Status:** ACTIVE
+**Status:** DONE
 **Dependencies:** CONTENT-009 (Nghiên cứu nguồn)
 **Reviewer:** Product Owner / Historical Reviewer
 
@@ -15,7 +15,7 @@ Xây dựng Bản đồ Giáo trình (Curriculum Map) cho Chapter tiếp theo: C
 - Đề xuất loại hình bài học (Video, Interactive, Standard) cho từng nội dung (ví dụ: sa bàn kíp chiến đấu SAM-2, sơ đồ bay của B-52).
 
 ## Deliverables
-- [ ] `docs/content/CURRICULUM-MAP-1972.md`
+- [x] `docs/content/CURRICULUM-MAP-1972.md`
 
 ## Product Owner Sign-off
 
