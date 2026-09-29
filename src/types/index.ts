@@ -49,6 +49,7 @@ export type MascotEmotion =
   | 'angry'
   | 'worried'
 
+/** @deprecated Technical-demo content shape. New work must use the Phase 5 domain contract. */
 export type StoryStep = {
   emotion: MascotEmotion
   text: string
@@ -56,6 +57,7 @@ export type StoryStep = {
   fact?: { label: string; value: string }
 }
 
+/** @deprecated Technical-demo quiz shape. New work must use `DomainMultipleChoiceQuestion`. */
 export type QuizQuestion = {
   question: string
   options: string[]
@@ -63,6 +65,7 @@ export type QuizQuestion = {
   explanation: string
 }
 
+/** @deprecated Numeric-ID demo type. New work must use `DomainLesson`. */
 export type Lesson = {
   id: number
   title: string
@@ -73,6 +76,7 @@ export type Lesson = {
   visualNovelId?: string
 }
 
+/** @deprecated Numeric-ID demo type. New work must use `DomainChapter`. */
 export type Chapter = {
   id: number
   year: string
@@ -86,6 +90,7 @@ export type Chapter = {
   unsplashId?: string
 }
 
+/** @deprecated Technical-demo profile view model; do not use as a domain or persistence model. */
 export type UserStats = {
   name: string
   streak: number
@@ -96,6 +101,7 @@ export type UserStats = {
   accuracy: number
 }
 
+/** @deprecated Technical-demo profile view model; replace through the user service contract. */
 export type Achievement = {
   id: number
   icon: string
@@ -104,13 +110,16 @@ export type Achievement = {
   earned: boolean
 }
 
+/** @deprecated Technical-demo AI view model; AI Battle remains outside the canonical MVP contract. */
 export type AIMessage = {
   role: 'user' | 'ai'
   text: string
 }
 
+/** @deprecated Technical-demo navigation state; replace through the canonical app boundary. */
 export type Tab = 'home' | 'practice' | 'ai' | 'profile'
 
+/** @deprecated Numeric-index demo navigation state; replace through the canonical app boundary. */
 export type View =
   | { type: 'home' }
   | { type: 'chapter'; chapterId: number }
