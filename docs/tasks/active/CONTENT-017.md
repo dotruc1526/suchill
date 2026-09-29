@@ -45,7 +45,7 @@
 - [x] Dữ liệu JSON StoryVersion có stable IDs, luồng đồ thị chuyển cảnh khép kín không có dead-end, cú pháp hợp lệ.
 - [x] 100% dữ kiện bám sát Claim ID từ `CONTENT-016-EVIDENCE.md` và nguồn chính thống (Báo QĐND, Lịch sử QCPK-KQ, Cẩm nang bìa đỏ).
 - [x] Script kiểm thử tự động `validate-1972-authoring.mjs` chạy PASS.
-- [x] Trúc (Historical Reviewer) thẩm định sử liệu và ngôn ngữ (`APPROVED` tại `HISTORICAL-REVIEW-REPORT-2026-09-28.md`; chờ submit approving review trên GitHub PR #54).
+- [ ] Trúc (Historical Reviewer) thẩm định sử liệu và ngôn ngữ (đang tiếp thu và khắc phục triệt để theo review finding trên PR #54).
 - [ ] Product Owner nghiệm thu phê duyệt.
 
 ## Verification
@@ -60,6 +60,7 @@
 | 2026-09-28 | Thọ (Member 1) | Khởi tạo task card CONTENT-017 và xác lập phạm vi soạn thảo Bài 2 Visual Novel 1972 | Card CONTENT-017; branch `content/tho-lesson-02-1972-vn` | Viết kịch bản chi tiết, dữ liệu JSON và sơ đồ khí tài | Không |
 | 2026-09-28 | Thọ (Member 1) | Hoàn thành kịch bản chi tiết 8 scene, sơ đồ khí tài 7 nodes và dữ liệu StoryVersion JSON draft; validator PASS 100%; chuyển REVIEW | `docs/content/LESSON-02-1972-NARRATION.md`, `LESSON-02-1972-STORY.json`, `DIAGRAM-SAM2-1972.json`, `validate-1972-authoring.mjs` | Bàn giao cho Trúc (Historical Reviewer) thẩm định và Product Owner duyệt | Không |
 | 2026-09-29 | Thọ + Trúc + Codex | Tiếp thu phản hồi PO: sửa luồng học đi qua đủ 2 nội dung trước check; Trúc phê duyệt claim matrix; giải quyết conflict TASK-BOARD với main | PR #54; `validate-1972-authoring.mjs` PASS | Trúc bấm Approve review trên GitHub PR #54; PO nghiệm thu lại | Chờ Trúc submit GitHub review |
+| 2026-09-29 | Thọ + Codex | Khắc phục 5 điểm review của Trúc/PO: (1) bỏ thao tác tay quay, khẩu lệnh, mốc 40/35/30km ở Scene 2/4 & Sơ đồ SAM-2; (2) chuẩn hóa số liệu tốp 3 B-52 có 45 máy gây nhiễu, bỏ từ ngữ chưa kiểm chứng ("bó chổi chà", độ mịn/gợn); (3) sửa lời giải thích Shrike trung thực, không tuyệt đối hóa; (4) đổi reviewStatus về ready_for_review; (5) làm rõ vai trò validator cấu trúc | `LESSON-02-1972-NARRATION.md`, `LESSON-02-1972-STORY.json`, `DIAGRAM-SAM2-1972.json`; 4 validators PASS 100% | Báo cáo Trúc/PO thẩm định lại trên PR #54 và PR #65 | Không |
 
 ## Handoff
 
