@@ -5,7 +5,6 @@
 - [CONTENT-016](./CONTENT-016.md) — Thọ và Trúc đã approve flagship Visual Novel authoring brief; narration/StoryVersion/media tiếp tục chịu gate riêng.
 - [DOC-010](./DOC-010.md) — Phase 9 và context hardening; product owner duyệt ngày 2026-09-23.
 - [DOC-016](./DOC-016.md) — Product owner duyệt đóng M0 và mở M1 ngày 2026-09-28.
-- [M2-01](./M2-01.md) — domain types v2 và legacy boundary đã được Hưng/Dương xác nhận; PR #61 merged, quality pass.
 - [M1-01](./M1-01.md) — token contract/design handoff đã được triển khai trong FE-003 và QA xác nhận sau PR #33.
 - [M1-04](./M1-04.md) — layout/navigation safe-area và BottomNav touch target đã được Vinh QA xác nhận trong PR #40.
 - [M1-05](./M1-05.md) — motion/reduced-motion/sound/mute foundation đã được review trong PR #33; không bao gồm feature polish.
