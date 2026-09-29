@@ -21,79 +21,79 @@
     {
       "id": "sam2-node-cabin",
       "category": "command_post",
-      "name": "Cabin điều khiển (Xe K / PA-00)",
+      "name": "Cabin điều khiển (Xe K)",
       "shortLabel": "Xe Điều Khiển",
       "claimId": "CLM-1972-VN-002",
       "sourceId": "SRC-1972-WEB-02",
-      "summary": "Trung tâm chỉ huy tác chiến của kíp chiến đấu tiểu đoàn tên lửa phòng không.",
-      "description": "Nơi làm việc tập trung của Sĩ quan điều khiển và các trắc thủ theo dõi tọa độ mục tiêu. Toàn bộ thông tin từ radar Fan Song được phản ánh lên các màn huỳnh quang trong xe để kíp phân tích tham số và hiệp đồng điều khiển tên lửa.",
-      "textFallback": "Xe điều khiển là thùng xe tác chiến khép kín, chứa hệ thống màn hình hiển thị radar và cụm điều khiển trung tâm nơi kíp chiến đấu phối hợp làm việc."
+      "summary": "Trung tâm hiệp đồng tác chiến của kíp chiến đấu tên lửa phòng không.",
+      "description": "Không gian làm việc chung của kíp chiến đấu, nơi tiếp nhận thông tin từ hệ thống radar để hiệp đồng xử lý và thực hiện nhiệm vụ bảo vệ vùng trời.",
+      "textFallback": "Cabin điều khiển là nơi kíp chiến đấu phối hợp nhịp nhàng, xử lý thông tin mục tiêu."
     },
     {
       "id": "sam2-node-officer",
       "category": "crew_member",
-      "name": "Sĩ quan điều khiển",
-      "shortLabel": "SQ Điều Khiển",
+      "name": "Vị trí chỉ huy cabin",
+      "shortLabel": "Chỉ Huy Cabin",
       "claimId": "CLM-1972-VN-002",
       "sourceId": "SRC-1972-WEB-01",
-      "summary": "Người chỉ huy trực tiếp kíp trắc thủ trong cabin tác chiến.",
-      "description": "Theo dõi toàn cảnh màn hiện sóng, tổng hợp tham số từ các trắc thủ và chỉ huy thời điểm phát lệnh phóng tên lửa theo phương án tác chiến của tiểu đoàn.",
-      "textFallback": "Sĩ quan điều khiển ngồi ở vị trí trung tâm, giữ vai trò tổng hợp tham số tọa độ và chỉ huy thời điểm phóng đạn."
+      "summary": "Điều phối chung hoạt động hiệp đồng của kíp chiến đấu.",
+      "description": "Đảm nhiệm vai trò điều phối tổng thể giữa các thành viên trong kíp chiến đấu theo phương án tác chiến của đơn vị.",
+      "textFallback": "Vị trí chỉ huy giữ vai trò điều phối chung trong cabin tác chiến."
     },
     {
       "id": "sam2-node-azimuth",
       "category": "crew_member",
-      "name": "Trắc thủ phương vị (Góc ngang)",
-      "shortLabel": "TT Phương Vị",
+      "name": "Vị trí theo dõi hướng (Phương vị)",
+      "shortLabel": "Hướng Phương Vị",
       "claimId": "CLM-1972-VN-002",
       "sourceId": "SRC-1972-WEB-02",
-      "summary": "Phụ trách bám sát mục tiêu theo mặt phẳng nằm ngang (phương vị).",
-      "description": "Theo dõi màn huỳnh quang phương vị, điều khiển bám sát hướng bay của mục tiêu theo trục ngang, giữ tín hiệu mục tiêu ở vị trí tối ưu.",
-      "textFallback": "Trắc thủ phương vị theo dõi và điều chỉnh để bám sát hướng bay ngang của mục tiêu trên màn hiện sóng."
+      "summary": "Theo dõi thông tin mục tiêu theo hướng không gian.",
+      "description": "Hỗ trợ kíp chiến đấu quan sát hướng di chuyển của mục tiêu trên màn hiện sóng.",
+      "textFallback": "Theo dõi hướng di chuyển của mục tiêu theo trục ngang."
     },
     {
       "id": "sam2-node-elevation",
       "category": "crew_member",
-      "name": "Trắc thủ góc tà (Góc đứng)",
-      "shortLabel": "TT Góc Tà",
+      "name": "Vị trí theo dõi góc ngẩng (Góc tà)",
+      "shortLabel": "Góc Ngẩng",
       "claimId": "CLM-1972-VN-002",
       "sourceId": "SRC-1972-WEB-02",
-      "summary": "Phụ trách bám sát độ cao và góc nâng mục tiêu (góc tà).",
-      "description": "Theo dõi màn huỳnh quang góc tà, xác định góc ngẩng của chùm sóng radar hướng lên mục tiêu, phối hợp cùng trắc thủ phương vị để bám sát mục tiêu trong không gian.",
-      "textFallback": "Trắc thủ góc tà theo dõi và điều chỉnh để bám sát góc nâng và độ cao của mục tiêu trên màn hiện sóng."
+      "summary": "Theo dõi thông tin mục tiêu theo độ cao.",
+      "description": "Hỗ trợ kíp chiến đấu quan sát góc ngẩng và độ cao của mục tiêu trong không gian.",
+      "textFallback": "Theo dõi góc ngẩng và độ cao của mục tiêu trong không gian."
     },
     {
       "id": "sam2-node-range",
       "category": "crew_member",
-      "name": "Trắc thủ cự ly (Khoảng cách)",
-      "shortLabel": "TT Cự Ly",
+      "name": "Vị trí theo dõi cự ly",
+      "shortLabel": "Cự Ly",
       "claimId": "CLM-1972-VN-002",
       "sourceId": "SRC-1972-WEB-02",
-      "summary": "Phụ trách đo khoảng cách từ trận địa đến mục tiêu.",
-      "description": "Theo dõi màn huỳnh quang cự ly, cung cấp thông số khoảng cách từ mục tiêu đến trận địa để kíp chiến đấu xác định vùng phóng hiệu quả.",
-      "textFallback": "Trắc thủ cự ly theo dõi khoảng cách tiếp cận của mục tiêu để hỗ trợ kíp chiến đấu xác định cự ly thích hợp."
+      "summary": "Theo dõi khoảng cách tiếp cận của mục tiêu.",
+      "description": "Hỗ trợ kíp chiến đấu nắm bắt cự ly tiếp cận để phối hợp tác chiến kịp thời.",
+      "textFallback": "Theo dõi cự ly tiếp cận của mục tiêu."
     },
     {
       "id": "sam2-node-radar",
       "category": "radar_station",
-      "name": "Đài Radar Fan Song (SNR-75)",
+      "name": "Đài radar dẫn đường Fan Song",
       "shortLabel": "Radar Fan Song",
       "claimId": "CLM-1972-VN-003",
       "sourceId": "SRC-1972-WEB-01",
-      "summary": "Đài radar dẫn đường và bám sát mục tiêu của hệ thống SAM-2.",
-      "description": "Phát hai chùm sóng quét hẹp để bám sát mục tiêu và một chùm sóng rộng để phát lệnh vô tuyến điều khiển dẫn đường tên lửa bay tới mục tiêu. Trong môi trường nhiễu nặng, đài radar là nơi kíp trắc thủ phải 'vạch nhiễu tìm thù'.",
-      "textFallback": "Đài radar gồm ăng-ten góc tà và ăng-ten phương vị xoay đồng bộ, phát sóng phát hiện mục tiêu và truyền xung lệnh dẫn đường cho tên lửa."
+      "summary": "Hệ thống radar bám sát và phát lệnh của tổ hợp tên lửa SAM-2.",
+      "description": "Khí tài phát hiện và dẫn đường của hệ thống SAM-2, đóng vai trò quan trọng hỗ trợ kíp chiến đấu tìm kiếm mục tiêu trong môi trường nhiễu điện tử.",
+      "textFallback": "Đài radar phát hiện mục tiêu và truyền lệnh dẫn đường cho tên lửa."
     },
     {
       "id": "sam2-node-launcher",
       "category": "weapon_system",
-      "name": "Bệ phóng SM-90 & Tên lửa V-750 (S-75 Dvina)",
+      "name": "Bệ phóng & Tên lửa S-75 Dvina (SAM-2)",
       "shortLabel": "Bệ Phóng SAM-2",
       "claimId": "CLM-1972-VN-001",
       "sourceId": "SRC-1972-WEB-01",
-      "summary": "Bệ phóng chấp hành hỏa lực mặt đất của tổ hợp tên lửa.",
-      "description": "Bệ phóng đơn nhận lệnh đồng bộ tự động xoay theo phương vị và góc ngẩng từ cabin điều khiển. Tên lửa SAM-2 hai tầng nhiên liệu rời bệ với vận tốc siêu âm, nhận lệnh vô tuyến hiệu chỉnh đường bay để lao tới phát nổ tiêu diệt B-52.",
-      "textFallback": "Bệ phóng cơ giới mang một quả đạn tên lửa SAM-2 dài hơn 10 mét, tự động ngẩng cao và xoay theo hướng mục tiêu trước khi điểm hỏa."
+      "summary": "Hệ thống chấp hành hỏa lực mặt đất của tổ hợp tên lửa.",
+      "description": "Khí tài hỏa lực của tổ hợp tên lửa phòng không, tiếp nhận các tham số điều khiển từ cabin để sẵn sàng phóng đạn bảo vệ mục tiêu.",
+      "textFallback": "Bệ phóng và tên lửa SAM-2 sẵn sàng chấp hành hỏa lực theo lệnh từ cabin điều khiển."
     }
   ]
 }

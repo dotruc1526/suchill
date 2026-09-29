@@ -42,7 +42,7 @@
       "id": "sam2-v1-crew",
       "kind": "evidence",
       "title": "Cấu trúc kíp chiến đấu SAM-2",
-      "text": "Hãy quan sát sơ đồ tổ chức kíp chiến đấu và hệ thống khí tài SAM-2 (S-75 Dvina). Trong một thùng xe điều khiển chật hẹp, kíp chiến đấu tạo thành một khối thống nhất: Sĩ quan điều khiển cùng các trắc thủ phương vị, góc tà, cự ly. Mỗi vị trí theo dõi một trục không gian, phối hợp đồng bộ để bảo đảm độ chính xác của đường đạn.",
+      "text": "Hãy quan sát sơ đồ khái quát hệ thống khí tài và tổ chức kíp chiến đấu SAM-2 (S-75 Dvina). Trong cabin điều khiển, kíp chiến đấu tạo thành một khối thống nhất, hiệp đồng nhịp nhàng giữa các vị trí để theo dõi không gian và xử lý thông tin mục tiêu.",
       "sourceIds": [
         "SRC-1972-02",
         "SRC-1972-WEB-01",
@@ -80,7 +80,7 @@
       "id": "sam2-v1-coordination",
       "kind": "narration",
       "title": "Hiệp đồng tác chiến trong cabin",
-      "text": "Trong cabin điều khiển, kíp chiến đấu phối hợp chặt chẽ theo dõi các tham số mục tiêu trên màn hiện sóng radar. Sĩ quan điều khiển cùng các trắc thủ theo dõi đồng bộ các hướng tọa độ không gian để xác định phần tử bắn và thời cơ phát lệnh, bảo đảm độ chính xác cao khi tên lửa tiếp cận mục tiêu ở trần bay chiến lược.",
+      "text": "Trong cabin điều khiển, kíp chiến đấu phối hợp chặt chẽ để quan sát và xử lý các thông tin mục tiêu trên màn hiện sóng radar. Tinh thần hiệp đồng đồng bộ giữa các vị trí là yếu tố quyết định giúp đơn vị nắm chắc tình hình trên không và thực hiện nhiệm vụ chiến đấu bảo vệ bầu trời.",
       "sourceIds": [
         "SRC-1972-02",
         "SRC-1972-WEB-02"
@@ -131,25 +131,25 @@
         {
           "id": "sam2-check-auto",
           "kind": "knowledge_check",
-          "label": "Tên lửa SAM-2 có đầu dò nhiệt tự động bay tới mà không cần radar mặt đất hướng dẫn",
+          "label": "Tên lửa SAM-2 tự động tìm mục tiêu mà không cần sự phối hợp từ hệ thống radar mặt đất",
           "isCorrect": false,
-          "explanation": "Chưa chính xác. Tên lửa SAM-2 (S-75 Dvina) là hệ dẫn lệnh vô tuyến từ đài radar mặt đất (Fan Song), đòi hỏi kíp trắc thủ mặt đất phải bám sát mục tiêu liên tục trong suốt đường bay.",
+          "explanation": "Chưa chính xác. SAM-2 hoạt động dựa trên sự phối hợp chặt chẽ với hệ thống radar và kíp chiến đấu mặt đất để phát hiện và xử lý thông tin mục tiêu.",
           "nextSceneId": "sam2-v1-debrief"
         },
         {
           "id": "sam2-check-skill",
           "kind": "knowledge_check",
-          "label": "Kíp trắc thủ phân tích bản chất dải nhiễu theo kinh nghiệm Cẩm nang bìa đỏ, phối hợp chặt chẽ các tham số và chọn thời điểm phát sóng thích hợp",
+          "label": "Bộ đội tên lửa đúc kết kinh nghiệm nhận diện dải nhiễu từ Cẩm nang bìa đỏ và hiệp đồng tác chiến linh hoạt",
           "isCorrect": true,
-          "explanation": "Chính xác! Trọng tâm của việc khắc phục nhiễu là nhận diện quy luật dải nhiễu và sử dụng radar một cách linh hoạt, hiệp đồng hiệu quả nhằm giảm thiểu nguy cơ bị tên lửa chống bức xạ của đối phương bám bắt.",
+          "explanation": "Chính xác! Trọng tâm của việc khắc phục nhiễu là nhận diện quy luật dải nhiễu dựa trên kinh nghiệm từ cuốn 'Cẩm nang bìa đỏ' và tinh thần hiệp đồng tác chiến linh hoạt của bộ đội phòng không.",
           "nextSceneId": "sam2-v1-debrief"
         },
         {
           "id": "sam2-check-power",
           "kind": "knowledge_check",
-          "label": "Đài radar tăng tối đa công suất phát sóng liên tục suốt cuộc không kích để áp đảo máy gây nhiễu của đối phương",
+          "label": "Đài radar phát sóng liên tục không ngừng nghỉ để lấn át toàn bộ các nguồn gây nhiễu",
           "isCorrect": false,
-          "explanation": "Không chính xác. Việc phát sóng liên tục làm tăng nguy cơ để lộ vị trí trước tên lửa chống bức xạ Shrike tự dẫn theo cánh sóng. Trong thực tế, bộ đội phòng không đã áp dụng linh hoạt nhiều biện pháp như hiệp đồng quan sát, hạn chế thời gian phát sóng và chọn thời điểm thích hợp để vừa bám sát mục tiêu vừa bảo vệ khí tài.",
+          "explanation": "Không chính xác. Trong thực tế, việc sử dụng radar đòi hỏi sự tính toán cẩn trọng và hiệp đồng linh hoạt để vừa theo dõi được mục tiêu, vừa bảo đảm an toàn cho khí tài trước các biện pháp chế áp điện tử và hỏa lực của đối phương.",
           "nextSceneId": "sam2-v1-debrief"
         }
       ]
