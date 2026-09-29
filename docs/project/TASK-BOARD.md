@@ -109,6 +109,7 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 | DOC-014 | GitHub readiness | Kiểm tra file chuẩn bị đưa lên GitHub và làm rõ content track Member 1 | Codex | DONE | DOC-010 | [`docs/tasks/done/DOC-014.md`](../tasks/done/DOC-014.md) | Product owner review; build pass, typecheck baseline còn lỗi, CONTENT-009 READY |
 | DOC-015 | Team handoff | Gán tên 5 thành viên và tạo PR tài liệu trên nhánh riêng | Codex | DONE | DOC-010 | [`docs/tasks/done/DOC-015.md`](../tasks/done/DOC-015.md) | [PR #7](https://github.com/dotruc1526/suchill/pull/7) đã mở vào `main`; Product owner review |
 | DOC-016 | Milestone gate | Ghi quyết định Product owner đóng M0 và mở M1 | Product owner | DONE | M0-00..07 | [`docs/tasks/done/DOC-016.md`](../tasks/done/DOC-016.md) | M0 đóng/M1 mở ngày 2026-09-28; source-of-truth và handoff đã đồng bộ |
+| DOC-017 | Documentation sync | Rà và đồng bộ task/content docs tách khỏi PR #61 | Dương (Member 4); Codex executor | IN PROGRESS | PR #61 merged; `fd52278` reference | [`docs/tasks/active/DOC-017.md`](../tasks/active/DOC-017.md) | Chỉ phục hồi thay đổi trạng thái/link còn đúng với `main`; không đổi Product Owner, reviewer contract hoặc source/runtime |
 | M1-01 | Design system | Figma handoff và token contract | Trúc (Member 2) | DONE | Gate M0 | [`docs/tasks/done/M1-01.md`](../tasks/done/M1-01.md) | Handoff đã được Hưng triển khai trong FE-003; Vinh QA xác nhận sau merge PR #33 |
 
 ### B. Frontend implementation — theo dependency và milestone gate Phase 9
