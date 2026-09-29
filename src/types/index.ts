@@ -1,3 +1,35 @@
+/**
+ * Canonical Phase 5 types use stable string IDs and live under `types/v2`.
+ * Prefixed aliases keep them available from the shared root without silently
+ * changing the numeric-ID demo contracts below; M2-05 owns that migration.
+ */
+export type {
+  Chapter as DomainChapter,
+  EntityId as DomainEntityId,
+  HistoricalClaim as DomainHistoricalClaim,
+  HistoricalSource as DomainHistoricalSource,
+  ISODateTime as DomainISODateTime,
+  Lesson as DomainLesson,
+  LessonBlock as DomainLessonBlock,
+  Locale as DomainLocale,
+  MediaAsset as DomainMediaAsset,
+  MultipleChoiceQuestion as DomainMultipleChoiceQuestion,
+  PublishStatus as DomainPublishStatus,
+  QuestionSet as DomainQuestionSet,
+  SceneChoice as DomainSceneChoice,
+  StoryVersion as DomainStoryVersion,
+  VisualNovelScene as DomainVisualNovelScene,
+  VisualNovelStory as DomainVisualNovelStory,
+} from './v2/content.ts'
+export type {
+  EpisodeProgress as DomainEpisodeProgress,
+  LearningAttempt as DomainLearningAttempt,
+  LessonProgress as DomainLessonProgress,
+  ProgressStatus as DomainProgressStatus,
+  VideoProgress as DomainVideoProgress,
+} from './v2/progress.ts'
+
+/** @deprecated Technical-demo view types. Use the Phase 5 domain aliases above for new work. */
 export type MascotEmotion =
   | 'happy'
   | 'excited'

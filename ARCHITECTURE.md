@@ -1,7 +1,7 @@
 # Sử Chill — Canonical Architecture
 
-> Status: TARGET ARCHITECTURE — Phase 5–9 approved; M0 closed, Milestone 1 open
-> Last updated: 2026-09-28
+> Status: TARGET ARCHITECTURE — Phase 5–9 approved; M0/M1 closed, Milestone 2 open
+> Last updated: 2026-09-29
 
 Tài liệu này mô tả các ranh giới kỹ thuật mà frontend, backend và AI phải giữ. Schema chi tiết không lặp lại ở đây; nguồn chuẩn là các phase đã duyệt.
 
