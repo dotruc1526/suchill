@@ -408,7 +408,7 @@ Hoàn tất **một gói nhận diện và đánh giá video reference** theo `C
 ## Phạm vi và đầu ra
 
 - **Trong phạm vi**: xác định đúng reference, lập hồ sơ nguồn/media, đề xuất hướng sử dụng và learning objective, ghi quyết định đã chốt cùng thiếu sót nếu muốn dùng ngoài reference.
-- **Ngoài phạm vi**: sửa ứng dụng; tích hợp hoặc publish video; sản xuất video MVP theo screenplay. Historical verdict ngày 2026-09-28 đã chuyển `CONTENT-007` sang `READY`; video reference CONTENT-006 vẫn không phải media canonical.
+- **Ngoài phạm vi**: sửa ứng dụng; tích hợp hoặc publish video; sản xuất video MVP theo screenplay. Historical verdict ngày 2026-09-28 từng đề xuất mở `CONTENT-007`, nhưng review PR #62 giữ task `BLOCKED` cho đến khi artifact pilot và review record nhất quán; video reference CONTENT-006 vẫn không phải media canonical.
 - **Đầu ra**: một hồ sơ review được liên kết từ task card `CONTENT-006`, đủ để người nhận task tiếp theo hiểu trạng thái media. Product owner đã giao Trúc chốt media/legal; quyết định hiện tại chỉ cho phép reference nội bộ, không tự phê duyệt publish/integration.
 - **Executor**: Trúc. Thọ/Product owner/historical reviewer là người phối hợp hoặc reviewer, không phải đồng executor.
 

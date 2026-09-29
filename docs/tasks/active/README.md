@@ -8,7 +8,6 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOC
 
 - [CONTENT-003](./CONTENT-003.md) — `REVIEW`; hoàn tất phần historical/media review còn lại và technical QA cho hồ sơ pilot.
 - [CONTENT-006](./CONTENT-006.md) — `IN PROGRESS`; video cũ chỉ `APPROVED_FOR_INTERNAL_REFERENCE_ONLY`, không phải media canonical.
-- [CONTENT-007](./CONTENT-007.md) — `READY`; historical review đã mở khóa production, Trúc cần claim branch/files trước khi chuyển `IN PROGRESS`.
 - [CONTENT-012](./CONTENT-012.md) — `REVIEW`; ngân hàng câu hỏi chờ content/media và technical QA sign-off.
 - [CONTENT-014](./CONTENT-014.md) — `REVIEW`; authoring remediation và validator đã đạt, chờ Vinh xác nhận task-level handoff.
 

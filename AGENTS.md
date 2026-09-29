@@ -17,7 +17,7 @@ Không dùng chat cũ làm nguồn sự thật duy nhất. Nếu tài liệu mâ
 ## 2. Trạng thái triển khai
 
 - Phase 0–9: `APPROVED` (Phase 9 được product owner duyệt ngày 2026-09-23).
-- **Spec-first freeze đã kết thúc**; M0/M1 đã được đóng và Milestone 2 được Product Owner mở theo roadmap Phase 9 ngày 2026-09-29. Task implementation vẫn phải có card, dependency và file claim trước khi sửa.
+- **Spec-first freeze đã kết thúc**; M0/M1 đã được đóng và Milestone 2 kỹ thuật được Product Owner mở theo roadmap Phase 9 ngày 2026-09-29. Việc mở M2 không tự mở content/media production: từng content task vẫn phải đạt review status, dependency, card và file claim riêng trước khi bắt đầu.
 - Mỗi milestone tiếp theo chỉ bắt đầu khi gate và dependency tương ứng đạt **và Product Owner duyệt rõ ràng milestone trước đó trên task board**. Task `DONE` riêng lẻ không tự mở milestone tiếp theo.
 - Demo Genève/vĩ tuyến 17 hiện tại là fixture kỹ thuật, không phải pilot/canonical content hay chuẩn nội dung mục tiêu.
 - Nội dung canonical chỉ nằm trong phạm vi kháng chiến chống Mỹ ở Việt Nam; ví dụ lịch sử ngoài phạm vi trong tài liệu cũ chỉ minh họa cấu trúc học, không tự trở thành lesson phát hành.

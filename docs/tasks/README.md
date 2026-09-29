@@ -49,4 +49,4 @@ Ví dụ sau khi Member 3 được giao `FE-001`: ghi tên Member 3 vào `Owner`
 
 Quy tắc đồng bộ: một task có một ID; board và card phải cùng status/owner/next action. Mỗi lần đổi trạng thái hoặc handoff thì cập nhật cả hai trong cùng thay đổi. Không chép toàn bộ checkpoint vào board và không duy trì thêm bảng phần trăm riêng cho từng người, vì sẽ dễ lệch dữ liệu.
 
-Ví dụ cho Member 1: content track có thể chạy độc lập với milestone code khi dependency riêng đã đạt. `CONTENT-004` đã được historical reviewer duyệt `DONE` ngày 2026-09-28 và mở khóa `CONTENT-007`; Trúc vẫn phải claim branch/files trước khi chuyển `CONTENT-007` từ `READY` sang `IN PROGRESS`. Việc này không tự mở milestone code kế tiếp và media cuối vẫn phải qua review trước phát hành.
+Ví dụ cho Member 1: content track có thể chạy độc lập với milestone code khi dependency riêng đã đạt. `CONTENT-004` đang `DONE`, nhưng `CONTENT-007` vẫn `BLOCKED` vì các artifact pilot còn ghi `NEEDS_HISTORICAL_REVIEW`; content owner/historical reviewer phải đồng bộ và xác nhận trạng thái trước khi Trúc claim production. Việc mở milestone kỹ thuật không tự mở content production.

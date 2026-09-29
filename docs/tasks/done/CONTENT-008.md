@@ -51,8 +51,8 @@
 - Test/build result: Hoàn tất 100% acceptance criteria; ripgrep kiểm tra 0 thuật ngữ cấm; tuân thủ pháp luật Việt Nam.
 - Environment/migration impact: Không có thay đổi schema hay build config.
 - Known issues/risks: Không có.
-- Next owner/action: curriculum outline đã DONE; các revision chi tiết theo card riêng. Historical verdict ngày 2026-09-28 đã mở khóa CONTENT-007 ở trạng thái READY.
+- Next owner/action: curriculum outline đã DONE; các revision chi tiết theo card riêng. CONTENT-007 hiện `BLOCKED` theo review PR #62 cho đến khi review status trên artifact pilot được đồng bộ và owner/reviewer xác nhận.
 
 ## Đính chính handoff 2026-09-27
 
-Checkpoint này ghi nhận trạng thái revision tại ngày 2026-09-27. Historical verdict ngày 2026-09-28 và quyết định milestone ngày 2026-09-29 đã thay thế phần trạng thái: CONTENT-008 giữ DONE, CONTENT-007 READY, M2 OPEN và M3–M7 LOCKED.
+Checkpoint này ghi nhận trạng thái revision tại ngày 2026-09-27. CONTENT-008 giữ DONE; M2 kỹ thuật OPEN và M3–M7 LOCKED. Historical verdict từng đề xuất mở CONTENT-007, nhưng review PR #62 ngày 2026-09-29 giữ task `BLOCKED` cho đến khi artifact pilot hết trạng thái `NEEDS_HISTORICAL_REVIEW` và có xác nhận owner/reviewer.

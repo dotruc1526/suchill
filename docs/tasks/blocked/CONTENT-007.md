@@ -1,7 +1,7 @@
 # CONTENT-007 — Video theo kịch bản cho bài học MVP
 
-> Status: READY\
-> Last updated: 2026-09-28
+> Status: BLOCKED\
+> Last updated: 2026-09-29
 
 ## Assignment
 
@@ -9,7 +9,7 @@
 - Workstream: UI/UX Figma + video production, phối hợp Product + Content
 - Accountable owner: Trúc (Member 2)
 - Executor type: Human team
-- Executor name: Trúc khi task được mở
+- Executor name: chưa claim; Trúc nhận sau khi dependency review đạt
 - Reviewer: Thọ/Product owner + historical reviewer; Vinh kiểm tra media/accessibility
 - Codex task/thread: chưa giao
 - Branch: chưa tạo
@@ -40,8 +40,8 @@
 
 | Date/time | Executor | Completed | Evidence | Next action | Blocker |
 |---|---|---|---|---|---|
-| 2026-09-28 | Historical Reviewer | CONTENT-004 kịch bản & thẩm định sử liệu đã APPROVED; CONTENT-007 chính thức UNBLOCKED | Báo cáo HISTORICAL-REVIEW-REPORT-2026-09-28.md | Trúc (Member 2) nhận task, chuẩn bị sản xuất video và thu âm | Không còn blocker kịch bản/sử liệu |
-| 2026-09-29 | Codex | Đồng bộ dependency theo verdict mới nhất: CONTENT-004 DONE và historical review đã mở khóa production | `docs/content/HISTORICAL-REVIEW-REPORT-2026-09-28.md`; task board/card | Trúc claim branch, Started và media output path rồi chuyển IN PROGRESS | Không còn blocker trước production; media/audio/MP4 cuối vẫn phải review trước publish |
+| 2026-09-28 | Historical Reviewer | Báo cáo tổng hợp ghi CONTENT-004 APPROVED và đề xuất mở CONTENT-007 | `docs/content/HISTORICAL-REVIEW-REPORT-2026-09-28.md` | Đối chiếu review status trên từng artifact pilot | Artifact gốc vẫn ghi `NEEDS_HISTORICAL_REVIEW` |
+| 2026-09-29 | Dương + Codex | Xử lý finding P1 PR #62: không mở production khi artifact và báo cáo tổng hợp chưa nhất quán; đưa task về `BLOCKED` | Review của Hưng trên PR #62; task board/card/index đã đồng bộ | Content owner/historical reviewer cập nhật review status trên artifact hoặc ghi quyết định rõ ràng; sau đó review lại dependency | Chưa có xác nhận owner/reviewer trên artifact pilot |
 | 2026-09-23 | Product owner + Codex | Chốt Member 2 là người biên tập video cho bài học MVP; tạo task riêng với FE-006 player | Quyết định trong task hiện tại; task board/Phase 9 | Member 1 chọn pilot và bàn giao script/source; gán tên Member 2 rồi claim media files | CONTENT-003/004 chưa xong, chưa có tên thật Member 2 |
 | 2026-09-23 | Codex | Product owner gán Trúc là Member 2 | TEAM-OWNERSHIP / DOC-015 | Chờ Thọ bàn giao script/source và historical review | CONTENT-003/004 chưa xong |
 
@@ -50,5 +50,5 @@
 - Changed files: chưa có media asset.
 - Test/build result: chưa sản xuất/tích hợp video.
 - Environment/migration impact: chưa xác định; Member 5 review storage/metadata trước tích hợp.
-- Known issues/risks: quyền audio/từng asset và MP4 cuối chưa có; đây là acceptance của production/release, không còn là blocker nhận task. Không dùng CONTENT-006 làm bản mặc định.
-- Next owner/action: Trúc claim branch, Started và media output path, chuyển task sang IN PROGRESS rồi sản xuất theo screenplay đã duyệt. Vinh QA media/accessibility; Dương tích hợp bằng FE-006 sau media review và milestone phù hợp.
+- Known issues/risks: artifact pilot vẫn ghi `NEEDS_HISTORICAL_REVIEW`; quyền audio/từng asset và MP4 cuối chưa có. Không dùng CONTENT-006 làm bản mặc định.
+- Next owner/action: Content owner/historical reviewer đồng bộ review status trên artifact pilot và xác nhận dependency. Chỉ sau đó Trúc mới claim branch/files và chuyển task sang `IN PROGRESS`; Vinh QA media/accessibility, Dương tích hợp bằng FE-006 sau media review và milestone phù hợp.
