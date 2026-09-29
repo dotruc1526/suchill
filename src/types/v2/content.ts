@@ -1,6 +1,7 @@
-/** Phase 5 domain types. Kept separate from numeric-ID demo types until integration. */
+/** Canonical Phase 5 authored-content domain. Database rows and UI state stay separate. */
 export type EntityId = string
 export type ISODateTime = string
+export type Locale = 'vi-VN'
 export type PublishStatus = 'draft' | 'in_review' | 'approved' | 'published' | 'archived'
 export type OrderedRef = { id: EntityId; order: number }
 
@@ -19,28 +20,30 @@ export type Chapter = {
 }
 
 export type BaseBlock = { id: EntityId; order: number; required: boolean }
-export type LessonBlock =
-  | (BaseBlock & { kind: 'text' | 'recap'; documentId: EntityId })
-  | (BaseBlock & { kind: 'visual_novel'; storyVersionId: EntityId })
-  | (BaseBlock & {
-      kind: 'video'
-      mediaAssetId: EntityId
-      completionPolicy: 'optional' | 'reach_end' | 'watch_threshold'
-      knowledgeCheckSetId?: EntityId
-    })
-  | (BaseBlock & {
-      kind: 'quiz'
-      questionSetId: EntityId
-      assessmentMode: 'practice' | 'scored'
-    })
+export type TextBlock = BaseBlock & { kind: 'text'; documentId: EntityId }
+export type VisualNovelBlock = BaseBlock & { kind: 'visual_novel'; storyVersionId: EntityId }
+export type VideoBlock = BaseBlock & {
+  kind: 'video'
+  mediaAssetId: EntityId
+  completionPolicy: 'optional' | 'reach_end' | 'watch_threshold'
+  knowledgeCheckSetId?: EntityId
+}
+export type QuizBlock = BaseBlock & {
+  kind: 'quiz'
+  questionSetId: EntityId
+  assessmentMode: 'practice' | 'scored'
+}
+export type RecapBlock = BaseBlock & { kind: 'recap'; documentId: EntityId }
+export type LessonBlock = TextBlock | VisualNovelBlock | VideoBlock | QuizBlock | RecapBlock
 
+export type LessonFormat = 'standard' | 'visual_novel' | 'video' | 'quiz' | 'mixed'
 export type Lesson = {
   id: EntityId
   chapterId: EntityId
   slug: string
   title: string
   summary: string
-  format: 'standard' | 'visual_novel' | 'video' | 'quiz' | 'mixed'
+  format: LessonFormat
   estimatedMinutes: number
   learningObjectiveIds: EntityId[]
   prerequisites: EntityId[]
@@ -72,18 +75,43 @@ export type BaseScene = {
   sourceIds: EntityId[]
   claimIds: EntityId[]
 }
+export type NarrationScene = BaseScene & { kind: 'narration'; text: string; nextSceneId: EntityId }
+export type DialogueScene = BaseScene & {
+  kind: 'dialogue'
+  speaker: string
+  characterId?: EntityId
+  line: string
+  emotion?: string
+  nextSceneId: EntityId
+}
+export type ChoiceScene = BaseScene & {
+  kind: 'choice'
+  prompt: string
+  policy: 'retry_until_correct' | 'continue_after_feedback'
+  choices: SceneChoice[]
+}
+export type MediaScene = BaseScene & {
+  kind: 'media'
+  mediaAssetId: EntityId
+  caption: string
+  context?: string
+  nextSceneId: EntityId
+}
+export type DebriefScene = BaseScene & {
+  kind: 'debrief'
+  summary: string
+  factClaimIds?: EntityId[]
+  fictionClaimIds?: EntityId[]
+  nextSceneId: EntityId
+}
+export type EndScene = BaseScene & { kind: 'end'; summary: string; nextSceneId?: never }
 export type VisualNovelScene =
-  | (BaseScene & { kind: 'narration'; text: string; nextSceneId: EntityId })
-  | (BaseScene & { kind: 'dialogue'; speaker: string; line: string; nextSceneId: EntityId })
-  | (BaseScene & {
-      kind: 'choice'
-      prompt: string
-      policy: 'retry_until_correct' | 'continue_after_feedback'
-      choices: SceneChoice[]
-    })
-  | (BaseScene & { kind: 'media'; mediaAssetId: EntityId; caption: string; nextSceneId: EntityId })
-  | (BaseScene & { kind: 'debrief'; summary: string; nextSceneId: EntityId })
-  | (BaseScene & { kind: 'end'; summary: string; nextSceneId?: never })
+  | NarrationScene
+  | DialogueScene
+  | ChoiceScene
+  | MediaScene
+  | DebriefScene
+  | EndScene
 
 export type StoryVersion = {
   id: EntityId
@@ -114,17 +142,19 @@ export type HistoricalSource = {
   citationText: string
   tier: 'primary' | 'scholarly' | 'institutional' | 'reference'
 }
+export type ClaimKind = 'fact' | 'interpretation' | 'fiction' | 'composite' | 'uncertain'
 export type HistoricalClaim = {
   id: EntityId
   statement: string
-  kind: 'fact' | 'interpretation' | 'fiction' | 'composite' | 'uncertain'
+  kind: ClaimKind
   sourceIds: EntityId[]
   reviewStatus: PublishStatus
   reviewerNote?: string
 }
+export type MediaKind = 'image' | 'video' | 'audio' | 'illustration'
 export type MediaAsset = {
   id: EntityId
-  kind: 'image' | 'video' | 'audio' | 'illustration'
+  kind: MediaKind
   title: string
   storageRef: string
   posterMediaId?: EntityId
