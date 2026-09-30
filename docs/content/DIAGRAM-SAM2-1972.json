@@ -25,9 +25,9 @@
       "shortLabel": "Xe Điều Khiển",
       "claimId": "CLM-1972-VN-002",
       "sourceId": "SRC-1972-WEB-02",
-      "summary": "Trung tâm hiệp đồng tác chiến của kíp chiến đấu tên lửa phòng không.",
-      "description": "Không gian làm việc chung của kíp chiến đấu, nơi tiếp nhận thông tin từ hệ thống radar để hiệp đồng xử lý và thực hiện nhiệm vụ bảo vệ vùng trời.",
-      "textFallback": "Cabin điều khiển là nơi kíp chiến đấu phối hợp nhịp nhàng, xử lý thông tin mục tiêu."
+      "summary": "Thành phần sở chỉ huy trong tổ hợp tên lửa phòng không.",
+      "description": "Không gian làm việc chung của kíp chiến đấu trong tổ hợp tên lửa phòng không.",
+      "textFallback": "Cabin điều khiển là nơi kíp chiến đấu làm việc chung trong tổ hợp tên lửa."
     },
     {
       "id": "sam2-node-crew",
@@ -43,13 +43,13 @@
     {
       "id": "sam2-node-radar",
       "category": "radar_station",
-      "name": "Đài radar dẫn đường Fan Song",
+      "name": "Đài radar Fan Song",
       "shortLabel": "Radar Fan Song",
       "claimId": "CLM-1972-VN-003",
       "sourceId": "SRC-1972-WEB-01",
-      "summary": "Hệ thống radar bám sát và phát lệnh của tổ hợp tên lửa SAM-2.",
-      "description": "Khí tài phát hiện và dẫn đường của hệ thống SAM-2, đóng vai trò quan trọng hỗ trợ kíp chiến đấu tìm kiếm mục tiêu trong môi trường nhiễu điện tử.",
-      "textFallback": "Đài radar phát hiện mục tiêu và truyền lệnh dẫn đường cho tên lửa."
+      "summary": "Thành phần đài radar trong tổ hợp tên lửa SAM-2.",
+      "description": "Khí tài radar gắn liền với tổ hợp tên lửa SAM-2; sơ đồ chỉ nêu thành phần khí tài ở mức khái quát.",
+      "textFallback": "Đài radar Fan Song là khí tài radar thuộc tổ hợp tên lửa SAM-2."
     },
     {
       "id": "sam2-node-launcher",
@@ -58,9 +58,9 @@
       "shortLabel": "Bệ Phóng SAM-2",
       "claimId": "CLM-1972-VN-001",
       "sourceId": "SRC-1972-WEB-01",
-      "summary": "Hệ thống chấp hành hỏa lực mặt đất của tổ hợp tên lửa.",
-      "description": "Khí tài hỏa lực của tổ hợp tên lửa phòng không, tiếp nhận các tham số điều khiển từ cabin để sẵn sàng phóng đạn bảo vệ mục tiêu.",
-      "textFallback": "Bệ phóng và tên lửa SAM-2 sẵn sàng chấp hành hỏa lực theo lệnh từ cabin điều khiển."
+      "summary": "Thành phần bệ phóng và tên lửa của tổ hợp SAM-2.",
+      "description": "Khí tài hỏa lực của tổ hợp tên lửa phòng không SAM-2; sơ đồ chỉ nêu thành phần khí tài ở mức khái quát.",
+      "textFallback": "Bệ phóng và đạn tên lửa là thành phần hỏa lực thuộc tổ hợp tên lửa SAM-2."
     },
     {
       "id": "sam2-node-interference",

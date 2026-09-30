@@ -66,10 +66,10 @@
 
 ---
 
-### PHÂN CẢNH 4: `sam2-v1-coordination` — Hiệp đồng tác chiến trong cabin
+### PHÂN CẢNH 4: `sam2-v1-coordination` — Hiệp đồng kíp chiến đấu SAM-2
 * **Định dạng:** Narration (Lời dẫn hiệp đồng kíp trắc thủ)
-* **Visual Cue:** Màn hình huỳnh quang hiển thị tọa độ mục tiêu; kíp trắc thủ tập trung theo dõi các tham số không gian.
-* **Audio Cue:** Tiếng quạt gió làm mát, tiếng tín hiệu điện tử đều đặn trong buồng lái.
+* **Visual Cue:** Bức ảnh tư liệu lịch sử về kíp chiến đấu trong cabin; kíp phối hợp làm việc trong tổ hợp tên lửa.
+* **Audio Cue:** Tiếng quạt gió làm mát, âm thanh nền trong cabin.
 * **Lời dẫn (Narration):**
   > "Trong chiến dịch, các kíp chiến đấu SAM-2 phối hợp thực hiện nhiệm vụ phòng không. Bài học chỉ nêu sự phối hợp ở mức khái quát, không tái dựng vai trò từng người hay quy trình tác chiến."
 * **Phân loại sử liệu:** `verified_fact` + `educational_explanation`

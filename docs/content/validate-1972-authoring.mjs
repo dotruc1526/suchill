@@ -30,7 +30,14 @@ for (const node of diagramData.nodes) {
   assert(node.claimId, `Node ${node.id} must reference a claimId`);
   assert(node.sourceId, `Node ${node.id} must reference a sourceId`);
 }
-console.log(`[PASS] Diagram data valid: ${diagramData.nodes.length} nodes with text-first fallback.`);
+
+// Ensure diagram does not contain unapproved micro-mechanics or command/parameter relations
+const diagramRaw = fs.readFileSync(diagramPath, 'utf8');
+const forbiddenDiagramTerms = ['phát lệnh', 'bám sát và phát lệnh', 'nhận tham số điều khiển', 'tay quay', 'khẩu lệnh'];
+for (const term of forbiddenDiagramTerms) {
+  assert(!diagramRaw.includes(term), `DIAGRAM-SAM2-1972.json must not include unapproved micro-mechanic term: "${term}"`);
+}
+console.log(`[PASS] Diagram data valid: ${diagramData.nodes.length} nodes with text-first fallback; no unapproved control relations.`);
 
 // 2. Validate LESSON-02-1972-STORY.json
 const storyPath = path.join(contentDir, 'LESSON-02-1972-STORY.json');
@@ -108,6 +115,11 @@ const narrationContent = fs.readFileSync(narrationPath, 'utf8');
 for (const sid of expectedSceneIds) {
   assert(narrationContent.includes(sid), `Narration doc must cover scene ${sid}`);
 }
-console.log(`[PASS] Narration markdown covers all 8 scenes.`);
+
+const forbiddenNarrationTerms = ['tọa độ mục tiêu', 'tham số không gian', 'thao tác tay quay', 'bó chổi chà', '45 máy gây nhiễu', 'bẻ gãy chiến dịch'];
+for (const term of forbiddenNarrationTerms) {
+  assert(!narrationContent.includes(term), `LESSON-02-1972-NARRATION.md must not include unapproved term: "${term}"`);
+}
+console.log(`[PASS] Narration markdown covers all 8 scenes; forbidden technical procedure terms absent.`);
 
 console.log('--- ALL CHAPTER 1972 LESSON 2 AUTHORING VALIDATIONS PASSED ---');
