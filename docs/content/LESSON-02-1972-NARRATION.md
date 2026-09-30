@@ -32,7 +32,7 @@
 * **Visual Cue:** Khung cảnh mờ tối bên trong cabin xe điều khiển tên lửa (Xe K); ánh sáng xanh lục dịu nhẹ hắt ra từ ba màn huỳnh quang radar; đồng hồ kim và các núm xoay cơ khí đặc trưng thập niên 1970.
 * **Audio Cue:** Tiếng còi báo động xa xăm, tiếng máy nổ rì rầm của xe máy điện, tiếng quạt gió làm mát khí tài điện tử.
 * **Lời dẫn (Narration):**
-  > "Bạn đang tiếp cận hồ sơ huấn luyện của Bộ đội Tên lửa Phòng không trong chiến dịch 12 ngày đêm cuối năm 1972. Đêm 18/12, bầu trời Hà Nội rực sáng bởi bom đạn, nhưng sâu trong lòng đất, tại các cabin xe điều khiển tên lửa SAM-2, cuộc đấu trí diễn ra trong sự tĩnh lặng nghẹt thở giữa con người và công nghệ gây nhiễu tối tân của không lực Mỹ."
+  > "Bạn đang tiếp cận hồ sơ về chiến dịch phòng không cuối năm 1972. Từ đêm 18/12, Hà Nội và các địa phương miền Bắc bước vào những ngày chiến đấu trước các đợt tập kích đường không. Trong bối cảnh đó, các đơn vị phòng không phối hợp đối phó với máy bay B-52 và hoạt động gây nhiễu điện tử."
 * **Phân loại sử liệu:** `verified_fact` + `educational_explanation`
 * **Mã Claim & Nguồn:** `CLM-1972-VN-001`, `CLM-1972-VN-005`, `CLM-1972-VN-006` | *Nguồn: `SRC-1972-01` (tr. 280–335), `SRC-1972-WEB-01`*
 * **Chuyển cảnh:** ➔ `sam2-v1-crew`
@@ -73,7 +73,7 @@
 * **Visual Cue:** Màn hình huỳnh quang hiển thị tọa độ mục tiêu; kíp trắc thủ tập trung theo dõi các tham số không gian.
 * **Audio Cue:** Tiếng quạt gió làm mát, tiếng tín hiệu điện tử đều đặn trong buồng lái.
 * **Lời dẫn (Narration):**
-  > "Trong cabin điều khiển, kíp chiến đấu phối hợp chặt chẽ để quan sát và xử lý các thông tin mục tiêu trên màn hiện sóng radar. Tinh thần hiệp đồng đồng bộ giữa các vị trí là yếu tố quyết định giúp đơn vị nắm chắc tình hình trên không và thực hiện nhiệm vụ chiến đấu bảo vệ bầu trời."
+  > "Trong cabin điều khiển, kíp chiến đấu phối hợp để quan sát và xử lý thông tin mục tiêu trên màn hiện sóng radar. Sự hiệp đồng giữa các vị trí hỗ trợ đơn vị theo dõi tình hình trên không và thực hiện nhiệm vụ bảo vệ bầu trời."
 * **Phân loại sử liệu:** `verified_fact` + `educational_explanation`
 * **Mã Claim & Nguồn:** `CLM-1972-VN-002`, `CLM-1972-VN-005` | *Nguồn: `SRC-1972-02`, `SRC-1972-WEB-02`*
 * **Chuyển cảnh:** Đi tiếp sang nội dung thứ hai ➔ `sam2-v1-interference`
@@ -85,8 +85,8 @@
 * **Visual Cue:** Minh họa màn hình radar chằng chịt các vệt sáng quét ngang quét dọc (nhiễu rải thảm kim loại và nhiễu tích cực); hình ảnh cuốn tài liệu gáy đỏ *"Cách đánh B-52 của bộ đội tên lửa"* đặt trên bàn chỉ huy.
 * **Audio Cue:** Tiếng rít rè rè của tạp âm điện tử tần số cao, xen lẫn nhịp quét đều đặn của tia sáng màn huỳnh quang.
 * **Lời dẫn (Narration):**
-  > "Các tốp pháo đài bay B-52 sử dụng hệ thống thiết bị gây nhiễu điện tử dày đặc, kết hợp cùng máy bay chiến thuật rải nhiễu tiêu cực che lấp tín hiệu mục tiêu trên màn huỳnh quang radar. Dựa trên tài liệu 'Cẩm nang bìa đỏ Cách đánh B-52' (10/1972) đúc kết từ thực tiễn chiến trường, bộ đội tên lửa đã nghiên cứu quy luật và đặc tính của các dải nhiễu, từ đó phát hiện mục tiêu thực giữa màn nhiễu phức tạp."
-* **Phân loại sử liệu:** `verified_fact`
+  > "Trong chiến dịch cuối năm 1972, gây nhiễu điện tử là một trong những thách thức đối với lực lượng phòng không. Các tư liệu về công tác chuẩn bị và Cẩm nang bìa đỏ cho thấy bộ đội đã nghiên cứu cách đối phó với B-52. Bài học này mời bạn đọc tư liệu để nhận diện vai trò của việc chuẩn bị và hiệp đồng, đồng thời phân biệt dữ kiện được nêu với diễn giải của người viết."
+* **Phân loại sử liệu:** `verified_fact` + `educational_explanation`
 * **Mã Claim & Nguồn:** `CLM-1972-VN-003`, `CLM-1972-VN-004`, `CLM-1972-VN-005` | *Nguồn: `SRC-1972-03` ("Cẩm nang bìa đỏ"), `SRC-1972-WEB-01`, `SRC-1972-WEB-03`*
 * **Chuyển cảnh:** Sau khi hoàn thành đủ cả hai nội dung, chuyển sang ➔ `sam2-v1-check`
 
@@ -94,17 +94,17 @@
 
 ### PHÂN CẢNH 6: `sam2-v1-check` — Kiểm tra nhận thức chiến thuật
 * **Định dạng:** Knowledge Check (Câu hỏi trắc nghiệm kiểm tra kiến thức)
-* **Tiêu đề:** "Theo tư liệu lịch sử và cuốn 'Cẩm nang bìa đỏ', yếu tố then chốt nào giúp kíp tên lửa SAM-2 tiêu diệt được B-52 giữa 'rừng' nhiễu điện tử dày đặc?"
+* **Tiêu đề:** "Theo nội dung bài học, tư liệu về Cẩm nang bìa đỏ gợi ra điều gì về công tác chuẩn bị của bộ đội phòng không?"
 * **Phương án lựa chọn:**
-  1. **Lựa chọn 1:** *"Tên lửa SAM-2 tự động tìm mục tiêu mà không cần sự phối hợp từ hệ thống radar mặt đất."*
+  1. **Lựa chọn 1:** *"Công tác chuẩn bị không liên quan đến việc nghiên cứu hoạt động gây nhiễu."*
      * **Kết quả:** `isCorrect: false`
-     * **Giải thích (Explanation):** Chưa chính xác. SAM-2 hoạt động dựa trên sự phối hợp chặt chẽ với hệ thống radar và kíp chiến đấu mặt đất để phát hiện và xử lý thông tin mục tiêu.
-  2. **Lựa chọn 2:** *"Bộ đội tên lửa đúc kết kinh nghiệm nhận diện dải nhiễu từ Cẩm nang bìa đỏ và hiệp đồng tác chiến linh hoạt."*
+     * **Giải thích (Explanation):** Chưa chính xác. Các tư liệu được giới thiệu trong bài có đề cập việc nghiên cứu biện pháp đối phó gây nhiễu.
+  2. **Lựa chọn 2:** *"Tư liệu cho thấy bộ đội nghiên cứu biện pháp đối phó B-52 và phổ biến kinh nghiệm trong Cẩm nang bìa đỏ."*
      * **Kết quả:** `isCorrect: true`
-     * **Giải thích (Explanation):** Chính xác! Trọng tâm của việc khắc phục nhiễu là nhận diện quy luật dải nhiễu dựa trên kinh nghiệm từ cuốn 'Cẩm nang bìa đỏ' và tinh thần hiệp đồng tác chiến linh hoạt của bộ đội phòng không.
-  3. **Lựa chọn 3:** *"Đài radar phát sóng liên tục không ngừng nghỉ để lấn át toàn bộ các nguồn gây nhiễu."*
+     * **Giải thích (Explanation):** Chính xác. Đây là nội dung khái quát được nêu trong tư liệu; bài học không mô phỏng quy trình thao tác hay kỹ thuật cụ thể.
+  3. **Lựa chọn 3:** *"Cẩm nang bìa đỏ chỉ bàn về tổ chức sinh hoạt, không đề cập công tác chiến đấu."*
      * **Kết quả:** `isCorrect: false`
-     * **Giải thích (Explanation):** Không chính xác. Trong thực tế, việc sử dụng radar đòi hỏi sự tính toán cẩn trọng và hiệp đồng linh hoạt để vừa theo dõi được mục tiêu, vừa bảo đảm an toàn cho khí tài trước các biện pháp chế áp điện tử và hỏa lực của đối phương.
+     * **Giải thích (Explanation):** Không chính xác. Theo nguồn được dẫn, Cẩm nang bìa đỏ là tài liệu tổng hợp kinh nghiệm và phương pháp đánh B-52.
 * **Mã Claim & Nguồn:** `CLM-1972-VN-002`, `CLM-1972-VN-003`, `CLM-1972-VN-004` | *Nguồn: `SRC-1972-01`, `SRC-1972-03`, `SRC-1972-WEB-01`*
 * **Chuyển cảnh:** Cả 3 phương án đều điều hướng về ➔ `sam2-v1-debrief`
 
@@ -114,8 +114,8 @@
 * **Định dạng:** Debrief (Tổng kết sư phạm & Ý nghĩa lịch sử)
 * **Visual Cue:** Bức ảnh tư liệu trắng đen lịch sử về kíp chiến đấu tên lửa nở nụ cười bên bệ phóng sau trận đánh; huy hiệu chiến sĩ phòng không.
 * **Lời dẫn (Narration):**
-  > "CLO-2 & CLO-3: Kíp chiến đấu tên lửa SAM-2 là biểu tượng của tinh thần hiệp đồng tác chiến và ý chí làm chủ khoa học công nghệ quân sự. Bằng cuốn 'Cẩm nang bìa đỏ' đúc kết kinh nghiệm thực tiễn, bộ đội tên lửa đã tự tin tìm mục tiêu trong nhiễu, kiên cường bảo vệ bầu trời Hà Nội trước những đợt tập kích của siêu pháo đài bay B-52."
-* **Phân loại sử liệu:** `educational_explanation` + `verified_fact`
+  > "CLO-2 & CLO-3: Các tư liệu trong bài cho thấy vai trò của công tác chuẩn bị, nghiên cứu hoạt động gây nhiễu và hiệp đồng giữa các lực lượng phòng không. Hãy phân biệt điều nguồn trực tiếp ghi nhận với phần diễn giải, và lưu ý rằng bài học này không mô phỏng thao tác tác chiến cụ thể."
+* **Phân loại sử liệu:** `educational_explanation`
 * **Mã Claim & Nguồn:** `CLM-1972-VN-001`, `CLM-1972-VN-002`, `CLM-1972-VN-004`, `CLM-1972-VN-005`
 * **Chuyển cảnh:** ➔ `sam2-v1-end`
 
