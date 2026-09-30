@@ -85,6 +85,34 @@ test('story validator catches broken links and narrative correctness', () => {
   assert.ok(codes.includes('no_reachable_end'))
 })
 
+test('story validator rejects duplicate choice IDs across scenes in one version', () => {
+  const version = structuredClone(story)
+  const first = version.scenes[0]
+  if (first.kind !== 'choice') throw new Error('Invalid fixture')
+  const second = structuredClone(first)
+  second.id = 'scene-3'
+  first.choices[0].nextSceneId = second.id
+  version.scenes.splice(1, 0, second)
+  assert.deepEqual(validateStoryVersion(version).map(({ code, path }) => ({ code, path })), [
+    { code: 'choice_id', path: 'scenes[1].choices[0].id' },
+  ])
+  second.choices[0].id = 'choice-2'
+  assert.deepEqual(validateStoryVersion(version), [])
+  assert.deepEqual(validateStoryVersion({ ...version, id: 'version-2', versionNumber: 2 }), [])
+})
+
+test('story validator rejects empty and duplicate IDs within a choice scene', () => {
+  for (const id of ['', '   ', 'choice-1']) {
+    const version = structuredClone(story)
+    const scene = version.scenes[0]
+    if (scene.kind !== 'choice') throw new Error('Invalid fixture')
+    scene.choices.push({ ...scene.choices[0], id })
+    assert.deepEqual(validateStoryVersion(version).map(({ code, path }) => ({ code, path })), [
+      { code: 'choice_id', path: 'scenes[0].choices[1].id' },
+    ])
+  }
+})
+
 test('story validator requires a usable transition for every continuing choice', () => {
   const invalid = structuredClone(story)
   const scene = invalid.scenes[0]

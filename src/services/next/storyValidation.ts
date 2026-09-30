@@ -25,6 +25,8 @@ export function validateStoryVersion(version: StoryVersion, lookup: ContentLooku
   }
   errors.push(...requireUnique(version.scenes.map(scene => scene.id), 'scenes', 'scene_id'))
   const byId = new Map(version.scenes.map(scene => [scene.id, scene]))
+  // Progress stores locked choice IDs across the whole version, not per scene.
+  const choiceIds = new Set<string>()
   if (!byId.has(version.startSceneId)) errors.push(issue('start_scene', 'startSceneId', 'Start scene does not exist'))
   for (const [index, scene] of version.scenes.entries()) {
     const path = `scenes[${index}]`
@@ -58,13 +60,16 @@ export function validateStoryVersion(version: StoryVersion, lookup: ContentLooku
       if (!byId.has(nextId)) errors.push(issue('broken_transition', path, `Target scene does not exist: ${nextId}`))
     }
     if (scene.kind !== 'choice') continue
-    errors.push(...requireUnique(scene.choices.map(choice => choice.id), `${path}.choices`, 'choice_id'))
     if (scene.choices.length === 0) errors.push(issue('empty_choice', path, 'Choice scene needs options'))
     const knowledge = scene.choices.filter(choice => choice.kind === 'knowledge_check')
     if (knowledge.length && !knowledge.some(choice => choice.isCorrect)) {
       errors.push(issue('answer_key', path, 'Knowledge check needs a correct option'))
     }
     for (const [choiceIndex, choice] of scene.choices.entries()) {
+      if (!choice.id.trim() || choiceIds.has(choice.id)) {
+        errors.push(issue('choice_id', `${path}.choices[${choiceIndex}].id`, `Missing or duplicate choice identity in StoryVersion: ${choice.id || '<empty>'}`))
+      }
+      choiceIds.add(choice.id)
       if (!choice.nextSceneId && (scene.policy === 'continue_after_feedback' || choice.kind !== 'knowledge_check' || choice.isCorrect)) {
         errors.push(issue('missing_transition', `${path}.choices[${choiceIndex}]`, 'Selected choice needs a next scene'))
       }
