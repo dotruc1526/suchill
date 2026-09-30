@@ -8,6 +8,19 @@ import { join } from 'node:path'
 import { test } from 'node:test'
 import { preview } from 'vite'
 
+const delay = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds))
+
+async function terminateChild(child, graceMilliseconds = 3_000) {
+  if (child.exitCode !== null || child.signalCode !== null) return
+
+  const exited = once(child, 'exit').then(() => true)
+  child.kill()
+  if (await Promise.race([exited, delay(graceMilliseconds).then(() => false)])) return
+
+  child.kill('SIGKILL')
+  await Promise.race([exited, delay(graceMilliseconds)])
+}
+
 function findBrowser() {
   if (process.env.CHROME_PATH) return process.env.CHROME_PATH
 
@@ -35,7 +48,7 @@ function dumpDom(browser, url) {
     ])
     let stdout = ''
     let stderr = ''
-    const timeout = setTimeout(() => child.kill(), 20000)
+    const timeout = setTimeout(() => { void terminateChild(child) }, 20_000)
     child.stdout.setEncoding('utf8').on('data', chunk => { stdout += chunk })
     child.stderr.setEncoding('utf8').on('data', chunk => { stderr += chunk })
     child.on('error', reject)
@@ -84,14 +97,22 @@ async function withChromePage(browser, url, run) {
       pending.set(requestId, { resolve, reject, timer })
       socket.send(JSON.stringify({ id: requestId, method, params, sessionId }))
     })
-    const targets = await send('Target.getTargets')
-    const page = targets.targetInfos.find(target => target.type === 'page' && target.url === url)
-    assert.ok(page, `Chrome opened the requested app page: ${JSON.stringify(targets.targetInfos)}`)
+    let page
+    let targetInfos = []
+    for (let attempt = 0; attempt < 100; attempt += 1) {
+      const targets = await send('Target.getTargets')
+      targetInfos = targets.targetInfos
+      page = targetInfos.find(target => target.type === 'page' && target.url === url)
+        ?? targetInfos.find(target => target.type === 'page')
+      if (page) break
+      await delay(50)
+    }
+    assert.ok(page, `Chrome opened a page target: ${JSON.stringify(targetInfos)}`)
     const { sessionId } = await send('Target.attachToTarget', { targetId: page.targetId, flatten: true })
     await run((method, params) => send(method, params, sessionId))
   } finally {
     socket?.close()
-    if (chrome.exitCode === null) { const exited = once(chrome, 'exit'); chrome.kill(); await exited }
+    await terminateChild(chrome)
     // Chrome subprocesses can briefly flush profile files after the parent exits.
     // Retry transient ENOTEMPTY/EBUSY errors, but still fail if cleanup never succeeds.
     await rm(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 })

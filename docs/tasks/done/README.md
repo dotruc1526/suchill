@@ -2,6 +2,8 @@
 
 Đặt task card đã được reviewer xác nhận `DONE` tại đây. Không xóa checkpoint/evidence cũ.
 
+- [DOC-018](./DOC-018.md) — Product Owner Dương audit Gate M2 đạt; đóng M2 và mở M3 ngày 2026-10-01.
+- [QA-006](./QA-006.md) — E2E Chrome cleanup/target discovery được bounded; cả hai Quality checks PR #71 pass.
 - [M2-01](./M2-01.md) — Domain types v2; Hưng ACCEPTED 2026-09-30 trên main `7175bda`; gate M2 do PO quyết riêng.
 - [M2-02](./M2-02.md) — Validators; Hưng ACCEPTED 2026-09-30; fail-closed publication lookup đạt.
 - [M2-03](./M2-03.md) — Service contracts; Hưng ACCEPTED 2026-09-30; document/practice/per-question contracts đạt.
