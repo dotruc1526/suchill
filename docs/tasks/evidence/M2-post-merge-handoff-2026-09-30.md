@@ -68,3 +68,13 @@ This section supersedes earlier statements about outstanding implementation find
 All known coding findings assigned to Vinh have been addressed and merged. This handoff records approvals; it is not a new reviewer or Product Owner decision. The remaining formal steps are reviewer task-level acceptance for M2-01..06, followed by the Product Owner's M2 gate decision. All cards stay REVIEW, M2 stays OPEN and M3 stays LOCKED until those decisions are recorded.
 
 Documentation checkpoint: six cards, task board and this evidence file updated; local Markdown paths and `git diff --check` verified. No runtime/env/migration/dependency impact; historical review records retained.
+
+## Task-level closure
+
+Vinh's latest explicit instruction requests completing the supplied task-closure checklist and moving eligible M2-01..06 from REVIEW to DONE. This supersedes the earlier instruction to leave task-level closure pending, while preserving the existing reviewer approval records; no new approval is attributed to Hưng/Dương.
+
+All six cards now have complete acceptance checklists, merged implementation and recorded evidence. M2-01/03/04/06 use the final technical/consumer approvals on PR #68; M2-02 uses Hưng's PR #64 approval; M2-05 uses the PR #64 architecture approval and Dương's explicit legacy-boundary confirmation in PR #67. Cards move to `docs/tasks/done/`; board and indexes follow their new locations. Historical checkpoints remain intact.
+
+No source or environment/migration/dependency changes. Documentation links, six DONE statuses and whitespace were checked. Existing quality evidence is 47 unit, 9 component, 2 E2E PASS; no additional run is claimed.
+
+The PO gate is unchanged: M2 OPEN, M3–M7 LOCKED. Product Owner must audit stable identity, narrative/reflection correctness separation and domain/service boundaries using the merged implementation and review evidence, then record the milestone decision separately. This record does not authorize M3 task claims.
