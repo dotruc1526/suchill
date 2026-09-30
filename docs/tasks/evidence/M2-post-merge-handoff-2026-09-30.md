@@ -49,3 +49,9 @@ Vinh's implementation and verification handoff is complete. The executor leaves 
 Dương identified three valid P1 service gaps after the above audit. [Hưng's approved contract decision](https://github.com/dotruc1526/suchill/pull/67#pullrequestreview-5363952627) defines published document reads, separate practice submission and mandatory ordered per-question outcomes. The earlier no-unimplemented-task assessment and consumer approvals apply only to the prior scope.
 
 Vinh/Codex implemented domain `LearningDocument`, `DocumentService`, practice receipts and trusted grader feedback validation. Six new regression tests exercise document copies/publication, practice/scored separation, ordered mixed outcomes, malformed answers/feedback, retries/account isolation and answer-key boundaries. Full quality on this remediation passed: 45 unit, 9 component, 2 E2E; typecheck/build pass; scan 256 files/0 unsafe. No database, env, dependency or feature UI changes. Review of the new implementation is still pending; all M2 tasks stay REVIEW and the PO gate is unchanged.
+
+## PR #67 documentation reconciliation
+
+The M2-05 card at PR #67 head `e9423e5` explicitly records Dương's successful legacy consumer review. The earlier missing-confirmation note is superseded; final reviewer task acceptance remains pending. PR #67 is documentation-only and does not contain local remediation commit `a773488`.
+
+The remediation branch was synchronized with main `0075079` without conflicts, preserving the team's merged content updates. The new implementation still requires Dương/Hưng re-review. No task or milestone is closed.
