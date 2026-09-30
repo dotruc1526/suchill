@@ -214,6 +214,7 @@ Mỗi lần handoff quan trọng thêm một dòng mới nhất ở đầu bản
 
 | Date | Task | Author | Update | Evidence / next owner |
 |---|---|---|---|---|
+| 2026-09-30 | M2-01/03/04/05/06 | Dương (Member 4) | Consumer review trên `main` tại merge PR #64: CONSUMER FIT: CHANGES REQUESTED với ba P1 (document resolution, practice submission, per-question feedback); M2-05 legacy boundary đạt nhưng không thay sign-off toàn M2 | `main` tại `73d3156`; Hưng quyết contract, Vinh/Codex remediation, Dương re-review; M3 chưa mở; Product Owner quyết gate |
 | 2026-09-30 | CONTENT-017 | Thọ (Member 1) | Xử lý triệt để blocker N1, N2, N3 từ review của Dương (Member 4): cập nhật card, dọn sạch 100% link gãy trên board theo DOC-013, đồng bộ wording narration | [`docs/tasks/active/CONTENT-017.md`](../tasks/active/CONTENT-017.md); validator PASS 100% |
 | 2026-09-30 | CONTENT-017 | Thọ (Member 1) | Xử lý finding [P1] theo review Trúc: khái quát hóa sơ đồ SAM-2 và Scene 4; cập nhật validator khóa từ ngữ vi mô | [`docs/tasks/active/CONTENT-017.md`](../tasks/active/CONTENT-017.md); validator PASS 100% |
 | 2026-09-29 | CONTENT-017 | Thọ (Member 1) | Thọ hoàn thành kịch bản chi tiết 8 scene, sơ đồ khí tài SAM-2 5 node và dữ liệu StoryVersion JSON draft cho Bài 2 Visual Novel 1972; xử lý feedback PO về luồng học tuyến tính đảm bảo đi qua đủ 2 nội dung trước check; mở PR v2 (#54); chuyển REVIEW | [`docs/tasks/active/CONTENT-017.md`](../tasks/active/CONTENT-017.md); `validate-1972-authoring.mjs` PASS 100% |
