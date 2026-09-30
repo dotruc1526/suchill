@@ -2,11 +2,12 @@
 
 Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOCKED` nằm trong `../blocked/`; task đã được reviewer xác nhận nằm trong `../done/`.
 
-> Last synchronized: 2026-09-29 — PR #61 documentation review
+> Last synchronized: 2026-09-30 — Hưng M2 technical review closeout
 
 ## Content track
 
-- [M2-01](./M2-01.md) — `REVIEW`; PR #61 đã merge và quality pass, chờ reviewer chuyển task sang `DONE`.
+- [M2-01](./M2-01.md) — `REVIEW`; Hưng technical review đạt, chờ Dương xác nhận consumer.
+- [M2-05](./M2-05.md) — `REVIEW`; Hưng mapping-boundary review đạt, chờ Dương xác nhận future consumer path.
 - [CONTENT-003](./CONTENT-003.md) — `REVIEW`; hoàn tất phần historical/media review còn lại và technical QA cho hồ sơ pilot.
 - [CONTENT-004](./CONTENT-004.md) — `REVIEW`; historical review đạt, chờ technical QA/media/handoff sign-off.
 - [CONTENT-010](./CONTENT-010.md) — `REVIEW`; historical review đạt, chờ technical QA/media/handoff sign-off.

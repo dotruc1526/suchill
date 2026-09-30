@@ -3,6 +3,10 @@
 Đặt task card đã được reviewer xác nhận `DONE` tại đây. Không xóa checkpoint/evidence cũ.
 
 - [CONTENT-016](./CONTENT-016.md) — Thọ và Trúc đã approve flagship Visual Novel authoring brief; narration/StoryVersion/media tiếp tục chịu gate riêng.
+- [M2-02](./M2-02.md) — validators và StoryVersion-wide choice identity được Hưng nghiệm thu trên PR #64.
+- [M2-03](./M2-03.md) — service contracts được Dương xác nhận consumer và Hưng nghiệm thu kiến trúc.
+- [M2-04](./M2-04.md) — mock adapters được Dương xác nhận consumer và Hưng nghiệm thu boundary.
+- [M2-06](./M2-06.md) — contract/regression suite được Hưng nghiệm thu; M2 gate vẫn thuộc Product Owner.
 - [DOC-010](./DOC-010.md) — Phase 9 và context hardening; product owner duyệt ngày 2026-09-23.
 - [DOC-016](./DOC-016.md) — Product owner duyệt đóng M0 và mở M1 ngày 2026-09-28.
 - [M1-01](./M1-01.md) — token contract/design handoff đã được triển khai trong FE-003 và QA xác nhận sau PR #33.
