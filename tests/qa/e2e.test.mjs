@@ -8,6 +8,19 @@ import { join } from 'node:path'
 import { test } from 'node:test'
 import { preview } from 'vite'
 
+const delay = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds))
+
+async function terminateChild(child, graceMilliseconds = 3_000) {
+  if (child.exitCode !== null || child.signalCode !== null) return
+
+  const exited = once(child, 'exit').then(() => true)
+  child.kill()
+  if (await Promise.race([exited, delay(graceMilliseconds).then(() => false)])) return
+
+  child.kill('SIGKILL')
+  await Promise.race([exited, delay(graceMilliseconds)])
+}
+
 function findBrowser() {
   if (process.env.CHROME_PATH) return process.env.CHROME_PATH
 
@@ -35,7 +48,7 @@ function dumpDom(browser, url) {
     ])
     let stdout = ''
     let stderr = ''
-    const timeout = setTimeout(() => child.kill(), 20000)
+    const timeout = setTimeout(() => { void terminateChild(child) }, 20_000)
     child.stdout.setEncoding('utf8').on('data', chunk => { stdout += chunk })
     child.stderr.setEncoding('utf8').on('data', chunk => { stderr += chunk })
     child.on('error', reject)
@@ -91,7 +104,7 @@ async function withChromePage(browser, url, run) {
     await run((method, params) => send(method, params, sessionId))
   } finally {
     socket?.close()
-    if (chrome.exitCode === null) { const exited = once(chrome, 'exit'); chrome.kill(); await exited }
+    await terminateChild(chrome)
     // Chrome subprocesses can briefly flush profile files after the parent exits.
     // Retry transient ENOTEMPTY/EBUSY errors, but still fail if cleanup never succeeds.
     await rm(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 })
