@@ -39,18 +39,16 @@
 
 ---
 
-### PHÂN CẢNH 2: `sam2-v1-crew` — Cấu trúc Kíp chiến đấu SAM-2
+### PHÂN CẢNH 2: `sam2-v1-crew` — Kíp chiến đấu và khí tài SAM-2
 * **Định dạng:** Interactive Artifact / Evidence (Khám phá Sơ đồ)
-* **Visual Cue:** Sơ đồ khái quát hệ thống khí tài và vị trí kíp chiến đấu trong Cabin xe K. Người học có thể bấm/chuyển qua từng vị trí hoặc đọc danh sách Text-first:
-  1. **Cabin điều khiển (Xe K):** Trung tâm hiệp đồng tác chiến của kíp chiến đấu.
-  2. **Vị trí chỉ huy cabin:** Điều phối chung hoạt động hiệp đồng.
-  3. **Vị trí theo dõi hướng (Phương vị):** Theo dõi thông tin mục tiêu theo hướng không gian.
-  4. **Vị trí theo dõi góc ngẩng (Góc tà):** Theo dõi thông tin mục tiêu theo độ cao.
-  5. **Vị trí theo dõi cự ly:** Theo dõi khoảng cách tiếp cận của mục tiêu.
-  6. **Đài radar dẫn đường Fan Song:** Hệ thống radar phát hiện và dẫn đường của tổ hợp SAM-2.
-  7. **Bệ phóng & Tên lửa S-75 Dvina:** Khí tài chấp hành hỏa lực.
+* **Visual Cue:** Sơ đồ khái quát các thành phần của tổ hợp SAM-2 và kíp chiến đấu; người học có thể khám phá các nút hoặc đọc danh sách Text-first:
+  1. **Cabin điều khiển:** Một thành phần của tổ hợp SAM-2.
+  2. **Kíp chiến đấu:** Chỉ nêu ở mức khái quát, không tái dựng quân số, chức danh, vị trí hoặc quy trình thật.
+  3. **Đài radar:** Thành phần thuộc tổ hợp SAM-2; sơ đồ không mô phỏng thao tác hay thông số kỹ thuật.
+  4. **Bệ phóng và tên lửa:** Thành phần khí tài của tổ hợp SAM-2.
+  5. **Môi trường gây nhiễu điện tử:** Bối cảnh ở mức khái quát, không minh họa cách khắc chế.
 * **Lời dẫn (Narration):**
-  > "Hãy quan sát sơ đồ khái quát hệ thống khí tài và tổ chức kíp chiến đấu SAM-2 (S-75 Dvina). Trong cabin điều khiển, kíp chiến đấu tạo thành một khối thống nhất, hiệp đồng nhịp nhàng giữa các vị trí để theo dõi không gian và xử lý thông tin mục tiêu."
+  > "Hãy quan sát sơ đồ khái quát về tổ hợp SAM-2 (S-75 Dvina) và kíp chiến đấu. Tư liệu được dùng ở đây chỉ xác nhận sự hiện diện của kíp và việc phối hợp ở mức chung; sơ đồ không tái dựng chức danh, vị trí hay quy trình tác chiến."
 * **Phân loại sử liệu:** `verified_fact`
 * **Mã Claim & Nguồn:** `CLM-1972-VN-001`, `CLM-1972-VN-002` | *Nguồn: `SRC-1972-02`, `SRC-1972-WEB-02` (ảnh kíp chiến đấu TĐ 57)*
 * **Chuyển cảnh:** ➔ `sam2-v1-perspective`
@@ -59,9 +57,9 @@
 
 ### PHÂN CẢNH 3: `sam2-v1-perspective` — Góc nhìn nghiên cứu
 * **Định dạng:** Narration (Lời dẫn định hướng nghiên cứu)
-* **Visual Cue:** Bảng định hướng trực quan nổi bật trên nền giao diện học tập giới thiệu hai khía cạnh chiến thuật then chốt mà người học sẽ lần lượt khám phá: quy trình hiệp đồng trong cabin và nghệ thuật vạch nhiễu trên màn radar.
+* **Visual Cue:** Bảng định hướng giới thiệu hai chủ đề sẽ lần lượt đọc trong hồ sơ: sự phối hợp của kíp ở mức khái quát và bối cảnh gây nhiễu điện tử.
 * **Lời dẫn (Narration):**
-  > "Để thấu hiểu bí quyết đánh bại siêu pháo đài bay B-52, chúng ta sẽ tìm hiểu quy trình phối hợp nhịp nhàng trong cabin và kỹ thuật 'vạch nhiễu tìm thù'."
+  > "Để tìm hiểu tư liệu về phòng không cuối năm 1972, chúng ta sẽ lần lượt xem xét sự phối hợp của kíp chiến đấu và bối cảnh gây nhiễu điện tử, đồng thời phân biệt dữ kiện nguồn nêu với phần diễn giải."
 * **Phân loại sử liệu:** `educational_explanation`
 * **Mã Claim & Nguồn:** `CLM-1972-VN-006`
 * **Chuyển cảnh:** ➔ `sam2-v1-coordination`
@@ -73,7 +71,7 @@
 * **Visual Cue:** Màn hình huỳnh quang hiển thị tọa độ mục tiêu; kíp trắc thủ tập trung theo dõi các tham số không gian.
 * **Audio Cue:** Tiếng quạt gió làm mát, tiếng tín hiệu điện tử đều đặn trong buồng lái.
 * **Lời dẫn (Narration):**
-  > "Trong cabin điều khiển, kíp chiến đấu phối hợp để quan sát và xử lý thông tin mục tiêu trên màn hiện sóng radar. Sự hiệp đồng giữa các vị trí hỗ trợ đơn vị theo dõi tình hình trên không và thực hiện nhiệm vụ bảo vệ bầu trời."
+  > "Trong chiến dịch, các kíp chiến đấu SAM-2 phối hợp thực hiện nhiệm vụ phòng không. Bài học chỉ nêu sự phối hợp ở mức khái quát, không tái dựng vai trò từng người hay quy trình tác chiến."
 * **Phân loại sử liệu:** `verified_fact` + `educational_explanation`
 * **Mã Claim & Nguồn:** `CLM-1972-VN-002`, `CLM-1972-VN-005` | *Nguồn: `SRC-1972-02`, `SRC-1972-WEB-02`*
 * **Chuyển cảnh:** Đi tiếp sang nội dung thứ hai ➔ `sam2-v1-interference`
@@ -134,7 +132,7 @@
 | Phân cảnh | Claim ID | Phân loại | Tài liệu đối chiếu | Trích dẫn cụ thể |
 |---|---|---|---|---|
 | `sam2-v1-briefing` | `CLM-1972-VN-001`, `005` | Fact | Báo QĐND Cuối tuần (06/12/2017) | Đoạn về tên lửa SAM-2 đối đầu B-52 |
-| `sam2-v1-crew` | `CLM-1972-VN-001`, `002` | Fact | Lịch sử Tên lửa PK / Báo QĐND | Hệ thống khí tài và hiệp đồng kíp chiến đấu SAM-2 |
+| `sam2-v1-crew` | `CLM-1972-VN-001`, `002` | Fact | Lịch sử Tên lửa PK / Báo QĐND | Hệ thống khí tài và kíp chiến đấu ở mức khái quát; không phân vai hoặc tái dựng quy trình |
 | `sam2-v1-perspective` | `CLM-1972-VN-006` | Sư phạm | Quy tắc thiết kế Visual Novel | Lựa chọn rẽ nhánh trung tính |
 | `sam2-v1-coordination` | `CLM-1972-VN-002` | Fact | Báo QĐND (23/12/2022) | Hiệp đồng tác chiến kíp chiến đấu trong cabin |
 | `sam2-v1-interference` | `CLM-1972-VN-003`, `004` | Fact | *Cẩm nang bìa đỏ* (10/1972) / QĐND | Quy luật dải nhiễu B-52 trong môi trường tác chiến điện tử |

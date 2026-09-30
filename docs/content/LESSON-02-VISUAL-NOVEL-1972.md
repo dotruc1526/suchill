@@ -28,7 +28,7 @@ Mục tiêu dự kiến: CLO-2 và CLO-3. Thời lượng mục tiêu: 6–10 ph
 | Scene ID | Loại | Mục đích và chuyển tiếp |
 |---|---|---|
 | `sam2-v1-briefing` | narration | Nối từ video Lesson 1, nêu objective và ranh giới vai trò; next `sam2-v1-crew` |
-| `sam2-v1-crew` | evidence/artifact | Khám phá các vị trí trong kíp chiến đấu qua sơ đồ có text fallback; chỉ tiếp tục sau khi các thành phần bắt buộc đã được trình bày |
+| `sam2-v1-crew` | evidence/artifact | Khám phá sơ đồ khái quát về kíp và khí tài, không tái dựng chức danh/vị trí thật; có text fallback |
 | `sam2-v1-perspective` | narration | Định hướng nghiên cứu hai khía cạnh chiến thuật then chốt; next `sam2-v1-coordination` |
 | `sam2-v1-coordination` | narration/evidence | Giải thích quy trình phối hợp hiệp đồng kíp trắc thủ; next `sam2-v1-interference` |
 | `sam2-v1-interference` | narration/evidence | Đọc artifact radar và nhận diện dải nhiễu theo Cẩm nang bìa đỏ; next `sam2-v1-check` |

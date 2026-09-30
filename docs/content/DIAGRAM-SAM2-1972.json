@@ -3,7 +3,7 @@
   "documentType": "interactive_diagram",
   "version": 1,
   "status": "draft",
-  "title": "Sơ đồ Kíp chiến đấu và Khí tài Tên lửa Phòng không SAM-2 (S-75 Dvina)",
+  "title": "Sơ đồ khái quát kíp chiến đấu và khí tài SAM-2 (S-75 Dvina)",
   "learningObjectiveIds": ["CLO-2", "CLO-3"],
   "sourceIds": [
     "SRC-1972-01",
@@ -30,48 +30,15 @@
       "textFallback": "Cabin điều khiển là nơi kíp chiến đấu phối hợp nhịp nhàng, xử lý thông tin mục tiêu."
     },
     {
-      "id": "sam2-node-officer",
+      "id": "sam2-node-crew",
       "category": "crew_member",
-      "name": "Vị trí chỉ huy cabin",
-      "shortLabel": "Chỉ Huy Cabin",
-      "claimId": "CLM-1972-VN-002",
-      "sourceId": "SRC-1972-WEB-01",
-      "summary": "Điều phối chung hoạt động hiệp đồng của kíp chiến đấu.",
-      "description": "Đảm nhiệm vai trò điều phối tổng thể giữa các thành viên trong kíp chiến đấu theo phương án tác chiến của đơn vị.",
-      "textFallback": "Vị trí chỉ huy giữ vai trò điều phối chung trong cabin tác chiến."
-    },
-    {
-      "id": "sam2-node-azimuth",
-      "category": "crew_member",
-      "name": "Vị trí theo dõi hướng (Phương vị)",
-      "shortLabel": "Hướng Phương Vị",
+      "name": "Kíp chiến đấu SAM-2",
+      "shortLabel": "Kíp chiến đấu",
       "claimId": "CLM-1972-VN-002",
       "sourceId": "SRC-1972-WEB-02",
-      "summary": "Theo dõi thông tin mục tiêu theo hướng không gian.",
-      "description": "Hỗ trợ kíp chiến đấu quan sát hướng di chuyển của mục tiêu trên màn hiện sóng.",
-      "textFallback": "Theo dõi hướng di chuyển của mục tiêu theo trục ngang."
-    },
-    {
-      "id": "sam2-node-elevation",
-      "category": "crew_member",
-      "name": "Vị trí theo dõi góc ngẩng (Góc tà)",
-      "shortLabel": "Góc Ngẩng",
-      "claimId": "CLM-1972-VN-002",
-      "sourceId": "SRC-1972-WEB-02",
-      "summary": "Theo dõi thông tin mục tiêu theo độ cao.",
-      "description": "Hỗ trợ kíp chiến đấu quan sát góc ngẩng và độ cao của mục tiêu trong không gian.",
-      "textFallback": "Theo dõi góc ngẩng và độ cao của mục tiêu trong không gian."
-    },
-    {
-      "id": "sam2-node-range",
-      "category": "crew_member",
-      "name": "Vị trí theo dõi cự ly",
-      "shortLabel": "Cự Ly",
-      "claimId": "CLM-1972-VN-002",
-      "sourceId": "SRC-1972-WEB-02",
-      "summary": "Theo dõi khoảng cách tiếp cận của mục tiêu.",
-      "description": "Hỗ trợ kíp chiến đấu nắm bắt cự ly tiếp cận để phối hợp tác chiến kịp thời.",
-      "textFallback": "Theo dõi cự ly tiếp cận của mục tiêu."
+      "summary": "Một kíp chiến đấu SAM-2 phối hợp thực hiện nhiệm vụ.",
+      "description": "Sơ đồ chỉ thể hiện kíp chiến đấu ở mức khái quát; không tái dựng quân số, chức danh, vị trí hoặc quy trình tác chiến.",
+      "textFallback": "Tư liệu ghi nhận kíp chiến đấu SAM-2 và sự phối hợp ở mức khái quát; sơ đồ không mô tả chức trách từng người."
     },
     {
       "id": "sam2-node-radar",
@@ -94,6 +61,17 @@
       "summary": "Hệ thống chấp hành hỏa lực mặt đất của tổ hợp tên lửa.",
       "description": "Khí tài hỏa lực của tổ hợp tên lửa phòng không, tiếp nhận các tham số điều khiển từ cabin để sẵn sàng phóng đạn bảo vệ mục tiêu.",
       "textFallback": "Bệ phóng và tên lửa SAM-2 sẵn sàng chấp hành hỏa lực theo lệnh từ cabin điều khiển."
+    },
+    {
+      "id": "sam2-node-interference",
+      "category": "operating_context",
+      "name": "Môi trường có gây nhiễu điện tử",
+      "shortLabel": "Gây nhiễu",
+      "claimId": "CLM-1972-VN-003",
+      "sourceId": "SRC-1972-WEB-02",
+      "summary": "Gây nhiễu điện tử là một thách thức trong đối đầu B-52 và phòng không.",
+      "description": "Nút này nêu bối cảnh ở mức khái quát, không minh họa tín hiệu radar thật hoặc cách khắc chế.",
+      "textFallback": "Nhiễu điện tử là một phần của bối cảnh tác chiến; đây không phải mô phỏng kỹ thuật."
     }
   ]
 }
