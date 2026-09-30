@@ -85,7 +85,7 @@
 * **Visual Cue:** Minh họa màn hình radar chằng chịt các vệt sáng quét ngang quét dọc (nhiễu rải thảm kim loại và nhiễu tích cực); hình ảnh cuốn tài liệu gáy đỏ *"Cách đánh B-52 của bộ đội tên lửa"* đặt trên bàn chỉ huy.
 * **Audio Cue:** Tiếng rít rè rè của tạp âm điện tử tần số cao, xen lẫn nhịp quét đều đặn của tia sáng màn huỳnh quang.
 * **Lời dẫn (Narration):**
-  > "Mỗi tốp ba chiếc B-52 được trang bị tới 45 máy gây nhiễu, kết hợp cùng máy bay chiến thuật rải nhiễu tiêu cực tạo nên màn nhiễu dày đặc che lấp tín hiệu mục tiêu trên màn huỳnh quang. Theo tài liệu 'Cẩm nang bìa đỏ Cách đánh B-52' (10/1972), bộ đội tên lửa đã đúc kết kinh nghiệm từ thực tiễn chiến trường Vĩnh Linh để tìm ra quy luật chuyển động và đặc tính dải nhiễu của B-52, từ đó phát hiện mục tiêu thực giữa màn nhiễu phức tạp."
+  > "Các tốp pháo đài bay B-52 sử dụng hệ thống thiết bị gây nhiễu điện tử dày đặc, kết hợp cùng máy bay chiến thuật rải nhiễu tiêu cực che lấp tín hiệu mục tiêu trên màn huỳnh quang radar. Dựa trên tài liệu 'Cẩm nang bìa đỏ Cách đánh B-52' (10/1972) đúc kết từ thực tiễn chiến trường, bộ đội tên lửa đã nghiên cứu quy luật và đặc tính của các dải nhiễu, từ đó phát hiện mục tiêu thực giữa màn nhiễu phức tạp."
 * **Phân loại sử liệu:** `verified_fact`
 * **Mã Claim & Nguồn:** `CLM-1972-VN-003`, `CLM-1972-VN-004`, `CLM-1972-VN-005` | *Nguồn: `SRC-1972-03` ("Cẩm nang bìa đỏ"), `SRC-1972-WEB-01`, `SRC-1972-WEB-03`*
 * **Chuyển cảnh:** Sau khi hoàn thành đủ cả hai nội dung, chuyển sang ➔ `sam2-v1-check`
@@ -114,7 +114,7 @@
 * **Định dạng:** Debrief (Tổng kết sư phạm & Ý nghĩa lịch sử)
 * **Visual Cue:** Bức ảnh tư liệu trắng đen lịch sử về kíp chiến đấu tên lửa nở nụ cười bên bệ phóng sau trận đánh; huy hiệu chiến sĩ phòng không.
 * **Lời dẫn (Narration):**
-  > "CLO-2 & CLO-3: Kíp chiến đấu tên lửa SAM-2 là biểu tượng của tinh thần hiệp đồng tác chiến và ý chí làm chủ khoa học công nghệ quân sự. Bằng cuốn 'Cẩm nang bìa đỏ' đúc kết kinh nghiệm thực tiễn, quân dân ta đã biến vũ khí phòng không thành 'cú đấm thép' bẻ gãy chiến dịch rải thảm của không lực chiến lược Hoa Kỳ."
+  > "CLO-2 & CLO-3: Kíp chiến đấu tên lửa SAM-2 là biểu tượng của tinh thần hiệp đồng tác chiến và ý chí làm chủ khoa học công nghệ quân sự. Bằng cuốn 'Cẩm nang bìa đỏ' đúc kết kinh nghiệm thực tiễn, bộ đội tên lửa đã tự tin tìm mục tiêu trong nhiễu, kiên cường bảo vệ bầu trời Hà Nội trước những đợt tập kích của siêu pháo đài bay B-52."
 * **Phân loại sử liệu:** `educational_explanation` + `verified_fact`
 * **Mã Claim & Nguồn:** `CLM-1972-VN-001`, `CLM-1972-VN-002`, `CLM-1972-VN-004`, `CLM-1972-VN-005`
 * **Chuyển cảnh:** ➔ `sam2-v1-end`
