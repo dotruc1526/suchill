@@ -70,4 +70,3 @@
 - Test/build result: `validate-1972-authoring.mjs` pass 100%; `validate-mt68-authoring.mjs` pass 100%; `check-client-env.mjs` pass (0 secrets).
 - Environment/migration impact: docs/content-only, không ảnh hưởng runtime; không cài thêm dependencies.
 - Next owner/action: Trúc thẩm định sử liệu và ngôn ngữ kịch bản; sau đó Product Owner nghiệm thu.
-
