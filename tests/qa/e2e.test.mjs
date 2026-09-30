@@ -129,14 +129,14 @@ test('built app renders its home screen in a real local browser', async () => {
     assert.ok(address && typeof address !== 'string')
     const url = `http://127.0.0.1:${address.port}/`
     const html = await dumpDom(browser, url)
-    assert.match(html, /XIN CHÀO/)
+    assert.match(html, /HÀNH TRÌNH LỊCH SỬ/)
     assert.match(html, /LUYỆN TẬP/)
   } finally {
     await new Promise((resolve, reject) => server.httpServer.close(error => error ? reject(error) : resolve()))
   }
 })
 
-test('home streak layout stays centered and uncut at mobile widths', async () => {
+test('learning journey stays usable and uncut at mobile widths', async () => {
   const browser = findBrowser()
   assert.ok(browser, 'Set CHROME_PATH to a local Chromium/Chrome executable for E2E')
 
@@ -153,22 +153,20 @@ test('home streak layout stays centered and uncut at mobile widths', async () =>
         for (let attempt = 0; attempt < 100; attempt += 1) {
           const response = await cdp('Runtime.evaluate', {
             expression: `(() => {
-              const card = document.querySelector('[data-testid="home-streak-card"]')
-              const title = document.querySelector('[data-testid="home-streak-title"]')
-              const days = document.querySelector('[data-testid="home-streak-days"]')
-              if (!card || !title || !days) return null
-              const range = document.createRange()
-              range.selectNodeContents(title)
-              const titleLines = new Set(Array.from(range.getClientRects(), rect => Math.round(rect.top))).size
+              const journey = document.querySelector('[data-testid="learning-journey"]')
+              const card = document.querySelector('[data-testid="journey-chapter-card"]')
+              const title = document.querySelector('[data-testid="journey-title"]')
+              const button = document.querySelector('[data-testid="journey-open-chapter"]')
+              if (!journey || !card || !title || !button) return null
               const cardRect = card.getBoundingClientRect()
-              const daysRect = days.getBoundingClientRect()
+              const buttonRect = button.getBoundingClientRect()
               return {
                 viewport: innerWidth,
                 documentWidth: document.documentElement.scrollWidth,
-                titleLines,
-                titleWhiteSpace: getComputedStyle(title).whiteSpace,
-                daysCenter: (daysRect.left + daysRect.right) / 2,
-                cardCenter: (cardRect.left + cardRect.right) / 2,
+                cardLeft: cardRect.left,
+                cardRight: cardRect.right,
+                buttonHeight: buttonRect.height,
+                title: title.textContent,
               }
             })()`,
             returnByValue: true,
@@ -177,12 +175,12 @@ test('home streak layout stays centered and uncut at mobile widths', async () =>
           if (metrics) break
           await new Promise(resolve => setTimeout(resolve, 50))
         }
-        assert.ok(metrics, `${width}px streak elements mounted`)
+        assert.ok(metrics, `${width}px journey elements mounted`)
         assert.equal(metrics.viewport, width)
         assert.equal(metrics.documentWidth, width, `${width}px document has no horizontal overflow`)
-        assert.equal(metrics.titleLines, 1, `${width}px streak title occupies one line`)
-        assert.equal(metrics.titleWhiteSpace, 'nowrap')
-        assert.ok(Math.abs(metrics.daysCenter - metrics.cardCenter) <= 3, `${width}px day row is centered within the card's 3px border/padding inset`)
+        assert.equal(metrics.title, 'HÀNH TRÌNH LỊCH SỬ')
+        assert.ok(metrics.cardLeft >= 0 && metrics.cardRight <= width, `${width}px chapter card stays within viewport`)
+        assert.ok(metrics.buttonHeight >= 44, `${width}px primary action keeps a 44px touch target`)
 
         if (process.env.UPDATE_M1_08_EVIDENCE === '1') {
           const screenshot = await cdp('Page.captureScreenshot', { format: 'png', captureBeyondViewport: false })
