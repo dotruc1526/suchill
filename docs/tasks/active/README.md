@@ -6,7 +6,6 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOC
 
 ## Content track
 
-- [M2-01](./M2-01.md) — `REVIEW`; PR #61 đã merge và quality pass, chờ reviewer chuyển task sang `DONE`.
 - [CONTENT-003](./CONTENT-003.md) — `REVIEW`; hoàn tất phần historical/media review còn lại và technical QA cho hồ sơ pilot.
 - [CONTENT-004](./CONTENT-004.md) — `REVIEW`; historical review đạt, chờ technical QA/media/handoff sign-off.
 - [CONTENT-010](./CONTENT-010.md) — `REVIEW`; historical review đạt, chờ technical QA/media/handoff sign-off.
@@ -20,3 +19,12 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOC
 - [BATTLE-001](./BATTLE-001.md) — `IN PROGRESS (external)`; chờ repo/demo/rules/security handoff trước integration review.
 
 Các file `active.md`, `CONTENT-003-004-REVIEW.md`, `PR21-HANDOFF.md`, `BEQA-LOCAL-001-MATRIX.md` và `M1-PR-REVIEW-GUIDE.md` là evidence/handoff, không phải task card độc lập.
+
+## M2 — awaiting task-level acceptance
+
+- [M2-01](./M2-01.md) — REVIEW; implementation evidence recorded, explicit reviewer task acceptance pending.
+- [M2-02](./M2-02.md) — REVIEW; implementation evidence recorded, explicit reviewer task acceptance pending.
+- [M2-03](./M2-03.md) — REVIEW; implementation evidence recorded, explicit reviewer task acceptance pending.
+- [M2-04](./M2-04.md) — REVIEW; implementation evidence recorded, explicit reviewer task acceptance pending.
+- [M2-05](./M2-05.md) — REVIEW; implementation evidence recorded, explicit reviewer task acceptance pending.
+- [M2-06](./M2-06.md) — REVIEW; implementation evidence recorded, explicit reviewer task acceptance pending.
