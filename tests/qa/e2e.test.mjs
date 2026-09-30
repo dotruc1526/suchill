@@ -97,9 +97,17 @@ async function withChromePage(browser, url, run) {
       pending.set(requestId, { resolve, reject, timer })
       socket.send(JSON.stringify({ id: requestId, method, params, sessionId }))
     })
-    const targets = await send('Target.getTargets')
-    const page = targets.targetInfos.find(target => target.type === 'page' && target.url === url)
-    assert.ok(page, `Chrome opened the requested app page: ${JSON.stringify(targets.targetInfos)}`)
+    let page
+    let targetInfos = []
+    for (let attempt = 0; attempt < 100; attempt += 1) {
+      const targets = await send('Target.getTargets')
+      targetInfos = targets.targetInfos
+      page = targetInfos.find(target => target.type === 'page' && target.url === url)
+        ?? targetInfos.find(target => target.type === 'page')
+      if (page) break
+      await delay(50)
+    }
+    assert.ok(page, `Chrome opened a page target: ${JSON.stringify(targetInfos)}`)
     const { sessionId } = await send('Target.attachToTarget', { targetId: page.targetId, flatten: true })
     await run((method, params) => send(method, params, sessionId))
   } finally {
