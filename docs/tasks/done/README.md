@@ -19,9 +19,3 @@
 - [M0-05](./M0-05.md) — unit/component/E2E smoke đạt; không thêm dependency runtime; PR #24 đã merge, bổ sung fix reproducibility Node 24 ngày 2026-09-28.
 - [M0-07](./M0-07.md) — `npm run quality` contract local/CI đạt; PR #24 đã merge và CI xanh; Node 24/26 support được ghi trong package/README.
 - [M0-06](./M0-06.md) — env/secret guard và scan đạt; Hưng và Product owner xác nhận qua lời Vinh ngày 2026-09-27; rotation thật trước M4.
-- [M2-01](./M2-01.md) — DONE theo checklist/approval đã ghi và yêu cầu đồng bộ của Vinh ngày 2026-09-30; không tự đóng gate M2.
-- [M2-02](./M2-02.md) — DONE theo checklist/approval đã ghi và yêu cầu đồng bộ của Vinh ngày 2026-09-30; không tự đóng gate M2.
-- [M2-03](./M2-03.md) — DONE theo checklist/approval đã ghi và yêu cầu đồng bộ của Vinh ngày 2026-09-30; không tự đóng gate M2.
-- [M2-04](./M2-04.md) — DONE theo checklist/approval đã ghi và yêu cầu đồng bộ của Vinh ngày 2026-09-30; không tự đóng gate M2.
-- [M2-05](./M2-05.md) — DONE theo checklist/approval đã ghi và yêu cầu đồng bộ của Vinh ngày 2026-09-30; không tự đóng gate M2.
-- [M2-06](./M2-06.md) — DONE theo checklist/approval đã ghi và yêu cầu đồng bộ của Vinh ngày 2026-09-30; không tự đóng gate M2.

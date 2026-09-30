@@ -69,12 +69,19 @@ All known coding findings assigned to Vinh have been addressed and merged. This 
 
 Documentation checkpoint: six cards, task board and this evidence file updated; local Markdown paths and `git diff --check` verified. No runtime/env/migration/dependency impact; historical review records retained.
 
-## Task-level closure
+## PR #69 correction: task acceptance remains pending
 
-Vinh's latest explicit instruction requests completing the supplied task-closure checklist and moving eligible M2-01..06 from REVIEW to DONE. This supersedes the earlier instruction to leave task-level closure pending, while preserving the existing reviewer approval records; no new approval is attributed to Hưng/Dương.
+The DONE transition in `b0e3d28` was premature and is withdrawn. Hưng's PR #69 request changes explicitly states that technical/consumer PR approvals do not replace a task-level acceptance decision. An owner request to synchronize documentation is not reviewer acceptance. The contradictory closure rationale has been removed; all six cards, board and indexes consistently remain active/REVIEW.
 
-All six cards now have complete acceptance checklists, merged implementation and recorded evidence. M2-01/03/04/06 use the final technical/consumer approvals on PR #68; M2-02 uses Hưng's PR #64 approval; M2-05 uses the PR #64 architecture approval and Dương's explicit legacy-boundary confirmation in PR #67. Cards move to `docs/tasks/done/`; board and indexes follow their new locations. Historical checkpoints remain intact.
+| Task | Existing evidence | Task-level reviewer decision |
+|---|---|---|
+| M2-01 | Domain implementation PR #61; final document contract approvals PR #68 | PENDING — Hưng to record explicit checklist acceptance |
+| M2-02 | Validator implementation and technical approval PR #64 | PENDING — Hưng to record explicit checklist acceptance |
+| M2-03 | Service contract technical/consumer approvals PR #68 | PENDING — Hưng to record explicit checklist acceptance |
+| M2-04 | Mock adapter technical/consumer approvals PR #68 | PENDING — Hưng to record explicit checklist acceptance |
+| M2-05 | Architecture approval PR #64; Dương legacy consumer confirmation PR #67 | PENDING — Hưng to record explicit checklist acceptance |
+| M2-06 | Contract tests and final technical/consumer evidence PR #68 | PENDING — Hưng to record explicit checklist acceptance |
 
-No source or environment/migration/dependency changes. Documentation links, six DONE statuses and whitespace were checked. Existing quality evidence is 47 unit, 9 component, 2 E2E PASS; no additional run is claimed.
+The reviewer should record each task ID, accepted checklist/evidence, outcome, date and review link. Only tasks explicitly accepted may subsequently move to DONE. Codex has not filled in any reviewer decision. Existing test/build/merge evidence remains valid within its recorded scope; documentation corrections do not claim a new code test run.
 
-The PO gate is unchanged: M2 OPEN, M3–M7 LOCKED. Product Owner must audit stable identity, narrative/reflection correctness separation and domain/service boundaries using the merged implementation and review evidence, then record the milestone decision separately. This record does not authorize M3 task claims.
+M2 remains OPEN and M3–M7 LOCKED. The Product Owner independently audits and records the milestone gate after task acceptance. Validation for this correction: local links, all six active/REVIEW states, absence of duplicate done cards, unchanged gate and git diff whitespace.
