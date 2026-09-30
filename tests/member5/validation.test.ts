@@ -1,7 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { validateLesson, validateMediaAsset, validateStoryVersion } from '../../src/services/next/validation.ts'
-import type { Lesson, MediaAsset, StoryVersion } from '../../src/types/v2/content.ts'
+import { validateChapter, validateHistoricalClaim, validateLesson, validateMediaAsset, validateStoryVersion } from '../../src/services/next/validation.ts'
+import type { Chapter, HistoricalClaim, Lesson, MediaAsset, StoryVersion } from '../../src/types/v2/content.ts'
 
 const lesson: Lesson = {
   id: 'lesson-1', chapterId: 'chapter-1', slug: 'sample', title: 'Sample', summary: '',
@@ -20,9 +20,28 @@ const story: StoryVersion = {
     { id: 'scene-2', kind: 'end', summary: 'Done', sourceIds: [], claimIds: [] },
   ],
 }
+const chapter: Chapter = {
+  id: 'chapter-1', slug: 'sample', title: 'Sample', summary: '', historicalPeriodLabel: '',
+  learningObjectiveIds: ['objective-1'], lessonRefs: [{ id: 'lesson-1', order: 0 }],
+  estimatedMinutes: 5, status: 'published',
+}
+
+test('chapter and lesson validators check stable references, status and ordered identities', () => {
+  assert.deepEqual(validateChapter(chapter, { lessonIds: new Set(['lesson-1']), approvedLessonIds: new Set(['lesson-1']) }), [])
+  const chapterIssues = validateChapter(chapter, { lessonIds: new Set(), approvedLessonIds: new Set() })
+  assert.ok(chapterIssues.some(error => error.code === 'missing_lesson'))
+  assert.ok(chapterIssues.some(error => error.code === 'unapproved_lesson'))
+
+  const invalid = { ...lesson, status: 'live', chapterId: '' } as unknown as Lesson
+  const lessonCodes = validateLesson(invalid).map(error => error.code)
+  assert.ok(lessonCodes.includes('invalid_status'))
+  assert.ok(lessonCodes.includes('missing_chapter'))
+})
 
 test('lesson validator accepts referenced block and rejects duplicate order', () => {
-  assert.deepEqual(validateLesson(lesson, { documentIds: new Set(['document-1']) }), [])
+  assert.deepEqual(validateLesson(lesson, {
+    chapterIds: new Set(['chapter-1']), documentIds: new Set(['document-1']), approvedDocumentIds: new Set(['document-1']),
+  }), [])
   const invalid = { ...lesson, blocks: [...lesson.blocks, { ...lesson.blocks[0], id: 'block-2' }] }
   assert.ok(validateLesson(invalid).some(error => error.code === 'block_order'))
 })
@@ -40,12 +59,18 @@ test('lesson validator resolves each block kind to its own reference lookup', ()
   }
   const lookup = {
     documentIds: new Set(['document-1', 'document-2']),
+    approvedDocumentIds: new Set(['document-1', 'document-2']),
     storyVersionIds: new Set(['story-1']),
+    approvedStoryVersionIds: new Set(['story-1']),
     mediaAssetIds: new Set(['media-1']),
+    approvedMediaAssetIds: new Set(['media-1']),
     questionSetIds: new Set(['questions-1']),
+    approvedQuestionSetIds: new Set(['questions-1']),
+    chapterIds: new Set(['chapter-1']),
   }
   assert.deepEqual(validateLesson(mixed, lookup), [])
-  assert.deepEqual(validateLesson(mixed, { ...lookup, questionSetIds: new Set() }).map(error => error.path), ['blocks[4]'])
+  assert.ok(validateLesson(mixed, { ...lookup, questionSetIds: new Set() })
+    .some(error => error.code === 'missing_reference' && error.path === 'blocks[4]'))
 })
 
 test('story validator catches broken links and narrative correctness', () => {
@@ -58,6 +83,34 @@ test('story validator catches broken links and narrative correctness', () => {
   assert.ok(codes.includes('broken_transition'))
   assert.ok(codes.includes('narrative_correctness'))
   assert.ok(codes.includes('no_reachable_end'))
+})
+
+test('story validator rejects duplicate choice IDs across scenes in one version', () => {
+  const version = structuredClone(story)
+  const first = version.scenes[0]
+  if (first.kind !== 'choice') throw new Error('Invalid fixture')
+  const second = structuredClone(first)
+  second.id = 'scene-3'
+  first.choices[0].nextSceneId = second.id
+  version.scenes.splice(1, 0, second)
+  assert.deepEqual(validateStoryVersion(version).map(({ code, path }) => ({ code, path })), [
+    { code: 'choice_id', path: 'scenes[1].choices[0].id' },
+  ])
+  second.choices[0].id = 'choice-2'
+  assert.deepEqual(validateStoryVersion(version), [])
+  assert.deepEqual(validateStoryVersion({ ...version, id: 'version-2', versionNumber: 2 }), [])
+})
+
+test('story validator rejects empty and duplicate IDs within a choice scene', () => {
+  for (const id of ['', '   ', 'choice-1']) {
+    const version = structuredClone(story)
+    const scene = version.scenes[0]
+    if (scene.kind !== 'choice') throw new Error('Invalid fixture')
+    scene.choices.push({ ...scene.choices[0], id })
+    assert.deepEqual(validateStoryVersion(version).map(({ code, path }) => ({ code, path })), [
+      { code: 'choice_id', path: 'scenes[0].choices[1].id' },
+    ])
+  }
 })
 
 test('story validator requires a usable transition for every continuing choice', () => {
@@ -73,6 +126,24 @@ test('story validator requires a usable transition for every continuing choice',
   assert.ok(validateStoryVersion(invalid).some(error => error.code === 'missing_transition'))
 })
 
+test('story validator checks source, claim and published media references', () => {
+  const invalid = structuredClone(story)
+  invalid.status = 'published'
+  invalid.sourceIds = ['source-missing']
+  invalid.publishedAt = '2026-09-29T00:00:00Z'
+  const first = invalid.scenes[0]
+  first.sourceIds.push('source-missing')
+  first.claimIds.push('claim-missing')
+  const codes = validateStoryVersion(invalid, {
+    sourceIds: new Set(), approvedSourceIds: new Set(), claimIds: new Set(), approvedClaimIds: new Set(),
+    mediaAssetIds: new Set(), approvedMediaAssetIds: new Set(),
+  }).map(error => error.code)
+  assert.ok(codes.includes('missing_source'))
+  assert.ok(codes.includes('missing_claim'))
+  assert.ok(codes.includes('unapproved_source'))
+  assert.ok(codes.includes('unapproved_claim'))
+})
+
 test('media validator requires accessibility and provenance before publication', () => {
   const media: MediaAsset = {
     id: 'media-1', kind: 'video', title: 'Video', storageRef: 'published-media/video.mp4',
@@ -81,4 +152,32 @@ test('media validator requires accessibility and provenance before publication',
   const codes = validateMediaAsset(media).map(error => error.code)
   assert.ok(codes.includes('media_provenance'))
   assert.ok(codes.includes('media_accessibility'))
+})
+
+test('media validator detects invalid review status and unknown provenance', () => {
+  const invalid = {
+    id: 'media-2', kind: 'image', title: 'Image', storageRef: 'draft/image.png', sourceIds: ['source-x'], reviewStatus: 'live',
+  } as unknown as MediaAsset
+  const codes = validateMediaAsset(invalid, { sourceIds: new Set() }).map(error => error.code)
+  assert.ok(codes.includes('invalid_status'))
+  assert.ok(codes.includes('missing_source'))
+})
+
+test('published historical claims require known approved sources', () => {
+  const claim: HistoricalClaim = {
+    id: 'claim-1', statement: 'A reviewed statement.', kind: 'fact', sourceIds: ['source-1'], reviewStatus: 'published',
+  }
+  assert.deepEqual(validateHistoricalClaim(claim, {
+    sourceIds: new Set(['source-1']), approvedSourceIds: new Set(['source-1']),
+  }), [])
+  const codes = validateHistoricalClaim(claim, { sourceIds: new Set(['source-1']), approvedSourceIds: new Set() })
+    .map(error => error.code)
+  assert.ok(codes.includes('unapproved_source'))
+})
+
+test('published content fails closed when approval lookups are omitted', () => {
+  assert.ok(validateChapter(chapter).some(error => error.code === 'lookup_required'))
+  assert.ok(validateLesson(lesson).some(error => error.code === 'lookup_required'))
+  assert.ok(validateStoryVersion({ ...story, status: 'published', sourceIds: ['source-1'], publishedAt: '2026-09-29T00:00:00Z' })
+    .some(error => error.code === 'lookup_required'))
 })
