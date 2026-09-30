@@ -77,6 +77,18 @@ Chapter **"Điện Biên Phủ trên không 1972 (Chiến dịch Linebacker II)"
   - Bộ kiểm thử tự động: [`docs/content/validate-1972-quiz.mjs`](./validate-1972-quiz.mjs).
 - **Trọng tâm nội dung:** Phủ kín 4 mục tiêu học tập `CLO-1` đến `CLO-4`, đáp án có giải thích lịch sử rõ ràng và liên kết nguồn chính thống.
 
+### Hồ sơ Chuẩn hóa Giáo dục Lịch sử 12 Phần (Full Educational Content Specification)
+- **Tệp chuẩn hóa toàn diện:** [`docs/content/CHUAN-HOA-NOI-DUNG-GIAO-DUC-1972.md`](./CHUAN-HOA-NOI-DUNG-GIAO-DUC-1972.md).
+- **Cấu trúc bao hàm:** Đáp ứng 100% Khung 12 nguyên tắc sư phạm của Sử Chill cho toàn bộ 4 bài học:
+  1. Metadata chuẩn hóa độ tuổi THCS - THPT.
+  2. Đoạn mở đầu (Hook) kịch tính, khơi gợi tò mò.
+  3. Mạch truyện 8 bước: Hook → Bối cảnh → Xung đột → Diễn biến → Bước ngoặt → Kết quả → Ý nghĩa → Tương tác.
+  4. Bảng Key Facts phân loại minh bạch: [FACT] / [INTERPRETATION] / [UNCERTAIN].
+  5. Thông điệp cốt lõi (Key Takeaways) cho học sinh.
+  6. Ngân hàng câu hỏi trắc nghiệm (Quiz Bank) có giải thích và nguồn đối chiếu.
+  7. Phiếu tự đánh giá chất lượng (Content QA Checklist).
+  8. Điểm còn tranh luận học thuật (Issues & Uncertainties).
+
 ---
 
 ## 3. HƯỚNG DẪN KỸ THUẬT CHO FRONTEND & ENGINE (DEV HANDOFF - M2 INTEGRATION)
