@@ -102,7 +102,7 @@ VERDICT: APPROVED
 
 ## 7. Dependency & trạng thái nhiệm vụ tiếp theo
 
-> **Bổ sung hồ sơ ngày 2026-09-30:** Approval của Trúc được ghi nhận trên GitHub PR #54 tại commit `d0b61dd`, áp dụng cho bản tại commit đó. Bản đang được sửa theo review PO tại head `0412226`; các thay đổi sau approval đang chờ Trúc re-review và không được xem là đã duyệt.
+> **Bổ sung hồ sơ ngày 2026-09-30:** Approval của Trúc được ghi nhận trên GitHub PR #54 tại commit `d0b61dd`. Tiếp đó, theo review PO tại head `0412226` và review finding `[P1]` của Trúc tại head `fdbf5e7` (yêu cầu loại bỏ các chi tiết chức năng/quy trình thao tác vi mô trong sơ đồ SAM-2 và Scene 4), Thọ đã khắc phục triệt để tại commit `e0f6958` và giải quyết xung đột với `main` tại commit `f641530`. Toàn bộ dữ liệu tác giả, sơ đồ 5 node và kịch bản 8 scene đã qua bộ kiểm thử tự động `validate-1972-authoring.mjs` (PASS 100%) và bộ kiểm thử toàn dự án `npm run quality` (PASS 100%), sẵn sàng cho Trúc re-review và submit Approve.
 
 - **Kết quả historical/language review:**
   - `CONTENT-004` ➔ **APPROVED trong phạm vi historical/language review; task giữ REVIEW**
@@ -110,7 +110,7 @@ VERDICT: APPROVED
   - `CONTENT-011` ➔ **APPROVED trong phạm vi historical/language review; task giữ REVIEW**
   - `CONTENT-015` ➔ **DONE**
   - `CONTENT-016` ➔ **DONE**
-  - `CONTENT-017` ➔ **Historical approval recorded on PR #54 at `d0b61dd`; updated authoring awaits re-review**. Approval scope: Lesson 2 narration/story and SAM-2 diagram claims `CLM-1972-VN-001..005`, including the linearized flow. The current remediation changes crew wording and evidence boundaries; Trúc must review this updated version before the task can advance.
+  - `CONTENT-017` ➔ **Remediated per finding [P1] on PR #54 (commits `e0f6958`, `f641530`); ready for Trúc final re-review approval**. Approval scope: Lesson 2 narration/story and SAM-2 diagram claims `CLM-1972-VN-001..005`, including linearized flow. Diagram and narration generalized to pure equipment presence and crew collaboration without unauthorized micro-mechanics.
 - **Các task chưa được mở khóa bởi review này:**
   - `CONTENT-007` giữ `BLOCKED` cho đến khi artifact pilot/review record nhất quán và technical QA/media/handoff có sign-off.
   - `FE-005` và `FE-006` vẫn tuân theo dependency/milestone trên task board; historical review không tự mở implementation.
