@@ -92,7 +92,9 @@ async function withChromePage(browser, url, run) {
   } finally {
     socket?.close()
     if (chrome.exitCode === null) { const exited = once(chrome, 'exit'); chrome.kill(); await exited }
-    await rm(profile, { recursive: true, force: true })
+    // Chrome subprocesses can briefly flush profile files after the parent exits.
+    // Retry transient ENOTEMPTY/EBUSY errors, but still fail if cleanup never succeeds.
+    await rm(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 })
   }
 }
 
