@@ -186,12 +186,4 @@ export type MultipleChoiceQuestion = {
   status: PublishStatus
 }
 
-/** Plain-text authored document for text/recap blocks; status controls public reads. */
-export type LearningDocument = {
-  id: EntityId
-  title: string
-  paragraphs: string[]
-  keyPoints: string[]
-  sourceIds: EntityId[]
-  status: PublishStatus
-}
+export type { LearningDocument, DocumentSection } from './document.ts'

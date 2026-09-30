@@ -1,5 +1,8 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
+import { execFileSync } from 'node:child_process'
+import { fileURLToPath } from 'node:url'
+import type { DomainLearningDocument } from '../../src/types/index.ts'
 import { createMockLearningServices, type MockCatalog, type MockQuizFixture } from '../../src/services/next/mock.ts'
 import type { MockQuizGrade } from '../../src/services/next/mockQuiz.ts'
 
@@ -26,11 +29,17 @@ const catalog = (quizzes: MockQuizFixture[] = [fixture()]): MockCatalog => ({
 })
 
 test('text and recap document reads expose only published documents and return independent copies', async () => {
-  const doc = { id: 'doc', title: 'Nội dung', paragraphs: ['Đoạn văn'], keyPoints: ['Ý chính'], sourceIds: ['source'], status: 'published' as const }
+  const doc: DomainLearningDocument = { id: 'doc', title: 'Nội dung', locale: 'vi-VN',
+    sections: [{ id: 'p1', kind: 'paragraph', text: 'Đoạn văn' },
+      { id: 'k1', kind: 'key_points', items: ['Ý chính'] }], sourceIds: ['source'], status: 'published' }
   const services = createMockLearningServices({ ...catalog(), documents: [doc, { ...doc, id: 'draft', status: 'draft' }] }, { userId: '' })
   const result = await services.documents.getById('doc')
   assert.deepEqual(result, { ok: true, value: doc })
-  if (result.ok) result.value.paragraphs[0] = 'Changed'
+  if (result.ok) {
+    const section = result.value.sections[1]
+    if (section.kind === 'key_points') section.items[0] = 'Changed'
+    result.value.sections.reverse()
+  }
   assert.deepEqual(await services.documents.getById('doc'), { ok: true, value: doc })
   for (const id of ['draft', 'missing']) assert.deepEqual(await services.documents.getById(id), { ok: false, error: 'not_found' })
 })
@@ -113,4 +122,27 @@ test('practice strips client correctness and grader extras and allows retry afte
   const result = await service.submitPracticeAttempt(payload)
   assert.deepEqual(result, { ok: true, value: { attemptId: 'attempt', feedback } })
   assert.doesNotMatch(JSON.stringify(result), /"xp"|"answerKey"|"passed"/)
+})
+
+test('shared root document aliases compile and require locale and discriminated sections', () => {
+  const root = fileURLToPath(new URL('../../', import.meta.url))
+  execFileSync(process.execPath, ['node_modules/typescript/bin/tsc', '--noEmit', '--strict',
+    '--skipLibCheck', '--target', 'ES2022', '--module', 'NodeNext', '--moduleResolution', 'NodeNext',
+    '--allowImportingTsExtensions', 'tests/member5/document-contract.fixture.ts'], { cwd: root, stdio: 'pipe' })
+})
+
+test('plain text can grow into structured sections without changing document identity', async () => {
+  const doc: DomainLearningDocument = { id: 'stable-doc', title: 'Bài đọc', locale: 'vi-VN',
+    sections: [{ id: 'p1', kind: 'paragraph', text: 'Nội dung' }], sourceIds: [], status: 'draft' }
+  // Authoring evolution happens before publication; published versions stay immutable.
+  doc.sections.unshift({ id: 'h1', kind: 'heading', text: 'Tiêu đề', level: 2 })
+  doc.sections.push({ id: 'k1', kind: 'key_points', items: ['Ý chính'] })
+  doc.status = 'published'
+  const services = createMockLearningServices({ ...catalog(), documents: [doc] }, { userId: '' })
+  const result = await services.documents.getById('stable-doc')
+  assert.deepEqual(result, { ok: true, value: doc })
+  if (result.ok) {
+    assert.equal(result.value.locale, 'vi-VN')
+    assert.deepEqual(result.value.sections.map(section => section.id), ['h1', 'p1', 'k1'])
+  }
 })
