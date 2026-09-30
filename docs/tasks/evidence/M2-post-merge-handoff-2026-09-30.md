@@ -55,3 +55,16 @@ Vinh/Codex implemented domain `LearningDocument`, `DocumentService`, practice re
 The M2-05 card at PR #67 head `e9423e5` explicitly records Dương's successful legacy consumer review. The earlier missing-confirmation note is superseded; final reviewer task acceptance remains pending. PR #67 is documentation-only and does not contain local remediation commit `a773488`.
 
 The remediation branch was synchronized with main `0075079` without conflicts, preserving the team's merged content updates. The new implementation still requires Dương/Hưng re-review. No task or milestone is closed.
+
+## Final approvals and merge
+
+This section supersedes earlier statements about outstanding implementation findings or missing re-review. PR #67 and PR #68 are merged; main is `514f71aa544fd0bb8f1831c095323253b27dd459`.
+
+- [Hưng technical approval on PR #68](https://github.com/dotruc1526/suchill/pull/68#pullrequestreview-5367642873): approved final head `5131063`; both document contract findings resolved, no new blocker. Explicitly retains tasks REVIEW.
+- [Dương consumer approval on PR #68](https://github.com/dotruc1526/suchill/pull/68#pullrequestreview-5367298670): approved the same head; sections/locale/shared aliases and earlier document/practice/feedback fixes accepted, no new consumer finding.
+- M2-02 validator technical approval remains recorded in PR #64. M2-05 legacy consumer confirmation is in PR #67; its mapping boundary remains unchanged by #68.
+- Final code verification: 47 unit, 9 component, 2 E2E; typecheck/build and both GitHub Quality checks PASS. Dương's independent scan: 264 files, 0 unsafe. No extra quality run is claimed for these documentation edits.
+
+All known coding findings assigned to Vinh have been addressed and merged. This handoff records approvals; it is not a new reviewer or Product Owner decision. The remaining formal steps are reviewer task-level acceptance for M2-01..06, followed by the Product Owner's M2 gate decision. All cards stay REVIEW, M2 stays OPEN and M3 stays LOCKED until those decisions are recorded.
+
+Documentation checkpoint: six cards, task board and this evidence file updated; local Markdown paths and `git diff --check` verified. No runtime/env/migration/dependency impact; historical review records retained.
