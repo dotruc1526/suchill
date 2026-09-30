@@ -16,7 +16,7 @@
 
 1. **Vai trò người học (Learner Role):** Người học là **Quan sát viên / Nhà phân tích hồ sơ huấn luyện tác chiến**, không đóng giả chỉ huy thật, không đưa ra quyết định thay đổi lịch sử thực tế.
 2. **Phân loại lựa chọn (Choice Taxonomy):**
-   - **Narrative Choice (Rẽ nhánh cốt truyện):** Chỉ thay đổi góc nhìn và thứ tự tiếp cận tài liệu (ví dụ: tìm hiểu quy trình hiệp đồng trước hay tìm hiểu dải nhiễu trước); không có đáp án đúng/sai (`isCorrect`), không phạt điểm, không thay đổi kết quả trận đánh.
+   - **Narrative Choice (Lựa chọn góc nhìn / thứ tự tiếp cận):** Người học tiếp cận tài liệu theo mạch tuyến tính, đi qua đầy đủ nội dung phối hợp khí tài và đối phó gây nhiễu; không có đáp án đúng/sai (`isCorrect`), không phạt điểm, không thay đổi kết quả lịch sử.
    - **Knowledge Check (Kiểm tra nhận thức):** Có đáp án đúng/sai rõ ràng, kèm lời giải thích sư phạm (`explanation`) sâu sắc, dẫn về màn tổng kết (Debrief).
 3. **Tiêu chuẩn Tiếp cận & Bản quyền (Accessibility & Media Gates):**
    - Bài học thiết kế theo nguyên tắc **Text-First Fallback**: Toàn bộ nội dung, sơ đồ và diễn biến được truyền tải trọn vẹn bằng văn bản ngay cả khi không có hình ảnh hoặc âm thanh.
@@ -133,7 +133,7 @@
 |---|---|---|---|---|
 | `sam2-v1-briefing` | `CLM-1972-VN-001`, `005` | Fact | Báo QĐND Cuối tuần (06/12/2017) | Đoạn về tên lửa SAM-2 đối đầu B-52 |
 | `sam2-v1-crew` | `CLM-1972-VN-001`, `002` | Fact | Lịch sử Tên lửa PK / Báo QĐND | Hệ thống khí tài và kíp chiến đấu ở mức khái quát; không phân vai hoặc tái dựng quy trình |
-| `sam2-v1-perspective` | `CLM-1972-VN-006` | Sư phạm | Quy tắc thiết kế Visual Novel | Lựa chọn rẽ nhánh trung tính |
+| `sam2-v1-perspective` | `CLM-1972-VN-006` | Sư phạm | Quy tắc thiết kế Visual Novel | Lựa chọn tiếp cận nội dung theo luồng tuyến tính |
 | `sam2-v1-coordination` | `CLM-1972-VN-002` | Fact | Báo QĐND (23/12/2022) | Hiệp đồng tác chiến kíp chiến đấu trong cabin |
 | `sam2-v1-interference` | `CLM-1972-VN-003`, `004` | Fact | *Cẩm nang bìa đỏ* (10/1972) / QĐND | Quy luật dải nhiễu B-52 trong môi trường tác chiến điện tử |
 | `sam2-v1-check` | `CLM-1972-VN-002`, `004` | Fact + Sư phạm | Lịch sử QCPK-KQ / Cẩm nang | Nhận diện dải nhiễu và hiệp đồng tác chiến linh hoạt |

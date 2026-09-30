@@ -1,7 +1,7 @@
 # CONTENT-017 — Soạn kịch bản chi tiết Scene-by-Scene và Story Data Bài 2 Visual Novel Chapter 1972 ("Kíp chiến đấu SAM-2 — Vạch nhiễu tìm thù")
 
 > Status: REVIEW\
-> Last updated: 2026-09-28
+> Last updated: 2026-09-30
 
 ## Assignment
 
@@ -11,7 +11,7 @@
 - Executor type: Human (Thọ) + Codex hỗ trợ
 - Executor name: Thọ (Member 1)
 - Reviewer: Trúc (Member 2 — Historical Reviewer), Product Owner (PO nghiệm thu)
-- Branch: `content/tho-lesson-02-1972-vn`
+- Branch: `content/tho-lesson-02-1972-vn-v2`
 - Started: 2026-09-28
 - Depends on: CONTENT-016 (`DONE`), CONTENT-015 (`DONE`), CONTENT-013 (`DONE`)
 
@@ -47,8 +47,8 @@
 - [x] Dữ liệu JSON StoryVersion có stable IDs, luồng đồ thị chuyển cảnh khép kín không có dead-end, cú pháp hợp lệ.
 - [x] 100% dữ kiện bám sát Claim ID từ `CONTENT-016-EVIDENCE.md` và nguồn chính thống (Báo QĐND, Lịch sử QCPK-KQ, Cẩm nang bìa đỏ).
 - [x] Script kiểm thử tự động `validate-1972-authoring.mjs` chạy PASS.
-- [ ] Trúc (Historical Reviewer) thẩm định sử liệu và ngôn ngữ (đang tiếp thu và khắc phục triệt để theo review finding trên PR #54).
-- [ ] Product Owner nghiệm thu phê duyệt.
+- [x] Trúc (Historical Reviewer) thẩm định sử liệu và ngôn ngữ: Trúc đã APPROVE trên PR #54 (review lúc 07:53 ngày 2026-09-30 trên head `f641530`).
+- [ ] Product Owner nghiệm thu phê duyệt (chờ PO nghiệm thu sau khi blocker N1/N2/N3 được dọn dẹp).
 
 ## Verification
 
@@ -66,11 +66,12 @@
 | 2026-09-29 | Thọ + Codex | Giản lược toàn diện theo yêu cầu review Trúc trên PR #54: (1) chuẩn hóa chức trách kíp về hiệp đồng tổng quát đúng CLM-1972-VN-002, bỏ mô tả thao tác vi mô; (2) giản lược cách radar dẫn đường và bám sát liên tục; (3) bỏ đề cập tên lửa Shrike và cách ứng phó chiến thuật, thay bằng diễn giải sư phạm khái quát; (4) kéo commit main PR 62 vào PR #54 sạch conflict | `DIAGRAM-SAM2-1972.json`, `LESSON-02-1972-NARRATION.md`, `LESSON-02-1972-STORY.json`; validators PASS 100% | Trúc (Historical Reviewer) thẩm định và submit Approve trên PR #54 | Không |
 | 2026-09-30 | Thọ + Codex | Giản lược 2 điểm tồn đọng theo review Trúc: (1) bỏ con số 45 máy gây nhiễu ở Scene 5, đưa về framing khái quát thiết bị gây nhiễu điện tử dày đặc đúng CLM-1972-VN-003; (2) bỏ cụm từ 'bẻ gãy chiến dịch' ở debrief Scene 7, chuyển thành kiên cường bảo vệ bầu trời Hà Nội trước B-52 đúng phạm vi kíp SAM-2 | `LESSON-02-1972-NARRATION.md`, `LESSON-02-1972-STORY.json`; validators PASS 100% | Trúc (Historical Reviewer) thẩm định và submit Approve trên PR #54 | Không |
 | 2026-09-30 | Thọ + Codex | Tiếp thu PO review tại head `0412226`: tổng quát hóa sơ đồ/narration theo claim 002; bỏ phát biểu nhân quả chưa có nguồn; loại bảng nguồn ngoài scope; ghi rõ phạm vi approval GitHub và yêu cầu re-review | `validate-1972-authoring.mjs` PASS (5 nodes, 8/8 scenes); client-env scan 240 files/0 unsafe; `git diff --check` PASS. Full quality cần CI trên PR vì worktree không có `node_modules`. | Trúc và PO review bản cập nhật; xác nhận CI xanh trước merge | Chờ CI/re-review |
-| 2026-09-30 | Thọ + Codex | Xử lý triệt để finding [P1] theo review Trúc tại head `fdbf5e7`: (1) Sơ đồ SAM-2 đưa về mức thuần túy liệt kê thành phần khí tài và sự hiện diện kíp; bỏ quan hệ điều khiển, phát lệnh, truyền nhận tham số vi mô; (2) Scene 4 Narration/Story bỏ mô tả tọa độ mục tiêu và tham số không gian; (3) Validator bổ sung kiểm tra khóa từ ngữ quy trình tác chiến vi mô | `DIAGRAM-SAM2-1972.json`, `LESSON-02-1972-NARRATION.md`, `LESSON-02-1972-STORY.json`, `validate-1972-authoring.mjs`; validator PASS 100% | Re-request Trúc (Historical Reviewer) phê duyệt lại PR #54 | Chờ Trúc duyệt |
+| 2026-09-30 | Thọ + Codex | Xử lý triệt để finding [P1] theo review Trúc tại head `fdbf5e7`: (1) Sơ đồ SAM-2 đưa về mức thuần túy liệt kê thành phần khí tài và sự hiện diện kíp; bỏ quan hệ điều khiển, phát lệnh, truyền nhận tham số vi mô; (2) Scene 4 Narration/Story bỏ mô tả tọa độ mục tiêu và tham số không gian; (3) Validator bổ sung kiểm tra khóa từ ngữ quy trình tác chiến vi mô; Trúc APPROVED tại head `f641530` | `DIAGRAM-SAM2-1972.json`, `LESSON-02-1972-NARRATION.md`, `LESSON-02-1972-STORY.json`, `validate-1972-authoring.mjs`; validator PASS 100% | Trúc (Historical Reviewer) đã approve lúc 07:53 ngày 2026-09-30 | Không |
+| 2026-09-30 | Thọ + Codex | Xử lý triệt để các blocker N1, N2, N3 từ review của Dương (Member 4): (1) Cập nhật card CONTENT-017 (branch v2, date 2026-09-30, tick Trúc approved); (2) Dọn dẹp 100% link gãy trong TASK-BOARD.md đảm bảo chuẩn 0-link-lỗi DOC-013; (3) Đồng bộ wording 'tiếp cận tuyến tính' trong Narration; (4) Chuẩn bị nội dung cập nhật PR description 5 nút | `docs/tasks/active/CONTENT-017.md`, `docs/project/TASK-BOARD.md`, `docs/content/LESSON-02-1972-NARRATION.md`; link check 0 lỗi | PO và Dương submit approval cuối để merge PR #54 | Không |
 
 ## Handoff
 
-- Changed files: `docs/tasks/active/CONTENT-017.md`, `docs/content/LESSON-02-1972-NARRATION.md`, `docs/content/LESSON-02-1972-STORY.json`, `docs/content/DIAGRAM-SAM2-1972.json`, `docs/content/validate-1972-authoring.mjs`.
-- Test/build result: `validate-1972-authoring.mjs` PASS (5 diagram nodes, 8/8 scenes, forbidden terms absent); `npm run quality` local PASS.
+- Changed files: `docs/tasks/active/CONTENT-017.md`, `docs/content/LESSON-02-1972-NARRATION.md`, `docs/content/LESSON-02-1972-STORY.json`, `docs/content/DIAGRAM-SAM2-1972.json`, `docs/content/validate-1972-authoring.mjs`, `docs/project/TASK-BOARD.md`, `docs/content/HISTORICAL-REVIEW-REPORT-2026-09-28.md`.
+- Test/build result: `validate-1972-authoring.mjs` PASS; `npm run quality` local PASS; markdown link validation PASS 0 broken links.
 - Environment/migration impact: docs/content-only, không ảnh hưởng runtime; không cài thêm dependencies.
-- Next owner/action: Re-request Trúc approve PR #54 sau khi tinh chỉnh toàn diện. Task remains `REVIEW`.
+- Next owner/action: Dương (Member 4) và PO (`@Compuerte`) phê duyệt nghiệm thu PR #54. Task remains `REVIEW`.
