@@ -1,6 +1,6 @@
 # Sử Chill — Shared Task Board
 
-> Last updated: 2026-09-30\
+> Last updated: 2026-10-01\
 > Owner: Project team\
 > Purpose: Nguồn context chung cho product owner, thành viên nhóm và AI agents
 
@@ -59,8 +59,9 @@ Phase 9 đã được product owner duyệt ngày 2026-09-23; `SPEC-FIRST FREEZE
 |---|---|---|---|
 | M0 | DONE | Typecheck/build/test, canonical/legacy boundary và client-secret scan đã đạt | Product owner approved close, 2026-09-28; evidence: `fe4072b`, GitHub Quality run #31 success, local `npm run quality` pass with Chrome |
 | M1 | DONE | Gate M1 trong Phase 9 có evidence và reviewer kiểm tra | Product Owner nghiệm thu M1-07 và M1-08; approved close, 2026-09-29; evidence: PR #53/#56, QA keyboard 26 checkpoints, quality PASS và ảnh 375px/430px |
-| M2 | OPEN | Domain types, validators, service interfaces, mock adapters, legacy mapper và contract tests theo Phase 9 | Product Owner approved open, 2026-09-29 |
-| M3–M7 | LOCKED | Mở từng milestone sau khi milestone trước được duyệt | Chưa có |
+| M2 | DONE | Ba gate Phase 9 đạt; M2-01..06 đã được reviewer nghiệm thu và Quality pass | Product Owner Dương approved close, 2026-10-01; evidence: PR #70 / `a4d22b2`, DOC-018 |
+| M3 | OPEN | Learning frontend hoàn chỉnh trên mock services theo Gate M3 | Product Owner Dương approved open, 2026-10-01; M3 tasks chỉ bắt đầu sau claim hợp lệ |
+| M4–M7 | LOCKED | Mở từng milestone sau khi milestone trước được duyệt | Chưa có |
 
 `DONE` của từng task không tự mở milestone tiếp theo. Executor ghi evidence theo gate Phase 9; reviewer/QA kiểm tra; Product owner duyệt rõ ràng và ghi ngày, evidence, milestone được mở vào bảng này trước khi nhóm bắt đầu implementation milestone kế tiếp. Content track có task/dependency riêng: Member 1 có thể nhận `CONTENT-009` nghiên cứu nguồn sơ bộ trong khi M0 đang mở; việc đó không mở milestone implementation hoặc chốt nội dung canonical.
 
@@ -75,6 +76,7 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 - React/Vite/Tailwind app shell.
 - Chapter, lesson, quiz, profile, practice và AI screen demo.
 - Visual Novel demo Genève/vĩ tuyến 17.
+- Domain types v2, validators, service interfaces, mock adapters, legacy mapper và contract tests của M2.
 - AI Battle đang được một nhánh của nhóm phát triển; chưa tích hợp vào app chính.
 - Supabase `.env.local` local-only.
 - Bộ docs và approval brief.
@@ -82,7 +84,6 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 ### Chưa có
 
 - Canonical pilot episode được product owner chọn và qua review.
-- Domain types v2 đã duyệt ở mức đặc tả nhưng chưa triển khai source.
 - Supabase schema/RLS/services thật.
 - Account progress/streak backend.
 - Automated tests và release gates.
@@ -109,6 +110,7 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 | DOC-014 | GitHub readiness | Kiểm tra file chuẩn bị đưa lên GitHub và làm rõ content track Member 1 | Codex | DONE | DOC-010 | [`docs/tasks/done/DOC-014.md`](../tasks/done/DOC-014.md) | Product owner review; build pass, typecheck baseline còn lỗi, CONTENT-009 READY |
 | DOC-015 | Team handoff | Gán tên 5 thành viên và tạo PR tài liệu trên nhánh riêng | Codex | DONE | DOC-010 | [`docs/tasks/done/DOC-015.md`](../tasks/done/DOC-015.md) | [PR #7](https://github.com/dotruc1526/suchill/pull/7) đã mở vào `main`; Product owner review |
 | DOC-016 | Milestone gate | Ghi quyết định Product owner đóng M0 và mở M1 | Product owner | DONE | M0-00..07 | [`docs/tasks/done/DOC-016.md`](../tasks/done/DOC-016.md) | M0 đóng/M1 mở ngày 2026-09-28; source-of-truth và handoff đã đồng bộ |
+| DOC-018 | Milestone gate | Audit Gate M2, đóng M2 và mở M3 | Dương (Product Owner) + Codex | DONE | M2-01..06 | [`docs/tasks/done/DOC-018.md`](../tasks/done/DOC-018.md) | Ba gate M2 đạt trên `a4d22b2`; Product Owner duyệt đóng M2/mở M3 ngày 2026-10-01 |
 | DOC-017 | Documentation sync | Rà và đồng bộ task/content docs tách khỏi PR #61 | Dương (Member 4); Codex executor | REVIEW | PR #61 merged; `fd52278` reference | [`docs/tasks/active/DOC-017.md`](../tasks/active/DOC-017.md) | Sync chọn lọc hoàn tất, không đưa lại governance commits; Hưng và content owners review trạng thái/link trước DONE |
 | M1-01 | Design system | Figma handoff và token contract | Trúc (Member 2) | DONE | Gate M0 | [`docs/tasks/done/M1-01.md`](../tasks/done/M1-01.md) | Handoff đã được Hưng triển khai trong FE-003; Vinh QA xác nhận sau merge PR #33 |
 
@@ -214,6 +216,7 @@ Mỗi lần handoff quan trọng thêm một dòng mới nhất ở đầu bản
 
 | Date | Task | Author | Update | Evidence / next owner |
 |---|---|---|---|---|
+| 2026-10-01 | DOC-018 / Gate M2 | Dương (Product Owner) + Codex | Audit ba điều kiện Gate M2 đạt; Product Owner đóng M2 và mở M3. M3 implementation chỉ được bắt đầu theo dependency, task card, reviewer và file claim | PR #70 merge `a4d22b2`; M2-01..06 DONE; [DOC-018](../tasks/done/DOC-018.md); next Dương claim task M3 hợp lệ, Vinh phối hợp contract/QA |
 | 2026-09-30 | M2-01..06 | Hưng (Member 3 — reviewer) + Codex | Hưng ghi nghiệm thu task-level ACCEPTED cho cả 6 task M2 trên main `7175bda`; cards chuyển DONE và folder-synced sang `docs/tasks/done/`; board links cập nhật; M2 vẫn OPEN, M3 LOCKED cho đến khi PO audit gate và ghi quyết định | M2-01..06 evidence tại từng card section "Reviewer acceptance — 2026-09-30"; GitHub Quality `7175bda` pass; cards moved via `hung/m2-review-done-sync` branch |
 | 2026-09-30 | M2-01/03/04/05/06 | Dương (Member 4) | Consumer review trên `main` tại merge PR #64: CONSUMER FIT: CHANGES REQUESTED với ba P1 (document resolution, practice submission, per-question feedback); M2-05 legacy boundary đạt nhưng không thay sign-off toàn M2 | `main` tại `73d3156`; Hưng quyết contract, Vinh/Codex remediation, Dương re-review; M3 chưa mở; Product Owner quyết gate |
 | 2026-09-30 | CONTENT-017 | Thọ (Member 1) | Xử lý triệt để blocker N1, N2, N3 từ review của Dương (Member 4): cập nhật card, dọn sạch 100% link gãy trên board theo DOC-013, đồng bộ wording narration | [`docs/tasks/active/CONTENT-017.md`](../tasks/active/CONTENT-017.md); validator PASS 100% |

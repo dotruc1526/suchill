@@ -11,7 +11,7 @@
 5. [Giải thích Phase 0–9](./project/PHASE-GUIDE.md) — mỗi phase dùng để quyết định điều gì.
 6. [Kiến trúc canonical](../ARCHITECTURE.md) — frontend/backend/data phải nối với nhau thế nào.
 7. [Chỉ mục specs](./specs/README.md) — approval brief và full spec của từng phase.
-8. [Phase 9 bản dễ hiểu](./specs/approval-briefs/09-implementation-roadmap-brief.md) — roadmap đã duyệt; M0/M1 đã đóng và Milestone 2 đang mở.
+8. [Phase 9 bản dễ hiểu](./specs/approval-briefs/09-implementation-roadmap-brief.md) — roadmap đã duyệt; M0–M2 đã đóng và Milestone 3 đang mở.
 
 ## Cấu trúc thư mục
 
@@ -53,4 +53,4 @@ docs/
 - `APPROVED`: đã duyệt, được dùng làm đầu vào cho phase sau.
 - `SUPERSEDED`: đã được tài liệu mới thay thế.
 
-Phase 0–9 đã được duyệt. `SPEC-FIRST FREEZE` đã kết thúc; M0/M1 đã đóng và Milestone 2 được Product Owner mở ngày 2026-09-29. M3–M7 vẫn cần Product Owner duyệt gate milestone trước và ghi trên task board. Mỗi task vẫn phải đạt dependency, có owner/reviewer, task card và file claim trước khi triển khai.
+Phase 0–9 đã được duyệt. `SPEC-FIRST FREEZE` đã kết thúc; M0–M2 đã đóng và Milestone 3 được Product Owner mở ngày 2026-10-01. M4–M7 vẫn cần Product Owner duyệt gate milestone trước và ghi trên task board. Mỗi task vẫn phải đạt dependency, có owner/reviewer, task card và file claim trước khi triển khai.
