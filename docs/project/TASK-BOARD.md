@@ -1,6 +1,6 @@
 # Sử Chill — Shared Task Board
 
-> Last updated: 2026-09-29\
+> Last updated: 2026-09-30\
 > Owner: Project team\
 > Purpose: Nguồn context chung cho product owner, thành viên nhóm và AI agents
 
@@ -137,12 +137,12 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 
 | ID | Phase | Task | Owner | Status | Depends on | Files | Acceptance / next action |
 |---|---|---|---|---|---|---|---|
-| M2-01 | M2 domain contract | Triển khai domain types v2 theo Phase 5 | Vinh (Member 5); Codex executor | REVIEW | Gate M2 open, M0 DONE, DOC-006 | [`docs/tasks/active/M2-01.md`](../tasks/active/M2-01.md) | Domain contract/barrel hoàn tất, full quality PASS; Hưng review contract/architecture và Dương xác nhận consumer trước khi chuyển DONE |
+| M2-01 | M2 domain contract | Triển khai domain types v2 theo Phase 5 | Vinh (Member 5); Codex executor | REVIEW | Gate M2 open, M0 DONE, DOC-006 | [`docs/tasks/active/M2-01.md`](../tasks/active/M2-01.md) | Dương chưa xác nhận consumer do thiếu đường resolve document; chờ contract remediation/re-review. Task giữ REVIEW. |
 | M2-02 | M2 validators | Kiểm tra lesson/story/media và tham chiếu nguồn trước publish | Vinh (Member 5); Codex executor | REVIEW | M2-01 merged | [`docs/tasks/active/M2-02.md`](../tasks/active/M2-02.md) | PR #64: fixed StoryVersion-wide choice ID uniqueness; regression verified; full quality PASS 39 unit/9 component/2 E2E; chờ Hưng review bản sửa |
-| M2-03 | M2 service contracts | Hoàn thiện interface domain-facing cho learning services | Vinh (Member 5); Codex executor | REVIEW | M2-01 merged | [`docs/tasks/active/M2-03.md`](../tasks/active/M2-03.md) | PR #64 remediation: ba P1 VN/video resume, quiz option labels và media resolution đã sửa; quality PASS 37 unit/9 component/2 E2E; chờ Hưng/Dương review bản sửa |
-| M2-04 | M2 mock adapters | Mở rộng mock adapters theo contract cho feature dùng không cần Supabase | Vinh (Member 5) + Dương (Member 4); Codex executor backend adapter | REVIEW | M2-03 implemented on this branch | [`docs/tasks/active/M2-04.md`](../tasks/active/M2-04.md) | PR #64 remediation: ba P1 VN/video resume, quiz option labels và media resolution đã sửa; quality PASS 37 unit/9 component/2 E2E; chờ Hưng/Dương review bản sửa |
-| M2-05 | M2 legacy boundary | Mapper tường minh cho demo legacy sang domain v2 | Vinh (Member 5); Codex executor | REVIEW | M2-01 merged | [`docs/tasks/active/M2-05.md`](../tasks/active/M2-05.md) | Deterministic fixture-only mapping; chờ Hưng review boundary |
-| M2-06 | M2 contract tests | Kiểm tra validators và mock/domain contract theo fixture | Vinh (Member 5); Codex executor | REVIEW | M2-02, M2-03, M2-04 implemented on this branch | [`docs/tasks/active/M2-06.md`](../tasks/active/M2-06.md) | PR #64: fixed StoryVersion-wide choice ID uniqueness; regression verified; full quality PASS 39 unit/9 component/2 E2E; chờ Hưng review bản sửa |
+| M2-03 | M2 service contracts | Hoàn thiện interface domain-facing cho learning services | Vinh (Member 5); Codex executor | REVIEW | M2-01 merged | [`docs/tasks/active/M2-03.md`](../tasks/active/M2-03.md) | CONSUMER FIT: CHANGES REQUESTED (Dương): ba finding P1 về document service, practice submission và quiz feedback; chờ Hưng quyết contract và Vinh/Codex remediation. |
+| M2-04 | M2 mock adapters | Mở rộng mock adapters theo contract cho feature dùng không cần Supabase | Vinh (Member 5) + Dương (Member 4); Codex executor backend adapter | REVIEW | M2-03 implemented on this branch | [`docs/tasks/active/M2-04.md`](../tasks/active/M2-04.md) | Mock adapter chưa đủ cho text/practice/quiz feedback; chờ remediation theo contract thống nhất và Dương re-review. |
+| M2-05 | M2 legacy boundary | Mapper tường minh cho demo legacy sang domain v2 | Vinh (Member 5); Codex executor | REVIEW | M2-01 merged | [`docs/tasks/active/M2-05.md`](../tasks/active/M2-05.md) | Dương xác nhận legacy consumer boundary đạt; task vẫn chờ Hưng và gate chung. |
+| M2-06 | M2 contract tests | Kiểm tra validators và mock/domain contract theo fixture | Vinh (Member 5); Codex executor | REVIEW | M2-02, M2-03, M2-04 implemented on this branch | [`docs/tasks/active/M2-06.md`](../tasks/active/M2-06.md) | Cần thêm regression/contract coverage cho ba P1 sau khi sửa; chờ remediation và re-review. |
 | BE-001 | Supabase foundation | Chuẩn hóa client-safe env và Supabase client boundary | Vinh (Member 5) | BACKLOG | DOC-007, DOC-010 | `src/services/`, env docs | Browser chỉ dùng publishable/anon key |
 | BE-002 | Content | Tạo content migrations, RLS và seed workflow | Vinh (Member 5) | BACKLOG | BE-001, DOC-007 | `supabase/migrations/`, seed files | Published content đọc được; draft bị bảo vệ |
 | BE-003 | Progress | Account/profile/lesson/episode checkpoint | Vinh (Member 5) | BACKLOG | BE-001, DOC-007, DOC-008 | migrations + `src/services/` | Resume cross-device, user isolation |
@@ -212,6 +212,7 @@ Mỗi lần handoff quan trọng thêm một dòng mới nhất ở đầu bản
 
 | Date | Task | Author | Update | Evidence / next owner |
 |---|---|---|---|---|
+| 2026-09-30 | M2-01/03/04/05/06 | Dương (Member 4) | Consumer review trên `main` tại merge PR #64: CONSUMER FIT: CHANGES REQUESTED với ba P1 (document resolution, practice submission, per-question feedback); M2-05 legacy boundary đạt nhưng không thay sign-off toàn M2 | `main` tại `73d3156`; Hưng quyết contract, Vinh/Codex remediation, Dương re-review; M3 chưa mở; Product Owner quyết gate |
 | 2026-09-29 | M2-02 / M2-06 | Vinh (owner); Codex executor | Review audit found validators could skip existence/approval checks if a published-content lookup was omitted; added fail-closed `lookup_required` issues and regression coverage. All M2 quality checks pass; tasks remain `REVIEW`. | `npm run quality` PASS: typecheck/build; scan 247 files/0 unsafe, unit 27/27, component 9/9, E2E 2/2; Hưng technical review, Dương consumer confirmation, and Product Owner M2 gate remain pending |
 | 2026-09-29 | M2-02..06 | Vinh (owner); Codex executor | Hoàn thiện validator bổ sung, service contracts Quiz/User, mock behavior, legacy fixture mapper và contract regression tests; chuyển các task sang `REVIEW`. | `npm run quality` PASS: typecheck/build, scan 245/0 unsafe, unit 26/26, component 9/9, E2E 2/2; không có env/migration/dependency impact; chờ Hưng review và Dương consumer confirmation |
 | 2026-09-29 | M2-02/03/05 | Vinh (owner); Codex executor | Tạo card và claim riêng sau khi M2-01 merge; triển khai tiếp trên nền domain contract hiện hành. | Branch `codex/m2-implementation`; validators `src/services/next/validation.ts`, service contracts `contracts.ts`, mapper mới; không có migration/env impact |
