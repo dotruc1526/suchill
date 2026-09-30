@@ -183,7 +183,7 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 | QA-003 | 8 | Supabase RLS/security verification | Vinh (Member 5) | BACKLOG | BE-002, BE-003, DOC-009 | security tests | User cannot read/write another user’s progress |
 | QA-004 | 8 | Historical/media release gate | Historical reviewer | BACKLOG | CONTENT-003, CONTENT-005, CONTENT-007 | release checklist | 0 critical historical/source/media issue, gồm video MVP |
 | QA-005 | 9 | Pilot release verification | Vinh (Member 5); toàn nhóm phối hợp | BACKLOG | DOC-010, CONTENT-008, CONTENT-007, FE-006, QA-001..004 | release report | MVP có một chapter mẫu nhiều lesson trong phạm vi kháng chiến chống Mỹ và ít nhất một video đã duyệt chạy trong bài học; các acceptance khác pass |
-| QA-006 | M3 gate hardening | Chặn E2E Chrome cleanup treo vô hạn và giới hạn thời gian Quality job | Vinh (Member 5); Codex executor | REVIEW | PR #71 Quality run `36751263388` hung | [`docs/tasks/active/QA-006.md`](../tasks/active/QA-006.md) | Bounded graceful/force kill và job timeout đã triển khai; chờ cả hai GitHub Quality checks của PR #71 pass |
+| QA-006 | M3 gate hardening | Chặn E2E Chrome cleanup treo vô hạn và giới hạn thời gian Quality job | Vinh (Member 5); Codex executor | DONE | PR #71 Quality run `36751263388` hung | [`docs/tasks/done/QA-006.md`](../tasks/done/QA-006.md) | Bounded cleanup, page-target wait và 5-minute job timeout đạt; push/pull-request Quality PASS trên `e5d718d` |
 
 ### F. App distribution and experimental features
 
