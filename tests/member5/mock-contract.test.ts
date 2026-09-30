@@ -26,7 +26,7 @@ const catalog = { chapters: [chapter, { ...chapter, id: 'draft', status: 'draft'
     status: 'published' as const,
     set: questionSet,
     questions: [question],
-    grade: () => ({ attemptId: 'attempt-1', score: 1, total: 1, passed: true }),
+    grade: () => ({ attemptId: 'attempt-1', score: 1, total: 1, passed: true, feedback: [{ questionId: 'q-1', outcome: 'correct' as const, explanation: 'Review the source.' }] }),
   }] }
 
 test('read services expose published content only and return copies', async () => {
@@ -87,7 +87,7 @@ test('quiz reads omit answer keys and scored submissions are trusted and idempot
   const input = { operationId: 'quiz-op-1', questionSetId: 'set-1', answers: [{ questionId: 'q-1', selectedOptionIds: ['option-a'] }] }
   const first = await services.quiz.submitScoredAttempt(input)
   assert.deepEqual(first, { ok: true, value: { attemptId: 'attempt-1', score: 1, total: 1, passed: true,
-    feedback: [{ questionId: 'q-1', explanation: 'Review the source.' }],
+    feedback: [{ questionId: 'q-1', outcome: 'correct', explanation: 'Review the source.' }],
   } })
   assert.deepEqual(await services.quiz.submitScoredAttempt(input), first)
   assert.deepEqual(await services.quiz.submitScoredAttempt({ ...input, answers: [{ ...input.answers[0], selectedOptionIds: ['option-b'] }] }),
@@ -108,7 +108,7 @@ test('quiz adapter rejects unknown options and strips client correctness fields 
       ...fixture,
       grade(input: ScoredQuizSubmission) {
         graded = input
-        return Object.assign({ attemptId: 'attempt-guarded', score: 0, total: 1, passed: false }, { xpAwarded: 999 })
+        return Object.assign({ attemptId: 'attempt-guarded', score: 0, total: 1, passed: false, feedback: [{ questionId: 'q-1', outcome: 'incorrect' as const, explanation: 'Review the source.' }] }, { xpAwarded: 999 })
       },
     })),
   }

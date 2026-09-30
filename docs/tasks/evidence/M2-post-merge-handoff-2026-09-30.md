@@ -43,3 +43,9 @@ Command: `npm run quality` with local Chromium headless shell selected by `CHROM
 Mock storage is in memory, media URLs use `mock://`, and legacy output remains draft technical fixture content. This evidence does not claim durable cross-device storage, Supabase/RLS verification, production reward authority or historical/content acceptance.
 
 Vinh's implementation and verification handoff is complete. The executor leaves all six cards REVIEW because Hưng's latest approval explicitly preserves that status. Hưng/Dương record the outstanding task-specific decisions above; only the Product Owner can close M2/open M3 on the task board. No milestone gate is changed by this handoff.
+
+## Later PR #67 review supersedes the earlier no-gap assessment
+
+Dương identified three valid P1 service gaps after the above audit. [Hưng's approved contract decision](https://github.com/dotruc1526/suchill/pull/67#pullrequestreview-5363952627) defines published document reads, separate practice submission and mandatory ordered per-question outcomes. The earlier no-unimplemented-task assessment and consumer approvals apply only to the prior scope.
+
+Vinh/Codex implemented domain `LearningDocument`, `DocumentService`, practice receipts and trusted grader feedback validation. Six new regression tests exercise document copies/publication, practice/scored separation, ordered mixed outcomes, malformed answers/feedback, retries/account isolation and answer-key boundaries. Full quality on this remediation passed: 45 unit, 9 component, 2 E2E; typecheck/build pass; scan 256 files/0 unsafe. No database, env, dependency or feature UI changes. Review of the new implementation is still pending; all M2 tasks stay REVIEW and the PO gate is unchanged.
