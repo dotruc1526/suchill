@@ -185,3 +185,5 @@ export type MultipleChoiceQuestion = {
   difficulty: 'intro' | 'standard' | 'advanced'
   status: PublishStatus
 }
+
+export type { LearningDocument, DocumentSection } from './document.ts'

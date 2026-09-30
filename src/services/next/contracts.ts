@@ -1,4 +1,4 @@
-import type { Chapter, Lesson, Locale, MediaAsset, MultipleChoiceQuestion, QuestionSet, StoryVersion } from '../../types/v2/content.ts'
+import type { Chapter, LearningDocument, Lesson, Locale, MediaAsset, MultipleChoiceQuestion, QuestionSet, StoryVersion } from '../../types/v2/content.ts'
 import type { EpisodeProgress, LessonProgress, VideoProgress } from '../../types/v2/progress.ts'
 
 export type ServiceErrorCode = 'not_found' | 'unauthorized' | 'offline' | 'validation' | 'conflict' | 'server_error'
@@ -12,6 +12,9 @@ export interface ChapterService {
 }
 export interface LessonService {
   getById(lessonId: string): Promise<Result<Lesson>>
+}
+export interface DocumentService {
+  getById(documentId: string): Promise<Result<LearningDocument>>
 }
 export interface VisualNovelService {
   getVersion(storyVersionId: string): Promise<Result<StoryVersion>>
@@ -63,15 +66,24 @@ export type ScoredQuizSubmission = {
   questionSetId: string
   answers: Array<{ questionId: string; selectedOptionIds: string[] }>
 }
+/** Submit all QuestionSet.questionIds; the current contract has no optional questions. */
+export type PracticeQuizSubmission = ScoredQuizSubmission
+/** Exactly one entry per question, ordered by QuestionSet.questionIds, on every success. */
+export type QuestionFeedback = { questionId: string; outcome: 'correct' | 'incorrect'; explanation: string }
+export type PracticeQuizReceipt = {
+  attemptId: string
+  feedback: QuestionFeedback[]
+}
 export type ScoredQuizReceipt = {
   attemptId: string
   score: number
   total: number
   passed: boolean
-  feedback?: Array<{ questionId: string; explanation: string }>
+  feedback: QuestionFeedback[]
 }
 export interface QuizService {
   getQuestionSet(questionSetId: string): Promise<Result<QuestionSetDelivery>>
+  submitPracticeAttempt(input: PracticeQuizSubmission): Promise<Result<PracticeQuizReceipt>>
   submitScoredAttempt(input: ScoredQuizSubmission): Promise<Result<ScoredQuizReceipt>>
 }
 export type CurrentUserProfile = { id: string; displayName: string; locale: Locale }
@@ -81,6 +93,7 @@ export interface UserService {
 export type LearningServices = {
   chapters: ChapterService
   lessons: LessonService
+  documents: DocumentService
   stories: VisualNovelService
   media: MediaService
   progress: ProgressService

@@ -5,6 +5,8 @@
  */
 export type {
   Chapter as DomainChapter,
+  LearningDocument as DomainLearningDocument,
+  DocumentSection as DomainDocumentSection,
   EntityId as DomainEntityId,
   HistoricalClaim as DomainHistoricalClaim,
   HistoricalSource as DomainHistoricalSource,
