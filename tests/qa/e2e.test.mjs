@@ -156,7 +156,7 @@ test('learning journey stays usable and uncut at mobile widths', async () => {
               const journey = document.querySelector('[data-testid="learning-journey"]')
               const card = document.querySelector('[data-testid="journey-chapter-card"]')
               const title = document.querySelector('[data-testid="journey-title"]')
-              const button = document.querySelector('[data-testid="journey-open-chapter"]')
+              const button = document.querySelector('[data-testid^="journey-open-chapter-"]')
               if (!journey || !card || !title || !button) return null
               const cardRect = card.getBoundingClientRect()
               const buttonRect = button.getBoundingClientRect()
@@ -188,6 +188,43 @@ test('learning journey stays usable and uncut at mobile widths', async () => {
           await writeFile(path, screenshot.data, 'base64')
         }
       }
+    })
+  } finally {
+    await new Promise((resolve, reject) => server.httpServer.close(error => error ? reject(error) : resolve()))
+  }
+})
+
+test('learning journey moves focus on forward and back navigation', async () => {
+  const browser = findBrowser()
+  assert.ok(browser, 'Set CHROME_PATH to a local Chromium/Chrome executable for E2E')
+
+  const server = await preview({ preview: { host: '127.0.0.1', port: 0, strictPort: false } })
+  try {
+    const address = server.httpServer.address()
+    assert.ok(address && typeof address !== 'string')
+    const url = `http://127.0.0.1:${address.port}/`
+    await withChromePage(browser, url, async cdp => {
+      const evaluate = expression => cdp('Runtime.evaluate', { expression, returnByValue: true })
+      const waitFor = async (expression, label) => {
+        for (let attempt = 0; attempt < 100; attempt += 1) {
+          if ((await evaluate(expression)).result.value) return
+          await delay(50)
+        }
+        assert.fail(`Timed out waiting for focus on ${label}`)
+      }
+
+      await waitFor("Boolean(document.querySelector('[data-testid^=\"journey-open-chapter-\"]'))", 'chapter trigger')
+      await evaluate("document.querySelector('[data-testid^=\"journey-open-chapter-\"]').click()")
+      await waitFor("document.activeElement?.id === 'chapter-heading'", 'chapter heading')
+
+      await evaluate("document.querySelector('[data-testid^=\"journey-open-lesson-\"]').click()")
+      await waitFor("document.activeElement?.id === 'lesson-entry-heading'", 'lesson heading')
+
+      await evaluate("document.querySelector('[data-testid=\"journey-lesson-back\"]').click()")
+      await waitFor("document.activeElement?.dataset.testid?.startsWith('journey-open-lesson-')", 'lesson trigger')
+
+      await evaluate("document.querySelector('[data-testid=\"journey-chapter-back\"]').click()")
+      await waitFor("document.activeElement?.dataset.testid?.startsWith('journey-open-chapter-')", 'chapter trigger')
     })
   } finally {
     await new Promise((resolve, reject) => server.httpServer.close(error => error ? reject(error) : resolve()))

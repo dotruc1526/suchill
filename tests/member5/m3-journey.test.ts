@@ -7,7 +7,10 @@ import { loadJourney, startLesson } from '../../src/features/learning/journey/jo
 const lesson: Lesson = {
   id: 'lesson-stable', chapterId: 'chapter-stable', slug: 'stable', title: 'Bài học', summary: 'Fixture',
   format: 'standard', estimatedMinutes: 5, learningObjectiveIds: [], prerequisites: [], status: 'published',
-  blocks: [{ id: 'block-stable', order: 0, required: true, kind: 'text', documentId: 'document-stable' }],
+  blocks: [
+    { id: 'block-stable', order: 0, required: true, kind: 'text', documentId: 'document-stable' },
+    { id: 'block-resume', order: 1, required: true, kind: 'text', documentId: 'document-resume' },
+  ],
 }
 const chapter: Chapter = {
   id: 'chapter-stable', slug: 'chapter', title: 'Chương', summary: 'Fixture', historicalPeriodLabel: '1972',
@@ -40,4 +43,23 @@ test('M3 journey exposes empty and service failure states without reading fixtur
     chapters: { ...emptyServices.chapters, listPublished: async () => ({ ok: false, error: 'offline' }) },
   })
   assert.deepEqual(offline, { ok: false, error: 'offline' })
+})
+
+test('reopening a lesson preserves its existing checkpoint', async () => {
+  const services = createMockLearningServices(
+    { chapters: [chapter], lessons: [lesson], storyVersions: [], mediaAssets: [] },
+    { userId: 'user-resume' }, () => '2026-10-01T00:00:00.000Z',
+  )
+  const checkpoint = await services.progress.saveCheckpoint({
+    lessonId: lesson.id,
+    currentBlockId: 'block-resume',
+    completedBlockIds: ['block-stable'],
+    operationId: 'advance-to-second-block',
+  })
+  assert.equal(checkpoint.ok, true)
+
+  assert.equal((await startLesson(services, lesson)).ok, true)
+  const progress = await services.progress.getLessonProgress(lesson.id)
+  assert.equal(progress.ok && progress.value?.currentBlockId, 'block-resume')
+  assert.deepEqual(progress.ok && progress.value?.completedBlockIds, ['block-stable'])
 })

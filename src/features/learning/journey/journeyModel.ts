@@ -32,6 +32,9 @@ export async function loadJourney(services: LearningServices): Promise<JourneyLo
 }
 
 export async function startLesson(services: LearningServices, lesson: JourneyLesson) {
+  const existing = await services.progress.getLessonProgress(lesson.id)
+  if (!existing.ok || existing.value) return existing
+
   const firstBlock = [...lesson.blocks].sort((a, b) => a.order - b.order)[0]
   if (!firstBlock) return { ok: false as const, error: 'not_found' as const }
   return services.progress.saveCheckpoint({
