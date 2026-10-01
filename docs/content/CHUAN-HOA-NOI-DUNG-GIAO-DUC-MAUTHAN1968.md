@@ -113,7 +113,7 @@ Cuộc Tổng tiến công và nổi dậy Tết Mậu Thân 1968 diễn ra bấ
 
 ### Question 3
 Một trong những căn hầm bí mật nuôi giấu vũ khí phục vụ Biệt động đánh Tòa Đại sứ Mỹ và Dinh Độc Lập hiện nay nằm tại địa chỉ nào ở TP. Hồ Chí Minh?
-- A. Số 287/70 đường Võ Văn Tần, Quận 3. *(Đáp án đúng)*
+- A. Số 287/70 đường Trần Quý Cáp (nay là đường Võ Văn Tần, Quận 3). *(Đáp án đúng)*
 - B. Số 10 đường Đồng Khởi, Quận 1.
 - C. Chợ Bến Thành, Quận 1.
 - D. Bến Nhà Rồng, Quận 4.
@@ -232,7 +232,7 @@ Vì sao sau khi đánh chiếm được Đài Phát thanh Sài Gòn rạng sáng
 
 ### Question 3
 Các chiến sĩ Đội 5 Biệt động Sài Gòn xuất phát từ căn hầm chứa vũ khí nào để tiến công vào Dinh Độc Lập?
-- A. Căn hầm bí mật tại số 287/70 đường Võ Văn Tần (Quận 3). *(Đáp án đúng)*
+- A. Căn hầm bí mật tại số 287/70 đường Trần Quý Cáp (nay là đường Võ Văn Tần, Quận 3). *(Đáp án đúng)*
 - B. Địa đạo Củ Chi.
 - C. Căn cứ R (Tây Ninh).
 - D. Nhà tù Côn Đảo.

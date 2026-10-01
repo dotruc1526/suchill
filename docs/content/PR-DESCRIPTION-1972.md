@@ -75,10 +75,10 @@ Pull Request này bàn giao trọn vẹn gói nội dung hoàn chỉnh đầu ti
 
 Toàn bộ 3 script kiểm thử của Chapter 1972 và quét an toàn mã nguồn đều **PASS 100%** tại local:
 
-- `node docs/content/validate-1972-authoring.mjs`: **PASS** (8/8 scenes reachable, 7 nodes SAM-2 hợp lệ, text-first fallback).
+- `node docs/content/validate-1972-authoring.mjs`: **PASS** (8/8 scenes reachable, 5 nodes SAM-2 hợp lệ, text-first fallback).
 - `node docs/content/validate-1972-lesson03.mjs`: **PASS** (cấu trúc bài đọc, đối chiếu sử liệu, reflection questions).
 - `node docs/content/validate-1972-quiz.mjs`: **PASS** (5 câu hỏi phủ 4 CLO, options & explanation đầy đủ).
-- `node scripts/member5/check-client-env.mjs`: Checked 250 files / **0 unsafe matches**.
+- `node scripts/member5/check-client-env.mjs`: Checked 332 files / **0 unsafe matches**.
 
 ---
 

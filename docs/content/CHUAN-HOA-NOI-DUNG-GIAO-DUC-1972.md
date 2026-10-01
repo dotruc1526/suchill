@@ -144,64 +144,52 @@ Mục tiêu quân sự và chính trị chủ yếu của chính quyền Nixon k
 - **Title:** SAM-2: Vạch Nhiễu Tìm Thù — Trí Tuệ Trong Xe Chỉ Huy Tên Lửa
 - **Historical period:** Kháng chiến chống Mỹ cứu nước (Tháng 12/1972)
 - **Target age:** 12 – 18 tuổi (Học sinh THCS - THPT)
-- **Difficulty:** Nâng cao (Interactive Visual Novel & Sơ đồ kỹ thuật)
-- **Format:** Visual Novel 8 cảnh phân nhánh + Sơ đồ 7 nodes kíp trắc thủ SAM-2
+- **Difficulty:** Nâng cao (Interactive Visual Novel & Sơ đồ khái quát 5 nodes)
+- **Format:** Visual Novel 8 phân cảnh + Sơ đồ 5 nodes tổ hợp SAM-2
 - **Learning objectives:**
-  - Hiểu được cấu tạo và nguyên lý hoạt động của tổ hợp tên lửa phòng không SAM-2 (S-75 Dvina) cùng đài điều khiển radar Fan Song.
-  - Phân tích được các loại nhiễu điện tử mà Không quân Mỹ sử dụng nhằm vô hiệu hóa hệ thống phòng không của ta.
-  - Cảm phục trí tuệ, lòng dũng cảm và tinh thần hiệp đồng tác chiến của kíp xe chỉ huy tên lửa: Sĩ quan điều khiển và 3 trắc thủ (Góc tà, Phương vị, Cự ly).
+  - Hiểu được cấu tạo và nguyên lý hoạt động khái quát của tổ hợp tên lửa phòng không SAM-2 (S-75 Dvina) cùng đài điều khiển radar Fan Song.
+  - Nhận thức được môi trường tác chiến điện tử phức tạp mà đối phương sử dụng nhằm che giấu mục tiêu trên màn huỳnh quang.
+  - Cảm phục trí tuệ, lòng dũng cảm và tinh thần phối hợp hiệp đồng tác chiến tập thể của kíp chiến đấu trong Cabin điều khiển (Xe K).
 
 ---
 
 ## 2. Hook
-Bước vào một căn xe thùng chật hẹp, nóng hầm hập giữa mùa đông, bốn người lính trẻ căng mắt trước những màn huỳnh quang radar chỉ rộng bằng bàn tay. Phía bên ngoài, hàng chục tấn bom B-52 rải thảm đang làm rung chuyển mặt đất.
+Bước vào không gian cabin xe điều khiển chật hẹp, những người lính phòng không trẻ tuổi tập trung cao độ trước những màn huỳnh quang radar. Phía bên ngoài, các đợt tập kích của đối phương đang làm rung chuyển mặt đất.
 
-Trên màn hình, tín hiệu mục tiêu bị che lấp hoàn toàn bởi một biển "nhiễu râu tôm" trắng xóa, dập dềnh như sóng biển. Làm thế nào những người lính Việt Nam có thể "vạch" được bức màn nhiễu vô hình đó để phóng quả đạn tên lửa trị giá hàng ngàn đô-la trúng vào tim của siêu pháo đài bay Mỹ? Đó là cuộc đấu trí nghẹt thở của trí tuệ và bản lĩnh!
+Trên màn hiện sóng, tín hiệu mục tiêu bị che lấp bởi các dải nhiễu điện tử dày đặc, dập dềnh. Làm thế nào những người lính tên lửa Việt Nam có thể nhận diện được mục tiêu thật giữa màn nhiễu vô hình để điều khiển đạn tên lửa bắn trúng pháo đài bay B-52? Đó là cuộc đấu trí của bản lĩnh, kỷ luật hiệp đồng và trí tuệ tập thể!
 
 ---
 
 ## 3. Story
 
-### [BỐI CẢNH] Căn phòng bí mật: Xe chỉ huy điều khiển tên lửa
-Trái tim của một tiểu đoàn tên lửa phòng không SAM-2 không nằm ở các bệ phóng ngoài trời, mà nằm bên trong **Xe điều khiển (Cabin PA-00)** — một xe thùng cơ động được bọc kín để chống mảnh bom và bức xạ sóng cao tần.
+### [BỐI CẢNH] Sở chỉ huy tổ hợp: Cabin điều khiển (Xe K)
+Trong tổ hợp tên lửa phòng không SAM-2, Cabin điều khiển (Xe K) giữ vai trò sở chỉ huy trung tâm — nơi toàn bộ kíp chiến đấu cùng làm việc và phối hợp hiệp đồng chặt chẽ ở mức khái quát theo chuẩn `CLM-1972-VN-002`.
 
-Trong chiếc cabin chật chội chưa đầy 8 mét vuông ấy là nơi làm việc của kíp chiến đấu 4 người gồm:
-1. **Sĩ quan điều khiển:** Người chỉ huy trực tiếp trận đánh, phân tích tình huống và phát lệnh phóng tên lửa.
-2. **Trắc thủ Góc tà (Trắc thủ 1 - F1):** Chuyên trách theo dõi góc ngẩng (độ cao) của mục tiêu.
-3. **Trắc thủ Phương vị (Trắc thủ 2 - F2):** Chuyên trách theo dõi hướng bay (đông, tây, nam, bắc) của mục tiêu.
-4. **Trắc thủ Cự ly (Trắc thủ 3 - F3):** Chuyên trách đo khoảng cách xa - gần của mục tiêu đến trận địa.
+Tại không gian làm việc này, kíp chiến đấu trực tiếp theo dõi các tham số mục tiêu, tiếp nhận mệnh lệnh từ chỉ huy tiểu đoàn và điều khiển hỏa lực. Không gian làm việc chung đòi hỏi sự ăn khớp tuyệt đối giữa từng vị trí hiệp đồng nhằm chuyển hóa các mệnh lệnh tác chiến thành hành động chính xác trên trận địa.
 
-> **Thuật ngữ:** *"Hệ thống tên lửa SAM-2 (S-75 Dvina)"* là loại vũ khí phòng không do Liên Xô viện trợ cho Việt Nam từ năm 1965. Đạn tên lửa dài gần 11 mét, mang đầu nổ mảnh nặng gần 200 kg, được dẫn đường bằng sóng vô tuyến từ đài radar Fan Song đặt trên mặt đất.
+> **Thuật ngữ:** *"Hệ thống tên lửa SAM-2 (S-75 Dvina)"* là loại khí tài phòng không do Liên Xô viện trợ cho Việt Nam từ năm 1965. Đạn tên lửa được điều khiển bằng sóng vô tuyến từ đài radar Fan Song đặt trên trận địa để vươn tới các mục tiêu bay ở độ cao lớn.
 
-### [VẤN ĐỀ / XUNG ĐỘT] Bức tường vô hình: Chiến tranh điện tử của Không quân Mỹ
-Để bảo vệ B-52, người Mỹ tin rằng hệ thống gây nhiễu điện tử của họ là hoàn hảo:
-- Mỗi chiếc B-52 mang theo hàng chục máy phát nhiễu chủ động, phát ra các dải sóng vô tuyến làm mù hoàn toàn các tần số radar của đối phương.
-- Các máy bay tác chiến điện tử chuyên dụng (EB-66, EA-6B) bay kèm vòng ngoài để tạo ra "nhiễu ngoài đội hình".
-- Máy bay chiến thuật rải hàng triệu sợi kim loại mỏng (gọi là *chaff* hay *nhiễu tiêu cực*) lơ lửng trên bầu trời tạo thành một đám mây phản xạ tín hiệu radar giả.
+### [VẤN ĐỀ / XUNG ĐỘT] Thách thức từ môi trường gây nhiễu điện tử
+Khi đối đầu với pháo đài bay B-52, thách thức lớn nhất đối với lực lượng phòng không là môi trường đối phương gây nhiễu điện tử dày đặc:
+- Các máy bay ném bom chiến lược và máy bay hộ tống phát ra các dải nhiễu điện tử tích cực nhằm làm mờ hoặc che giấu tín hiệu phản xạ trên màn huỳnh quang.
+- Các máy bay chiến thuật rải các bó sợi kim loại phản xạ (nhiễu tiêu cực) lơ lửng trên không trung tạo thành các dải phản xạ giả.
 
-Khi kíp chiến đấu bật radar, màn hình hiện sóng không hiển thị chấm sáng máy bay rõ ràng như bình thường mà chỉ thấy một dải sáng trắng xóa, nhấp nhô dày đặc như "râu tôm". Nếu không phân biệt được mục tiêu thật, việc phóng tên lửa sẽ hoàn toàn vô ích và lãng phí đạn.
+Khi radar hoạt động, màn hiện sóng không hiển thị chấm sáng mục tiêu rõ ràng mà chỉ thấy các dải sáng nhấp nhô dày đặc. Nếu không nhận diện được quy luật của dải nhiễu, việc phóng đạn tên lửa sẽ không mang lại hiệu quả tiêu diệt mục tiêu.
 
 ### [DIỄN BIẾN] "Vạch nhiễu tìm thù" bằng Cẩm nang bìa đỏ
-Trước thử thách sống còn, bộ đội tên lửa Việt Nam đã không chịu lùi bước. Nhờ kinh nghiệm "săn B-52" tại Vĩnh Linh và những chỉ dẫn trong cuốn *Cẩm nang bìa đỏ* tháng 10/1972, kíp trắc thủ đã nắm chắc quy luật:
-- **Nhiễu rải tiêu cực (chaff):** Trôi dạt theo chiều gió, tốc độ chậm.
-- **Nhiễu tích cực của máy bay tiêm kích hộ tống:** Dải nhiễu hẹp, cơ động nhanh, đổi hướng liên tục.
-- **Nhiễu của B-52:** Là dải nhiễu nặng nhất, dập dềnh nhất, nhưng dải nhiễu di chuyển với tốc độ ổn định (khoảng 900 km/h) và bay theo đường thẳng ổn định để rải bom.
+Trước thách thức sống còn, bộ đội tên lửa Việt Nam đã không chịu lùi bước. Nhờ thực tiễn nghiên cứu tại chiến trường Vĩnh Linh và Quân khu 4, cuốn tài liệu *"Cách đánh B-52 của bộ đội tên lửa"* (thường gọi là "Cẩm nang bìa đỏ") do Quân chủng PK-KQ ban hành tháng 10/1972 đã trở thành tài liệu đúc kết kinh nghiệm then chốt theo `CLM-1972-VN-003`:
+- Phân tích bối cảnh gây nhiễu và đúc kết quy luật chuyển động của dải nhiễu B-52 so với các loại nhiễu khác.
+- Hướng dẫn kíp chiến đấu phương pháp quan sát, giữ vững kỷ luật hiệp đồng để xác định tâm dải nhiễu.
+- Đúc kết các phương pháp bám sát mục tiêu phù hợp với từng hoàn cảnh chiến đấu cụ thể trên trận địa.
 
-Ở giữa tâm dải nhiễu dập dềnh ấy, tín hiệu phản xạ thật của B-52 thi thoảng lóe lên như một điểm sáng hình "hạt vừng" hoặc "ánh trăng trong mây". Bằng sự phối hợp chuẩn xác tuyệt đối, cả ba trắc thủ phải điều khiển tay quay đưa vạch cữ trùng khít vào tâm dải nhiễu ở cả ba tọa độ: Góc tà, Phương vị và Cự ly.
+### [BƯỚC NGOẶT] Bản lĩnh hiệp đồng và làm chủ công nghệ
+Trong cuộc đối đầu nghẹt thở, kíp chiến đấu đã vận dụng sáng tạo các bài học trong cuốn cẩm nang:
+- Phối hợp hiệp đồng chặt chẽ giữa các thành phần khí tài: đài radar cảnh giới từ xa, đài radar Fan Song bám sát và bệ phóng tên lửa.
+- Giữ vững kỷ luật khí tài, nắm bắt thời cơ có lợi để bắt bám mục tiêu và phát lệnh hỏa lực chính xác.
+- Tinh thần "Vạch nhiễu tìm thù" trở thành biểu tượng của trí tuệ, sự sáng tạo tập thể và lòng dũng cảm vô song của bộ đội tên lửa Việt Nam.
 
-### [BƯỚC NGOẶT] Bí quyết phát sóng tức thời và phương pháp bắn 3 điểm
-Phát sóng radar quá sớm sẽ lập tức bị máy bay Mỹ phát hiện và phóng tên lửa tự dẫn Shrike để tiêu diệt trận địa. Vì vậy, các sĩ quan điều khiển Việt Nam áp dụng chiến thuật phục kích:
-- Đón mục tiêu bằng radar cảnh giới từ xa.
-- Chỉ khi B-52 vào cự ly phóng hiệu quả (khoảng 30 - 32 km), Sĩ quan điều khiển mới bất ngờ hạ lệnh: *"Bật cao thế! Phát sóng!"*.
-- Kíp trắc thủ chỉ có từ 6 đến 8 giây để bám sát mục tiêu.
-- Áp dụng phương pháp bắn **"Ba điểm" (T-T)**: Đạn tên lửa, đài điều khiển và mục tiêu luôn nằm trên một đường thẳng, giúp tên lửa lao thẳng vào tâm dải nhiễu mà không phụ thuộc vào việc đo cự ly chính xác.
-
-### [KẾT QUẢ & Ý NGHĨA] Ngọn đuốc sáng rực bầu trời
-*"Mục tiêu lọt vào cự ly hiệu quả! B-52 cự ly 28! ... Phóng!"*
-
-Hai quả tên lửa SAM-2 rời bệ phóng, phụt ra luồng lửa chói lòa làm bừng sáng cả một vùng đất. Mười lăm giây nghẹt thở trôi qua trong xe chỉ huy. Tiếng ngòi nổ vô tuyến báo về: *"Mục tiêu bị tiêu diệt!"*.
-
-Sự kết hợp hoàn hảo giữa vũ khí hiện đại và bản lĩnh, trí tuệ con người Việt Nam đã vô hiệu hóa bức tường chiến tranh điện tử tối tân nhất hành tinh.
+### [KẾT QUẢ & Ý NGHĨA] Chiến công vang dội trên bầu trời
+Khi thời cơ tác chiến xuất hiện, đạn tên lửa SAM-2 rời bệ phóng, xé toang màn đêm và lao vút vào bầu trời. Những pháo đài bay B-52 bốc cháy và rơi tại chỗ là minh chứng đanh thép cho sự thất bại của công nghệ gây nhiễu tối tân trước ý chí, bản lĩnh và trí tuệ của con người Việt Nam.
 
 ---
 
@@ -473,62 +461,62 @@ Chiến thắng "Điện Biên Phủ trên không" tháng 12/1972 là đỉnh ca
 ## 6. Quiz Bank (5 Câu hỏi chuẩn hóa 4 CLO)
 
 ### Question 1 (CLO-1: Bối cảnh & Mục tiêu Chiến dịch)
-Mỹ đã huy động loại máy bay ném bom chiến lược tối tân nào làm lực lượng chủ công trong Chiến dịch Linebacker II (tháng 12/1972) tập kích Hà Nội và Hải Phòng?
-- A. B-52 Stratofortress ("Pháo đài bay"). *(Đáp án đúng)*
-- B. B-2 Spirit (Máy bay ném bom tàng hình).
-- C. B-29 Superfortress (Máy bay ném bom Thế chiến II).
-- D. F-4 Phantom II.
+Mục đích chiến lược chủ yếu của chính quyền Mỹ khi phát động cuộc tập kích đường không Linebacker II cuối tháng 12/1972 là gì?
+- A. Tiêu diệt toàn bộ lực lượng hải quân miền Bắc.
+- B. Gây sức ép quân sự tối đa buộc Việt Nam chấp nhận sửa đổi các điều khoản Hiệp định Paris theo ý Mỹ. *(Đáp án đúng)*
+- C. Mở đường cho quân đội Mỹ đổ bộ đường bộ ra Hà Nội.
+- D. Chiếm đóng vĩnh viễn các sân bay quân sự tại miền Bắc.
 
-> **Giải thích:** Trong Chiến dịch Linebacker II, Mỹ đã huy động gần 200 máy bay ném bom chiến lược hạng nặng B-52 Stratofortress (thường gọi là "Pháo đài bay") làm lực lượng ném bom rải thảm chủ lực.\
-> **Nguồn đối chiếu:** *Lịch sử Quân chủng PK-KQ (1963-2013)*, NXB QĐND, tr. 254; Báo Chính phủ.
-
----
-
-### Question 2 (CLO-2: Công nghệ Radar & Chiến thuật SAM-2)
-Trở ngại kỹ thuật lớn nhất mà bộ đội radar và tên lửa phòng không Việt Nam phải giải quyết để bắn hạ B-52 là gì?
-- A. Đạn tên lửa SAM-2 không đủ tầm bắn để vươn tới độ cao 10.000 mét.
-- B. Màn hình radar bị bao phủ bởi các dải nhiễu điện tử dày đặc, đòi hỏi trắc thủ phải có kỹ năng "vạch nhiễu tìm thù". *(Đáp án đúng)*
-- C. Thiếu hụt hoàn toàn bệ phóng tên lửa ở khu vực ngoại thành Hà Nội.
-- D. Không có sĩ quan chỉ huy được đào tạo bài bản về tác chiến đường không.
-
-> **Giải thích:** Mỗi chiếc B-52 cùng các máy bay hộ tống tạo ra màn nhiễu điện tử vô cùng dày đặc làm mù radar. Kíp trắc thủ SAM-2 của ta đã phải học cách phân biệt dải nhiễu để bắt đúng tín hiệu mục tiêu theo Cẩm nang bìa đỏ.\
-> **Nguồn đối chiếu:** *Cẩm nang Cách đánh B-52 của bộ đội tên lửa*, Bộ Tư lệnh PK-KQ, 10/1972, tr. 12-18.
+> **Giải thích:** Không quân Mỹ phát động Linebacker II nhằm dùng sức mạnh bom rải thảm B-52 để ép phái đoàn Việt Nam tại Hội nghị Paris phải nhượng bộ và chấp nhận các điều khoản có lợi cho Mỹ.\
+> **Nguồn đối chiếu:** *Lịch sử Quân đội nhân dân Việt Nam (1944 - 1975)*, tr. 620–652 (`SRC-LB2-01`); *Winged Shield, Winged Sword (Vol. II)*, tr. 340–348 (`SRC-LB2-05`).
 
 ---
 
-### Question 3 (CLO-3: Diễn biến Bước ngoặt & Tội ác Chiến tranh)
-Trong đêm 26/12/1972, địa điểm dân cư đông đúc nào tại Hà Nội đã bị bom rải thảm B-52 tàn phá khốc liệt nhất, khiến 287 thường dân thiệt mạng?
-- A. Khu phố cổ Hàng Đào.
-- B. Khu phố Khâm Thiên. *(Đáp án đúng)*
-- C. Khu vực Cầu Giấy.
-- D. Thị xã Sơn Tây.
+### Question 2 (CLO-2: Không gian Hiệp đồng Khí tài SAM-2)
+Trong tổ hợp tên lửa phòng không SAM-2, thành phần nào là không gian làm việc chung, nơi kíp chiến đấu trực tiếp phối hợp hiệp đồng để chỉ huy và điều khiển hỏa lực?
+- A. Cabin điều khiển (Xe K). *(Đáp án đúng)*
+- B. Trận địa pháo cao xạ tầm thấp bảo vệ sân bay.
+- C. Trạm quan sát mắt tầm xa bố trí trên điểm cao.
+- D. Khu vực kho kỹ thuật lắp ráp và tiếp nạp nhiên liệu đạn.
 
-> **Giải thích:** Đêm 26/12/1972, bom B-52 đã trút xuống khu phố Khâm Thiên làm chết 287 người, làm bị thương 290 người và phá hủy gần 2.000 ngôi nhà. Ngày nay nơi đây có Tượng đài Khâm Thiên tưởng niệm các nạn nhân.\
-> **Nguồn đối chiếu:** *Hồ sơ di tích Tượng đài Khâm Thiên*; Báo Nhân Dân, Báo Quân đội Nhân dân.
+> **Giải thích:** Theo tư liệu lịch sử được ghi nhận trong `CLM-1972-VN-002`, Cabin điều khiển (Xe K) là thành phần sở chỉ huy của tổ hợp SAM-2, nơi toàn bộ kíp chiến đấu cùng làm việc và phối hợp hiệp đồng chặt chẽ để chỉ huy và điều khiển hỏa lực.\
+> **Nguồn đối chiếu:** *Lịch sử Bộ đội Tên lửa Phòng không*; `CLM-1972-VN-002`; Báo Quân đội nhân dân.
 
 ---
 
-### Question 4 (CLO-3: Hiệp đồng tác chiến & Thắng lợi quyết định)
-Trong đêm tập kích quy mô lớn nhất ngày 26/12/1972, lực lượng phòng không ba thứ quân của miền Bắc đã lập kỷ lục bắn rơi bao nhiêu máy bay B-52 của Mỹ?
-- A. 2 chiếc.
-- B. 5 chiếc.
-- C. 8 chiếc (riêng lực lượng bảo vệ Hà Nội bắn rơi 5 chiếc). *(Đáp án đúng)*
-- D. 15 chiếc.
+### Question 3 (CLO-3: Cẩm nang Đúc kết Cách đánh B-52)
+Trước thách thức từ môi trường gây nhiễu điện tử dày đặc của B-52, bộ đội tên lửa Việt Nam đã dựa vào tài liệu đúc kết kinh nghiệm thực tiễn nào để tìm ra phương pháp vạch nhiễu đánh địch?
+- A. Sổ tay hướng dẫn kỹ thuật bay của đối phương thu giữ được.
+- B. Cuốn tài liệu nghiên cứu tác chiến thường được gọi là 'Cẩm nang bìa đỏ'. *(Đáp án đúng)*
+- C. Tài liệu kỹ thuật radar nguyên bản từ nước ngoài chưa qua cải tiến.
+- D. Kế hoạch tác chiến hiệp đồng bộ binh đường bộ năm 1968.
 
-> **Giải thích:** Trong đêm 26/12/1972, quân và dân miền Bắc đã giáng đòn sấm sét bắn rơi 8 máy bay B-52 (riêng Hà Nội diệt 5 chiếc, có 4 chiếc rơi tại chỗ), làm suy sụp hoàn toàn ý chí của chính quyền Nixon.\
-> **Nguồn đối chiếu:** *Nhật ký Tác chiến Quân chủng PK-KQ đêm 26/12/1972*; *Lịch sử Bộ đội Tên lửa Phòng không*, tr. 196.
+> **Giải thích:** Theo tư liệu lịch sử được ghi nhận trong `CLM-1972-VN-003`, cuốn tài liệu *"Cách đánh B-52 của bộ đội tên lửa"* (thường gọi là "Cẩm nang bìa đỏ"), đúc kết từ thực tiễn nghiên cứu tại chiến trường Vĩnh Linh và Quân khu 4, đã đóng vai trò then chốt giúp bộ đội tên lửa phân tích bối cảnh gây nhiễu và vạch ra cách đánh B-52 hiệu quả.\
+> **Nguồn đối chiếu:** *Lịch sử Quân chủng PK-KQ*; `CLM-1972-VN-003`; Kỷ yếu Hội thảo 40 năm Chiến thắng Hà Nội - Điện Biên Phủ trên không.
+
+---
+
+### Question 4 (CLO-4: Diễn biến Đêm Bước ngoặt 26/12)
+Đợt tập kích quy mô lớn nhất của Không quân Mỹ trong chiến dịch (với 105 lần chiếc B-52 đánh phá đồng loạt Hà Nội, Hải Phòng, Thái Nguyên, trong đó bom rải thảm tàn phá khu phố Khâm Thiên) diễn ra vào thời điểm nào?
+- A. Đêm 18/12/1972.
+- B. Đêm 20/12/1972.
+- C. Đêm 26/12/1972. *(Đáp án đúng)*
+- D. Đêm 29/12/1972.
+
+> **Giải thích:** Đêm 26/12/1972, Không quân Mỹ mở đợt tập kích ác liệt nhất với 105 lần chiếc B-52 đánh phá Hà Nội, Hải Phòng và Thái Nguyên. Trong đợt này, bom rải thảm đã tàn phá khu phố Khâm Thiên (Hà Nội), cướp đi sinh mạng của 287 đồng bào. Quân dân ta giáng trả đòn quyết định, bắn rơi 8 máy bay B-52 trong một đêm.\
+> **Nguồn đối chiếu:** *Lịch sử Quân chủng Phòng không - Không quân (1963 - 2013)*, tr. 280–335 (`SRC-LB2-02`); *Điện Biên Phủ trên không — Ý chí và trí tuệ Việt Nam*, tr. 180–195 (`SRC-LB2-03`).
 
 ---
 
 ### Question 5 (CLO-4: Ý nghĩa Lịch sử & Tác động Chiến lược)
-Thắng lợi vang dội của Chiến dịch 12 ngày đêm "Điện Biên Phủ trên không" đã tạo tiền đề quyết định để dẫn tới sự kiện lịch sử quan trọng nào ngay sau đó?
-- A. Ký kết Hiệp định Genève năm 1954.
-- B. Ký kết Hiệp định Paris (27/01/1973), buộc toàn bộ quân viễn chinh Mỹ phải rút khỏi Việt Nam. *(Đáp án đúng)*
-- C. Chiến dịch Điện Biên Phủ toàn thắng năm 1954.
-- D. Ký kết Tuyên bố chung hòa bình với Pháp.
+Thắng lợi 12 ngày đêm 'Điện Biên Phủ trên không' đã trực tiếp dẫn tới kết quả mang tính bước ngoặt nào trên mặt trận ngoại giao?
+- A. Mỹ tuyên bố rút khỏi Hội nghị Paris vô điều kiện.
+- B. Mỹ buộc phải ngừng ném bom từ vĩ tuyến 20 trở ra (30/12/1972) và chấp nhận ký Hiệp định Paris (27/01/1973). *(Đáp án đúng)*
+- C. Các nước đồng minh của Mỹ cử thêm quân viễn chinh vào miền Nam.
+- D. Hội đàm Paris bị kéo dài thêm 2 năm mà không đạt được thỏa thuận.
 
-> **Giải thích:** Thắng lợi "Điện Biên Phủ trên không" đã trực tiếp buộc phía Mỹ phải ngừng ném bom và ngồi vào ký kết Hiệp định Paris ngày 27/01/1973, thực hiện trọn vẹn mục tiêu "Đánh cho Mỹ cút" của Chủ tịch Hồ Chí Minh.\
-> **Nguồn đối chiếu:** Văn bản Hiệp định Paris 1973; *Lịch sử Ngoại giao Việt Nam (1945-2000)*; Báo Chính phủ.
+> **Giải thích:** Thắng lợi 12 ngày đêm "Điện Biên Phủ trên không" đã bẻ gãy ý chí leo thang chiến tranh của chính quyền Nixon, buộc Mỹ phải tuyên bố ngừng ném bom từ vĩ tuyến 20 trở ra vào ngày 30/12/1972 và chấp nhận ký kết Hiệp định Paris ngày 27/01/1973 theo đúng các điều khoản cơ bản đã thỏa thuận trước đó.\
+> **Nguồn đối chiếu:** Văn bản Hiệp định Paris 1973; *Lịch sử Quân chủng PK-KQ*; Báo điện tử Chính phủ.
 
 ---
 
