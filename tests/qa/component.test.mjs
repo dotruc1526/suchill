@@ -51,17 +51,24 @@ test('canonical TopBar renders streak, xp and safe-area header', async () => {
   assert.doesNotMatch(html, /🔥|⭐|🏆/)
 })
 
-test('home decorative greeting and streak icons are hidden from screen readers', async () => {
-  const { HomeScreen } = await vite.ssrLoadModule('/src/features/home/HomeScreen.tsx')
+test('M3 journey home exposes labeled stable-ID navigation', async () => {
+  const { JourneyHome } = await vite.ssrLoadModule('/src/features/learning/journey/JourneyHome.tsx')
   const { theme } = await vite.ssrLoadModule('/src/theme/tokens.ts')
-  const html = renderToStaticMarkup(React.createElement(HomeScreen, { onChapter: () => {}, onLesson: () => {} }))
+  const chapter = {
+    id: 'chapter-stable', slug: 'chapter', title: 'Chương mẫu', summary: 'Fixture', historicalPeriodLabel: '1972',
+    learningObjectiveIds: [], lessonRefs: [], estimatedMinutes: 5, status: 'published', lessons: [], completedCount: 0,
+  }
+  const html = renderToStaticMarkup(React.createElement(JourneyHome, {
+    chapters: [chapter], headingRef: null, chapterButtonRef: () => {}, onChapter: () => {},
+  }))
 
-  assert.match(html, /<svg[^>]*aria-hidden="true"/)
-  assert.equal((html.match(/aria-hidden="true"/g) ?? []).length, 2)
-  assert.doesNotMatch(html, /aria-label="(?:Lời chào|Chuỗi ngày học)"/)
-  assert.ok(html.includes('data-testid="home-streak-card"'))
-  for (const color of [theme.colors.accentRed, theme.colors.primary, theme.colors.primaryText, theme.colors.activeBg, theme.colors.textMuted]) {
-    assert.ok(html.includes(color), `rendered streak UI should use token color ${color}`)
+  assert.ok(html.includes('aria-labelledby="journey-heading"'))
+  assert.ok(html.includes('aria-label="Mở chương Chương mẫu"'))
+  assert.ok(html.includes('data-testid="journey-open-chapter-chapter-stable"'))
+  assert.ok(html.includes('data-testid="journey-chapter-card"'))
+  assert.ok(html.includes('min-h-11'))
+  for (const color of [theme.colors.primary, theme.colors.primaryText, theme.colors.textPrimary, theme.colors.textMuted]) {
+    assert.ok(html.includes(color), `rendered journey UI should use token color ${color}`)
   }
 })
 
@@ -186,4 +193,96 @@ test('Shared states render properly with Vietnamese content', async () => {
     React.createElement(OfflineState, null),
   )
   assert.ok(offlineHtml.includes('Bạn đang ngoại tuyến'))
+})
+
+test('M3-05 quiz view is semantic, blocks incomplete submit and renders trusted feedback', async () => {
+  const { QuizFlowView } = await vite.ssrLoadModule('/src/features/quiz/v2/QuizFlowView.tsx')
+  const noop = () => {}
+  const delivery = {
+    set: { id: 'quiz', title: 'Kiểm tra chương', mode: 'scored', questionIds: ['q1', 'q2'], learningObjectiveIds: [] },
+    questions: ['q1', 'q2'].map(id => ({
+      id, prompt: `Câu ${id}`, optionIds: ['a', 'b'], sourceIds: [], difficulty: 'intro',
+      options: [{ id: 'a', label: 'Phương án A' }, { id: 'b', label: 'Phương án B' }],
+    })),
+  }
+  const handlers = { onToggle: noop, onSubmit: noop, onEditAfterError: noop, onRetryPractice: noop }
+  const incomplete = renderToStaticMarkup(React.createElement(QuizFlowView, {
+    session: { delivery, answers: { q1: ['a'] } }, submitting: false, answersLocked: false, ...handlers,
+  }))
+  assert.equal((incomplete.match(/<fieldset/g) ?? []).length, 2)
+  assert.ok(incomplete.includes('data-question-id="q1"') && incomplete.includes('data-question-id="q2"'))
+  assert.match(incomplete, /<button[^>]*disabled=""[^>]*>NỘP BÀI/)
+  assert.doesNotMatch(incomplete, /isCorrect|answerKey|Private answer/)
+
+  const receipt = {
+    mode: 'scored', attemptId: 'attempt', score: 1, total: 2, passed: false,
+    feedback: [
+      { questionId: 'q1', outcome: 'correct', explanation: 'Giải thích đúng' },
+      { questionId: 'q2', outcome: 'incorrect', explanation: 'Giải thích sai' },
+    ],
+  }
+  const result = renderToStaticMarkup(React.createElement(QuizFlowView, {
+    session: { delivery, answers: { q1: ['a'], q2: ['b'] } }, receipt,
+    submitting: false, answersLocked: true, ...handlers,
+  }))
+  assert.ok(result.includes('✓ Chính xác') && result.includes('✗ Chưa chính xác'))
+  assert.ok(result.includes('Giải thích đúng') && result.includes('Giải thích sai'))
+  assert.ok(result.includes('Kết quả: 1/2') && result.includes('✗ Chưa đạt'))
+  assert.ok(result.includes('tabindex="-1"'))
+
+  const failed = renderToStaticMarkup(React.createElement(QuizFlowView, {
+    session: { delivery, answers: { q1: ['a'], q2: ['b'] } }, submitting: false,
+    answersLocked: true, submissionError: 'Chưa thể nộp bài (offline).', ...handlers,
+  }))
+  assert.ok(failed.includes('role="alert"') && failed.includes('THỬ GỬI LẠI'))
+  assert.ok(failed.includes('Câu trả lời đang được khóa'))
+})
+
+test('M3-02 lesson renderer routes ordered typed blocks through explicit slots', async () => {
+  const { LessonContentView, LessonRenderer } = await vite.ssrLoadModule('/src/features/learning/lesson/LessonRenderer.tsx')
+  const content = {
+    lesson: { id: 'lesson-mixed', title: 'Bài hỗn hợp', summary: 'Tóm lược' },
+    blocks: [
+      { id: 'text-1', order: 0, required: true, kind: 'text', documentId: 'doc-1', document: {
+        id: 'doc-1', title: 'Văn bản', locale: 'vi-VN', sourceIds: [], status: 'published',
+        sections: [{ id: 'section-1', kind: 'paragraph', text: 'Nội dung lịch sử' }],
+      } },
+      { id: 'vn-1', order: 1, required: true, kind: 'visual_novel', storyVersionId: 'story-v1' },
+      { id: 'video-1', order: 2, required: true, kind: 'video', mediaAssetId: 'media-1', completionPolicy: 'reach_end' },
+      { id: 'quiz-1', order: 3, required: true, kind: 'quiz', questionSetId: 'set-1', assessmentMode: 'practice' },
+      { id: 'recap-1', order: 4, required: true, kind: 'recap', documentId: 'doc-2', document: {
+        id: 'doc-2', title: 'Ôn tập', locale: 'vi-VN', sourceIds: [], status: 'published',
+        sections: [{ id: 'section-2', kind: 'key_points', items: ['Ý chính'] }],
+      } },
+    ],
+  }
+  const slots = {
+    visualNovel: ({ block }) => React.createElement('p', null, `VN:${block.id}`),
+    video: ({ block }) => React.createElement('p', null, `VIDEO:${block.id}`),
+    quiz: ({ block }) => React.createElement('p', null, `QUIZ:${block.id}`),
+  }
+  const html = renderToStaticMarkup(React.createElement(LessonContentView, { content, slots }))
+  const markers = ['Nội dung lịch sử', 'VN:vn-1', 'VIDEO:video-1', 'QUIZ:quiz-1', 'Ý chính']
+  assert.equal((html.match(/data-testid="lesson-block"/g) ?? []).length, 5)
+  assert.ok(markers.every(marker => html.includes(marker)))
+  assert.deepEqual([...markers].sort((a, b) => html.indexOf(a) - html.indexOf(b)), markers)
+  assert.ok(html.includes('data-block-id="text-1"') && html.includes('data-block-kind="recap"'))
+  assert.ok(html.includes('aria-label="Tóm tắt: Ôn tập"'))
+
+  const loading = renderToStaticMarkup(React.createElement(LessonRenderer, {
+    lessonId: 'lesson-mixed', services: {}, slots,
+  }))
+  assert.ok(loading.includes('Đang tải nội dung bài học...'))
+
+  const empty = renderToStaticMarkup(React.createElement(LessonContentView, {
+    content: { lesson: content.lesson, blocks: [] }, slots,
+  }))
+  assert.ok(empty.includes('Bài học chưa có nội dung'))
+})
+
+test('M3-02 lesson renderer wires service failures to an explicit same-lesson retry', async () => {
+  const source = await readFile(new URL('../../src/features/learning/lesson/LessonRenderer.tsx', import.meta.url), 'utf8')
+  assert.match(source, /const \[retryKey, setRetryKey\] = useState\(0\)/)
+  assert.match(source, /\[lessonId, retryKey, services\]/)
+  assert.match(source, /onRetry=\{\(\) => setRetryKey\(value => value \+ 1\)\}/)
 })

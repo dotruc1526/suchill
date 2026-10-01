@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { TopBar } from './components/layout/TopBar'
 import { BottomNav } from './components/layout/BottomNav'
-import { HomeScreen } from './features/home/HomeScreen'
+import { LearningJourney } from './features/learning/journey/LearningJourney'
 import { PracticeScreen } from './features/practice/PracticeScreen'
 import { AIScreen } from './features/ai-assistant/AIScreen'
 import { ProfileScreen } from './features/profile/ProfileScreen'
@@ -55,10 +55,7 @@ export default function App() {
           {!navigation.isOverlay && (
             <div className="flex-1 overflow-y-auto">
               {navigation.tab === 'home' && (
-                <HomeScreen
-                  onChapter={navigation.goChapter}
-                  onLesson={navigation.goLesson}
-                />
+                <LearningJourney />
               )}
               {navigation.tab === 'practice' && <PracticeScreen />}
               {navigation.tab === 'ai' && <AIScreen />}
