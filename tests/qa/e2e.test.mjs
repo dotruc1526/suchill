@@ -8,6 +8,19 @@ import { join } from 'node:path'
 import { test } from 'node:test'
 import { preview } from 'vite'
 
+const delay = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds))
+
+async function terminateChild(child, graceMilliseconds = 3_000) {
+  if (child.exitCode !== null || child.signalCode !== null) return
+
+  const exited = once(child, 'exit').then(() => true)
+  child.kill()
+  if (await Promise.race([exited, delay(graceMilliseconds).then(() => false)])) return
+
+  child.kill('SIGKILL')
+  await Promise.race([exited, delay(graceMilliseconds)])
+}
+
 function findBrowser() {
   if (process.env.CHROME_PATH) return process.env.CHROME_PATH
 
@@ -35,7 +48,7 @@ function dumpDom(browser, url) {
     ])
     let stdout = ''
     let stderr = ''
-    const timeout = setTimeout(() => child.kill(), 20000)
+    const timeout = setTimeout(() => { void terminateChild(child) }, 20_000)
     child.stdout.setEncoding('utf8').on('data', chunk => { stdout += chunk })
     child.stderr.setEncoding('utf8').on('data', chunk => { stderr += chunk })
     child.on('error', reject)
@@ -84,15 +97,25 @@ async function withChromePage(browser, url, run) {
       pending.set(requestId, { resolve, reject, timer })
       socket.send(JSON.stringify({ id: requestId, method, params, sessionId }))
     })
-    const targets = await send('Target.getTargets')
-    const page = targets.targetInfos.find(target => target.type === 'page' && target.url === url)
-    assert.ok(page, `Chrome opened the requested app page: ${JSON.stringify(targets.targetInfos)}`)
+    let page
+    let targetInfos = []
+    for (let attempt = 0; attempt < 100; attempt += 1) {
+      const targets = await send('Target.getTargets')
+      targetInfos = targets.targetInfos
+      page = targetInfos.find(target => target.type === 'page' && target.url === url)
+        ?? targetInfos.find(target => target.type === 'page')
+      if (page) break
+      await delay(50)
+    }
+    assert.ok(page, `Chrome opened a page target: ${JSON.stringify(targetInfos)}`)
     const { sessionId } = await send('Target.attachToTarget', { targetId: page.targetId, flatten: true })
     await run((method, params) => send(method, params, sessionId))
   } finally {
     socket?.close()
-    if (chrome.exitCode === null) { const exited = once(chrome, 'exit'); chrome.kill(); await exited }
-    await rm(profile, { recursive: true, force: true })
+    await terminateChild(chrome)
+    // Chrome subprocesses can briefly flush profile files after the parent exits.
+    // Retry transient ENOTEMPTY/EBUSY errors, but still fail if cleanup never succeeds.
+    await rm(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 })
   }
 }
 
@@ -106,14 +129,14 @@ test('built app renders its home screen in a real local browser', async () => {
     assert.ok(address && typeof address !== 'string')
     const url = `http://127.0.0.1:${address.port}/`
     const html = await dumpDom(browser, url)
-    assert.match(html, /XIN CHÀO/)
+    assert.match(html, /HÀNH TRÌNH LỊCH SỬ/)
     assert.match(html, /LUYỆN TẬP/)
   } finally {
     await new Promise((resolve, reject) => server.httpServer.close(error => error ? reject(error) : resolve()))
   }
 })
 
-test('home streak layout stays centered and uncut at mobile widths', async () => {
+test('learning journey stays usable and uncut at mobile widths', async () => {
   const browser = findBrowser()
   assert.ok(browser, 'Set CHROME_PATH to a local Chromium/Chrome executable for E2E')
 
@@ -130,22 +153,20 @@ test('home streak layout stays centered and uncut at mobile widths', async () =>
         for (let attempt = 0; attempt < 100; attempt += 1) {
           const response = await cdp('Runtime.evaluate', {
             expression: `(() => {
-              const card = document.querySelector('[data-testid="home-streak-card"]')
-              const title = document.querySelector('[data-testid="home-streak-title"]')
-              const days = document.querySelector('[data-testid="home-streak-days"]')
-              if (!card || !title || !days) return null
-              const range = document.createRange()
-              range.selectNodeContents(title)
-              const titleLines = new Set(Array.from(range.getClientRects(), rect => Math.round(rect.top))).size
+              const journey = document.querySelector('[data-testid="learning-journey"]')
+              const card = document.querySelector('[data-testid="journey-chapter-card"]')
+              const title = document.querySelector('[data-testid="journey-title"]')
+              const button = document.querySelector('[data-testid^="journey-open-chapter-"]')
+              if (!journey || !card || !title || !button) return null
               const cardRect = card.getBoundingClientRect()
-              const daysRect = days.getBoundingClientRect()
+              const buttonRect = button.getBoundingClientRect()
               return {
                 viewport: innerWidth,
                 documentWidth: document.documentElement.scrollWidth,
-                titleLines,
-                titleWhiteSpace: getComputedStyle(title).whiteSpace,
-                daysCenter: (daysRect.left + daysRect.right) / 2,
-                cardCenter: (cardRect.left + cardRect.right) / 2,
+                cardLeft: cardRect.left,
+                cardRight: cardRect.right,
+                buttonHeight: buttonRect.height,
+                title: title.textContent,
               }
             })()`,
             returnByValue: true,
@@ -154,12 +175,12 @@ test('home streak layout stays centered and uncut at mobile widths', async () =>
           if (metrics) break
           await new Promise(resolve => setTimeout(resolve, 50))
         }
-        assert.ok(metrics, `${width}px streak elements mounted`)
+        assert.ok(metrics, `${width}px journey elements mounted`)
         assert.equal(metrics.viewport, width)
         assert.equal(metrics.documentWidth, width, `${width}px document has no horizontal overflow`)
-        assert.equal(metrics.titleLines, 1, `${width}px streak title occupies one line`)
-        assert.equal(metrics.titleWhiteSpace, 'nowrap')
-        assert.ok(Math.abs(metrics.daysCenter - metrics.cardCenter) <= 3, `${width}px day row is centered within the card's 3px border/padding inset`)
+        assert.equal(metrics.title, 'HÀNH TRÌNH LỊCH SỬ')
+        assert.ok(metrics.cardLeft >= 0 && metrics.cardRight <= width, `${width}px chapter card stays within viewport`)
+        assert.ok(metrics.buttonHeight >= 44, `${width}px primary action keeps a 44px touch target`)
 
         if (process.env.UPDATE_M1_08_EVIDENCE === '1') {
           const screenshot = await cdp('Page.captureScreenshot', { format: 'png', captureBeyondViewport: false })
@@ -167,6 +188,43 @@ test('home streak layout stays centered and uncut at mobile widths', async () =>
           await writeFile(path, screenshot.data, 'base64')
         }
       }
+    })
+  } finally {
+    await new Promise((resolve, reject) => server.httpServer.close(error => error ? reject(error) : resolve()))
+  }
+})
+
+test('learning journey moves focus on forward and back navigation', async () => {
+  const browser = findBrowser()
+  assert.ok(browser, 'Set CHROME_PATH to a local Chromium/Chrome executable for E2E')
+
+  const server = await preview({ preview: { host: '127.0.0.1', port: 0, strictPort: false } })
+  try {
+    const address = server.httpServer.address()
+    assert.ok(address && typeof address !== 'string')
+    const url = `http://127.0.0.1:${address.port}/`
+    await withChromePage(browser, url, async cdp => {
+      const evaluate = expression => cdp('Runtime.evaluate', { expression, returnByValue: true })
+      const waitFor = async (expression, label) => {
+        for (let attempt = 0; attempt < 100; attempt += 1) {
+          if ((await evaluate(expression)).result.value) return
+          await delay(50)
+        }
+        assert.fail(`Timed out waiting for focus on ${label}`)
+      }
+
+      await waitFor("Boolean(document.querySelector('[data-testid^=\"journey-open-chapter-\"]'))", 'chapter trigger')
+      await evaluate("document.querySelector('[data-testid^=\"journey-open-chapter-\"]').click()")
+      await waitFor("document.activeElement?.id === 'chapter-heading'", 'chapter heading')
+
+      await evaluate("document.querySelector('[data-testid^=\"journey-open-lesson-\"]').click()")
+      await waitFor("document.activeElement?.id === 'lesson-entry-heading'", 'lesson heading')
+
+      await evaluate("document.querySelector('[data-testid=\"journey-lesson-back\"]').click()")
+      await waitFor("document.activeElement?.dataset.testid?.startsWith('journey-open-lesson-')", 'lesson trigger')
+
+      await evaluate("document.querySelector('[data-testid=\"journey-chapter-back\"]').click()")
+      await waitFor("document.activeElement?.dataset.testid?.startsWith('journey-open-chapter-')", 'chapter trigger')
     })
   } finally {
     await new Promise((resolve, reject) => server.httpServer.close(error => error ? reject(error) : resolve()))

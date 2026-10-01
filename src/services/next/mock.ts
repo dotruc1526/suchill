@@ -1,24 +1,27 @@
-import type { Chapter, Lesson, MediaAsset, StoryVersion } from '../../types/v2/content.ts'
-import type { LessonProgress } from '../../types/v2/progress.ts'
+import type { Chapter, LearningDocument, Lesson, Locale, MediaAsset, StoryVersion } from '../../types/v2/content.ts'
+import { createMockProgressService, createMockProgressStore, type MockProgressStore } from './mockProgress.ts'
+import { createMockMediaService, type MockMediaResource } from './mockMedia.ts'
 import { failure, success, type LearningServices } from './contracts.ts'
+import { createMockQuizService, type MockQuizFixture } from './mockQuiz.ts'
+export type { MockQuizFixture } from './mockQuiz.ts'
 
 export type MockCatalog = {
+  documents?: LearningDocument[]
   chapters: Chapter[]
   lessons: Lesson[]
   storyVersions: StoryVersion[]
   mediaAssets: MediaAsset[]
+  mediaResources?: MockMediaResource[]
+  quizzes?: MockQuizFixture[]
 }
 
 /** Isolated contract adapter for tests and future UI wiring; no demo data is canonical. */
 export function createMockLearningServices(
   catalog: MockCatalog,
-  session: { userId: string },
+  session: { userId: string; displayName?: string; locale?: Locale },
   now: () => string = () => new Date().toISOString(),
+  progressStore: MockProgressStore = createMockProgressStore(),
 ): LearningServices {
-  const progress = new Map<string, LessonProgress>()
-  const processed = new Map<string, { signature: string; result: LessonProgress }>()
-  const progressKey = (userId: string, lessonId: string) => JSON.stringify([userId, lessonId])
-  const operationKey = (userId: string, operationId: string) => JSON.stringify([userId, operationId])
   const copy = <T>(value: T): T => structuredClone(value)
   const published = <T extends { status?: string; reviewStatus?: string }>(value: T): boolean =>
     (value.status ?? value.reviewStatus) === 'published'
@@ -39,54 +42,25 @@ export function createMockLearningServices(
         return lesson ? success(copy(lesson)) : failure('not_found')
       },
     },
+    documents: {
+      async getById(documentId) {
+        const document = catalog.documents?.find(item => item.id === documentId && published(item))
+        return document ? success(copy(document)) : failure('not_found')
+      },
+    },
     stories: {
       async getVersion(storyVersionId) {
         const story = catalog.storyVersions.find(item => item.id === storyVersionId && published(item))
         return story ? success(copy(story)) : failure('not_found')
       },
     },
-    media: {
-      async getResolvedAsset(mediaAssetId) {
-        const asset = catalog.mediaAssets.find(item => item.id === mediaAssetId && published(item))
-        // A mock URI is intentionally non-network and cannot be used as production content.
-        return asset ? success({ ...copy(asset), url: `mock://media/${encodeURIComponent(asset.id)}` }) : failure('not_found')
-      },
-    },
-    progress: {
-      async getLessonProgress(lessonId) {
-        const userId = session.userId
-        if (!userId) return failure('unauthorized')
-        return success(copy(progress.get(progressKey(userId, lessonId)) ?? null))
-      },
-      async saveCheckpoint(input) {
-        const userId = session.userId
-        if (!userId) return failure('unauthorized')
-        if (!input.operationId || !input.lessonId) return failure('validation')
-        const signature = JSON.stringify([input.lessonId, input.currentBlockId ?? null,
-          [...new Set(input.completedBlockIds)].sort()])
-        const previousOperation = processed.get(operationKey(userId, input.operationId))
-        if (previousOperation) {
-          return previousOperation.signature === signature ? success(copy(previousOperation.result)) : failure('conflict')
-        }
-        const lesson = catalog.lessons.find(item => item.id === input.lessonId && published(item))
-        if (!lesson) return failure('not_found')
-        const blockIds = new Set(lesson.blocks.map(block => block.id))
-        if ((input.currentBlockId && !blockIds.has(input.currentBlockId)) ||
-          input.completedBlockIds.some(id => !blockIds.has(id))) return failure('validation')
-        const prior = progress.get(progressKey(userId, input.lessonId))
-        const completedBlockIds = [...new Set([...(prior?.completedBlockIds ?? []), ...input.completedBlockIds])]
-        const next: LessonProgress = {
-          userId,
-          lessonId: input.lessonId,
-          status: prior?.status === 'completed' ? 'completed' : 'in_progress',
-          currentBlockId: input.currentBlockId ?? prior?.currentBlockId,
-          completedBlockIds,
-          startedAt: prior?.startedAt ?? now(),
-          updatedAt: now(),
-        }
-        progress.set(progressKey(userId, input.lessonId), next)
-        processed.set(operationKey(userId, input.operationId), { signature, result: copy(next) })
-        return success(copy(next))
+    media: createMockMediaService(catalog),
+    progress: createMockProgressService(catalog, session, now, progressStore),
+    quiz: createMockQuizService(catalog, session),
+    users: {
+      async getCurrentProfile() {
+        if (!session.userId) return failure('unauthorized')
+        return success({ id: session.userId, displayName: session.displayName ?? '', locale: session.locale ?? 'vi-VN' })
       },
     },
   }

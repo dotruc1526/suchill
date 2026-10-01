@@ -119,4 +119,3 @@ Trúc được Thọ giao toàn bộ phần sửa và historical/learning/media 
 | `CLM-1972-RD-004` | Tổn thất B-52 đe dọa trực tiếp uy tín răn đe chiến lược toàn cầu của Mỹ | `educational_explanation` | `SRC-LB2-04`, `SRC-LB2-05` | Diễn giải tác động quân sự tới ngoại giao |
 | `CLM-1972-RD-005` | 07h00 ngày 30/12/1972 Mỹ ngừng ném bom; ngày 27/01/1973 ký Hiệp định Paris | `verified_fact` | `SRC-LB2-01`, `SRC-LB2-05` | Mỹ chấp nhận ký hiệp định rút quân hoàn toàn |
 | `CLM-LB2-001` | Đối chiếu tổn thất B-52: VN công bố 34 B-52 / 81 máy bay vs Mỹ thừa nhận 15-16 B-52 | `uncertain_or_contested` | `SRC-LB2-01`, `SRC-LB2-02` vs `SRC-LB2-04`, `SRC-LB2-05` | Trình bày song song cả hai nguồn sử liệu |
-

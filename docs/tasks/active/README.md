@@ -2,11 +2,14 @@
 
 Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOCKED` nằm trong `../blocked/`; task đã được reviewer xác nhận nằm trong `../done/`.
 
-> Last synchronized: 2026-09-29 — PR #61 documentation review
+> Last synchronized: 2026-10-01 — M3-UX-01 REVIEW; M2-01..06 Hưng ACCEPTED, moved to done/
+
+## Milestone 3 — UI/UX
+
+- [M3-UX-01](./M3-UX-01.md) — `REVIEW`; Trúc phụ trách UI/UX handoff, Codex hỗ trợ; prototype đã polish và thêm SỬu ở hero/TopBar. Browser 20 nhóm PASS ở mobile/desktop, 9 cặp contrast ≥4.5:1; baseline typecheck/build PASS. Chờ Hưng/Vinh/Dương review và PO nghiệm thu.
 
 ## Content track
 
-- [M2-01](./M2-01.md) — `REVIEW`; PR #61 đã merge và quality pass, chờ reviewer chuyển task sang `DONE`.
 - [CONTENT-003](./CONTENT-003.md) — `REVIEW`; hoàn tất phần historical/media review còn lại và technical QA cho hồ sơ pilot.
 - [CONTENT-004](./CONTENT-004.md) — `REVIEW`; historical review đạt, chờ technical QA/media/handoff sign-off.
 - [CONTENT-010](./CONTENT-010.md) — `REVIEW`; historical review đạt, chờ technical QA/media/handoff sign-off.
@@ -20,3 +23,4 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOC
 - [BATTLE-001](./BATTLE-001.md) — `IN PROGRESS (external)`; chờ repo/demo/rules/security handoff trước integration review.
 
 Các file `active.md`, `CONTENT-003-004-REVIEW.md`, `PR21-HANDOFF.md`, `BEQA-LOCAL-001-MATRIX.md` và `M1-PR-REVIEW-GUIDE.md` là evidence/handoff, không phải task card độc lập.
+

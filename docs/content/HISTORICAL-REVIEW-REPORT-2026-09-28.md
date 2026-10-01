@@ -2,7 +2,7 @@
 
 > **Ngày thẩm định:** 2026-09-28\
 > **Reviewer:** Historical Reviewer (Thẩm định viên Lịch sử được ủy quyền)\
-> **Phạm vi thẩm định:** `CONTENT-004`, `CONTENT-010`, `CONTENT-011`, `CONTENT-015`\
+> **Phạm vi thẩm định:** `CONTENT-004`, `CONTENT-010`, `CONTENT-011`, `CONTENT-015`; hồ sơ bổ sung review GitHub `CONTENT-017` tại PR #54\
 > **Nguyên tắc áp dụng:** Tuân thủ 100% sử liệu chính thống Việt Nam (NXB Quân đội Nhân dân, Viện Lịch sử Quân sự Việt Nam, Hồ Chí Minh Toàn tập).
 
 ---
@@ -47,6 +47,7 @@
 | `CONTENT-010` (Story v2) | Diễn biến đọc hồ sơ & lựa chọn | `educational_explanation` | Người học đóng vai người nghiên cứu; lựa chọn chỉ đổi thứ tự tiếp cận, không thay đổi kết quả lịch sử; không có fiction. |
 | `CONTENT-011` (Bài 3–4) | Bài học đọc hiểu & câu hỏi suy ngẫm | `verified_fact` + `educational_explanation` | Tách bạch giữa dữ kiện lịch sử và phân tích sư phạm. |
 | `CONTENT-015` (Scene 1–5) | Kịch bản 12 ngày đêm 1972 | `verified_fact` + `educational_explanation` | Trích nguyên văn lời Bác Hồ; khẩu lệnh tác chiến chuẩn quân sự; không có lời thoại hư cấu. |
+| `CONTENT-017` (Lesson 2 SAM-2) | Kịch bản 8 cảnh, sơ đồ và claim `CLM-1972-VN-001..005` | `verified_fact` + `educational_explanation` | GitHub ghi nhận Trúc approve PR #54 ngày 2026-09-30 tại commit `d0b61dd`; phạm vi theo review trên GitHub. Các chỉnh sửa sau commit này cần reviewer kiểm tra lại; approval cũ không được hiểu là duyệt bản sửa mới. |
 
 ---
 
@@ -101,13 +102,15 @@ VERDICT: APPROVED
 
 ## 7. Dependency & trạng thái nhiệm vụ tiếp theo
 
+> **Bổ sung hồ sơ ngày 2026-09-30:** Approval của Trúc được ghi nhận trên GitHub PR #54 tại commit `d0b61dd`. Tiếp đó, theo review PO tại head `0412226` và review finding `[P1]` của Trúc tại head `fdbf5e7` (yêu cầu loại bỏ các chi tiết chức năng/quy trình thao tác vi mô trong sơ đồ SAM-2 và Scene 4), Thọ đã khắc phục triệt để tại commit `e0f6958` và giải quyết xung đột với `main` tại commit `f641530`. Toàn bộ dữ liệu tác giả, sơ đồ 5 node và kịch bản 8 scene đã qua bộ kiểm thử tự động `validate-1972-authoring.mjs` (PASS 100%) và bộ kiểm thử toàn dự án `npm run quality` (PASS 100%), sẵn sàng cho Trúc re-review và submit Approve.
+
 - **Kết quả historical/language review:**
   - `CONTENT-004` ➔ **APPROVED trong phạm vi historical/language review; task giữ REVIEW**
   - `CONTENT-010` ➔ **APPROVED trong phạm vi historical/language review; task giữ REVIEW**
   - `CONTENT-011` ➔ **APPROVED trong phạm vi historical/language review; task giữ REVIEW**
   - `CONTENT-015` ➔ **DONE**
   - `CONTENT-016` ➔ **DONE**
-  - `CONTENT-017` ➔ **APPROVED BY HISTORICAL REVIEWER** (Trúc thẩm định sử liệu kịch bản 8 cảnh và sơ đồ SAM-2; claims CLM-1972-VN-001..005 đạt chuẩn; luồng học đã sửa để người học đi qua đủ 2 nội dung trước knowledge check)
+  - `CONTENT-017` ➔ **Remediated per finding [P1] on PR #54 (commits `e0f6958`, `f641530`); ready for Trúc final re-review approval**. Approval scope: Lesson 2 narration/story and SAM-2 diagram claims `CLM-1972-VN-001..005`, including linearized flow. Diagram and narration generalized to pure equipment presence and crew collaboration without unauthorized micro-mechanics.
 - **Các task chưa được mở khóa bởi review này:**
   - `CONTENT-007` giữ `BLOCKED` cho đến khi artifact pilot/review record nhất quán và technical QA/media/handoff có sign-off.
   - `FE-005` và `FE-006` vẫn tuân theo dependency/milestone trên task board; historical review không tự mở implementation.

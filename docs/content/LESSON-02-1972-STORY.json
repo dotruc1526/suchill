@@ -41,8 +41,8 @@
     {
       "id": "sam2-v1-crew",
       "kind": "evidence",
-      "title": "Cấu trúc kíp chiến đấu SAM-2",
-      "text": "Hãy quan sát sơ đồ khái quát hệ thống khí tài và tổ chức kíp chiến đấu SAM-2 (S-75 Dvina). Trong cabin điều khiển, kíp chiến đấu tạo thành một khối thống nhất, hiệp đồng nhịp nhàng giữa các vị trí để theo dõi không gian và xử lý thông tin mục tiêu.",
+      "title": "Kíp chiến đấu và khí tài SAM-2",
+      "text": "Hãy quan sát sơ đồ khái quát về tổ hợp SAM-2 (S-75 Dvina) và kíp chiến đấu. Tư liệu được dùng ở đây chỉ xác nhận sự hiện diện của kíp và việc phối hợp ở mức chung; sơ đồ không tái dựng chức danh, vị trí hay quy trình tác chiến.",
       "sourceIds": [
         "SRC-1972-02",
         "SRC-1972-WEB-01",
@@ -56,19 +56,17 @@
       "required": true,
       "requiredDiagramNodeIds": [
         "sam2-node-cabin",
-        "sam2-node-officer",
-        "sam2-node-azimuth",
-        "sam2-node-elevation",
-        "sam2-node-range",
+        "sam2-node-crew",
         "sam2-node-radar",
-        "sam2-node-launcher"
+        "sam2-node-launcher",
+        "sam2-node-interference"
       ]
     },
     {
       "id": "sam2-v1-perspective",
       "kind": "narration",
       "title": "Góc nhìn nghiên cứu",
-      "text": "Để thấu hiểu bí quyết đánh bại siêu pháo đài bay B-52, chúng ta sẽ tìm hiểu quy trình phối hợp nhịp nhàng trong cabin và kỹ thuật 'vạch nhiễu tìm thù'.",
+      "text": "Để tìm hiểu tư liệu về phòng không cuối năm 1972, chúng ta sẽ lần lượt xem xét sự phối hợp của kíp chiến đấu và bối cảnh gây nhiễu điện tử, đồng thời phân biệt dữ kiện nguồn nêu với phần diễn giải.",
       "sourceIds": [],
       "claimIds": [
         "CLM-1972-VN-006"
@@ -79,8 +77,8 @@
     {
       "id": "sam2-v1-coordination",
       "kind": "narration",
-      "title": "Hiệp đồng tác chiến trong cabin",
-      "text": "Trong cabin điều khiển, kíp chiến đấu phối hợp để quan sát và xử lý thông tin mục tiêu trên màn hiện sóng radar. Sự hiệp đồng giữa các vị trí hỗ trợ đơn vị theo dõi tình hình trên không và thực hiện nhiệm vụ bảo vệ bầu trời.",
+      "title": "Hiệp đồng kíp chiến đấu SAM-2",
+      "text": "Trong chiến dịch, các kíp chiến đấu SAM-2 phối hợp thực hiện nhiệm vụ phòng không. Bài học chỉ nêu sự phối hợp ở mức khái quát, không tái dựng vai trò từng người hay quy trình tác chiến.",
       "sourceIds": [
         "SRC-1972-02",
         "SRC-1972-WEB-02"
