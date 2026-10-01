@@ -1,4 +1,5 @@
 import * as screens from './screens.js'
+import { icon } from './icons.js'
 
 const key = 'suchill.m3-ux.prototype.v1'
 const initial = { screen: 'chapter', state: 'ready', started: false, bookmark: 'lesson', reflection: null, locked: false, answers: {}, submitted: false, position: 0, volume: 40, captions: true, muted: true, playing: false }
@@ -12,6 +13,9 @@ const dialog = document.querySelector('#restart-dialog')
 const screenSelect = document.querySelector('#screen-select')
 const stateSelect = document.querySelector('#state-select')
 const mute = document.querySelector('#mute')
+document.querySelector('#back').innerHTML = icon('back')
+document.querySelector('#brand-icon').innerHTML = icon('book')
+document.querySelector('#review-settings').open = !matchMedia('(max-width: 760px)').matches
 function save() {
   try { localStorage.setItem(key, JSON.stringify({ ...s, playing: false, state: 'ready' })) } catch { /* Prototype can run without persistence. */ }
 }
@@ -21,6 +25,7 @@ function render(focus = true, restore) {
   mute.setAttribute('aria-pressed', String(s.muted))
   mute.setAttribute('aria-label', s.muted ? 'Bật âm thanh' : 'Tắt âm thanh')
   mute.title = s.muted ? 'Âm thanh đang tắt' : 'Âm thanh đang bật'
+  mute.innerHTML = icon(s.muted ? 'mute' : 'sound')
   main.setAttribute('aria-busy', String(s.state === 'loading'))
   document.querySelector('.phone').dataset.screen = s.screen
   if (focus) (restore ? main.querySelector(restore) || main : main).focus()
@@ -43,6 +48,8 @@ function tap() {
 }
 screenSelect.addEventListener('change', () => navigate(screenSelect.value, false))
 stateSelect.addEventListener('change', () => { clearInterval(timer); s.playing = false; s.state = stateSelect.value; render() })
+document.querySelector('#width-select').addEventListener('change', event => document.documentElement.style.setProperty('--preview-width', `${event.target.value}px`))
+document.querySelector('#reset-preview').addEventListener('click', () => { clearInterval(timer); Object.assign(s, initial, { answers: {} }); render() })
 mute.addEventListener('click', () => { s.muted = !s.muted; render(false); tap() })
 document.querySelector('#back').addEventListener('click', () => {
   const prior = { chapter: 'chapter', lesson: 'chapter', vn: 'lesson', video: 'vn', quiz: 'video', complete: 'quiz' }
@@ -81,8 +88,9 @@ main.addEventListener('click', event => {
       s.playing = !s.playing; clearInterval(timer); render(true, '#play')
       if (s.playing) timer = setInterval(() => {
         s.position = Math.min(60, s.position + 1); save()
-        main.querySelector('#time').textContent = `${s.position}s / 60s`
+        main.querySelector('#time').textContent = `${screens.formatTime(s.position)} / 1:00`
         main.querySelector('#seek').value = s.position
+        main.querySelector('#seek').setAttribute('aria-valuetext', screens.formatTime(s.position))
         if (s.position === 60) { s.playing = false; clearInterval(timer); render(true, '#play') }
       }, 1000)
     },
@@ -90,7 +98,7 @@ main.addEventListener('click', event => {
   actions[target.id]?.()
 })
 main.addEventListener('input', event => {
-  if (event.target.id === 'seek') { s.position = Number(event.target.value); main.querySelector('#time').textContent = `${s.position}s / 60s`; save() }
+  if (event.target.id === 'seek') { s.position = Number(event.target.value); main.querySelector('#time').textContent = `${screens.formatTime(s.position)} / 1:00`; event.target.setAttribute('aria-valuetext', screens.formatTime(s.position)); save() }
   if (event.target.id === 'volume') { s.volume = Number(event.target.value); save() }
 })
 document.querySelector('#restart-cancel').addEventListener('click', () => dialog.close())

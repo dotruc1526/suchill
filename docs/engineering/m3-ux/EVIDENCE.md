@@ -8,15 +8,17 @@
 | Check | Result | Evidence |
 |---|---|---|
 | `node docs/engineering/m3-ux/generate-tokens.mjs` | PASS | CSS snapshot lấy trực tiếp `theme` từ canonical tokens |
-| `node --check` prototype.js, screens.js, verify.mjs | PASS | JavaScript parse không lỗi |
-| `node docs/engineering/m3-ux/verify.mjs` | PASS | [checks.json](./evidence/checks.json): 17 nhóm kết quả |
-| `npm run typecheck` | PASS | TypeScript không lỗi; production source không đổi |
-| `npm run build` | PASS | Vite v8.3.1 build; cảnh báo config native tương lai của baseline, không chặn build |
+| `node --check` prototype.js, screens.js, icons.js, verify.mjs | PASS | JavaScript parse không lỗi ở lượt polish |
+| `node docs/engineering/m3-ux/verify.mjs` | PASS | [checks.json](./evidence/checks.json): 19 nhóm kết quả sau polish |
+| `npm run typecheck` | PASS baseline | TypeScript không lỗi ở handoff trước polish; lượt polish không thay production source |
+| `npm run build` | PASS baseline | Vite v8.3.1 ở handoff trước polish; cảnh báo config native tương lai của baseline, không chặn build |
 | Markdown local links / diff whitespace | PASS | Kiểm tra các file mới/đổi thuộc M3-UX-01 |
 
-Chrome headless chạy với viewport mobile 375×932 và 430×932, deviceScaleFactor 1. Các ảnh lấy toàn bộ app frame; thanh reviewer nằm ngoài frame. Browser kiểm tra 6 màn × 2 chiều rộng, 44px touch targets, 4 shared states mỗi màn (48 tổ hợp), keyboard selection/focus, locked narrative review, dialog trap/Escape/restore/restart, video resume/reload/play-pause/caption toggle/fallback, đủ câu quiz/retry/feedback, mute persistence và reduced motion. Typography tiếng Việt dài kiểm tra cả 375/430px. Toàn bộ 17 nhóm PASS được ghi bằng script, không phải QA sign-off.
+Chrome headless chạy với viewport mobile 375×932 và 430×932, deviceScaleFactor 1. Các ảnh mobile lấy toàn bộ app frame; panel reviewer nằm ngoài frame. Browser kiểm tra 6 màn × 2 chiều rộng, 44px touch targets, 4 shared states mỗi màn (48 tổ hợp), keyboard selection/focus, locked narrative review, dialog trap/Escape/restore/restart, video resume/reload/play-pause/caption toggle/fallback, đủ câu quiz/retry/feedback, mute persistence và reduced motion. Typography tiếng Việt dài kiểm tra cả 375/430px. Desktop 1280px kiểm tra chiều rộng frame 375/430px, reset về bài chưa bắt đầu và không tràn ngang. Captions `aria-pressed` và seek/timecode `aria-valuetext` đồng bộ đã kiểm tra. Toàn bộ 19 nhóm PASS được ghi bằng script, không phải QA sign-off.
 
-Lượt chạy Chrome trong sandbox timeout CDP; chạy cùng script với quyền execution phù hợp đã thành công. Phát hiện và sửa focus Tab của dialog prototype; sửa icon sai từ dấu chọn sang ✗ để feedback không gây nhầm. Không sửa Modal production. Ảnh final đã xem trực quan lesson 375, VN selected 430, video error 430, quiz feedback 430 và completion pending 375: không thấy chữ/CTA bị cắt hoặc overflow.
+Lượt chạy Chrome trong sandbox timeout CDP; chạy cùng script với quyền execution phù hợp đã thành công. QA lượt đầu đã sửa focus Tab của dialog và icon phản hồi sai; không sửa Modal production. Lượt polish thay bố cục/icon/controls của 6 màn, giảm chiều cao trang trí VN, gom controls video và thêm panel desktop. Đã xem trực quan ảnh mới chapter/lesson/VN/video/quiz 375px, quiz feedback/completion confirmed/video error 430px và desktop 1280px: không thấy chữ/CTA bị cắt hoặc overflow.
+
+Đo 9 cặp text/background từ CSS tokens: tất cả ≥4.5:1; thấp nhất là incorrect text/background 4.63:1, text secondary/app 6.63:1, primary text/button 7.57:1. Đây là audit các cặp chữ đại diện trong prototype; không thay color audit toàn app của reviewer.
 
 ## Screenshots
 
@@ -31,6 +33,8 @@ Lượt chạy Chrome trong sandbox timeout CDP; chạy cùng script với quy�
 | Tiêu đề tiếng Việt dài | [ảnh](./evidence/long-vietnamese-375.png) | [ảnh](./evidence/long-vietnamese-430.png) |
 
 State evidence: [narrative selected/locked](./evidence/vn-selected-430.png), [video error/poster/transcript](./evidence/video-error-430.png), [quiz đúng/sai + explanation](./evidence/quiz-feedback-430.png), [completion confirmed fixture](./evidence/completion-confirmed-430.png).
+
+Desktop review: [panel và app frame tại 1280px](./evidence/desktop-review-1280.png).
 
 ## Giới hạn và checklist reviewer
 

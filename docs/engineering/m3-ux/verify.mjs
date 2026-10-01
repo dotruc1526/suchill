@@ -79,6 +79,7 @@ try {
     assert.equal(await evaluate('document.querySelector("#seek").value'), '24')
     await click('#captions')
     assert.equal(await evaluate('!!document.querySelector(".caption")'), false)
+    assert.equal(await evaluate('document.querySelector("#captions").getAttribute("aria-pressed")'), 'false')
     await choose('#state-select', 'error')
     assert.ok(await evaluate('!!document.querySelector(".poster") && !!document.querySelector("details[open]")'))
     await shot('video-error-430.png'); await click('#state-action')
@@ -87,6 +88,8 @@ try {
     await evaluate('new Promise(resolve => setTimeout(resolve,1100))')
     await click('#play')
     assert.equal(await evaluate('document.querySelector("#seek").value'), '25')
+    assert.equal(await evaluate('document.querySelector("#time").textContent'), '0:25 / 1:00')
+    assert.equal(await evaluate('document.querySelector("#seek").getAttribute("aria-valuetext")'), '0:25')
     results.push('Video: seek, exit/resume/reload, captions, play/pause, poster/transcript fallback and retry PASS')
     await click('#next-quiz')
     assert.equal(await evaluate('document.querySelector("#submit").disabled'), true)
@@ -110,8 +113,9 @@ try {
     await cdp('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] })
     await choose('#state-select', 'loading')
     assert.equal(await evaluate('getComputedStyle(document.querySelector(".busy")).animationName'), 'none')
-    await choose('#screen-select', 'vn')
-    assert.equal(await evaluate('getComputedStyle(document.querySelector(".paper")).transform'), 'none')
+    await choose('#screen-select', 'complete')
+    assert.equal(await evaluate('getComputedStyle(document.querySelector(".completion-seal")).transform'), 'none')
+    await click('#reset-preview'); await choose('#screen-select', 'vn')
     await evaluate('document.querySelector("[data-choice=observe]").focus()')
     await key('Tab'); await key('Tab')
     assert.notEqual(await evaluate('getComputedStyle(document.activeElement).outlineStyle'), 'none')
@@ -124,6 +128,31 @@ try {
       await shot(`long-vietnamese-${width}.png`)
     }
     results.push('Long Vietnamese title wraps at 375px/430px without horizontal overflow PASS')
+    await cdp('Emulation.setDeviceMetricsOverride', { width: 1280, height: 1000, deviceScaleFactor: 1, mobile: false })
+    await evaluate('document.querySelector("#review-settings").open = true')
+    for (const width of [375, 430]) {
+      await choose('#width-select', String(width))
+      assert.equal(await evaluate('document.querySelector(".phone").getBoundingClientRect().width'), width)
+      assert.equal(await evaluate('document.documentElement.scrollWidth <= innerWidth'), true)
+    }
+    await click('#reset-preview')
+    assert.ok(await evaluate('!!document.querySelector("#start") && document.querySelector("#start").textContent.includes("Bắt đầu")'))
+    assert.equal(await evaluate('document.querySelector("#mute").getAttribute("aria-pressed")'), 'true')
+    const { data } = await cdp('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true })
+    await writeFile(new URL('desktop-review-1280.png', root), Buffer.from(data, 'base64'))
+    results.push('Desktop review: 375px/430px selector, reset/new session, no overflow PASS')
+    const palette = await evaluate(`Object.fromEntries(['textPrimary','textSecondary','appBg','cardBg','activeBg','primary','primaryText','correct-text','correct-bg','incorrect-text','incorrect-bg'].map(name => [name,getComputedStyle(document.documentElement).getPropertyValue('--colors-'+name).trim()]))`)
+    const luminance = hex => {
+      const rgb = hex.slice(1).match(/../g).map(value => parseInt(value, 16) / 255).map(value => value <= .04045 ? value / 12.92 : ((value + .055) / 1.055) ** 2.4)
+      return rgb[0] * .2126 + rgb[1] * .7152 + rgb[2] * .0722
+    }
+    const pairs = [['textPrimary','appBg'],['textSecondary','appBg'],['textPrimary','cardBg'],['textSecondary','cardBg'],['primary','cardBg'],['primary','activeBg'],['primaryText','primary'],['correct-text','correct-bg'],['incorrect-text','incorrect-bg']]
+    const contrasts = pairs.map(([text, bg]) => {
+      const a = luminance(palette[text]), b = luminance(palette[bg]), ratio = (Math.max(a,b)+.05)/(Math.min(a,b)+.05)
+      assert.ok(ratio >= 4.5, `${text}/${bg}: contrast ${ratio}`)
+      return `${text}/${bg} ${ratio.toFixed(2)}:1`
+    })
+    results.push(`Nine representative text/background contrast pairs >=4.5:1 PASS (${contrasts.join(', ')})`)
   })
 } finally { await new Promise(resolve => server.close(resolve)) }
 await writeFile(new URL('checks.json', root), JSON.stringify({ date: '2026-10-01', scope: 'Design prototype only; no production runtime or backend verification', results }, null, 2))

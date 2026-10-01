@@ -6,7 +6,7 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOC
 
 ## Milestone 3 — UI/UX
 
-- [M3-UX-01](./M3-UX-01.md) — `REVIEW`; Trúc phụ trách UI/UX handoff lesson/VN/video/quiz, Codex hỗ trợ; dependency M1/M2 và gate M3 đã đạt. Prototype/handoff/evidence hoàn tất; browser 17 nhóm, typecheck/build PASS. Chờ Hưng/Vinh/Dương nghiệm thu.
+- [M3-UX-01](./M3-UX-01.md) — `REVIEW`; Trúc phụ trách UI/UX handoff lesson/VN/video/quiz, Codex hỗ trợ; dependency M1/M2 và gate M3 đã đạt. Prototype đã polish bố cục/icon/controls; browser 19 nhóm PASS ở mobile/desktop, 9 cặp contrast ≥4.5:1; baseline typecheck/build PASS. Chờ Hưng/Vinh/Dương review và PO nghiệm thu.
 
 ## Content track
 

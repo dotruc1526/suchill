@@ -18,6 +18,8 @@
     "Video: seek, exit/resume/reload, captions, play/pause, poster/transcript fallback and retry PASS",
     "Quiz: complete-set submission, per-question feedback, retry; completion pending/confirmed fixture PASS",
     "Mute persistence, reduced motion, visible keyboard focus PASS",
-    "Long Vietnamese title wraps at 375px/430px without horizontal overflow PASS"
+    "Long Vietnamese title wraps at 375px/430px without horizontal overflow PASS",
+    "Desktop review: 375px/430px selector, reset/new session, no overflow PASS",
+    "Nine representative text/background contrast pairs >=4.5:1 PASS (textPrimary/appBg 12.71:1, textSecondary/appBg 6.63:1, textPrimary/cardBg 14.27:1, textSecondary/cardBg 7.44:1, primary/cardBg 8.50:1, primary/activeBg 6.73:1, primaryText/primary 7.57:1, correct-text/correct-bg 6.95:1, incorrect-text/incorrect-bg 4.63:1)"
   ]
 }
