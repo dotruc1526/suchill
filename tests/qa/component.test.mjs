@@ -250,8 +250,9 @@ test('M3-04 resets media failure and guards old checkpoint callbacks when contex
   const source = await readFile(new URL('../../src/features/learning/video/VideoLessonPlayer.tsx', import.meta.url), 'utf8')
   assert.match(source, /setMediaFailed\(false\)/)
   assert.match(source, /setRetryKey\(0\)/)
-  assert.match(source, /queueErrorsRef\.current\.get\(contextKey\)/)
-  assert.match(source, /isActiveVideoContext\(activeContextKeyRef\.current, contextKey\)/)
+  assert.match(source, /registryRef\.current\.getOrCreate\(services, contextKey/)
+  assert.match(source, /queueErrorsRef\.current\.get\(checkpointQueue\)/)
+  assert.match(source, /activeQueueRef\.current !== queue/)
   assert.match(source, /current\.session\.asset\.id === context\.mediaAssetId/)
 })
 

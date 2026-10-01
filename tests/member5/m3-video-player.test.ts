@@ -4,6 +4,7 @@ import { createMockLearningServices } from '../../src/services/next/mock.ts'
 import { createMockProgressStore } from '../../src/services/next/mockProgress.ts'
 import {
   isActiveVideoContext, loadVideoPlayer, observedRange, saveVideoCheckpoint, videoContextKey, VideoCheckpointQueue,
+  VideoCheckpointQueueRegistry,
 } from '../../src/features/learning/video/videoPlayerModel.ts'
 import { playbackCatalog } from './playback-fixtures.ts'
 
@@ -80,4 +81,23 @@ test('M3-04 isolates late checkpoint callbacks by video context', () => {
   const videoB = videoContextKey({ ...context, mediaAssetId: 'video-b' })
   assert.equal(isActiveVideoContext(videoA, videoA), true)
   assert.equal(isActiveVideoContext(videoB, videoA), false)
+})
+
+test('M3-04 creates a new writer when services change for the same video context', async () => {
+  const registry = new VideoCheckpointQueueRegistry()
+  const serviceA = {}
+  const serviceB = {}
+  const writes: string[] = []
+  const createQueue = (label: string) => new VideoCheckpointQueue(async payload => {
+    writes.push(`${label}:${payload.operationId}`)
+    return { ok: false, error: 'offline' }
+  }, () => {}, () => {})
+  const key = videoContextKey(context)
+  const queueA = registry.getOrCreate(serviceA, key, () => createQueue('A'))
+  const queueB = registry.getOrCreate(serviceB, key, () => createQueue('B'))
+
+  assert.notEqual(queueA, queueB)
+  queueB.enqueue({ positionSeconds: 20, watchedRanges: [], operationId: 'new-session' })
+  await new Promise(resolve => setImmediate(resolve))
+  assert.deepEqual(writes, ['B:new-session'])
 })

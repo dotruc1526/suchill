@@ -3,8 +3,8 @@ import { Button, ErrorState, LoadingState } from '../../../components/ui'
 import type { LearningServices, ServiceErrorCode } from '../../../services/next/contracts'
 import { VideoPlayerView } from './VideoPlayerView'
 import {
-  isActiveVideoContext, loadVideoPlayer, observedRange, saveVideoCheckpoint, videoContextKey, VideoCheckpointQueue,
-  type VideoPlayerContext, type VideoPlayerSession,
+  loadVideoPlayer, observedRange, saveVideoCheckpoint, videoContextKey, VideoCheckpointQueue,
+  VideoCheckpointQueueRegistry, type VideoPlayerContext, type VideoPlayerSession,
 } from './videoPlayerModel'
 
 type LoadState = { status: 'loading' } | { status: 'error'; error: ServiceErrorCode } | { status: 'ready'; session: VideoPlayerSession }
@@ -27,48 +27,48 @@ export function VideoLessonPlayer({ services, context }: { services: LearningSer
   const segmentStartRef = useRef<number | null>(null)
   const lastObservedRef = useRef(0)
   const contextKey = videoContextKey(context)
-  const activeContextKeyRef = useRef(contextKey)
-  const queuesRef = useRef(new Map<string, VideoCheckpointQueue>())
-  const queueErrorsRef = useRef(new Map<string, ServiceErrorCode>())
-  activeContextKeyRef.current = contextKey
+  const registryRef = useRef(new VideoCheckpointQueueRegistry())
+  const activeQueueRef = useRef<VideoCheckpointQueue | null>(null)
+  const queueErrorsRef = useRef(new WeakMap<VideoCheckpointQueue, ServiceErrorCode>())
 
   const checkpointQueue = useMemo(() => {
-    const existing = queuesRef.current.get(contextKey)
-    if (existing) return existing
-    const queue = new VideoCheckpointQueue(
-      payload => saveVideoCheckpoint(services, context, payload.positionSeconds, payload.watchedRanges, payload.operationId),
-      progress => {
-        queueErrorsRef.current.delete(contextKey)
-        if (!isActiveVideoContext(activeContextKeyRef.current, contextKey)) return
-        setSaveError(undefined)
-        setState(current => current.status === 'ready' && current.session.asset.id === context.mediaAssetId
-          ? { status: 'ready', session: { ...current.session, progress, resumePositionSeconds: progress.positionSeconds } }
-          : current)
-      },
-      error => {
-        queueErrorsRef.current.set(contextKey, error)
-        if (!isActiveVideoContext(activeContextKeyRef.current, contextKey)) return
-        setSaveError(error)
-        videoRef.current?.pause()
-      },
-    )
-    queuesRef.current.set(contextKey, queue)
-    return queue
+    return registryRef.current.getOrCreate(services, contextKey, () => {
+      let queue: VideoCheckpointQueue
+      queue = new VideoCheckpointQueue(
+        payload => saveVideoCheckpoint(services, context, payload.positionSeconds, payload.watchedRanges, payload.operationId),
+        progress => {
+          queueErrorsRef.current.delete(queue)
+          if (activeQueueRef.current !== queue) return
+          setSaveError(undefined)
+          setState(current => current.status === 'ready' && current.session.asset.id === context.mediaAssetId
+            ? { status: 'ready', session: { ...current.session, progress, resumePositionSeconds: progress.positionSeconds } }
+            : current)
+        },
+        error => {
+          queueErrorsRef.current.set(queue, error)
+          if (activeQueueRef.current !== queue) return
+          setSaveError(error)
+          videoRef.current?.pause()
+        },
+      )
+      return queue
+    })
   }, [context, contextKey, services])
+  activeQueueRef.current = checkpointQueue
 
   useEffect(() => {
     let active = true
     setState({ status: 'loading' })
     setMediaFailed(false)
     setRetryKey(0)
-    setSaveError(queueErrorsRef.current.get(contextKey))
+    setSaveError(queueErrorsRef.current.get(checkpointQueue))
     segmentStartRef.current = null
     lastObservedRef.current = 0
     void loadVideoPlayer(services, context).then(result => {
       if (active) setState(result.ok ? { status: 'ready', session: result.value } : { status: 'error', error: result.error })
     })
     return () => { active = false }
-  }, [context.blockId, context.lessonId, context.mediaAssetId, contextKey, loadRetryKey, services])
+  }, [checkpointQueue, context.blockId, context.lessonId, context.mediaAssetId, contextKey, loadRetryKey, services])
 
   if (state.status === 'loading') return <LoadingState message="Đang tải video bài học..." />
   if (state.status === 'error') return <ErrorState message={`Không thể tải video (${state.error}).`} onRetry={() => setLoadRetryKey(value => value + 1)} />

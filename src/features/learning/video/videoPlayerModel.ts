@@ -97,3 +97,20 @@ export class VideoCheckpointQueue {
     await this.flush()
   }
 }
+
+export class VideoCheckpointQueueRegistry {
+  private readonly queues = new WeakMap<object, Map<string, VideoCheckpointQueue>>()
+
+  getOrCreate(services: object, contextKey: string, create: () => VideoCheckpointQueue) {
+    let serviceQueues = this.queues.get(services)
+    if (!serviceQueues) {
+      serviceQueues = new Map()
+      this.queues.set(services, serviceQueues)
+    }
+    const existing = serviceQueues.get(contextKey)
+    if (existing) return existing
+    const queue = create()
+    serviceQueues.set(contextKey, queue)
+    return queue
+  }
+}
