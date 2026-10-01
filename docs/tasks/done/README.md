@@ -2,6 +2,8 @@
 
 Đặt task card đã được reviewer xác nhận `DONE` tại đây. Không xóa checkpoint/evidence cũ.
 
+- [M3-INTEGRATION-01](./M3-INTEGRATION-01.md) — Journey/renderer/player slots; PR #79 merged `a55b924`, Hưng/Vinh approved và 2/2 Quality PASS.
+
 - [M3-UX-01](./M3-UX-01.md) — UI/UX handoff; PR #77 merged, Hưng/Vinh approved và Dương/PO nghiệm thu tại `23cf354`.
 - [M3-01](./M3-01.md) — Learning journey; PR #72 merged, Vinh approved và Hưng không còn finding tại `71cbad2`.
 - [M3-02](./M3-02.md) — Lesson renderer; PR #73 merged, Vinh approved và Hưng không còn finding tại `6117578`.
