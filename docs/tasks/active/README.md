@@ -4,9 +4,8 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOC
 
 > Last synchronized: 2026-10-01 — M3-01..05 và M3-UX-01 đã được reviewer xác nhận, PR merge và chuyển sang done/.
 
-## Milestone 3 — Learning integration
+## Milestone 3 — Home visual follow-up
 
-- [M3-INTEGRATION-01](./M3-INTEGRATION-01.md) — `REVIEW`; Journey → LessonRenderer → VN/Video/Quiz đã nối trên mock services; chờ GitHub Quality và Hưng/Vinh review, không đụng completion/reward hoặc canonical content.
 - [M3-UX-02](./M3-UX-02.md) — REVIEW; restore Home visual layout while keeping PR #72 service journey.
 
 ## Content track
