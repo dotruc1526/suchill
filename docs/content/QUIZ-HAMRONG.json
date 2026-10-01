@@ -1,0 +1,69 @@
+{
+  "questions": [
+    {
+      "questionId": "hamr-01",
+      "text": "Vì sao Cầu Hàm Rồng được xem là \"yết hầu\" quan trọng trong Chiến dịch Sấm Rền của Mỹ?",
+      "options": [
+        { "optionId": "A", "text": "Do vị trí địa chiến lược trên tuyến Quốc lộ 1A" },
+        { "optionId": "B", "text": "Bởi vì nó là cây cầu duy nhất nối miền Bắc và miền Nam qua sông Mã" },
+        { "optionId": "C", "text": "Vì là nơi đặt căn cứ hải quân của Mỹ" },
+        { "optionId": "D", "text": "Do là trung tâm logistic của lực lượng miền Nam" }
+      ],
+      "correctOptionId": "B",
+      "explanation": "Cầu Hàm Rồng là cây cầu duy nhất cho phép giao thông vật chất và binh lính qua sông Mã, vì vậy nó là mục tiêu chiến lược của các chiến dịch phá hoại của Mỹ như Sấm Rền (Rolling Thunder).",
+      "sourceIds": ["SRC-HR-01", "SRC-HR-02"]
+    },
+    {
+      "questionId": "hamr-02",
+      "text": "Sự kiện ngày 03/4/1965 tại Hàm Rồng có ý nghĩa lịch sử gì đối với Không quân nhân dân Việt Nam?",
+      "options": [
+        { "optionId": "A", "text": "Đánh dấu lần đầu tiên Việt Nam thắng trận không chiến trên không" },
+        { "optionId": "B", "text": "Là ngày kỷ niệm thành lập Không quân nhân dân" },
+        { "optionId": "C", "text": "Chiến thắng đầu tiên của MiG-17 trước máy bay F‑105 và F‑8E" },
+        { "optionId": "D", "text": "Kết thúc Chiến dịch Linebacker I" }
+      ],
+      "correctOptionId": "C",
+      "explanation": "Ngày 03/4/1965, Biên đội MiG‑17 (Phạm Ngọc Lan…) đã xuất kích bắn hạ máy bay F‑8E và F‑105, tạo nên Ngày truyền thống Đánh thắng trận đầu của Không quân nhân dân Việt Nam.",
+      "sourceIds": ["SRC-HR-01", "SRC-HR-06"]
+    },
+    {
+      "questionId": "hamr-03",
+      "text": "Hình tượng Nữ anh hùng Ngô Thị Tuyển tại Đồi Quyết Thắng gắn liền với chiến công cụ thể nào?",
+      "options": [
+        { "optionId": "A", "text": "Vác hai hòm đạn pháo 57mm trọng 98kg qua địa hình bùn lầy" },
+        { "optionId": "B", "text": "Tham gia trực tiếp bắn hạ máy bay Mỹ" },
+        { "optionId": "C", "text": "Thủ công xây cầu tạm thời" },
+        { "optionId": "D", "text": "Lãnh đạo lực lượng pháo phòng không" }
+      ],
+      "correctOptionId": "A",
+      "explanation": "Theo SRC‑HR‑04, Ngô Thị Tuyển (nặng 42kg) vác hai hòm đạn pháo 57mm (98kg) để tiếp tế cho các binh sĩ trên Đồi Quyết Thắng, là hình ảnh tiêu biểu của tinh thần dân quân đồng hành.",
+      "sourceIds": ["SRC-HR-04", "SRC-HR-03"]
+    },
+    {
+      "questionId": "hamr-04",
+      "text": "Khi cầu Hàm Rồng bị bom thông minh đánh sập nhịp giữa năm 1972, lực lượng công binh đã sử dụng giải pháp nào để giữ mạch máu giao thông?",
+      "options": [
+        { "optionId": "A", "text": "Xây cầu phao và phà cơ động" },
+        { "optionId": "B", "text": "Dùng xe tăng đổ cát lấp hở" },
+        { "optionId": "C", "text": "Thiết lập đường bộ tạm thời" },
+        { "optionId": "D", "text": "Đánh phá tiếp tục bằng pháo phòng không" }
+      ],
+      "correctOptionId": "A",
+      "explanation": "Sau khi các bom dẫn đường laser và Walleye phá hủy nhịp giữa cầu, công binh đã nhanh chóng lắp đặt cầu phao và phà cơ động để duy trì giao thông, như mô tả trong SRC‑HR‑01 và SRC‑HR‑05.",
+      "sourceIds": ["SRC-HR-01", "SRC-HR-05"]
+    },
+    {
+      "questionId": "hamr-05",
+      "text": "Câu hỏi tổng hợp: Kết hợp các CLO‑HR‑1 đến CLO‑HR‑4, yếu tố nào sau đây thể hiện cách mạng công nghệ và tinh thần dũng cảm của nhân dân trong việc bảo vệ Cầu Hàm Rồng?",
+      "options": [
+        { "optionId": "A", "text": "Sử dụng MiG‑17 trong các trận không chiến, phá bom laser Paveway, và phục hồi giao thông bằng cầu phao" },
+        { "optionId": "B", "text": "Chỉ dựa vào vũ khí hạt nhân" },
+        { "optionId": "C", "text": "Đánh bại Mỹ bằng pháo lớn 120mm" },
+        { "optionId": "D", "text": "Tận dụng sức mạnh của máy bay chiến đấu F‑105" }
+      ],
+      "correctOptionId": "A",
+      "explanation": "Câu trả lời này bao quát CLO‑HR‑1 (vị trí chiến lược), CLO‑HR‑2 (trận đầu thắng 03‑04/4/1965), CLO‑HR‑3 (phối hợp pháo phòng không 57mm và dân quân), và CLO‑HR‑4 (đối đầu với bom laser Paveway 1972).",
+      "sourceIds": ["SRC-HR-01", "SRC-HR-02", "SRC-HR-04", "SRC-HR-05", "SRC-HR-06"]
+    }
+  ]
+}
