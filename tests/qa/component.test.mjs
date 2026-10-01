@@ -435,3 +435,18 @@ test('M3-02 lesson renderer wires service failures to an explicit same-lesson re
   assert.match(source, /\[lessonId, retryKey, services\]/)
   assert.match(source, /onRetry=\{\(\) => setRetryKey\(value => value \+ 1\)\}/)
 })
+
+test('M3 integration replaces the lesson placeholder with accepted typed player slots', async () => {
+  const entrySource = await readFile(new URL('../../src/features/learning/journey/JourneyLessonEntry.tsx', import.meta.url), 'utf8')
+  const integrationSource = await readFile(new URL('../../src/features/learning/journey/IntegratedLessonRenderer.tsx', import.meta.url), 'utf8')
+  const journeySource = await readFile(new URL('../../src/features/learning/journey/LearningJourney.tsx', import.meta.url), 'utf8')
+
+  assert.match(entrySource, /<IntegratedLessonRenderer lessonId=\{lesson\.id\} services=\{services\}/)
+  assert.doesNotMatch(entrySource, /Renderer đang được chuẩn bị|BẮT ĐẦU NỘI DUNG/)
+  assert.match(integrationSource, /<VisualNovelPlayerV2/)
+  assert.match(integrationSource, /<VideoLessonPlayer/)
+  assert.match(integrationSource, /<QuizFlow/)
+  assert.match(integrationSource, /useMemo<LessonBlockSlots>/)
+  assert.match(journeySource, /lessonHeadingRef\.current = element/)
+  assert.match(journeySource, /pendingFocusRef\.current = null/)
+})

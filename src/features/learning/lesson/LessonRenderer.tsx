@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type Ref } from 'react'
 import { EmptyState, ErrorState, LoadingState } from '../../../components/ui'
 import type { LearningServices, ServiceErrorCode } from '../../../services/next/contracts'
 import { theme } from '../../../theme/tokens'
@@ -10,14 +10,18 @@ type LoadState =
   | { status: 'ready'; content: LessonContent }
   | { status: 'error'; error: ServiceErrorCode }
 
-export function LessonContentView({ content, slots }: { content: LessonContent; slots?: LessonBlockSlots }) {
+export function LessonContentView({ content, slots, headingRef }: {
+  content: LessonContent
+  slots?: LessonBlockSlots
+  headingRef?: Ref<HTMLHeadingElement>
+}) {
   if (content.blocks.length === 0) {
     return <EmptyState title="Bài học chưa có nội dung" message="Nội dung sẽ xuất hiện sau khi được duyệt." />
   }
   return (
-    <main aria-labelledby="lesson-content-heading" className="space-y-4" data-testid="lesson-content">
+    <main aria-labelledby="lesson-entry-heading" className="space-y-4" data-testid="lesson-content">
       <header>
-        <h1 id="lesson-content-heading" className="font-bold text-2xl" style={{ color: theme.colors.textPrimary }}>
+        <h1 ref={headingRef} tabIndex={-1} id="lesson-entry-heading" className="font-bold text-2xl outline-none" style={{ color: theme.colors.textPrimary }}>
           {content.lesson.title}
         </h1>
         <p style={{ color: theme.colors.textSecondary }}>{content.lesson.summary}</p>
@@ -31,7 +35,8 @@ export function LessonRenderer({
   lessonId,
   services,
   slots,
-}: { lessonId: string; services: LearningServices; slots?: LessonBlockSlots }) {
+  headingRef,
+}: { lessonId: string; services: LearningServices; slots?: LessonBlockSlots; headingRef?: Ref<HTMLHeadingElement> }) {
   const [state, setState] = useState<LoadState>({ status: 'loading' })
   const [retryKey, setRetryKey] = useState(0)
   useEffect(() => {
@@ -48,5 +53,5 @@ export function LessonRenderer({
   if (state.status === 'error') {
     return <ErrorState message={`Không thể tải bài học (${state.error}).`} onRetry={() => setRetryKey(value => value + 1)} />
   }
-  return <LessonContentView content={state.content} slots={slots} />
+  return <LessonContentView content={state.content} slots={slots} headingRef={headingRef} />
 }
