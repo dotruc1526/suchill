@@ -4,7 +4,7 @@
   "authoringOnly": true,
   "durationSeconds": 110,
   "spokenAudioStatus": "NOT_RECORDED",
-  "reviewStatus": "NEEDS_HISTORICAL_REVIEW",
+  "reviewStatus": "approved",
   "cues": [
     {
       "id": "p01a",
