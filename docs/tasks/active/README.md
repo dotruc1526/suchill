@@ -2,7 +2,11 @@
 
 Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOCKED` nằm trong `../blocked/`; task đã được reviewer xác nhận nằm trong `../done/`.
 
-> Last synchronized: 2026-09-30 — M2-01..06 Hưng ACCEPTED, moved to done/
+> Last synchronized: 2026-10-01 — M3-UX-01 REVIEW; M2-01..06 Hưng ACCEPTED, moved to done/
+
+## Milestone 3 — UI/UX
+
+- [M3-UX-01](./M3-UX-01.md) — `REVIEW`; Trúc phụ trách UI/UX handoff lesson/VN/video/quiz, Codex hỗ trợ; dependency M1/M2 và gate M3 đã đạt. Prototype/handoff/evidence hoàn tất; browser 17 nhóm, typecheck/build PASS. Chờ Hưng/Vinh/Dương nghiệm thu.
 
 ## Content track
 

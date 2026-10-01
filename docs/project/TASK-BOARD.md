@@ -118,6 +118,7 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 
 | ID | Phase | Task | Owner | Status | Depends on | Files | Acceptance / next action |
 |---|---|---|---|---|---|---|---|
+| M3-UX-01 | M3 design handoff | UI/UX handoff lesson, Visual Novel, video và quiz | Trúc (Member 2); Codex hỗ trợ | REVIEW | DOC-018; M1 foundation DONE; M2-01..06 DONE; DOC-005/006/009 | [Task card](../tasks/active/M3-UX-01.md); `docs/engineering/M3-UX-HANDOFF.md`, `docs/engineering/m3-ux/` | Prototype + handoff/state matrix hoàn tất; browser 17 nhóm, typecheck/build PASS; evidence tại docs/engineering/m3-ux/EVIDENCE.md. Next Hưng/Vinh review; Dương nhận handoff và PO nghiệm thu. CONTENT-007 giữ BLOCKED riêng. |
 | FE-001 | Foundation | Sửa TypeScript baseline | Hưng (Member 3) | DONE | DOC-010 | [`docs/tasks/done/FE-001.md`](../tasks/done/FE-001.md) | Đã sửa 18 lỗi typecheck; PR #12/#13 merged vào main; Vinh nghiệm thu M0-02, card đồng bộ ngày 2026-09-28 |
 | FE-002 | Foundation | Chọn canonical features architecture và cô lập legacy | Hưng (Member 3) | DONE | FE-001, DOC-010 | [`docs/tasks/done/FE-002.md`](../tasks/done/FE-002.md) | Vinh nghiệm thu: 10 screens trong legacy, không import runtime; `npm run quality` pass ngày 2026-09-28 |
 | FE-003 | Design system | Chuẩn hóa tokens và UI primitives (M1-02) | Hưng (Member 3) | DONE | M1-01, FE-001, DOC-010 | [`docs/tasks/done/FE-003.md`](../tasks/done/FE-003.md) | PR #33 merged vào `main`; Vinh QA xác nhận `npm run quality` pass sau merge |
@@ -203,6 +204,7 @@ Chỉ các task có status `IN PROGRESS` được coi là đang có người là
 
 | ID | Owner / executor | Reviewer | Started | Current next action | Blocker | Last checkpoint |
 |---|---|---|---|---|---|---|
+| M3-UX-01 | Trúc / Codex | Hưng, Vinh; Dương consumer + PO | 2026-10-01 | Review handoff, prototype và G1..G5; nghiệm thu trước DONE | Chờ reviewer sign-off | [Handoff](../engineering/M3-UX-HANDOFF.md); [evidence](../engineering/m3-ux/EVIDENCE.md); branch `codex/truc-m3-ui-handoff` |
 | CONTENT-003 | Trúc / Trúc | Trúc historical/media; Vinh technical QA | 2026-09-27; review 2026-09-28 | Bổ sung nguồn đọc được cho CLM-MT68-01; chốt review và nguồn audio | Source năm mục tiêu chưa đọc lại được; sign-off/audio còn thiếu | Branch `codex/content-status-sync`; claim 3 tài liệu authoring + card/board/report; [review](../tasks/active/CONTENT-003-004-REVIEW.md); validator PASS |
 | CONTENT-012 | Thọ / Trúc | Vinh (QA); Thọ (objective) | 2026-09-27 | REVIEW năm câu hỏi và source ID | Chưa xác nhận mapper/seed contract; authoring-only | Branch `feature/content-expansion-mt68`; claim quiz/card; [handoff](../tasks/active/PR21-HANDOFF.md) |
 | CONTENT-014 | Trúc / Trúc; Codex hỗ trợ | Vinh technical QA | 2026-09-27 | Vinh xác nhận task-level handoff và validator evidence | Chưa có technical QA sign-off cho card CONTENT-014 | Authoring remediation hoàn tất; validator PASS; [card](../tasks/active/CONTENT-014.md) |
@@ -217,6 +219,7 @@ Mỗi lần handoff quan trọng thêm một dòng mới nhất ở đầu bản
 
 | Date | Task | Author | Update | Evidence / next owner |
 |---|---|---|---|---|
+| 2026-10-01 | M3-UX-01 | Trúc / Codex | Hoàn tất UI/UX prototype lesson/VN/video/quiz, flow/state matrix và service/primitive mapping; chuyển REVIEW | Browser 17 nhóm PASS ở 375/430px, typecheck/build PASS; Hưng/Vinh/Dương review; CONTENT-007 vẫn BLOCKED |
 | 2026-10-01 | DOC-018 / Gate M2 | Dương (Product Owner) + Codex | Audit ba điều kiện Gate M2 đạt; Product Owner đóng M2 và mở M3. M3 implementation chỉ được bắt đầu theo dependency, task card, reviewer và file claim | PR #70 merge `a4d22b2`; M2-01..06 DONE; [DOC-018](../tasks/done/DOC-018.md); next Dương claim task M3 hợp lệ, Vinh phối hợp contract/QA |
 | 2026-09-30 | M2-01..06 | Hưng (Member 3 — reviewer) + Codex | Hưng ghi nghiệm thu task-level ACCEPTED cho cả 6 task M2 trên main `7175bda`; cards chuyển DONE và folder-synced sang `docs/tasks/done/`; board links cập nhật; M2 vẫn OPEN, M3 LOCKED cho đến khi PO audit gate và ghi quyết định | M2-01..06 evidence tại từng card section "Reviewer acceptance — 2026-09-30"; GitHub Quality `7175bda` pass; cards moved via `hung/m2-review-done-sync` branch |
 | 2026-09-30 | M2-01/03/04/05/06 | Dương (Member 4) | Consumer review trên `main` tại merge PR #64: CONSUMER FIT: CHANGES REQUESTED với ba P1 (document resolution, practice submission, per-question feedback); M2-05 legacy boundary đạt nhưng không thay sign-off toàn M2 | `main` tại `73d3156`; Hưng quyết contract, Vinh/Codex remediation, Dương re-review; M3 chưa mở; Product Owner quyết gate |

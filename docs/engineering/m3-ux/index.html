@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sử Chill · M3 UI/UX handoff</title>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="prototype.css">
+</head>
+<body>
+  <aside class="review-tools" aria-label="Điều khiển bản thiết kế">
+    <div><strong>SỬ CHILL / M3</strong><p>Bản thiết kế tương tác · Trúc · Chờ review</p></div>
+    <label>Màn hình <select id="screen-select">
+      <option value="chapter">Chapter</option><option value="lesson">Lesson</option>
+      <option value="vn">Visual Novel</option><option value="video">Video</option>
+      <option value="quiz">Quiz</option><option value="complete">Completion</option>
+    </select></label>
+    <label>Trạng thái <select id="state-select">
+      <option value="ready">Sẵn sàng</option><option value="loading">Loading</option>
+      <option value="error">Error</option><option value="offline">Offline</option>
+      <option value="empty">Empty</option><option value="confirmed">Reward confirmed (fixture)</option>
+    </select></label>
+    <p>Toàn bộ chữ/media là fixture thiết kế, không phải nội dung lịch sử phát hành. Video và reward được mô phỏng; không kết nối backend.</p>
+  </aside>
+  <div class="phone">
+    <header class="topbar">
+      <button id="back" class="icon-button" aria-label="Quay lại">←</button>
+      <span class="wordmark">Sử Chill<span class="submark">MỖI BÀI HỌC, MỘT GÓC NHÌN</span></span>
+      <button id="mute" class="icon-button" aria-label="Bật âm thanh" aria-pressed="true">♪</button>
+    </header>
+    <main id="content" tabindex="-1"></main>
+    <footer class="bottom-note">HỌC CHẬM · HIỂU SÂU</footer>
+  </div>
+  <dialog id="restart-dialog" aria-labelledby="restart-title">
+    <h2 id="restart-title">Bắt đầu lại câu chuyện?</h2>
+    <p>Bạn sẽ chọn lại từ đầu. Bản thiết kế không thay đổi tiến độ trong ứng dụng thật.</p>
+    <div class="stack"><button id="restart-cancel" autofocus>Tiếp tục học</button><button id="restart-confirm" class="primary">Bắt đầu lại</button></div>
+  </dialog>
+  <script type="module" src="prototype.js"></script>
+</body>
+</html>
