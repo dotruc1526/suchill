@@ -1,4 +1,4 @@
-import type { LearningServices, ResolvedMediaAsset, Result } from '../../../services/next/contracts'
+import type { LearningServices, ResolvedMediaAsset, Result, ServiceErrorCode } from '../../../services/next/contracts'
 import type { VideoProgress } from '../../../types/v2/progress'
 
 export type VideoPlayerContext = { lessonId: string; blockId: string; mediaAssetId: string }
@@ -36,4 +36,58 @@ export async function saveVideoCheckpoint(
   return services.progress.saveVideoPosition({
     lessonId: context.lessonId, blockId: context.blockId, positionSeconds, watchedRanges, operationId,
   })
+}
+
+export type VideoCheckpointPayload = {
+  positionSeconds: number
+  watchedRanges: Array<{ start: number; end: number }>
+  operationId: string
+}
+
+export class VideoCheckpointQueue {
+  private items: VideoCheckpointPayload[] = []
+  private flushing = false
+  private failed = false
+  private readonly write: (payload: VideoCheckpointPayload) => Promise<Result<VideoProgress>>
+  private readonly onSaved: (progress: VideoProgress) => void
+  private readonly onError: (error: ServiceErrorCode) => void
+
+  constructor(
+    write: (payload: VideoCheckpointPayload) => Promise<Result<VideoProgress>>,
+    onSaved: (progress: VideoProgress) => void,
+    onError: (error: ServiceErrorCode) => void,
+  ) {
+    this.write = write
+    this.onSaved = onSaved
+    this.onError = onError
+  }
+
+  enqueue(payload: VideoCheckpointPayload) {
+    this.items.push(payload)
+    if (!this.failed) void this.flush()
+  }
+
+  retry() {
+    this.failed = false
+    void this.flush()
+  }
+
+  pending() {
+    return this.items.map(item => ({ ...item, watchedRanges: item.watchedRanges.map(range => ({ ...range })) }))
+  }
+
+  private async flush(): Promise<void> {
+    if (this.flushing || this.failed || this.items.length === 0) return
+    this.flushing = true
+    const result = await this.write(this.items[0])
+    this.flushing = false
+    if (!result.ok) {
+      this.failed = true
+      this.onError(result.error)
+      return
+    }
+    this.items.shift()
+    this.onSaved(result.value)
+    await this.flush()
+  }
 }

@@ -225,3 +225,16 @@ test('M3-04 video view exposes controls, Vietnamese captions, transcript and pre
   }))
   assert.ok(posterHtml.includes('alt="Ảnh thay thế"'))
 })
+
+test('M3-04 exposes load retry, retained-save retry and paused seek destination persistence', async () => {
+  const { VideoProgressSaveError } = await vite.ssrLoadModule('/src/features/learning/video/VideoLessonPlayer.tsx')
+  const errorHtml = renderToStaticMarkup(React.createElement(VideoProgressSaveError, { error: 'offline', onRetry: () => {} }))
+  assert.ok(errorHtml.includes('role="alert"'))
+  assert.ok(errorHtml.includes('Dữ liệu chưa lưu vẫn được giữ lại'))
+  assert.ok(errorHtml.includes('THỬ LƯU LẠI'))
+
+  const source = await readFile(new URL('../../src/features/learning/video/VideoLessonPlayer.tsx', import.meta.url), 'utf8')
+  assert.match(source, /onRetry=\{\(\) => setLoadRetryKey\(value => value \+ 1\)\}/)
+  assert.match(source, /if \(event\.currentTarget\.paused\) persist\(currentTime\(event\)\)/)
+  assert.match(source, /checkpointQueue\.enqueue/)
+})
