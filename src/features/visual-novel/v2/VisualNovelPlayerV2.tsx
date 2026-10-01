@@ -4,7 +4,8 @@ import type { LearningServices, Result, ServiceErrorCode } from '../../../servic
 import { VisualNovelSceneView, type VisualNovelMediaSlot } from './VisualNovelSceneView'
 import {
   advanceVisualNovel, chooseVisualNovel, continueChoiceFeedback, getCurrentScene, loadVisualNovel,
-  restartVisualNovel, resumeVisualNovel, reviewVisualNovelScene, type VisualNovelContext, type VisualNovelSession,
+  restartVisualNovel, resumeVisualNovel, reviewVisualNovelScene, visualNovelContextKey,
+  type VisualNovelContext, type VisualNovelSession,
 } from './visualNovelModel'
 
 type PlayerState = { status: 'loading' } | { status: 'error'; error: ServiceErrorCode } | { status: 'ready'; session: VisualNovelSession }
@@ -31,6 +32,7 @@ export function VisualNovelPlayerV2({
   const [state, setState] = useState<PlayerState>({ status: 'loading' })
   const [busy, setBusy] = useState(false)
   const [retryKey, setRetryKey] = useState(0)
+  const contextKey = visualNovelContextKey(context)
   const headingRef = useRef<HTMLHeadingElement>(null)
   const sceneRef = useRef<HTMLDivElement>(null)
   const feedbackRef = useRef<HTMLDivElement>(null)
@@ -38,12 +40,15 @@ export function VisualNovelPlayerV2({
   const previousSceneIdRef = useRef<string | undefined>(undefined)
   useEffect(() => {
     let active = true
+    playerFocusedRef.current = false
+    previousSceneIdRef.current = undefined
+    setBusy(false)
     setState({ status: 'loading' })
     void loadVisualNovel(services, context).then(result => {
       if (active) setState(result.ok ? { status: 'ready', session: result.value } : { status: 'error', error: result.error })
     })
     return () => { active = false }
-  }, [context.blockId, context.lessonId, context.storyVersionId, retryKey, services])
+  }, [context.blockId, context.lessonId, context.storyVersionId, contextKey, retryKey, services])
   const activeScene = state.status === 'ready' ? getCurrentScene(state.session) : undefined
   const activeSceneId = activeScene?.id
   const feedbackKey = state.status === 'ready' && state.session.feedback

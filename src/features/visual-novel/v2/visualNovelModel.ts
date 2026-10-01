@@ -21,6 +21,9 @@ export type VisualNovelSession = {
 export const getCurrentScene = (session: VisualNovelSession) =>
   session.story.scenes.find(scene => scene.id === session.currentSceneId)
 
+export const visualNovelContextKey = (context: VisualNovelContext) =>
+  `${context.lessonId}:${context.blockId}:${context.storyVersionId}`
+
 const sceneExists = (story: StoryVersion, sceneId: string) => story.scenes.some(scene => scene.id === sceneId)
 const success = (session: VisualNovelSession): Result<VisualNovelSession> => ({ ok: true, value: session })
 

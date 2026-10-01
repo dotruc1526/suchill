@@ -258,6 +258,15 @@ test('M3-03 moves focus by scene and feedback without returning to the player he
   assert.doesNotMatch(source, /headingRef\.current\?\.focus\(\).*\}, \[state\]\)/s)
 })
 
+test('M3-03 resets focus tracking when the story context changes', async () => {
+  const source = await readFile(new URL('../../src/features/visual-novel/v2/VisualNovelPlayerV2.tsx', import.meta.url), 'utf8')
+  assert.match(source, /visualNovelContextKey\(context\)/)
+  assert.match(source, /playerFocusedRef\.current = false/)
+  assert.match(source, /previousSceneIdRef\.current = undefined/)
+  assert.match(source, /playerFocusedRef\.current = false[\s\S]*?setState\(\{ status: 'loading' \}\)/)
+  assert.match(source, /contextKey, retryKey, services\]/)
+})
+
 test('M3-05 quiz view is semantic, blocks incomplete submit and renders trusted feedback', async () => {
   const { QuizFlowView } = await vite.ssrLoadModule('/src/features/quiz/v2/QuizFlowView.tsx')
   const noop = () => {}

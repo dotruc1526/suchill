@@ -5,7 +5,7 @@ import { createMockProgressStore } from '../../src/services/next/mockProgress.ts
 import type { Lesson, StoryVersion } from '../../src/types/v2/content.ts'
 import {
   advanceVisualNovel, chooseVisualNovel, continueChoiceFeedback, loadVisualNovel,
-  restartVisualNovel, resumeVisualNovel, reviewVisualNovelScene,
+  restartVisualNovel, resumeVisualNovel, reviewVisualNovelScene, visualNovelContextKey,
 } from '../../src/features/visual-novel/v2/visualNovelModel.ts'
 
 const story: StoryVersion = {
@@ -118,4 +118,15 @@ test('M3-03 fails visibly for unavailable stories and invalid transitions', asyn
   assert.deepEqual(await chooseVisualNovel(services, context, loaded.value, 'missing', 'invalid'), { ok: false, error: 'validation' })
   const endSession = { ...loaded.value, currentSceneId: 'end-a' }
   assert.deepEqual(await advanceVisualNovel(services, context, endSession, 'past-end'), { ok: false, error: 'validation' })
+})
+
+test('M3-03 distinguishes story contexts that share scene IDs', () => {
+  const contextA = { lessonId: 'lesson-a', blockId: 'block-a', storyVersionId: 'story-a' }
+  const contextB = { lessonId: 'lesson-b', blockId: 'block-b', storyVersionId: 'story-b' }
+  assert.notEqual(visualNovelContextKey(contextA), visualNovelContextKey(contextB))
+  assert.equal(visualNovelContextKey(contextA), visualNovelContextKey({ ...contextA }))
+  assert.notEqual(
+    visualNovelContextKey(contextA),
+    visualNovelContextKey({ ...contextA, storyVersionId: 'story-a-v2' }),
+  )
 })
