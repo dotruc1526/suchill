@@ -195,6 +195,94 @@ test('Shared states render properly with Vietnamese content', async () => {
   assert.ok(offlineHtml.includes('Bạn đang ngoại tuyến'))
 })
 
+test('M3-03 scene view keeps narrative choices neutral and knowledge feedback explicit', async () => {
+  const { VisualNovelSceneView } = await vite.ssrLoadModule('/src/features/visual-novel/v2/VisualNovelSceneView.tsx')
+  const noop = () => {}
+  const base = { sourceIds: [], claimIds: [] }
+  const choice = {
+    ...base, id: 'choice', kind: 'choice', prompt: 'Bạn nghĩ gì?', policy: 'retry_until_correct', choices: [
+      { id: 'reflection', kind: 'reflection', label: 'Suy ngẫm', nextSceneId: 'end' },
+      { id: 'knowledge', kind: 'knowledge_check', label: 'Kiến thức', isCorrect: false, explanation: 'Đọc lại', nextSceneId: 'end' },
+    ],
+  }
+  const choiceHtml = renderToStaticMarkup(React.createElement(VisualNovelSceneView, {
+    scene: choice, busy: false, onChoice: noop, onContinue: noop, onComplete: noop,
+  }))
+  assert.ok(choiceHtml.includes('Lựa chọn suy ngẫm, không có đúng sai'))
+  assert.ok(choiceHtml.includes('Câu hỏi kiến thức'))
+  assert.ok(choiceHtml.includes('aria-label="Nội dung Visual Novel hiện tại"'))
+  assert.ok(choiceHtml.includes('tabindex="-1"'))
+  assert.doesNotMatch(choiceHtml, /✓ Chính xác|✗ Chưa chính xác/)
+
+  const feedbackHtml = renderToStaticMarkup(React.createElement(VisualNovelSceneView, {
+    scene: choice, busy: false, feedback: { choiceId: 'knowledge', outcome: 'incorrect', message: 'Đọc lại' },
+    onChoice: noop, onContinue: noop, onComplete: noop,
+  }))
+  assert.ok(feedbackHtml.includes('role="status"'))
+  assert.match(feedbackHtml, /tabindex="-1"[^>]*role="status"/)
+  assert.ok(feedbackHtml.includes('✗ Chưa chính xác') && feedbackHtml.includes('Đọc lại'))
+
+  for (const scene of [
+    { ...base, id: 'narration', kind: 'narration', text: 'Kể chuyện', nextSceneId: 'end' },
+    { ...base, id: 'dialogue', kind: 'dialogue', speaker: 'Nhân vật', line: 'Lời thoại', nextSceneId: 'end' },
+    { ...base, id: 'media', kind: 'media', mediaAssetId: 'asset', caption: 'Chú thích', nextSceneId: 'end' },
+    { ...base, id: 'debrief', kind: 'debrief', summary: 'Tổng kết', nextSceneId: 'end' },
+    { ...base, id: 'end', kind: 'end', summary: 'Hoàn tất' },
+  ]) {
+    const html = renderToStaticMarkup(React.createElement(VisualNovelSceneView, {
+      scene, busy: false, onChoice: noop, onContinue: noop, onComplete: noop,
+    }))
+    assert.ok(html.includes(`data-scene-id="${scene.id}"`), `${scene.kind} scene should render by stable ID`)
+  }
+})
+
+test('M3-03 error state preserves close and checkpoint retry actions', async () => {
+  const { VisualNovelErrorState } = await vite.ssrLoadModule('/src/features/visual-novel/v2/VisualNovelPlayerV2.tsx')
+  const html = renderToStaticMarkup(React.createElement(VisualNovelErrorState, {
+    error: 'offline', onRetry: () => {}, onClose: () => {},
+  }))
+  assert.ok(html.includes('aria-label="Visual Novel gặp lỗi"'))
+  assert.ok(html.includes('ĐÓNG'))
+  assert.ok(html.includes('Thử lại'))
+  assert.ok(html.includes('Không thể tải Visual Novel (offline).'))
+})
+
+test('M3-03 moves focus by scene and feedback without returning to the player heading', async () => {
+  const source = await readFile(new URL('../../src/features/visual-novel/v2/VisualNovelPlayerV2.tsx', import.meta.url), 'utf8')
+  assert.match(source, /playerFocusedRef\.current/)
+  assert.match(source, /\[state\.status\]/)
+  assert.match(source, /sceneRef\.current\?\.focus\(\)/)
+  assert.match(source, /\[activeSceneId\]/)
+  assert.match(source, /feedbackRef\.current\?\.focus\(\)/)
+  assert.match(source, /\[feedbackKey\]/)
+  assert.doesNotMatch(source, /headingRef\.current\?\.focus\(\).*\}, \[state\]\)/s)
+})
+
+test('M3-03 resets focus tracking when the story context changes', async () => {
+  const source = await readFile(new URL('../../src/features/visual-novel/v2/VisualNovelPlayerV2.tsx', import.meta.url), 'utf8')
+  assert.match(source, /visualNovelContextKey\(context\)/)
+  assert.match(source, /playerFocusedRef\.current = false/)
+  assert.match(source, /previousSceneIdRef\.current = undefined/)
+  assert.match(source, /playerFocusedRef\.current = false[\s\S]*?setState\(\{ status: 'loading' \}\)/)
+  assert.match(source, /contextKey, retryKey, services\]/)
+})
+
+test('M3-03 gates late action results by story context', async () => {
+  const source = await readFile(new URL('../../src/features/visual-novel/v2/VisualNovelPlayerV2.tsx', import.meta.url), 'utf8')
+  assert.match(source, /actionGateRef\.current\.activate\(contextKey\)/)
+  assert.match(source, /actionGateRef\.current\.invalidate\(\)/)
+  assert.match(source, /const token = actionGateRef\.current\.begin\(contextKey\)/)
+  assert.match(source, /if \(!actionGateRef\.current\.isCurrent\(token\)\) return/)
+})
+
+test('M3-03 hides a ready session synchronously when context or services change', async () => {
+  const source = await readFile(new URL('../../src/features/visual-novel/v2/VisualNovelPlayerV2.tsx', import.meta.url), 'utf8')
+  assert.match(source, /isVisualNovelRenderCurrent\(state\.contextKey, state\.services, contextKey, services\)/)
+  assert.match(source, /if \(!readyState\) return <LoadingState/)
+  assert.match(source, /const \{ session \} = readyState/)
+  assert.doesNotMatch(source, /const \{ session \} = state/)
+})
+
 test('M3-04 video view exposes controls, Vietnamese captions, transcript and prepared fallback', async () => {
   const { VideoPlayerView } = await vite.ssrLoadModule('/src/features/learning/video/VideoPlayerView.tsx')
   const asset = {
