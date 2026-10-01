@@ -187,3 +187,41 @@ test('Shared states render properly with Vietnamese content', async () => {
   )
   assert.ok(offlineHtml.includes('Bạn đang ngoại tuyến'))
 })
+
+test('M3-03 scene view keeps narrative choices neutral and knowledge feedback explicit', async () => {
+  const { VisualNovelSceneView } = await vite.ssrLoadModule('/src/features/visual-novel/v2/VisualNovelSceneView.tsx')
+  const noop = () => {}
+  const base = { sourceIds: [], claimIds: [] }
+  const choice = {
+    ...base, id: 'choice', kind: 'choice', prompt: 'Bạn nghĩ gì?', policy: 'retry_until_correct', choices: [
+      { id: 'reflection', kind: 'reflection', label: 'Suy ngẫm', nextSceneId: 'end' },
+      { id: 'knowledge', kind: 'knowledge_check', label: 'Kiến thức', isCorrect: false, explanation: 'Đọc lại', nextSceneId: 'end' },
+    ],
+  }
+  const choiceHtml = renderToStaticMarkup(React.createElement(VisualNovelSceneView, {
+    scene: choice, busy: false, onChoice: noop, onContinue: noop, onComplete: noop,
+  }))
+  assert.ok(choiceHtml.includes('Lựa chọn suy ngẫm, không có đúng sai'))
+  assert.ok(choiceHtml.includes('Câu hỏi kiến thức'))
+  assert.doesNotMatch(choiceHtml, /✓ Chính xác|✗ Chưa chính xác/)
+
+  const feedbackHtml = renderToStaticMarkup(React.createElement(VisualNovelSceneView, {
+    scene: choice, busy: false, feedback: { choiceId: 'knowledge', outcome: 'incorrect', message: 'Đọc lại' },
+    onChoice: noop, onContinue: noop, onComplete: noop,
+  }))
+  assert.ok(feedbackHtml.includes('role="status"'))
+  assert.ok(feedbackHtml.includes('✗ Chưa chính xác') && feedbackHtml.includes('Đọc lại'))
+
+  for (const scene of [
+    { ...base, id: 'narration', kind: 'narration', text: 'Kể chuyện', nextSceneId: 'end' },
+    { ...base, id: 'dialogue', kind: 'dialogue', speaker: 'Nhân vật', line: 'Lời thoại', nextSceneId: 'end' },
+    { ...base, id: 'media', kind: 'media', mediaAssetId: 'asset', caption: 'Chú thích', nextSceneId: 'end' },
+    { ...base, id: 'debrief', kind: 'debrief', summary: 'Tổng kết', nextSceneId: 'end' },
+    { ...base, id: 'end', kind: 'end', summary: 'Hoàn tất' },
+  ]) {
+    const html = renderToStaticMarkup(React.createElement(VisualNovelSceneView, {
+      scene, busy: false, onChoice: noop, onContinue: noop, onComplete: noop,
+    }))
+    assert.ok(html.includes(`data-scene-id="${scene.id}"`), `${scene.kind} scene should render by stable ID`)
+  }
+})
