@@ -178,13 +178,15 @@ test('learning journey stays usable and uncut at mobile widths', async () => {
         assert.ok(metrics, `${width}px journey elements mounted`)
         assert.equal(metrics.viewport, width)
         assert.equal(metrics.documentWidth, width, `${width}px document has no horizontal overflow`)
-        assert.equal(metrics.title, 'HÀNH TRÌNH LỊCH SỬ')
+        assert.equal(metrics.title.trim(), 'XIN CHÀO')
         assert.ok(metrics.cardLeft >= 0 && metrics.cardRight <= width, `${width}px chapter card stays within viewport`)
         assert.ok(metrics.buttonHeight >= 44, `${width}px primary action keeps a 44px touch target`)
 
-        if (process.env.UPDATE_M1_08_EVIDENCE === '1') {
+        if (process.env.UPDATE_M1_08_EVIDENCE === '1' || process.env.UPDATE_M3_HOME_EVIDENCE === '1') {
           const screenshot = await cdp('Page.captureScreenshot', { format: 'png', captureBeyondViewport: false })
-          const path = new URL(`../../docs/tasks/active/M1-08-${width}.png`, import.meta.url)
+          const path = new URL(process.env.UPDATE_M3_HOME_EVIDENCE === '1'
+            ? `../../docs/engineering/m3-home-restore/home-${width}.png`
+            : `../../docs/tasks/active/M1-08-${width}.png`, import.meta.url)
           await writeFile(path, screenshot.data, 'base64')
         }
       }
