@@ -9,9 +9,19 @@ import { playbackCatalog } from '../../member5/playback-fixtures'
 const baseServices = createMockLearningServices(
   playbackCatalog(), { userId: 'qa-video-fixture' }, () => '2026-10-01T00:00:00Z',
 )
+// Fixture-only observation: a stale error cannot prove that Retry reloaded media.
+const mediaReads: Record<string, number> = {}
+Object.assign(window, { qaMediaReads: mediaReads })
 let failFirstStoryRead = true
 const services = {
   ...baseServices,
+  media: {
+    ...baseServices.media,
+    getResolvedAsset: async (mediaAssetId: string) => {
+      mediaReads[mediaAssetId] = (mediaReads[mediaAssetId] ?? 0) + 1
+      return baseServices.media.getResolvedAsset(mediaAssetId)
+    },
+  },
   stories: {
     getVersion: async (storyVersionId: string) => {
       if (failFirstStoryRead) {

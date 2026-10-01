@@ -376,13 +376,37 @@ test('player mock exposes mobile video fallback and Visual Novel error retry by 
         assert.ok(metrics.retryHeight >= 44 && metrics.retryWidth >= 44, `${width}px retry target is at least 44px`)
         assert.ok(metrics.retryLeft >= 0 && metrics.retryRight <= width, `${width}px retry remains visible`)
 
+        const readsBeforeRetry = (await evaluate("window.qaMediaReads.missing")).result.value
         await evaluate("document.querySelector('[data-testid=\"qa-video-missing\"] button').focus()")
         await cdp('Input.dispatchKeyEvent', {
           type: 'keyDown', key: 'Enter', code: 'Enter', text: '\r', unmodifiedText: '\r',
           windowsVirtualKeyCode: 13, nativeVirtualKeyCode: 13,
         })
         await cdp('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13, nativeVirtualKeyCode: 13 })
+        await waitFor(`window.qaMediaReads.missing === ${readsBeforeRetry + 1}`, `${width}px service Retry requests media again`)
         await waitFor("document.querySelector('[data-testid=\"qa-video-missing\"]')?.textContent.includes('Không thể tải video (not_found)')", `${width}px retry error recovery`)
+
+        // Observe a new video mount even if the mock URL immediately fails again.
+        await evaluate(`(() => {
+          const section = document.querySelector('[data-testid="qa-video-valid"]')
+          window.qaVideoRemounted = false
+          window.qaVideoObserver = new MutationObserver(records => {
+            for (const record of records) for (const node of record.addedNodes) {
+              if (node.nodeName === 'VIDEO') window.qaVideoRemounted = true
+            }
+          })
+          window.qaVideoObserver.observe(section, { childList: true, subtree: true })
+          ;[...section.querySelectorAll('button')].find(button => button.textContent === 'THỬ PHÁT LẠI').focus()
+        })()`)
+        await cdp('Input.dispatchKeyEvent', {
+          type: 'keyDown', key: 'Enter', code: 'Enter', text: '\r', unmodifiedText: '\r',
+          windowsVirtualKeyCode: 13, nativeVirtualKeyCode: 13,
+        })
+        await cdp('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13, nativeVirtualKeyCode: 13 })
+        await waitFor("window.qaVideoRemounted === true", `${width}px playback Retry mounts a new video`)
+        await evaluate("window.qaVideoObserver.disconnect()")
+        await waitFor("Boolean(document.querySelector('[data-testid=\"qa-video-valid\"] [aria-label=\"Video không phát được\"]'))", `${width}px retry returns accessible media fallback`)
+
 
         await waitFor("document.querySelector('[data-testid=\"qa-vn-retry\"]')?.textContent.includes('Không thể tải Visual Novel (offline)')", `${width}px VN load error`)
         await evaluate("[...document.querySelectorAll('[data-testid=\"qa-vn-retry\"] button')].find(button => button.textContent === 'Thử lại').focus()")

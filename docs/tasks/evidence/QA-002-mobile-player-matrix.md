@@ -19,7 +19,7 @@
 | VN-05 | Narrative/reflection is neutral; knowledge feedback has text/icon and focusable status; service/invalid-scene errors offer Close and Retry | `tests/qa/component.test.mjs` M3-03 cases (`C`) | PASS |
 | VID-01 | Published resolved asset loads; absent progress starts at zero; saved position resumes exactly; missing/non-video media fails closed | `tests/member5/m3-video-player.test.ts` (`U`) | PASS |
 | VID-02 | Video has native controls, no autoplay, poster, Vietnamese caption track, transcript link and prepared fallback markup | `tests/qa/component.test.mjs` M3-04 case (`C`) | PASS |
-| VID-03 | Invalid media triggers visible transcript fallback; missing asset shows service error and keyboard Retry at 375px/430px; no horizontal overflow; retry target ≥44×44px | `tests/qa/fixtures/video-player-mobile.*` + `tests/qa/e2e.test.mjs` “player mock exposes…” (`A`) | PASS |
+| VID-03 | Invalid media triggers visible transcript fallback; missing asset shows service error; Enter on Retry increases media service reads exactly once; Enter on THỬ PHÁT LẠI mounts a new video and restores fallback at 375px/430px; no horizontal overflow; retry target ≥44×44px | `tests/qa/fixtures/video-player-mobile.*` + `tests/qa/e2e.test.mjs` “player mock exposes…” (`A`) | PASS |
 | VID-04 | Checkpoint saves bounded watched ranges; failed save retains queued payload and retries with the same operation ID; paused seek does not count as watched | `tests/member5/m3-video-player.test.ts` (`U`); `tests/qa/component.test.mjs` M3-04 cases (`C`) | PASS |
 | QZ-01 | Adjacent quiz contract rejects incomplete submit, uses trusted feedback, and preserves loading/error behavior | `tests/member5/m3-quiz-flow.test.ts` (`U`); `tests/qa/component.test.mjs` M3-05 cases (`C`) | PASS, supporting coverage only |
 
@@ -40,3 +40,12 @@
 - `npm run quality` (run with localhost/Chrome permission): typecheck, build, client-secret scan, unit, component and six browser E2E tests.
 - Focused browser checks: `node --test --test-name-pattern='Visual Novel remains keyboard' tests/qa/e2e.test.mjs` and `node --test --test-name-pattern='player mock exposes mobile' tests/qa/e2e.test.mjs`.
 - `git diff --check`.
+
+## VID-03 remediation after PR #83 review
+
+- Review: [Dương requested changes](https://github.com/dotruc1526/suchill/pull/83#pullrequestreview-5380992818) on `10491f0`: the original error assertion could pass before Retry ran, and playback Retry was never activated.
+- Fixture-only `window.qaMediaReads` records `getResolvedAsset` calls. The browser snapshots the missing asset count before Enter and requires exactly one additional call before asserting the error state.
+- A MutationObserver watches the fallback section before keyboard activation of THỬ PHÁT LẠI. The browser requires a newly mounted VIDEO element, then accessible fallback after the invalid mock URL fails again. This does not claim successful canonical playback.
+- Mutation probes: separately replaced the service-load and playback retry callbacks with no-ops for diagnostic runs at each viewport. All four runs failed at the expected new assertion (service reads / video mount). All temporary runtime mutations were restored; no production player change remains.
+- Final verification, 2026-10-01: focused browser test PASS at both widths; `npm run quality` PASS, 72 unit / 22 component / 6 E2E, scan 321 files / 0 unsafe; `git diff --check` PASS.
+- Status: remediation complete locally; QA-002 remains REVIEW pending Dương re-review. Hưng's Button/UI approval applies to `10491f0`; no milestone gate decision is changed.
