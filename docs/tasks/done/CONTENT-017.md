@@ -1,7 +1,7 @@
 # CONTENT-017 — Soạn kịch bản chi tiết Scene-by-Scene và Story Data Bài 2 Visual Novel Chapter 1972 ("Kíp chiến đấu SAM-2 — Vạch nhiễu tìm thù")
 
-> Status: REVIEW\
-> Last updated: 2026-09-30
+> Status: DONE\
+> Last updated: 2026-10-01
 
 ## Assignment
 
@@ -48,12 +48,12 @@
 - [x] 100% dữ kiện bám sát Claim ID từ `CONTENT-016-EVIDENCE.md` và nguồn chính thống (Báo QĐND, Lịch sử QCPK-KQ, Cẩm nang bìa đỏ).
 - [x] Script kiểm thử tự động `validate-1972-authoring.mjs` chạy PASS.
 - [x] Trúc (Historical Reviewer) thẩm định sử liệu và ngôn ngữ: Trúc đã APPROVE trên PR #54 (review lúc 07:53 ngày 2026-09-30 trên head `f641530`).
-- [ ] Product Owner nghiệm thu phê duyệt (chờ PO nghiệm thu sau khi blocker N1/N2/N3 được dọn dẹp).
+- [x] Product Owner nghiệm thu phê duyệt: PO Compuerte đã nghiệm thu và merge PR #54 vào main tại commit `0075079`.
 
 ## Verification
 
 - Commands/checks: `node docs/content/validate-1972-authoring.mjs`, `git diff --check`, `node scripts/member5/check-client-env.mjs`.
-- Expected result: Bản kịch bản và dữ liệu authoring hoàn chỉnh, sẵn sàng bàn giao cho Trúc (Historical Reviewer) thẩm định và Product Owner nghiệm thu.
+- Expected result: Bản kịch bản và dữ liệu authoring hoàn chỉnh, đã được Trúc duyệt và Product Owner nghiệm thu merge main.
 
 ## Progress checkpoints
 
@@ -68,10 +68,11 @@
 | 2026-09-30 | Thọ + Codex | Tiếp thu PO review tại head `0412226`: tổng quát hóa sơ đồ/narration theo claim 002; bỏ phát biểu nhân quả chưa có nguồn; loại bảng nguồn ngoài scope; ghi rõ phạm vi approval GitHub và yêu cầu re-review | `validate-1972-authoring.mjs` PASS (5 nodes, 8/8 scenes); client-env scan 240 files/0 unsafe; `git diff --check` PASS. Full quality cần CI trên PR vì worktree không có `node_modules`. | Trúc và PO review bản cập nhật; xác nhận CI xanh trước merge | Chờ CI/re-review |
 | 2026-09-30 | Thọ + Codex | Xử lý triệt để finding [P1] theo review Trúc tại head `fdbf5e7`: (1) Sơ đồ SAM-2 đưa về mức thuần túy liệt kê thành phần khí tài và sự hiện diện kíp; bỏ quan hệ điều khiển, phát lệnh, truyền nhận tham số vi mô; (2) Scene 4 Narration/Story bỏ mô tả tọa độ mục tiêu và tham số không gian; (3) Validator bổ sung kiểm tra khóa từ ngữ quy trình tác chiến vi mô; Trúc APPROVED tại head `f641530` | `DIAGRAM-SAM2-1972.json`, `LESSON-02-1972-NARRATION.md`, `LESSON-02-1972-STORY.json`, `validate-1972-authoring.mjs`; validator PASS 100% | Trúc (Historical Reviewer) đã approve lúc 07:53 ngày 2026-09-30 | Không |
 | 2026-09-30 | Thọ + Codex | Xử lý triệt để các blocker N1, N2, N3 từ review của Dương (Member 4): (1) Cập nhật card CONTENT-017 (branch v2, date 2026-09-30, tick Trúc approved); (2) Dọn dẹp 100% link gãy trong TASK-BOARD.md đảm bảo chuẩn 0-link-lỗi DOC-013; (3) Đồng bộ wording 'tiếp cận tuyến tính' trong Narration; (4) Chuẩn bị nội dung cập nhật PR description 5 nút | `docs/tasks/active/CONTENT-017.md`, `docs/project/TASK-BOARD.md`, `docs/content/LESSON-02-1972-NARRATION.md`; link check 0 lỗi | PO và Dương submit approval cuối để merge PR #54 | Không |
+| 2026-10-01 | Thọ (Member 1) | PR #54 đã được Trúc duyệt và Product Owner nghiệm thu merge vào main (commit 0075079); chuyển card CONTENT-017 sang docs/tasks/done/ | Commit `0075079` trên main | Bàn giao trọn gói Chapter 1972 (PR #65) | Không |
 
 ## Handoff
 
-- Changed files: `docs/tasks/active/CONTENT-017.md`, `docs/content/LESSON-02-1972-NARRATION.md`, `docs/content/LESSON-02-1972-STORY.json`, `docs/content/DIAGRAM-SAM2-1972.json`, `docs/content/validate-1972-authoring.mjs`, `docs/project/TASK-BOARD.md`, `docs/content/HISTORICAL-REVIEW-REPORT-2026-09-28.md`.
+- Changed files: `docs/tasks/done/CONTENT-017.md`, `docs/content/LESSON-02-1972-NARRATION.md`, `docs/content/LESSON-02-1972-STORY.json`, `docs/content/DIAGRAM-SAM2-1972.json`, `docs/content/validate-1972-authoring.mjs`, `docs/project/TASK-BOARD.md`.
 - Test/build result: `validate-1972-authoring.mjs` PASS; `npm run quality` local PASS; markdown link validation PASS 0 broken links.
 - Environment/migration impact: docs/content-only, không ảnh hưởng runtime; không cài thêm dependencies.
-- Next owner/action: Dương (Member 4) và PO (`@Compuerte`) phê duyệt nghiệm thu PR #54. Task remains `REVIEW`.
+- Next owner/action: Đã hoàn tất và merge vào main. Status: `DONE`.

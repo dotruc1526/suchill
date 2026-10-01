@@ -1,88 +1,100 @@
 # TÀI LIỆU HƯỚNG DẪN TÍCH HỢP NỘI DUNG CHO MILESTONE 3 (M3 INTEGRATION GUIDE)
-> **Dành cho:** Dương (Member 4 — Frontend Learning) & Hưng (Member 3 — Frontend Foundation)\
+> **Dành cho:** Dương (Member 4 — Frontend Learning) & Hưng (Member 3 — Frontend Architecture)\
 > **Người biên soạn:** Thọ (Member 1 — Content Lead)\
-> **Mục đích:** Hướng dẫn chi tiết cách nhúng và render trọn bộ 4 bài học Chapter 1972 vào các màn hình M3 (`M3-01` đến `M3-06`) trên Mock Service Adapter\
-> **Ngày lập:** 30/09/2026
+> **Mục đích:** Hướng dẫn ánh xạ tài liệu tác giả (authoring assets) Chapter 1972 sang mock adapter / domain fixtures, tuân thủ đúng ranh giới kiến trúc `UI -> Service -> Mock Adapter`\
+> **Chuẩn kiến trúc:** Phase 5 Domain Contracts & Phase 7 Reward / Progress Spec\
+> **Ngày cập nhật:** 01/10/2026
 
 ---
 
-## 1. TỔNG QUAN KIẾN TRÚC M3 & PHÂN VAI NỘI DUNG
+## 1. NGUYÊN TẮC RANH GIỚI KIẾN TRÚC (ARCHITECTURE BOUNDARIES)
 
-Trong **Milestone 3 (Learning Frontend on Mock Services)**, mục tiêu kỹ thuật là xây dựng hoàn chỉnh luồng trải nghiệm người học trên frontend sử dụng Mock Service Adapter mà chưa cần gọi database thật.
+Để đảm bảo tính toàn vẹn của hệ thống, frontend UI tuyệt đối **không** import trực tiếp các tệp JSON hay Markdown từ thư mục `docs/content`. Luồng dữ liệu chuẩn hóa gồm 3 tầng:
 
-Thọ (Member 1 - Content Lead) đã chuẩn bị sẵn **100% nguyên liệu dữ liệu** theo chuẩn Domain Types v2 (`src/types/v2/content.ts`). Dương (Member 4) chỉ cần map các trường dữ liệu vào các component giao diện tương ứng theo bảng dưới đây:
+$$\text{Authoring Asset (docs/content)} \xrightarrow{\text{Adapter Mapping}} \text{Domain Fixture / Mock Store} \xrightarrow{\text{LearningServices}} \text{UI Component}$$
 
-| Mã Task M3 | Tên Màn Hình / Component | Dữ Liệu Nguồn Của Thọ | Định Dạng Tệp | Component Phụ Trách (Dương) |
+1. **Ranh giới dịch vụ (`LearningServices`):**
+   - Mọi tương tác của UI (`HomeScreen`, `StandardLessonScreen`, `VisualNovelPlayer`, `QuizScreen`) đều đi qua các interfaces đã được nghiệm thu trong `src/services/contracts/` (`ChapterService`, `LessonService`, `DocumentService`, `VisualNovelService`, `QuizService`, `ProgressService`).
+2. **Ranh giới thẩm quyền phần thưởng & hoàn thành (Trusted Receipt):**
+   - UI **không bao giờ tự tính điểm, tự xác định `passed`, tự cộng XP hay tự trao huy hiệu**.
+   - Mọi kết quả điểm số, trạng thái đạt/chưa đạt, phản hồi chi tiết và phần thưởng đều do service trả về qua **`ScoredQuizReceipt`** (đảm bảo tính idempotent và bảo mật).
+3. **Trạng thái tài liệu:**
+   - Các tệp trong `docs/content/` là sản phẩm của Content Lead đang trong quá trình thẩm định (`REVIEW`). Việc nạp thành fixture chính thức trong runtime phụ thuộc vào quyết định nghiệm thu của Trúc (Historical Reviewer) và Product Owner.
+
+---
+
+## 2. BẢNG ÁNH XẠ NGUYÊN LIỆU TÁC GIẢ VÀO DOMAIN FIXTURE
+
+| Bài học | Tệp Authoring của Thọ | Service phụ trách | Domain Entity / Contract | Ranh giới chuyển giao UI |
 |---|---|---|---|---|
-| **M3-01** | Home / Chapter Journey | [`docs/content/CURRICULUM-MAP-1972.md`](./CURRICULUM-MAP-1972.md) | Markdown metadata | `HomeScreen.tsx`, `ChapterCard.tsx`, `LessonNode.tsx` |
-| **M3-02** | Standard Lesson Reader | [`docs/content/LESSON-03-1972-STANDARD.md`](./LESSON-03-1972-STANDARD.md) | Markdown Content Blocks | `StandardLessonScreen.tsx`, `ComparisonTable.tsx` |
-| **M3-03** | Visual Novel Player v2 | [`docs/content/LESSON-02-1972-STORY.json`](./LESSON-02-1972-STORY.json)<br>[`docs/content/DIAGRAM-SAM2-1972.json`](./DIAGRAM-SAM2-1972.json) | JSON Graph (8 scenes)<br>JSON Nodes (7 nodes) | `VisualNovelPlayer.tsx`, `InteractiveDiagram.tsx` |
-| **M3-04** | Video Lesson Player | [`docs/content/SCREENPLAY-1972.md`](./SCREENPLAY-1972.md)<br>[`docs/content/CAPTIONS-1972.vtt`](./CAPTIONS-1972.vtt) | Text fallback & WebVTT Captions | `VideoPlayer.tsx`, `SubtitleOverlay.tsx`, `TextFallbackCard.tsx` |
-| **M3-05** | Quiz Assessment Flow | [`docs/content/QUIZ-1972.json`](./QUIZ-1972.json) | JSON Array (5 câu hỏi) | `QuizScreen.tsx`, `QuestionCard.tsx`, `ExplanationModal.tsx` |
-| **M3-06** | Completion & Rewards UI | [`docs/content/CHAPTER-1972-PACKAGE.md`](./CHAPTER-1972-PACKAGE.md) | Policy specs (80% passing) | `LessonCompletionModal.tsx`, `ChapterSummaryScreen.tsx` |
+| **Bài 1 (Video)** | `SCREENPLAY-1972.md`<br>`CAPTIONS-1972.vtt` | `MediaService`<br>`LessonService` | `MediaAsset`<br>`Lesson` (`format: 'video'`) | URL video, WebVTT subtitle tracks, text-first fallback card |
+| **Bài 2 (VN)** | `LESSON-02-1972-STORY.json`<br>`DIAGRAM-SAM2-1972.json` | `VisualNovelService`<br>`ProgressService` | `StoryVersion` (8 scenes)<br>Interactive Diagram (5 nodes) | Scene nodes, narrative choices, knowledge check, checkpoint session |
+| **Bài 3 (Standard)** | `LESSON-03-1972-STANDARD.md` | `DocumentService`<br>`LessonService` | `DomainDocument` (`doc-1972-03-standard`) | Structured content blocks, comparison table, reflection questions |
+| **Bài 4 (Quiz)** | `QUIZ-1972.json` | `QuizService` | `QuestionSet`<br>`MultipleChoiceQuestion` | `DeliveredQuestion` (bảo mật answer key, nộp bài nhận receipt) |
 
 ---
 
-## 2. HƯỚNG DẪN KỸ THUẬT CHI TIẾT TỪNG BÀI HỌC
+## 3. HƯỚNG DẪN KỸ THUẬT CHI TIẾT TỪNG BÀI HỌC
 
-### 2.1. Tích hợp M3-04: Video Player — Bài 1 "Tối hậu thư từ bầu trời"
-- **Dữ liệu bài học:**
-  - `id`: `lsn-1972-01`
-  - `title`: *"Tối hậu thư từ bầu trời"*
-  - `format`: `'video'`
-- **Luồng xử lý trên giao diện:**
-  1. **Video Playback:** Tỷ lệ khung hình dọc 9:16 (an toàn ở kích thước 375px/430px trên mobile).
-  2. **Subtitle Overlay:** Đọc trực tiếp các cues từ file phụ đề [`docs/content/CAPTIONS-1972.vtt`](./CAPTIONS-1972.vtt) để hiển thị phụ đề tiếng Việt chính xác theo mốc giây.
-  3. **Text-first Fallback:** Nếu video tải chậm, mạng yếu hoặc người học chọn "Chế độ đọc tóm tắt", hiển thị thẻ tóm tắt văn học từ Mục 5 của [`docs/content/SCREENPLAY-1972.md`](./SCREENPLAY-1972.md).
-  4. **Nút chuyển bài:** Khi video kết thúc (hoặc đọc xong thẻ fallback), kích hoạt nút Call-to-Action: *"Tiếp tục: Bài 2 — SAM-2: Vạch nhiễu tìm thù"*.
+### 3.1. Bài 1: Video Bài Học "Tối hậu thư từ bầu trời" (`lsn-1972-01`)
+- **Tích hợp:** UI gọi `lessonService.getById('lsn-1972-01')` để lấy thông tin bài học và `mediaService.resolveAssetUrl(mediaId)` để lấy đường dẫn video/captions.
+- **Text-first Fallback:** Nếu video chưa sẵn sàng hoặc người học chọn đọc nhanh, adapter cung cấp fallback tóm tắt kịch bản từ Phần 5 của `SCREENPLAY-1972.md`.
 
----
+### 3.2. Bài 2: Visual Novel "SAM-2: Vạch nhiễu tìm thù" (`lsn-1972-02`)
+- **Đồ thị phân cảnh (8 scenes cố định):**
+  - Danh sách scene ID chuẩn hóa: `sam2-v1-briefing`, `sam2-v1-crew`, `sam2-v1-perspective`, `sam2-v1-coordination`, `sam2-v1-interference`, `sam2-v1-check`, `sam2-v1-debrief`, `sam2-v1-end`.
+  - Node bắt đầu: `sam2-v1-briefing`; Node kết thúc: `sam2-v1-end`.
+  - **Luồng học tuyến tính:** Người học tiếp cận lần lượt nội dung hiệp đồng (`sam2-v1-coordination`) và xử lý nhiễu điện tử (`sam2-v1-interference`) trước khi chuyển tới cảnh kiểm tra kiến thức (`sam2-v1-check`).
+- **Phân loại lựa chọn (Choice Semantics):**
+  - **Lựa chọn cốt truyện (`kind: 'narrative'`):** Tại các scenes 1–5 và 7–8. Lựa chọn không có thuộc tính `isCorrect`, không tính điểm/XP, chỉ thay đổi luồng hội thoại.
+  - **Lựa chọn kiểm tra kiến thức (`kind: 'knowledge_check'`):** Duy nhất tại Scene 6 (`sam2-v1-check`). Lựa chọn có đáp án đúng (`isCorrect: true`) và phần giải thích sư phạm khi người học chọn sai hoặc đúng.
+- **Sơ đồ khí tài tương tác khái quát (5 nodes):**
+  - Dữ liệu `DIAGRAM-SAM2-1972.json` gồm đúng 5 thành phần khí tài/bối cảnh khái quát theo chuẩn `CLM-1972-VN-002`:
+    1. `node-cabin-k`: Xe thu nhận & điều khiển K (nơi kíp chiến đấu hiệp đồng).
+    2. `node-radar-fansong`: Đài radar bám sát & chiếu xạ Fan Song.
+    3. `node-launcher-sm90`: Bệ phóng tên lửa SM-90.
+    4. `node-missile-sam2`: Đạn tên lửa SAM-2 (V-750 / S-75 Dvina).
+    5. `node-power-aux`: Trạm nguồn điện & trạm phối thuộc.
+  - Sơ đồ có text-first fallback hoàn chỉnh, không mô tả thao tác vi mô của từng chức danh.
 
-### 2.2. Tích hợp M3-03: Visual Novel Player v2 — Bài 2 "SAM-2: Vạch nhiễu tìm thù"
-- **Dữ liệu bài học:**
-  - `id`: `lsn-1972-02`
-  - `title`: *"SAM-2: Vạch nhiễu tìm thù"*
-  - `format`: `'visual_novel'`
-- **State Machine & Đồ thị phân cảnh:**
-  - Tải file JSON: [`docs/content/LESSON-02-1972-STORY.json`](./LESSON-02-1972-STORY.json).
-  - Node bắt đầu: `sam2-v1-briefing`.
-  - Node kết thúc: `sam2-v1-end`.
-  - **Quy tắc phân nhánh (Linear Learning Guarantee):**
-    - Người học bắt buộc phải tìm hiểu qua 2 vị trí quan trọng: Sĩ quan điều khiển (`sam2-v1-officer`) và Kíp trắc thủ 3 người (`sam2-v1-crew`) trước khi bước vào cảnh kiểm tra kiến thức (`sam2-v1-check`).
-  - **Sơ đồ khí tài tương tác nhúng (Interactive Canvas):**
-    - Trong cảnh `sam2-v1-crew`, nhúng sơ đồ 7 nút tương tác từ [`docs/content/DIAGRAM-SAM2-1972.json`](./DIAGRAM-SAM2-1972.json). Khi người học chạm vào từng nút (Trắc thủ góc tà, trắc thủ phương vị, trắc thủ cự ly, đài radar Fan Song...), hiển thị pop-up giải thích chức năng.
-  - **Ranh giới đánh giá:** Các lựa chọn hội thoại là lựa chọn mang tính suy ngẫm/nhập vai (`kind: 'narrative'`), không chấm điểm đúng/sai, chuyển tiếp scene mượt mà.
+### 3.3. Bài 3: Bài Đọc Tiêu Chuẩn "12 Ngày đêm rực lửa" (`lsn-1972-03`)
+- **Tích hợp:** Domain adapter chuyển hóa `LESSON-03-1972-STANDARD.md` thành một `DomainDocument` có `id: 'doc-1972-03-standard'` chứa các section có kiểu phân biệt (`verified_fact`, `educational_explanation`, `reading_reflection`).
+- **UI:** Gọi `documentService.getById('doc-1972-03-standard')` để render typography chuẩn Inter, bảng đối chiếu số liệu tổn thất khách quan (Việt Nam vs USAF) và hộp suy ngẫm đọc hiểu.
 
----
-
-### 2.3. Tích hợp M3-02: Standard Reader — Bài 3 "12 Ngày đêm rực lửa"
-- **Dữ liệu bài học:**
-  - `id`: `lsn-1972-03`
-  - `title`: *"12 Ngày đêm rực lửa: Bản lĩnh và Chiến thuật"*
-  - `format`: `'standard'`
-- **Luồng dựng giao diện:**
-  - Hiển thị bài đọc 3 hồi rõ ràng với định dạng typography trang trọng (Inter / Serif tiêu đề).
-  - **Bảng đối chiếu sử liệu (Comparison Table):** Nhúng bảng so sánh số liệu giữa công bố của Việt Nam (34 B-52 bị hạ) và Không quân Mỹ (USAF thừa nhận 15-16 B-52) với ghi chú sư phạm giải thích rõ lý do chênh lệch (đếm xác tại chỗ vs rơi trên đường bay).
-  - **Reflection Box:** Cuối bài đọc có khung 2 câu hỏi suy ngẫm giúp học sinh tự liên hệ với thắng lợi ngoại giao tại Hiệp định Paris 1973.
-
----
-
-### 2.4. Tích hợp M3-05: Quiz Flow — Bài 4 "Trắc nghiệm Tri thức 1972"
-- **Dữ liệu bài học:**
-  - `id`: `lsn-1972-04`
-  - `title`: *"Trắc nghiệm Tri thức 1972"*
-  - `format`: `'quiz'`
-- **Luồng xử lý câu hỏi:**
-  - Đọc mảng 5 câu hỏi từ [`docs/content/QUIZ-1972.json`](./QUIZ-1972.json).
-  - Mỗi câu hỏi có 4 phương án (`options: string[]`), đáp án đúng (`correctKey: 'A' | 'B' | 'C' | 'D'`), phần giải thích chi tiết (`explanation`) và mã nguồn đối chiếu (`sourceId`).
-  - **Quy tắc sư phạm:**
-    - Không hiển thị đáp án đúng ngay khi chưa bấm trả lời.
-    - Sau khi người học chọn, đổi màu nút (xanh = đúng, đỏ = sai), hiển thị thẻ giải thích lịch sử.
-    - Điểm đạt: $\ge 4/5$ câu đúng (80%).
-    - Nếu đạt: Mở Modal chúc mừng, trao huy hiệu *"Dũng sĩ vạch nhiễu Thăng Long"* và hoàn thành Chapter 1972.
-    - Nếu chưa đạt: Cho phép "Làm lại bài" (Retry).
+### 3.4. Bài 4: Trắc Nghiệm Tổng Kết Chapter 1972 (`lsn-1972-04`)
+- **Ánh xạ Schema 3 tầng:**
+  - **Tầng 1 — Authoring (`QUIZ-1972.json`):**
+    ```json
+    {
+      "id": "q-1972-01",
+      "objectiveId": "CLO-1",
+      "question": "...",
+      "options": [{ "id": "A", "text": "..." }, { "id": "B", "text": "..." }, ...],
+      "correctOptionId": "B",
+      "explanation": "...",
+      "sourceIds": ["SRC-LB2-01"]
+    }
+    ```
+  - **Tầng 2 — Domain / Mock Store:** Lưu trữ `MultipleChoiceQuestion` và `QuestionSet` đầy đủ trường, bao gồm answer key và explanation.
+  - **Tầng 3 — Delivery Contract (`DeliveredQuestion` qua `QuizService.getQuestionSet`):**
+    - Trả về danh sách câu hỏi cho client với `options: { id: string, label: string }[]`.
+    - **TUYỆT ĐỐI KHÔNG gửi `correctOptionId` hay `explanation` về client** trước khi nộp bài.
+- **Nộp bài & Nhận kết quả:**
+  - **Luyện tập:** Gọi `quizService.submitPracticeAttempt({ questionSetId, answers })` để nhận phản hồi từng câu không tính điểm.
+  - **Tính điểm chính thức:** Gọi `quizService.submitScoredAttempt({ questionSetId, answers })`.
+  - Service trả về `ScoredQuizReceipt`:
+    - `passed: boolean` (đạt chuẩn khi $\ge 80\%$, tức đúng $\ge 4/5$ câu).
+    - `scorePercent: number`.
+    - `feedback`: Mảng kết quả từng câu `{ questionId, outcome: 'correct' | 'incorrect', explanation }`.
+- **Chính sách Phần thưởng (Phase 7 Approved Spec):**
+  - Điểm kinh nghiệm: Lần đầu tiên đạt bài kiểm tra cuối chapter nhận **+20 XP**; nếu đạt điểm xuất sắc $\ge 80\%$ nhận thêm bonus **+5 XP** (tổng tối đa +25 XP theo Phase 7 spec).
+  - Chuỗi học tập (Streak): Kích hoạt chuỗi ngày học theo ngày hợp lệ nếu hoạt động đạt chuẩn.
+  - Mọi phần thưởng được cấp qua receipt của service, UI chỉ hiển thị thông tin chúc mừng dựa trên receipt.
 
 ---
 
-## 3. THÔNG ĐIỆP GỬI DƯƠNG & HƯNG
-> *"Toàn bộ nội dung của Chapter 1972 đã được chuẩn hóa, chạy qua 3 script validation đạt PASS 100% và tuân thủ tuyệt đối Phase 3 Content Truth Policy. Khi Product Owner chính thức duyệt mở cổng M3, các bạn có thể yên tâm sử dụng trực tiếp các tệp JSON và Markdown này làm mock data chuẩn mà không cần bận tâm về tính chính xác hay cấu trúc dữ liệu."* — **Thọ (Content Lead)**
+## 4. TÓM TẮT PHỐI HỢP & VERIFICATION
+
+- Toàn bộ 4 tệp dữ liệu đã được cấu trúc hóa theo domain model.
+- Các script tự động `validate-1972-authoring.mjs`, `validate-1972-lesson03.mjs`, `validate-1972-quiz.mjs` bảo đảm tính hợp lệ về cấu trúc JSON, đồ thị phân cảnh, và độ phủ mục tiêu học tập (CLO).
+- Gói nội dung sẵn sàng bàn giao để nhóm Frontend xây dựng Mock Adapters sau khi hoàn tất phê duyệt từ Historical Reviewer và Product Owner.

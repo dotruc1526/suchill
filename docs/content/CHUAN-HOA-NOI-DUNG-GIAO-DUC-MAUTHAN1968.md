@@ -24,7 +24,7 @@
 ---
 
 ## 2. Hook
-Đêm giao thừa Tết Mậu Thân 1968, khi đường phố Sài Gòn rộn rã tiếng pháo đón xuân và hàng vạn binh lính đối phương đang say sưa nghỉ phép, một trận bão lửa bất ngờ giáng xuống ngay giữa trung tâm sào huyệt kiên cố nhất của đối phương. 
+Đêm giao thừa Tết Mậu Thân 1968, khi đường phố Sài Gòn rộn rã tiếng pháo đón xuân và hàng vạn binh lính đối phương đang say sưa nghỉ phép, một trận bão lửa bất ngờ giáng xuống ngay giữa trung tâm sào huyệt kiên cố nhất của đối phương.
 
 Lần đầu tiên trong suốt cuộc chiến tranh, ngọn lửa chiến đấu không còn bùng lên ở những cánh rừng già Tây Nguyên hay đồng bằng sông Cửu Long, mà bùng nổ ngay trong các phòng làm việc của Tòa Đại sứ Mỹ, Dinh Độc Lập và Bộ Tổng Tham mưu Sài Gòn. Điều gì đã tạo nên cuộc đột kích không tưởng ấy?
 
@@ -154,7 +154,7 @@ Một trong những căn hầm bí mật nuôi giấu vũ khí phục vụ Biệ
 ---
 
 ## 2. Hook
-Lúc 02 giờ 47 phút rạng sáng Mùng Hai Tết, một tiếng nổ long trời lở đất xé toạc bức tường rào bằng bê tông cốt thép của Tòa Đại sứ Mỹ tại góc đường Thống Nhất và Mạc Đĩnh Chi. 
+Lúc 02 giờ 47 phút rạng sáng Mùng Hai Tết, một tiếng nổ long trời lở đất xé toạc bức tường rào bằng bê tông cốt thép của Tòa Đại sứ Mỹ tại góc đường Thống Nhất và Mạc Đĩnh Chi.
 
 Chỉ với 19 chiến sĩ Đội 11 Biệt động, họ đã đột kích thẳng vào pháo đài quyền lực tối cao của nước Mỹ tại Nam Việt Nam, cầm cự suốt 6 giờ đồng hồ trước hỏa lực áp đảo của hàng trăm lính quân cảnh và trực thăng vũ trang Mỹ. Đó là một trong những trận đánh làm chấn động toàn cầu!
 
@@ -273,9 +273,9 @@ Các chiến sĩ Đội 5 Biệt động Sài Gòn xuất phát từ căn hầm 
 ---
 
 ## 2. Hook
-Ngày 31 tháng 3 năm 1968 — đúng hai tháng sau đêm sấm sét Mậu Thân, trên màn hình truyền hình của hàng chục triệu gia đình Mỹ, Tổng thống Lyndon B. Johnson với gương mặt mệt mỏi và giọng nói trầm buồn đã đưa ra một tuyên bố làm rúng động chính trường: 
+Ngày 31 tháng 3 năm 1968 — đúng hai tháng sau đêm sấm sét Mậu Thân, trên màn hình truyền hình của hàng chục triệu gia đình Mỹ, Tổng thống Lyndon B. Johnson với gương mặt mệt mỏi và giọng nói trầm buồn đã đưa ra một tuyên bố làm rúng động chính trường:
 
-*"Tôi sẽ không tìm kiếm và tôi sẽ không chấp nhận sự đề cử của đảng tôi cho một nhiệm kỳ nữa trên cương vị Tổng thống của các bạn..."*. 
+*"Tôi sẽ không tìm kiếm và tôi sẽ không chấp nhận sự đề cử của đảng tôi cho một nhiệm kỳ nữa trên cương vị Tổng thống của các bạn..."*.
 
 Điều gì đã khiến vị Tổng thống quyền lực nhất thế giới phải tự đặt dấu chấm hết cho sự nghiệp chính trị của mình và thừa nhận sự phá sản của cả một chiến lược chiến tranh?
 
@@ -398,7 +398,7 @@ Cuộc Tổng tiến công và nổi dậy Tết Mậu Thân 1968 đã mở ra m
 ---
 
 ## 2. Hook
-Một chiến dịch quân sự chỉ kéo dài trong những ngày đầu xuân nhưng đã làm rung chuyển Lầu Năm Góc, làm đảo lộn chính trường nước Mỹ và làm thay đổi toàn bộ cục diện chiến tranh Việt Nam. 
+Một chiến dịch quân sự chỉ kéo dài trong những ngày đầu xuân nhưng đã làm rung chuyển Lầu Năm Góc, làm đảo lộn chính trường nước Mỹ và làm thay đổi toàn bộ cục diện chiến tranh Việt Nam.
 
 Bạn đã thực sự nắm vững những bí mật đằng sau những căn hầm vũ khí giữa lòng đô thị, những trận đánh cảm tử vào Tòa Đại sứ Mỹ và những quyết sách lịch sử của năm 1968 chưa? Hãy cùng thử thách tri thức của bạn qua bộ câu hỏi dưới đây!
 
@@ -476,4 +476,3 @@ Thắng lợi của cuộc Tổng tiến công và nổi dậy Tết Mậu Thân
 
 ## 5. Issues / Uncertainties
 - *Về câu hỏi số 1 và số 5:* Cần làm rõ cho học sinh hiểu rằng Mậu Thân 1968 không đạt được mục tiêu giải phóng toàn bộ miền Nam ngay trong năm 1968 như một số dự kiến ban đầu, nhưng đã đạt được mục tiêu chiến lược quan trọng nhất là đánh gãy ý chí xâm lược của Mỹ và buộc Mỹ phải xuống thang. Đây là bài học rất sâu sắc về sự kết hợp giữa mục tiêu chiến lược và kết quả thực tế trên chiến trường.
-

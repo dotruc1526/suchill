@@ -11,9 +11,9 @@
 - Executor type: Human (Thọ) + Codex hỗ trợ
 - Executor name: Thọ (Member 1)
 - Reviewer: Trúc (Member 2 — Historical Reviewer), Product Owner (PO nghiệm thu)
-- Branch: `content/tho-lesson-02-1972-vn-v2` / `content/tho-chapter-1972-package`
+- Branch: `content/tho-chapter-1972-package` (PR #65)
 - Started: 2026-09-29
-- Depends on: CONTENT-018 (`REVIEW`), CONTENT-017 (`REVIEW`), CONTENT-016 (`DONE`), CONTENT-015 (`DONE`)
+- Depends on: CONTENT-018 (`REVIEW`), CONTENT-017 (`DONE`), CONTENT-016 (`DONE`), CONTENT-015 (`DONE`)
 
 ## Scope
 

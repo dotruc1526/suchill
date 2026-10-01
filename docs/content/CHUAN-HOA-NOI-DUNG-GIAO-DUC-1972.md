@@ -24,7 +24,7 @@
 ---
 
 ## 2. Hook
-Tháng 12 năm 1972, khi Giáng sinh đang đến gần, bầu trời Hà Nội không có tuyết trắng mà rung chuyển dữ dội dưới sức ép của thứ vũ khí hủy diệt tối tân nhất thế giới: **"Pháo đài bay B-52"**. 
+Tháng 12 năm 1972, khi Giáng sinh đang đến gần, bầu trời Hà Nội không có tuyết trắng mà rung chuyển dữ dội dưới sức ép của thứ vũ khí hủy diệt tối tân nhất thế giới: **"Pháo đài bay B-52"**.
 
 Lầu Năm Góc đe dọa sẽ *"đưa miền Bắc Việt Nam trở về thời kỳ đồ đá"* nếu Việt Nam không chấp nhận nhượng bộ tại bàn đàm phán Paris. Nhưng ít ai biết rằng, từ 5 năm trước khi quả bom đầu tiên rơi xuống Hà Nội, một vị lãnh tụ đã đưa ra lời tiên đoán chuẩn xác đến từng chi tiết: Mỹ nhất định thua, nhưng chỉ chịu thua sau khi thua trên bầu trời Hà Nội!
 
@@ -154,7 +154,7 @@ Mục tiêu quân sự và chính trị chủ yếu của chính quyền Nixon k
 ---
 
 ## 2. Hook
-Bước vào một căn xe thùng chật hẹp, nóng hầm hập giữa mùa đông, bốn người lính trẻ căng mắt trước những màn huỳnh quang radar chỉ rộng bằng bàn tay. Phía bên ngoài, hàng chục tấn bom B-52 rải thảm đang làm rung chuyển mặt đất. 
+Bước vào một căn xe thùng chật hẹp, nóng hầm hập giữa mùa đông, bốn người lính trẻ căng mắt trước những màn huỳnh quang radar chỉ rộng bằng bàn tay. Phía bên ngoài, hàng chục tấn bom B-52 rải thảm đang làm rung chuyển mặt đất.
 
 Trên màn hình, tín hiệu mục tiêu bị che lấp hoàn toàn bởi một biển "nhiễu râu tôm" trắng xóa, dập dềnh như sóng biển. Làm thế nào những người lính Việt Nam có thể "vạch" được bức màn nhiễu vô hình đó để phóng quả đạn tên lửa trị giá hàng ngàn đô-la trúng vào tim của siêu pháo đài bay Mỹ? Đó là cuộc đấu trí nghẹt thở của trí tuệ và bản lĩnh!
 
@@ -294,7 +294,7 @@ Cuốn tài liệu đúc kết kinh nghiệm đánh B-52 do Quân chủng PK-KQ 
 ---
 
 ## 2. Hook
-Có những con số trong lịch sử không đơn thuần là dữ liệu thống kê, mà được viết bằng máu và nước mắt: **287 người dân vô tội thiệt mạng** trong một đêm tại con phố Khâm Thiên nhỏ bé, **28 y bác sĩ hy sinh** ngay dưới đống đổ nát của Bệnh viện Bạch Mai. 
+Có những con số trong lịch sử không đơn thuần là dữ liệu thống kê, mà được viết bằng máu và nước mắt: **287 người dân vô tội thiệt mạng** trong một đêm tại con phố Khâm Thiên nhỏ bé, **28 y bác sĩ hy sinh** ngay dưới đống đổ nát của Bệnh viện Bạch Mai.
 
 Nhưng cũng chính tại nơi đau thương tột cùng ấy, một kỳ tích quân sự vô tiền khoáng hậu đã xuất hiện: Hơn 30 "pháo đài bay" B-52 bị bắn rụng, buộc siêu cường số một thế giới phải tuyên bố đơn phương ngừng ném bom và cúi đầu ký tên vào bản hiệp định chấm dứt chiến tranh tại Paris!
 
@@ -429,7 +429,7 @@ Hệ quả chính trị - ngoại giao trực tiếp và quan trọng nhất c�
 ---
 
 ## 2. Hook
-Tròn nửa thế kỷ đã trôi qua, xác những chiếc "Pháo đài bay" B-52 năm xưa nay nằm lặng lẽ giữa lòng hồ Hữu Tiệp hay trưng bày trang nghiêm trong viện bảo tàng. 
+Tròn nửa thế kỷ đã trôi qua, xác những chiếc "Pháo đài bay" B-52 năm xưa nay nằm lặng lẽ giữa lòng hồ Hữu Tiệp hay trưng bày trang nghiêm trong viện bảo tàng.
 
 Nhưng khúc tráng ca 12 ngày đêm cuối năm 1972 trên bầu trời Hà Nội vẫn mãi là ngọn lửa rực sáng trong trang sử hào hùng của dân tộc. Bí quyết nào đã giúp một đất nước nhỏ bé, kinh tế còn nghèo nàn đánh bại cuộc tập kích quy mô lớn nhất của lực lượng không quân tối tân nhất thế giới? Đó chính là câu hỏi lớn mà mỗi người trẻ hôm nay cần tìm kiếm câu trả lời!
 
@@ -543,4 +543,3 @@ Thắng lợi vang dội của Chiến dịch 12 ngày đêm "Điện Biên Ph�
 
 ## 8. Issues / Uncertainties
 - *Về nguồn gốc tên gọi "Điện Biên Phủ trên không":* Tên gọi này được sử dụng rộng rãi từ đầu năm 1973, xuất phát từ lời nhận định của Thủ tướng Phạm Văn Đồng và bài viết của các nhà báo quốc tế tại Hà Nội khi chứng kiến thất bại mang tính chiến lược của Mỹ tương tự như thất bại của thực dân Pháp tại Điện Biên Phủ năm 1954. Đây là một tên gọi mang tính biểu tượng lịch sử (Interpretation) đã được toàn dân tộc và lịch sử chính thống thừa nhận.
-

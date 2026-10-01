@@ -92,7 +92,7 @@
     {
       "id": "q-1972-04",
       "objectiveId": "CLO-4",
-      "question": "Đêm tập kích quy mô lớn nhất của Không quân Mỹ trong chiến dịch (với hơn 100 lần chiếc B-52 rải thảm tàn phá khu phố Khâm Thiên) diễn ra vào thời điểm nào?",
+      "question": "Đợt tập kích quy mô lớn nhất của Không quân Mỹ trong chiến dịch (với 105 lần chiếc B-52 đánh phá đồng loạt Hà Nội, Hải Phòng, Thái Nguyên, trong đó bom rải thảm tàn phá khu phố Khâm Thiên) diễn ra vào thời điểm nào?",
       "options": [
         {
           "id": "A",
@@ -112,7 +112,7 @@
         }
       ],
       "correctOptionId": "C",
-      "explanation": "Đêm 26/12/1972, Mỹ huy động 105 lần chiếc B-52 tập kích ồ ạt từ nhiều hướng, rải thảm bom tàn phá khu phố Khâm Thiên. Lưới lửa phòng không giáng trả đanh thép, bắn rơi 8 chiếc B-52 trong một đêm.",
+      "explanation": "Đêm 26/12/1972, Không quân Mỹ mở đợt tập kích ác liệt nhất với 105 lần chiếc B-52 đánh phá Hà Nội, Hải Phòng và Thái Nguyên. Trong đợt này, bom rải thảm đã tàn phá khu phố Khâm Thiên (Hà Nội), cướp đi sinh mạng của 287 đồng bào. Quân dân ta giáng trả đòn quyết định, bắn rơi 8 máy bay B-52 trong một đêm.",
       "sourceIds": [
         "SRC-LB2-02",
         "SRC-LB2-03"

@@ -1,10 +1,10 @@
 # Hướng dẫn tạo Pull Request: Trọn gói 4 bài học Chapter 1972 (Golden Chapter Package)
 
-> **Nhánh (Head):** `content/tho-chapter-1972-package`  
-> **Nhánh đích (Base):** `main`  
-> **Đường dẫn tạo PR:** [https://github.com/dotruc1526/suchill/pull/new/content/tho-chapter-1972-package](https://github.com/dotruc1526/suchill/pull/new/content/tho-chapter-1972-package)  
-> **Người thực hiện:** Thọ (Member 1 — Content Lead)  
-> **Reviewers đề xuất:** Trúc (`@dotruc1526` — Historical Reviewer), Hưng (`@hung` — Architecture), Product Owner (`@Compuerte`)  
+> **Nhánh (Head):** `content/tho-chapter-1972-package`
+> **Nhánh đích (Base):** `main`
+> **Đường dẫn tạo PR:** [https://github.com/dotruc1526/suchill/pull/new/content/tho-chapter-1972-package](https://github.com/dotruc1526/suchill/pull/new/content/tho-chapter-1972-package)
+> **Người thực hiện:** Thọ (Member 1 — Content Lead)
+> **Reviewers đề xuất:** Trúc (`@dotruc1526` — Historical Reviewer), Hưng (`@hung` — Architecture), Product Owner (`@Compuerte`)
 
 ---
 

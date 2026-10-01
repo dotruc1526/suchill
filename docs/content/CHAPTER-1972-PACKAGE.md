@@ -52,14 +52,14 @@ Chapter **"Điện Biên Phủ trên không 1972 (Chiến dịch Linebacker II)"
 
 ### Bài 2: Kíp chiến đấu SAM-2 — Vạch nhiễu tìm thù (Flagship Visual Novel)
 - **Định dạng:** Interactive Visual Novel phân cảnh kết hợp Sơ đồ khí tài tương tác.
-- **Trạng thái:** `REVIEW` (Task `CONTENT-017`).
+- **Trạng thái:** `DONE` (Task `CONTENT-017`, đã merge qua PR #54).
 - **Tệp bàn giao:**
   - Kịch bản 8 phân cảnh: [`docs/content/LESSON-02-1972-NARRATION.md`](./LESSON-02-1972-NARRATION.md).
   - Cấu trúc Story Graph JSON: [`docs/content/LESSON-02-1972-STORY.json`](./LESSON-02-1972-STORY.json).
-  - Sơ đồ tương tác 7 nút tổ hợp SAM-2: [`docs/content/DIAGRAM-SAM2-1972.json`](./DIAGRAM-SAM2-1972.json).
+  - Sơ đồ tương tác 5 nút tổ hợp SAM-2: [`docs/content/DIAGRAM-SAM2-1972.json`](./DIAGRAM-SAM2-1972.json).
   - Bộ kiểm thử tự động: [`docs/content/validate-1972-authoring.mjs`](./validate-1972-authoring.mjs).
 - **Vai trò người học:** Người nghiên cứu hồ sơ huấn luyện tác chiến. Lựa chọn phân nhánh không thiên kiến đúng/sai; bài kiểm tra kiến thức có giải thích sư phạm.
-- **Text-first Fallback:** Sơ đồ 7 nút có mô tả văn bản đầy đủ cho từng vị trí (Cabin Xe K, Sĩ quan điều khiển, 3 trắc thủ, Radar Fan Song, Bệ phóng SM-90).
+- **Text-first Fallback:** Sơ đồ 5 nút có mô tả văn bản đầy đủ cho từng thành phần khí tài khái quát (Xe K, Đài radar Fan Song, Bệ phóng SM-90, Đạn tên lửa SAM-2, Trạm nguồn điện) theo đúng `CLM-1972-VN-002`.
 
 ### Bài 3: 12 Ngày đêm rực lửa — Đòn bẻ gãy ý chí tập kích chiến lược (Standard Reading)
 - **Định dạng:** Bài đọc tiêu chuẩn (Standard Reading Article) chuyên sâu.
@@ -91,24 +91,23 @@ Chapter **"Điện Biên Phủ trên không 1972 (Chiến dịch Linebacker II)"
 
 ---
 
-## 3. HƯỚNG DẪN KỸ THUẬT CHO FRONTEND & ENGINE (DEV HANDOFF - M2 INTEGRATION)
+## 3. HƯỚNG DẪN KỸ THUẬT CHO FRONTEND & ENGINE (DEV HANDOFF - M2/M3 INTEGRATION)
 
-Dành cho Hưng (Member 3) và Dương (Member 4) khi nạp dữ liệu vào ứng dụng trong Milestone M2:
+Dành cho Hưng (Member 3) và Dương (Member 4) khi tích hợp gói nội dung vào Mock Service Adapter:
 
-1. **Visual Novel Player (`src/features/visual-novel/`):**
-   - Đọc trực tiếp đồ thị phân cảnh từ `docs/content/LESSON-02-1972-STORY.json`.
-   - Node bắt đầu: `sam2-v1-briefing`.
-   - Đồ thị khép kín: 8/8 scenes có thể tiếp cận, kết thúc tại `sam2-v1-end`.
-   - Sơ đồ tương tác nhúng trong scene `sam2-v1-crew`: Sử dụng data từ `docs/content/DIAGRAM-SAM2-1972.json`.
-
-2. **Standard Reading Reader (`src/features/learning/`):**
-   - Render nội dung Markdown từ `docs/content/LESSON-03-1972-STANDARD.md`.
-   - Áp dụng Typography token `Inter`, cỡ chữ 16px/line-height 1.6, padding responsive an toàn trên 375px/430px.
-
-3. **Quiz Assessment Engine (`src/features/quiz/`):**
-   - Nạp ngân hàng câu hỏi từ `docs/content/QUIZ-1972.json`.
-   - Điểm số: 20 XP / câu trả lời đúng (tổng 100 XP hoàn thành Chapter).
-   - Hiển thị phản hồi sư phạm ngay sau khi người học nộp bài.
+1. **Ranh giới dịch vụ:** UI không đọc trực tiếp file từ `docs/content`. Mock Adapter ánh xạ các tệp authoring vào domain entities/fixtures, UI gọi qua `LearningServices`.
+2. **Visual Novel Player (`VisualNovelService`):**
+   - Ánh xạ 8 scenes từ `LESSON-02-1972-STORY.json` và sơ đồ 5 nút `DIAGRAM-SAM2-1972.json` vào `StoryVersion` bất biến.
+   - Node bắt đầu: `sam2-v1-briefing`, Node kết thúc: `sam2-v1-end`.
+   - Lựa chọn narrative không có `isCorrect`, Scene 6 kiểm tra kiến thức có `isCorrect: true` và feedback sư phạm.
+3. **Standard Reading Reader (`DocumentService`):**
+   - Ánh xạ `LESSON-03-1972-STANDARD.md` vào `DomainDocument` (`doc-1972-03-standard`).
+   - UI gọi `documentService.getById` để lấy các structured blocks và bảng đối chiếu.
+4. **Quiz Assessment Engine (`QuizService`):**
+   - Ánh xạ `QUIZ-1972.json` vào `QuestionSet`.
+   - `QuizService.getQuestionSet` trả về `DeliveredQuestion` ẩn answer key/explanation trước submit.
+   - UI nộp bài qua `submitPracticeAttempt` hoặc `submitScoredAttempt`.
+   - Tiêu chí đạt $\ge 80\%$ (4/5 câu). Phần thưởng (20 XP lần đầu đạt, bonus 5 XP) và streak được cấp qua trusted `ScoredQuizReceipt`; client không tự cấp thưởng.
 
 ---
 
@@ -187,4 +186,3 @@ Tuân thủ nghiêm ngặt **Quy chuẩn Bằng chứng và Trích dẫn Nguồn
 
 1. **Cam kết Bằng chứng & Trích dẫn Nguồn:** Thọ (Member 1 - Content Lead) cam kết 100% dữ liệu lịch sử trong gói Chapter 1972 đều có căn cứ từ các ấn bản sách in chính quy của NXB Quân đội Nhân dân, NXB Chính trị Quốc gia Sự thật, hoặc tài liệu đối chiếu của Không quân Mỹ. Không sử dụng dữ kiện suy đoán hoặc không có nguồn kiểm chứng.
 2. **Sẵn sàng tích hợp M2/M3:** Gói nội dung đã hoàn tất kiểm thử tự động, cấu trúc JSON tương thích domain contracts và sẵn sàng cho Hưng (Member 3) và Dương (Member 4) đưa vào sản phẩm.
-
