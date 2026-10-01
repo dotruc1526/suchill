@@ -1,10 +1,10 @@
 # M3-UX-01 — Learning UI/UX handoff
 
-> Status: REVIEW — design proposal, chưa có reviewer sign-off\
+> Status: ACCEPTED — Hưng reviewed; Vinh và Dương/PO approved head `23cf354`; PR #77 merged `b52ac42`\
 > Owner: Trúc (Member 2); Executor: Codex\
 > Date: 2026-10-01; baseline: `origin/main` / `bc94425`
 
-[Task card](../tasks/active/M3-UX-01.md) · [Prototype](./m3-ux/index.html) · [State matrix](./m3-ux/STATE-MATRIX.md) · [Evidence](./m3-ux/EVIDENCE.md)
+[Task card](../tasks/done/M3-UX-01.md) · [Prototype](./m3-ux/index.html) · [State matrix](./m3-ux/STATE-MATRIX.md) · [Evidence](./m3-ux/EVIDENCE.md)
 
 ## 1. Phạm vi và cách xem
 

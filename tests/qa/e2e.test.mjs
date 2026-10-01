@@ -178,13 +178,15 @@ test('learning journey stays usable and uncut at mobile widths', async () => {
         assert.ok(metrics, `${width}px journey elements mounted`)
         assert.equal(metrics.viewport, width)
         assert.equal(metrics.documentWidth, width, `${width}px document has no horizontal overflow`)
-        assert.equal(metrics.title, 'HÀNH TRÌNH LỊCH SỬ')
+        assert.equal(metrics.title.trim(), 'XIN CHÀO')
         assert.ok(metrics.cardLeft >= 0 && metrics.cardRight <= width, `${width}px chapter card stays within viewport`)
         assert.ok(metrics.buttonHeight >= 44, `${width}px primary action keeps a 44px touch target`)
 
-        if (process.env.UPDATE_M1_08_EVIDENCE === '1') {
+        if (process.env.UPDATE_M1_08_EVIDENCE === '1' || process.env.UPDATE_M3_HOME_EVIDENCE === '1') {
           const screenshot = await cdp('Page.captureScreenshot', { format: 'png', captureBeyondViewport: false })
-          const path = new URL(`../../docs/tasks/active/M1-08-${width}.png`, import.meta.url)
+          const path = new URL(process.env.UPDATE_M3_HOME_EVIDENCE === '1'
+            ? `../../docs/engineering/m3-home-restore/home-${width}.png`
+            : `../../docs/tasks/active/M1-08-${width}.png`, import.meta.url)
           await writeFile(path, screenshot.data, 'base64')
         }
       }
@@ -225,6 +227,46 @@ test('learning journey moves focus on forward and back navigation', async () => 
 
       await evaluate("document.querySelector('[data-testid=\"journey-chapter-back\"]').click()")
       await waitFor("document.activeElement?.dataset.testid?.startsWith('journey-open-chapter-')", 'chapter trigger')
+    })
+  } finally {
+    await new Promise((resolve, reject) => server.httpServer.close(error => error ? reject(error) : resolve()))
+  }
+})
+
+test('Visual Novel close and completion restore focus to the opener', async () => {
+  const browser = findBrowser()
+  assert.ok(browser, 'Set CHROME_PATH to a local Chromium/Chrome executable for E2E')
+
+  const server = await preview({ preview: { host: '127.0.0.1', port: 0, strictPort: false } })
+  try {
+    const address = server.httpServer.address()
+    assert.ok(address && typeof address !== 'string')
+    const url = `http://127.0.0.1:${address.port}/`
+    await withChromePage(browser, url, async cdp => {
+      const evaluate = expression => cdp('Runtime.evaluate', { expression, returnByValue: true })
+      const waitFor = async (expression, label) => {
+        for (let attempt = 0; attempt < 100; attempt += 1) {
+          if ((await evaluate(expression)).result.value) return
+          await delay(50)
+        }
+        assert.fail(`Timed out waiting for ${label}`)
+      }
+
+      await waitFor("Boolean(document.querySelector('[data-testid^=\"journey-open-chapter-\"]'))", 'chapter trigger')
+      await evaluate("document.querySelector('[data-testid^=\"journey-open-chapter-\"]').click()")
+      await waitFor("document.querySelectorAll('[data-testid^=\"journey-open-lesson-\"]').length === 2", 'fixture lessons')
+      await evaluate("document.querySelectorAll('[data-testid^=\"journey-open-lesson-\"]')[1].click()")
+      await waitFor("Boolean(document.querySelector('[data-testid^=\"open-vn-\"]'))", 'Visual Novel opener')
+      await evaluate("document.querySelector('[data-testid^=\"open-vn-\"]').click()")
+      await waitFor("Boolean(document.querySelector('[data-testid=\"visual-novel-v2\"]'))", 'Visual Novel player')
+      await evaluate("[...document.querySelectorAll('button')].find(button => button.textContent === 'ĐÓNG').click()")
+      await waitFor("document.activeElement?.dataset.testid?.startsWith('open-vn-')", 'focus restored to opener')
+      await evaluate("document.activeElement.click()")
+      await waitFor("Boolean(document.querySelector('[data-testid=\"visual-novel-v2\"]'))", 'Visual Novel reopened')
+      await evaluate("[...document.querySelectorAll('[data-testid=\"visual-novel-v2\"] button')].find(button => button.textContent === 'TIẾP TỤC').click()")
+      await waitFor("Boolean([...document.querySelectorAll('[data-testid=\"visual-novel-v2\"] button')].find(button => button.textContent === 'HOÀN TẤT PHẦN TRÌNH BÀY'))", 'end scene')
+      await evaluate("[...document.querySelectorAll('[data-testid=\"visual-novel-v2\"] button')].find(button => button.textContent === 'HOÀN TẤT PHẦN TRÌNH BÀY').click()")
+      await waitFor("document.activeElement?.dataset.testid?.startsWith('open-vn-')", 'focus restored after completion')
     })
   } finally {
     await new Promise((resolve, reject) => server.httpServer.close(error => error ? reject(error) : resolve()))

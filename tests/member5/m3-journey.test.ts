@@ -2,7 +2,8 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { createMockLearningServices } from '../../src/services/next/mock.ts'
 import type { Chapter, Lesson } from '../../src/types/v2/content.ts'
-import { loadJourney, startLesson } from '../../src/features/learning/journey/journeyModel.ts'
+import { getHomeContinuation, loadJourney, startLesson } from '../../src/features/learning/journey/journeyModel.ts'
+import { videoPlayerContext, visualNovelPlayerContext } from '../../src/features/learning/journey/lessonPlayerContexts.ts'
 
 const lesson: Lesson = {
   id: 'lesson-stable', chapterId: 'chapter-stable', slug: 'stable', title: 'Bài học', summary: 'Fixture',
@@ -16,6 +17,24 @@ const chapter: Chapter = {
   id: 'chapter-stable', slug: 'chapter', title: 'Chương', summary: 'Fixture', historicalPeriodLabel: '1972',
   learningObjectiveIds: [], lessonRefs: [{ id: lesson.id, order: 0 }], estimatedMinutes: 5, status: 'published',
 }
+
+test('Home continues an active lesson across chapters before offering a new lesson', () => {
+  const fresh = { ...chapter, lessons: [{ ...lesson, progressStatus: 'not_started' as const }], completedCount: 0 }
+  const active = { ...chapter, id: 'second-chapter', lessons: [{ ...lesson, id: 'active-lesson', progressStatus: 'in_progress' as const }], completedCount: 0 }
+  assert.equal(getHomeContinuation([fresh, active])?.lesson.id, 'active-lesson')
+  assert.equal(getHomeContinuation([fresh])?.lesson.id, lesson.id)
+  assert.equal(getHomeContinuation([{ ...fresh, lessons: [{ ...lesson, progressStatus: 'completed' }] }]), undefined)
+})
+
+test('optional Home activity failure does not block the learning catalog', async () => {
+  const services = createMockLearningServices(
+    { chapters: [chapter], lessons: [lesson], storyVersions: [], mediaAssets: [] }, { userId: 'home-activity-failure' },
+  )
+  const result = await loadJourney(services, { getSummary: async () => ({ ok: false, error: 'offline' }) })
+  assert.equal(result.ok, true)
+  assert.equal(result.ok && result.value.chapters.length, 1)
+  assert.equal(result.ok && result.value.activity, undefined)
+})
 
 test('M3 journey loads stable IDs through services and derives mock progress', async () => {
   const services = createMockLearningServices(
@@ -62,4 +81,14 @@ test('reopening a lesson preserves its existing checkpoint', async () => {
   const progress = await services.progress.getLessonProgress(lesson.id)
   assert.equal(progress.ok && progress.value?.currentBlockId, 'block-resume')
   assert.deepEqual(progress.ok && progress.value?.completedBlockIds, ['block-stable'])
+})
+
+test('M3 integration maps stable lesson and block identities into player contexts', () => {
+  const lessonId = 'lesson-mixed'
+  assert.deepEqual(visualNovelPlayerContext(lessonId, {
+    id: 'vn-block', order: 0, required: true, kind: 'visual_novel', storyVersionId: 'story-v1',
+  }), { lessonId, blockId: 'vn-block', storyVersionId: 'story-v1' })
+  assert.deepEqual(videoPlayerContext(lessonId, {
+    id: 'video-block', order: 1, required: true, kind: 'video', mediaAssetId: 'video-1', completionPolicy: 'reach_end',
+  }), { lessonId, blockId: 'video-block', mediaAssetId: 'video-1' })
 })
