@@ -1,7 +1,7 @@
 # CONTENT-004 — Screenplay và kịch bản/storyboard video
 
 > Status: REVIEW\
-> Last updated: 2026-09-28
+> Last updated: 2026-10-01
 
 ## Assignment
 
@@ -41,6 +41,11 @@
 |---|---|---|---|---|---|
 | 2026-09-23 | Codex | Tạo card và nêu handoff Member 1 → Member 2 | Task board / DOC-013 | Chờ curriculum map và historical source review | CONTENT-003/008 chưa xong |
 | 2026-09-26 | Thọ (Member 1) | Hoàn thành Screenplay chi tiết phân cảnh 9:16 cho Pilot Video "Kế hoạch Giao Thừa" (5 scenes, 110s, VTT, transcript, poster, fallback) | `docs/content/PILOT-SCREENPLAY.md` | Bàn giao cho Member 2 (Trúc) sản xuất video qua CONTENT-007; chuyển task DONE | Không |
+
+## Checkpoint 2026-10-01 — bổ sung Text-first Fallback
+
+- Thọ (Member 1 — Content Lead) bổ sung Phương án Text-first Fallback (Bản đọc thay thế Video) chi tiết cho 5 phân cảnh vào `PILOT-SCREENPLAY.md`, giúp người học tiếp cận trọn vẹn kiến thức mà không phụ thuộc vào tình trạng MP4 chưa hoàn tất của `CONTENT-007`.
+- Validator `validate-mt68-authoring.mjs` PASS 100%.
 
 ## Checkpoint 2026-09-28 — đồng bộ trạng thái
 

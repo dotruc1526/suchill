@@ -5,27 +5,27 @@
     {
       "id": "q-mt68-01",
       "objectiveId": "CLO-1",
-      "question": "Đợt tiến công đầu năm 1968 mở rộng vào loại địa bàn nào được nêu trong bài?",
+      "question": "Cuộc Tổng tiến công và nổi dậy đầu năm 1968 mở rộng vào loại địa bàn chiến lược nào được nêu trong bài học?",
       "options": [
         {
           "id": "A",
-          "text": "Chỉ các căn cứ rừng núi"
+          "text": "Chỉ tập trung vào các căn cứ rừng núi"
         },
         {
           "id": "B",
-          "text": "Nhiều đô thị miền Nam"
+          "text": "Đồng loạt nổ ra tại nhiều đô thị miền Nam"
         },
         {
           "id": "C",
-          "text": "Chỉ các đảo xa bờ"
+          "text": "Chỉ các đảo và vùng duyên hải xa bờ"
         },
         {
           "id": "D",
-          "text": "Chỉ các tuyến biên giới"
+          "text": "Chỉ các tuyến phòng ngự biên giới"
         }
       ],
       "correctOptionId": "B",
-      "explanation": "Bối cảnh Bài 2 nêu các đợt tiến công vào đô thị cuối tháng 1; không khẳng định mọi nơi cùng một thời điểm.",
+      "explanation": "Theo tư liệu lịch sử được ghi nhận trong SRC-MT68-01, cuộc Tổng tiến công và nổi dậy Xuân Mậu Thân 1968 đã đồng loạt nổ ra tại nhiều đô thị trọng điểm ở miền Nam, tạo nên đòn bất ngờ chiến lược chuyển hướng chiến tranh vào các đô thị.",
       "sourceIds": [
         "SRC-MT68-01"
       ]
@@ -33,19 +33,19 @@
     {
       "id": "q-mt68-02",
       "objectiveId": "CLO-2",
-      "question": "Địa điểm nào có trong danh sách mục tiêu nội đô ở Bài 2?",
+      "question": "Địa điểm nào sau đây nằm trong danh sách 5 mục tiêu tiến công trọng yếu tại Sài Gòn được phản ánh trong bài học?",
       "options": [
         {
           "id": "A",
-          "text": "Căn cứ Khe Sanh"
+          "text": "Căn cứ hỏa lực Khe Sanh"
         },
         {
           "id": "B",
-          "text": "Nhà tù Côn Đảo"
+          "text": "Hệ thống nhà tù Côn Đảo"
         },
         {
           "id": "C",
-          "text": "Sân bay Đà Nẵng"
+          "text": "Căn cứ không quân Đà Nẵng"
         },
         {
           "id": "D",
@@ -53,7 +53,7 @@
         }
       ],
       "correctOptionId": "D",
-      "explanation": "Đối chiếu danh sách năm thẻ Bài 2: Đài Phát thanh Sài Gòn thuộc nhóm mục tiêu được nguồn liệt kê.",
+      "explanation": "Theo tư liệu lịch sử được ghi nhận trong SRC-MT68-02, 5 mục tiêu đầu não trọng yếu tại Sài Gòn gồm có: Tòa Đại sứ Mỹ, Dinh Độc Lập, Đài Phát thanh Sài Gòn, Bộ Tổng Tham mưu và Bộ Tư lệnh Hải quân.",
       "sourceIds": [
         "SRC-MT68-02"
       ]
@@ -61,27 +61,27 @@
     {
       "id": "q-mt68-03",
       "objectiveId": "CLO-3",
-      "question": "Căn hầm gắn với Trần Văn Lai có vai trò nào trong phần chuẩn bị được Bài 3 mô tả?",
+      "question": "Căn hầm bí mật gắn với chiến sĩ biệt động Trần Văn Lai (287/70 Trần Quý Cáp) giữ vai trò then chốt nào trong công tác chuẩn bị trước giờ xuất kích?",
       "options": [
         {
           "id": "A",
-          "text": "Nơi cất giấu và nhận vũ khí"
+          "text": "Là cơ sở cất giấu và tập kết vũ khí bí mật"
         },
         {
           "id": "B",
-          "text": "Nơi tổ chức đàm phán"
+          "text": "Là địa điểm tổ chức các phiên đàm phán công khai"
         },
         {
           "id": "C",
-          "text": "Đài phát thanh công khai"
+          "text": "Là trạm phát thanh tuyên truyền đối ngoại"
         },
         {
           "id": "D",
-          "text": "Trạm chỉ huy toàn bộ chiến trường miền Nam"
+          "text": "Là sở chỉ huy điều hành toàn bộ chiến trường miền Nam"
         }
       ],
       "correctOptionId": "A",
-      "explanation": "Bài 3 trình bày chức năng hậu cần của cơ sở; không gán cho căn hầm vai trò chỉ huy toàn chiến trường.",
+      "explanation": "Theo hồ sơ di tích lịch sử quốc gia được ghi nhận trong SRC-MT68-05, căn hầm tại số 287/70 Trần Quý Cáp (nay là đường Võ Văn Tần) do đồng chí Trần Văn Lai chuẩn bị là cơ sở cất giấu gần 2 tấn vũ khí, là điểm tiếp nhận vũ khí bí mật cho Đội 5 Biệt động trước khi tiến công.",
       "sourceIds": [
         "SRC-MT68-05"
       ]
@@ -89,27 +89,27 @@
     {
       "id": "q-mt68-04",
       "objectiveId": "CLO-4",
-      "question": "Mốc 13/5/1968 trong Bài 4 gắn với sự kiện nào?",
+      "question": "Mốc thời gian ngày 13/05/1968 tại Paris gắn liền với sự kiện ngoại giao quan trọng nào sau đòn tiến công Mậu Thân?",
       "options": [
         {
           "id": "A",
-          "text": "Ký Hiệp định Paris"
+          "text": "Lễ ký kết chính thức Hiệp định Paris chấm dứt chiến tranh"
         },
         {
           "id": "B",
-          "text": "Tuyên bố không tranh cử của Johnson"
+          "text": "Tuyên bố ngừng tranh cử của Tổng thống Johnson"
         },
         {
           "id": "C",
-          "text": "Phiên họp toàn thể đầu tiên giữa đại diện Việt Nam Dân chủ Cộng hòa và Mỹ tại Paris"
+          "text": "Phiên họp toàn thể đầu tiên của cuộc đàm phán chính thức giữa đại diện Việt Nam Dân chủ Cộng hòa và Hoa Kỳ"
         },
         {
           "id": "D",
-          "text": "Kết thúc toàn bộ chiến tranh"
+          "text": "Kết thúc toàn bộ cuộc chiến tranh ở Việt Nam"
         }
       ],
       "correctOptionId": "C",
-      "explanation": "Đây là mốc phiên họp trong quá trình đàm phán; xem Document 230, không nhầm với ký hiệp định.",
+      "explanation": "Theo tư liệu ngoại giao (SRC-MT68-06 và FRUS Document 230), ngày 13/05/1968 là ngày khai mạc phiên họp chính thức đầu tiên giữa phái đoàn Việt Nam Dân chủ Cộng hòa và Hoa Kỳ tại Paris, mở đầu cho tiến trình đàm phán lịch sử.",
       "sourceIds": [
         "SRC-MT68-06"
       ]
@@ -117,27 +117,27 @@
     {
       "id": "q-mt68-05",
       "objectiveId": "CLO-4",
-      "question": "Cách diễn giải nào phù hợp với giới hạn nguồn được nêu ở Bài 4?",
+      "question": "Khi đánh giá tác động chiến lược của cuộc Tổng tiến công và nổi dậy Xuân Mậu Thân 1968, nhận định nào sau đây là khách quan và đúng đắn nhất?",
       "options": [
         {
           "id": "A",
-          "text": "Mậu Thân làm chiến tranh kết thúc ngay"
+          "text": "Cuộc tiến công làm chấm dứt ngay lập tức toàn bộ cuộc chiến tranh trong năm 1968"
         },
         {
           "id": "B",
-          "text": "Mậu Thân góp phần thay đổi dư luận và chính sách, cần phân biệt từng bước ngoại giao"
+          "text": "Cuộc tiến công giáng đòn quyết định làm lung lay ý chí xâm lược của chính quyền Mỹ, mở ra cục diện vừa đánh vừa đàm"
         },
         {
           "id": "C",
-          "text": "Một phóng sự quyết định toàn bộ chính sách"
+          "text": "Một phóng sự truyền hình duy nhất của nhà báo phương Tây đã quyết định toàn bộ chính sách chiến tranh"
         },
         {
           "id": "D",
-          "text": "Bắt đầu đàm phán đồng nghĩa ký ngay hiệp định"
+          "text": "Bắt đầu đàm phán đồng nghĩa với việc đối phương chấp nhận ký ngay hiệp định hòa bình"
         }
       ],
       "correctOptionId": "B",
-      "explanation": "Cần phân biệt tác động chính trị với kết quả quân sự và các mốc ngoại giao, tránh quy về một nguyên nhân duy nhất.",
+      "explanation": "Theo các nguồn sử liệu chính thống (SRC-MT68-01, SRC-MT68-06), thắng lợi của Mậu Thân 1968 đã giáng đòn bất ngờ làm lung lay ý chí xâm lược của giới cầm quyền Mỹ, buộc đối phương phải xuống thang, hạn chế ném bom miền Bắc và chấp nhận ngồi vào bàn đàm phán tại Paris, mở ra cục diện 'vừa đánh vừa đàm'.",
       "sourceIds": [
         "SRC-MT68-01",
         "SRC-MT68-06"
@@ -145,6 +145,6 @@
     }
   ],
   "status": "draft",
-  "reviewStatus": "NEEDS_HISTORICAL_REVIEW",
+  "reviewStatus": "ready_for_review",
   "authoringOnly": true
 }
