@@ -267,6 +267,67 @@ test('M3-03 resets focus tracking when the story context changes', async () => {
   assert.match(source, /contextKey, retryKey, services\]/)
 })
 
+test('M3-04 video view exposes controls, Vietnamese captions, transcript and prepared fallback', async () => {
+  const { VideoPlayerView } = await vite.ssrLoadModule('/src/features/learning/video/VideoPlayerView.tsx')
+  const asset = {
+    id: 'video', kind: 'video', title: 'Video bài học', reviewStatus: 'published', url: 'mock://video',
+    caption: 'Chú thích video', durationSeconds: 100, sourceIds: [], attribution: 'Nguồn thử nghiệm',
+    poster: { id: 'poster', url: 'mock://poster', altText: 'Ảnh áp phích lịch sử' },
+    captionTracks: [{ id: 'captions', url: 'mock://captions', locale: 'vi-VN', label: 'Tiếng Việt' }],
+    transcript: { id: 'transcript', url: 'mock://transcript', locale: 'vi-VN', label: 'Bản chép lời' },
+    fallback: { kind: 'transcript', url: 'mock://transcript' },
+  }
+  const handlers = {
+    onLoadedMetadata: () => {}, onPlay: () => {}, onPause: () => {}, onTimeUpdate: () => {},
+    onSeeking: () => {}, onSeeked: () => {}, onEnded: () => {}, onError: () => {}, onRetry: () => {},
+  }
+  const html = renderToStaticMarkup(React.createElement(VideoPlayerView, {
+    asset, videoRef: { current: null }, mediaFailed: false, retryKey: 0, ...handlers,
+  }))
+  assert.ok(html.includes('<video') && html.includes('controls=""'))
+  assert.ok(html.includes('preload="metadata"') && html.includes('poster="mock://poster"'))
+  assert.ok(html.includes('kind="captions"') && html.includes('srcLang="vi"'))
+  assert.ok(html.includes('Tiếng Việt') && html.includes('Bản chép lời và nội dung thay thế'))
+  assert.ok(html.includes('mock://transcript') && html.includes('Nguồn media: Nguồn thử nghiệm'))
+  assert.doesNotMatch(html, /autoplay/i)
+
+  const fallbackHtml = renderToStaticMarkup(React.createElement(VideoPlayerView, {
+    asset, videoRef: { current: null }, mediaFailed: true, retryKey: 1, ...handlers,
+  }))
+  assert.ok(fallbackHtml.includes('role="alert"'))
+  assert.ok(fallbackHtml.includes('Video chưa thể phát'))
+  assert.ok(fallbackHtml.includes('Mở bản chép lời') && fallbackHtml.includes('THỬ PHÁT LẠI'))
+
+  const posterFallback = { ...asset, transcript: undefined, fallback: { kind: 'poster', url: 'mock://poster', altText: 'Ảnh thay thế' } }
+  const posterHtml = renderToStaticMarkup(React.createElement(VideoPlayerView, {
+    asset: posterFallback, videoRef: { current: null }, mediaFailed: true, retryKey: 2, ...handlers,
+  }))
+  assert.ok(posterHtml.includes('alt="Ảnh thay thế"'))
+})
+
+test('M3-04 exposes load retry, retained-save retry and paused seek destination persistence', async () => {
+  const { VideoProgressSaveError } = await vite.ssrLoadModule('/src/features/learning/video/VideoLessonPlayer.tsx')
+  const errorHtml = renderToStaticMarkup(React.createElement(VideoProgressSaveError, { error: 'offline', onRetry: () => {} }))
+  assert.ok(errorHtml.includes('role="alert"'))
+  assert.ok(errorHtml.includes('Dữ liệu chưa lưu vẫn được giữ lại'))
+  assert.ok(errorHtml.includes('THỬ LƯU LẠI'))
+
+  const source = await readFile(new URL('../../src/features/learning/video/VideoLessonPlayer.tsx', import.meta.url), 'utf8')
+  assert.match(source, /onRetry=\{\(\) => setLoadRetryKey\(value => value \+ 1\)\}/)
+  assert.match(source, /if \(event\.currentTarget\.paused\) persist\(currentTime\(event\)\)/)
+  assert.match(source, /checkpointQueue\.enqueue/)
+})
+
+test('M3-04 resets media failure and guards old checkpoint callbacks when context changes', async () => {
+  const source = await readFile(new URL('../../src/features/learning/video/VideoLessonPlayer.tsx', import.meta.url), 'utf8')
+  assert.match(source, /setMediaFailed\(false\)/)
+  assert.match(source, /setRetryKey\(0\)/)
+  assert.match(source, /registryRef\.current\.getOrCreate\(services, contextKey/)
+  assert.match(source, /queueErrorsRef\.current\.get\(checkpointQueue\)/)
+  assert.match(source, /activeQueueRef\.current !== queue/)
+  assert.match(source, /current\.session\.asset\.id === context\.mediaAssetId/)
+})
+
 test('M3-05 quiz view is semantic, blocks incomplete submit and renders trusted feedback', async () => {
   const { QuizFlowView } = await vite.ssrLoadModule('/src/features/quiz/v2/QuizFlowView.tsx')
   const noop = () => {}
