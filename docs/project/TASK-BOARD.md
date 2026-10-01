@@ -204,7 +204,7 @@ Chỉ các task có status `IN PROGRESS` được coi là đang có người là
 
 | ID | Owner / executor | Reviewer | Started | Current next action | Blocker | Last checkpoint |
 |---|---|---|---|---|---|---|
-| M3-UX-01 | Trúc / Codex | Hưng, Vinh; Dương consumer + PO | 2026-10-01 | Review prototype có nhận diện SỬu, handoff và G1..G5; nghiệm thu trước DONE | Chờ reviewer sign-off | [Handoff](../engineering/M3-UX-HANDOFF.md); [evidence](../engineering/m3-ux/EVIDENCE.md); 20 nhóm browser PASS; branch `codex/truc-m3-ui-handoff` |
+| M3-UX-01 | Trúc / Codex | Hưng, Vinh; Dương consumer + PO | 2026-10-01 | Review prototype có nhận diện SỬu, handoff và G1..G5; nghiệm thu trước DONE | Chờ reviewer sign-off | [PR #77](https://github.com/dotruc1526/suchill/pull/77); [handoff](../engineering/M3-UX-HANDOFF.md); [evidence](../engineering/m3-ux/EVIDENCE.md); 20 nhóm browser PASS; branch `codex/truc-m3-ui-handoff` |
 | CONTENT-003 | Trúc / Trúc | Trúc historical/media; Vinh technical QA | 2026-09-27; review 2026-09-28 | Bổ sung nguồn đọc được cho CLM-MT68-01; chốt review và nguồn audio | Source năm mục tiêu chưa đọc lại được; sign-off/audio còn thiếu | Branch `codex/content-status-sync`; claim 3 tài liệu authoring + card/board/report; [review](../tasks/active/CONTENT-003-004-REVIEW.md); validator PASS |
 | CONTENT-012 | Thọ / Trúc | Vinh (QA); Thọ (objective) | 2026-09-27 | REVIEW năm câu hỏi và source ID | Chưa xác nhận mapper/seed contract; authoring-only | Branch `feature/content-expansion-mt68`; claim quiz/card; [handoff](../tasks/active/PR21-HANDOFF.md) |
 | CONTENT-014 | Trúc / Trúc; Codex hỗ trợ | Vinh technical QA | 2026-09-27 | Vinh xác nhận task-level handoff và validator evidence | Chưa có technical QA sign-off cho card CONTENT-014 | Authoring remediation hoàn tất; validator PASS; [card](../tasks/active/CONTENT-014.md) |
@@ -219,6 +219,7 @@ Mỗi lần handoff quan trọng thêm một dòng mới nhất ở đầu bản
 
 | Date | Task | Author | Update | Evidence / next owner |
 |---|---|---|---|---|
+| 2026-10-01 | M3-UX-01 | Trúc / Codex | Push `codex/truc-m3-ui-handoff`, mở PR ready for review; giữ task REVIEW | [PR #77](https://github.com/dotruc1526/suchill/pull/77); LFS upload đạt, merge-tree với main `327bf24` không conflict; Hưng/Vinh/Dương review |
 | 2026-10-01 | M3-UX-01 | Trúc / Codex | Thêm điểm nhấn SỬu theo yêu cầu Trúc: hero Chapter/lời chào và mark cạnh tên app trên 6 màn; reuse asset repo có sẵn; trả REVIEW | Browser 20 nhóm PASS, image loading/alt/byte equality và layout đạt; [evidence](../engineering/m3-ux/EVIDENCE.md); Hưng/Vinh/Dương review |
 | 2026-10-01 | M3-UX-01 | Trúc / Codex | Reopened theo yêu cầu tự kiểm tra/làm đẹp; polish 6 màn, icon SVG/choice A/B, VN gọn, video controls, panel desktop; trả REVIEW | Browser 19 nhóm PASS ở 375/430px và desktop 1280px; 9 cặp contrast ≥4.5:1; [evidence](../engineering/m3-ux/EVIDENCE.md); Hưng/Vinh/Dương review |
 | 2026-10-01 | M3-UX-01 | Trúc / Codex | Hoàn tất UI/UX prototype lesson/VN/video/quiz, flow/state matrix và service/primitive mapping; chuyển REVIEW | Browser 17 nhóm PASS ở 375/430px, typecheck/build PASS; Hưng/Vinh/Dương review; CONTENT-007 vẫn BLOCKED |
