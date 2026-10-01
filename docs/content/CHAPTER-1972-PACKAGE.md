@@ -59,7 +59,7 @@ Chapter **"Điện Biên Phủ trên không 1972 (Chiến dịch Linebacker II)"
   - Sơ đồ tương tác 5 nút tổ hợp SAM-2: [`docs/content/DIAGRAM-SAM2-1972.json`](./DIAGRAM-SAM2-1972.json).
   - Bộ kiểm thử tự động: [`docs/content/validate-1972-authoring.mjs`](./validate-1972-authoring.mjs).
 - **Vai trò người học:** Người nghiên cứu hồ sơ huấn luyện tác chiến. Lựa chọn phân nhánh không thiên kiến đúng/sai; bài kiểm tra kiến thức có giải thích sư phạm.
-- **Text-first Fallback:** Sơ đồ 5 nút có mô tả văn bản đầy đủ cho từng thành phần khí tài khái quát (Xe K, Đài radar Fan Song, Bệ phóng SM-90, Đạn tên lửa SAM-2, Trạm nguồn điện) theo đúng `CLM-1972-VN-002`.
+- **Text-first Fallback:** Sơ đồ 5 nút có mô tả văn bản đầy đủ cho từng thành phần khí tài và bối cảnh khái quát (`sam2-node-cabin`: Cabin Xe K, `sam2-node-crew`: Kíp chiến đấu SAM-2, `sam2-node-radar`: Đài radar Fan Song, `sam2-node-launcher`: Bệ phóng & Tên lửa SAM-2, `sam2-node-interference`: Môi trường có gây nhiễu điện tử) theo đúng `CLM-1972-VN-002` và `CLM-1972-VN-003`.
 
 ### Bài 3: 12 Ngày đêm rực lửa — Đòn bẻ gãy ý chí tập kích chiến lược (Standard Reading)
 - **Định dạng:** Bài đọc tiêu chuẩn (Standard Reading Article) chuyên sâu.
@@ -107,7 +107,7 @@ Dành cho Hưng (Member 3) và Dương (Member 4) khi tích hợp gói nội dun
    - Ánh xạ `QUIZ-1972.json` vào `QuestionSet`.
    - `QuizService.getQuestionSet` trả về `DeliveredQuestion` ẩn answer key/explanation trước submit.
    - UI nộp bài qua `submitPracticeAttempt` hoặc `submitScoredAttempt`.
-   - Tiêu chí đạt $\ge 80\%$ (4/5 câu). Phần thưởng (20 XP lần đầu đạt, bonus 5 XP) và streak được cấp qua trusted `ScoredQuizReceipt`; client không tự cấp thưởng.
+   - Tiêu chí đạt 80% (4/5 câu). Service trả về `ScoredQuizReceipt` gồm `{ attemptId, score, total, passed, feedback }`. UI suy ra tỷ lệ phần trăm từ `score / total` nếu cần. Phần thưởng XP (+20 XP lần đầu pass, bonus +5 XP) và streak được quản lý độc lập bởi các service tiến độ và hồ sơ người dùng theo Phase 7 spec, không nằm trong receipt trắc nghiệm.
 
 ---
 

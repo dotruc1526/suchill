@@ -34,56 +34,56 @@
     {
       "id": "q-1972-02",
       "objectiveId": "CLO-2",
-      "question": "Thành phần nào giữ vai trò trung tâm chỉ huy, tổng hợp tham số từ 3 trắc thủ và bấm nút phóng đạn trong kíp chiến đấu tên lửa SAM-2 tại Xe điều khiển (Cabin K)?",
+      "question": "Trong tổ hợp tên lửa phòng không SAM-2, thành phần nào là không gian làm việc chung, nơi kíp chiến đấu trực tiếp phối hợp hiệp đồng để chỉ huy và điều khiển hỏa lực?",
       "options": [
         {
           "id": "A",
-          "text": "Sĩ quan điều khiển"
+          "text": "Cabin điều khiển (Xe K)"
         },
         {
           "id": "B",
-          "text": "Nhân viên bảo quản đạn tại bệ phóng"
+          "text": "Trận địa pháo cao xạ tầm thấp bảo vệ sân bay"
         },
         {
           "id": "C",
-          "text": "Trắc thủ cự ly"
+          "text": "Trạm quan sát mắt tầm xa bố trí trên điểm cao"
         },
         {
           "id": "D",
-          "text": "Đài trưởng radar cảnh giới xa"
+          "text": "Khu vực kho kỹ thuật lắp ráp và tiếp nạp nhiên liệu đạn"
         }
       ],
       "correctOptionId": "A",
-      "explanation": "Trong Cabin Xe K, Sĩ quan điều khiển là người trực tiếp chỉ huy kíp 3 trắc thủ (phương vị, góc tà, cự ly), chọn phương pháp bám sát và bấm nút phóng đạn theo lệnh của Tiểu đoàn trưởng.",
+      "explanation": "Theo tư liệu lịch sử được ghi nhận trong CLM-1972-VN-002, Cabin điều khiển (Xe K) là thành phần sở chỉ huy của tổ hợp SAM-2, nơi toàn bộ kíp chiến đấu cùng làm việc và phối hợp hiệp đồng chặt chẽ để chỉ huy và điều khiển hỏa lực.",
       "sourceIds": [
         "SRC-1972-01",
-        "SRC-1972-02"
+        "SRC-1972-WEB-02"
       ]
     },
     {
       "id": "q-1972-03",
       "objectiveId": "CLO-3",
-      "question": "Để khắc chế màn nhiễu điện tử dày đặc của B-52 và tránh tên lửa tự dẫn Shrike của đối phương, bộ đội tên lửa Việt Nam đã áp dụng biện pháp then chốt nào được đúc kết trong cuốn 'Cẩm nang bìa đỏ'?",
+      "question": "Trước thách thức từ môi trường gây nhiễu điện tử dày đặc của B-52, bộ đội tên lửa Việt Nam đã dựa vào tài liệu đúc kết kinh nghiệm thực tiễn nào để tìm ra phương pháp vạch nhiễu đánh địch?",
       "options": [
         {
           "id": "A",
-          "text": "Luôn mở radar phát sóng liên tục suốt đêm để rà soát bầu trời"
+          "text": "Sổ tay hướng dẫn kỹ thuật bay của đối phương thu giữ được"
         },
         {
           "id": "B",
-          "text": "Bám sát dải nhiễu mịn chuyển động đều và chỉ phát sóng chớp nhoáng (3–5 giây) trước khi phóng đạn"
+          "text": "Cuốn tài liệu nghiên cứu tác chiến thường được gọi là 'Cẩm nang bìa đỏ'"
         },
         {
           "id": "C",
-          "text": "Tắt toàn bộ hệ thống tên lửa và chỉ dựa vào pháo cao xạ tầm thấp"
+          "text": "Tài liệu kỹ thuật radar nguyên bản từ nước ngoài chưa qua cải tiến"
         },
         {
           "id": "D",
-          "text": "Chờ máy bay địch hạ thấp độ cao xuống dưới 1.000m mới bắt đầu phát hiện"
+          "text": "Kế hoạch tác chiến hiệp đồng bộ binh đường bộ năm 1968"
         }
       ],
       "correctOptionId": "B",
-      "explanation": "Tài liệu 'Cách đánh B-52 của bộ đội tên lửa' chỉ rõ: B-52 tạo dải nhiễu mịn, sáng rực và di chuyển đều đặn; trắc thủ bám tâm dải nhiễu và hạn chế phát sóng liên tục để không bị tên lửa Shrike đánh phá trận địa.",
+      "explanation": "Theo tư liệu lịch sử được ghi nhận trong CLM-1972-VN-003, cuốn tài liệu 'Cách đánh B-52 của bộ đội tên lửa' (thường gọi là 'Cẩm nang bìa đỏ'), đúc kết từ thực tiễn nghiên cứu tại chiến trường Vĩnh Linh và Quân khu 4, đã đóng vai trò then chốt giúp bộ đội tên lửa phân tích bối cảnh gây nhiễu và vạch ra cách đánh B-52 hiệu quả.",
       "sourceIds": [
         "SRC-1972-03",
         "SRC-1972-WEB-01"

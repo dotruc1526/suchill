@@ -209,45 +209,44 @@ Sự kết hợp hoàn hảo giữa vũ khí hiện đại và bản lĩnh, trí
 
 | Fact | Evidence / Source | Confidence |
 |---|---|---|
-| **Biên chế kíp xe điều khiển SAM-2:** 4 vị trí chủ chốt (Sĩ quan điều khiển và 3 trắc thủ Góc tà, Phương vị, Cự ly). | *Điều lệ tác chiến Tên lửa Phòng không*; *Lịch sử Bộ đội Tên lửa Phòng không (1965-2015)*. | [FACT] Cao (100%) |
-| **Quy luật nhận diện nhiễu B-52:** Dải nhiễu dập dềnh, cường độ lớn nhưng chuyển động tịnh tiến đều ở độ cao 10.000m, tốc độ ~250 m/s. | *Cẩm nang "Cách đánh B-52 của bộ đội tên lửa"*, Bộ Tư lệnh PK-KQ, 10/1972, tr. 14–22. | [FACT] Cao (100%) |
-| **Thời gian phát sóng bám sát tối ưu:** Khoảng 6 – 10 giây trước khi phóng để tránh tên lửa chống bức xạ Shrike của Mỹ. | Hồi ký Trung tướng Nguyễn Văn Phiệt; Tài liệu Kỹ thuật Tác chiến Điện tử PK-KQ. | [FACT] Cao (100%) |
-| **Phương pháp bắn 3 điểm (Three-point guidance):** Tên lửa bay theo đường ngắm thẳng nối đài điều khiển với tâm dải nhiễu B-52. | Giáo trình Dẫn đường Tên lửa SAM-2, Học viện Phòng không - Không quân. | [FACT] Cao (100%) |
-| **Vai trò của Cẩm nang bìa đỏ:** Biên soạn trên cơ sở kinh nghiệm tác chiến thực tế tại Vĩnh Linh (Quảng Trị) từ 1966 - 1968. | Kỷ yếu Hội thảo 40 năm Chiến thắng Hà Nội - Điện Biên Phủ trên không (Bộ Quốc phòng 2012). | [FACT] Cao (100%) |
+| **Cabin điều khiển (Xe K) và sự hiện diện của kíp chiến đấu:** Cabin điều khiển Xe K là thành phần sở chỉ huy trong tổ hợp SAM-2, nơi kíp chiến đấu cùng làm việc và hiệp đồng tác chiến ở mức khái quát (không tái dựng thao tác vi mô). | *Lịch sử Bộ đội Tên lửa Phòng không*; `CLM-1972-VN-002`; Báo QĐND. | [FACT] Cao (100%) |
+| **Bối cảnh gây nhiễu điện tử của B-52:** Đối đầu với B-52 diễn ra trong môi trường đối phương gây nhiễu điện tử dày đặc nhằm che giấu mục tiêu trên màn huỳnh quang. | *Lịch sử Quân chủng PK-KQ*; `CLM-1972-VN-003`; Báo QĐND. | [FACT] Cao (100%) |
+| **Vai trò của 'Cẩm nang bìa đỏ':** Cuốn tài liệu *"Cách đánh B-52 của bộ đội tên lửa"* do Quân chủng PK-KQ ban hành tháng 10/1972 đúc kết kinh nghiệm thực tiễn từ Vĩnh Linh và Quân khu 4, giúp định hình phương pháp vạch nhiễu. | Kỷ yếu Hội thảo 40 năm Chiến thắng Hà Nội - Điện Biên Phủ trên không (Bộ Quốc phòng 2012); `CLM-1972-VN-003`. | [FACT] Cao (100%) |
+| **Tinh thần 'Vạch nhiễu tìm thù':** Biểu tượng của trí tuệ, bản lĩnh và sự sáng tạo tập thể của bộ đội tên lửa phòng không Việt Nam trong việc nhận diện và tiêu diệt pháo đài bay B-52. | Báo Quân đội nhân dân; Bảo tàng PK-KQ. | [INTERPRETATION] Đồng thuận cao |
 
 ---
 
 ## 5. Key Takeaways
 
 1. **Bản chất cuộc đối đầu:** Đây không chỉ là sự đọ sức về hỏa lực mà là cuộc chiến tranh điện tử khốc liệt, nơi đối phương dùng công nghệ làm mù mắt ta, còn ta dùng kinh nghiệm và trí tuệ để nhìn xuyên màn nhiễu.
-2. **Kỷ luật hiệp đồng thép:** Bắn hạ được B-52 đòi hỏi sự ăn khớp tuyệt đối giữa Sĩ quan điều khiển và ba trắc thủ; sai lệch một tích tắc hay vài mét trên màn hiện sóng sẽ khiến tên lửa trượt mục tiêu.
-3. **Bài học về sự làm chủ công nghệ:** Khí tài SAM-2 do Liên Xô sản xuất, nhưng cách đánh, phương pháp vạch nhiễu và chiến thuật phục kích bí mật là sản phẩm sáng tạo độc đáo của bộ đội tên lửa Việt Nam.
+2. **Kỷ luật hiệp đồng tập thể:** Bắn hạ được B-52 đòi hỏi sự ăn khớp nhịp nhàng, tập trung cao độ của toàn bộ kíp chiến đấu trong không gian cabin điều khiển Xe K.
+3. **Bài học về sự làm chủ công nghệ:** Khí tài SAM-2 do Liên Xô sản xuất, nhưng phương pháp vạch nhiễu và đúc kết cách đánh trong "Cẩm nang bìa đỏ" là sản phẩm sáng tạo độc đáo từ thực tiễn của bộ đội phòng không Việt Nam.
 
 ---
 
 ## 6. Quiz
 
 ### Question 1
-Trong cabin điều khiển tên lửa SAM-2, kíp trắc thủ tác chiến trực tiếp bám bắt mục tiêu trên màn hiện sóng gồm có bao nhiêu trắc thủ chuyên trách?
-- A. 2 trắc thủ (Theo dõi phương vị và cự ly).
-- B. 3 trắc thủ (Góc tà, Phương vị, Cự ly). *(Đáp án đúng)*
-- C. 4 trắc thủ (Góc tà, Phương vị, Cự ly, Tốc độ).
-- D. Chỉ có 1 sĩ quan điều khiển làm toàn bộ thao tác.
+Trong tổ hợp tên lửa phòng không SAM-2, thành phần nào là không gian làm việc chung, nơi kíp chiến đấu trực tiếp phối hợp hiệp đồng để chỉ huy và điều khiển hỏa lực?
+- A. Cabin điều khiển (Xe K). *(Đáp án đúng)*
+- B. Trận địa pháo cao xạ tầm thấp bảo vệ sân bay.
+- C. Trạm quan sát mắt tầm xa bố trí trên điểm cao.
+- D. Khu vực kho kỹ thuật lắp ráp và tiếp nạp nhiên liệu đạn.
 
-> **Giải thích:** Kíp trắc thủ trong xe điều khiển PA-00 gồm 3 trắc thủ: Trắc thủ 1 bám góc tà (độ cao), Trắc thủ 2 bám phương vị (hướng bay), Trắc thủ 3 bám cự ly (khoảng cách), dưới sự chỉ huy trực tiếp của Sĩ quan điều khiển.\
-> **Nguồn đối chiếu:** *Lịch sử Bộ đội Tên lửa Phòng không*, tr. 175; *Cẩm nang đánh B-52*, tr. 8.
+> **Giải thích:** Cabin điều khiển Xe K là thành phần sở chỉ huy của tổ hợp SAM-2, nơi toàn bộ kíp chiến đấu cùng làm việc và hiệp đồng chặt chẽ để điều khiển hỏa lực.\
+> **Nguồn đối chiếu:** *Lịch sử Bộ đội Tên lửa Phòng không*, `CLM-1972-VN-002`.
 
 ---
 
 ### Question 2
-Vì sao kíp điều khiển SAM-2 không được bật phát sóng radar liên tục để tìm kiếm mục tiêu B-52 từ xa?
-- A. Vì máy phát radar nhanh bị quá nhiệt và chập cháy.
-- B. Vì bật phát sóng liên tục sẽ làm tên lửa tự động phát nổ trên bệ phóng.
-- C. Vì radar phát sóng sẽ làm lộ vị trí trận địa, lập tức bị máy bay Mỹ phóng tên lửa chống bức xạ Shrike đánh phá. *(Đáp án đúng)*
-- D. Vì luật quốc tế cấm phát sóng radar vào ban đêm.
+Trước thách thức từ môi trường gây nhiễu điện tử dày đặc của B-52, bộ đội tên lửa Việt Nam đã dựa vào tài liệu đúc kết kinh nghiệm thực tiễn nào để tìm ra phương pháp vạch nhiễu đánh địch?
+- A. Sổ tay hướng dẫn kỹ thuật bay của đối phương thu giữ được.
+- B. Cuốn tài liệu nghiên cứu tác chiến thường được gọi là 'Cẩm nang bìa đỏ'. *(Đáp án đúng)*
+- C. Tài liệu kỹ thuật radar nguyên bản từ nước ngoài chưa qua cải tiến.
+- D. Kế hoạch tác chiến hiệp đồng bộ binh đường bộ năm 1968.
 
-> **Giải thích:** Máy bay tiêm kích Mỹ luôn mang theo tên lửa tự dẫn Shrike chuyên bám theo nguồn phát sóng radar của đài điều khiển SAM-2 để tiêu diệt trận địa. Do đó, bộ đội ta chỉ phát sóng ngắn trong vài giây khi B-52 đã vào cự ly hiệu quả.\
-> **Nguồn đối chiếu:** *Lịch sử Quân chủng PK-KQ*, tr. 261; Hồi ký các cựu chiến binh Tiểu đoàn 77.
+> **Giải thích:** Cuốn tài liệu *"Cách đánh B-52 của bộ đội tên lửa"* (thường gọi là 'Cẩm nang bìa đỏ') đúc kết kinh nghiệm tác chiến tại chiến trường Vĩnh Linh và Quân khu 4, giúp định hình phương pháp vạch nhiễu đánh B-52.\
+> **Nguồn đối chiếu:** *Lịch sử Quân chủng PK-KQ*, `CLM-1972-VN-003`.
 
 ---
 

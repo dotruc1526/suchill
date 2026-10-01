@@ -13,7 +13,7 @@
 - Reviewer: Trúc (Member 2 — Historical Reviewer), Product Owner (PO nghiệm thu)
 - Branch: `content/tho-chapter-1972-package` (PR #65)
 - Started: 2026-09-29
-- Depends on: CONTENT-018 (`REVIEW`), CONTENT-017 (`DONE`), CONTENT-016 (`DONE`), CONTENT-015 (`DONE`)
+- Depends on: CONTENT-018 (nghiệm thu tuần tự Bài 3 trước Bài 4 trong gói PR #65; card CONTENT-019 giữ trạng thái REVIEW chờ CONTENT-018 hoàn tất), CONTENT-017 (`DONE`), CONTENT-016 (`DONE`), CONTENT-015 (`DONE`)
 
 ## Scope
 
