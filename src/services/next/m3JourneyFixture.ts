@@ -52,5 +52,5 @@ const chapters: Chapter[] = [{
 
 export const m3JourneyServices = createMockLearningServices(
   { chapters, lessons, documents, storyVersions, mediaAssets: [] },
-  { userId: 'fixture.user.duong', locale: 'vi-VN' },
+  { userId: 'fixture.user.duong', displayName: 'Dương', locale: 'vi-VN' },
 )

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { EmptyState, ErrorState, LoadingState, OfflineState } from '../../../components/ui'
 import type { ServiceErrorCode } from '../../../services/next/contracts'
 import { m3JourneyServices } from '../../../services/next/m3JourneyFixture'
+import { loadHomeGreeting } from '../../home/greetingModel'
 import { JourneyChapter } from './JourneyChapter'
 import { JourneyHome } from './JourneyHome'
 import { JourneyLessonEntry } from './JourneyLessonEntry'
@@ -23,6 +24,7 @@ type FocusTarget =
 export function LearningJourney() {
   const [view, setView] = useState<JourneyView>({ type: 'home' })
   const [state, setState] = useState<LoadState>({ status: 'loading' })
+  const [greeting, setGreeting] = useState('XIN CHÀO')
   const [offline, setOffline] = useState(() => typeof navigator !== 'undefined' && !navigator.onLine)
   const homeHeadingRef = useRef<HTMLHeadingElement>(null)
   const chapterHeadingRef = useRef<HTMLHeadingElement>(null)
@@ -38,6 +40,11 @@ export function LearningJourney() {
   }, [])
 
   useEffect(() => { void refresh() }, [refresh])
+  useEffect(() => {
+    let active = true
+    void loadHomeGreeting(m3JourneyServices.users).then(value => { if (active) setGreeting(value) })
+    return () => { active = false }
+  }, [])
   useEffect(() => {
     const update = () => setOffline(!navigator.onLine)
     window.addEventListener('online', update)
@@ -99,6 +106,7 @@ export function LearningJourney() {
   }
   return <>{offline && <OfflineState />}<JourneyHome
     chapters={state.snapshot.chapters}
+    greeting={greeting}
     headingRef={homeHeadingRef}
     chapterButtonRef={(id, element) => { element ? chapterButtonsRef.current.set(id, element) : chapterButtonsRef.current.delete(id) }}
     onChapter={chapterId => {

@@ -156,13 +156,21 @@ test('learning journey stays usable and uncut at mobile widths', async () => {
               const journey = document.querySelector('[data-testid="learning-journey"]')
               const card = document.querySelector('[data-testid="journey-chapter-card"]')
               const title = document.querySelector('[data-testid="journey-title"]')
+              const greeting = document.querySelector('[data-testid="journey-greeting"]')
               const button = document.querySelector('[data-testid^="journey-open-chapter-"]')
-              if (!journey || !card || !title || !button) return null
+              if (!journey || !card || !title || !greeting || !button || greeting.textContent !== 'XIN CHÀO, Dương') return null
+              const personalizedGreeting = greeting.textContent
+              greeting.textContent = 'XIN CHÀO, Nguyễn Thị Dương Anh Minh với tên tiếng Việt rất dài'
               const cardRect = card.getBoundingClientRect()
               const buttonRect = button.getBoundingClientRect()
+              const greetingRect = greeting.getBoundingClientRect()
               return {
                 viewport: innerWidth,
                 documentWidth: document.documentElement.scrollWidth,
+                greetingRight: greetingRect.right,
+                greetingScrollWidth: greeting.scrollWidth,
+                greetingClientWidth: greeting.clientWidth,
+                personalizedGreeting,
                 cardLeft: cardRect.left,
                 cardRight: cardRect.right,
                 buttonHeight: buttonRect.height,
@@ -178,6 +186,8 @@ test('learning journey stays usable and uncut at mobile widths', async () => {
         assert.ok(metrics, `${width}px journey elements mounted`)
         assert.equal(metrics.viewport, width)
         assert.equal(metrics.documentWidth, width, `${width}px document has no horizontal overflow`)
+        assert.equal(metrics.personalizedGreeting, 'XIN CHÀO, Dương')
+        assert.ok(metrics.greetingRight <= width && metrics.greetingScrollWidth <= metrics.greetingClientWidth, `${width}px long Vietnamese greeting wraps inside viewport`)
         assert.equal(metrics.title, 'HÀNH TRÌNH LỊCH SỬ')
         assert.ok(metrics.cardLeft >= 0 && metrics.cardRight <= width, `${width}px chapter card stays within viewport`)
         assert.ok(metrics.buttonHeight >= 44, `${width}px primary action keeps a 44px touch target`)

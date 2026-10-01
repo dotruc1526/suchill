@@ -59,9 +59,12 @@ test('M3 journey home exposes labeled stable-ID navigation', async () => {
     learningObjectiveIds: [], lessonRefs: [], estimatedMinutes: 5, status: 'published', lessons: [], completedCount: 0,
   }
   const html = renderToStaticMarkup(React.createElement(JourneyHome, {
-    chapters: [chapter], headingRef: null, chapterButtonRef: () => {}, onChapter: () => {},
+    chapters: [chapter], greeting: 'XIN CHÀO, Nguyễn Thị Dương Anh Minh', headingRef: null, chapterButtonRef: () => {}, onChapter: () => {},
   }))
 
+  assert.ok(html.includes('XIN CHÀO, Nguyễn Thị Dương Anh Minh'))
+  assert.ok(html.includes('data-testid="journey-greeting"'))
+  assert.ok(html.includes('break-words'))
   assert.ok(html.includes('aria-labelledby="journey-heading"'))
   assert.ok(html.includes('aria-label="Mở chương Chương mẫu"'))
   assert.ok(html.includes('data-testid="journey-open-chapter-chapter-stable"'))

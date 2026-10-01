@@ -3,8 +3,9 @@ import { theme } from '../../../theme/tokens'
 import type { JourneyChapter } from './journeyModel'
 import type { Ref } from 'react'
 
-export function JourneyHome({ chapters, headingRef, chapterButtonRef, onChapter }: {
+export function JourneyHome({ chapters, greeting, headingRef, chapterButtonRef, onChapter }: {
   chapters: JourneyChapter[]
+  greeting: string
   headingRef: Ref<HTMLHeadingElement>
   chapterButtonRef: (id: string, element: HTMLButtonElement | null) => void
   onChapter: (id: string) => void
@@ -12,6 +13,7 @@ export function JourneyHome({ chapters, headingRef, chapterButtonRef, onChapter 
   return (
     <section data-testid="learning-journey" className="space-y-4 px-4 py-4" aria-labelledby="journey-heading">
       <div>
+        <p data-testid="journey-greeting" className="min-w-0 break-words font-sans text-sm font-bold" style={{ color: theme.colors.primary }}>{greeting}</p>
         <h1 ref={headingRef} tabIndex={-1} data-testid="journey-title" id="journey-heading" className="font-serif text-2xl font-bold outline-none" style={{ color: theme.colors.textPrimary }}>HÀNH TRÌNH LỊCH SỬ</h1>
         <p className="mt-1 font-sans text-sm" style={{ color: theme.colors.textSecondary }}>Chọn một chương để bắt đầu hoặc tiếp tục bài học.</p>
       </div>
