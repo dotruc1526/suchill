@@ -51,17 +51,24 @@ test('canonical TopBar renders streak, xp and safe-area header', async () => {
   assert.doesNotMatch(html, /🔥|⭐|🏆/)
 })
 
-test('home decorative greeting and streak icons are hidden from screen readers', async () => {
-  const { HomeScreen } = await vite.ssrLoadModule('/src/features/home/HomeScreen.tsx')
+test('M3 journey home exposes labeled stable-ID navigation', async () => {
+  const { JourneyHome } = await vite.ssrLoadModule('/src/features/learning/journey/JourneyHome.tsx')
   const { theme } = await vite.ssrLoadModule('/src/theme/tokens.ts')
-  const html = renderToStaticMarkup(React.createElement(HomeScreen, { onChapter: () => {}, onLesson: () => {} }))
+  const chapter = {
+    id: 'chapter-stable', slug: 'chapter', title: 'Chương mẫu', summary: 'Fixture', historicalPeriodLabel: '1972',
+    learningObjectiveIds: [], lessonRefs: [], estimatedMinutes: 5, status: 'published', lessons: [], completedCount: 0,
+  }
+  const html = renderToStaticMarkup(React.createElement(JourneyHome, {
+    chapters: [chapter], headingRef: null, chapterButtonRef: () => {}, onChapter: () => {},
+  }))
 
-  assert.match(html, /<svg[^>]*aria-hidden="true"/)
-  assert.equal((html.match(/aria-hidden="true"/g) ?? []).length, 2)
-  assert.doesNotMatch(html, /aria-label="(?:Lời chào|Chuỗi ngày học)"/)
-  assert.ok(html.includes('data-testid="home-streak-card"'))
-  for (const color of [theme.colors.accentRed, theme.colors.primary, theme.colors.primaryText, theme.colors.activeBg, theme.colors.textMuted]) {
-    assert.ok(html.includes(color), `rendered streak UI should use token color ${color}`)
+  assert.ok(html.includes('aria-labelledby="journey-heading"'))
+  assert.ok(html.includes('aria-label="Mở chương Chương mẫu"'))
+  assert.ok(html.includes('data-testid="journey-open-chapter-chapter-stable"'))
+  assert.ok(html.includes('data-testid="journey-chapter-card"'))
+  assert.ok(html.includes('min-h-11'))
+  for (const color of [theme.colors.primary, theme.colors.primaryText, theme.colors.textPrimary, theme.colors.textMuted]) {
+    assert.ok(html.includes(color), `rendered journey UI should use token color ${color}`)
   }
 })
 
