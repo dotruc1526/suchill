@@ -229,3 +229,10 @@ test('M3-02 lesson renderer routes ordered typed blocks through explicit slots',
   }))
   assert.ok(empty.includes('Bài học chưa có nội dung'))
 })
+
+test('M3-02 lesson renderer wires service failures to an explicit same-lesson retry', async () => {
+  const source = await readFile(new URL('../../src/features/learning/lesson/LessonRenderer.tsx', import.meta.url), 'utf8')
+  assert.match(source, /const \[retryKey, setRetryKey\] = useState\(0\)/)
+  assert.match(source, /\[lessonId, retryKey, services\]/)
+  assert.match(source, /onRetry=\{\(\) => setRetryKey\(value => value \+ 1\)\}/)
+})

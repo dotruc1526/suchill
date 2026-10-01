@@ -33,6 +33,7 @@ export function LessonRenderer({
   slots,
 }: { lessonId: string; services: LearningServices; slots?: LessonBlockSlots }) {
   const [state, setState] = useState<LoadState>({ status: 'loading' })
+  const [retryKey, setRetryKey] = useState(0)
   useEffect(() => {
     let active = true
     setState({ status: 'loading' })
@@ -41,11 +42,11 @@ export function LessonRenderer({
       setState(result.ok ? { status: 'ready', content: result.value } : { status: 'error', error: result.error })
     })
     return () => { active = false }
-  }, [lessonId, services])
+  }, [lessonId, retryKey, services])
 
   if (state.status === 'loading') return <LoadingState message="Đang tải nội dung bài học..." />
   if (state.status === 'error') {
-    return <ErrorState message={`Không thể tải bài học (${state.error}).`} />
+    return <ErrorState message={`Không thể tải bài học (${state.error}).`} onRetry={() => setRetryKey(value => value + 1)} />
   }
   return <LessonContentView content={state.content} slots={slots} />
 }
