@@ -1,7 +1,7 @@
 # CONTENT-018 — Soạn bài học đọc tiêu chuẩn Bài 3 Chapter 1972 ("12 Ngày đêm rực lửa")
 
 > Status: REVIEW\
-> Last updated: 2026-09-28
+> Last updated: 2026-10-01
 
 ## Assignment
 
@@ -11,7 +11,7 @@
 - Executor type: Human (Thọ) + Codex hỗ trợ
 - Executor name: Thọ (Member 1)
 - Reviewer: Trúc (Member 2 — Historical Reviewer), Product Owner (PO nghiệm thu)
-- Branch: `content/tho-lesson-03-1972-reading`
+- Branch: `content/tho-chapter-1972-package` (PR #65)
 - Started: 2026-09-28
 - Depends on: CONTENT-017 (`REVIEW` / Merged), CONTENT-016 (`DONE`), CONTENT-015 (`DONE`), CONTENT-013 (`DONE`)
 
@@ -61,6 +61,7 @@
 |---|---|---|---|---|---|
 | 2026-09-28 | Thọ (Member 1) | Khởi tạo task card CONTENT-018 và xác lập phạm vi soạn thảo Bài 3 Chapter 1972 | Card CONTENT-018; branch `content/tho-lesson-03-1972-reading` | Viết bài học đọc tiêu chuẩn và script validator | Không |
 | 2026-09-28 | Thọ (Member 1) | Hoàn thành bài học đọc tiêu chuẩn Bài 3 `LESSON-03-1972-STANDARD.md` và script kiểm thử tự động `validate-1972-lesson03.mjs` PASS 100%; chuyển REVIEW | `docs/content/LESSON-03-1972-STANDARD.md`, `validate-1972-lesson03.mjs` | Bàn giao cho Trúc thẩm định sử liệu và Product Owner nghiệm thu | Không |
+| 2026-10-01 | Thọ (Member 1) | Đồng bộ main sạch 0 conflict vào PR #65; xác minh 0-link-lỗi DOC-013; validator PASS 100% | `docs/content/LESSON-03-1972-STANDARD.md`, `validate-1972-lesson03.mjs` | Chờ Trúc và Product Owner duyệt PR #65 | Không |
 
 ## Handoff
 

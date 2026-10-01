@@ -25,22 +25,22 @@ Pull Request này bàn giao trọn vẹn gói nội dung hoàn chỉnh đầu ti
 ### 📚 Danh mục 4 bài học trong gói bàn giao:
 1. **Bài 1: Tối hậu thư từ bầu trời (`CONTENT-015`)**:
    - Định dạng: Video tài liệu 9:16 (dọc), thời lượng 110s.
-   - Tài liệu: [`docs/content/SCREENPLAY-1972.md`](docs/content/SCREENPLAY-1972.md) và phụ đề chuẩn WebVTT [`docs/content/CAPTIONS-1972.vtt`](docs/content/CAPTIONS-1972.vtt).
+   - Tài liệu: [`SCREENPLAY-1972.md`](SCREENPLAY-1972.md) và phụ đề chuẩn WebVTT [`CAPTIONS-1972.vtt`](CAPTIONS-1972.vtt).
    - Nội dung: Bối cảnh đàm phán Paris bế tắc, âm mưu ném bom rải thảm của Mỹ và sự chuẩn bị của quân dân Hà Nội trước đêm 18/12.
 2. **Bài 2: Kíp chiến đấu SAM-2 — Vạch nhiễu tìm thù (`CONTENT-016`, `CONTENT-017`)**:
    - Định dạng: Interactive Flagship Visual Novel kết hợp Sơ đồ khí tài tương tác.
    - Đã tích hợp bản sửa luồng học tuyến tính theo yêu cầu PO (học viên đi qua cả 2 nội dung hiệp đồng và xử lý nhiễu trước khi làm bài kiểm tra kiến thức).
-   - Tài liệu: Kịch bản 8 phân cảnh [`docs/content/LESSON-02-1972-NARRATION.md`](docs/content/LESSON-02-1972-NARRATION.md), Story JSON [`docs/content/LESSON-02-1972-STORY.json`](docs/content/LESSON-02-1972-STORY.json), Sơ đồ tương tác 7 node [`docs/content/DIAGRAM-SAM2-1972.json`](docs/content/DIAGRAM-SAM2-1972.json).
+   - Tài liệu: Kịch bản 8 phân cảnh [`LESSON-02-1972-NARRATION.md`](LESSON-02-1972-NARRATION.md), Story JSON [`LESSON-02-1972-STORY.json`](LESSON-02-1972-STORY.json), Sơ đồ tương tác 5 node [`DIAGRAM-SAM2-1972.json`](DIAGRAM-SAM2-1972.json).
 3. **Bài 3: 12 Ngày đêm rực lửa — Đòn bẻ gãy ý chí tập kích (`CONTENT-018`)**:
    - Định dạng: Bài đọc tiêu chuẩn (Standard Reading).
-   - Tài liệu: [`docs/content/LESSON-03-1972-STANDARD.md`](docs/content/LESSON-03-1972-STANDARD.md).
+   - Tài liệu: [`LESSON-03-1972-STANDARD.md`](LESSON-03-1972-STANDARD.md).
    - Nội dung: Tái hiện 2 đêm bước ngoặt (20/12 và 26/12 Khâm Thiên), bảng đối chiếu số liệu tổn thất khách quan giữa Việt Nam và Không quân Mỹ (USAF), kèm 2 câu hỏi suy ngẫm đọc hiểu.
 4. **Bài 4: Đánh giá Tổng kết Chapter 1972 (`CONTENT-019`)**:
    - Định dạng: Ngân hàng 5 câu hỏi trắc nghiệm chuẩn hóa JSON 4 lựa chọn (A, B, C, D).
-   - Tài liệu: [`docs/content/QUIZ-1972.json`](docs/content/QUIZ-1972.json).
+   - Tài liệu: [`QUIZ-1972.json`](QUIZ-1972.json).
    - Nội dung: Phủ kín 4 mục tiêu học tập, đáp án có giải thích lịch sử rõ ràng, liên kết nguồn chính thống.
 5. **Tài liệu Handoff Dev M2/M3**:
-   - [`docs/content/CHAPTER-1972-PACKAGE.md`](docs/content/CHAPTER-1972-PACKAGE.md): Hướng dẫn chi tiết cho Hưng (FE Foundation) và Dương (FE Learning) nạp dữ liệu vào Visual Novel Player, Standard Reader và Quiz Engine.
+   - [`CHAPTER-1972-PACKAGE.md`](CHAPTER-1972-PACKAGE.md): Hướng dẫn chi tiết cho Hưng (FE Foundation) và Dương (FE Learning) nạp dữ liệu vào Visual Novel Player, Standard Reader và Quiz Engine.
 
 ---
 
