@@ -13,7 +13,7 @@
 - Started: 2026-10-01
 - Depends on: M3-01..05 `DONE`, M3-UX-01 `DONE`, M3 `OPEN`
 - Files claimed: `src/features/learning/journey/`, integration-facing additions to `src/features/learning/lesson/`, `src/services/next/m3JourneyFixture.ts` for a labeled non-canonical interaction fixture, focused M3 integration tests, this card, active index and task-board row.
-- Hotspots excluded: no changes to `src/App.tsx`, shared types/services contracts, fixtures/content, global CSS, package/lockfile, reward/completion authority or PWA config.
+- Hotspots excluded: no changes to `src/App.tsx`, shared types/services contracts, canonical content/media, global CSS, package/lockfile, reward/completion authority or PWA config.
 
 ## Scope
 
@@ -50,3 +50,8 @@
 - Addressed Vinh's P2: the Visual Novel opener keeps a ref; closing or completing marks focus for restoration, unmounts the player, then focuses the newly rendered opener in an effect. The same control can reopen the player.
 - Added a minimal optional Visual Novel to the existing explicitly labeled technical fixture so a real browser regression can exercise open → close → opener focus → reopen. The story text states that it is non-canonical; no completion/reward or publishable content claim was added.
 - Added component wiring assertions and a Chrome E2E for the complete focus lifecycle. Status remains `REVIEW`; next action is local/full GitHub Quality and Vinh re-review.
+
+## Hưng review remediation — 2026-10-01
+
+- Hưng's review at head `be8fa44` requested the same focus restoration for completion as well as close. Both player callbacks already use the shared `close` handler, including the error close path; extended the real browser regression to advance to the end scene, complete, and verify focus returns to the opener.
+- Task remains `REVIEW` pending Hưng/Vinh re-review at the new head. No milestone gate change.

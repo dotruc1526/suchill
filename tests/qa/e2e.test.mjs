@@ -231,7 +231,7 @@ test('learning journey moves focus on forward and back navigation', async () => 
   }
 })
 
-test('Visual Novel close restores focus to its opener and allows reopening', async () => {
+test('Visual Novel close and completion restore focus to the opener', async () => {
   const browser = findBrowser()
   assert.ok(browser, 'Set CHROME_PATH to a local Chromium/Chrome executable for E2E')
 
@@ -261,6 +261,10 @@ test('Visual Novel close restores focus to its opener and allows reopening', asy
       await waitFor("document.activeElement?.dataset.testid?.startsWith('open-vn-')", 'focus restored to opener')
       await evaluate("document.activeElement.click()")
       await waitFor("Boolean(document.querySelector('[data-testid=\"visual-novel-v2\"]'))", 'Visual Novel reopened')
+      await evaluate("[...document.querySelectorAll('[data-testid=\"visual-novel-v2\"] button')].find(button => button.textContent === 'TIẾP TỤC').click()")
+      await waitFor("Boolean([...document.querySelectorAll('[data-testid=\"visual-novel-v2\"] button')].find(button => button.textContent === 'HOÀN TẤT PHẦN TRÌNH BÀY'))", 'end scene')
+      await evaluate("[...document.querySelectorAll('[data-testid=\"visual-novel-v2\"] button')].find(button => button.textContent === 'HOÀN TẤT PHẦN TRÌNH BÀY').click()")
+      await waitFor("document.activeElement?.dataset.testid?.startsWith('open-vn-')", 'focus restored after completion')
     })
   } finally {
     await new Promise((resolve, reject) => server.httpServer.close(error => error ? reject(error) : resolve()))
