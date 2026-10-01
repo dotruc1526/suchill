@@ -2,7 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { createMockLearningServices, type MockCatalog, type MockQuizFixture } from '../../src/services/next/mock.ts'
 import {
-  isQuizComplete, loadQuizFlow, resetQuizFlow, submitQuizFlow, toggleQuizOption,
+  isQuizComplete, loadQuizFlow, QuizSubmissionGate, resetQuizFlow, submitQuizFlow, toggleQuizOption,
 } from '../../src/features/quiz/v2/quizFlowModel.ts'
 
 function quizFixture(mode: 'practice' | 'scored'): MockQuizFixture {
@@ -76,4 +76,16 @@ test('M3-05 surfaces delivery and grading failures without fabricating feedback'
   if (!loaded.ok) return
   const result = await submitQuizFlow(learning, { ...loaded.value, answers: { q1: ['a'], q2: ['b'] } }, 'retryable-operation')
   assert.deepEqual(result, { ok: false, error: 'server_error' })
+})
+
+test('M3-05 rejects a late submission after the active question set changes', () => {
+  const gate = new QuizSubmissionGate('quiz-practice')
+  const oldSubmission = gate.begin('quiz-practice')
+  gate.activate('quiz-scored')
+
+  assert.equal(gate.isCurrent(oldSubmission), false)
+  const currentSubmission = gate.begin('quiz-scored')
+  assert.equal(gate.isCurrent(currentSubmission), true)
+  gate.invalidate()
+  assert.equal(gate.isCurrent(currentSubmission), false)
 })

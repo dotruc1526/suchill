@@ -7,6 +7,35 @@ export type QuizReceipt =
   | { mode: 'practice'; attemptId: string; feedback: QuestionFeedback[] }
   | ({ mode: 'scored' } & ScoredQuizReceipt)
 export type QuizFlowSession = { delivery: QuestionSetDelivery; answers: QuizAnswers }
+export type QuizSubmissionToken = { questionSetId: string; generation: number }
+
+export class QuizSubmissionGate {
+  private activeQuestionSetId: string
+  private generation = 0
+
+  constructor(questionSetId: string) {
+    this.activeQuestionSetId = questionSetId
+  }
+
+  activate(questionSetId: string) {
+    if (questionSetId === this.activeQuestionSetId) return
+    this.activeQuestionSetId = questionSetId
+    this.generation += 1
+  }
+
+  begin(questionSetId: string): QuizSubmissionToken {
+    this.generation += 1
+    return { questionSetId, generation: this.generation }
+  }
+
+  invalidate() {
+    this.generation += 1
+  }
+
+  isCurrent(token: QuizSubmissionToken) {
+    return token.questionSetId === this.activeQuestionSetId && token.generation === this.generation
+  }
+}
 
 export async function loadQuizFlow(
   services: LearningServices,
