@@ -230,3 +230,39 @@ test('learning journey moves focus on forward and back navigation', async () => 
     await new Promise((resolve, reject) => server.httpServer.close(error => error ? reject(error) : resolve()))
   }
 })
+
+test('Visual Novel close restores focus to its opener and allows reopening', async () => {
+  const browser = findBrowser()
+  assert.ok(browser, 'Set CHROME_PATH to a local Chromium/Chrome executable for E2E')
+
+  const server = await preview({ preview: { host: '127.0.0.1', port: 0, strictPort: false } })
+  try {
+    const address = server.httpServer.address()
+    assert.ok(address && typeof address !== 'string')
+    const url = `http://127.0.0.1:${address.port}/`
+    await withChromePage(browser, url, async cdp => {
+      const evaluate = expression => cdp('Runtime.evaluate', { expression, returnByValue: true })
+      const waitFor = async (expression, label) => {
+        for (let attempt = 0; attempt < 100; attempt += 1) {
+          if ((await evaluate(expression)).result.value) return
+          await delay(50)
+        }
+        assert.fail(`Timed out waiting for ${label}`)
+      }
+
+      await waitFor("Boolean(document.querySelector('[data-testid^=\"journey-open-chapter-\"]'))", 'chapter trigger')
+      await evaluate("document.querySelector('[data-testid^=\"journey-open-chapter-\"]').click()")
+      await waitFor("document.querySelectorAll('[data-testid^=\"journey-open-lesson-\"]').length === 2", 'fixture lessons')
+      await evaluate("document.querySelectorAll('[data-testid^=\"journey-open-lesson-\"]')[1].click()")
+      await waitFor("Boolean(document.querySelector('[data-testid^=\"open-vn-\"]'))", 'Visual Novel opener')
+      await evaluate("document.querySelector('[data-testid^=\"open-vn-\"]').click()")
+      await waitFor("Boolean(document.querySelector('[data-testid=\"visual-novel-v2\"]'))", 'Visual Novel player')
+      await evaluate("[...document.querySelectorAll('button')].find(button => button.textContent === 'ĐÓNG').click()")
+      await waitFor("document.activeElement?.dataset.testid?.startsWith('open-vn-')", 'focus restored to opener')
+      await evaluate("document.activeElement.click()")
+      await waitFor("Boolean(document.querySelector('[data-testid=\"visual-novel-v2\"]'))", 'Visual Novel reopened')
+    })
+  } finally {
+    await new Promise((resolve, reject) => server.httpServer.close(error => error ? reject(error) : resolve()))
+  }
+})

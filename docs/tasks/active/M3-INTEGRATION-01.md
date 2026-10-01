@@ -12,7 +12,7 @@
 - Branch: `codex/m3-learning-integration`
 - Started: 2026-10-01
 - Depends on: M3-01..05 `DONE`, M3-UX-01 `DONE`, M3 `OPEN`
-- Files claimed: `src/features/learning/journey/`, integration-facing additions to `src/features/learning/lesson/`, focused M3 integration tests, this card, active index and task-board row.
+- Files claimed: `src/features/learning/journey/`, integration-facing additions to `src/features/learning/lesson/`, `src/services/next/m3JourneyFixture.ts` for a labeled non-canonical interaction fixture, focused M3 integration tests, this card, active index and task-board row.
 - Hotspots excluded: no changes to `src/App.tsx`, shared types/services contracts, fixtures/content, global CSS, package/lockfile, reward/completion authority or PWA config.
 
 ## Scope
@@ -44,3 +44,9 @@
 - Files changed: claimed journey/lesson integration modules, focused unit/component tests, card/index/board. No env, migration, dependency, shared-contract, canonical content or hotspot impact.
 - Known boundary: the current runtime fixture contains text/recap blocks only. Typed VN/video/quiz wiring is covered without adding unreviewed canonical/media fixtures. Completion/profile UI remains M3-06.
 - Status: `REVIEW`. Next action: push PR, wait for 2/2 GitHub Quality, then Hưng reviews composition/focus and Vinh reviews service/progress boundaries.
+
+## Vinh review remediation — 2026-10-01
+
+- Addressed Vinh's P2: the Visual Novel opener keeps a ref; closing or completing marks focus for restoration, unmounts the player, then focuses the newly rendered opener in an effect. The same control can reopen the player.
+- Added a minimal optional Visual Novel to the existing explicitly labeled technical fixture so a real browser regression can exercise open → close → opener focus → reopen. The story text states that it is non-canonical; no completion/reward or publishable content claim was added.
+- Added component wiring assertions and a Chrome E2E for the complete focus lifecycle. Status remains `REVIEW`; next action is local/full GitHub Quality and Vinh re-review.
