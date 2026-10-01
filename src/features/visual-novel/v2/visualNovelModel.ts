@@ -24,6 +24,13 @@ export const getCurrentScene = (session: VisualNovelSession) =>
 export const visualNovelContextKey = (context: VisualNovelContext) =>
   `${context.lessonId}:${context.blockId}:${context.storyVersionId}`
 
+export const isVisualNovelRenderCurrent = (
+  loadedContextKey: string,
+  loadedServices: LearningServices,
+  currentContextKey: string,
+  currentServices: LearningServices,
+) => loadedContextKey === currentContextKey && loadedServices === currentServices
+
 export type VisualNovelActionToken = { contextKey: string; generation: number }
 
 export class VisualNovelActionGate {

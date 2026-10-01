@@ -6,7 +6,8 @@ import type { Lesson, StoryVersion } from '../../src/types/v2/content.ts'
 import type { LearningServices } from '../../src/services/next/contracts.ts'
 import {
   advanceVisualNovel, chooseVisualNovel, continueChoiceFeedback, loadVisualNovel,
-  restartVisualNovel, resumeVisualNovel, reviewVisualNovelScene, visualNovelContextKey, VisualNovelActionGate,
+  isVisualNovelRenderCurrent, restartVisualNovel, resumeVisualNovel, reviewVisualNovelScene,
+  visualNovelContextKey, VisualNovelActionGate,
 } from '../../src/features/visual-novel/v2/visualNovelModel.ts'
 
 const story: StoryVersion = {
@@ -186,6 +187,17 @@ const raceServices = (store = createMockProgressStore()) => createMockLearningSe
   { chapters: [], lessons: [raceLessonA, raceLessonB], storyVersions: [raceStoryA, raceStoryB], mediaAssets: [] }, { userId: 'duong' },
   () => '2026-10-01T00:00:00Z', store,
 )
+
+test('ready Visual Novel state is invalid as soon as context or services change', () => {
+  const servicesA = raceServices()
+  const servicesB = raceServices()
+  const keyA = visualNovelContextKey(raceContextA)
+  const keyB = visualNovelContextKey(raceContextB)
+
+  assert.equal(isVisualNovelRenderCurrent(keyA, servicesA, keyA, servicesA), true)
+  assert.equal(isVisualNovelRenderCurrent(keyA, servicesA, keyB, servicesA), false)
+  assert.equal(isVisualNovelRenderCurrent(keyA, servicesA, keyA, servicesB), false)
+})
 
 test('M3-03 discards a late successful action after switching stories', async () => {
   const services = raceServices()

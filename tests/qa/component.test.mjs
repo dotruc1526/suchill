@@ -275,6 +275,14 @@ test('M3-03 gates late action results by story context', async () => {
   assert.match(source, /if \(!actionGateRef\.current\.isCurrent\(token\)\) return/)
 })
 
+test('M3-03 hides a ready session synchronously when context or services change', async () => {
+  const source = await readFile(new URL('../../src/features/visual-novel/v2/VisualNovelPlayerV2.tsx', import.meta.url), 'utf8')
+  assert.match(source, /isVisualNovelRenderCurrent\(state\.contextKey, state\.services, contextKey, services\)/)
+  assert.match(source, /if \(!readyState\) return <LoadingState/)
+  assert.match(source, /const \{ session \} = readyState/)
+  assert.doesNotMatch(source, /const \{ session \} = state/)
+})
+
 test('M3-04 video view exposes controls, Vietnamese captions, transcript and prepared fallback', async () => {
   const { VideoPlayerView } = await vite.ssrLoadModule('/src/features/learning/video/VideoPlayerView.tsx')
   const asset = {
