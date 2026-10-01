@@ -77,7 +77,13 @@ export function LearningJourney() {
   }
 
   if (view.type === 'lesson' && chapter && lesson) {
-    return <JourneyLessonEntry lesson={lesson} headingRef={lessonHeadingRef} onBack={() => {
+    return <JourneyLessonEntry lesson={lesson} services={m3JourneyServices} headingRef={element => {
+      lessonHeadingRef.current = element
+      if (element && pendingFocusRef.current?.kind === 'heading') {
+        element.focus()
+        pendingFocusRef.current = null
+      }
+    }} onBack={() => {
       pendingFocusRef.current = { kind: 'lesson-button', id: lesson.id }
       setView({ type: 'chapter', chapterId: chapter.id })
     }} />

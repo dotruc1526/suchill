@@ -2,6 +2,13 @@
 
 Đặt task card đã được reviewer xác nhận `DONE` tại đây. Không xóa checkpoint/evidence cũ.
 
+- [M3-UX-01](./M3-UX-01.md) — UI/UX handoff; PR #77 merged, Hưng/Vinh approved và Dương/PO nghiệm thu tại `23cf354`.
+- [M3-01](./M3-01.md) — Learning journey; PR #72 merged, Vinh approved và Hưng không còn finding tại `71cbad2`.
+- [M3-02](./M3-02.md) — Lesson renderer; PR #73 merged, Vinh approved và Hưng không còn finding tại `6117578`.
+- [M3-03](./M3-03.md) — Visual Novel v2; PR #74 merged `fc00d65`, Hưng approved `7fabea3`, Vinh approved progress/QA.
+- [M3-04](./M3-04.md) — Video player; PR #75 merged, Hưng/Vinh approved `0636c89`.
+- [M3-05](./M3-05.md) — Quiz flow; PR #76 merged, Hưng/Vinh approved `fc7a830`.
+
 - [DOC-018](./DOC-018.md) — Product Owner Dương audit Gate M2 đạt; đóng M2 và mở M3 ngày 2026-10-01.
 - [QA-006](./QA-006.md) — E2E Chrome cleanup/target discovery được bounded; cả hai Quality checks PR #71 pass.
 - [M2-01](./M2-01.md) — Domain types v2; Hưng ACCEPTED 2026-09-30 trên main `7175bda`; gate M2 do PO quyết riêng.
