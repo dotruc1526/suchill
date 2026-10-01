@@ -187,3 +187,45 @@ test('Shared states render properly with Vietnamese content', async () => {
   )
   assert.ok(offlineHtml.includes('Bạn đang ngoại tuyến'))
 })
+
+test('M3-02 lesson renderer routes ordered typed blocks through explicit slots', async () => {
+  const { LessonContentView, LessonRenderer } = await vite.ssrLoadModule('/src/features/learning/lesson/LessonRenderer.tsx')
+  const content = {
+    lesson: { id: 'lesson-mixed', title: 'Bài hỗn hợp', summary: 'Tóm lược' },
+    blocks: [
+      { id: 'text-1', order: 0, required: true, kind: 'text', documentId: 'doc-1', document: {
+        id: 'doc-1', title: 'Văn bản', locale: 'vi-VN', sourceIds: [], status: 'published',
+        sections: [{ id: 'section-1', kind: 'paragraph', text: 'Nội dung lịch sử' }],
+      } },
+      { id: 'vn-1', order: 1, required: true, kind: 'visual_novel', storyVersionId: 'story-v1' },
+      { id: 'video-1', order: 2, required: true, kind: 'video', mediaAssetId: 'media-1', completionPolicy: 'reach_end' },
+      { id: 'quiz-1', order: 3, required: true, kind: 'quiz', questionSetId: 'set-1', assessmentMode: 'practice' },
+      { id: 'recap-1', order: 4, required: true, kind: 'recap', documentId: 'doc-2', document: {
+        id: 'doc-2', title: 'Ôn tập', locale: 'vi-VN', sourceIds: [], status: 'published',
+        sections: [{ id: 'section-2', kind: 'key_points', items: ['Ý chính'] }],
+      } },
+    ],
+  }
+  const slots = {
+    visualNovel: ({ block }) => React.createElement('p', null, `VN:${block.id}`),
+    video: ({ block }) => React.createElement('p', null, `VIDEO:${block.id}`),
+    quiz: ({ block }) => React.createElement('p', null, `QUIZ:${block.id}`),
+  }
+  const html = renderToStaticMarkup(React.createElement(LessonContentView, { content, slots }))
+  const markers = ['Nội dung lịch sử', 'VN:vn-1', 'VIDEO:video-1', 'QUIZ:quiz-1', 'Ý chính']
+  assert.equal((html.match(/data-testid="lesson-block"/g) ?? []).length, 5)
+  assert.ok(markers.every(marker => html.includes(marker)))
+  assert.deepEqual([...markers].sort((a, b) => html.indexOf(a) - html.indexOf(b)), markers)
+  assert.ok(html.includes('data-block-id="text-1"') && html.includes('data-block-kind="recap"'))
+  assert.ok(html.includes('aria-label="Tóm tắt: Ôn tập"'))
+
+  const loading = renderToStaticMarkup(React.createElement(LessonRenderer, {
+    lessonId: 'lesson-mixed', services: {}, slots,
+  }))
+  assert.ok(loading.includes('Đang tải nội dung bài học...'))
+
+  const empty = renderToStaticMarkup(React.createElement(LessonContentView, {
+    content: { lesson: content.lesson, blocks: [] }, slots,
+  }))
+  assert.ok(empty.includes('Bài học chưa có nội dung'))
+})
