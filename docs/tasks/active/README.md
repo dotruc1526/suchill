@@ -6,6 +6,8 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOC
 
 ## Milestone 3 — UI/UX
 
+- [M3-UX-02](./M3-UX-02.md) — IN PROGRESS; restore Home visual layout while keeping PR #72 service journey.
+
 
 ## Content track
 
