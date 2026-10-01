@@ -1,11 +1,13 @@
 import assert from 'node:assert/strict'
-import { mkdir, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { withChrome } from './chrome.mjs'
 import { serve } from './serve.mjs'
 
 const root = new URL('evidence/', import.meta.url)
 await mkdir(root, { recursive: true })
 const results = []
+const [sourceMascot, prototypeMascot] = await Promise.all([readFile(new URL('../../../src/imports/su-chill-logo-transparent.png', import.meta.url)), readFile(new URL('assets/suu.png', import.meta.url))])
+assert.deepEqual(prototypeMascot, sourceMascot, 'Reuse the existing SỬu artwork without modification')
 const { server, url } = await serve()
 try {
   await withChrome(url, async cdp => {
@@ -36,6 +38,8 @@ try {
       await cdp('Emulation.setDeviceMetricsOverride', { width, height: 932, deviceScaleFactor: 1, mobile: true })
       for (const screen of ['chapter', 'lesson', 'vn', 'video', 'quiz', 'complete']) {
         await choose('#screen-select', screen)
+        await evaluate('Promise.all([...document.images].map(img => img.decode()))')
+        if (screen === 'chapter') assert.ok(await evaluate('document.querySelector(".chapter-mascot img").alt.includes("SỬu")'))
         assert.equal(await evaluate('document.documentElement.scrollWidth <= innerWidth'), true, `${screen} ${width}: horizontal overflow`)
         const smallTargets = await evaluate(`Array.from(document.querySelectorAll('button,select,input,summary')).filter(el => { const r = el.getBoundingClientRect(); return r.width > 0 && (r.height < 44 || r.width < 44) }).map(el => el.id || el.tagName)`)
         assert.deepEqual(smallTargets, [], `${screen} ${width}: touch target`)
@@ -48,6 +52,7 @@ try {
         results.push(`${screen} ${width}px: layout, 44px targets, four failure/loading states PASS`)
       }
     }
+    results.push('SỬu: existing artwork reused byte-for-byte, images decoded on all six screens, hero alt and layout PASS')
     await choose('#screen-select', 'chapter'); await click('#start'); await click('#next-vn')
     await evaluate('document.querySelector("[data-choice=observe]").focus()'); await key('Enter')
     assert.equal(await evaluate('document.activeElement.dataset.choice'), 'observe')

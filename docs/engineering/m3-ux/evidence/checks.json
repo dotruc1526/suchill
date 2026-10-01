@@ -14,6 +14,7 @@
     "video 430px: layout, 44px targets, four failure/loading states PASS",
     "quiz 430px: layout, 44px targets, four failure/loading states PASS",
     "complete 430px: layout, 44px targets, four failure/loading states PASS",
+    "SỬu: existing artwork reused byte-for-byte, images decoded on all six screens, hero alt and layout PASS",
     "VN: keyboard select/focus, neutral state, locked review, dialog trap/Escape/restore/restart PASS",
     "Video: seek, exit/resume/reload, captions, play/pause, poster/transcript fallback and retry PASS",
     "Quiz: complete-set submission, per-question feedback, retry; completion pending/confirmed fixture PASS",

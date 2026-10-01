@@ -15,7 +15,7 @@ export const questions = [
 ]
 export function chapter(s) {
   const steps = [['document', 'Đọc tư liệu', 'Đặt câu hỏi trước khi kết luận'], ['eye', 'Chọn góc nhìn', 'Tìm cách tiếp cận của riêng bạn'], ['play', 'Xem & đọc', 'Có phụ đề và bản chép lời'], ['quiz', 'Tự kiểm tra', 'Thử lại để hiểu rõ hơn']]
-  return `<span class="eyebrow">Một hành trình · Bốn hoạt động</span><div class="chapter-hero"><h1>Theo dấu<br>một tư liệu</h1><div class="chapter-art">${paperArt()}</div></div><p class="lead">Đọc chậm, quan sát kỹ.<br>Mỗi tư liệu mở ra một góc nhìn.</p>
+  return `<span class="eyebrow mascot-greeting">Hello, SỬu đây!</span><div class="chapter-hero"><h1>Theo dấu<br>một tư liệu</h1><div class="chapter-mascot"><img src="assets/suu.png" width="140" height="120" alt="SỬu, linh vật trâu đỏ của Sử Chill, đội nón lá, cầm sách và giơ ngón cái." decoding="async" fetchpriority="high"></div></div><p class="lead">Cùng SỬu học chậm, hiểu sâu.<br>Mỗi tư liệu mở ra một góc nhìn.</p>
     <div class="chapter-meta"><span>${icon('book')}Bài học đa định dạng</span><span>${icon('quiz')}4 hoạt động</span></div>
     <section class="card journey"><div class="section-title"><h2>Hôm nay bạn sẽ</h2><span class="label">Từng bước một</span></div><ol>${steps.map(([symbol, title, copy], i) => `<li><span class="journey-icon">${icon(symbol)}</span><div><h3>${title}</h3><small>${copy}</small></div><span class="journey-number">0${i + 1}</span></li>`).join('')}</ol></section>
     <div class="action-bar">${button('start', s.started ? 'Tiếp tục bài học' : 'Bắt đầu bài học', true)}<p class="action-hint">${icon('clock')}Tiến độ được giữ khi bạn rời bài.</p></div>`

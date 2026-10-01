@@ -12,7 +12,7 @@ Thiết kế cho lesson reader, VN, video và quiz trên mock services M2; thêm
 
 Chạy `node docs/engineering/m3-ux/serve.mjs`, mở `http://127.0.0.1:4178`. Panel review bên ngoài app chọn màn, trạng thái và chiều rộng 375/430px; nút Làm mới lượt xem đặt lại fixture để thử từ đầu. Panel thu gọn trên mobile. Bắt đầu từ Chapter để thử toàn bộ luồng; controls này không đưa vào sản phẩm. Prototype dùng ES modules nên xem qua localhost, không mở bằng `file://`; giữ terminal server chạy khi xem.
 
-Prototype chỉ chứa chữ minh họa kỹ năng đọc tư liệu; không kể lại sự kiện, không seed/publish story và không sử dụng ảnh/nhạc/video canonical. Giấy/bút là SVG trang trí; video là mô phỏng 60s. Quiz đáp án cục bộ chỉ để kiểm tra visual feedback. Chọn reward confirmed ở panel review chỉ đổi fixture giao diện, không xác nhận XP thật.
+Prototype chỉ chứa chữ minh họa kỹ năng đọc tư liệu; không kể lại sự kiện, không seed/publish story và không sử dụng ảnh/nhạc/video canonical. SỬu reuse asset nhận diện hiện có trong repo; giấy/bút là SVG trang trí; video là mô phỏng 60s. Quiz đáp án cục bộ chỉ để kiểm tra visual feedback. Chọn reward confirmed ở panel review chỉ đổi fixture giao diện, không xác nhận XP thật.
 
 ## 2. Luồng chính và vị trí khôi phục
 
@@ -47,7 +47,7 @@ flowchart TD
 
 | Màn | Thứ tự từ trên xuống | Hành động chính / phụ |
 |---|---|---|
-| Chapter | TopBar, hero chữ/SVG giấy, mô tả, meta, 4 hoạt động với icon và số thứ tự | Start/Resume; vào đúng bookmark |
+| Chapter | TopBar, lời chào SỬu, hero chữ/mascot, mô tả, meta, 4 hoạt động với icon và số thứ tự | Start/Resume; vào đúng bookmark |
 | Lesson | Eyebrow, heading, progress, text card, source panel, action bar | Continue; nguồn; tạm dừng |
 | VN | Heading/progress, vignette giấy gọn, nhãn choice intent, prompt/options A/B, response | Ghi nhận → tiếp tục; review/restart trên một hàng |
 | Video | Heading/progress, poster, media card với timecode/seek, play/captions, volume, transcript/source | Continue theo policy; pause/exit; fallback |
@@ -55,6 +55,8 @@ flowchart TD
 | Completion | Hero/book seal, recap checklist, pending hoặc confirmed status, action bar | Về chương; xem lại; chưa có XP giả |
 
 Một primary action mỗi màn. Nội dung cuộn tự nhiên; action bar nằm trong document flow để đoạn tiếng Việt dài không bị footer/sticky CTA che. TopBar giữ back và mute. Không thêm BottomNav trong player; exit về chapter dùng shell/nav M1.
+
+Điểm nhấn thương hiệu theo yêu cầu Trúc: SỬu đỏ đội nón lá ở hero Chapter, lời chào “Hello, SỬu đây!” và copy “Cùng SỬu học chậm, hiểu sâu.” TopBar trên cả 6 màn dùng cùng hình nhỏ cạnh tên Sử Chill. Hero có alt mô tả; mark nhỏ là trang trí, tên app luôn là chữ đọc được. Copy nguyên asset repo hiện có, không thiết kế nhân vật mới; xem [nguồn/hash asset](./m3-ux/assets/README.md). Giữ hình tĩnh, không thêm sound hoặc animation.
 
 Lượt polish 2026-10-01 thống nhất icon nét mảnh, spacing và thứ bậc chữ; secondary actions nhẹ hơn primary CTA. Selected narrative giữ màu trung tính và dấu ghi nhận; quiz dùng đúng/sai kèm text/icon. Captions có `aria-pressed`; seek có timecode và `aria-valuetext` đồng bộ. [Ảnh desktop](./m3-ux/evidence/desktop-review-1280.png) minh họa panel và app frame.
 
@@ -64,6 +66,7 @@ Lượt polish 2026-10-01 thống nhất icon nét mảnh, spacing và thứ b�
 
 | Vùng thiết kế | Primitive hiện hành / áp dụng |
 |---|---|
+| Brand / SỬu | Asset logo hiện có; native img trong TopBar và Chapter hero, kích thước được giữ trước khi load |
 | CTA/back/mute | Button / IconButton; native button; disabled và aria label rõ |
 | Text/question/summary | Card + Badge; heading semantics và wrap tiếng Việt |
 | Progress | Progress + nhãn bằng chữ; % chỉ từ progress read model |

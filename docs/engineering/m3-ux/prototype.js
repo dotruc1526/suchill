@@ -14,7 +14,6 @@ const screenSelect = document.querySelector('#screen-select')
 const stateSelect = document.querySelector('#state-select')
 const mute = document.querySelector('#mute')
 document.querySelector('#back').innerHTML = icon('back')
-document.querySelector('#brand-icon').innerHTML = icon('book')
 document.querySelector('#review-settings').open = !matchMedia('(max-width: 760px)').matches
 function save() {
   try { localStorage.setItem(key, JSON.stringify({ ...s, playing: false, state: 'ready' })) } catch { /* Prototype can run without persistence. */ }
