@@ -13,7 +13,7 @@
 - Reviewer: Trúc (Member 2 — Historical Reviewer), Product Owner (PO nghiệm thu)
 - Branch: `content/tho-chapter-1972-package` (PR #65)
 - Started: 2026-09-28
-- Depends on: CONTENT-017 (`REVIEW` / Merged), CONTENT-016 (`DONE`), CONTENT-015 (`DONE`), CONTENT-013 (`DONE`)
+- Depends on: CONTENT-017 (`DONE` - PR #54), CONTENT-016 (`DONE`), CONTENT-015 (`DONE`), CONTENT-013 (`DONE`)
 
 ## Scope
 
