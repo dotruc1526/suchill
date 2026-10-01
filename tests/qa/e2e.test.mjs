@@ -6,7 +6,7 @@ import { homedir, tmpdir } from 'node:os'
 import { once } from 'node:events'
 import { join } from 'node:path'
 import { test } from 'node:test'
-import { preview } from 'vite'
+import { createServer, preview } from 'vite'
 
 const delay = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds))
 
@@ -268,5 +268,133 @@ test('Visual Novel close and completion restore focus to the opener', async () =
     })
   } finally {
     await new Promise((resolve, reject) => server.httpServer.close(error => error ? reject(error) : resolve()))
+  }
+})
+
+test('Visual Novel remains keyboard operable and within 375px/430px mobile viewports', async () => {
+  const browser = findBrowser()
+  assert.ok(browser, 'Set CHROME_PATH to a local Chromium/Chrome executable for E2E')
+
+  const server = await preview({ preview: { host: '127.0.0.1', port: 0, strictPort: false } })
+  try {
+    const address = server.httpServer.address()
+    assert.ok(address && typeof address !== 'string')
+    const url = `http://127.0.0.1:${address.port}/`
+    await withChromePage(browser, url, async cdp => {
+      const evaluate = expression => cdp('Runtime.evaluate', { expression, returnByValue: true })
+      const waitFor = async (expression, label) => {
+        for (let attempt = 0; attempt < 100; attempt += 1) {
+          if ((await evaluate(expression)).result.value) return
+          await delay(50)
+        }
+        assert.fail(`Timed out waiting for ${label}`)
+      }
+      const pressEnter = async () => {
+        await cdp('Input.dispatchKeyEvent', {
+          type: 'keyDown', key: 'Enter', code: 'Enter', text: '\r', unmodifiedText: '\r',
+          windowsVirtualKeyCode: 13, nativeVirtualKeyCode: 13,
+        })
+        await cdp('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13, nativeVirtualKeyCode: 13 })
+      }
+
+      await cdp('Page.bringToFront')
+      for (const [width, height] of [[375, 812], [430, 932]]) {
+        await cdp('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: false })
+        await cdp('Page.reload', { ignoreCache: true })
+        await waitFor("Boolean(document.querySelector('[data-testid^=\"journey-open-chapter-\"]'))", `${width}px chapter`)
+        await evaluate("document.querySelector('[data-testid^=\"journey-open-chapter-\"]').click()")
+        await waitFor("document.querySelectorAll('[data-testid^=\"journey-open-lesson-\"]').length === 2", `${width}px lessons`)
+        await evaluate("document.querySelectorAll('[data-testid^=\"journey-open-lesson-\"]')[1].click()")
+        await waitFor("Boolean(document.querySelector('[data-testid^=\"open-vn-\"]'))", `${width}px VN opener`)
+        await evaluate("document.querySelector('[data-testid^=\"open-vn-\"]').focus()")
+        await pressEnter()
+        await waitFor("document.activeElement?.id === 'vn-player-heading'", `${width}px VN heading focus`)
+
+        const metrics = (await evaluate(`(() => {
+          const player = document.querySelector('[data-testid="visual-novel-v2"]')
+          const close = [...player.querySelectorAll('button')].find(button => button.textContent === 'ĐÓNG')
+          const rect = close.getBoundingClientRect()
+          return { viewport: innerWidth, documentWidth: document.documentElement.scrollWidth,
+            buttonHeight: rect.height, buttonWidth: rect.width, buttonLeft: rect.left, buttonRight: rect.right }
+        })()`)).result.value
+        assert.equal(metrics.viewport, width)
+        assert.equal(metrics.documentWidth, width, `${width}px VN does not overflow horizontally`)
+        assert.ok(metrics.buttonHeight >= 44 && metrics.buttonWidth >= 44, `${width}px close target is at least 44px: ${JSON.stringify(metrics)}`)
+        assert.ok(metrics.buttonLeft >= 0 && metrics.buttonRight <= width, `${width}px close target remains visible`)
+
+        await evaluate("[...document.querySelectorAll('[data-testid=\"visual-novel-v2\"] button')].find(button => button.textContent === 'ĐÓNG').focus()")
+        await pressEnter()
+        await waitFor("document.activeElement?.dataset.testid?.startsWith('open-vn-')", `${width}px opener focus restored`)
+      }
+    })
+  } finally {
+    await new Promise((resolve, reject) => server.httpServer.close(error => error ? reject(error) : resolve()))
+  }
+})
+
+test('player mock exposes mobile video fallback and Visual Novel error retry by keyboard', async () => {
+  const browser = findBrowser()
+  assert.ok(browser, 'Set CHROME_PATH to a local Chromium/Chrome executable for E2E')
+
+  const server = await createServer({ server: { host: '127.0.0.1', port: 0, strictPort: false } })
+  await server.listen()
+  try {
+    const address = server.httpServer.address()
+    assert.ok(address && typeof address !== 'string')
+    const url = `http://127.0.0.1:${address.port}/tests/qa/fixtures/video-player-mobile.html`
+    await withChromePage(browser, url, async cdp => {
+      const evaluate = expression => cdp('Runtime.evaluate', { expression, returnByValue: true })
+      const waitFor = async (expression, label) => {
+        for (let attempt = 0; attempt < 100; attempt += 1) {
+          if ((await evaluate(expression)).result.value) return
+          await delay(50)
+        }
+        assert.fail(`Timed out waiting for ${label}`)
+      }
+      await cdp('Page.bringToFront')
+
+      for (const [width, height] of [[375, 812], [430, 932]]) {
+        await cdp('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: false })
+        await cdp('Page.reload', { ignoreCache: true })
+        await waitFor("Boolean(document.querySelector('[data-testid=\"qa-video-valid\"] [data-testid=\"video-player\"]'))", `${width}px video`)
+        await waitFor("Boolean(document.querySelector('[data-testid=\"qa-video-missing\"] button'))", `${width}px service error`)
+        await waitFor("Boolean(document.querySelector('[data-testid=\"qa-video-valid\"] [aria-label=\"Video không phát được\"]'))", `${width}px media fallback`)
+
+        const metrics = (await evaluate(`(() => {
+          const valid = document.querySelector('[data-testid="qa-video-valid"]')
+          const missing = document.querySelector('[data-testid="qa-video-missing"]')
+          const retry = [...valid.querySelectorAll('button')].find(button => button.textContent === 'THỬ PHÁT LẠI')
+          const rect = retry.getBoundingClientRect()
+          return { viewport: innerWidth, documentWidth: document.documentElement.scrollWidth,
+            fallback: valid.textContent.includes('Video chưa thể phát'), transcript: Boolean(valid.querySelector('a')),
+            missingError: missing.textContent.includes('Không thể tải video (not_found)'),
+            retryHeight: rect.height, retryWidth: rect.width, retryLeft: rect.left, retryRight: rect.right }
+        })()`)).result.value
+        assert.equal(metrics.viewport, width)
+        assert.equal(metrics.documentWidth, width, `${width}px video page has no horizontal overflow`)
+        assert.ok(metrics.fallback && metrics.transcript && metrics.missingError, `${width}px fallback, transcript and load error are visible`)
+        assert.ok(metrics.retryHeight >= 44 && metrics.retryWidth >= 44, `${width}px retry target is at least 44px`)
+        assert.ok(metrics.retryLeft >= 0 && metrics.retryRight <= width, `${width}px retry remains visible`)
+
+        await evaluate("document.querySelector('[data-testid=\"qa-video-missing\"] button').focus()")
+        await cdp('Input.dispatchKeyEvent', {
+          type: 'keyDown', key: 'Enter', code: 'Enter', text: '\r', unmodifiedText: '\r',
+          windowsVirtualKeyCode: 13, nativeVirtualKeyCode: 13,
+        })
+        await cdp('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13, nativeVirtualKeyCode: 13 })
+        await waitFor("document.querySelector('[data-testid=\"qa-video-missing\"]')?.textContent.includes('Không thể tải video (not_found)')", `${width}px retry error recovery`)
+
+        await waitFor("document.querySelector('[data-testid=\"qa-vn-retry\"]')?.textContent.includes('Không thể tải Visual Novel (offline)')", `${width}px VN load error`)
+        await evaluate("[...document.querySelectorAll('[data-testid=\"qa-vn-retry\"] button')].find(button => button.textContent === 'Thử lại').focus()")
+        await cdp('Input.dispatchKeyEvent', {
+          type: 'keyDown', key: 'Enter', code: 'Enter', text: '\r', unmodifiedText: '\r',
+          windowsVirtualKeyCode: 13, nativeVirtualKeyCode: 13,
+        })
+        await cdp('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13, nativeVirtualKeyCode: 13 })
+        await waitFor("document.activeElement?.id === 'vn-player-heading'", `${width}px VN retry focuses player heading`)
+      }
+    })
+  } finally {
+    await server.close()
   }
 })
