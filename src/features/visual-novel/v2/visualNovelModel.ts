@@ -100,7 +100,11 @@ export async function chooseVisualNovel(
     pendingSceneId = scene.id
   }
   if (!sceneExists(session.story, pendingSceneId)) return { ok: false, error: 'validation' }
-  return success({ ...session, feedback: feedbackFor(choice), pendingSceneId, lockedChoiceIds, visitedSceneIds })
+  return success({
+    ...session,
+    confirmedSceneId: session.replay ? session.confirmedSceneId : pendingSceneId,
+    feedback: feedbackFor(choice), pendingSceneId, lockedChoiceIds, visitedSceneIds,
+  })
 }
 
 export function continueChoiceFeedback(session: VisualNovelSession): Result<VisualNovelSession> {

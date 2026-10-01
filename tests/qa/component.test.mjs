@@ -225,3 +225,14 @@ test('M3-03 scene view keeps narrative choices neutral and knowledge feedback ex
     assert.ok(html.includes(`data-scene-id="${scene.id}"`), `${scene.kind} scene should render by stable ID`)
   }
 })
+
+test('M3-03 error state preserves close and checkpoint retry actions', async () => {
+  const { VisualNovelErrorState } = await vite.ssrLoadModule('/src/features/visual-novel/v2/VisualNovelPlayerV2.tsx')
+  const html = renderToStaticMarkup(React.createElement(VisualNovelErrorState, {
+    error: 'offline', onRetry: () => {}, onClose: () => {},
+  }))
+  assert.ok(html.includes('aria-label="Visual Novel gặp lỗi"'))
+  assert.ok(html.includes('ĐÓNG'))
+  assert.ok(html.includes('Thử lại'))
+  assert.ok(html.includes('Không thể tải Visual Novel (offline).'))
+})

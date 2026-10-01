@@ -65,6 +65,9 @@ test('M3-03 traverses all scene types and honors both knowledge policies and nar
 
   const right = await chooseVisualNovel(services, context, retry.value, 'right', 'right-op')
   if (!right.ok) return
+  assert.equal(right.value.confirmedSceneId, 'debrief')
+  const resumedDuringFeedback = resumeVisualNovel(restartVisualNovel(right.value))
+  assert.equal(resumedDuringFeedback.currentSceneId, 'debrief')
   const debrief = continueChoiceFeedback(right.value)
   assert.equal(debrief.ok && debrief.value.currentSceneId, 'debrief')
   if (!debrief.ok) return

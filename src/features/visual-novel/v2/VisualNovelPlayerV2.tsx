@@ -10,6 +10,15 @@ import {
 type PlayerState = { status: 'loading' } | { status: 'error'; error: ServiceErrorCode } | { status: 'ready'; session: VisualNovelSession }
 const operationId = () => globalThis.crypto.randomUUID()
 
+export function VisualNovelErrorState({ error, onRetry, onClose }: {
+  error: ServiceErrorCode | 'invalid_scene'; onRetry: () => void; onClose: () => void
+}) {
+  return <section aria-label="Visual Novel gặp lỗi" className="space-y-3">
+    <Button variant="outline" onClick={onClose}>ĐÓNG</Button>
+    <ErrorState message={`Không thể tải Visual Novel (${error}).`} onRetry={onRetry} />
+  </section>
+}
+
 export function VisualNovelPlayerV2({
   context, services, mediaSlot, onClose, onComplete,
 }: {
@@ -21,21 +30,23 @@ export function VisualNovelPlayerV2({
 }) {
   const [state, setState] = useState<PlayerState>({ status: 'loading' })
   const [busy, setBusy] = useState(false)
+  const [retryKey, setRetryKey] = useState(0)
   const headingRef = useRef<HTMLHeadingElement>(null)
   useEffect(() => {
     let active = true
+    setState({ status: 'loading' })
     void loadVisualNovel(services, context).then(result => {
       if (active) setState(result.ok ? { status: 'ready', session: result.value } : { status: 'error', error: result.error })
     })
     return () => { active = false }
-  }, [context.blockId, context.lessonId, context.storyVersionId, services])
+  }, [context.blockId, context.lessonId, context.storyVersionId, retryKey, services])
   useEffect(() => { if (state.status === 'ready') headingRef.current?.focus() }, [state])
 
   if (state.status === 'loading') return <LoadingState message="Đang tải Visual Novel..." />
-  if (state.status === 'error') return <ErrorState message={`Không thể tải Visual Novel (${state.error}).`} />
+  if (state.status === 'error') return <VisualNovelErrorState error={state.error} onClose={onClose} onRetry={() => setRetryKey(value => value + 1)} />
   const { session } = state
   const scene = getCurrentScene(session)
-  if (!scene) return <ErrorState message="Scene hiện tại không hợp lệ." />
+  if (!scene) return <VisualNovelErrorState error="invalid_scene" onClose={onClose} onRetry={() => setRetryKey(value => value + 1)} />
   const update = async (action: () => Promise<Result<VisualNovelSession>>) => {
     setBusy(true)
     const result = await action()
