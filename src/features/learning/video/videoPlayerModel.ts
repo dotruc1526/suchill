@@ -4,6 +4,12 @@ import type { VideoProgress } from '../../../types/v2/progress'
 export type VideoPlayerContext = { lessonId: string; blockId: string; mediaAssetId: string }
 export type VideoPlayerSession = { asset: ResolvedMediaAsset; progress: VideoProgress | null; resumePositionSeconds: number }
 
+export const videoContextKey = (context: VideoPlayerContext) =>
+  `${context.lessonId}:${context.blockId}:${context.mediaAssetId}`
+
+export const isActiveVideoContext = (activeContextKey: string, callbackContextKey: string) =>
+  activeContextKey === callbackContextKey
+
 export async function loadVideoPlayer(
   services: LearningServices,
   context: VideoPlayerContext,

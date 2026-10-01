@@ -2,7 +2,9 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { createMockLearningServices } from '../../src/services/next/mock.ts'
 import { createMockProgressStore } from '../../src/services/next/mockProgress.ts'
-import { loadVideoPlayer, observedRange, saveVideoCheckpoint, VideoCheckpointQueue } from '../../src/features/learning/video/videoPlayerModel.ts'
+import {
+  isActiveVideoContext, loadVideoPlayer, observedRange, saveVideoCheckpoint, videoContextKey, VideoCheckpointQueue,
+} from '../../src/features/learning/video/videoPlayerModel.ts'
 import { playbackCatalog } from './playback-fixtures.ts'
 
 const context = { lessonId: 'lesson', blockId: 'video-block', mediaAssetId: 'video' }
@@ -71,4 +73,11 @@ test('M3-04 retains failed and later checkpoints, then retries them in order wit
   assert.deepEqual(attempts, ['source', 'source', 'seek-target'])
   assert.deepEqual(saved, [10, 70])
   assert.deepEqual(queue.pending(), [])
+})
+
+test('M3-04 isolates late checkpoint callbacks by video context', () => {
+  const videoA = videoContextKey(context)
+  const videoB = videoContextKey({ ...context, mediaAssetId: 'video-b' })
+  assert.equal(isActiveVideoContext(videoA, videoA), true)
+  assert.equal(isActiveVideoContext(videoB, videoA), false)
 })
