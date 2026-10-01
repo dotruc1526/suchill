@@ -187,3 +187,46 @@ test('Shared states render properly with Vietnamese content', async () => {
   )
   assert.ok(offlineHtml.includes('Bạn đang ngoại tuyến'))
 })
+
+test('M3-05 quiz view is semantic, blocks incomplete submit and renders trusted feedback', async () => {
+  const { QuizFlowView } = await vite.ssrLoadModule('/src/features/quiz/v2/QuizFlowView.tsx')
+  const noop = () => {}
+  const delivery = {
+    set: { id: 'quiz', title: 'Kiểm tra chương', mode: 'scored', questionIds: ['q1', 'q2'], learningObjectiveIds: [] },
+    questions: ['q1', 'q2'].map(id => ({
+      id, prompt: `Câu ${id}`, optionIds: ['a', 'b'], sourceIds: [], difficulty: 'intro',
+      options: [{ id: 'a', label: 'Phương án A' }, { id: 'b', label: 'Phương án B' }],
+    })),
+  }
+  const handlers = { onToggle: noop, onSubmit: noop, onEditAfterError: noop, onRetryPractice: noop }
+  const incomplete = renderToStaticMarkup(React.createElement(QuizFlowView, {
+    session: { delivery, answers: { q1: ['a'] } }, submitting: false, answersLocked: false, ...handlers,
+  }))
+  assert.equal((incomplete.match(/<fieldset/g) ?? []).length, 2)
+  assert.ok(incomplete.includes('data-question-id="q1"') && incomplete.includes('data-question-id="q2"'))
+  assert.match(incomplete, /<button[^>]*disabled=""[^>]*>NỘP BÀI/)
+  assert.doesNotMatch(incomplete, /isCorrect|answerKey|Private answer/)
+
+  const receipt = {
+    mode: 'scored', attemptId: 'attempt', score: 1, total: 2, passed: false,
+    feedback: [
+      { questionId: 'q1', outcome: 'correct', explanation: 'Giải thích đúng' },
+      { questionId: 'q2', outcome: 'incorrect', explanation: 'Giải thích sai' },
+    ],
+  }
+  const result = renderToStaticMarkup(React.createElement(QuizFlowView, {
+    session: { delivery, answers: { q1: ['a'], q2: ['b'] } }, receipt,
+    submitting: false, answersLocked: true, ...handlers,
+  }))
+  assert.ok(result.includes('✓ Chính xác') && result.includes('✗ Chưa chính xác'))
+  assert.ok(result.includes('Giải thích đúng') && result.includes('Giải thích sai'))
+  assert.ok(result.includes('Kết quả: 1/2') && result.includes('✗ Chưa đạt'))
+  assert.ok(result.includes('tabindex="-1"'))
+
+  const failed = renderToStaticMarkup(React.createElement(QuizFlowView, {
+    session: { delivery, answers: { q1: ['a'], q2: ['b'] } }, submitting: false,
+    answersLocked: true, submissionError: 'Chưa thể nộp bài (offline).', ...handlers,
+  }))
+  assert.ok(failed.includes('role="alert"') && failed.includes('THỬ GỬI LẠI'))
+  assert.ok(failed.includes('Câu trả lời đang được khóa'))
+})
