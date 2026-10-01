@@ -1,4 +1,4 @@
-import type { ComponentType } from 'react'
+import type { ComponentType, Ref } from 'react'
 import { Button, Card } from '../../../components/ui'
 import { theme } from '../../../theme/tokens'
 import type { MediaScene, SceneChoice, VisualNovelScene } from '../../../types/v2/content'
@@ -13,6 +13,8 @@ type Props = {
   onChoice: (choiceId: string) => void
   onContinue: () => void
   onComplete: () => void
+  sceneRef?: Ref<HTMLDivElement>
+  feedbackRef?: Ref<HTMLDivElement>
 }
 
 function choiceDescription(choice: SceneChoice) {
@@ -21,8 +23,11 @@ function choiceDescription(choice: SceneChoice) {
   return 'Lựa chọn câu chuyện, không có đúng sai'
 }
 
-export function VisualNovelSceneView({ scene, feedback, busy, mediaSlot: Media, onChoice, onContinue, onComplete }: Props) {
-  return <Card data-testid="vn-scene" data-scene-id={scene.id} className="space-y-4">
+export function VisualNovelSceneView({
+  scene, feedback, busy, mediaSlot: Media, onChoice, onContinue, onComplete, sceneRef, feedbackRef,
+}: Props) {
+  return <div ref={sceneRef} tabIndex={-1} aria-label={scene.title ?? 'Nội dung Visual Novel hiện tại'}>
+    <Card data-testid="vn-scene" data-scene-id={scene.id} className="space-y-4">
     {scene.title && <h2 id="vn-scene-heading" tabIndex={-1} className="font-bold text-xl" style={{ color: theme.colors.textPrimary }}>{scene.title}</h2>}
     {scene.kind === 'narration' && <p className="leading-7">{scene.text}</p>}
     {scene.kind === 'dialogue' && <blockquote><strong>{scene.speaker}</strong><p className="leading-7">{scene.line}</p></blockquote>}
@@ -35,10 +40,11 @@ export function VisualNovelSceneView({ scene, feedback, busy, mediaSlot: Media, 
         {choice.label}<span id={`choice-help-${choice.id}`} className="sr-only">{choiceDescription(choice)}</span>
       </Button>)}
     </fieldset>}
-    {feedback && <div role="status" className="rounded-md p-3" style={{
+    {feedback && <div ref={feedbackRef} tabIndex={-1} role="status" className="rounded-md p-3" style={{
       background: feedback.outcome === 'correct' ? theme.colors.correct.bg : feedback.outcome === 'incorrect' ? theme.colors.incorrect.bg : theme.colors.selected.bg,
       color: feedback.outcome === 'correct' ? theme.colors.correct.text : feedback.outcome === 'incorrect' ? theme.colors.incorrect.text : theme.colors.selected.text,
     }}><strong>{feedback.outcome === 'correct' ? '✓ Chính xác' : feedback.outcome === 'incorrect' ? '✗ Chưa chính xác' : 'Lựa chọn đã ghi nhận'}</strong><p>{feedback.message}</p><Button onClick={onContinue}>TIẾP TỤC</Button></div>}
     {!feedback && scene.kind !== 'choice' && scene.kind !== 'end' && <Button disabled={busy} onClick={onContinue}>TIẾP TỤC</Button>}
-  </Card>
+    </Card>
+  </div>
 }

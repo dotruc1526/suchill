@@ -32,6 +32,10 @@ export function VisualNovelPlayerV2({
   const [busy, setBusy] = useState(false)
   const [retryKey, setRetryKey] = useState(0)
   const headingRef = useRef<HTMLHeadingElement>(null)
+  const sceneRef = useRef<HTMLDivElement>(null)
+  const feedbackRef = useRef<HTMLDivElement>(null)
+  const playerFocusedRef = useRef(false)
+  const previousSceneIdRef = useRef<string | undefined>(undefined)
   useEffect(() => {
     let active = true
     setState({ status: 'loading' })
@@ -40,12 +44,27 @@ export function VisualNovelPlayerV2({
     })
     return () => { active = false }
   }, [context.blockId, context.lessonId, context.storyVersionId, retryKey, services])
-  useEffect(() => { if (state.status === 'ready') headingRef.current?.focus() }, [state])
+  const activeScene = state.status === 'ready' ? getCurrentScene(state.session) : undefined
+  const activeSceneId = activeScene?.id
+  const feedbackKey = state.status === 'ready' && state.session.feedback
+    ? `${activeSceneId}:${state.session.feedback.choiceId}:${state.session.feedback.outcome}`
+    : undefined
+  useEffect(() => {
+    if (state.status !== 'ready' || playerFocusedRef.current) return
+    playerFocusedRef.current = true
+    headingRef.current?.focus()
+  }, [state.status])
+  useEffect(() => {
+    if (!activeSceneId) return
+    if (previousSceneIdRef.current && previousSceneIdRef.current !== activeSceneId) sceneRef.current?.focus()
+    previousSceneIdRef.current = activeSceneId
+  }, [activeSceneId])
+  useEffect(() => { if (feedbackKey) feedbackRef.current?.focus() }, [feedbackKey])
 
   if (state.status === 'loading') return <LoadingState message="Đang tải Visual Novel..." />
   if (state.status === 'error') return <VisualNovelErrorState error={state.error} onClose={onClose} onRetry={() => setRetryKey(value => value + 1)} />
   const { session } = state
-  const scene = getCurrentScene(session)
+  const scene = activeScene
   if (!scene) return <VisualNovelErrorState error="invalid_scene" onClose={onClose} onRetry={() => setRetryKey(value => value + 1)} />
   const update = async (action: () => Promise<Result<VisualNovelSession>>) => {
     setBusy(true)
@@ -70,6 +89,7 @@ export function VisualNovelPlayerV2({
       }}>{item.title ?? `Scene ${item.id}`}</Button>)}</nav>}
     <VisualNovelSceneView
       scene={scene} feedback={session.feedback} busy={busy} mediaSlot={mediaSlot}
+      sceneRef={sceneRef} feedbackRef={feedbackRef}
       onChoice={choiceId => void update(() => chooseVisualNovel(services, context, session, choiceId, operationId()))}
       onContinue={() => {
         if (session.feedback) {
