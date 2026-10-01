@@ -187,3 +187,41 @@ test('Shared states render properly with Vietnamese content', async () => {
   )
   assert.ok(offlineHtml.includes('Bạn đang ngoại tuyến'))
 })
+
+test('M3-04 video view exposes controls, Vietnamese captions, transcript and prepared fallback', async () => {
+  const { VideoPlayerView } = await vite.ssrLoadModule('/src/features/learning/video/VideoPlayerView.tsx')
+  const asset = {
+    id: 'video', kind: 'video', title: 'Video bài học', reviewStatus: 'published', url: 'mock://video',
+    caption: 'Chú thích video', durationSeconds: 100, sourceIds: [], attribution: 'Nguồn thử nghiệm',
+    poster: { id: 'poster', url: 'mock://poster', altText: 'Ảnh áp phích lịch sử' },
+    captionTracks: [{ id: 'captions', url: 'mock://captions', locale: 'vi-VN', label: 'Tiếng Việt' }],
+    transcript: { id: 'transcript', url: 'mock://transcript', locale: 'vi-VN', label: 'Bản chép lời' },
+    fallback: { kind: 'transcript', url: 'mock://transcript' },
+  }
+  const handlers = {
+    onLoadedMetadata: () => {}, onPlay: () => {}, onPause: () => {}, onTimeUpdate: () => {},
+    onSeeking: () => {}, onSeeked: () => {}, onEnded: () => {}, onError: () => {}, onRetry: () => {},
+  }
+  const html = renderToStaticMarkup(React.createElement(VideoPlayerView, {
+    asset, videoRef: { current: null }, mediaFailed: false, retryKey: 0, ...handlers,
+  }))
+  assert.ok(html.includes('<video') && html.includes('controls=""'))
+  assert.ok(html.includes('preload="metadata"') && html.includes('poster="mock://poster"'))
+  assert.ok(html.includes('kind="captions"') && html.includes('srcLang="vi"'))
+  assert.ok(html.includes('Tiếng Việt') && html.includes('Bản chép lời và nội dung thay thế'))
+  assert.ok(html.includes('mock://transcript') && html.includes('Nguồn media: Nguồn thử nghiệm'))
+  assert.doesNotMatch(html, /autoplay/i)
+
+  const fallbackHtml = renderToStaticMarkup(React.createElement(VideoPlayerView, {
+    asset, videoRef: { current: null }, mediaFailed: true, retryKey: 1, ...handlers,
+  }))
+  assert.ok(fallbackHtml.includes('role="alert"'))
+  assert.ok(fallbackHtml.includes('Video chưa thể phát'))
+  assert.ok(fallbackHtml.includes('Mở bản chép lời') && fallbackHtml.includes('THỬ PHÁT LẠI'))
+
+  const posterFallback = { ...asset, transcript: undefined, fallback: { kind: 'poster', url: 'mock://poster', altText: 'Ảnh thay thế' } }
+  const posterHtml = renderToStaticMarkup(React.createElement(VideoPlayerView, {
+    asset: posterFallback, videoRef: { current: null }, mediaFailed: true, retryKey: 2, ...handlers,
+  }))
+  assert.ok(posterHtml.includes('alt="Ảnh thay thế"'))
+})
