@@ -3,9 +3,10 @@ import assert from 'node:assert/strict'
 import { createMockLearningServices } from '../../src/services/next/mock.ts'
 import { createMockProgressStore } from '../../src/services/next/mockProgress.ts'
 import type { Lesson, StoryVersion } from '../../src/types/v2/content.ts'
+import type { LearningServices } from '../../src/services/next/contracts.ts'
 import {
   advanceVisualNovel, chooseVisualNovel, continueChoiceFeedback, loadVisualNovel,
-  restartVisualNovel, resumeVisualNovel, reviewVisualNovelScene, visualNovelContextKey,
+  restartVisualNovel, resumeVisualNovel, reviewVisualNovelScene, visualNovelContextKey, VisualNovelActionGate,
 } from '../../src/features/visual-novel/v2/visualNovelModel.ts'
 
 const story: StoryVersion = {
@@ -129,4 +130,121 @@ test('M3-03 distinguishes story contexts that share scene IDs', () => {
     visualNovelContextKey(contextA),
     visualNovelContextKey({ ...contextA, storyVersionId: 'story-a-v2' }),
   )
+})
+
+const deferred = <T>(): { promise: Promise<T>; resolve: (value: T) => void } => {
+  let resolve!: (value: T) => void
+  const promise = new Promise<T>(res => { resolve = res })
+  return { promise, resolve }
+}
+
+type CheckpointResult = Awaited<ReturnType<LearningServices['progress']['saveEpisodeCheckpoint']>>
+
+const withDeferredCheckpointSaves = (services: LearningServices) => {
+  const saves: Array<{ resolve: (value: CheckpointResult) => void; run: () => Promise<CheckpointResult> }> = []
+  const wrapped: LearningServices = {
+    ...services,
+    progress: {
+      ...services.progress,
+      saveEpisodeCheckpoint: (...args) => new Promise<CheckpointResult>(resolve => {
+        saves.push({ resolve, run: () => services.progress.saveEpisodeCheckpoint(...args) })
+      }),
+    },
+  }
+  return { wrapped, saves }
+}
+
+const raceStoryA: StoryVersion = {
+  id: 'story-race-a', storyId: 'race-a', versionNumber: 1, status: 'published', startSceneId: 'shared',
+  learningObjectiveIds: [], sourceIds: [], createdAt: '2026-10-01T00:00:00Z', publishedAt: '2026-10-01T00:00:00Z',
+  scenes: [
+    { id: 'shared', kind: 'narration', title: 'A mở đầu', text: 'Bối cảnh A', nextSceneId: 'only-a', sourceIds: [], claimIds: [] },
+    { id: 'only-a', kind: 'end', summary: 'Hết A', sourceIds: [], claimIds: [] },
+  ],
+}
+const raceStoryB: StoryVersion = {
+  id: 'story-race-b', storyId: 'race-b', versionNumber: 1, status: 'published', startSceneId: 'shared',
+  learningObjectiveIds: [], sourceIds: [], createdAt: '2026-10-01T00:00:00Z', publishedAt: '2026-10-01T00:00:00Z',
+  scenes: [
+    { id: 'shared', kind: 'narration', title: 'B mở đầu', text: 'Bối cảnh B', nextSceneId: 'only-b', sourceIds: [], claimIds: [] },
+    { id: 'only-b', kind: 'end', summary: 'Hết B', sourceIds: [], claimIds: [] },
+  ],
+}
+const raceLessonA: Lesson = {
+  id: 'lesson-race-a', chapterId: 'chapter-race', slug: 'race-a', title: 'Race A', summary: 'Fixture', format: 'visual_novel',
+  estimatedMinutes: 5, learningObjectiveIds: [], prerequisites: [], status: 'published',
+  blocks: [{ id: 'block-race-a', kind: 'visual_novel', order: 0, required: true, storyVersionId: raceStoryA.id }],
+}
+const raceLessonB: Lesson = {
+  id: 'lesson-race-b', chapterId: 'chapter-race', slug: 'race-b', title: 'Race B', summary: 'Fixture', format: 'visual_novel',
+  estimatedMinutes: 5, learningObjectiveIds: [], prerequisites: [], status: 'published',
+  blocks: [{ id: 'block-race-b', kind: 'visual_novel', order: 0, required: true, storyVersionId: raceStoryB.id }],
+}
+const raceContextA = { lessonId: 'lesson-race-a', blockId: 'block-race-a', storyVersionId: raceStoryA.id }
+const raceContextB = { lessonId: 'lesson-race-b', blockId: 'block-race-b', storyVersionId: raceStoryB.id }
+const raceServices = (store = createMockProgressStore()) => createMockLearningServices(
+  { chapters: [], lessons: [raceLessonA, raceLessonB], storyVersions: [raceStoryA, raceStoryB], mediaAssets: [] }, { userId: 'duong' },
+  () => '2026-10-01T00:00:00Z', store,
+)
+
+test('M3-03 discards a late successful action after switching stories', async () => {
+  const services = raceServices()
+  const { wrapped, saves } = withDeferredCheckpointSaves(services)
+  const keyA = visualNovelContextKey(raceContextA)
+  const keyB = visualNovelContextKey(raceContextB)
+  const gate = new VisualNovelActionGate(keyA)
+
+  const loadedA = await loadVisualNovel(wrapped, raceContextA)
+  assert.equal(loadedA.ok, true)
+  if (!loadedA.ok) return
+  const tokenA = gate.begin(keyA)
+  const pendingAdvance = advanceVisualNovel(wrapped, raceContextA, loadedA.value, 'race-op-a')
+  assert.equal(saves.length, 1)
+
+  gate.activate(keyB)
+  gate.invalidate()
+  const loadedB = await loadVisualNovel(services, raceContextB)
+  assert.equal(loadedB.ok, true)
+  if (!loadedB.ok) return
+
+  saves[0].resolve(await saves[0].run())
+  const lateA = await pendingAdvance
+  assert.equal(lateA.ok, true)
+  if (!lateA.ok) return
+  assert.equal(lateA.value.story.id, 'story-race-a')
+  assert.equal(gate.isCurrent(tokenA), false)
+  assert.equal(loadedB.value.story.id, 'story-race-b')
+  assert.equal(loadedB.value.currentSceneId, 'shared')
+  assert.equal(gate.isCurrent(gate.begin(keyB)), true)
+  const reloadedB = gate.begin(keyB)
+  gate.invalidate()
+  assert.equal(gate.isCurrent(reloadedB), false)
+})
+
+test('M3-03 discards a late failed action instead of showing a stale error', async () => {
+  const services = raceServices()
+  const { wrapped, saves } = withDeferredCheckpointSaves(services)
+  const keyA = visualNovelContextKey(raceContextA)
+  const keyB = visualNovelContextKey(raceContextB)
+  const gate = new VisualNovelActionGate(keyA)
+
+  const loadedA = await loadVisualNovel(wrapped, raceContextA)
+  assert.equal(loadedA.ok, true)
+  if (!loadedA.ok) return
+  const tokenA = gate.begin(keyA)
+  const pendingAdvance = advanceVisualNovel(wrapped, raceContextA, loadedA.value, 'race-op-a-fail')
+  assert.equal(saves.length, 1)
+
+  gate.activate(keyB)
+  gate.invalidate()
+  const loadedB = await loadVisualNovel(services, raceContextB)
+  assert.equal(loadedB.ok, true)
+  if (!loadedB.ok) return
+
+  saves[0].resolve({ ok: false, error: 'offline' })
+  const lateA = await pendingAdvance
+  assert.deepEqual(lateA, { ok: false, error: 'offline' })
+  assert.equal(gate.isCurrent(tokenA), false)
+  assert.equal(loadedB.value.story.id, 'story-race-b')
+  assert.equal(loadedB.value.currentSceneId, 'shared')
 })

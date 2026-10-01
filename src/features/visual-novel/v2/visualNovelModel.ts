@@ -24,6 +24,36 @@ export const getCurrentScene = (session: VisualNovelSession) =>
 export const visualNovelContextKey = (context: VisualNovelContext) =>
   `${context.lessonId}:${context.blockId}:${context.storyVersionId}`
 
+export type VisualNovelActionToken = { contextKey: string; generation: number }
+
+export class VisualNovelActionGate {
+  private activeContextKey: string
+  private generation = 0
+
+  constructor(contextKey: string) {
+    this.activeContextKey = contextKey
+  }
+
+  activate(contextKey: string) {
+    if (contextKey === this.activeContextKey) return
+    this.activeContextKey = contextKey
+    this.generation += 1
+  }
+
+  begin(contextKey: string): VisualNovelActionToken {
+    this.generation += 1
+    return { contextKey, generation: this.generation }
+  }
+
+  invalidate() {
+    this.generation += 1
+  }
+
+  isCurrent(token: VisualNovelActionToken) {
+    return token.contextKey === this.activeContextKey && token.generation === this.generation
+  }
+}
+
 const sceneExists = (story: StoryVersion, sceneId: string) => story.scenes.some(scene => scene.id === sceneId)
 const success = (session: VisualNovelSession): Result<VisualNovelSession> => ({ ok: true, value: session })
 

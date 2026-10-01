@@ -4,7 +4,7 @@ import type { LearningServices, Result, ServiceErrorCode } from '../../../servic
 import { VisualNovelSceneView, type VisualNovelMediaSlot } from './VisualNovelSceneView'
 import {
   advanceVisualNovel, chooseVisualNovel, continueChoiceFeedback, getCurrentScene, loadVisualNovel,
-  restartVisualNovel, resumeVisualNovel, reviewVisualNovelScene, visualNovelContextKey,
+  restartVisualNovel, resumeVisualNovel, reviewVisualNovelScene, visualNovelContextKey, VisualNovelActionGate,
   type VisualNovelContext, type VisualNovelSession,
 } from './visualNovelModel'
 
@@ -33,6 +33,8 @@ export function VisualNovelPlayerV2({
   const [busy, setBusy] = useState(false)
   const [retryKey, setRetryKey] = useState(0)
   const contextKey = visualNovelContextKey(context)
+  const actionGateRef = useRef(new VisualNovelActionGate(contextKey))
+  actionGateRef.current.activate(contextKey)
   const headingRef = useRef<HTMLHeadingElement>(null)
   const sceneRef = useRef<HTMLDivElement>(null)
   const feedbackRef = useRef<HTMLDivElement>(null)
@@ -40,6 +42,7 @@ export function VisualNovelPlayerV2({
   const previousSceneIdRef = useRef<string | undefined>(undefined)
   useEffect(() => {
     let active = true
+    actionGateRef.current.invalidate()
     playerFocusedRef.current = false
     previousSceneIdRef.current = undefined
     setBusy(false)
@@ -72,8 +75,10 @@ export function VisualNovelPlayerV2({
   const scene = activeScene
   if (!scene) return <VisualNovelErrorState error="invalid_scene" onClose={onClose} onRetry={() => setRetryKey(value => value + 1)} />
   const update = async (action: () => Promise<Result<VisualNovelSession>>) => {
+    const token = actionGateRef.current.begin(contextKey)
     setBusy(true)
     const result = await action()
+    if (!actionGateRef.current.isCurrent(token)) return
     setBusy(false)
     setState(result.ok ? { status: 'ready', session: result.value } : { status: 'error', error: result.error })
   }
