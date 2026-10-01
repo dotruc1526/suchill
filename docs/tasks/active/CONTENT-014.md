@@ -34,3 +34,18 @@
 - Chưa có build/runtime impact; không environment/migration.
 - Quyền thực hiện không thay bằng chứng quyền tác giả, file thu âm hoặc nghiệm thu nghe/xem.
 - CONTENT-006 giữ IN PROGRESS/REFERENCE_ONLY; M2 OPEN, M3–M7 LOCKED.
+
+## Technical QA claim — Vinh, 2026-10-01
+
+- Reviewer executor: Codex hỗ trợ Vinh; owner authoring vẫn Trúc.
+- Branch: `codex/vinh-qa001-content014`; snapshot authoring trên `main` `30d0a4f`.
+- Files claimed cho review: card này, CONTENT-004/010/011/012 technical checkpoint, active index, board các row/next action tương ứng và `docs/tasks/evidence/CONTENT-014-technical-qa.md`.
+- Next action: chạy validator, kiểm tra mutation trên bản sao độc lập, đối chiếu storyboard/narration/VTT/graph/map/quiz/media/handoff; ghi verdict technical riêng, không ký historical/media/production thay Trúc/PO.
+- Gate clarification: dòng M2 OPEN/M3 LOCKED trong handoff cũ đã lỗi thời; board hiện hành M2 DONE, M3 OPEN, M4–M7 LOCKED. Content production vẫn theo dependency riêng.
+
+## Technical reviewer decision — 2026-10-01
+
+- Vinh (Codex hỗ trợ): **ACCEPTED** technical structure/reference/authoring timing tại `30d0a4f`; **CHANGES REQUESTED** P2 cho overall handoff vì review flags chưa đồng bộ. Historical/media/production không thuộc technical approval này.
+- Evidence và hashes: [technical QA](../evidence/CONTENT-014-technical-qa.md).
+- Validator PASS; 3 mutation probes độc lập FAIL đúng lỗi; CSV 6 BLOCKED/2 NEEDS_MEDIA_REVIEW, quiz labels/explanations và Lesson 3/4 local links PASS.
+- Next action: Trúc xác nhận historical verdict theo artifact revision và đồng bộ flags/card; quiz cần quyết định review riêng. Không đánh dấu combined reviewer checklist đạt hay CONTENT-007 được mở.

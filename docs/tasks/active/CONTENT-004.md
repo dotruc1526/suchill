@@ -85,3 +85,9 @@
 - Test result: authoring validator PASS theo CONTENT-014; thay đổi docs/content không có runtime, environment hoặc migration impact.
 - Known issues: Vinh chưa technical-QA task-level handoff; catalog hiện có 6/8 media item chưa đủ evidence và 2/8 còn `NEEDS_MEDIA_REVIEW` theo `CONTENT-014`.
 - Next owner/action: Vinh xác nhận technical QA/handoff và Trúc hoàn tất media sign-off; chỉ sau đó reviewer mới chuyển task `DONE` và Product owner xem xét mở CONTENT-007.
+
+## Technical QA checkpoint — Vinh, 2026-10-01
+
+- Technical structure/reference checks **ACCEPTED** trên snapshot `30d0a4f` trong [CONTENT-014 QA report](../evidence/CONTENT-014-technical-qa.md); giới hạn/checked inputs có SHA-256 trong report.
+- Overall handoff vẫn **CHANGES REQUESTED** P2: Trúc cần đồng bộ review record với artifact pending flags và ghi đúng revision được historical reviewer duyệt. Quiz approval không được suy từ approval của các lesson.
+- Task giữ REVIEW; technical approval không thay historical/media/PO production acceptance. Combined technical+handoff/media checklist chưa đánh dấu hoàn tất.
