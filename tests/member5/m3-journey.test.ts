@@ -3,6 +3,7 @@ import assert from 'node:assert/strict'
 import { createMockLearningServices } from '../../src/services/next/mock.ts'
 import type { Chapter, Lesson } from '../../src/types/v2/content.ts'
 import { loadJourney, startLesson } from '../../src/features/learning/journey/journeyModel.ts'
+import { videoPlayerContext, visualNovelPlayerContext } from '../../src/features/learning/journey/lessonPlayerContexts.ts'
 
 const lesson: Lesson = {
   id: 'lesson-stable', chapterId: 'chapter-stable', slug: 'stable', title: 'Bài học', summary: 'Fixture',
@@ -62,4 +63,14 @@ test('reopening a lesson preserves its existing checkpoint', async () => {
   const progress = await services.progress.getLessonProgress(lesson.id)
   assert.equal(progress.ok && progress.value?.currentBlockId, 'block-resume')
   assert.deepEqual(progress.ok && progress.value?.completedBlockIds, ['block-stable'])
+})
+
+test('M3 integration maps stable lesson and block identities into player contexts', () => {
+  const lessonId = 'lesson-mixed'
+  assert.deepEqual(visualNovelPlayerContext(lessonId, {
+    id: 'vn-block', order: 0, required: true, kind: 'visual_novel', storyVersionId: 'story-v1',
+  }), { lessonId, blockId: 'vn-block', storyVersionId: 'story-v1' })
+  assert.deepEqual(videoPlayerContext(lessonId, {
+    id: 'video-block', order: 1, required: true, kind: 'video', mediaAssetId: 'video-1', completionPolicy: 'reach_end',
+  }), { lessonId, blockId: 'video-block', mediaAssetId: 'video-1' })
 })
