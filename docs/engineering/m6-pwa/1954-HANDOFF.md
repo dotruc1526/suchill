@@ -1,3 +1,13 @@
+# Current continuation — 2026-10-03
+
+This checkpoint supersedes the earlier dated local-only/deployment/account/device scheduling findings below. M6 OPEN and M7 OPEN concurrently by APPROVED Dương/PR113 decision. Temporary HTTPS preview: https://suchill-preview--m6-android-1954-p8pbahbd.web.app/ . Only Chapter1—1954 episode1 opens; episodes2–7 remain locked. M6-02/03/05 and bounded Hosting/catalog/acceptance tasks DONE; M7-01 DONE. M6-01/06 and full M7-02 REVIEW; M6-04/07 and downstream canonical/release work remain gated.
+
+[M7-1954-CONTEXT-001](../../tasks/active/M7-1954-CONTEXT-001.md) is REVIEW: visible clarification before the video identifies the overly broad cue27 and gives prior reviewed narrower context. Typecheck, Hosting build9abdb3f1df7a3759e34d and catalog Chrome4/4PASS; independent source/software APPROVE. Actual deployment/review next. Original MP4/audio/burned captions/VTT/transcript/poster/manifest untouched. The clarification does not clear canonical cue27/media rights. Basic Android user PASS is retained; manual screen-reader/iOS/desktop-icon/update/performance results are not inferred. Latest user authorizes all feasible work and requests no further device-evidence questionnaire.
+
+No environment, migration, account, reward, canonical import or live-site change in this continuation. Sources map28cues and3official locators; final rights/historical review remains with the required roles. Earlier checkpoints below are historical, not current blockers such as missing Firebase access.
+
+---
+
 # 1954 integration handoff — 2026-10-03
 
 Current topic is PO-approved [1954 / Trước cơn bão](../../content/MVP-1954-BRIEF.md). New video generation is cancelled. This is an internal reference package and local player preview, not a published canonical chapter or M6/M7 release.

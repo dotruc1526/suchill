@@ -73,6 +73,21 @@ test('Chrome integrates Chapter1/1954, six disabled episodes, focus/back and ver
       assert.equal(await cdp.evaluate('document.querySelector("video").videoWidth'), 1080)
       assert.equal(await cdp.evaluate('document.querySelector("video").autoplay'), false)
       assert.equal(await cdp.evaluate('document.querySelectorAll("[data-testid=preview1954-source-notes] a").length'), 3)
+      // The historical correction must be readable without opening the source drawer.
+      assert.equal(await cdp.evaluate('document.querySelector("[data-testid=preview1954-source-notes] details").open'), false)
+      assert.match(await cdp.evaluate('document.querySelector("[data-testid=preview1954-context-note]").innerText'), /diễn đạt quá rộng.*điểm quyết chiến chiến lược của hai bên/s)
+      assert.equal(await cdp.evaluate('Boolean(document.querySelector("[data-testid=preview1954-context-note]").compareDocumentPosition(document.querySelector("video")) & Node.DOCUMENT_POSITION_FOLLOWING)'), true)
+      for (const [width, height] of [[375,812], [430,932], [844,390]]) {
+        await cdp('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: true })
+        await cdp.evaluate('document.documentElement.style.fontSize="200%"')
+        assert.equal(await cdp.evaluate('document.documentElement.scrollWidth <= innerWidth'), true)
+        assert.equal(await cdp.evaluate('document.querySelector("[data-testid=preview1954-context-note]").getBoundingClientRect().height > 0'), true)
+      }
+      await cdp.evaluate('document.documentElement.style.fontSize=""; document.querySelector("[data-testid=preview1954-source-notes] summary").focus()')
+      assert.equal(await cdp.evaluate('document.activeElement.tagName'), 'SUMMARY')
+      await cdp('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Enter', code: 'Enter', text: '\r', unmodifiedText: '\r', windowsVirtualKeyCode: 13 })
+      await cdp('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13 })
+      await cdp.waitFor('document.querySelector("[data-testid=preview1954-source-notes] details").open')
       await cdp.waitFor('document.querySelector("video").textTracks[0]?.cues?.length===28')
       await cdp('Runtime.evaluate', { expression: 'document.querySelector("video").play()', userGesture: true, awaitPromise: true })
       await cdp.waitFor('!document.querySelector("video").paused')

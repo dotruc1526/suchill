@@ -506,3 +506,9 @@ M7-02 is REVIEW per the accepted upstream pilot-source checkpoint; the chapter e
 | Task | Owner / Executor | Reviewer | Status | Started | Files / next action |
 |---|---|---|---|---|---|
 | M7-02-CHAPTER-001 | Codex integration / disjoint research lanes | Independent preparation APPROVE; historical final gate separate | DONE | 2026-10-03 | [Card](../tasks/done/M7-02-CHAPTER-001.md); authoritative source/claim register for7episodes; keep parent M7-02 REVIEW. |
+
+## Current preview clarification — 2026-10-03
+
+| Task | Owner / Executor | Reviewer | Status | Dependencies / next action |
+|---|---|---|---|---|
+| M7-1954-CONTEXT-001 | Codex root | existing independent hosting_catalog_review SOFTWARE APPROVE | REVIEW | [Card](../tasks/active/M7-1954-CONTEXT-001.md); visible cue27 clarification using prior narrower wording; existing internal preview only, immutable video and six locks retained; final M7-02/media/manual/release gates separate |
