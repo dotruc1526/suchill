@@ -27,3 +27,7 @@ Không cài global CLI hay tạo project/billing bằng suy đoán. Sau khi có 
 - Review [rollback](./ROLLBACK.md) trước promotion production. Preview PASS không phải public release approval.
 
 Không lưu URL callback chứa token hoặc credential vào evidence. [Gate](./READINESS.md) phân biệt technical preview, supplied evidence và PO release decision.
+
+## Verified internal preview — 2026-10-03 (supersedes setup status above)
+
+Project/site suchill-preview is provisioned; official CLI authentication completed. Temporary channel m6-android-1954: https://suchill-preview--m6-android-1954-p8pbahbd.web.app/ ; [1954 reference](https://suchill-preview--m6-android-1954-p8pbahbd.web.app/reference), expires2026-10-10 03:08 Asia/Bangkok. Existing Spark plan, no live channel or billing/backend/Auth-domain change. [Exact evidence and limitations](../../engineering/m6-pwa/HOSTING-PREVIEW-20261003.md). Raw Firebase media Range is unsupported here; the preview uses a size/hash-verified page-memory copy for native resume. Android/manual/independent acceptance remains pending. Authentication recovery origin allowlist is not modified or accepted by this preview.

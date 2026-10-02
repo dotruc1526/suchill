@@ -10,7 +10,7 @@ const ALLOWED = new Set(${JSON.stringify(build.allowed)});
 const PRECACHE = ${JSON.stringify(build.precache)};
 const ORIGIN = self.location.origin;
 const staticAsset = /^\\/assets\\/[A-Za-z0-9_.-]+\\.(?:js|css|png|svg|webp|avif|woff2)$/;
-const privatePath = /^\\/(?:auth|api|rest|functions|storage)(?:\\/|$)/;
+const privatePath = /^\\/(?:auth|api|rest|functions|storage|reference|reference-media|scripts)(?:\\/|$)/;
 const publicRequest = path => new Request(new URL(path, ORIGIN), {credentials:'omit',cache:'reload'});
 function cacheable(response) { return response.ok && response.type === 'basic' && !response.redirected; }
 self.addEventListener('install', event => event.waitUntil((async () => {

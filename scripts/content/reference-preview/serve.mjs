@@ -102,7 +102,7 @@ export async function startReferencePreview({ packageDir, port = 8444 }) {
       })
     },
   }
-  const server = await createServer({ configFile: false, envDir: false, publicDir: false, root: previewRoot,
+  const server = await createServer({ configFile: false, envDir: false, publicDir: false, appType: 'mpa', root: previewRoot,
     plugins: [mediaPlugin, react(), tailwindcss()], resolve: { dedupe: ['react', 'react-dom'] },
     server: { host: '127.0.0.1', port, strictPort: true, hmr: false, cors: false,
       allowedHosts: ['localhost', '127.0.0.1'], fs: { strict: true,

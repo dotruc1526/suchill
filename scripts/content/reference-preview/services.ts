@@ -23,7 +23,7 @@ function mergeRanges(ranges: VideoProgress['watchedRanges']) {
 }
 
 /** Own local preview state only; there is no backend, account or reward authority. */
-export function createReferencePreviewServices(metadata: PreviewMetadata, storage: Pick<Storage, 'getItem' | 'setItem'>): LearningServices {
+export function createReferencePreviewServices(metadata: PreviewMetadata, storage: Pick<Storage, 'getItem' | 'setItem'>, resolveVideoUrl?: () => Promise<string>): LearningServices {
   if (!Number.isFinite(metadata.durationSeconds) || metadata.durationSeconds <= 0 ||
       !/^[a-f0-9]{64}$/.test(metadata.videoSha256)) throw new Error('Invalid preview media identity')
   const key = previewStorageKey(metadata.videoSha256)
@@ -81,7 +81,11 @@ export function createReferencePreviewServices(metadata: PreviewMetadata, storag
     },
   }
   return {
-    media: { async getResolvedAsset(id) { return id === asset.id ? success(structuredClone(asset)) : failure('not_found') } },
+    media: { async getResolvedAsset(id) {
+      if (id !== asset.id) return failure('not_found')
+      try { return success({ ...structuredClone(asset), url: resolveVideoUrl ? await resolveVideoUrl() : asset.url }) }
+      catch { return failure('server_error') }
+    } },
     progress: { ...videoProgress, getLessonProgress: unavailable, saveCheckpoint: unavailable, getEpisodeProgress: unavailable,
       saveEpisodeCheckpoint: unavailable, recordChoice: unavailable, getResumePoint: unavailable },
     chapters: { listPublished: unavailable, getById: unavailable }, lessons: { getById: unavailable }, documents: { getById: unavailable },

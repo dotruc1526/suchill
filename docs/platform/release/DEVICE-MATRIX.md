@@ -17,3 +17,7 @@ Ghi một dòng cho mỗi cấu hình thực dùng; để CHƯA KIỂM nếu ch�
 7. Ghi thời gian tải/giật và cấu hình mạng/thiết bị thực, nhất là điện thoại yếu; không tự đặt một số performance budget chưa đo.
 
 Sửa lỗi có thể tái hiện, chạy lại đúng bước lỗi và gửi reviewer evidence. Không dùng tài khoản/mật khẩu của người khác; không ghi credential/token trong ảnh hay báo cáo.
+
+## Ready for actual Android observations — 2026-10-03
+
+App https://suchill-preview--m6-android-1954-p8pbahbd.web.app/ ; video /reference. Software build bfc05ef6fabc8087b4c0 passed actual HTTPS desktop Chrome smoke plus375/430/landscape emulation; this does not change the CHƯA KIỂM rows above. User was asked for Android model/OS/Chrome and install/icon launch, playback/captions,17-second pause/reload/resume, rotation/large text, offline fallback and TalkBack observations. No actual phone result yet. Initial HTTPS resume finding was repaired before this final build; results against an earlier build require retest. Video downloads approximately19MB before playback; weak-device memory/network performance needs real evidence.

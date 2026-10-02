@@ -4,10 +4,13 @@ import { createRoot } from 'react-dom/client'
 import { VideoLessonPlayer } from '../../../src/features/learning/video/VideoLessonPlayer'
 import { theme } from '../../../src/theme/tokens'
 import './preview.css'
+import { createReferenceVideoLoader } from './video-source'
 import metadata from 'virtual:reference1954-package'
 import { createReferencePreviewServices, previewContext } from './services'
 
-const services = createReferencePreviewServices(metadata, window.localStorage)
+const loader = import.meta.env.PROD ? createReferenceVideoLoader(metadata.videoSha256) : undefined
+const services = createReferencePreviewServices(metadata, window.localStorage, loader?.getUrl)
+window.addEventListener('pagehide', event => { if (!event.persisted) loader?.dispose() })
 function Preview() {
   return <main id="main-content" tabIndex={-1} style={{ maxWidth: 480, margin: '0 auto', padding: theme.spacing.lg,
     color: theme.colors.textPrimary, background: theme.colors.appBg, minHeight: '100vh', paddingBottom: 'max(20px, env(safe-area-inset-bottom))' }}>
@@ -15,6 +18,8 @@ function Preview() {
       <p style={{ color: theme.colors.primary, fontWeight: 700 }}>SỬ CHILL</p>
       <h1 style={{ fontSize: '1.5rem', fontWeight: 700, lineHeight: 1.35 }}>Xem thử nội bộ · Trước cơn bão</h1>
       <p>Tiến độ xem thử được lưu trên máy này.</p>
+      {loader && <p>Video xem thử tải khoảng 19 MB trước khi phát để có thể tua và tiếp tục xem.</p>}
+      <p><a href="/reference-media/transcript.vi.txt" style={{ color: theme.colors.primary, textDecoration: 'underline' }}>Mở bản chép lời</a></p>
     </header>
     <VideoLessonPlayer services={services} context={previewContext} />
     <p style={{ marginTop: theme.spacing.base, color: theme.colors.textSecondary, fontSize: '.875rem' }}>

@@ -99,3 +99,19 @@ test('real Chrome: install/control, two-build safe update, queue serialization, 
     }, {mountedSelector:'main'})
   })
 })
+
+test('reference HTML/media navigations reach the network without app-shell substitution or caching', async () => {
+  const { runInNewContext } = await import('node:vm')
+  const { workerSource } = await import('../../scripts/pwa/worker-source.ts')
+  const events = new Map()
+  runInNewContext(workerSource({version:'owned-test', allowed:['/index.html'], precache:[]}), {
+    self: {location:{origin:'https://owned.invalid'},addEventListener:(name,handler)=>events.set(name,handler)},
+    URL, Request, Response, Set,
+  })
+  for (const path of ['/reference','/reference/1954','/reference-media/pilot-mobile.mp4','/scripts/content/reference-preview/index.html']) {
+    let intercepted = false
+    events.get('fetch')({request:{url:'https://owned.invalid'+path, method:'GET', mode:'navigate', headers:new Headers()},
+      respondWith(){intercepted=true}})
+    assert.equal(intercepted,false,path+' must reach Hosting rather than cached app shell')
+  }
+})

@@ -454,3 +454,9 @@ Product Owner explicitly selects **1954 / Trước cơn bão**, replacing the cu
 | M6-M7-TRIAL-001 | Codex / delegated release prep | Root independent code/test review APPROVE | DONE | [Card](../tasks/done/M6-M7-TRIAL-001.md);7/7tests, short release plans; new video cancelled |
 
 [Current handoff](../engineering/m6-pwa/1954-HANDOFF.md): M6-02/03/05DONE; M6-01/06REVIEW; M6-04/07BLOCKED. Topic1954approved, unchanged clip playable internally. Remaining final1954wording/rights, multi-lesson curriculum/canonical import, real device/manual accessibility, Firebase/internal-user/privacy/release acceptance are not fabricated. Full M6 remains OPEN and M7 release gated.
+
+### HTTPS test preparation — 2026-10-03
+
+| ID | Owner / Executor | Reviewer | Status | Depends on | Card / next action |
+|---|---|---|---|---|---|
+| HOSTING-PREVIEW-001 | Codex root | Independent technical review; actual Android user proof | REVIEW | M6-02/03/05; supplied1954reference preview; explicit Firebase project approval | [Card](../tasks/active/HOSTING-PREVIEW-001.md); [HTTPS evidence](../engineering/m6-pwa/HOSTING-PREVIEW-20261003.md); temporary preview deployed, browser/media/hash PASS; independent review and actual Android results pending; no live/canonical release |
