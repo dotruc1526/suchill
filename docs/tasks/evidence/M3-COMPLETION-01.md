@@ -50,3 +50,10 @@ Original base: `260d2d0`; current rebase base: `origin/main` `74c8059`; approved
 
 - Exact head 13c4d80: CONSUMER FIT ACCEPTED; full Quality independently PASS, 91 unit / 22 component / 4 E2E, scan 334/0 unsafe. See [review record](../active/M3-COMPLETION-01.md).
 - Hưng implementation review remains pending; adapter REVIEW / UI BLOCKED. No runtime changes from this review.
+
+## PR88 two-finding remediation — 2026-10-02
+- `reach_end` uses the same normalized/merged adjacent and overlapping ranges as watch-threshold counting. Gaps are not bridged; seek-only and near-end-only evidence remain insufficient.
+- Streak qualification uses account + activity type/ID + eligibility version, independently of requiredLessonCount. Required episode/scored reward activities qualify even when the containing lesson is not counted as required; requiredLessonCount still only counts required lessons. Same eligibility across content corrections or lesson reuse cannot qualify another day.
+- Regression checks adjacent/overlapping/reordered/gapped ranges, non-required VN lesson first completion, replay/minor version/cross-lesson story reuse and account isolation. Both new tests FAIL on the previous runtime (ineligible instead of completed; streak 0 instead of 1), PASS after restoration of the fix. Diagnostic changes were restored.
+- Full `npm run quality` PASS: typecheck/build, 93 unit / 22 component / 4 E2E, scan 334 files / 0 unsafe; focused completion 17/17; diff check PASS. Logs: `/tmp/suchill-pr88-remediation-quality.log`, `/tmp/suchill-pr88-remediation-baseline.log` (local only).
+- No Home, QA83 harness, UI, dependency, env or migration changes. Prior Dương consumer acceptance applies to dcc3079; Hưng and Dương must re-review this runtime delta. Task remains REVIEW; M3-06 UI stays BLOCKED pending acceptance; milestone gates unchanged.

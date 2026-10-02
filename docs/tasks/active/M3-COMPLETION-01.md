@@ -55,3 +55,15 @@ Hưng review contract/architecture and new explicit-action API; Dương confirm 
 - Independent verification on exact head: full npm run quality PASS (exit 0): typecheck/build, 91 unit / 22 component / 4 browser E2E, client scan 334 files / 0 unsafe. git diff origin/main...HEAD --check PASS.
 - Limits: browser E2E verifies existing Home/journey/VN, not an unimplemented completion/profile UI. In-memory shared-store recreation is not browser-restart/cross-device persistence. UI claim must configure author-controlled technical catalog metadata (currently intentionally absent from Home fixture), retain shared store and use deterministic clock/timezone fixtures in tests.
 - Next: Hưng reviews adapter D1–D7/explicit-action architecture; Vinh opens implementation PR and handles final handoff. After acceptance/merge Dương claims M3-06 and builds pending/confirmed/profile with controller, component and full-loop browser tests. No M3 closure or M4 opening implied.
+
+## PR88 remediation claim — 2026-10-02
+- Task remains REVIEW; executor Vinh/Codex; reviewers Hưng/Dương.
+- Files claimed: `src/services/next/rewardPolicy.ts` (shared range normalization), `src/services/next/mockCompletionEvidence.ts`, `src/services/next/mockCompletion.ts`, `tests/member5/m3-completion.test.ts`, this card and its evidence.
+- Fix adjacent/overlapping reach_end ranges and episode streak qualification independent of requiredLesson; preserve requiredLessonCount and activity/eligibility dedupe. No Home/QA83/UI changes.
+
+## PR88 two-finding remediation — 2026-10-02
+- `reach_end` uses the same normalized/merged adjacent and overlapping ranges as watch-threshold counting. Gaps are not bridged; seek-only and near-end-only evidence remain insufficient.
+- Streak qualification uses account + activity type/ID + eligibility version, independently of requiredLessonCount. Required episode/scored reward activities qualify even when the containing lesson is not counted as required; requiredLessonCount still only counts required lessons. Same eligibility across content corrections or lesson reuse cannot qualify another day.
+- Regression checks adjacent/overlapping/reordered/gapped ranges, non-required VN lesson first completion, replay/minor version/cross-lesson story reuse and account isolation. Both new tests FAIL on the previous runtime (ineligible instead of completed; streak 0 instead of 1), PASS after restoration of the fix. Diagnostic changes were restored.
+- Full `npm run quality` PASS: typecheck/build, 93 unit / 22 component / 4 E2E, scan 334 files / 0 unsafe; focused completion 17/17; diff check PASS. Logs: `/tmp/suchill-pr88-remediation-quality.log`, `/tmp/suchill-pr88-remediation-baseline.log` (local only).
+- No Home, QA83 harness, UI, dependency, env or migration changes. Prior Dương consumer acceptance applies to dcc3079; Hưng and Dương must re-review this runtime delta. Task remains REVIEW; M3-06 UI stays BLOCKED pending acceptance; milestone gates unchanged.

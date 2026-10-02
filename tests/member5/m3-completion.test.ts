@@ -229,3 +229,50 @@ test('invalid timezone rolls back all completion writes', async () => {
   assert.equal(store.completion.receipts.size, 0); assert.equal(store.completion.rewards.size, 0)
   assert.equal(store.completion.days.size, 0)
 })
+
+test('reach_end merges adjacent and overlapping playback but never bridges gaps', async () => {
+  for (const [ranges, expected] of [
+    [[{ start: 0, end: 96 }, { start: 96, end: 100 }], 'completed'],
+    [[{ start: 96, end: 100 }, { start: 0, end: 97 }], 'completed'],
+    [[{ start: 0, end: 94 }, { start: 96, end: 100 }], 'ineligible'],
+    [[{ start: 96, end: 100 }], 'ineligible'],
+  ] as const) {
+    const value = videoCatalog()
+    const block = value.lessons[0].blocks[0]
+    if (block.kind !== 'video') throw Error('fixture')
+    block.completionPolicy = 'reach_end'
+    const services = setup(value)
+    unwrap(await watch(services, [...ranges]))
+    assert.equal((await complete(services)).kind, expected)
+  }
+})
+
+test('episode qualifies streak outside required lessons; replay/version/lesson reuse cannot farm days', async () => {
+  const value = catalog(); const store = createMockProgressStore()
+  value.lessons[0].format = 'visual_novel'
+  value.lessons[0].blocks = [{ kind: 'visual_novel', id: 'vn-block', storyVersionId: 'version-1', order: 0, required: true }]
+  value.completionPolicies![0].requiredLesson = false
+  let clock = stamp
+  const services = setup(value, store, 'a', () => clock)
+  const play = async (lessonId: string, prefix: string) => {
+    const context = { lessonId, blockId: 'vn-block', storyVersionId: 'version-1' }
+    unwrap(await services.progress.saveEpisodeCheckpoint({ ...context, currentSceneId: 'choice', visitedSceneIds: ['start', 'choice'], operationId: `${prefix}-scene` }))
+    unwrap(await services.progress.recordChoice({ ...context, sceneId: 'choice', choiceId: 'choice-a', operationId: `${prefix}-choice` }))
+    return unwrap(await services.completion.completeLesson({ lessonId, operationId: `${prefix}-complete` }))
+  }
+  assert.equal(receipt(await play('lesson', 'first')).rewards[0].xpDelta, 20)
+  const summary = unwrap(await services.users.getAccountSummary())!
+  assert.equal(summary.currentStreak, 1); assert.equal(summary.requiredLessonCount, 0)
+  clock = '2026-10-03T17:01:00Z'
+  assert.equal((await complete(services, 'replay')).kind, 'already_completed')
+  value.completionPolicies![0].contentVersionId = 'v2'
+  assert.equal(receipt(await play('lesson', 'minor')).rewards[0].xpDelta, 0)
+  value.lessons.push({ ...value.lessons[0], id: 'other' })
+  value.completionPolicies!.push({ ...value.completionPolicies![0], lessonId: 'other' })
+  assert.equal(receipt(await play('other', 'reuse')).rewards[0].xpDelta, 0)
+  assert.equal(unwrap(await services.users.getAccountSummary())?.currentStreak, 0)
+  assert.equal(unwrap(await services.users.getAccountSummary())?.totalXp, 20)
+  assert.equal(unwrap(await services.users.getAccountSummary())?.requiredLessonCount, 0)
+  assert.equal(store.completion.days.get('a')?.size, 1)
+  assert.equal(unwrap(await setup(value, store, 'b').users.getAccountSummary())?.currentStreak, 0)
+})

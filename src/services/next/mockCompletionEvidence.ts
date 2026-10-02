@@ -2,7 +2,7 @@ import type { Lesson, LessonBlock } from '../../types/v2/content.ts'
 import type { MockCatalog } from './mock.ts'
 import type { MockProgressStore } from './mockProgress.ts'
 import { progressKey } from './mockProgress.ts'
-import { videoThresholdReached } from './rewardPolicy.ts'
+import { mergedWatchedRanges, videoThresholdReached } from './rewardPolicy.ts'
 
 export const evidenceKey = (userId: string, lessonId: string, version: string, blockId: string) =>
   progressKey(userId, lessonId, version, blockId)
@@ -60,7 +60,7 @@ export function completionEvidence(catalog: MockCatalog, store: MockProgressStor
     const progress = evidence.videos.get(key)
     if (asset?.durationSeconds && progress?.userId === userId && progress.lessonId === lesson.id && progress.blockId === block.id) {
       if (block.completionPolicy === 'watch_threshold' && videoThresholdReached(progress.watchedRanges, asset.durationSeconds)) return true
-      if (block.completionPolicy === 'reach_end' && progress.watchedRanges.some(range => range.start < asset.durationSeconds! * 0.95 && range.end >= asset.durationSeconds! * 0.98)) return true
+      if (block.completionPolicy === 'reach_end' && mergedWatchedRanges(progress.watchedRanges, asset.durationSeconds).some(range => range.start < asset.durationSeconds! * 0.95 && range.end >= asset.durationSeconds! * 0.98)) return true
     }
     const fallback = policy.videoFallbacks?.find(item => item.blockId === block.id)
     const action = evidence.actions.get(key)

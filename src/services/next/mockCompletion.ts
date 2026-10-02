@@ -104,9 +104,13 @@ export function createMockCompletionServices(
       for (const reward of rewards.filter(item => item.status === 'granted')) {
         store.rewards.set(reward.eligibilityKey, { ...reward, userId: session.userId, confirmedAt })
       }
-      // Minor content corrections with the same eligibility cannot qualify a new day.
-      const qualificationKey = progressKey(session.userId, lesson.id, policy.eligibilityVersion)
-      if (policy.requiredLesson && !store.qualifiedActivities.has(qualificationKey)) {
+      // Qualify by activity identity, independent of the containing lesson's count.
+      // Minor corrections / reuse in another lesson cannot qualify a new day.
+      const qualifying = requested.filter(item => item.type === 'episode' || item.type === 'quiz')
+      if (policy.requiredLesson) qualifying.push({ type: 'lesson', id: lesson.id })
+      for (const activity of qualifying) {
+        const qualificationKey = rewardKey(session.userId, activity.type, activity.id, policy.eligibilityVersion)
+        if (store.qualifiedActivities.has(qualificationKey)) continue
         store.qualifiedActivities.add(qualificationKey)
         const days = store.days.get(session.userId) ?? new Set<string>()
         days.add(day); store.days.set(session.userId, days)
