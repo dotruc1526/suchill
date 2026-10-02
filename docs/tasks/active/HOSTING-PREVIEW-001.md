@@ -38,3 +38,5 @@ Root performed implementation self-review and automated/browser checks; no indep
 User cannot log in by username on Android HTTPS preview; created account does not imply successful browser login. Technical unauthenticated/player smoke remains valid, full Auth/device acceptance fails. Root reproduced exact-origin CORS403; repair claimed under AUTH-USERNAME-001. This task remains REVIEW pending corrected Auth and actual-device review.
 
 Android Auth finding technically repaired: exact CORS origin configured, live separate QA signup/login/read and arbitrary-origin rejection PASS. User retest pending; [evidence](../../engineering/m6-pwa/HOSTING-PREVIEW-20261003.md). CORS configuration is the sole follow-up backend environment change. No independent review/user PASS is inferred.
+
+User confirms corrected Android username loginPASS2026-10-03. Remaining installation/video/device/accessibility and independent technical review are pending; status REVIEW retained. Hosting candidatee9accf3CI2/2SUCCESS; follow-up103c513CI in progress at checkpoint.

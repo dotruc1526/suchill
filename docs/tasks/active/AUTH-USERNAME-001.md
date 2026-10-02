@@ -72,3 +72,5 @@ User reported created account cannot sign in by username on the temporary Fireba
 ## HTTPS repair evidence — 2026-10-03
 
 Exact preview origin was added to ACCOUNT_ACCESS_ORIGINS, preserving four original default local origins; no custom setting existed before. Live preflight204/exact ACAO, arbitrary-origin403 and localhost204PASS; CORS+username-server20/20PASS. Separate new QA signup/signout/username-login/sameUUID/0XP read and wrong-password rejectionPASS. User's account, password and progress untouched. No source Auth/RLS/JWT/redirect modification; only the exact CORS setting changes backend environment. [Evidence](../../engineering/m6-pwa/HOSTING-PREVIEW-20261003.md). Actual Android/user retest is pending; status REVIEW, no DONE. Temporary origin cleanup on channel retirement is recorded.
+
+User Android retest confirms “Đăng nhập được” after exact-origin repair2026-10-03. This reported login finding is resolved; optional recovery mail/reset and independent/full acceptance remain separate, so AUTH-USERNAME-001 stays REVIEW.
