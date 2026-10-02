@@ -1,6 +1,6 @@
 # M3-STATUS-01 — Đồng bộ tiến độ M3
 
-> Status: IN PROGRESS
+> Status: REVIEW
 > Last updated: 2026-10-02
 
 - Owner: Dương (Member 4).
@@ -28,10 +28,16 @@
 - Acceptance: state/controller design, operation lifetime, account isolation, error mapping and executable test scenarios with expected results; label all tests planned.
 - Next action: write and verify docs-only plan, return REVIEW on PR90; M3-06 runtime stays BLOCKED.
 
-- Checkpoint completed: controller/state/operation/error design và 19 test scenarios đã ghi; tất cả tests mới là planned, không runtime acceptance. Local links/diff check PASS; no source/env/migration changes. Next Hưng/Vinh review docs trên PR90, Dương runtime sau PR88 handoff.
+- Checkpoint completed: controller/state/operation/error design và 18 test scenarios đã ghi; tất cả tests mới là planned, không runtime acceptance. Local links/diff check PASS; no source/env/migration changes. Next Hưng/Vinh review docs trên PR90, Dương runtime sau PR88 handoff.
 
 ## PR91 reconciliation claim — 2026-10-02
 
 - Owner/Executor/Reviewer/Started: unchanged above; user authorized PR90/91 processing.
 - Files claimed: this card, TASK-BOARD.md, active/README.md, done/QA-002.md, done/README.md and M3-status-2026-10-02.md; QA closure follows Hưng acceptance in PR91.
 - Next action: integrate merged PR91, preserve controller preparation and QA DONE, validate docs and return REVIEW for Hưng/Vinh.
+
+## Reconciliation handoff — 2026-10-02
+
+- PR91 merged 21869e7 after Quality 2/2 SUCCESS; QA-002 DONE retained in board/index/snapshot, with Hưng acceptance preserved in done/QA-002.md.
+- Preserved both controller preparation commits, including corrected 18 planned scenarios. No runtime/env/migration changes.
+- Verification: local Markdown links and diff checks; CI must pass on pushed final head. Reviewer Hưng/Vinh reviews M3-STATUS-01 before DONE/merge; PR88 and M3-06 blockers remain.
