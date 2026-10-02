@@ -1,6 +1,6 @@
 # Sử Chill — Shared Task Board
 
-> Last updated: 2026-10-01\
+> Last updated: 2026-10-02\
 > Owner: Project team\
 > Purpose: Nguồn context chung cho product owner, thành viên nhóm và AI agents
 
@@ -135,10 +135,11 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 | FE-008 | Profile | Hiển thị account XP/streak/achievement | Dương (Member 4) | BACKLOG | FE-004, BE-003 | `src/features/profile/` | Dữ liệu lấy qua service; sync đúng account |
 | FE-009 | Feature interaction adoption & polish | Áp dụng foundation M1-05 vào các feature screens: motion, states, radius, sound và mobile performance | Hưng (Member 3); Trúc/Dương phối hợp | BACKLOG | M1-05, FE-005, FE-006, FE-007, FE-008, DOC-005, DOC-009 | `src/features/`, `src/components/ui/` | Chỉ claim sau khi các feature screen tồn tại; không làm lại sound/reduced-motion foundation từ PR #33 |
 | FE-010 | Engineering quality | Chuẩn hóa reusable components/functions và performance budget | Hưng (Member 3); Vinh phối hợp | BACKLOG | FE-001, FE-002, FE-003, DOC-006 | `src/components/`, `src/features/`, `src/services/`, `src/types/` | Không gọi DB trong UI; logic dùng chung có test; lazy-load/media optimization; không abstraction thừa |
-| FE-011 | M3 personalization | Lời chào Home theo tên người dùng | Dương (Member 4); Vinh contract/QA | BACKLOG | M2-01, M2-03, M2-04 | `src/features/home/`, user service/mock contract | Hiển thị `XIN CHÀO, {displayName}` từ domain/service; fallback `XIN CHÀO` khi chưa đăng nhập hoặc thiếu tên; `HomeScreen` không đọc auth/database trực tiếp; kiểm tra tên tiếng Việt dài ở 375px/430px. Chỉ tạo card/claim sau khi M2 dependencies đạt và M3 được mở. |
+| FE-011 | M3 personalization | Lời chào Home theo tên người dùng | Dương (Member 4); Codex executor; Vinh/Hưng review | DONE | M2-01, M2-03, M2-04 DONE; M3 OPEN | [Card](../tasks/done/FE-011.md) | PR #81 merged `a7db965`; Hưng/Vinh APPROVE runtime `17dd847` bằng text; Dương cho phép dismiss review cũ và admin merge. Quality 2/2 PASS head `3c1673c`; M3 vẫn OPEN. |
 | M3-01 | M3 learning journey | Home/chapter/lesson journey trên mock services | Dương (Member 4); Codex executor | DONE | M1 DONE, M2 DONE, M3 OPEN | [`docs/tasks/done/M3-01.md`](../tasks/done/M3-01.md) | PR #72 merged; Vinh approved và Hưng xác nhận không còn finding tại head `71cbad2`; 2/2 Quality PASS. |
 | M3-02 | M3 lesson renderer | Standard/mixed lesson renderer trên mock services | Dương (Member 4); Codex executor | DONE | M2 DONE, M3 OPEN | [`docs/tasks/done/M3-02.md`](../tasks/done/M3-02.md) | PR #73 merged; Vinh approved và Hưng xác nhận không còn finding tại head `6117578`; 2/2 Quality PASS. |
 | M3-INTEGRATION-01 | M3 learning integration | Nối journey/lesson renderer với VN, video và quiz players | Dương (Member 4); Codex executor | DONE | M3-01..05 DONE; M3-UX-01 DONE; M3 OPEN | [`docs/tasks/done/M3-INTEGRATION-01.md`](../tasks/done/M3-INTEGRATION-01.md) | PR #79 merged `a55b924`; Hưng/Vinh approved; 2/2 Quality PASS, gồm browser regression đóng/hoàn tất VN và focus restoration. M3 vẫn OPEN. |
+| M3-06 | M3 completion/profile | Completion/profile UI trên mock services | Dương; Codex preparation; Vinh/Hưng review | BLOCKED | M3-01..05, M3-INTEGRATION-01 DONE; M3 OPEN; contract approved D1–D7; mock adapter/tests chưa bàn giao | [Card](../tasks/blocked/M3-06.md); [proposal](../tasks/evidence/M3-06-preparation.md) | Vinh/Hưng APPROVE preparation head `49c69d9`; agreement D1–D7 đã ghi ngày 2026-10-02. Next Vinh claim adapter/contracts/tests; Dương UI sau tested handoff. Không phụ thuộc FE-008 backend; tích hợp main hiện hành |
 
 ### C. Backend and Supabase — theo dependency và milestone gate Phase 9
 
@@ -184,7 +185,7 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 | ID | Phase | Task | Owner | Status | Depends on | Files | Acceptance / next action |
 |---|---|---|---|---|---|---|---|
 | QA-001 | 8 | Schema/story validation checklist | Vinh (Member 5) | BACKLOG | DOC-006, DOC-009 | tests/validation | Broken links/missing objectives detected |
-| QA-002 | 8 / M3 | Mobile/player interaction test matrix | Vinh (Member 5); Codex executor; Dương phối hợp; Hưng reviewer | REVIEW | FE-005, FE-006, DOC-009 — DONE | [Task card](../tasks/active/QA-002.md); [matrix](../tasks/evidence/QA-002-mobile-player-matrix.md); `tests/qa/e2e.test.mjs`, `tests/qa/fixtures/video-player-mobile.*`, `src/components/ui/Button.tsx` | Started 2026-10-01; Hưng accepted Button/UI `10491f0`, Dương accepted player `d5daaed`; main `30d0a4f` integrated, index conflict resolved giữ Home/QA; quality 74 unit/22 component/6 E2E PASS; reviewers confirm integrated head before DONE |
+| QA-002 | 8 / M3 | Mobile/player interaction test matrix | Vinh (Member 5); Codex executor; Dương phối hợp; Hưng reviewer | REVIEW | FE-005, FE-006, DOC-009 — DONE | [Task card](../tasks/active/QA-002.md); [matrix](../tasks/evidence/QA-002-mobile-player-matrix.md); `tests/qa/e2e.test.mjs`, `tests/qa/fixtures/video-player-mobile.*`, `src/components/ui/Button.tsx` | Started 2026-10-01; Hưng accepted Button/UI `10491f0`, Dương approved integration `db3ae9e`; refreshed main `8131f05` without conflict, giữ personalized Home/QA regressions; quality 76 unit/22 component/6 E2E PASS, scan 330/0; Dương confirm new head + CI before DONE |
 | QA-003 | 8 | Supabase RLS/security verification | Vinh (Member 5) | BACKLOG | BE-002, BE-003, DOC-009 | security tests | User cannot read/write another user’s progress |
 | QA-004 | 8 | Historical/media release gate | Historical reviewer | BACKLOG | CONTENT-003, CONTENT-005, CONTENT-007 | release checklist | 0 critical historical/source/media issue, gồm video MVP |
 | QA-005 | 9 | Pilot release verification | Vinh (Member 5); toàn nhóm phối hợp | BACKLOG | DOC-010, CONTENT-008, CONTENT-007, FE-006, QA-001..004 | release report | MVP có một chapter mẫu nhiều lesson trong phạm vi kháng chiến chống Mỹ và ít nhất một video đã duyệt chạy trong bài học; các acceptance khác pass |
@@ -222,6 +223,9 @@ Mỗi lần handoff quan trọng thêm một dòng mới nhất ở đầu bản
 
 | Date | Task | Author | Update | Evidence / next owner |
 |---|---|---|---|---|
+| 2026-10-02 | FE-011 | Dương / Codex | PR #81 merged `a7db965`; ghi nhận hai reviewer APPROVE bằng text và Dương cho phép dismiss review cũ/admin merge; chuyển DONE | [FE-011](../tasks/done/FE-011.md); Quality 2/2 PASS; M3 vẫn OPEN |
+| 2026-10-02 | FE-011 | Dương / Codex | Ghi nhận Vinh APPROVE service/QA trên `17dd847` qua review Dương cung cấp; Quality 2/2 success; GitHub vẫn giữ CHANGES_REQUESTED cũ của Hưng, merge bị chặn | [FE-011](../tasks/done/FE-011.md); Hưng/Vinh cập nhật review GitHub, giữ REVIEW |
+| 2026-10-02 | FE-011 | Hưng (Member 3 — reviewer) | Re-review head tích hợp `17dd847`: APPROVE UI integration, không blocker; dashboard/focus/tokens/mobile layout đạt; typecheck/build/76 unit/22 component/4 E2E PASS, scan 324/0 | [FE-011](../tasks/done/FE-011.md) mục Reviewer acceptance; next Vinh service/QA review, chưa merge/DONE |
 | 2026-10-01 | M3-UX-01 | Trúc / Codex | Push `codex/truc-m3-ui-handoff`, mở PR ready for review; giữ task REVIEW | [PR #77](https://github.com/dotruc1526/suchill/pull/77); LFS upload đạt, merge-tree với main `327bf24` không conflict; Hưng/Vinh/Dương review |
 | 2026-10-01 | M3-UX-01 | Trúc / Codex | Thêm điểm nhấn SỬu theo yêu cầu Trúc: hero Chapter/lời chào và mark cạnh tên app trên 6 màn; reuse asset repo có sẵn; trả REVIEW | Browser 20 nhóm PASS, image loading/alt/byte equality và layout đạt; [evidence](../engineering/m3-ux/EVIDENCE.md); Hưng/Vinh/Dương review |
 | 2026-10-01 | M3-UX-01 | Trúc / Codex | Reopened theo yêu cầu tự kiểm tra/làm đẹp; polish 6 màn, icon SVG/choice A/B, VN gọn, video controls, panel desktop; trả REVIEW | Browser 19 nhóm PASS ở 375/430px và desktop 1280px; 9 cặp contrast ≥4.5:1; [evidence](../engineering/m3-ux/EVIDENCE.md); Hưng/Vinh/Dương review |

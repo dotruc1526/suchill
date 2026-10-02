@@ -1,7 +1,7 @@
 # QA-002 — Mobile/player interaction matrix
 
 > Date: 2026-10-01
-> Revision tested: `main` base `1dcba50` plus branch `codex/qa-002-mobile-player-matrix`
+> Latest revision tested: QA `db3ae9e` integrated with main `8131f05` on branch `codex/qa-002-mobile-player-matrix`; original matrix base was `1dcba50`
 > Scope: technical M3 mock services and non-canonical fixtures; not pilot media or release sign-off
 
 ## Method and result
@@ -56,3 +56,11 @@
 - Resolved active index conflict by retaining both task entries; Home runtime kept identical to main. Existing mobile Home test now asserts restored XIN CHÀO heading and keeps screenshot export paths; both QA-002 browser regressions remain intact.
 - Full quality PASS: 74 unit / 22 component / 6 Chrome E2E, typecheck/build, 325 scanned / 0 unsafe, diff check PASS. Shared Button and video/VN fixture unchanged from reviewed QA revision.
 - Task REVIEW pending integrated-head/CI confirmation; no device/screen-reader/canonical media certification or milestone decision.
+
+## Latest main refresh — 2026-10-02
+
+- Integrated main `8131f05` after personalized Home PR81/86 and PR84 preparation. No conflicts. Dương's approval at `db3ae9e` covers the previous integration only.
+- Home/greeting source exactly matches main; Button and mobile video/VN fixture remain unchanged from `db3ae9e`.
+- Main's greeting/fallback/long-name mobile assertions and start/continuation navigation focus checks retained; both keyboard VN and media service-read/remount/offline retry regressions retained.
+- `npm run quality` PASS: typecheck/build, 76 unit / 22 component / 6 Chrome E2E, scan 330 files / 0 unsafe; diff check PASS. All browser checks cover 375px/430px as defined above.
+- Await Dương confirmation and CI on the refreshed head. QA-002 remains REVIEW, with the same device/canonical-media/reward limitations.
