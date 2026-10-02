@@ -48,3 +48,8 @@ Các file `active.md`, `CONTENT-003-004-REVIEW.md`, `PR21-HANDOFF.md`, `BEQA-LOC
 - [M6-03](./M6-03.md) — REVIEW; software/evidence delivered, final acceptance pending.
 - [M6-05](./M6-05.md) — REVIEW; software/evidence delivered, final acceptance pending.
 - [AUTH-USERNAME-001](./AUTH-USERNAME-001.md) — REVIEW; integrated callback/software ready, actual mail/sender/reset acceptance pending.
+
+## PR109 / M7 preparation — 2026-10-03
+
+- [PR109-REVIEW-001](./PR109-REVIEW-001.md): IN PROGRESS; independent technical review and evidence.
+- [M7-01](./M7-01.md): REVIEW; selected1954chapter scope/objectives/perspective brief.

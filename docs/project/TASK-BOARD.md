@@ -480,3 +480,12 @@ Product Owner explicitly selects **1954 / Trước cơn bão**, replacing the cu
 | Task | Owner / Executor | Reviewer | Status | Dependencies / next action |
 |---|---|---|---|---|
 | M6-ACCEPTANCE-002 | Codex root / root + independent audit lanes | Independent bounded technical reviewers; human media/device/PO gates distinct | REVIEW | M6 OPEN; current software/Hosting/catalog REVIEW; [card](../tasks/active/M6-ACCEPTANCE-002.md); software APPROVE, Quality381/reference19/catalog4 PASS; isolated rollback PASS; final repaired Hosting smoke pending; no gate bypass |
+
+## PR109 review and M7 preparation — 2026-10-03
+
+| ID | Owner / Executor | Reviewer | Status | Started | Files / Next action |
+|---|---|---|---|---|---|
+| PR109-REVIEW-001 | Codex integration / Codex | Dương handoff; specialists separate | IN PROGRESS | 2026-10-03 | [Card](../tasks/active/PR109-REVIEW-001.md); inspect runtime and reproduce checks on head4ad6331. |
+| M7-01 | Dương / Codex | Dương scope; Thọ learning, pending | REVIEW | 2026-10-03 | [Card](../tasks/active/M7-01.md); [scope brief](../content/CHAPTER-1954-SCOPE.md) ready for review; M7-02 awaits acceptance. |
+
+M7-02 remains BACKLOG pending M7-01 reviewer acceptance. M7-03..09 preserve roadmap dependencies; temporary preview is not canonical content or release acceptance.

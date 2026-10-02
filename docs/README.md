@@ -1,5 +1,7 @@
 # Sử Chill Documentation
 
+> Latest PO milestone decision — 2026-10-03: M7 OPEN alongside M6 OPEN under the approved scheduling exception in [M7-GATE-OPEN-001](./tasks/active/M7-GATE-OPEN-001.md). Task dependencies, specialist reviews and release acceptance remain required; M6 is not closed.
+
 > Latest PO scope decision — 2026-10-03: current MVP changes to [1954 / Trước cơn bão](./content/MVP-1954-BRIEF.md) by explicit user instruction. This is an approved topic exception to the prior anti-US-only pilot scope; historical/media/publication gates remain separate. The prior 1968 selection below is historical.
 
 Đây là điểm vào chung cho product owner, designer, frontend, backend, content, QA và AI. Sử Chill tập trung vào giai đoạn kháng chiến chống Mỹ ở Việt Nam; curriculum có nhiều chapter/lesson, còn MVP đầu tiên dùng một chapter mẫu gồm nhiều lesson.
@@ -55,4 +57,4 @@ docs/
 - `APPROVED`: đã duyệt, được dùng làm đầu vào cho phase sau.
 - `SUPERSEDED`: đã được tài liệu mới thay thế.
 
-Phase 0–9 đã được duyệt. `SPEC-FIRST FREEZE` đã kết thúc; M0–M5 đã đóng và Milestone 6 được Product Owner mở ngày 2026-10-02. M7 vẫn cần Product Owner duyệt gate milestone trước và ghi trên task board. Mỗi task vẫn phải đạt dependency, có owner/reviewer, task card và file claim trước khi triển khai.
+Phase 0–9 đã được duyệt. `SPEC-FIRST FREEZE` đã kết thúc; M0–M5 đã đóng và Milestone 6 được Product Owner mở ngày 2026-10-02. M7 đã được Product Owner mở song song M6 ngày 2026-10-03 theo ngoại lệ lịch trình trên task board; dependency và release gate từng task vẫn bắt buộc. Mỗi task vẫn phải đạt dependency, có owner/reviewer, task card và file claim trước khi triển khai.
