@@ -6,7 +6,7 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOC
 
 ## Milestone 3 — Home visual follow-up
 
-- [M3-UX-02](./M3-UX-02.md) — REVIEW; restore Home visual layout while keeping PR #72 service journey.
+- [M3-UX-02](../done/M3-UX-02.md) — DONE; Dương consumer, Hưng UI/tokens và Vinh checkpoint/focus QA accepted ngày 2026-10-02.
 
 ## Content track
 
