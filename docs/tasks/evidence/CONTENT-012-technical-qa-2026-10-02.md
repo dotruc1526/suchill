@@ -41,7 +41,7 @@ Each probe cloned the pristine quiz in the temporary snapshot, made only the sta
 
 Reproduction: export `7d94d94349de43dae1e0184753bd907cbf8b7ec6` with `git archive`, run the validator, apply each mutation separately to the exported QUIZ-MT68.json, expect exit 1, then restore the original file before the next case. Nonempty wording and draft/hash checks above were additional assertions; they are not claimed as existing validator coverage.
 
-## Handoff and limits
+## Initial handoff and limits (before PR99 merge)
 
 - Vinh technical authoring QA is complete. Hưng reviews this evidence; Trúc retains content authority. Parent CONTENT-012 remains REVIEW pending remaining handoff/media/production acceptance.
 - PR99 must integrate its hash-bound verdict/status before this result describes main. Main still has the pre-verdict status; this report does not silently replace that artifact or another executor's open PR.
@@ -49,3 +49,11 @@ Reproduction: export `7d94d94349de43dae1e0184753bd907cbf8b7ec6` with `git archiv
 - No runtime mapper/seed/grading/UI behavior, real audio/media rights or production publication was tested/authorized. Authored JSON is not automatically a runtime QuestionSet DTO.
 - Runtime suite not rerun: this change only adds documentation; PR99 Quality 2/2 SUCCESS at the checked head is recorded as CI evidence, not a substitute for content review.
 - Source/env/migrations/dependencies: unchanged. M3 OPEN; M4 LOCKED; CONTENT-005 remains blocked by actual video/media dependencies.
+
+## Current accepted integration — 2026-10-02
+
+- PR99 merged `ddd73d4`; PR100 merged `9b96968`. Current main quiz bytes match the tested snapshot `7d94d94` and LF hash `44b9eed6fc1c94cbf8b4b662eaeb2580ad55b08994286bba2b86cf1891103912`.
+- Hưng technical QA text ACCEPTED PR103 `c7a84d6` (user-supplied review screenshot); Trúc authoring/historical handoff confirmed at `e3987fb`. Both recorded scopes and original historical verdict are preserved; no formal GitHub approval is inferred.
+- [CONTENT-012-QA-01](../done/CONTENT-012-QA-01.md) technical scope DONE; parent CONTENT-012 still REVIEW for media/production. Initial pending notes above describe the pre-integration checkpoint.
+- Re-ran the five malformed-input probes on pristine PR99 snapshot: 5/5 rejected; restored hash/validator PASS. Integrated main validator PASS; no authored artifact or runtime change in PR103.
+- M3-GATE-01 DONE means preparation only. M3 OPEN / M4 LOCKED; PO gate unsigned, media/seed/production approval remains separate.

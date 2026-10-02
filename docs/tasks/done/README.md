@@ -46,7 +46,11 @@
 
 - [M3-06](./M3-06.md) — DONE; PR94 merged 20e3263; Hưng/Vinh runtime accepted; Quality 2/2 PASS.
 
+- [CONTENT-017](./CONTENT-017.md) — DONE; PR #54 merged `0075079`, Trúc APPROVED historical/media, PO APPROVED nghiệm thu; validator PASS trên main.
+
 - [M3-07](./M3-07.md) — DONE; Hưng/Dương text ACCEPTED1541cb9; PR98 merged f0a2bdf, Quality2/2 PASS.
 - [M3-07-A11Y-01](./M3-07-A11Y-01.md) — DONE; shared-state announcements/reduced motion accepted in the same review; regression assertions at375/430px PASS.
 
 - [M3-GATE-01](./M3-GATE-01.md) — DONE evidence preparation; PR101 accepted/merged 71d9cd7. Product Owner milestone decision remains PENDING.
+
+- [CONTENT-012-QA-01](./CONTENT-012-QA-01.md) — DONE technical authoring QA; Hưng ACCEPTED c7a84d6, Trúc handoff e3987fb, PR99 merged ddd73d4; media/production remains separate.

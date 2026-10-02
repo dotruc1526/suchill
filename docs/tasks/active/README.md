@@ -16,12 +16,13 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOC
 ## Content track
 
 - [CONTENT-003](./CONTENT-003.md) — `REVIEW`; hoàn tất phần historical/media review còn lại và technical QA cho hồ sơ pilot.
-- [CONTENT-004](./CONTENT-004.md) — `REVIEW`; historical review đạt, chờ technical QA/media/handoff sign-off.
-- [CONTENT-010](./CONTENT-010.md) — `REVIEW`; historical review đạt, chờ technical QA/media/handoff sign-off.
-- [CONTENT-011](./CONTENT-011.md) — `REVIEW`; historical review đạt, chờ technical QA/media/handoff sign-off.
+- [CONTENT-004](./CONTENT-004.md) — `REVIEW`; Trúc media/handoff review recorded 2026-10-02; Hưng recheck ACCEPTED; PO production handoff pending; rights/assets pending.
+- [CONTENT-010](./CONTENT-010.md) — `REVIEW`; Trúc media/handoff review recorded 2026-10-02; Hưng recheck ACCEPTED; PO production handoff pending; rights/assets pending.
+- [CONTENT-011](./CONTENT-011.md) — `REVIEW`; Trúc media/handoff review recorded 2026-10-02; Hưng recheck ACCEPTED; PO production handoff pending; rights/assets pending.
 - [CONTENT-006](./CONTENT-006.md) — `IN PROGRESS`; video cũ chỉ `APPROVED_FOR_INTERNAL_REFERENCE_ONLY`, không phải media canonical.
-- [CONTENT-012](./CONTENT-012.md) — `REVIEW`; PR99 has Trúc quiz verdict; Vinh snapshot technical QA complete; integration/media/handoff still pending.
-- [CONTENT-014](./CONTENT-014.md) — `REVIEW`; Hưng independent sync recheck ACCEPTED, PR102 merged b716b41; Vinh PR100 OPEN; quiz snapshot QA complete; final media/production/handoff pending.
+- [CONTENT-012](./CONTENT-012.md) — `REVIEW`; Trúc APPROVED historical/learning cho quiz hash `4013b399…667eb`; technical QA/handoff accepted by Hưng/Trúc; PR99 merged; final media/production pending; no seed.
+- [CONTENT-014](./CONTENT-014.md) — `REVIEW`; Hưng recheck ACCEPTED (main) + Vinh recheck ACCEPTED (PR #100 merged 9b96968, Trúc reviewed); verdict quiz + sign-off Trúc merged via PR99; quiz technical QA/handoff accepted; final rights/audio/PO production acceptance pending.
+
 
 ## Experimental track
 
@@ -38,4 +39,4 @@ Các file `active.md`, `CONTENT-003-004-REVIEW.md`, `PR21-HANDOFF.md`, `BEQA-LOC
 
 
 - [M3-GATE-01](../done/M3-GATE-01.md) — DONE preparation; Hưng/Dương accepted PR101, merged 71d9cd7; separate PO gate decision pending.
-- [CONTENT-012-QA-01](./CONTENT-012-QA-01.md) — REVIEW; Vinh technical authoring QA on PR99 7d94d94 complete, 5 malformed-input probes rejected; Hưng/Trúc review handoff.
+- [CONTENT-012-QA-01](../done/CONTENT-012-QA-01.md) — DONE technical authoring scope; Hưng QA ACCEPTED, Trúc handoff confirmed, PR99 merged; parent media/production remains REVIEW.
