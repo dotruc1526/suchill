@@ -1,7 +1,7 @@
 # CONTENT-012 — Ngân hàng câu hỏi
 
 > Status: REVIEW
-> Last updated: 2026-09-27
+> Last updated: 2026-10-02
 
 ## Assignment
 
@@ -40,3 +40,14 @@
 - Technical structure/reference checks **ACCEPTED** trên snapshot `30d0a4f` trong [CONTENT-014 QA report](../evidence/CONTENT-014-technical-qa.md); giới hạn/checked inputs có SHA-256 trong report.
 - Overall handoff vẫn **CHANGES REQUESTED** P2: Trúc cần đồng bộ review record với artifact pending flags và ghi đúng revision được historical reviewer duyệt. Quiz approval không được suy từ approval của các lesson.
 - Task giữ REVIEW; technical approval không thay historical/media/PO production acceptance. Combined technical+handoff/media checklist chưa đánh dấu hoàn tất.
+
+## Objective pre-review — Codex hỗ trợ Thọ, 2026-10-02
+
+Chuẩn bị cho verdict của Trúc/historical reviewer; đây là rà soát learning-design, **không phải historical/learning verdict** và không tick acceptance nào.
+
+- Quiz bytes không đổi từ `a9fd169` (2026-09-27): SHA-256 LF-normalized `4013b399…667eb` khớp card; working tree sạch; `validate-mt68-authoring.mjs` PASS (5 câu, source/claim IDs và local links hợp lệ).
+- Mapping câu hỏi → CLO trong `CURRICULUM-MAP.md`: q-01→CLO-1 (địa bàn đô thị, explanation tránh khẳng định đồng loạt); q-02→CLO-2 (list-membership mục tiêu); q-03→CLO-3 (hầm 287/70 vai trò hậu cần, explanation loại trừ vai trò chỉ huy); q-04/q-05→CLO-4 (phân biệt bước ngoại giao, tránh đơn nhân).
+- Source IDs tồn tại trong registry `HISTORICAL-SOURCES.md`: q-01/q-05→SRC-MT68-01, q-02→SRC-MT68-02, q-03→SRC-MT68-05, q-04→SRC-MT68-06 (+SRC-MT68-01 cho q-05).
+- Cross-check q-02: đáp án D "Đài Phát thanh Sài Gòn" khớp node 3/5 `MAP-MT68.json` (`mt68-node-radio`, CLM-MT68-01, SRC-MT68-02); câu hỏi chỉ hỏi list-membership, đúng giới hạn "danh sách không chứng minh chiếm giữ" của CLM-MT68-01.
+- Mỗi câu có đúng một đáp án, explanation gắn misconception cụ thể; không phát hiện đáp án thiếu căn cứ ở mức objective.
+- Next không đổi: Trúc/historical reviewer ghi verdict riêng đúng hash quiz; Vinh technical QA sau đó. Không seed/integrate.
