@@ -492,6 +492,21 @@ M7 OPEN alongside M6 by latest APPROVED PO decision. Existing preview/readiness 
 
 M7-03 waits for reviewed1954curriculum/media, not old1968inputs; M7-04 sign-off then M7-05 canonical import. M7-06 needs fullM6 + import; M7-07..09 follow regression → canonical preview → internal journey → release. No downstream task claimed through unresolved dependencies. Existing internal preview stays available with episode2–7locked.
 
+## PR109 review and M7 preparation — 2026-10-03
+
+| ID | Owner / Executor | Reviewer | Status | Started | Files / Next action |
+|---|---|---|---|---|---|
+| PR109-REVIEW-001 | Codex integration / Codex | Dương handoff; specialists separate | REVIEW | 2026-10-03 | [Card](../tasks/active/PR109-REVIEW-001.md); bounded SOFTWARE APPROVE51a7eed; Quality381/reference22/latest context preview4/build/E2E11 PASS; [evidence](../tasks/evidence/PR109-review-2026-10-03.md). |
+| M7-1954-SCOPE-002 | Dương / Codex | Independent learning preparation APPROVE; Dương content handoff | REVIEW | 2026-10-03 | [Card](../tasks/active/M7-1954-SCOPE-002.md); [scope brief](../content/CHAPTER-1954-SCOPE.md) complete chapter scope from Phase1 and approved outline; preserve bounded M7-01 DONE. |
+
+M7-02 is REVIEW per the accepted upstream pilot-source checkpoint; the chapter extension below does not clear its final historical gate. M7-03..09 preserve roadmap dependencies; temporary preview is not canonical content or release acceptance.
+
+## Chapter source preparation — 2026-10-03
+
+| Task | Owner / Executor | Reviewer | Status | Started | Files / next action |
+|---|---|---|---|---|---|
+| M7-02-CHAPTER-001 | Codex integration / disjoint research lanes | Independent preparation APPROVE; historical final gate separate | DONE | 2026-10-03 | [Card](../tasks/done/M7-02-CHAPTER-001.md); authoritative source/claim register for7episodes; keep parent M7-02 REVIEW. |
+
 ## Current preview clarification — 2026-10-03
 
 | Task | Owner / Executor | Reviewer | Status | Dependencies / next action |
