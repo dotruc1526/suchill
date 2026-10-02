@@ -41,6 +41,12 @@
 - Overall handoff vẫn **CHANGES REQUESTED** P2: Trúc cần đồng bộ review record với artifact pending flags và ghi đúng revision được historical reviewer duyệt. Quiz approval không được suy từ approval của các lesson.
 - Task giữ REVIEW; technical approval không thay historical/media/PO production acceptance. Combined technical+handoff/media checklist chưa đánh dấu hoàn tất.
 
+## Historical recheck — Vinh, 2026-10-02 (base 2abd202, before PR99 verdict)
+
+- Đã kiểm tra trên `origin/main` `2abd202`: chưa có verdict historical/learning riêng cho quiz tại SHA-256 `4013b39954779b0b43640372b668c329662ca30386aff52c2c4cd8a664e667eb` (card, board, historical report 2026-09-28 và main tại base đều xác nhận còn pending; verdict của Trúc đã ghi trong PR #99 mở).
+- `QUIZ-MT68.json` byte-identical với snapshot đã QA, giữ `NEEDS_HISTORICAL_REVIEW` đúng; validator PASS.
+- Vinh technical QA quiz vẫn chờ Trúc/historical reviewer ghi verdict riêng đúng hash. Không seed/integrate. Task giữ REVIEW.
+
 ## Objective pre-review — Codex hỗ trợ Thọ, 2026-10-02
 
 Chuẩn bị cho verdict của Trúc/historical reviewer; đây là rà soát learning-design, **không phải historical/learning verdict** và không tick acceptance nào.

@@ -16,12 +16,12 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOC
 ## Content track
 
 - [CONTENT-003](./CONTENT-003.md) — `REVIEW`; hoàn tất phần historical/media review còn lại và technical QA cho hồ sơ pilot.
-- [CONTENT-004](./CONTENT-004.md) — `REVIEW`; Trúc media/handoff review recorded 2026-10-02; chờ Hưng recheck + PO; rights/assets pending.
-- [CONTENT-010](./CONTENT-010.md) — `REVIEW`; Trúc media/handoff review recorded 2026-10-02; chờ Hưng recheck + PO; rights/assets pending.
-- [CONTENT-011](./CONTENT-011.md) — `REVIEW`; Trúc media/handoff review recorded 2026-10-02; chờ Hưng recheck + PO; rights/assets pending.
+- [CONTENT-004](./CONTENT-004.md) — `REVIEW`; Trúc media/handoff review recorded 2026-10-02; Hưng recheck ACCEPTED; PO production handoff pending; rights/assets pending.
+- [CONTENT-010](./CONTENT-010.md) — `REVIEW`; Trúc media/handoff review recorded 2026-10-02; Hưng recheck ACCEPTED; PO production handoff pending; rights/assets pending.
+- [CONTENT-011](./CONTENT-011.md) — `REVIEW`; Trúc media/handoff review recorded 2026-10-02; Hưng recheck ACCEPTED; PO production handoff pending; rights/assets pending.
 - [CONTENT-006](./CONTENT-006.md) — `IN PROGRESS`; video cũ chỉ `APPROVED_FOR_INTERNAL_REFERENCE_ONLY`, không phải media canonical.
 - [CONTENT-012](./CONTENT-012.md) — `REVIEW`; Trúc APPROVED historical/learning cho quiz hash `4013b399…667eb`; Vinh snapshot QA/Hưng acceptance/Trúc handoff recorded in PR103, integration next; no seed.
-- [CONTENT-014](./CONTENT-014.md) — `REVIEW`; Hưng recheck ACCEPTED (main) + Vinh recheck ACCEPTED (PR #100, Trúc reviewed); verdict quiz + sign-off Trúc trong PR này; PR103 QA/handoff integration next; final rights/audio/PO production acceptance pending.
+- [CONTENT-014](./CONTENT-014.md) — `REVIEW`; Hưng recheck ACCEPTED (main) + Vinh recheck ACCEPTED (PR #100 merged 9b96968, Trúc reviewed); verdict quiz + sign-off Trúc trong PR này; PR103 QA/handoff integration next; final rights/audio/PO production acceptance pending.
 
 ## Experimental track
 

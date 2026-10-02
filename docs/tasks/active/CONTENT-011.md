@@ -37,6 +37,12 @@
 - Overall handoff vẫn **CHANGES REQUESTED** P2: Trúc cần đồng bộ review record với artifact pending flags và ghi đúng revision được historical reviewer duyệt. Quiz approval không được suy từ approval của các lesson.
 - Task giữ REVIEW; technical approval không thay historical/media/PO production acceptance. Combined technical+handoff/media checklist chưa đánh dấu hoàn tất.
 
+## Technical recheck — Vinh, 2026-10-02
+
+- Review-state P2 **RESOLVED** cho phạm vi task này: lesson artifacts thuộc diện historical verdict đã đồng bộ đúng revision (xem [CONTENT-014 recheck](./CONTENT-014.md) và [evidence](../evidence/CONTENT-014-recheck-2026-10-02.md)).
+- Technical QA của Vinh (structure + review-state sync) **ACCEPTED**; không thay media/handoff/production acceptance.
+- Task giữ REVIEW: chờ Trúc media/handoff sign-off; CONTENT-007 giữ BLOCKED.
+
 ## Media/handoff review — Trúc (Member 2), 2026-10-02
 
 Phạm vi: media/handoff reviewer portion cho Bài 3/4 (standard lessons). Historical/learning đã APPROVED; review này chỉ bao gồm media/handoff.
