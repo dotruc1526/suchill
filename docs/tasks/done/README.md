@@ -43,3 +43,5 @@
 - [M3-STATUS-01](./M3-STATUS-01.md) — PR90 merged e7e8aac; Hưng delta APPROVE, Vinh docs/service APPROVE; Quality 2/2 PASS.
 
 - [QA-001](./QA-001.md) — DONE; Hưng/Dương ACCEPTED, PR85 merged ed234e9; validation 17/17, final quality 100/22/7 and CI 2/2 PASS.
+
+- [M3-06](./M3-06.md) — DONE; PR94 merged 20e3263; Hưng/Vinh runtime accepted; Quality 2/2 PASS.
