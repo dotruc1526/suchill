@@ -20,3 +20,12 @@
 - Next action: Hưng/Vinh review docs sync; các acceptance runtime còn thiếu giữ nguyên.
 
 - Consumer review checkpoint: Dương APPROVED PR88 exact head 68580ed; independent quality 95 unit/22 component/7 E2E, scan 338/0. Evidence in snapshot; Hưng still re-reviews new remediation. No adapter runtime changes.
+
+## Controller preparation claim — 2026-10-02
+
+- User authorized Dương preparation; dependency docs available, PR88 still OPEN at 68580ed.
+- Files claimed for this checkpoint: this card, docs/tasks/evidence/M3-06-controller-plan.md, docs/tasks/evidence/M3-06-preparation.md, docs/tasks/blocked/M3-06.md, M3-06/M3-STATUS-01 board rows.
+- Acceptance: state/controller design, operation lifetime, account isolation, error mapping and executable test scenarios with expected results; label all tests planned.
+- Next action: write and verify docs-only plan, return REVIEW on PR90; M3-06 runtime stays BLOCKED.
+
+- Checkpoint completed: controller/state/operation/error design và 19 test scenarios đã ghi; tất cả tests mới là planned, không runtime acceptance. Local links/diff check PASS; no source/env/migration changes. Next Hưng/Vinh review docs trên PR90, Dương runtime sau PR88 handoff.

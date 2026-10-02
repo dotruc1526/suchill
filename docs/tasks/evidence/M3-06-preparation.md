@@ -1,9 +1,9 @@
 # M3-06 — Completion/profile preparation
 
-> Status: APPROVED preparation — agreement D1–D7 ghi trong card ngày 2026-10-02; code contract chưa triển khai
+> Status: APPROVED preparation — agreement D1–D7 ghi trong card ngày 2026-10-02; adapter contract đã triển khai trên PR88, chưa merge
 > Date: 2026-10-01
 
-## Inputs and gaps
+## Inputs and gaps tại thời điểm preparation 2026-10-01
 
 - [Phase 7](../../specs/phases/07-progress-reward-analytics-spec.md) là nguồn completion/reward/streak policy; [roadmap](../../specs/phases/09-implementation-roadmap.md) cho phép M3-06 trên mock sau M3-01..05.
 - `ProgressService` hiện có checkpoint/resume; không có trusted completion operation. `UserService` có current profile nhưng chưa có XP/streak/achievement read model.
@@ -61,3 +61,8 @@ Loading/error announcements dùng status/alert phù hợp; heading/focus sau nav
 - Vinh: receipt/account-summary schema, evidence authority, reward eligibility identity, persistence limits và error semantics.
 - Hưng: service placement và feature/composition boundaries.
 - Dương: completion → profile navigation và copy pending/confirmed. Implementation acceptance chỉ đánh dấu sau tests, không từ preparation này.
+
+## Consumer controller preparation — 2026-10-02
+
+- [Thiết kế controller, operation lifetime, error mapping và test cases](./M3-06-controller-plan.md) bám contract PR88 68580ed hiện OPEN; nguồn gap phía trên là lịch sử ngày 2026-10-01, không mô tả adapter branch hiện tại.
+- Plan đã ghi thành tài liệu; implementation/tests chưa chạy, không runtime claim hoặc acceptance UI.
