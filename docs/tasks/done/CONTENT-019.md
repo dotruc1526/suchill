@@ -1,6 +1,6 @@
 # CONTENT-019 — Đóng gói Ngân hàng câu hỏi trắc nghiệm Bài 4 Chapter 1972 (QUIZ-1972.json)
 
-> Status: REVIEW\
+> Status: DONE\
 > Last updated: 2026-10-02
 
 ## Assignment
