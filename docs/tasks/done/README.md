@@ -39,3 +39,5 @@
 - [M0-06](./M0-06.md) — env/secret guard và scan đạt; Hưng và Product owner xác nhận qua lời Vinh ngày 2026-09-27; rotation thật trước M4.
 
 - [M3-COMPLETION-01](./M3-COMPLETION-01.md) — DONE; PR88 adapter accepted/merged a339af6; Dương UI handoff recorded.
+
+- [M3-STATUS-01](./M3-STATUS-01.md) — PR90 merged e7e8aac; Hưng delta APPROVE, Vinh docs/service APPROVE; Quality 2/2 PASS.
