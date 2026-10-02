@@ -531,3 +531,59 @@ test('player mock exposes mobile video fallback and Visual Novel error retry by 
     await server.close()
   }
 })
+
+test('completion/profile loop retains confirmed service totals, retry intent and mobile focus', async () => {
+  const browser = findBrowser()
+  assert.ok(browser)
+  const server = await preview({ preview: { host: '127.0.0.1', port: 0, strictPort: false } })
+  try {
+    const address = server.httpServer.address()
+    await withChromePage(browser, `http://127.0.0.1:${address.port}/`, async cdp => {
+      const evaluate = async expression => (await cdp('Runtime.evaluate', { expression, returnByValue: true })).result.value
+      const waitFor = async (expression, label) => { for (let i = 0; i < 150; i++) { if (await evaluate(expression)) return; await delay(50) } assert.fail(label) }
+      const click = selector => evaluate(`document.querySelector(${JSON.stringify(selector)}).click()`)
+      for (const [width, height] of [[375, 812], [430, 932]]) {
+        await cdp('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: false })
+        await cdp('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] })
+        await cdp('Page.reload', { ignoreCache: true })
+        await waitFor("Boolean(document.querySelector('[data-testid=journey-continue-lesson]'))", 'home mounted')
+        await click('[data-testid=journey-continue-lesson]')
+        await waitFor("document.querySelector('[data-testid=confirm-lesson]')?.disabled === false", 'restored completion')
+        await click('[data-testid=confirm-lesson]')
+        await waitFor("document.querySelector('[data-testid=completion-panel]')?.textContent.includes('Chưa đủ điều kiện')", 'service missing-evidence verdict')
+        await click('[data-testid^=acknowledge-]')
+        await waitFor("document.querySelector('[data-testid^=acknowledge-]')?.textContent.includes('ĐÃ XÁC NHẬN')", 'acknowledgement saved')
+        await evaluate("Object.defineProperty(navigator, 'onLine', { configurable: true, value: false })")
+        await click('[data-testid=confirm-lesson]')
+        await waitFor("document.querySelector('[data-testid=completion-panel]')?.textContent.includes('Chưa xác nhận hoàn thành')", 'offline pending intent')
+        assert.equal(await evaluate("Boolean(document.querySelector('[data-testid=completion-panel] [data-testid=confirmed-xp]'))"), false)
+        await evaluate("Object.defineProperty(navigator, 'onLine', { configurable: true, value: true })")
+        await evaluate("document.querySelector('[data-testid=confirm-lesson]').focus()")
+        await cdp('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Enter', code: 'Enter', text: '\r', windowsVirtualKeyCode: 13 })
+        await cdp('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13 })
+        await waitFor("document.querySelector('[data-testid=completion-panel] [data-testid=confirmed-xp]')?.textContent === '10'", 'confirmed service XP')
+        await evaluate("document.querySelector('[data-testid=completion-panel]').scrollIntoView({ block: 'end' })")
+        assert.equal(await evaluate('document.documentElement.scrollWidth <= innerWidth'), true)
+        if (process.env.M3_SCREENSHOT_DIR) {
+          const image = await cdp('Page.captureScreenshot', { format: 'png' })
+          await writeFile(join(process.env.M3_SCREENSHOT_DIR, `completion-${width}.png`), Buffer.from(image.data, 'base64'))
+        }
+        await evaluate("[...document.querySelectorAll('nav button')].find(b=>b.textContent.includes('HỒ SƠ')).click()")
+        await waitFor("document.activeElement?.textContent === 'CUỐN SỔ HÀNH TRÌNH'", 'profile heading focus')
+        assert.equal(await evaluate("[...document.querySelectorAll('[data-testid=confirmed-xp]')].at(-1).textContent"), '10')
+        if (process.env.M3_SCREENSHOT_DIR) {
+          const image = await cdp('Page.captureScreenshot', { format: 'png' })
+          await writeFile(join(process.env.M3_SCREENSHOT_DIR, `profile-${width}.png`), Buffer.from(image.data, 'base64'))
+        }
+        await evaluate("[...document.querySelectorAll('nav button')].find(b=>b.textContent === 'HỌC').click()")
+        await waitFor("document.activeElement?.id === 'lesson-entry-heading'", 'lesson return focus')
+        assert.equal(await evaluate("document.querySelector('[data-testid=completion-panel] [data-testid=confirmed-xp]').textContent"), '10')
+        await click('[data-testid=journey-lesson-back]')
+        await waitFor("document.activeElement?.dataset.testid?.startsWith('journey-open-lesson-')", 'chapter opener focus')
+        await click('[data-testid^=journey-open-lesson-]')
+        await waitFor("document.querySelector('[data-testid=completion-panel]')?.textContent.includes('Bài đã hoàn thành trước đó')", 'receipt restoration')
+        assert.equal(await evaluate("document.querySelector('[data-testid=completion-panel] [data-testid=confirmed-xp]').textContent"), '10')
+      }
+    })
+  } finally { await new Promise((resolve, reject) => server.httpServer.close(error => error ? reject(error) : resolve())) }
+})

@@ -1,4 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useSyncExternalStore } from 'react'
+import { CompletionSession, useCompletionSession } from './features/learning/completion/CompletionSession'
+import { m3JourneyServices, m3Session } from './services/next/m3JourneyFixture'
+import { theme } from './theme/tokens'
 import { TopBar } from './components/layout/TopBar'
 import { BottomNav } from './components/layout/BottomNav'
 import { LearningJourney } from './features/learning/journey/LearningJourney'
@@ -7,26 +10,25 @@ import { AIScreen } from './features/ai-assistant/AIScreen'
 import { ProfileScreen } from './features/profile/ProfileScreen'
 import { AppViewRouter } from './app/AppViewRouter'
 import { useAppNavigation } from './app/useAppNavigation'
-import { userStats } from './data'
 
-export default function App() {
+function AppContent() {
   const navigation = useAppNavigation()
-  const [xp, setXP] = useState(userStats.xp)
+  const { summary } = useCompletionSession()
+  const account = useSyncExternalStore(summary.subscribe, summary.getSnapshot, summary.getSnapshot)
+  useEffect(() => { void summary.refresh() }, [summary])
 
   const handleLessonDone = (cid: number, lidx: number) => {
-    setXP(x => x + 10)
     navigation.showLessonDone(cid, lidx)
   }
 
   const handleQuizDone = (score: number, total: number, cid: number) => {
-    setXP(x => x + score * 10)
     navigation.showQuizResult(cid, score, total)
   }
 
   return (
     <div
       className="flex items-center justify-center min-h-screen"
-      style={{ background: '#C8A882' }}
+      style={{ background: theme.colors.pageBg }}
     >
       <div
         className="relative flex flex-col overflow-hidden"
@@ -35,7 +37,7 @@ export default function App() {
           maxWidth: 420,
           height: '100dvh',
           maxHeight: 900,
-          background: '#F5E6D0',
+          background: theme.colors.appBg,
         }}
       >
         {/* Paper texture overlay */}
@@ -49,17 +51,15 @@ export default function App() {
         {/* ── Main content (Tabs) ── */}
         <div className="flex flex-col flex-1 overflow-hidden z-10">
           {!navigation.isOverlay && (
-            <TopBar xp={xp} streak={userStats.streak} achievements={userStats.achievements} />
+            account.value ? <TopBar xp={account.value.totalXp} streak={account.value.currentStreak} achievements={account.value.achievements.length} /> : <div role="status" className="px-4 py-3">Số liệu tài khoản chưa được xác nhận.</div>
           )}
 
           {!navigation.isOverlay && (
             <div className="flex-1 overflow-y-auto">
-              {navigation.tab === 'home' && (
-                <LearningJourney />
-              )}
+              <div hidden={navigation.tab !== 'home'}><LearningJourney active={navigation.tab === 'home'} /></div>
               {navigation.tab === 'practice' && <PracticeScreen />}
               {navigation.tab === 'ai' && <AIScreen />}
-              {navigation.tab === 'profile' && <ProfileScreen xp={xp} />}
+              {navigation.tab === 'profile' && <ProfileScreen />}
             </div>
           )}
 
@@ -81,4 +81,8 @@ export default function App() {
       </div>
     </div>
   )
+}
+
+export default function App() {
+  return <CompletionSession services={m3JourneyServices} userId={m3Session.userId} epoch="m3.mock.session.v1"><AppContent /></CompletionSession>
 }
