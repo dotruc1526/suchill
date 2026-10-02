@@ -1,6 +1,6 @@
 # Sử Chill — Shared Task Board
 
-> Last updated: 2026-10-01\
+> Last updated: 2026-10-02\
 > Owner: Project team\
 > Purpose: Nguồn context chung cho product owner, thành viên nhóm và AI agents
 
@@ -135,7 +135,7 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 | FE-008 | Profile | Hiển thị account XP/streak/achievement | Dương (Member 4) | BACKLOG | FE-004, BE-003 | `src/features/profile/` | Dữ liệu lấy qua service; sync đúng account |
 | FE-009 | Feature interaction adoption & polish | Áp dụng foundation M1-05 vào các feature screens: motion, states, radius, sound và mobile performance | Hưng (Member 3); Trúc/Dương phối hợp | BACKLOG | M1-05, FE-005, FE-006, FE-007, FE-008, DOC-005, DOC-009 | `src/features/`, `src/components/ui/` | Chỉ claim sau khi các feature screen tồn tại; không làm lại sound/reduced-motion foundation từ PR #33 |
 | FE-010 | Engineering quality | Chuẩn hóa reusable components/functions và performance budget | Hưng (Member 3); Vinh phối hợp | BACKLOG | FE-001, FE-002, FE-003, DOC-006 | `src/components/`, `src/features/`, `src/services/`, `src/types/` | Không gọi DB trong UI; logic dùng chung có test; lazy-load/media optimization; không abstraction thừa |
-| FE-011 | M3 personalization | Lời chào Home theo tên người dùng | Dương (Member 4); Vinh contract/QA | BACKLOG | M2-01, M2-03, M2-04 | `src/features/home/`, user service/mock contract | Hiển thị `XIN CHÀO, {displayName}` từ domain/service; fallback `XIN CHÀO` khi chưa đăng nhập hoặc thiếu tên; `HomeScreen` không đọc auth/database trực tiếp; kiểm tra tên tiếng Việt dài ở 375px/430px. Chỉ tạo card/claim sau khi M2 dependencies đạt và M3 được mở. |
+| FE-011 | M3 personalization | Lời chào Home theo tên người dùng | Dương (Member 4); Codex executor; Vinh/Hưng review | REVIEW | M2-01, M2-03, M2-04 DONE; M3 OPEN | [`docs/tasks/active/FE-011.md`](../tasks/active/FE-011.md) | PR #81 remediation 2026-10-02: tích hợp dashboard main/PR #82, giữ card và focus; 76 unit/22 component/4 browser E2E PASS ngoài sandbox. Hưng approved UI integration head `17dd847` ngày 2026-10-02, không blocker; Vinh cũng APPROVE qua review Dương cung cấp; GitHub vẫn CHANGES_REQUESTED cũ, chờ cập nhật APPROVED trên GitHub; chưa merge/DONE. |
 | M3-01 | M3 learning journey | Home/chapter/lesson journey trên mock services | Dương (Member 4); Codex executor | DONE | M1 DONE, M2 DONE, M3 OPEN | [`docs/tasks/done/M3-01.md`](../tasks/done/M3-01.md) | PR #72 merged; Vinh approved và Hưng xác nhận không còn finding tại head `71cbad2`; 2/2 Quality PASS. |
 | M3-02 | M3 lesson renderer | Standard/mixed lesson renderer trên mock services | Dương (Member 4); Codex executor | DONE | M2 DONE, M3 OPEN | [`docs/tasks/done/M3-02.md`](../tasks/done/M3-02.md) | PR #73 merged; Vinh approved và Hưng xác nhận không còn finding tại head `6117578`; 2/2 Quality PASS. |
 | M3-INTEGRATION-01 | M3 learning integration | Nối journey/lesson renderer với VN, video và quiz players | Dương (Member 4); Codex executor | DONE | M3-01..05 DONE; M3-UX-01 DONE; M3 OPEN | [`docs/tasks/done/M3-INTEGRATION-01.md`](../tasks/done/M3-INTEGRATION-01.md) | PR #79 merged `a55b924`; Hưng/Vinh approved; 2/2 Quality PASS, gồm browser regression đóng/hoàn tất VN và focus restoration. M3 vẫn OPEN. |
@@ -222,6 +222,8 @@ Mỗi lần handoff quan trọng thêm một dòng mới nhất ở đầu bản
 
 | Date | Task | Author | Update | Evidence / next owner |
 |---|---|---|---|---|
+| 2026-10-02 | FE-011 | Dương / Codex | Ghi nhận Vinh APPROVE service/QA trên `17dd847` qua review Dương cung cấp; Quality 2/2 success; GitHub vẫn giữ CHANGES_REQUESTED cũ của Hưng, merge bị chặn | [FE-011](../tasks/active/FE-011.md); Hưng/Vinh cập nhật review GitHub, giữ REVIEW |
+| 2026-10-02 | FE-011 | Hưng (Member 3 — reviewer) | Re-review head tích hợp `17dd847`: APPROVE UI integration, không blocker; dashboard/focus/tokens/mobile layout đạt; typecheck/build/76 unit/22 component/4 E2E PASS, scan 324/0 | [FE-011](../tasks/active/FE-011.md) mục Reviewer acceptance; next Vinh service/QA review, chưa merge/DONE |
 | 2026-10-01 | M3-UX-01 | Trúc / Codex | Push `codex/truc-m3-ui-handoff`, mở PR ready for review; giữ task REVIEW | [PR #77](https://github.com/dotruc1526/suchill/pull/77); LFS upload đạt, merge-tree với main `327bf24` không conflict; Hưng/Vinh/Dương review |
 | 2026-10-01 | M3-UX-01 | Trúc / Codex | Thêm điểm nhấn SỬu theo yêu cầu Trúc: hero Chapter/lời chào và mark cạnh tên app trên 6 màn; reuse asset repo có sẵn; trả REVIEW | Browser 20 nhóm PASS, image loading/alt/byte equality và layout đạt; [evidence](../engineering/m3-ux/EVIDENCE.md); Hưng/Vinh/Dương review |
 | 2026-10-01 | M3-UX-01 | Trúc / Codex | Reopened theo yêu cầu tự kiểm tra/làm đẹp; polish 6 màn, icon SVG/choice A/B, VN gọn, video controls, panel desktop; trả REVIEW | Browser 19 nhóm PASS ở 375/430px và desktop 1280px; 9 cặp contrast ≥4.5:1; [evidence](../engineering/m3-ux/EVIDENCE.md); Hưng/Vinh/Dương review |
