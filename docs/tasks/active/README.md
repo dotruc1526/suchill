@@ -6,7 +6,7 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOC
 
 ## M3 QA
 
-- [QA-002](./QA-002.md) — `REVIEW`; mobile/player matrix và browser regressions đạt trên mock; Hưng review shared Button/evidence, Dương xác nhận player.
+- [QA-002](./QA-002.md) — `REVIEW`; mobile/player matrix và browser regressions đạt trên mock; PR83 merged `cda4a69`, Dương APPROVED `9718317`; chờ Hưng xác nhận harness/accessibility mới trước DONE.
 
 ## Milestone 3 — Home visual follow-up
 
@@ -27,3 +27,6 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOC
 - [BATTLE-001](./BATTLE-001.md) — `IN PROGRESS (external)`; chờ repo/demo/rules/security handoff trước integration review.
 
 Các file `active.md`, `CONTENT-003-004-REVIEW.md`, `PR21-HANDOFF.md`, `BEQA-LOCAL-001-MATRIX.md` và `M1-PR-REVIEW-GUIDE.md` là evidence/handoff, không phải task card độc lập.
+
+- [M3-STATUS-01](./M3-STATUS-01.md) — REVIEW; đồng bộ M3 docs, [snapshot](../evidence/M3-status-2026-10-02.md).
+- M3-COMPLETION-01 — REVIEW trên [PR88](https://github.com/dotruc1526/suchill/pull/88); card implementation còn trên nhánh PR, chưa merge main.
