@@ -1,9 +1,9 @@
 # M3-06 — Completion/profile preparation
 
-> Status: APPROVED preparation — agreement D1–D7 ghi trong card ngày 2026-10-02; code contract chưa triển khai
-> Date: 2026-10-01
+> Status: APPROVED preparation — agreement D1–D7 ghi trong card ngày 2026-10-02; adapter contract đã triển khai trên PR88, chưa merge
+> Date: 2026-10-02; runtime contract `68580ed`; PR88 MERGED, PR92 handoff complete, M3-06 READY.
 
-## Inputs and gaps
+## Inputs and gaps tại thời điểm preparation 2026-10-01
 
 - [Phase 7](../../specs/phases/07-progress-reward-analytics-spec.md) là nguồn completion/reward/streak policy; [roadmap](../../specs/phases/09-implementation-roadmap.md) cho phép M3-06 trên mock sau M3-01..05.
 - `ProgressService` hiện có checkpoint/resume; không có trusted completion operation. `UserService` có current profile nhưng chưa có XP/streak/achievement read model.
@@ -61,3 +61,15 @@ Loading/error announcements dùng status/alert phù hợp; heading/focus sau nav
 - Vinh: receipt/account-summary schema, evidence authority, reward eligibility identity, persistence limits và error semantics.
 - Hưng: service placement và feature/composition boundaries.
 - Dương: completion → profile navigation và copy pending/confirmed. Implementation acceptance chỉ đánh dấu sau tests, không từ preparation này.
+
+## Consumer controller preparation — 2026-10-02
+
+- [Controller/test preparation](./M3-06-controller-plan.md) uses unchanged contract runtime 68580ed; PR88 merged and PR92 handoff complete. Earlier gap notes are historical.
+- Plan đã ghi thành tài liệu; implementation/tests chưa chạy, không runtime claim hoặc acceptance UI.
+
+
+## Current post-PR92 handoff — 2026-10-02
+
+- PR88 merged `a339af6`; PR92 merged main `c29e4a7`, closes [adapter card](../done/M3-COMPLETION-01.md) DONE and confirms Vinh handoff. Runtime unchanged from `68580ed`; reviewed final PR88 head `e6a3940`, CI 2/2 PASS.
+- [M3-06 card](../active/M3-06.md) READY; Dương must record runtime branch/controller/UI/tests file claim before READY → IN PROGRESS. No additional Vinh closure is pending. PR90 docs does not block the UI claim.
+- 18 UI scenarios remain planned; M3-07 BACKLOG until M3-06 acceptance. M3 OPEN/M4 LOCKED.
