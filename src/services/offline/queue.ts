@@ -4,7 +4,8 @@ export type PendingKind = 'save_lesson_checkpoint' | 'save_episode_checkpoint' |
   | 'submit_practice' | 'submit_scored' | 'complete_block' | 'complete_lesson' | 'complete_daily_review' | 'complete_main_lesson'
 export type PendingOperation = { userId: string; kind: PendingKind; input: Record<string, unknown>; error?: string }
 export type QueueStorage = Pick<Storage, 'getItem' | 'setItem'>
-const key = 'suchill.pending.v1'
+export const OFFLINE_QUEUE_LOCK = 'suchill.pending.v1'
+const key = OFFLINE_QUEUE_LOCK
 const kinds: PendingKind[] = ['save_lesson_checkpoint', 'save_episode_checkpoint', 'record_choice', 'save_video_position', 'submit_practice', 'submit_scored', 'complete_block', 'complete_lesson', 'complete_daily_review', 'complete_main_lesson']
 const allowed = new Set(['operationId', 'lessonId', 'blockId', 'currentBlockId', 'completedBlockIds', 'storyVersionId', 'currentSceneId', 'visitedSceneIds', 'sceneId', 'choiceId', 'replay', 'expectedRevision', 'positionSeconds', 'watchedRanges', 'questionSetId', 'attemptId', 'answers', 'method'])
 const identity = (operation: PendingOperation) => `${operation.userId}:${operation.input.operationId}`

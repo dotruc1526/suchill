@@ -2,12 +2,14 @@ import { useEffect, useMemo, useRef, useState, type Ref } from 'react'
 import { Button } from '../../../components/ui'
 import type { LearningServices } from '../../../services/next/contracts'
 import type { LessonBlock } from '../../../types/v2/content'
-import { QuizFlow } from '../../quiz/v2'
-import { VisualNovelPlayerV2 } from '../../visual-novel/v2'
+import { lazyFeature } from '../../../app/LazyFeature'
 import { LessonRenderer, type LessonBlockSlots } from '../lesson'
-import { VideoLessonPlayer } from '../video'
 import { VideoFallbackControl } from '../completion/VideoFallbackControl'
 import { videoPlayerContext, visualNovelPlayerContext } from './lessonPlayerContexts'
+
+const QuizFlow = lazyFeature(() => import('../../quiz/v2/QuizFlow').then(module => ({ default: module.QuizFlow })))
+const VideoLessonPlayer = lazyFeature(() => import('../video/VideoLessonPlayer').then(module => ({ default: module.VideoLessonPlayer })))
+const VisualNovelPlayerV2 = lazyFeature(() => import('../../visual-novel/v2/VisualNovelPlayerV2').then(module => ({ default: module.VisualNovelPlayerV2 })), { onBack: props => props.onClose() })
 
 type VisualNovelBlock = Extract<LessonBlock, { kind: 'visual_novel' }>
 

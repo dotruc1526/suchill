@@ -22,7 +22,7 @@ type FocusTarget =
   | { kind: 'chapter-button'; id: string }
   | { kind: 'lesson-button'; id: string }
 
-export function LearningJourney({ active = true, activityService = m3HomeActivityService }: { active?: boolean; activityService?: HomeActivityService }) {
+export function LearningJourney({ active = true, activityService = m3HomeActivityService, offlineStatusProvided = false, onSafeToUpdateChange }: { active?: boolean; activityService?: HomeActivityService; offlineStatusProvided?: boolean; onSafeToUpdateChange?: (safe: boolean) => void }) {
   const { services } = useCompletionSession()
   const [view, setView] = useState<JourneyView>({ type: 'home' })
   const [state, setState] = useState<LoadState>({ status: 'loading' })
@@ -34,6 +34,12 @@ export function LearningJourney({ active = true, activityService = m3HomeActivit
   const chapterButtonsRef = useRef(new Map<string, HTMLButtonElement>())
   const lessonButtonsRef = useRef(new Map<string, HTMLButtonElement>())
   const pendingFocusRef = useRef<FocusTarget | null>(null)
+  const openingLessonRef = useRef(false)
+  useEffect(() => {
+    if (view.type !== 'home') openingLessonRef.current = false
+    onSafeToUpdateChange?.(!openingLessonRef.current && active && view.type === 'home' && state.status === 'ready')
+    return () => { onSafeToUpdateChange?.(false) }
+  }, [active, view.type, state.status, onSafeToUpdateChange])
 
   const refresh = useCallback(async () => {
     setState({ status: 'loading' })
@@ -75,7 +81,7 @@ export function LearningJourney({ active = true, activityService = m3HomeActivit
   if (!active) return null
   if (state.status === 'loading') return <LoadingState message="Đang tải hành trình học..." />
   if (state.status === 'error') {
-    if (offline || state.error === 'offline') return <><OfflineState /><ErrorState title="Chưa thể tải hành trình" message="Hãy kết nối mạng rồi thử lại. Nội dung chưa được cache trên thiết bị này." onRetry={() => void refresh()} /></>
+    if (offline || state.error === 'offline') return <>{!offlineStatusProvided && <OfflineState />}<ErrorState title="Chưa thể tải hành trình" message="Hãy kết nối mạng rồi thử lại. Nội dung chưa được cache trên thiết bị này." onRetry={() => void refresh()} /></>
     return <ErrorState message={`Không thể tải hành trình (${state.error}).`} onRetry={() => void refresh()} />
   }
   if (state.snapshot.chapters.length === 0) return <EmptyState title="Chưa có chương đã xuất bản" message="Hãy quay lại sau khi nội dung được duyệt." />
@@ -85,9 +91,11 @@ export function LearningJourney({ active = true, activityService = m3HomeActivit
 
   const openLesson = async (chapterId: string, lessonId: string) => {
     const selected = state.snapshot.chapters.find(item => item.id === chapterId)?.lessons.find(item => item.id === lessonId)
-    if (!selected) return
+    if (!selected || openingLessonRef.current) return
+    openingLessonRef.current = true
+    onSafeToUpdateChange?.(false)
     const result = await startLesson(services, selected)
-    if (!result.ok) { setState({ status: 'error', error: result.error }); return }
+    if (!result.ok) { openingLessonRef.current = false; setState({ status: 'error', error: result.error }); return }
     await refresh()
     pendingFocusRef.current = { kind: 'heading' }
     setView({ type: 'lesson', chapterId, lessonId })
@@ -118,7 +126,7 @@ export function LearningJourney({ active = true, activityService = m3HomeActivit
       onLesson={lessonId => void openLesson(chapter.id, lessonId)}
     />
   }
-  return <>{offline && <OfflineState />}<JourneyHome
+  return <>{offline && !offlineStatusProvided && <OfflineState />}<JourneyHome
     chapters={state.snapshot.chapters}
     greeting={greeting}
     activity={state.snapshot.activity}
@@ -126,6 +134,7 @@ export function LearningJourney({ active = true, activityService = m3HomeActivit
     headingRef={homeHeadingRef}
     chapterButtonRef={(id, element) => { element ? chapterButtonsRef.current.set(id, element) : chapterButtonsRef.current.delete(id) }}
     onChapter={chapterId => {
+      onSafeToUpdateChange?.(false)
       pendingFocusRef.current = { kind: 'heading' }
       setView({ type: 'chapter', chapterId })
     }}

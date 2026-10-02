@@ -52,6 +52,11 @@ export interface AuthService {
   verifyRecoveryEmail?(token: string, context?: AuthMutationContext): Promise<Result<AuthSession>>
   requestPasswordReset?(email: string): Promise<Result<null>>
   updatePassword?(password: string, context?: AuthMutationContext): Promise<Result<null>>
+  /** Recovery requires an in-memory SDK event and server-verified subject, never a URL hint. */
+  getPasswordRecoverySession?(): Promise<Result<AuthSession>>
+  subscribePasswordRecovery?(listener: () => void): () => void
+  resetRecoveredPassword?(password: string, context?: AuthMutationContext): Promise<Result<null>>
+  dismissPasswordRecovery?(): void
 }
 export type AnalyticsEventName =
   | 'lesson_started' | 'lesson_resumed' | 'block_completed' | 'episode_started' | 'scene_viewed'

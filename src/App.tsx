@@ -1,34 +1,49 @@
 import { HostedApp } from './app/HostedApp'
 import type { HomeActivityService } from './services/next/m3HomeActivity'
-import { useEffect, useSyncExternalStore, type ReactNode } from 'react'
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore, type ReactNode } from 'react'
 import { CompletionSession, useCompletionSession } from './features/learning/completion/CompletionSession'
 import { m3JourneyServices, m3Session } from './services/next/m3JourneyFixture'
 import { theme } from './theme/tokens'
 import { TopBar } from './components/layout/TopBar'
 import { BottomNav } from './components/layout/BottomNav'
 import { LearningJourney } from './features/learning/journey/LearningJourney'
-import { PracticeScreen } from './features/practice/PracticeScreen'
-import { AIScreen } from './features/ai-assistant/AIScreen'
-import { ProfileScreen } from './features/profile/ProfileScreen'
+const PracticeScreen = lazyFeature(() => import('./features/practice/PracticeScreen').then(module => ({default:module.PracticeScreen})))
+const AIScreen = lazyFeature(() => import('./features/ai-assistant/AIScreen').then(module => ({default:module.AIScreen})))
+const ProfileScreen = lazyFeature(() => import('./features/profile/ProfileScreen').then(module => ({default:module.ProfileScreen})))
 import { AppViewRouter } from './app/AppViewRouter'
 import { useAppNavigation } from './app/useAppNavigation'
+import { lazyFeature } from './app/LazyFeature'
+import { PwaStatus } from './features/pwa/PwaStatus'
+import { pwaController } from './services/pwa/controller'
 
 function AppContent({ profile, practice, activity, syncStatus }: {profile?: ReactNode; practice?: ReactNode; activity?: HomeActivityService; syncStatus?: ReactNode}) {
   const navigation = useAppNavigation()
+  const journeySafe = useRef(false)
+  const [, setJourneyReady] = useState(false)
+  const navigationSafe = useRef(false)
+  navigationSafe.current = navigation.tab === 'home' && !navigation.isOverlay
+  const reportJourneySafety = useCallback((safe: boolean) => { journeySafe.current = safe; setJourneyReady(safe) }, [])
+  const canUpdate = useCallback(() => navigationSafe.current && journeySafe.current, [])
+  const selectTab = (tab: Parameters<typeof navigation.selectTab>[0]) => {
+    navigationSafe.current = false
+    navigation.selectTab(tab)
+  }
   const { summary } = useCompletionSession()
   const account = useSyncExternalStore(summary.subscribe, summary.getSnapshot, summary.getSnapshot)
   useEffect(() => { void summary.refresh() }, [summary])
 
   const handleLessonDone = (cid: number, lidx: number) => {
+    navigationSafe.current = false
     navigation.showLessonDone(cid, lidx)
   }
 
   const handleQuizDone = (score: number, total: number, cid: number) => {
+    navigationSafe.current = false
     navigation.showQuizResult(cid, score, total)
   }
 
   return (
-    <div
+    <main id="main-content" tabIndex={-1}
       className="flex items-center justify-center min-h-screen"
       style={{ background: theme.colors.pageBg }}
     >
@@ -56,33 +71,34 @@ function AppContent({ profile, practice, activity, syncStatus }: {profile?: Reac
             account.value ? <TopBar xp={account.value.totalXp} streak={account.value.currentStreak} achievements={account.value.achievements.length} /> : <div role="status" className="px-4 py-3">Số liệu tài khoản chưa được xác nhận.</div>
           )}
 
+          {!navigation.isOverlay && <PwaStatus canUpdate={canUpdate} />}
           {!navigation.isOverlay && syncStatus}
           {!navigation.isOverlay && (
             <div className="flex-1 overflow-y-auto">
-              <div hidden={navigation.tab !== 'home'}><LearningJourney active={navigation.tab === 'home'} activityService={activity} /></div>
+              <div hidden={navigation.tab !== 'home'}><LearningJourney active={navigation.tab === 'home'} activityService={activity} offlineStatusProvided={import.meta.env.PROD && import.meta.env.BASE_URL === '/' && pwaController.getSnapshot().supported} onSafeToUpdateChange={reportJourneySafety} /></div>
               {navigation.tab === 'practice' && (practice ?? <PracticeScreen />)}
               {navigation.tab === 'ai' && <AIScreen />}
               {navigation.tab === 'profile' && <><ProfileScreen />{profile}</>}
             </div>
           )}
 
-          {!navigation.isOverlay && <BottomNav tab={navigation.tab} onTab={navigation.selectTab} />}
+          {!navigation.isOverlay && <BottomNav tab={navigation.tab} onTab={selectTab} />}
         </div>
 
         {/* ── Overlay screen router ── */}
         {navigation.isOverlay && (
           <AppViewRouter
             view={navigation.view}
-            goHome={navigation.goHome}
-            goChapter={navigation.goChapter}
-            goLesson={navigation.goLesson}
-            goQuiz={navigation.goQuiz}
+            goHome={(...args) => { navigationSafe.current = false; navigation.goHome(...args) }}
+            goChapter={(...args) => { navigationSafe.current = false; navigation.goChapter(...args) }}
+            goLesson={(...args) => { navigationSafe.current = false; navigation.goLesson(...args) }}
+            goQuiz={(...args) => { navigationSafe.current = false; navigation.goQuiz(...args) }}
             handleLessonDone={handleLessonDone}
             handleQuizDone={handleQuizDone}
           />
         )}
       </div>
-    </div>
+    </main>
   )
 }
 

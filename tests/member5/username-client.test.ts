@@ -11,13 +11,13 @@ const user = (input: Partial<User> = {}) => ({ id: 'fixture-user', user_metadata
 function clientFixture() {
   const calls: unknown[] = []
   let current = user(), response: unknown = { access_token: 'fixture-access', refresh_token: 'fixture-refresh' }, error: unknown = null
-  let listener: (_event: string, session: { user: User } | null) => void = () => {}
+  const listeners = new Set<(_event: string, session: { user: User } | null) => void>()
   const client = {
     functions: { async invoke(name: string, options: unknown) { calls.push({ name, options }); return { data: response, error } } },
     auth: {
       async setSession(tokens: unknown) { calls.push({ tokens }); return { data: { session: { user: current } }, error: null } },
       async getSession() { return { data: { session: { user: current, access_token: 'fixture-access' } }, error: null } },
-      onAuthStateChange(callback: typeof listener) { listener = callback; return { data: { subscription: { unsubscribe() { listener = () => {} } } } } },
+      onAuthStateChange(callback: (_event: string, session: { user: User } | null) => void) { listeners.add(callback); return { data: { subscription: { unsubscribe() { listeners.delete(callback) } } } } },
       async getUser() { return { data: { user: current }, error: null } },
       async refreshSession() { calls.push('refresh'); return { data: { session: { user: current } }, error: null } },
       async signInWithPassword(input: unknown) { calls.push({ legacyLogin: input }); return { data: { user: current }, error: null } },
@@ -26,7 +26,7 @@ function clientFixture() {
       async updateUser(input: unknown) { calls.push({ update: input }); return { error: null } },
     },
   } as unknown as AuthClient
-  return { client, calls, setUser(value: User) { current = value; listener('SIGNED_IN', { user: current }) },
+  return { client, calls, setUser(value: User) { current = value; for (const listener of listeners) listener('SIGNED_IN', { user: current }) },
     setResponse(value: unknown, nextError: unknown = null) { response = value; error = nextError } }
 }
 

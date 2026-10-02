@@ -7,7 +7,7 @@
   --color-parchment-deep: #D6BF9E;
   --color-brown: #3D1A00;
   --color-brown-mid: #7A4020;
-  --color-brown-light: #A0622A;
+  --color-brown-light: #855022;
   --color-mascot: #8B1A1A;
   --color-navy: #1E2D5A;
   --color-olive: #4A4A1A;
@@ -114,3 +114,8 @@ html[data-reduced-motion="true"] [class*="active:scale"]:active {
 @media (prefers-reduced-motion: reduce) {
   [class*="active:scale"]:active { scale: 1 !important; transform: none !important; }
 }
+
+/* Keep keyboard navigation visible above the mobile app shell. */
+.skip-link { position: fixed; transform: translateY(-200%); }
+.skip-link:focus { transform: translateY(0); }
+:focus-visible { outline: 2px solid var(--color-mascot); outline-offset: 2px; }

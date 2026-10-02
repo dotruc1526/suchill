@@ -1,4 +1,4 @@
-import brandLogo from '../../imports/su-chill-logo-transparent.png'
+import brandLogo from '../../imports/su-chill-logo-transparent.webp'
 import { FlameIcon, StarIcon, TrophyIcon } from '../icons/NavIcon'
 import { theme } from '../../theme/tokens'
 

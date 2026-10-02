@@ -1,12 +1,15 @@
-import { ChapterScreen } from '../features/learning/ChapterScreen'
-import { LessonScreen } from '../features/learning/LessonScreen'
-import { LessonCompleteScreen } from '../features/learning/LessonCompleteScreen'
-import { QuizScreen } from '../features/quiz/QuizScreen'
-import { QuizResultScreen } from '../features/quiz/QuizResultScreen'
-import VisualNovelPlayer from '../features/visual-novel/VisualNovelPlayer'
+import { lazyFeature } from './LazyFeature'
 import { getVisualNovel } from '../features/visual-novel/stories'
 import { chapters } from '../data'
 import type { View } from '../types'
+
+const ChapterScreen = lazyFeature(() => import('../features/learning/ChapterScreen').then(module => ({ default: module.ChapterScreen })), { onBack: props => props.onBack() })
+const LessonScreen = lazyFeature(() => import('../features/learning/LessonScreen').then(module => ({ default: module.LessonScreen })), { onBack: props => props.onBack() })
+const LessonCompleteScreen = lazyFeature(() => import('../features/learning/LessonCompleteScreen').then(module => ({ default: module.LessonCompleteScreen })), { onBack: props => props.onHome() })
+const QuizScreen = lazyFeature(() => import('../features/quiz/QuizScreen').then(module => ({ default: module.QuizScreen })), { onBack: props => props.onBack() })
+const QuizResultScreen = lazyFeature(() => import('../features/quiz/QuizResultScreen').then(module => ({ default: module.QuizResultScreen })), { onBack: props => props.onHome() })
+const VisualNovelPlayer = lazyFeature(() => import('../features/visual-novel/VisualNovelPlayer'), { onBack: props => props.onBack() })
+
 
 type AppViewRouterProps = {
   view: View

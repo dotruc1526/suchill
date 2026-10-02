@@ -1,11 +1,14 @@
 import { failure, success } from '../next/backendContracts.ts'
 import type { AuthService } from '../next/accountContracts.ts'
+import { passwordRecoveryFor } from './passwordRecovery.ts'
 import { acceptAccessSession, accountAccess, normalizeUsername, online, passwordRecoveryRedirect, realEmail, sessionFor,
   validPassword, validUsername, withAuthSubject, type AuthClient } from './usernameAuth.ts'
 
 /** Tokens and credential persistence are handled exclusively by the Supabase SDK. */
 export function createSupabaseAuth(client: AuthClient): AuthService {
+  const recovery = passwordRecoveryFor(client)
   return {
+    ...recovery,
     async getSession() {
       try {
         const { data, error } = await client.auth.getSession()

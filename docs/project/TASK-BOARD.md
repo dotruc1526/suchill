@@ -404,7 +404,7 @@ AI phải đọc task board trước khi làm việc. Nếu task `BLOCKED` hoặ
 | M5-05 | Codex technical candidate; QA/PO approval pending | DONE | M4 CLOSED, M5 CLOSED (PO approved) | [Card](../tasks/done/M5-05.md); reused implementation technically APPROVED,330Quality/native72/hosted9 PASS; [evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO accepted M5 closure |
 | M5-06 | Codex technical candidate; QA/PO approval pending | DONE | M4 CLOSED, M5 CLOSED (PO approved) | [Card](../tasks/done/M5-06.md); reused implementation technically APPROVED,330Quality/native72/hosted9 PASS; [evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO accepted M5 closure |
 | M5-07 | Codex technical candidate; QA/PO approval pending | DONE | M4 CLOSED, M5 CLOSED (PO approved) | [Card](../tasks/done/M5-07.md); reused implementation technically APPROVED,330Quality/native72/hosted9 PASS; [evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO accepted M5 closure |
-| AUTH-USERNAME-001 | Codex; independent recovery re-review pending | IN PROGRESS | Existing Auth integration | [Card](../tasks/active/AUTH-USERNAME-001.md); core username browser flow PASS; dedicated recovery callback/reset rework in progress; sender/email/redirect acceptance remains pending |
+| AUTH-USERNAME-001 | Codex; independent recovery software APPROVE | REVIEW | Existing Auth integration | [Card](../tasks/active/AUTH-USERNAME-001.md); core username browser flow PASS; dedicated recovery callback/reset software APPROVE,44checks PASS; live sender/email/redirect acceptance remains pending |
 | MAIN-INTEGRATION-AUDIT-002 | Codex; QA/PO review pending | REVIEW | Prior branch audit | [Card](../tasks/active/MAIN-INTEGRATION-AUDIT-002.md); historical audit, candidate now tracked by M4-M5-INTEGRATION-001 |
 
 ### Post-merge sequential delivery review — 2026-10-02
@@ -412,3 +412,15 @@ AI phải đọc task board trước khi làm việc. Nếu task `BLOCKED` hoặ
 | ID | Owner / executor | Reviewer | Status | Started | Files / next action |
 |---|---|---|---|---|---|
 | POSTMERGE-REVIEW-001 | Codex root | Independent Codex postmerge reviewer APPROVE; PO gates pending | REVIEW |2026-10-02| [Card](../tasks/active/POSTMERGE-REVIEW-001.md); main8b5ae10 Quality330/hosted9 PASS; [M6/M7 readiness and blockers](../engineering/postmerge-m6-m7/READINESS.md); PO gate supplied by merged PR #110/DOC-020/DOC-021; M6 eligible scopes may be claimed |
+
+### M6 execution after approved DOC-021 — 2026-10-02
+
+| ID | Owner / Executor | Reviewer | Status | Depends on | Card / next action |
+|---|---|---|---|---|---|
+| M6-01 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | IN PROGRESS | M1, M3, DOC-021 | [Card](../tasks/active/M6-01.md); implement/test/review claimed software scope |
+| M6-02 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | IN PROGRESS | M3, M5, DOC-021 | [Card](../tasks/active/M6-02.md); implement/test/review claimed software scope |
+| M6-03 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | IN PROGRESS | M3, DOC-021 | [Card](../tasks/active/M6-03.md); implement/test/review claimed software scope |
+| M6-04 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | BLOCKED | M3-04, CONTENT-007 | [Card](../tasks/blocked/M6-04.md); resolve stated dependency; no false DONE |
+| M6-05 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | IN PROGRESS | M1, M3, DOC-021 | [Card](../tasks/active/M6-05.md); implement/test/review claimed software scope |
+| M6-06 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | BACKLOG | M3, M6-05 | [Card](../tasks/active/M6-06.md); resolve stated dependency; no false DONE |
+| M6-07 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | BLOCKED | M6-01..06; approved video; real Android/iOS testers | [Card](../tasks/blocked/M6-07.md); resolve stated dependency; no false DONE |

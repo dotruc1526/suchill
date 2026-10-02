@@ -23,3 +23,5 @@ Independent mainreviewAPPROVE;freshQuality330PASS/hosted9PASS/scan542zero;unchan
 ## Superseding gate decision — 2026-10-02
 
 GitHub main advanced to 818e24d by merged PR #110. Approved DOC-020 closes M4/opens M5; DOC-021 closes M5/opens M6. These explicit PO decisions supersede the earlier pending gate question and stale top-level M4 OPEN table. Main changes are documentation only; prior independent runtime checks remain applicable. This branch resolves the board merge in favor of main M4/M5 acceptance and retains the current Auth rework claim. M6 may now be claimed after cards; M7 remains locked until full M6 acceptance. No release/media/device approval is inferred.
+
+Root additionally claims AGENTS.md, docs/README.md and ARCHITECTURE.md current milestone headers, plus the board conflict resolution, solely to synchronize merged DOC-020/DOC-021. Security rotation timing stays Milestone4/production and is not relaxed.

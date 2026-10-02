@@ -17,7 +17,7 @@ try {
     },
     build: { outDir: buildDirectory, emptyOutDir: true },
   })
-  const child = spawn(process.execPath, ['--test', 'tests/qa/e2e.test.mjs'], {
+  const child = spawn(process.execPath, ['--test', 'tests/qa/e2e.test.mjs', 'tests/qa/pwa-polish.test.mjs'], {
     stdio: 'inherit', env: { ...process.env, SUCHILL_QA_BUILD_DIR: buildDirectory },
   })
   process.exitCode = await new Promise((resolveExit, reject) => {

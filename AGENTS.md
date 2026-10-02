@@ -71,7 +71,7 @@ Luồng phụ thuộc: `UI → feature hook/controller → service interface →
 ## 7. Security và backend
 
 - Browser chỉ dùng Supabase publishable/anon key. Service-role/privileged secret chỉ ở trusted backend và không commit, log, chat hoặc bundle client.
-- Privileged key đã từng được chia sẻ phải rotate trước Milestone 6/production integration.
+- Privileged key đã từng được chia sẻ phải rotate trước Milestone 4/production integration.
 - RLS default-deny cho dữ liệu user; bắt buộc test user A không đọc/ghi user B.
 - Completion, XP, streak và reward là trusted/idempotent operation; UI không tự quyết định reward.
 - Không sửa migration đã áp dụng; tạo migration mới.

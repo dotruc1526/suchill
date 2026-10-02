@@ -1,4 +1,4 @@
-import mascotSpriteUrl from '@/imports/image-1.png'
+import mascotSpriteUrl from '@/imports/image-1.webp'
 
 export type MascotEmotion =
   | 'happy' | 'excited' | 'thinking' | 'sad' | 'correct' | 'wrong'

@@ -1,6 +1,6 @@
 # AUTH-USERNAME-001 — Username/password access with optional recovery email
 
-> Status: IN PROGRESS\
+> Status: REVIEW\
 > Started / last updated: 2026-10-02
 
 ## Assignment
@@ -54,3 +54,13 @@ Independent postmerge reviewer identified a concrete missing acceptance: the SDK
 - Next action: agree the minimal optional AuthService recovery contract, implement in claimed lanes, verify meaningful unit/browser checks and obtain an independent review before returning to REVIEW. No task DONE or milestone gate is inferred.
 
 Client lane additionally claims only the concurrent-listener fixture in tests/member5/username-client.test.ts; all prior assertions remain unchanged. It must model multiple SDK subscriptions so the recovery observer cannot be accidentally overwritten by the fixture.
+
+## Recovery software review — 2026-10-02
+
+Independent recovery_review APPROVE final helper SHA256 e2e216fa1a831ae66985fe8f2e7daf2601bb554b9af5013e60fe5db7f2a91468. Independent44 unique checks PASS:21new recovery,11legacy username client,6legacy AuthUI+6new recovery Chrome/SSR. Includes SDK delayed event, expired/query-only existingaccount denial, refocus, ABA, mutation bearer pinning, transientnull503, concurrent submit, callback reload after memoized initialnetwork failure,375/430/reduced-motion/keyboard/200percent text and exact pending preservation. Added dedicated callback before HostedRuntime so learning/sync waits dismissal. No migration/backend/user account/env mutation.
+
+Status REVIEW remains required: verified optional sender, exact hosted redirect allowlist and authorized real mailbox/reset delivery acceptance are still unverified; unit/browser fixtures are not live email proof. Next action is finish that external acceptance when verified sender/project configuration is available. Existing core username/password access stays accepted.
+
+## Root integration finding — 2026-10-03
+
+React StrictMode re-runs useMemo initializers; createLearningRuntime constructs an SDK that consumes a one-time recovery URL. Root claims the existing HostedApp initializer plus a new owned hosted-recovery fixture and browser assertion. A per-document runtime is shared across StrictMode/remount, keeping the original verified recovery tracker. This is software rework under the active recovery card, not evidence of real email delivery. Previous helper approval is preserved; the new integrated boundary needs review with this evidence.
