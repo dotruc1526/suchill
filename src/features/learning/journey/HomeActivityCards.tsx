@@ -10,16 +10,16 @@ export function HomeStreakCard({ activity }: { activity: HomeActivitySummary }) 
         <FlameIcon size={32} aria-hidden="true" className="shrink-0" style={{ color: theme.colors.accentRed }} />
         <div className="min-w-0 flex-1">
           <h2 className="font-sans text-[15px] font-bold" style={{ color: theme.colors.accentRed }}>{activity.streakDays} NGÀY LIÊN TIẾP</h2>
-          <p className="mt-0.5 font-sans text-xs leading-relaxed" style={{ color: theme.colors.textSecondary }}>Bạn đã khám phá lịch sử {activity.streakDays} ngày liên tiếp!</p>
+          <p className="mt-0.5 font-sans text-xs leading-relaxed" style={{ color: theme.colors.textSecondary }}>{activity.streakDays > 0 ? `Bạn đã khám phá lịch sử ${activity.streakDays} ngày liên tiếp!` : 'Hoàn thành bài học đầu tiên để bắt đầu streak của bạn.'}</p>
         </div>
       </div>
-      <ul className="mt-3 flex justify-center gap-1.5" aria-label="Hoạt động trong tuần">
+      {activity.week.length > 0 && <ul className="mt-3 flex justify-center gap-1.5" aria-label="Hoạt động trong tuần">
         {activity.week.map(day => (
           <li key={day.id} aria-label={`${day.label}: ${day.completed ? 'đã học' : 'chưa học'}`} className="flex h-6 w-6 items-center justify-center font-sans text-xs font-bold" style={{ borderRadius: theme.radius.sm, background: day.completed ? theme.colors.primary : theme.colors.activeBg, color: day.completed ? theme.colors.primaryText : theme.colors.textSecondary }}>
             <span aria-hidden="true">{day.completed ? '✓' : day.label}</span>
           </li>
         ))}
-      </ul>
+      </ul>}
     </Card>
   )
 }

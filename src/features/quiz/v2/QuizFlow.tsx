@@ -12,7 +12,7 @@ type LoadState = { status: 'loading' }
   | { status: 'ready'; session: QuizFlowSession }
 const newOperationId = () => globalThis.crypto.randomUUID()
 
-export function QuizFlow({ services, questionSetId }: { services: LearningServices; questionSetId: string }) {
+export function QuizFlow({ services, questionSetId, onSubmitted }: { services: LearningServices; questionSetId: string; onSubmitted?: (receipt: QuizReceipt) => void }) {
   const [state, setState] = useState<LoadState>({ status: 'loading' })
   const [receipt, setReceipt] = useState<QuizReceipt>()
   const [submitting, setSubmitting] = useState(false)
@@ -53,7 +53,7 @@ export function QuizFlow({ services, questionSetId }: { services: LearningServic
     const result = await submitQuizFlow(services, state.session, operationIdRef.current)
     if (!submissionGateRef.current.isCurrent(submissionToken)) return
     setSubmitting(false)
-    if (result.ok) setReceipt(result.value)
+    if (result.ok) { setReceipt(result.value); onSubmitted?.(result.value) }
     else setSubmissionError(`Chưa thể nộp bài (${result.error}).`)
   }
   const startNewAttempt = () => {

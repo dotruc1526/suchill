@@ -90,9 +90,17 @@ test('M3-03 traverses all scene types and honors both knowledge policies and nar
 test('M3-03 resumes exact confirmed scene and replay never rolls progress back', async () => {
   const store = createMockProgressStore()
   const services = createServices(store)
-  const saved = await services.progress.saveEpisodeCheckpoint({
-    ...context, operationId: 'seed', currentSceneId: 'debrief', visitedSceneIds: ['start', 'dialogue', 'media', 'retry'],
-  })
+  const initial = await loadVisualNovel(services, context)
+  assert.equal(initial.ok, true)
+  if (!initial.ok) return
+  let playing = initial.value
+  for (const operationId of ['seed-dialogue', 'seed-media', 'seed-check']) {
+    const advanced = await advanceVisualNovel(services, context, playing, operationId)
+    assert.equal(advanced.ok, true)
+    if (!advanced.ok) return
+    playing = advanced.value
+  }
+  const saved = await chooseVisualNovel(services, context, playing, 'right', 'seed-choice')
   assert.equal(saved.ok, true)
   const loaded = await loadVisualNovel(createServices(store), context)
   assert.equal(loaded.ok && loaded.value.currentSceneId, 'debrief')
@@ -110,6 +118,38 @@ test('M3-03 resumes exact confirmed scene and replay never rolls progress back',
 
   assert.equal(reviewVisualNovelScene(replay, 'start').ok, true)
   assert.deepEqual(reviewVisualNovelScene(replay, 'end-b'), { ok: false, error: 'validation' })
+})
+
+test('concurrent initial VN loads resume one authoritative start without a stale-load error', async () => {
+  const services = createServices()
+  const loads = await Promise.all([loadVisualNovel(services, context), loadVisualNovel(services, context)])
+  assert.ok(loads.every(result => result.ok && result.value.currentSceneId === 'start' && result.value.revision === 1))
+  const stored = await services.progress.getEpisodeProgress(story.id)
+  assert.equal(stored.ok && stored.value?.revision, 1)
+})
+
+test('account changes during VN loading cannot initialize another account from the original action', async () => {
+  const session = { userId: 'a' }
+  const services = createMockLearningServices({ chapters: [], lessons: [lesson], storyVersions: [story], mediaAssets: [] }, session)
+  const wrapped: LearningServices = { ...services, stories: { async getVersion(id) {
+    const delivered = await services.stories.getVersion(id)
+    session.userId = 'b'
+    return delivered
+  } } }
+  assert.deepEqual(await loadVisualNovel(wrapped, context), { ok: false, error: 'unauthorized' })
+  assert.deepEqual(await services.progress.getEpisodeProgress(story.id), { ok: true, value: null })
+  session.userId = 'a'
+  assert.deepEqual(await services.progress.getEpisodeProgress(story.id), { ok: true, value: null })
+})
+
+test('a progress DTO from a transient other account cannot be rendered after the original session returns', async () => {
+  const services = createServices()
+  const wrapped: LearningServices = { ...services, progress: { ...services.progress, async getEpisodeProgress() {
+    return { ok: true, value: { userId: 'other-account', storyVersionId: story.id, currentSceneId: 'dialogue',
+      visitedSceneIds: ['start', 'dialogue'], lockedChoiceIds: [], status: 'in_progress',
+      startedAt: '2026-10-02T00:00:00Z', updatedAt: '2026-10-02T00:00:00Z', revision: 1 } }
+  } } }
+  assert.deepEqual(await loadVisualNovel(wrapped, context), { ok: false, error: 'unauthorized' })
 })
 
 test('M3-03 fails visibly for unavailable stories and invalid transitions', async () => {
@@ -206,7 +246,7 @@ test('M3-03 discards a late successful action after switching stories', async ()
   const keyB = visualNovelContextKey(raceContextB)
   const gate = new VisualNovelActionGate(keyA)
 
-  const loadedA = await loadVisualNovel(wrapped, raceContextA)
+  const loadedA = await loadVisualNovel(services, raceContextA)
   assert.equal(loadedA.ok, true)
   if (!loadedA.ok) return
   const tokenA = gate.begin(keyA)
@@ -240,7 +280,7 @@ test('M3-03 discards a late failed action instead of showing a stale error', asy
   const keyB = visualNovelContextKey(raceContextB)
   const gate = new VisualNovelActionGate(keyA)
 
-  const loadedA = await loadVisualNovel(wrapped, raceContextA)
+  const loadedA = await loadVisualNovel(services, raceContextA)
   assert.equal(loadedA.ok, true)
   if (!loadedA.ok) return
   const tokenA = gate.begin(keyA)

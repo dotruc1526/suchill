@@ -1,6 +1,7 @@
 import type { MockCatalog } from './mock.ts'
 import { failure, success, type QuizService, type QuizOption, type QuestionFeedback, type Result, type ScoredQuizReceipt, type ScoredQuizSubmission } from './contracts.ts'
 import type { MultipleChoiceQuestion, PublishStatus, QuestionSet } from '../../types/v2/content.ts'
+import { createMockAccountStore, expectedMockSubject, type MockAccountStore, type MockSession } from './mockAccountStore.ts'
 
 export type MockQuizGrade = {
   attemptId: string; score: number; total: number; passed?: boolean; feedback: QuestionFeedback[]
@@ -13,8 +14,11 @@ export type MockQuizFixture = {
   grade: (input: ScoredQuizSubmission) => MockQuizGrade
 }
 
-export function createMockQuizService(catalog: MockCatalog, session: { userId: string }): QuizService {
-  const processedQuizzes = new Map<string, { signature: string; result: ScoredQuizReceipt }>()
+export function createMockQuizService(
+  catalog: MockCatalog, session: MockSession, store: MockAccountStore = createMockAccountStore(),
+  onGraded?: (questionSetId: string, mode: 'practice' | 'scored', receipt: ScoredQuizReceipt, actor: MockSession) => void,
+): QuizService {
+  const processedQuizzes = store.operations
   const copy = <T>(value: T): T => structuredClone(value)
   const published = (value: { status: string }) => value.status === 'published'
   const attemptKey = (userId: string, operationId: string) => JSON.stringify([userId, operationId])
@@ -32,7 +36,9 @@ export function createMockQuizService(catalog: MockCatalog, session: { userId: s
     return ordered.some(question => !question) ? null : { fixture: quiz, questions: ordered as MockQuizFixture['questions'] }
   }
   async function submit(input: ScoredQuizSubmission, mode: 'practice' | 'scored'): Promise<Result<ScoredQuizReceipt>> {
-    const userId = session.userId
+    const actor = { ...session }
+    const userId = actor.userId
+    if (!expectedMockSubject(input, userId)) return failure('unauthorized')
     if (!userId) return failure('unauthorized')
     if (!input.operationId?.trim() || !input.questionSetId?.trim() || !Array.isArray(input.answers) || input.answers.length === 0) return failure('validation')
     const quiz = resolveQuiz(input.questionSetId)
@@ -52,9 +58,9 @@ export function createMockQuizService(catalog: MockCatalog, session: { userId: s
     const key = attemptKey(userId, input.operationId)
     safeInput.answers.sort((left, right) => left.questionId.localeCompare(right.questionId))
     safeInput.answers.forEach(answer => answer.selectedOptionIds.sort())
-    const signature = JSON.stringify([mode, safeInput.questionSetId, safeInput.answers.map(answer => [answer.questionId, answer.selectedOptionIds])])
+    const signature = JSON.stringify(['quiz', mode, safeInput.questionSetId, safeInput.answers.map(answer => [answer.questionId, answer.selectedOptionIds])])
     const previous = processedQuizzes.get(key)
-    if (previous) return previous.signature === signature ? success(copy(previous.result)) : failure('conflict')
+    if (previous) return previous.signature === signature ? success(copy(previous.result) as ScoredQuizReceipt) : failure('conflict')
     let graded: MockQuizGrade
     try {
       graded = quiz.fixture.grade(copy(safeInput))
@@ -81,7 +87,8 @@ export function createMockQuizService(catalog: MockCatalog, session: { userId: s
       feedback,
     }
     processedQuizzes.set(key, { signature, result })
-    return success(copy(result))
+    onGraded?.(safeInput.questionSetId, mode, copy(result), actor)
+    return session.userId === userId ? success(copy(result)) : failure('unauthorized')
   }
   return {
     async getQuestionSet(questionSetId) {
@@ -89,6 +96,7 @@ export function createMockQuizService(catalog: MockCatalog, session: { userId: s
       if (!quiz) return failure('not_found')
       const set = quiz.fixture.set
       return success(copy({
+        ...(catalog.dailyReviewSetIds?.includes(questionSetId) ? { dailyReviewEligible: true } : {}),
         set: { id: set.id, title: set.title, questionIds: set.questionIds, learningObjectiveIds: set.learningObjectiveIds, mode: set.mode },
         questions: quiz.questions.map(question => ({
           id: question.id, prompt: question.prompt, optionIds: question.optionIds,

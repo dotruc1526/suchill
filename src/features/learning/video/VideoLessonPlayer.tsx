@@ -30,14 +30,20 @@ export function VideoLessonPlayer({ services, context }: { services: LearningSer
   const registryRef = useRef(new VideoCheckpointQueueRegistry())
   const activeQueueRef = useRef<VideoCheckpointQueue | null>(null)
   const queueErrorsRef = useRef(new WeakMap<VideoCheckpointQueue, ServiceErrorCode>())
+  const revisionsRef = useRef(new WeakMap<VideoCheckpointQueue, number | undefined>())
 
   const checkpointQueue = useMemo(() => {
     return registryRef.current.getOrCreate(services, contextKey, () => {
       let queue: VideoCheckpointQueue
       queue = new VideoCheckpointQueue(
-        payload => saveVideoCheckpoint(services, context, payload.positionSeconds, payload.watchedRanges, payload.operationId),
+        payload => {
+          // Capture once: lost-response retries must retain the original signature.
+          payload.expectedRevision ??= revisionsRef.current.get(queue) ?? 0
+          return saveVideoCheckpoint(services, context, payload.positionSeconds, payload.watchedRanges, payload.operationId, payload.expectedRevision)
+        },
         progress => {
           queueErrorsRef.current.delete(queue)
+          revisionsRef.current.set(queue, progress.revision)
           if (activeQueueRef.current !== queue) return
           setSaveError(undefined)
           setState(current => current.status === 'ready' && current.session.asset.id === context.mediaAssetId
@@ -65,7 +71,10 @@ export function VideoLessonPlayer({ services, context }: { services: LearningSer
     segmentStartRef.current = null
     lastObservedRef.current = 0
     void loadVideoPlayer(services, context).then(result => {
-      if (active) setState(result.ok ? { status: 'ready', session: result.value } : { status: 'error', error: result.error })
+      if (active) {
+        if (result.ok) revisionsRef.current.set(checkpointQueue, result.value.progress?.revision)
+        setState(result.ok ? { status: 'ready', session: result.value } : { status: 'error', error: result.error })
+      }
     })
     return () => { active = false }
   }, [checkpointQueue, context.blockId, context.lessonId, context.mediaAssetId, contextKey, loadRetryKey, services])
@@ -88,7 +97,11 @@ export function VideoLessonPlayer({ services, context }: { services: LearningSer
       event.currentTarget.currentTime = session.resumePositionSeconds
       lastObservedRef.current = session.resumePositionSeconds
     }}
-    onPlay={event => { segmentStartRef.current = currentTime(event); lastObservedRef.current = currentTime(event) }}
+    onPlay={event => {
+      const position = currentTime(event)
+      checkpointQueue.enqueue({ positionSeconds: position, watchedRanges: [], operationId: operationId() })
+      segmentStartRef.current = position; lastObservedRef.current = position
+    }}
     onPause={event => persist(currentTime(event))}
     onTimeUpdate={event => { lastObservedRef.current = currentTime(event) }}
     onSeeking={() => persist(lastObservedRef.current)}

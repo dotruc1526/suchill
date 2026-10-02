@@ -1,84 +1,57 @@
 import { useState } from 'react'
 import { TopBar } from './components/layout/TopBar'
 import { BottomNav } from './components/layout/BottomNav'
+import { Button, ErrorState, LoadingState } from './components/ui'
 import { LearningJourney } from './features/learning/journey/LearningJourney'
-import { PracticeScreen } from './features/practice/PracticeScreen'
+import { ServicePractice } from './features/practice/ServicePractice'
 import { AIScreen } from './features/ai-assistant/AIScreen'
-import { ProfileScreen } from './features/profile/ProfileScreen'
-import { AppViewRouter } from './app/AppViewRouter'
-import { useAppNavigation } from './app/useAppNavigation'
-import { userStats } from './data'
+import { AccountProfile } from './features/profile/AccountProfile'
+import { AccountAccess } from './features/auth/AccountAccess'
+import { useLearningAccount } from './app/useLearningAccount'
+import { createLearningRuntime } from './services/runtime'
+import { theme } from './theme/tokens'
+import type { Tab } from './types'
+
+function RuntimeApp({ runtime }: { runtime: ReturnType<typeof createLearningRuntime> }) {
+  const [tab, setTab] = useState<Tab>('home')
+  const account = useLearningAccount(runtime)
+  const services = runtime.services
+  const refresh = () => { void account.refresh() }
+  return <div className="flex min-h-screen items-center justify-center" style={{ background: theme.colors.pageBg }}>
+    <div className="relative flex w-full flex-col overflow-hidden" data-reduced-motion={account.reducedMotion || undefined}
+      style={{ maxWidth: 420, height: '100dvh', maxHeight: 900, background: theme.colors.appBg, color: theme.colors.textPrimary }}>
+      {account.reducedMotion && <style>{'[data-reduced-motion] *, [data-reduced-motion] *::before, [data-reduced-motion] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }'}</style>}
+      <TopBar xp={account.summary?.totalXp ?? 0} streak={account.summary?.currentStreak ?? 0} achievements={account.summary?.achievements.length ?? 0} />
+      {runtime.mode === 'mock' && <p className="px-4 py-1 text-xs" role="note">Bản thử nghiệm • Dữ liệu kỹ thuật, chưa đồng bộ tài khoản thật.</p>}
+      {account.pending > 0 && <div role="status" className="space-y-1 px-4 py-2 text-sm">
+        <p>{account.pending} thao tác đang chờ đồng bộ. XP sẽ được xác nhận sau khi đồng bộ thành công.</p>
+        <Button variant="outline" onClick={() => void account.sync()}>THỬ ĐỒNG BỘ</Button>
+        {account.rejected > 0 && <>
+          <p>{account.rejected} thao tác bị từ chối hoặc đã lỗi thời. Bỏ các thao tác này để tiếp tục đồng bộ; tiến độ đã xác nhận được giữ.</p>
+          <Button variant="outline" onClick={() => void account.discardRejected()}>BỎ THAO TÁC BỊ TỪ CHỐI</Button>
+        </>}
+      </div>}
+      {account.syncError && <p role="alert" className="px-4 text-sm">Chưa đọc được hàng đợi trên thiết bị. Hãy kiểm tra quyền lưu trữ rồi thử lại.</p>}
+      <div className="flex-1 overflow-y-auto" key={`${account.session?.userId ?? 'anonymous'}:${account.generation}`}>
+        {account.loading ? <LoadingState message="Đang tải tài khoản..." />
+          : !account.session ? <section className="p-4"><AccountAccess services={services} onAccountChange={refresh} /></section>
+          : <>
+            {tab === 'home' && <LearningJourney services={services} onAccountChange={refresh} />}
+            {tab === 'practice' && <ServicePractice services={services} onAccountChange={refresh} />}
+            {tab === 'ai' && <AIScreen />}
+            {tab === 'profile' && <AccountProfile services={services} onAccountChange={refresh} />}
+          </>}
+      </div>
+      <BottomNav tab={tab} onTab={setTab} />
+    </div>
+  </div>
+}
 
 export default function App() {
-  const navigation = useAppNavigation()
-  const [xp, setXP] = useState(userStats.xp)
-
-  const handleLessonDone = (cid: number, lidx: number) => {
-    setXP(x => x + 10)
-    navigation.showLessonDone(cid, lidx)
-  }
-
-  const handleQuizDone = (score: number, total: number, cid: number) => {
-    setXP(x => x + score * 10)
-    navigation.showQuizResult(cid, score, total)
-  }
-
-  return (
-    <div
-      className="flex items-center justify-center min-h-screen"
-      style={{ background: '#C8A882' }}
-    >
-      <div
-        className="relative flex flex-col overflow-hidden"
-        style={{
-          width: '100%',
-          maxWidth: 420,
-          height: '100dvh',
-          maxHeight: 900,
-          background: '#F5E6D0',
-        }}
-      >
-        {/* Paper texture overlay */}
-        <div
-          className="pointer-events-none absolute inset-0 z-0 opacity-30"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E")`,
-          }}
-        />
-
-        {/* ── Main content (Tabs) ── */}
-        <div className="flex flex-col flex-1 overflow-hidden z-10">
-          {!navigation.isOverlay && (
-            <TopBar xp={xp} streak={userStats.streak} achievements={userStats.achievements} />
-          )}
-
-          {!navigation.isOverlay && (
-            <div className="flex-1 overflow-y-auto">
-              {navigation.tab === 'home' && (
-                <LearningJourney />
-              )}
-              {navigation.tab === 'practice' && <PracticeScreen />}
-              {navigation.tab === 'ai' && <AIScreen />}
-              {navigation.tab === 'profile' && <ProfileScreen xp={xp} />}
-            </div>
-          )}
-
-          {!navigation.isOverlay && <BottomNav tab={navigation.tab} onTab={navigation.selectTab} />}
-        </div>
-
-        {/* ── Overlay screen router ── */}
-        {navigation.isOverlay && (
-          <AppViewRouter
-            view={navigation.view}
-            goHome={navigation.goHome}
-            goChapter={navigation.goChapter}
-            goLesson={navigation.goLesson}
-            goQuiz={navigation.goQuiz}
-            handleLessonDone={handleLessonDone}
-            handleQuizDone={handleQuizDone}
-          />
-        )}
-      </div>
-    </div>
-  )
+  const [state] = useState(() => {
+    try { return { runtime: createLearningRuntime(import.meta.env, window.localStorage) } }
+    catch { return { error: true as const } }
+  })
+  if (!state.runtime) return <ErrorState title="Chưa thể kết nối dịch vụ" message="Cấu hình dịch vụ hoặc quyền lưu trữ chưa hợp lệ. Hãy kiểm tra môi trường rồi tải lại ứng dụng." onRetry={() => window.location.reload()} />
+  return <RuntimeApp runtime={state.runtime} />
 }

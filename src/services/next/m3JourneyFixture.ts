@@ -1,5 +1,6 @@
 import type { Chapter, LearningDocument, Lesson, StoryVersion } from '../../types/v2/content.ts'
 import { createMockLearningServices } from './mock.ts'
+import { interactiveDocuments, interactiveLessons, interactiveMedia, interactiveMediaResources, interactiveMediaUrls, interactiveQuizzes } from './m3InteractiveFixture.ts'
 
 const documents: LearningDocument[] = [
   {
@@ -40,6 +41,7 @@ const lessons: Lesson[] = [
       { id: 'fixture.block.1972.recap.vn', order: 1, required: false, kind: 'visual_novel', storyVersionId: storyVersions[0].id },
     ],
   },
+  ...interactiveLessons,
 ]
 
 const chapters: Chapter[] = [{
@@ -51,6 +53,8 @@ const chapters: Chapter[] = [{
 }]
 
 export const m3JourneyServices = createMockLearningServices(
-  { chapters, lessons, documents, storyVersions, mediaAssets: [] },
+  { chapters, lessons, documents: [...documents, ...interactiveDocuments], storyVersions, mediaAssets: interactiveMedia,
+    mediaResources: interactiveMediaResources, quizzes: interactiveQuizzes,
+    mediaResourceUrls: interactiveMediaUrls, dailyReviewSetIds: [interactiveQuizzes[1].set.id] },
   { userId: 'fixture.user.duong', locale: 'vi-VN' },
 )

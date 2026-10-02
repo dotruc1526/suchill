@@ -8,6 +8,113 @@ import { join } from 'node:path'
 import { test } from 'node:test'
 import { preview } from 'vite'
 
+function browserChecks(cdp) {
+  const evaluate = async expression => (await cdp('Runtime.evaluate', { expression, returnByValue: true, awaitPromise: true })).result.value
+  const waitFor = async (expression, label) => {
+    for (let i = 0; i < 100; i++) { if (await evaluate(expression)) return; await delay(50) }
+    assert.fail('Timed out waiting for ' + label)
+  }
+  const clickText = async text => evaluate("[...document.querySelectorAll('button')].find(button=>button.textContent.includes(" + JSON.stringify(text) + ")).click()")
+  const answerAndSubmit = async () => {
+    await waitFor("document.querySelectorAll('[data-testid=quiz-flow-v2] fieldset').length === 3", 'Three questions')
+    await evaluate("[...document.querySelectorAll('[data-testid=quiz-flow-v2] fieldset')].forEach(field=>field.querySelector('input').click())")
+    await clickText('NỘP BÀI')
+    await waitFor("Boolean(document.querySelector('#quiz-result-heading'))", 'Trusted quiz receipt')
+  }
+  return { evaluate, waitFor, clickText, answerAndSubmit }
+}
+
+test('scored quiz confirms trusted feedback and repeat assessment grants no extra XP', async () => {
+  const server = await preview({ preview: { host: '127.0.0.1', port: 0, strictPort: false } })
+  try {
+    const browser = findBrowser()
+    assert.ok(browser)
+    const address = server.httpServer.address()
+    await withChromePage(browser, 'http://127.0.0.1:' + address.port + '/', async cdp => {
+      const { evaluate, waitFor, clickText, answerAndSubmit } = browserChecks(cdp)
+      await waitFor("Boolean(document.querySelector('[data-testid^=journey-open-chapter-]'))", 'Home')
+      await evaluate("document.querySelector('[data-testid^=journey-open-chapter-]').click()")
+      await waitFor("Boolean(document.querySelector('[data-testid=\"journey-open-lesson-fixture.lesson.interaction.quiz\"]'))", 'Scored lesson')
+      await evaluate("document.querySelector('[data-testid=\"journey-open-lesson-fixture.lesson.interaction.quiz\"]').click()")
+      await answerAndSubmit()
+      assert.equal(await evaluate("document.querySelector('#quiz-result-heading').textContent"), 'Kết quả: 3/3')
+      assert.equal(await evaluate("document.querySelectorAll('[data-testid=quiz-flow-v2] [role=status]').length"), 3)
+      await clickText('XÁC NHẬN PHẦN HỌC')
+      await waitFor("document.querySelector('[data-testid=complete-lesson-button]')?.disabled === false", 'Confirmed quiz block')
+      await evaluate("document.querySelector('[data-testid=complete-lesson-button]').click()")
+      await waitFor("Boolean(document.querySelector('[data-testid=lesson-completion-receipt]'))", 'Quiz lesson receipt')
+      await waitFor("Boolean(document.querySelector('header [aria-label=\"25 XP\"]'))", 'Account reward including 80% bonus')
+      await evaluate("document.querySelector('[data-testid=journey-lesson-back]').click()")
+      await waitFor("Boolean(document.querySelector('[data-testid=\"journey-open-lesson-fixture.lesson.interaction.quiz\"]'))", 'Chapter revisit')
+      await evaluate("document.querySelector('[data-testid=\"journey-open-lesson-fixture.lesson.interaction.quiz\"]').click()")
+      await answerAndSubmit()
+      await evaluate("document.querySelector('[data-testid=complete-lesson-button]').click()")
+      await waitFor("Boolean(document.querySelector('[data-testid=lesson-completion-receipt]'))", 'Repeated lesson receipt')
+      assert.ok(await evaluate("Boolean(document.querySelector('header [aria-label=\"25 XP\"]'))"), 'No extra reward')
+    })
+  } finally { await new Promise((resolve, reject) => server.httpServer.close(error => error ? reject(error) : resolve())) }
+})
+
+test('daily review requires explicit confirmation and repeat practice cannot farm rewards', async () => {
+  const server = await preview({ preview: { host: '127.0.0.1', port: 0, strictPort: false } })
+  try {
+    const browser = findBrowser()
+    assert.ok(browser)
+    const address = server.httpServer.address()
+    await withChromePage(browser, 'http://127.0.0.1:' + address.port + '/', async cdp => {
+      const { evaluate, waitFor, clickText, answerAndSubmit } = browserChecks(cdp)
+      await waitFor("Boolean(document.querySelector('[data-testid^=journey-open-chapter-]'))", 'Home')
+      await evaluate("[...document.querySelectorAll('nav button')].find(button=>button.textContent==='LUYỆN TẬP').click()")
+      await waitFor("Boolean([...document.querySelectorAll('button')].find(button=>button.textContent==='Ôn tập hằng ngày · fixture kỹ thuật'))", 'Daily practice catalog')
+      await clickText('Ôn tập hằng ngày · fixture kỹ thuật')
+      await answerAndSubmit()
+      assert.ok(await evaluate("Boolean(document.querySelector('header [aria-label=\"0 XP\"]'))"), 'Practice grants no XP')
+      await waitFor("Boolean(document.querySelector('[data-testid=complete-daily-review-button]'))", 'Explicit daily confirmation')
+      await evaluate("document.querySelector('[data-testid=complete-daily-review-button]').click()")
+      await waitFor("Boolean(document.querySelector('[data-testid=daily-review-receipt]'))", 'Daily receipt')
+      assert.match(await evaluate("document.querySelector('[data-testid=daily-review-receipt]').textContent"), /Tổng XP: 5/)
+      assert.equal(await evaluate("document.activeElement?.dataset.testid"), 'daily-review-receipt')
+      await clickText('VỀ ÔN TẬP')
+      await waitFor("Boolean([...document.querySelectorAll('button')].find(button=>button.textContent==='Ôn tập hằng ngày · fixture kỹ thuật'))", 'Practice catalog revisit')
+      await clickText('Ôn tập hằng ngày · fixture kỹ thuật')
+      await answerAndSubmit()
+      await waitFor("Boolean(document.querySelector('[data-testid=complete-daily-review-button]'))", 'Repeat daily confirmation')
+      await evaluate("document.querySelector('[data-testid=complete-daily-review-button]').click()")
+      await waitFor("Boolean(document.querySelector('[data-testid=daily-review-receipt]'))", 'Repeat daily receipt')
+      assert.match(await evaluate("document.querySelector('[data-testid=daily-review-receipt]').textContent"), /Không cộng lại thưởng/)
+      await waitFor("Boolean(document.querySelector('header [aria-label=\"5 XP\"]'))", 'Only daily reward')
+    })
+  } finally { await new Promise((resolve, reject) => server.httpServer.close(error => error ? reject(error) : resolve())) }
+})
+
+test('video media failure exposes readable fallback and trusted recap permits completion', async () => {
+  const server = await preview({ preview: { host: '127.0.0.1', port: 0, strictPort: false } })
+  try {
+    const browser = findBrowser()
+    assert.ok(browser)
+    const address = server.httpServer.address()
+    await withChromePage(browser, 'http://127.0.0.1:' + address.port + '/', async cdp => {
+      const { evaluate, waitFor } = browserChecks(cdp)
+      await waitFor("Boolean(document.querySelector('[data-testid^=journey-open-chapter-]'))", 'Home')
+      await evaluate("document.querySelector('[data-testid^=journey-open-chapter-]').click()")
+      await waitFor("Boolean(document.querySelector('[data-testid=\"journey-open-lesson-fixture.lesson.interaction.video\"]'))", 'Video lesson')
+      await evaluate("document.querySelector('[data-testid=\"journey-open-lesson-fixture.lesson.interaction.video\"]').click()")
+      await waitFor("Boolean(document.querySelector('[aria-label=\"Video không phát được\"] a'))", 'Video error fallback')
+      assert.match(await evaluate("document.querySelector('[aria-label=\"Video không phát được\"] a').getAttribute('href')"), /^\/technical-fixtures\//)
+      const transcript = await evaluate("fetch(document.querySelector('[aria-label=\"Video không phát được\"] a').href).then(response=>response.text())")
+      assert.match(transcript, /fixture kỹ thuật/i)
+      await evaluate("document.querySelector('[data-testid=\"complete-block-fixture.block.interaction.video-recap\"] button').click()")
+      await waitFor("document.querySelector('[data-testid=\"complete-block-fixture.block.interaction.video-recap\"]').textContent.includes('Phần học đã được xác nhận')", 'Required recap')
+      await evaluate("(() => { const select=document.querySelector('[data-testid=\"complete-block-fixture.block.interaction.video\"] select'); select.value='media_fallback'; select.dispatchEvent(new Event('change',{bubbles:true})); })()")
+      await evaluate("document.querySelector('[data-testid=\"complete-block-fixture.block.interaction.video\"] button').click()")
+      await waitFor("document.querySelector('[data-testid=complete-lesson-button]')?.disabled === false", 'Trusted fallback block')
+      await evaluate("document.querySelector('[data-testid=complete-lesson-button]').click()")
+      await waitFor("Boolean(document.querySelector('[data-testid=lesson-completion-receipt]'))", 'Video lesson receipt')
+      await waitFor("Boolean(document.querySelector('header [aria-label=\"10 XP\"]'))", 'Account reward')
+    })
+  } finally { await new Promise((resolve, reject) => server.httpServer.close(error => error ? reject(error) : resolve())) }
+})
+
 const delay = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds))
 
 async function terminateChild(child, graceMilliseconds = 3_000) {
@@ -118,6 +225,87 @@ async function withChromePage(browser, url, run) {
     await rm(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 })
   }
 }
+
+test('confirmed lesson rewards survive revisit and a newly signed-in account sees isolated progress', async () => {
+  const server = await preview({ preview: { host: '127.0.0.1', port: 0, strictPort: false } })
+  try {
+    const browser = findBrowser()
+    assert.ok(browser)
+    const address = server.httpServer.address()
+    await withChromePage(browser, `http://127.0.0.1:${address.port}/`, async cdp => {
+      const evaluate = async expression => (await cdp('Runtime.evaluate', { expression, returnByValue: true })).result.value
+      const waitFor = async (expression, label) => {
+        for (let i = 0; i < 100; i++) { if (await evaluate(expression)) return; await delay(50) }
+        assert.fail(`Timed out waiting for ${label}`)
+      }
+      await waitFor("Boolean(document.querySelector('[data-testid^=journey-open-chapter-]'))", 'Home')
+      await evaluate("document.querySelector('[data-testid^=journey-open-chapter-]').click()")
+      await waitFor("Boolean(document.querySelector('[data-testid^=journey-open-lesson-]'))", 'Chapter')
+      await evaluate("document.querySelector('[data-testid^=journey-open-lesson-]').click()")
+      await waitFor("Boolean(document.querySelector('[data-testid=complete-lesson-button]'))", 'Lesson')
+      assert.equal(await evaluate("document.querySelector('[data-testid=complete-lesson-button]').disabled"), true)
+      await evaluate("document.querySelector('[data-testid^=complete-block-] button').click()")
+      await waitFor("document.querySelector('[data-testid=complete-lesson-button]')?.disabled === false", 'Confirmed block')
+      await evaluate("document.querySelector('[data-testid=complete-lesson-button]').click()")
+      await waitFor("Boolean(document.querySelector('[data-testid=lesson-completion-receipt]'))", 'Receipt')
+      assert.match(await evaluate("document.querySelector('[data-testid=lesson-completion-receipt]').textContent"), /10 XP/)
+      assert.equal(await evaluate("document.activeElement?.dataset.testid"), 'lesson-completion-receipt')
+      await evaluate("document.querySelector('[data-testid=journey-lesson-back]').click()")
+      await waitFor("Boolean(document.querySelector('[data-testid^=journey-open-lesson-]'))", 'Chapter revisit')
+      await evaluate("document.querySelector('[data-testid^=journey-open-lesson-]').click()")
+      await waitFor("document.querySelector('[data-testid=complete-lesson-button]')?.disabled === false", 'Saved completion')
+      await evaluate("document.querySelector('[data-testid=complete-lesson-button]').click()")
+      await waitFor("Boolean(document.querySelector('[data-testid=lesson-completion-receipt]'))", 'Revisit receipt')
+      assert.match(await evaluate("document.querySelector('[data-testid=lesson-completion-receipt]').textContent"), /Không cộng lại thưởng/)
+      await evaluate("[...document.querySelectorAll('nav button')].find(button=>button.textContent.includes('HỒ SƠ')).click()")
+      await waitFor("Boolean(document.querySelector('[data-testid=account-profile] dl'))", 'Profile')
+      assert.match(await evaluate("document.querySelector('[data-testid=account-profile] dl').textContent"), /Tổng XP10/)
+      await evaluate("[...document.querySelectorAll('[data-testid=account-access] button')].find(button=>button.textContent==='ĐĂNG XUẤT').click()")
+      await waitFor("Boolean(document.querySelector('input[name=email]'))", 'Signed out')
+      await evaluate("[...document.querySelectorAll('[data-testid=account-access] button')].find(button=>button.textContent.includes('CHƯA CÓ TÀI KHOẢN')).click()")
+      await waitFor("Boolean(document.querySelector('input[name=displayName]'))", 'Sign-up form')
+      await evaluate("document.querySelector('input[name=displayName]').value='Tài khoản thử nghiệm B'; document.querySelector('input[name=email]').value='fixture-b@example.invalid'; document.querySelector('input[name=password]').value='fixture-password'; document.querySelector('form[aria-label=\"Tạo tài khoản\"]').requestSubmit()")
+      await waitFor("Boolean(document.querySelector('[data-testid=account-profile] dl'))", 'New account profile')
+      assert.match(await evaluate("document.querySelector('[data-testid=account-profile] dl').textContent"), /Tổng XP0/)
+      await evaluate("[...document.querySelectorAll('nav button')].find(button=>button.textContent==='HỌC').click()")
+      await waitFor("Boolean(document.querySelector('[data-testid^=journey-open-chapter-]'))", 'New account Home')
+      assert.equal(await evaluate("Boolean(document.querySelector('[data-testid=lesson-completion-receipt]'))"), false)
+    })
+  } finally { await new Promise((resolve, reject) => server.httpServer.close(error => error ? reject(error) : resolve())) }
+})
+
+test('offline lesson completion displays pending, then synchronizes once after reconnect', async () => {
+  const server = await preview({ preview: { host: '127.0.0.1', port: 0, strictPort: false } })
+  try {
+    const browser = findBrowser()
+    assert.ok(browser)
+    const address = server.httpServer.address()
+    await withChromePage(browser, `http://127.0.0.1:${address.port}/`, async cdp => {
+      const evaluate = async expression => (await cdp('Runtime.evaluate', { expression, returnByValue: true })).result.value
+      const waitFor = async (expression, label) => {
+        for (let i = 0; i < 100; i++) { if (await evaluate(expression)) return; await delay(50) }
+        assert.fail(`Timed out waiting for ${label}`)
+      }
+      await waitFor("Boolean(document.querySelector('[data-testid^=journey-open-chapter-]'))", 'Home')
+      await evaluate("document.querySelector('[data-testid^=journey-open-chapter-]').click()")
+      await waitFor("Boolean(document.querySelector('[data-testid^=journey-open-lesson-]'))", 'Chapter')
+      await evaluate("document.querySelector('[data-testid^=journey-open-lesson-]').click()")
+      await waitFor("Boolean(document.querySelector('[data-testid^=complete-block-] button'))", 'Block')
+      await evaluate("document.querySelector('[data-testid^=complete-block-] button').click()")
+      await waitFor("document.querySelector('[data-testid=complete-lesson-button]')?.disabled === false", 'Read confirmed')
+      await cdp('Network.enable')
+      await cdp('Network.emulateNetworkConditions', { offline: true, latency: 0, downloadThroughput: 0, uploadThroughput: 0 })
+      await waitFor('navigator.onLine === false', 'Offline')
+      await evaluate("document.querySelector('[data-testid=complete-lesson-button]').click()")
+      await waitFor("document.body.textContent.includes('1 thao tác đang chờ đồng bộ')", 'Pending queue')
+      assert.equal(await evaluate("Boolean(document.querySelector('[data-testid=lesson-completion-receipt]'))"), false)
+      assert.ok(await evaluate("Boolean(document.querySelector('header [aria-label=\"0 XP\"]'))"))
+      await cdp('Network.emulateNetworkConditions', { offline: false, latency: 0, downloadThroughput: -1, uploadThroughput: -1 })
+      await waitFor("Boolean(document.querySelector('header [aria-label=\"10 XP\"]'))", 'Confirmed account reward')
+      await waitFor("!document.body.textContent.includes('1 thao tác đang chờ đồng bộ')", 'Queue acknowledged')
+    })
+  } finally { await new Promise((resolve, reject) => server.httpServer.close(error => error ? reject(error) : resolve())) }
+})
 
 test('built app renders its home screen in a real local browser', async () => {
   const browser = findBrowser()
@@ -254,7 +442,7 @@ test('Visual Novel close and completion restore focus to the opener', async () =
 
       await waitFor("Boolean(document.querySelector('[data-testid^=\"journey-open-chapter-\"]'))", 'chapter trigger')
       await evaluate("document.querySelector('[data-testid^=\"journey-open-chapter-\"]').click()")
-      await waitFor("document.querySelectorAll('[data-testid^=\"journey-open-lesson-\"]').length === 2", 'fixture lessons')
+      await waitFor("document.querySelectorAll('[data-testid^=\"journey-open-lesson-\"]').length >= 2", 'fixture lessons')
       await evaluate("document.querySelectorAll('[data-testid^=\"journey-open-lesson-\"]')[1].click()")
       await waitFor("Boolean(document.querySelector('[data-testid^=\"open-vn-\"]'))", 'Visual Novel opener')
       await evaluate("document.querySelector('[data-testid^=\"open-vn-\"]').click()")

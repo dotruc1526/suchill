@@ -38,9 +38,10 @@ export async function saveVideoCheckpoint(
   positionSeconds: number,
   watchedRanges: Array<{ start: number; end: number }>,
   operationId: string,
+  expectedRevision?: number,
 ): Promise<Result<VideoProgress>> {
   return services.progress.saveVideoPosition({
-    lessonId: context.lessonId, blockId: context.blockId, positionSeconds, watchedRanges, operationId,
+    lessonId: context.lessonId, blockId: context.blockId, positionSeconds, watchedRanges, operationId, expectedRevision,
   })
 }
 
@@ -48,6 +49,7 @@ export type VideoCheckpointPayload = {
   positionSeconds: number
   watchedRanges: Array<{ start: number; end: number }>
   operationId: string
+  expectedRevision?: number
 }
 
 export class VideoCheckpointQueue {

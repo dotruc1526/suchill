@@ -1,12 +1,13 @@
 import type { ComponentType, Ref } from 'react'
 import { Button, Card } from '../../../components/ui'
 import { theme } from '../../../theme/tokens'
-import type { MediaScene, SceneChoice, VisualNovelScene } from '../../../types/v2/content'
+import type { MediaScene } from '../../../types/v2/content'
+import type { DeliveredSceneChoice, DeliveredScene } from '../../../services/next/storyDelivery'
 import type { ChoiceFeedback } from './visualNovelModel'
 
 export type VisualNovelMediaSlot = ComponentType<{ scene: MediaScene }>
 type Props = {
-  scene: VisualNovelScene
+  scene: DeliveredScene
   feedback?: ChoiceFeedback
   busy: boolean
   mediaSlot?: VisualNovelMediaSlot
@@ -17,7 +18,7 @@ type Props = {
   feedbackRef?: Ref<HTMLDivElement>
 }
 
-function choiceDescription(choice: SceneChoice) {
+function choiceDescription(choice: DeliveredSceneChoice) {
   if (choice.kind === 'knowledge_check') return 'Câu hỏi kiến thức'
   if (choice.kind === 'reflection') return 'Lựa chọn suy ngẫm, không có đúng sai'
   return 'Lựa chọn câu chuyện, không có đúng sai'

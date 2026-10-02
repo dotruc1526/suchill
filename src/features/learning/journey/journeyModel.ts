@@ -24,8 +24,8 @@ export async function loadJourney(services: LearningServices, activityService?: 
         services.progress.getLessonProgress(reference.id),
       ])
       if (!lessonResult.ok) return lessonResult
-      if (!progressResult.ok) return progressResult
-      lessons.push({ ...lessonResult.value, progressStatus: progressResult.value?.status ?? 'not_started' })
+      if (!progressResult.ok && progressResult.error !== 'unauthorized') return progressResult
+      lessons.push({ ...lessonResult.value, progressStatus: progressResult.ok ? progressResult.value?.status ?? 'not_started' : 'not_started' })
     }
     chapters.push({ ...chapter, lessons, completedCount: lessons.filter(item => item.progressStatus === 'completed').length })
   }

@@ -1,6 +1,6 @@
 # Sử Chill — Shared Task Board
 
-> Last updated: 2026-10-01\
+> Last updated: 2026-10-02\
 > Owner: Project team\
 > Purpose: Nguồn context chung cho product owner, thành viên nhóm và AI agents
 
@@ -61,7 +61,8 @@ Phase 9 đã được product owner duyệt ngày 2026-09-23; `SPEC-FIRST FREEZE
 | M1 | DONE | Gate M1 trong Phase 9 có evidence và reviewer kiểm tra | Product Owner nghiệm thu M1-07 và M1-08; approved close, 2026-09-29; evidence: PR #53/#56, QA keyboard 26 checkpoints, quality PASS và ảnh 375px/430px |
 | M2 | DONE | Ba gate Phase 9 đạt; M2-01..06 đã được reviewer nghiệm thu và Quality pass | Product Owner Dương approved close, 2026-10-01; evidence: PR #70 / `a4d22b2`, DOC-018 |
 | M3 | OPEN | Learning frontend hoàn chỉnh trên mock services theo Gate M3 | Product Owner Dương approved open, 2026-10-01; M3 tasks chỉ bắt đầu sau claim hợp lệ |
-| M4–M7 | LOCKED | Mở từng milestone sau khi milestone trước được duyệt | Chưa có |
+| M4–M5 | IMPLEMENTATION AUTHORIZED (isolated branch) | Gate evidence and reviewer acceptance still required before close | Product Owner authorized complete implementation through M5 on `codex/m3-m5-complete`, 2026-10-02; [delivery card](../tasks/active/M3-M5-DELIVERY.md). This is implementation authorization, not acceptance or production credential approval. |
+| M6–M7 | LOCKED | Mở từng milestone sau khi milestone trước được duyệt | Outside current implementation request |
 
 `DONE` của từng task không tự mở milestone tiếp theo. Executor ghi evidence theo gate Phase 9; reviewer/QA kiểm tra; Product owner duyệt rõ ràng và ghi ngày, evidence, milestone được mở vào bảng này trước khi nhóm bắt đầu implementation milestone kế tiếp. Content track có task/dependency riêng: Member 1 có thể nhận `CONTENT-009` nghiên cứu nguồn sơ bộ trong khi M0 đang mở; việc đó không mở milestone implementation hoặc chốt nội dung canonical.
 
@@ -78,17 +79,40 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 - Visual Novel demo Genève/vĩ tuyến 17.
 - Domain types v2, validators, service interfaces, mock adapters, legacy mapper và contract tests của M2.
 - AI Battle đang được một nhánh của nhóm phát triển; chưa tích hợp vào app chính.
-- Supabase `.env.local` local-only.
+- Nhánh `codex/m3-m5-complete`: Supabase migrations/adapters, account progress/XP/streak, completion và offline queue đã triển khai để review; chưa có hosted configuration/rotation evidence trong workspace này.
 - Bộ docs và approval brief.
 
 ### Chưa có
 
 - Canonical pilot episode được product owner chọn và qua review.
-- Supabase schema/RLS/services thật.
-- Account progress/streak backend.
-- Automated tests và release gates.
+- Hosted Supabase Auth/REST/Storage và native multi-session verification; local PostgreSQL evidence không thay các gate này.
+- Product Owner nghiệm thu/đóng M3–M5 và canonical content/media release gates.
 
 ## Task board
+
+### Isolated M3–M5 delivery — 2026-10-02
+
+| ID | Owner / executor | Reviewer | Status | Started | Files / next action |
+|---|---|---|---|---|---|
+| M3-06 | Codex / UI + services | independent review; Hưng/Vinh | REVIEW | 2026-10-02 | [Completion/profile card](../tasks/active/M3-06.md); service receipts, pending/confirmed reward, account UI |
+| M3-07 | Codex / QA | independent review; Vinh | REVIEW | 2026-10-02 | [Interaction card](../tasks/active/M3-07.md); technical mock/browser learning loop |
+| M4-01 | Codex / integration | independent review; Vinh | REVIEW | 2026-10-02 | [Configuration](../tasks/active/M4-01.md); hosted project/rotation confirmation pending |
+| M4-02 | Codex / database | independent security review; Vinh | REVIEW | 2026-10-02 | [Content schema](../tasks/active/M4-02.md); versioned normalized graph |
+| M4-03 | Codex / database | independent security review; Vinh | REVIEW | 2026-10-02 | [User schema](../tasks/active/M4-03.md); account/progress/attempts/ledger |
+| M4-04 | Codex / database | independent security review; Vinh | REVIEW | 2026-10-02 | [RLS](../tasks/active/M4-04.md); local anon/A/B/trusted matrix |
+| M4-05 | Codex / database + integration | independent security review; Vinh | REVIEW | 2026-10-02 | [Storage](../tasks/active/M4-05.md); private reviewed paths/signed URL adapter; hosted HTTP pending |
+| M4-06 | Codex / integration | independent review; Hưng/Vinh | REVIEW | 2026-10-02 | [Adapters](../tasks/active/M4-06.md); actual domain adapters through SQL |
+| M4-07 | Codex / integration + UI | independent review; Hưng/Vinh | REVIEW | 2026-10-02 | [Auth/account](../tasks/active/M4-07.md); session safe; hosted Auth pending |
+| M4-08 | Codex / QA | independent security review; Vinh | REVIEW | 2026-10-02 | [Security integration](../tasks/active/M4-08.md); local evidence, hosted/native gates pending |
+| M5-01 | Codex / database + services | independent review; Hưng/Vinh | REVIEW | 2026-10-02 | [Resume](../tasks/active/M5-01.md); revisioned persistent account checkpoints |
+| M5-02 | Codex / database + services | independent security review; Vinh | REVIEW | 2026-10-02 | [Completion](../tasks/active/M5-02.md); required content/policy checks |
+| M5-03 | Codex / database + services | independent security review; Vinh | REVIEW | 2026-10-02 | [Reward](../tasks/active/M5-03.md); immutable operation receipt/unique ledger; native race gate pending |
+| M5-04 | Codex / database + services | independent review; Vinh | REVIEW | 2026-10-02 | [Streak](../tasks/active/M5-04.md); account timezone/server date |
+| M5-05 | Codex / database + services + UI | independent review; Vinh | REVIEW | 2026-10-02 | [Assessment](../tasks/active/M5-05.md); trusted grading/mastery/daily review |
+| M5-06 | Codex / database + services | independent security review; Vinh | REVIEW | 2026-10-02 | [Analytics](../tasks/active/M5-06.md); optional, private, best effort |
+| M5-07 | Codex / integration | independent review; Hưng/Vinh | REVIEW | 2026-10-02 | [Offline sync](../tasks/active/M5-07.md); durable ordered owner queue and pending UI |
+
+[Shared delivery evidence](../engineering/m3-m5/EVIDENCE.md) covers these branch implementation tasks. Older FE/BE workstream rows below retain team assignment; this branch is the concrete deliverable for the matching roadmap tasks. No hosted migration or content publication has occurred.
 
 ### A. Documentation and product
 

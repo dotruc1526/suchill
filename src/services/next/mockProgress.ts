@@ -2,15 +2,20 @@ import type { EpisodeProgress, LessonProgress, VideoProgress } from '../../types
 import { failure, success, type ProgressService, type Result } from './contracts.ts'
 import type { MockCatalog } from './mock.ts'
 import { createPlaybackProgress } from './mockPlaybackProgress.ts'
+import { createMockAccountStore, expectedMockSubject } from './mockAccountStore.ts'
 
 type ProgressRecord = LessonProgress | EpisodeProgress | VideoProgress
 /** Inject the same store into recreated adapters to simulate reload; never production persistence. */
-export const createMockProgressStore = () => ({
+export const createMockProgressStore = () => {
+  const accountStore = createMockAccountStore()
+  return {
   lessons: new Map<string, LessonProgress>(),
   episodes: new Map<string, EpisodeProgress>(),
   videos: new Map<string, VideoProgress>(),
-  operations: new Map<string, { signature: string; result: ProgressRecord }>(),
-})
+  operations: accountStore.operations,
+  accountStore,
+  }
+}
 export type MockProgressStore = ReturnType<typeof createMockProgressStore>
 export const progressKey = (...parts: string[]) => JSON.stringify(parts)
 export const copy = <T>(value: T): T => structuredClone(value)
@@ -37,10 +42,17 @@ export function createMockProgressService(
   const touchLesson = (userId: string, lessonId: string, blockId: string, completed: string[] = []) => {
     const key = progressKey(userId, lessonId)
     const prior = store.lessons.get(key)
+    if (prior?.status === 'completed') return copy(prior)
+    const blocks = catalog.lessons.find(lesson => lesson.id === lessonId)?.blocks ?? []
+    const priorOrder = blocks.find(block => block.id === prior?.currentBlockId)?.order ?? -Infinity
+    const nextOrder = blocks.find(block => block.id === blockId)?.order ?? -Infinity
     const next: LessonProgress = {
-      userId, lessonId, status: prior?.status === 'completed' ? 'completed' : 'in_progress',
-      currentBlockId: blockId, completedBlockIds: [...new Set([...(prior?.completedBlockIds ?? []), ...completed])],
+      userId, lessonId, status: 'in_progress',
+      currentBlockId: priorOrder > nextOrder ? prior!.currentBlockId : blockId,
+      completedBlockIds: [...new Set([...(prior?.completedBlockIds ?? []), ...completed])],
+      confirmedCompletedBlockIds: blocks.filter(block => store.accountStore.blocks.has(progressKey(userId, lessonId, block.id))).map(block => block.id),
       startedAt: prior?.startedAt ?? now(), completedAt: prior?.completedAt, updatedAt: now(),
+      revision: (prior?.revision ?? 0) + 1,
     }
     store.lessons.set(key, next)
     return copy(next)
@@ -50,16 +62,23 @@ export function createMockProgressService(
     ...playback,
     async getLessonProgress(lessonId) {
       if (!session.userId) return failure('unauthorized')
-      return success(copy(store.lessons.get(progressKey(session.userId, lessonId)) ?? null))
+      const prior = store.lessons.get(progressKey(session.userId, lessonId))
+      if (!prior) return success(null)
+      const blocks = catalog.lessons.find(lesson => lesson.id === lessonId)?.blocks ?? []
+      return success(copy({ ...prior, confirmedCompletedBlockIds: blocks.filter(block =>
+        store.accountStore.blocks.has(progressKey(session.userId, lessonId, block.id))).map(block => block.id) }))
     },
     async saveCheckpoint(input) {
       const userId = session.userId
+      if (!expectedMockSubject(input, userId)) return failure('unauthorized')
       const completed = [...new Set(input.completedBlockIds)].sort()
-      return run(userId, input.operationId, JSON.stringify(['lesson', input.lessonId, input.currentBlockId ?? null, completed]), () => {
+      return run(userId, input.operationId, JSON.stringify(['lesson', input.lessonId, input.currentBlockId ?? null, completed, input.expectedRevision ?? null]), () => {
         const lesson = catalog.lessons.find(item => item.id === input.lessonId && item.status === 'published')
         if (!lesson) return failure('not_found')
         const ids = new Set(lesson.blocks.map(block => block.id))
         if ((input.currentBlockId !== undefined && !ids.has(input.currentBlockId)) || completed.some(id => !ids.has(id))) return failure('validation')
+        if (input.expectedRevision !== undefined && (!Number.isInteger(input.expectedRevision) || input.expectedRevision < 0)) return failure('validation')
+        if (input.expectedRevision !== undefined && input.expectedRevision !== (store.lessons.get(progressKey(userId, input.lessonId))?.revision ?? 0)) return failure('conflict')
         const blockId = input.currentBlockId ?? store.lessons.get(progressKey(userId, input.lessonId))?.currentBlockId ??
           [...lesson.blocks].sort((a, b) => a.order - b.order)[0]?.id
         if (!blockId) return failure('validation')

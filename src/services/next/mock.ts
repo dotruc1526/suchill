@@ -1,8 +1,13 @@
-import type { Chapter, LearningDocument, Lesson, Locale, MediaAsset, StoryVersion } from '../../types/v2/content.ts'
+import type { Chapter, LearningDocument, Lesson, MediaAsset, StoryVersion } from '../../types/v2/content.ts'
 import { createMockProgressService, createMockProgressStore, type MockProgressStore } from './mockProgress.ts'
 import { createMockMediaService, type MockMediaResource } from './mockMedia.ts'
 import { failure, success, type LearningServices } from './contracts.ts'
 import { createMockQuizService, type MockQuizFixture } from './mockQuiz.ts'
+import { createMockAccountServices } from './mockAccount.ts'
+import { createMockCompletionService } from './mockAccountCompletion.ts'
+import { recordMockQuizOutcome } from './mockAccountRewards.ts'
+import type { MockSession } from './mockAccountStore.ts'
+import { deliverStory } from './storyDelivery.ts'
 export type { MockQuizFixture } from './mockQuiz.ts'
 
 export type MockCatalog = {
@@ -13,12 +18,19 @@ export type MockCatalog = {
   mediaAssets: MediaAsset[]
   mediaResources?: MockMediaResource[]
   quizzes?: MockQuizFixture[]
+  /** Stable reward scope: corrections keep the same eligibility version. Fixture-only metadata. */
+  rewardEligibilityVersions?: Record<string, string>
+  /** Authored opt-in; daily review is never inferred from an arbitrary practice set. */
+  dailyReviewSetIds?: string[]
+  requiredStoryCheckSceneIds?: Record<string, string[]>
+  /** Explicit technical resources in public/technical-fixtures; never production content. */
+  mediaResourceUrls?: Record<string, string>
 }
 
 /** Isolated contract adapter for tests and future UI wiring; no demo data is canonical. */
 export function createMockLearningServices(
   catalog: MockCatalog,
-  session: { userId: string; displayName?: string; locale?: Locale },
+  session: MockSession,
   now: () => string = () => new Date().toISOString(),
   progressStore: MockProgressStore = createMockProgressStore(),
 ): LearningServices {
@@ -27,6 +39,8 @@ export function createMockLearningServices(
     (value.status ?? value.reviewStatus) === 'published'
 
   return {
+    ...createMockAccountServices(progressStore.accountStore, session, now),
+    completion: createMockCompletionService(catalog, progressStore, session, now),
     chapters: {
       async listPublished() {
         return success(copy(catalog.chapters.filter(published)))
@@ -51,12 +65,13 @@ export function createMockLearningServices(
     stories: {
       async getVersion(storyVersionId) {
         const story = catalog.storyVersions.find(item => item.id === storyVersionId && published(item))
-        return story ? success(copy(story)) : failure('not_found')
+        return story ? success(deliverStory(story)) : failure('not_found')
       },
     },
     media: createMockMediaService(catalog),
     progress: createMockProgressService(catalog, session, now, progressStore),
-    quiz: createMockQuizService(catalog, session),
+    quiz: createMockQuizService(catalog, session, progressStore.accountStore,
+      (setId, mode, receipt, actor) => recordMockQuizOutcome(catalog, progressStore.accountStore, actor, setId, mode, receipt, now())),
     users: {
       async getCurrentProfile() {
         if (!session.userId) return failure('unauthorized')

@@ -45,6 +45,8 @@ docs/
 - [AI Battle](./features/ai-battle/README.md)
 - [UI/UX và reusable engineering](./engineering/UI-UX-ENGINEERING-GUIDE.md)
 - [PWA và hướng phát hành](./platform/APP-DEPLOYMENT-PLAN.md)
+- [M3–M5 isolated delivery và nghiệm thu](./tasks/active/M3-M5-DELIVERY.md)
+- [Supabase local setup và giới hạn kiểm chứng](../supabase/README.md)
 
 ## Trạng thái tài liệu
 
@@ -53,4 +55,4 @@ docs/
 - `APPROVED`: đã duyệt, được dùng làm đầu vào cho phase sau.
 - `SUPERSEDED`: đã được tài liệu mới thay thế.
 
-Phase 0–9 đã được duyệt. `SPEC-FIRST FREEZE` đã kết thúc; M0–M2 đã đóng và Milestone 3 được Product Owner mở ngày 2026-10-01. M4–M7 vẫn cần Product Owner duyệt gate milestone trước và ghi trên task board. Mỗi task vẫn phải đạt dependency, có owner/reviewer, task card và file claim trước khi triển khai.
+Phase 0–9 đã được duyệt. `SPEC-FIRST FREEZE` đã kết thúc; M0–M2 đã đóng và Milestone 3 được Product Owner mở ngày 2026-10-01. Product Owner ủy quyền triển khai M3–M5 trên nhánh riêng ngày 2026-10-02; gate nghiệm thu vẫn cần evidence và reviewer. M6–M7 chưa được mở. Mỗi task vẫn cần dependency, owner/reviewer, task card và file claim.

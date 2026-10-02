@@ -7,9 +7,12 @@ export type LessonProgress = {
   status: ProgressStatus
   currentBlockId?: EntityId
   completedBlockIds: EntityId[]
+  /** Authoritative block receipts; checkpoint hints alone never prove completion. */
+  confirmedCompletedBlockIds?: EntityId[]
   startedAt?: ISODateTime
   completedAt?: ISODateTime
   updatedAt: ISODateTime
+  revision?: number
 }
 export type EpisodeProgress = {
   userId: EntityId
@@ -21,6 +24,7 @@ export type EpisodeProgress = {
   startedAt: ISODateTime
   completedAt?: ISODateTime
   updatedAt: ISODateTime
+  revision?: number
 }
 export type VideoProgress = {
   userId: EntityId
@@ -30,6 +34,7 @@ export type VideoProgress = {
   watchedRanges: Array<{ start: number; end: number }>
   completed: boolean
   updatedAt: ISODateTime
+  revision?: number
 }
 export type LearningAttempt = {
   id: EntityId

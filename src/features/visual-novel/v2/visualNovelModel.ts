@@ -1,19 +1,16 @@
 import type { LearningServices, Result, StoryCheckpointContext } from '../../../services/next/contracts'
-import type { SceneChoice, StoryVersion, VisualNovelScene } from '../../../types/v2/content'
+import type { DeliveredStoryVersion, StoryChoiceFeedback } from '../../../services/next/storyDelivery'
 
 export type VisualNovelContext = Omit<StoryCheckpointContext, 'operationId'>
-export type ChoiceFeedback = {
-  choiceId: string
-  outcome: 'correct' | 'incorrect' | 'neutral'
-  message: string
-}
+export type ChoiceFeedback = StoryChoiceFeedback
 export type VisualNovelSession = {
-  story: StoryVersion
+  story: DeliveredStoryVersion
   currentSceneId: string
   confirmedSceneId: string
   visitedSceneIds: string[]
   lockedChoiceIds: string[]
   replay: boolean
+  revision?: number
   feedback?: ChoiceFeedback
   pendingSceneId?: string
 }
@@ -61,18 +58,43 @@ export class VisualNovelActionGate {
   }
 }
 
-const sceneExists = (story: StoryVersion, sceneId: string) => story.scenes.some(scene => scene.id === sceneId)
+const sceneExists = (story: DeliveredStoryVersion, sceneId: string) => story.scenes.some(scene => scene.id === sceneId)
 const success = (session: VisualNovelSession): Result<VisualNovelSession> => ({ ok: true, value: session })
 
 export async function loadVisualNovel(
   services: LearningServices,
   context: VisualNovelContext,
 ): Promise<Result<VisualNovelSession>> {
+  const actor = await services.auth.getSession()
+  if (!actor.ok || !actor.value) return { ok: false, error: 'unauthorized' }
+  const actorId = actor.value.userId
+  const sameActor = async () => {
+    const current = await services.auth.getSession()
+    return current.ok && current.value?.userId === actorId
+  }
   const storyResult = await services.stories.getVersion(context.storyVersionId)
   if (!storyResult.ok) return storyResult
   const progressResult = await services.progress.getEpisodeProgress(context.storyVersionId)
   if (!progressResult.ok) return progressResult
-  const progress = progressResult.value
+  let progress = progressResult.value
+  if (!progress) {
+    if (!await sameActor()) return { ok: false, error: 'unauthorized' }
+    if (!sceneExists(storyResult.value, storyResult.value.startSceneId)) return { ok: false, error: 'validation' }
+    const initialization = {
+      ...context, currentSceneId: storyResult.value.startSceneId, visitedSceneIds: [],
+      expectedRevision: 0, operationId: globalThis.crypto.randomUUID(), expectedSubject: actorId,
+    }
+    const initialized = await services.progress.saveEpisodeCheckpoint(initialization)
+    if (!initialized.ok) {
+      if (initialized.error !== 'conflict') return initialized
+      // Another tab/StrictMode load may have initialized first. Resume its cursor.
+      const concurrent = await services.progress.getEpisodeProgress(context.storyVersionId)
+      if (!concurrent.ok) return concurrent
+      if (!concurrent.value) return initialized
+      progress = concurrent.value
+    } else progress = initialized.value
+  }
+  if (!await sameActor() || progress.userId !== actorId) return { ok: false, error: 'unauthorized' }
   const currentSceneId = progress?.currentSceneId ?? storyResult.value.startSceneId
   if (!sceneExists(storyResult.value, currentSceneId)) return { ok: false, error: 'validation' }
   return success({
@@ -82,6 +104,7 @@ export async function loadVisualNovel(
     visitedSceneIds: progress?.visitedSceneIds ?? [],
     lockedChoiceIds: progress?.lockedChoiceIds ?? [],
     replay: false,
+    revision: progress?.revision ?? 0,
   })
 }
 
@@ -98,7 +121,7 @@ export async function advanceVisualNovel(
   if (session.replay) return success({ ...session, currentSceneId: nextSceneId, feedback: undefined, pendingSceneId: undefined })
 
   const saved = await services.progress.saveEpisodeCheckpoint({
-    ...context, operationId, currentSceneId: nextSceneId,
+    ...context, operationId, currentSceneId: nextSceneId, expectedRevision: session.revision,
     visitedSceneIds: [...session.visitedSceneIds, scene.id],
   })
   if (!saved.ok) return saved
@@ -108,12 +131,9 @@ export async function advanceVisualNovel(
     confirmedSceneId: saved.value.currentSceneId,
     visitedSceneIds: saved.value.visitedSceneIds,
     lockedChoiceIds: saved.value.lockedChoiceIds,
+    revision: saved.value.revision,
   })
 }
-
-const feedbackFor = (choice: SceneChoice): ChoiceFeedback => choice.kind === 'knowledge_check'
-  ? { choiceId: choice.id, outcome: choice.isCorrect ? 'correct' : 'incorrect', message: choice.explanation }
-  : { choiceId: choice.id, outcome: 'neutral', message: choice.response ?? 'Lựa chọn đã được ghi nhận.' }
 
 export async function chooseVisualNovel(
   services: LearningServices,
@@ -130,20 +150,21 @@ export async function chooseVisualNovel(
   let pendingSceneId = choice.nextSceneId ?? scene.id
   let lockedChoiceIds = session.lockedChoiceIds
   let visitedSceneIds = session.visitedSceneIds
+  const saved = await services.progress.recordChoice({ ...context, operationId, sceneId: scene.id, choiceId, expectedRevision: session.revision, ...(session.replay ? { replay: true } : {}) })
+  if (!saved.ok) return saved
   if (!session.replay) {
-    const saved = await services.progress.recordChoice({ ...context, operationId, sceneId: scene.id, choiceId })
-    if (!saved.ok) return saved
     pendingSceneId = saved.value.currentSceneId
     lockedChoiceIds = saved.value.lockedChoiceIds
     visitedSceneIds = saved.value.visitedSceneIds
-  } else if (choice.kind === 'knowledge_check' && !choice.isCorrect && scene.policy === 'retry_until_correct') {
+  } else if (saved.value.choiceFeedback.outcome === 'incorrect' && scene.policy === 'retry_until_correct') {
     pendingSceneId = scene.id
   }
   if (!sceneExists(session.story, pendingSceneId)) return { ok: false, error: 'validation' }
   return success({
     ...session,
     confirmedSceneId: session.replay ? session.confirmedSceneId : pendingSceneId,
-    feedback: feedbackFor(choice), pendingSceneId, lockedChoiceIds, visitedSceneIds,
+    feedback: saved.value.choiceFeedback, pendingSceneId, lockedChoiceIds, visitedSceneIds,
+    revision: saved.value.revision,
   })
 }
 
