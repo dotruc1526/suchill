@@ -1,0 +1,92 @@
+{
+  "id": "media.mt68.pilot.v1",
+  "title": "Kế hoạch Giao Thừa — elevenlabs.io",
+  "reviewStatus": "in_review",
+  "scope": "academic_non_commercial",
+  "provider": "ElevenLabs",
+  "plan": "Free",
+  "voiceId": "5g2DMFQF8xR0KmnuNr4U",
+  "model": "eleven_v4",
+  "language": "Vietnamese",
+  "generationDate": "2026-10-03",
+  "audioIdentityVerified": false,
+  "audioHumanAcceptance": "User listened and accepted nine cues in chat, 2026-10-03",
+  "visuals": "Original typography and educational diagrams; no archival imagery/music/SFX",
+  "narrationSha256": "b9e7d17f8503796621e6624785628585477dc9e34633e4224e6b484eefc137ed",
+  "audioInputs": [
+    {
+      "cueId": "p01a",
+      "sha256": "0c74dbf14d702d164fc1a2d9d3627d1d7ae13d1a5d0788986328d187d6244b3e",
+      "durationSeconds": 6.426063
+    },
+    {
+      "cueId": "p01b",
+      "sha256": "eb187fb5d5ba9fc84c05ffc33f5f2b92d2b4fee315d21216225ea6a9668a65f5",
+      "durationSeconds": 6.03425
+    },
+    {
+      "cueId": "p02a",
+      "sha256": "13b8f5b5883019cec23f06ed1e74fb0c3ca814cf4e4af2f76405ce434ce97334",
+      "durationSeconds": 4.911
+    },
+    {
+      "cueId": "p02b",
+      "sha256": "8d1e43c85466ef6b2079d1645b1633daac3c97f8c1747170aaac2c31538b3350",
+      "durationSeconds": 9.7175
+    },
+    {
+      "cueId": "p03a",
+      "sha256": "33553532eb713753b6ea9988ddcddbe4043e58432fdc8f7c21191aba13e8c4e4",
+      "durationSeconds": 5.250563
+    },
+    {
+      "cueId": "p03b",
+      "sha256": "46a7c0c38ffd19332683d1ebbed19f38a731a9616d39b3d600082dbb07bbd335",
+      "durationSeconds": 8.359125
+    },
+    {
+      "cueId": "p04a",
+      "sha256": "bbc78c4f758749531b327b42afb1b644153cd2286ba166d5899ecb57ffb22e88",
+      "durationSeconds": 7.967313
+    },
+    {
+      "cueId": "p04b",
+      "sha256": "a05ba1d63fa65f9d9fb87b017b93af554fda113e11175d84340843322d0937ce",
+      "durationSeconds": 7.235875
+    },
+    {
+      "cueId": "p05",
+      "sha256": "93cd80119a071a98ab24d8caeec88d3534a9bfd8c0e961d801735f3723529c4e",
+      "durationSeconds": 7.1575
+    }
+  ],
+  "fontLicenseEvidence": "Bundled LibreOffice Resources/LICENSE:1996-2004; Google Noto, SIL OFL 1.1",
+  "fontSha256": "f5f552c8c5edb61fe6efb824baf4d4de47b1a8689ab4925ff43f7bd6a4ebece5",
+  "sourceIds": [
+    "SRC-MT68-01",
+    "SRC-MT68-03",
+    "SRC-MT68-04",
+    "SRC-MT68-05",
+    "SRC-MT68-07"
+  ],
+  "files": {
+    "pilot-mobile.mp4": "ede2c81cadc9a96f2853247078cb089df0ff05659b72bd61efbb1d3ba96749e2",
+    "pilot-master.mp4": "97ca967b7ee9f85ff1d726ad0070acbfb5021026e476846042be2b1ce40a4025",
+    "poster.png": "2d2357b1f905ead4a641bd21ca4240d6365472716aee94029a19844a0ab7e322",
+    "captions.vi.vtt": "d80f4a2ba0494390ead807d5cdf5c6a907fd7319f2191cd3d135121981dc1912",
+    "transcript.vi.txt": "3f2c32d047026a19235f10a9aab60cc4db79d9e7591dae9c65bdbcda6f49ac84"
+  },
+  "pending": [
+    "final_caption_sync_review",
+    "device_playback_review",
+    "voice_id_account_verification",
+    "final_editorial_acceptance",
+    "service_and_lesson_publication"
+  ],
+  "generationTimezone": "Asia/Ho_Chi_Minh",
+  "sourceScopeAcceptance": {
+    "registrySha256": "369205fcbd713a74acaa0149e6c21d2c3734260d4265e7b8f87edd5868e3bba5",
+    "evidence": "docs/tasks/evidence/CONTENT-003-source-review-2026-10-02.md",
+    "p03aAndP03b": "SRC-MT68-07 supports the five-target list only; SRC-MT68-02 remains bibliographic candidate"
+  }
+}

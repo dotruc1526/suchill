@@ -1,7 +1,7 @@
 # CONTENT-007 — Video theo kịch bản cho bài học MVP
 
-> Status: IN PROGRESS\
-> Last updated: 2026-10-02
+> Status: REVIEW\
+> Last updated: 2026-10-03
 
 ## Assignment
 
@@ -12,7 +12,7 @@
 - Executor name: Trúc; Codex hỗ trợ sản xuất theo yêu cầu PO Dương
 - Reviewer: Thọ/Product owner + historical reviewer; Vinh kiểm tra media/accessibility
 - Codex task/thread: chat hiện hành, PO Dương giao sản xuất và tích hợp
-- Branch: codex/truc-content003-source-review
+- Branch: codex/truc-content007-video
 - Started: 2026-10-02; BLOCKED → READY theo PO → IN PROGRESS/claim
 - Depends on: CONTENT-003 (pilot source/media review), CONTENT-004 (kịch bản/storyboard video), DOC-004 (`DONE`)
 
@@ -25,10 +25,10 @@
 
 ## Acceptance criteria
 
-- [ ] Member 1 bàn giao kịch bản/storyboard, mục tiêu học, vị trí video trong lesson và danh sách nguồn; historical reviewer xác nhận claims/media đủ điều kiện sản xuất.
-- [ ] Member 2 bàn giao ít nhất một video đúng kịch bản, có bản xuất mobile và poster; không dùng ảnh/âm thanh/tư liệu thiếu quyền hoặc sai bối cảnh.
+- [x] Member 1 bàn giao kịch bản/storyboard, mục tiêu học, vị trí video trong lesson và danh sách nguồn; historical reviewer xác nhận claims/media đủ điều kiện sản xuất.
+- [x] Member 2 bàn giao ít nhất một video đúng kịch bản, có bản xuất mobile và poster; không dùng ảnh/âm thanh/tư liệu thiếu quyền hoặc sai bối cảnh.
 - [ ] Có phụ đề tiếng Việt đồng bộ, transcript, attribution/license, mô tả thay thế và fallback khi video không tải.
-- [ ] Member 1 và historical reviewer duyệt bản cuối; thay đổi fact/media sau duyệt phải review lại.
+- [x] Member 1 và historical reviewer duyệt bản cuối; thay đổi fact/media sau duyệt phải review lại (Trúc APPROVED 2026-10-03; Thọ SCRIPT APPROVED 2026-10-03).
 - [ ] Member 4 nhận media package và metadata cần cho FE-006; việc gắn vào lesson và kiểm thử resume/fallback thuộc FE-006/QA-005 sau khi CONTENT-007 bàn giao.
 
 ## Verification
@@ -69,3 +69,94 @@
 - Đã tạo [hướng dẫn copy 9 đoạn](../../content/production/mt68-v1/COPY-VAO-ELEVENLABS.md), bản LOI-DOC.txt, 9 cue txt, cue-timing.json và scripts/content/build-mt68-video.py. Nguồn lời đọc đúng PILOT-NARRATION.json, không đổi authoring snapshot.
 - Anh tự export theo yêu cầu mới; cần gửi 9 file audio. Script dựng kiểm tra input/timing, không cắt lời, xuất package in_review; yêu cầu ffmpeg/ffprobe, Pillow và font/license. Máy hiện không có ffmpeg trong PATH, chưa chạy render/build script hoặc tests.
 - Chưa có MP4 để gắn canonical: bước service/lesson publication giữ pending; chưa sửa mock fixture 1972, chưa tạo URL giả hoặc đánh dấu media published. Không có runtime/env/migration changes.
+
+## Claim dựng bản video — 2026-10-03
+
+- Main đã kiểm tra: b9a0f0d; PR111 MERGED. Owner Trúc, Executor Codex, Reviewer Trúc/Thọ (bản cuối), Vinh (media/accessibility), Dương (PO).
+- Anh đã nghe và xác nhận “audio đạt, dựng video tiếp”; 9/9 MP3 trên Desktop/mp3 là input được nghiệm thu trong chat này.
+- Files claimed bổ sung: scripts/content/mt68_video_art.py; docs/tasks/evidence/CONTENT-007-video-2026-10-03.md; production/mt68-v1/render package. Không đổi narration/story/source snapshot.
+- Next action: dựng đồ họa chữ/sơ đồ cho 5 scene, 110 giây, phụ đề/poster/transcript/manifest; kiểm tra layout và metadata. Bản video cuối chuyển REVIEW để người phụ trách duyệt trước publication/integration.
+
+## Bản dựng hoàn tất / handoff REVIEW — 2026-10-03
+
+- Có master 1080×1920 và mobile 720×1280, 110 giây, poster, captions.vi.vtt, transcript, manifest/hash, lesson-handoff.json và media-checks.json. Chữ lời đọc hiện trực tiếp trên video, credit ElevenLabs trên mọi card/title.
+- [Evidence bản dựng](../evidence/CONTENT-007-video-2026-10-03.md). Audio 9/9 đã được user nghiệm thu; decode 2/2 MP4 PASS; 9 layout đã xem. Caption sync cuối/device playback và final editorial acceptance còn pending.
+- Changed files: scripts/content/build-mt68-video.py, mt68_video_art.py, production/mt68-v1/render final assets/metadata; task card/board/index/evidence. Không đổi authoring snapshots, runtime, env hoặc migration.
+- Status REVIEW: Trúc/Thọ review bản video cuối, Vinh media/accessibility QA, Dương nhận. Metadata target lesson-mt68-01-video đã chuẩn bị, chưa publish/storage URL; service/lesson integration tiến hành sau final asset acceptance theo card.
+- Những đoạn “chưa có audio/MP4” và “BLOCKED” ở checkpoint cũ là lịch sử; trạng thái hiện hành theo checkpoint này.
+
+## Revision v2 theo feedback Trúc — 2026-10-03
+
+- User yêu cầu thay bản chữ bằng cinematic historical collage / 2D cut-out / vintage Vietnamese scrapbook, SỬu nhất quán, hình phần lớn màn hình, subtitle nhỏ và motion mỗi 1.5–3s.
+- Audio timeline cố định từ 9 MP3 đã nghiệm thu: ghép nối nguyên tốc độ, không padding/chậm tiếng chờ hình. Thời lượng v2 đo từ audio, thay lịch 110s của bản v1 theo yêu cầu mới này; không sửa lời bình/narration authoring.
+- Owner Trúc; Executor Codex; Reviewer Trúc/Thọ, Vinh media/accessibility và Dương PO. Branch codex/truc-content007-video; status IN PROGRESS (revision từ REVIEW).
+- Files claimed bổ sung: scripts/content/mt68_collage*.py, docs/content/production/mt68-v2/ (assets/prompt/timeline/render/manifest/evidence). Asset SỬu dùng reference có sẵn trong repo; không sửa mascot runtime.
+- Next action: tạo minh họa collage phân lớp, dựng chuyển động theo audio, captions ngắn, master/mobile; nghiệm thu bản render mới. Không tự publication/integration trước final acceptance.
+
+## Handoff v2 collage — 2026-10-03
+
+- Candidate hiện hành là v2: 63.059592s theo 9 audio đã duyệt, không kéo chậm/padding; master1080×1920 và mobile720×1280 đều30fps. Bản typography110s v1 giữ làm revision trước.
+- Có 3 collage backdrop/3 pose SỬu, foreground object/parallax/camera motion, 33 caption ngắn, poster/transcript/manifest/timeline/lesson-handoff. [Evidence v2](../evidence/CONTENT-007-collage-v2-2026-10-03.md).
+- Decode2/2MP4 PASS, hashPCMinput khớp9/9 và không thêm sample; đã xem9encodedframes. Final caption listening/device/illustration/editorial review còn pending.
+- Changed files: scripts/content/build-mt68-collage.py, mt68_collage_frames.py/props.py/timeline.py; production/mt68-v2/; card/board/index/evidence. Không runtime/env/migration changes; không app tests/build vì chỉ media production.
+- Status REVIEW: Trúc/Thọ/Vinh/Dương review bản cụ thể; gắn service/lesson sau final acceptance, chưa published.
+
+- Layout recheck v2: dời SỬu khỏi nhãn mục tiêu, render lại hai MP4, recheck encoded frame36s; evidence/hash được cập nhật theo output cuối.
+
+## Trúc nghiệm thu bản video cuối — 2026-10-03
+
+- Xác nhận trực tiếp trong chat: **“oke a duyệt video này nha”** sau khi xem bản v2 đã sửa layout. Verdict **APPROVED** trong phạm vi Trúc: bản dựng/hình ảnh/cách kể chuyện và minh họa lịch sử.
+- Revision được xem: PR112 head `4c00692b401749e5260b282cc4dd9eef141ff2c4`, media `media.mt68.pilot.collage.v2`, 63.059592s.
+- Mobile SHA-256: `ec93193ca873fbe00b9c481697da3be90ccb35dc642020a4809554210db60d8e`; master SHA-256: `3811a1c07e26ea3bc1ac41aa97dd81c2e7d938fd0767c475e5be6f2aaa7a0b7b`. Manifest ghi cả sáu hash artifact đi kèm. Hash của sáu file trong repo và bản Desktop khớp; không render lại hoặc sửa bytes media sau duyệt.
+- Historical/illustration và final editorial review thuộc Trúc đã đạt. Còn Thọ xác nhận kịch bản bản cuối; Vinh nghe kiểm tra caption sync/phát trên thiết bị/media accessibility; Dương nhận consumer handoff và publication/integration. Phê duyệt trong chat không thay cho những kiểm tra này.
+- CONTENT-007 giữ REVIEW theo acceptance card; package `in_review`, `not_published`, `storageUrl=null`. Academic non-commercial/credit elevenlabs.io giữ đúng quyết định PO.
+- Changed files: card/board/index, evidence, art-direction, manifest/lesson-handoff metadata. Không runtime/env/migration changes; không chạy app tests/build vì chỉ ghi nghiệm thu, không sửa implementation. Next action: Thọ/Vinh hoàn tất phần review còn lại để Dương nhận tích hợp lesson-mt68-01-video.
+
+## Thọ (Member 1) xác nhận kịch bản bản video v2 — 2026-10-03
+
+- Thọ (Tác giả kịch bản / Content Lead) đã đối chiếu toàn bộ lời đọc trong video v2 (63s) với kịch bản gốc và `PILOT-NARRATION.json`.
+- Kết quả: 9/9 phân đoạn lời đọc khớp nguyên văn kịch bản, giọng đọc rõ ràng, giữ trọn vẹn ngữ nghĩa lịch sử và mục tiêu sư phạm của bài học.
+- Verdict: **SCRIPT APPROVED**.
+- Bản đối chiếu hash-bound: Master `3811a1c07e26ea3bc1ac41aa97dd81c2e7d938fd0767c475e5be6f2aaa7a0b7b`, Mobile `ec93193ca873fbe00b9c481697da3be90ccb35dc642020a4809554210db60d8e`.
+- Next action: Vinh kiểm tra phụ đề/phát trên điện thoại/media accessibility; Dương nhận consumer handoff để gắn vào bài học.
+
+
+## Vinh media QA claim — 2026-10-03
+
+- Owner: Trúc; Executor technical QA: Vinh, Codex hỗ trợ theo yêu cầu người dùng; Reviewer/handoff consumer: Dương. CONTENT-007 parent giữ REVIEW.
+- Status: REVIEW cho lượt QA kỹ thuật đã hoàn tất; Started: 2026-10-03; reviewed PR112 head eb60b3c.
+- Depends on: PO academic non-commercial production handoff và Trúc final-v2 approval ghi trong card; review candidate, không publish.
+- Files claimed: section QA trong card này, docs/tasks/evidence/CONTENT-007-vinh-media-qa-2026-10-03.md, metadata technicalQa trong production/mt68-v2/render/lesson-handoff.json và manifest.json; evidence snapshots trong docs/tasks/evidence/content007-vinh-media-qa/ và harness scripts/member5/qa-content007-media.mjs. Không sửa media đã được duyệt, source/history hoặc runtime.
+- Acceptance: hashes đúng bản approved; metadata/codec/decode, 33 cue/VTT/narration/transcript concordance, playback/seek/captions ở Chrome mobile viewports 375/430; ghi rõ giới hạn final listening và physical-device QA.
+- Next action: chạy kiểm tra độc lập, ghi finding/evidence để Dương nhận handoff. Không giả kết quả nghe trên điện thoại thật hoặc chữ ký Thọ.
+
+
+### Vinh technical result — 2026-10-03
+
+- **TECHNICAL CHECKS PASS WITH REMAINING HUMAN QA**, reviewed eb60b3c. [Evidence](../evidence/CONTENT-007-vinh-media-qa-2026-10-03.md).
+- 6/6 approved hashes; 2/2 MP4 full decode/faststart; 33 VTT cues exact text/monotonic/in bounds; 9 PCM segment hashes match. Chrome375/430 phone viewports: touch play, seek, active33/33 captions, playback to end PASS; snapshots/results attached.
+- No physical handset test and no final listening/word-level sync verdict. These remain pending explicitly; package tests do not certify service/lesson integration, resume or production rights.
+- Next: human listening/device check; Thọ SCRIPT APPROVED ghi tại bdc6dc9; Dương receives technical evidence and completes consumer/publication handoff. Parent CONTENT-007 REVIEW; media remains in_review/not_published/storageUrl=null. Media bytes unchanged; no env/migration impact.
+
+- Đồng bộ sau rebase: giữ nguyên Thọ SCRIPT APPROVED tại bdc6dc9; 6 hash asset không đổi. Các next action cũ chờ Thọ đã được checkpoint mới thay thế.
+
+
+## Dương consumer handoff claim — 2026-10-03
+
+- Owner consumer: Dương (Member 4); executor Codex hỗ trợ Dương; reviewer Vinh/Hưng for subsequent runtime integration.
+- User authorized completing Dương handoff and merging PR112. Reviewed base5f2ab7b; branch codex/truc-content007-video; READY → IN PROGRESS for this documentation checkpoint only.
+- Files claimed: this card, CONTENT-007-collage-v2 evidence, v2 manifest and lesson-handoff metadata. No runtime/storage/publication files claimed; no competing source owner affected.
+- Acceptance: record consumer package acceptance with exact artifact hashes; map resources to current MediaService contract; retain pending human listening/device QA and not_published state.
+- Next: verify metadata/hashes/diff, push acceptance, wait CI, merge candidate package. Final CONTENT-007 output/publication acceptance remains separate.
+
+
+## Dương consumer acceptance and merge handoff — 2026-10-03
+
+- **ACCEPTED consumer package handoff**, reviewed5f2ab7b; same six artifact hashes as Trúc-approved v2. Dương directly authorized completing this handoff and merging PR112. Thọ SCRIPT APPROVED and Vinh package technical QA are recorded separately.
+- MediaService mapping: media.mt68.pilot.collage.v2 -> lesson-mt68-01-video; mobile MP4, poster/alt, Vietnamese VTT/transcript, transcript fallback, attribution and fictional illustration label. Current player contract can consume these resources after URLs are resolved; source and reward interfaces unchanged.
+- Use duration63.059592s, not v1 110s; retain authored completionPolicy, including reach_end. No autoplay; preserve accessible native controls and transcript fallback. Resolve burned-in/sidecar duplication in the separately claimed consumer integration, retaining optional captions.
+- Verification: six artifact-byte SHA256 values match approved manifest;33 VTT cues ordered/in bounds; metadata IDs/duration consistent; diff check PASS. Runtime suite not repeated: this checkpoint changes metadata/docs only.
+- Merge accepts the candidate package into source control; media remains in_review/not_published/storageUrl=null. Final human listening/caption sync, physical-device QA, storage delivery and service/lesson integration are still pending. CONTENT-007 stays REVIEW. No fake URLs, runtime publication, task DONE or milestone changes.
+- Files changed: CONTENT-007 card, v2 evidence, manifest and lesson-handoff. No env/migration/dependency/media-byte changes. Next: finish remaining media QA, resolve approved URLs, then claim runtime integration and verify real-player resume/retry/fallback/mobile behavior.
+
+- Claim extension: own CONTENT-007 board row only, to synchronize the accepted consumer handoff; no gate/other-task changes.

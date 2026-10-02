@@ -8,7 +8,8 @@ import json
 from pathlib import Path
 import shutil
 import subprocess
-from PIL import Image, ImageDraw, ImageFont
+from mt68_video_art import render
+import textwrap
 
 ROOT = Path(__file__).resolve().parents[2]
 TITLE = 'Kế hoạch Giao Thừa — elevenlabs.io'
@@ -20,18 +21,6 @@ def run(args):
 
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
-
-
-def wrap(text, draw, font, width):
-    lines, current = [], ''
-    for word in text.split():
-        candidate = f'{current} {word}'.strip()
-        if current and draw.textlength(candidate, font=font) > width:
-            lines.append(current)
-            current = word
-        else:
-            current = candidate
-    return lines + [current]
 
 
 def main():
@@ -64,41 +53,39 @@ def main():
             parser.error(f"{cue['id']}: {duration:.2f}s exceeds {slot}s; re-record or review timing.")
         recordings.append((found[0], duration, slot))
     args.out.mkdir(parents=True, exist_ok=True)
-    font = ImageFont.truetype(str(args.font), 40)
-    small = ImageFont.truetype(str(args.font), 23)
     segments, inputs = [], []
     for cue, (audio, duration, slot) in zip(cues, recordings):
-        picture = Image.new('RGB', (720, 1280), '#F5E6D0')
-        draw = ImageDraw.Draw(picture)
-        draw.rounded_rectangle((36, 200, 684, 1080), radius=28, fill='#FBF4E8')
-        draw.text((52, 75), 'SỬ CHILL · MẬU THÂN 1968', font=small, fill='#8B1A1A')
-        lines = wrap(cue['text'], draw, font, 584)
-        if len(lines) * 64 > 780:
-            parser.error(f"{cue['id']}: typography overflows; review layout.")
-        y = 620 - len(lines) * 32
-        for line in lines:
-            draw.text((68, y), line, font=font, fill='#3D1A00')
-            y += 64
-        draw.text((52, 1130), 'Đồ án học tập · Phi thương mại', font=small, fill='#3D1A00')
-        draw.text((52, 1175), 'Giọng đọc: ElevenLabs · elevenlabs.io', font=small, fill='#3D1A00')
+        picture = render(cue, args.font)
         image_path = args.out / f"{cue['id']}.png"
         picture.save(image_path)
         segment = args.out / f"{cue['id']}.mp4"
         run(['ffmpeg', '-y', '-loglevel', 'error', '-loop', '1', '-i', str(image_path),
-             '-i', str(audio), '-t', str(slot), '-vf', 'fps=24,format=yuv420p',
+             '-i', str(audio), '-t', str(slot), '-vf', 'fps=24,format=yuv420p,fade=t=in:st=0:d=0.3',
              '-af', 'apad', '-c:v', 'libx264', '-preset', 'medium', '-crf', '23',
-             '-c:a', 'aac', '-ar', '48000', '-ac', '1', '-movflags', '+faststart', str(segment)])
+             '-c:a', 'aac', '-ar', '48000', '-ac', '1', '-b:a', '128k', '-movflags', '+faststart', str(segment)])
         segments.append(segment)
         inputs.append({'cueId': cue['id'], 'sha256': digest(audio), 'durationSeconds': duration})
     # Controlled cue IDs supply relative filenames; no shell interpolation.
     concat = args.out / 'segments.txt'
     concat.write_text(''.join(f"file '{path.name}'\n" for path in segments))
-    final = args.out / 'pilot-mobile.mp4'
+    master = args.out / 'pilot-master.mp4'
     run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'concat', '-safe', '1',
          '-i', str(concat), '-c', 'copy', '-metadata', f'title={TITLE}',
-         '-movflags', '+faststart', str(final)])
-    shutil.copyfile(args.out / f"{cues[0]['id']}.png", args.out / 'poster.png')
-    shutil.copyfile(ROOT / 'docs/content/PILOT-CAPTIONS.vtt', args.out / 'captions.vi.vtt')
+         '-movflags', '+faststart', str(master)])
+    final = args.out / 'pilot-mobile.mp4'
+    run(['ffmpeg', '-y', '-loglevel', 'error', '-i', str(master), '-vf', 'scale=720:1280',
+         '-c:v', 'libx264', '-preset', 'medium', '-crf', '23', '-c:a', 'copy',
+         '-metadata', f'title={TITLE}', '-movflags', '+faststart', str(final)])
+    render(cues[0], args.font, poster=True).save(args.out / 'poster.png')
+    def stamp(seconds):
+        ms = round(seconds * 1000)
+        return f'{ms // 3600000:02}:{ms // 60000 % 60:02}:{ms // 1000 % 60:02}.{ms % 1000:03}'
+    vtt = ['WEBVTT', '']
+    for cue, (_, duration, _) in zip(cues, recordings):
+        # Keep all words verbatim; captions last through the actual recording.
+        vtt += [cue['id'], f"{stamp(cue['startSeconds'])} --> {stamp(cue['startSeconds'] + duration)}",
+                textwrap.fill(cue['text'], width=44), '']
+    (args.out / 'captions.vi.vtt').write_text('\n'.join(vtt))
     transcript = args.out / 'transcript.vi.txt'
     transcript.write_text(TITLE + '\n\n' + '\n\n'.join(c['text'] for c in cues))
     manifest = {
@@ -106,12 +93,14 @@ def main():
         'scope': 'academic_non_commercial', 'provider': 'ElevenLabs', 'plan': 'Free',
         'voiceId': '5g2DMFQF8xR0KmnuNr4U', 'model': 'eleven_v4', 'language': 'Vietnamese',
         'generationDate': args.generation_date, 'audioIdentityVerified': False,
+        'audioHumanAcceptance': 'User listened and accepted nine cues in chat, 2026-10-03',
+        'visuals': 'Original typography and educational diagrams; no archival imagery/music/SFX',
         'narrationSha256': digest(narration_path), 'audioInputs': inputs,
         'fontLicenseEvidence': args.font_license, 'fontSha256': digest(args.font),
         'sourceIds': ['SRC-MT68-01', 'SRC-MT68-03', 'SRC-MT68-04', 'SRC-MT68-05', 'SRC-MT68-07'],
         'files': {name: digest(args.out / name) for name in
-                  ['pilot-mobile.mp4', 'poster.png', 'captions.vi.vtt', 'transcript.vi.txt']},
-        'pending': ['listen_and_caption_sync', 'mobile_playback', 'voice_and_model_evidence',
+                  ['pilot-mobile.mp4', 'pilot-master.mp4', 'poster.png', 'captions.vi.vtt', 'transcript.vi.txt']},
+        'pending': ['final_caption_sync_review', 'device_playback_review', 'voice_id_account_verification',
                     'final_editorial_acceptance', 'service_and_lesson_publication'],
     }
     (args.out / 'manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')

@@ -1,0 +1,299 @@
+{
+  "duration": 63.0595918367347,
+  "sampleRate": 44100,
+  "sampleCount": 2780928,
+  "audioPolicy": "Concatenate decoded samples in order; no padding, atempo, normalization or edits.",
+  "captionAlignment": "Pause-aware syllable interpolation; final listening review pending.",
+  "cues": [
+    {
+      "id": "p01a",
+      "start": 0.0,
+      "end": 6.426122448979592,
+      "sampleStart": 0,
+      "sampleCount": 283392,
+      "inputSha256": "0c74dbf14d702d164fc1a2d9d3627d1d7ae13d1a5d0788986328d187d6244b3e",
+      "decodedPcmSha256": "1a365fc880e19365cbb86d3e3cbf3f4f43275b84eb48caaea838e58183718520",
+      "text": "Cuối tháng một năm 1968, các đợt tiến công diễn ra tại nhiều đô thị miền Nam."
+    },
+    {
+      "id": "p01b",
+      "start": 6.426122448979592,
+      "end": 12.460408163265306,
+      "sampleStart": 283392,
+      "sampleCount": 266112,
+      "inputSha256": "eb187fb5d5ba9fc84c05ffc33f5f2b92d2b4fee315d21216225ea6a9668a65f5",
+      "decodedPcmSha256": "1a6dee480c88783aaace786e169c101fc9f583d5628d359aa5ae4116347b898d",
+      "text": "Trong bài này, chúng ta tìm hiểu sự chuẩn bị và đọc tư liệu về các mục tiêu tại Sài Gòn."
+    },
+    {
+      "id": "p02a",
+      "start": 12.460408163265306,
+      "end": 17.371428571428574,
+      "sampleStart": 549504,
+      "sampleCount": 216576,
+      "inputSha256": "13b8f5b5883019cec23f06ed1e74fb0c3ca814cf4e4af2f76405ce434ce97334",
+      "decodedPcmSha256": "83fb6d0b8564b9e32fc14b311b91021ca6c9bc207ebf22f4a08cd131eb3430d3",
+      "text": "Cơ sở gắn với Trần Văn Lai cất giấu vũ khí phục vụ trận đánh Dinh Độc Lập."
+    },
+    {
+      "id": "p02b",
+      "start": 17.37142857142857,
+      "end": 27.088979591836733,
+      "sampleStart": 766080,
+      "sampleCount": 428544,
+      "inputSha256": "8d1e43c85466ef6b2079d1645b1633daac3c97f8c1747170aaac2c31538b3350",
+      "decodedPcmSha256": "c8fee77ef5485fbcf3835541139751e89a93a115c649e8e081436f4f49fe9664",
+      "text": "Đội 5 nhận vũ khí trước khi xuất kích. Khi xem ảnh di tích ngày nay, cần phân biệt hiện trạng với hình ảnh năm 1968."
+    },
+    {
+      "id": "p03a",
+      "start": 27.088979591836736,
+      "end": 32.3395918367347,
+      "sampleStart": 1194624,
+      "sampleCount": 231552,
+      "inputSha256": "33553532eb713753b6ea9988ddcddbe4043e58432fdc8f7c21191aba13e8c4e4",
+      "decodedPcmSha256": "f7c7f189d50a92fedcbc7846853ac70efba6bdcf31e88c4ddd9f12cf46424561",
+      "text": "Nguồn tư liệu nhắc đến Đại sứ quán Mỹ, Dinh Độc Lập và Đài Phát thanh Sài Gòn."
+    },
+    {
+      "id": "p03b",
+      "start": 32.33959183673469,
+      "end": 40.69877551020408,
+      "sampleStart": 1426176,
+      "sampleCount": 368640,
+      "inputSha256": "46a7c0c38ffd19332683d1ebbed19f38a731a9616d39b3d600082dbb07bbd335",
+      "decodedPcmSha256": "375d034523632034a2a7f2e5f84ca262fe97c2fad316338f3bf487c9eb7508fa",
+      "text": "Hai mục tiêu khác là Bộ Tổng Tham mưu và Bộ Tư lệnh Hải quân. Danh sách mục tiêu không cho biết toàn bộ kết quả từng trận."
+    },
+    {
+      "id": "p04a",
+      "start": 40.69877551020408,
+      "end": 48.66612244897959,
+      "sampleStart": 1794816,
+      "sampleCount": 351360,
+      "inputSha256": "bbc78c4f758749531b327b42afb1b644153cd2286ba166d5899ecb57ffb22e88",
+      "decodedPcmSha256": "9d8708fa991a0857832c051e38017b02ec8c72cbe072b36e83934c2d1685af61",
+      "text": "Tại Đại sứ quán, cần phân biệt khuôn viên với tòa nhà chính. Không gọi cuộc tiến công là chiếm toàn bộ tòa nhà."
+    },
+    {
+      "id": "p04b",
+      "start": 48.66612244897959,
+      "end": 55.90204081632653,
+      "sampleStart": 2146176,
+      "sampleCount": 319104,
+      "inputSha256": "a05ba1d63fa65f9d9fb87b017b93af554fda113e11175d84340843322d0937ce",
+      "decodedPcmSha256": "30bed0d4c4db1d6cb629692c3fa95b7b621acaaeecf8ba2f42934cb4982b371d",
+      "text": "Trong trận đánh Dinh Độc Lập, bộc phá mở cổng không nổ. Sự chuẩn bị và kết quả thực tế cần được kể riêng."
+    },
+    {
+      "id": "p05",
+      "start": 55.90204081632653,
+      "end": 63.0595918367347,
+      "sampleStart": 2465280,
+      "sampleCount": 315648,
+      "inputSha256": "93cd80119a071a98ab24d8caeec88d3534a9bfd8c0e961d801735f3723529c4e",
+      "decodedPcmSha256": "0fc969ed243e070070c8ad5fe9a4eb5e3d8ea73b70eb58651859637ad2c442ae",
+      "text": "Sang Bài hai, hãy đối chiếu nguồn, khám phá năm mục tiêu và phân biệt tiến công với chiếm giữ."
+    }
+  ],
+  "captions": [
+    {
+      "start": 0.075,
+      "end": 1.9429771908763505,
+      "text": "Cuối tháng một năm 1968,",
+      "cueId": "p01a"
+    },
+    {
+      "start": 1.9429771908763505,
+      "end": 4.184549819927971,
+      "text": "các đợt tiến công diễn ra",
+      "cueId": "p01a"
+    },
+    {
+      "start": 4.184549819927971,
+      "end": 6.426122448979592,
+      "text": "tại nhiều đô thị miền Nam.",
+      "cueId": "p01a"
+    },
+    {
+      "start": 6.451122448979592,
+      "end": 8.601122448979591,
+      "text": "Trong bài này, chúng ta tìm hiểu",
+      "cueId": "p01b"
+    },
+    {
+      "start": 8.601122448979591,
+      "end": 10.526122448979592,
+      "text": "sự chuẩn bị và đọc tư liệu",
+      "cueId": "p01b"
+    },
+    {
+      "start": 10.526122448979592,
+      "end": 12.331122448979592,
+      "text": "về các mục tiêu tại Sài Gòn.",
+      "cueId": "p01b"
+    },
+    {
+      "start": 12.485408163265307,
+      "end": 14.335408163265306,
+      "text": "Cơ sở gắn với Trần Văn Lai",
+      "cueId": "p02a"
+    },
+    {
+      "start": 14.335408163265306,
+      "end": 15.985408163265307,
+      "text": "cất giấu vũ khí phục vụ",
+      "cueId": "p02a"
+    },
+    {
+      "start": 15.985408163265307,
+      "end": 17.240408163265307,
+      "text": "trận đánh Dinh Độc Lập.",
+      "cueId": "p02a"
+    },
+    {
+      "start": 17.37142857142857,
+      "end": 20.69642857142857,
+      "text": "Đội 5 nhận vũ khí trước khi xuất kích.",
+      "cueId": "p02b"
+    },
+    {
+      "start": 20.69642857142857,
+      "end": 23.17142857142857,
+      "text": "Khi xem ảnh di tích ngày nay,",
+      "cueId": "p02b"
+    },
+    {
+      "start": 23.17142857142857,
+      "end": 25.32142857142857,
+      "text": "cần phân biệt hiện trạng",
+      "cueId": "p02b"
+    },
+    {
+      "start": 25.32142857142857,
+      "end": 26.97642857142857,
+      "text": "với hình ảnh năm 1968.",
+      "cueId": "p02b"
+    },
+    {
+      "start": 27.088979591836736,
+      "end": 28.513979591836737,
+      "text": "Nguồn tư liệu nhắc đến",
+      "cueId": "p03a"
+    },
+    {
+      "start": 28.513979591836737,
+      "end": 30.513979591836737,
+      "text": "Đại sứ quán Mỹ, Dinh Độc Lập",
+      "cueId": "p03a"
+    },
+    {
+      "start": 30.513979591836737,
+      "end": 32.218979591836735,
+      "text": "và Đài Phát thanh Sài Gòn.",
+      "cueId": "p03a"
+    },
+    {
+      "start": 32.36459183673469,
+      "end": 33.914591836734694,
+      "text": "Hai mục tiêu khác là",
+      "cueId": "p03b"
+    },
+    {
+      "start": 33.914591836734694,
+      "end": 35.01459183673469,
+      "text": "Bộ Tổng Tham mưu",
+      "cueId": "p03b"
+    },
+    {
+      "start": 35.01459183673469,
+      "end": 36.76459183673469,
+      "text": "và Bộ Tư lệnh Hải quân.",
+      "cueId": "p03b"
+    },
+    {
+      "start": 36.76459183673469,
+      "end": 38.83959183673469,
+      "text": "Danh sách mục tiêu không cho biết",
+      "cueId": "p03b"
+    },
+    {
+      "start": 38.83959183673469,
+      "end": 40.59459183673469,
+      "text": "toàn bộ kết quả từng trận.",
+      "cueId": "p03b"
+    },
+    {
+      "start": 40.77377551020408,
+      "end": 42.07377551020408,
+      "text": "Tại Đại sứ quán,",
+      "cueId": "p04a"
+    },
+    {
+      "start": 42.07377551020408,
+      "end": 43.64877551020408,
+      "text": "cần phân biệt khuôn viên",
+      "cueId": "p04a"
+    },
+    {
+      "start": 43.64877551020408,
+      "end": 44.94877551020408,
+      "text": "với tòa nhà chính.",
+      "cueId": "p04a"
+    },
+    {
+      "start": 44.94877551020408,
+      "end": 46.89877551020408,
+      "text": "Không gọi cuộc tiến công là",
+      "cueId": "p04a"
+    },
+    {
+      "start": 46.89877551020408,
+      "end": 48.50377551020408,
+      "text": "chiếm toàn bộ tòa nhà.",
+      "cueId": "p04a"
+    },
+    {
+      "start": 48.69112244897959,
+      "end": 50.44112244897959,
+      "text": "Trong trận đánh Dinh Độc Lập,",
+      "cueId": "p04b"
+    },
+    {
+      "start": 50.44112244897959,
+      "end": 52.241122448979596,
+      "text": "bộc phá mở cổng không nổ.",
+      "cueId": "p04b"
+    },
+    {
+      "start": 52.241122448979596,
+      "end": 54.616122448979596,
+      "text": "Sự chuẩn bị và kết quả thực tế",
+      "cueId": "p04b"
+    },
+    {
+      "start": 54.616122448979596,
+      "end": 55.796122448979595,
+      "text": "cần được kể riêng.",
+      "cueId": "p04b"
+    },
+    {
+      "start": 55.90204081632653,
+      "end": 58.377040816326534,
+      "text": "Sang Bài hai, hãy đối chiếu nguồn,",
+      "cueId": "p05"
+    },
+    {
+      "start": 58.377040816326534,
+      "end": 60.127040816326534,
+      "text": "khám phá năm mục tiêu",
+      "cueId": "p05"
+    },
+    {
+      "start": 60.127040816326534,
+      "end": 62.95704081632653,
+      "text": "và phân biệt tiến công với chiếm giữ.",
+      "cueId": "p05"
+    }
+  ]
+}

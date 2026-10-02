@@ -1,0 +1,15 @@
+KẾ HOẠCH GIAO THỪA — elevenlabs.io
+
+Bản xem mobile: pilot-mobile.mp4 (720×1280).
+Bản master: pilot-master.mp4 (1080×1920).
+Thời lượng hình: 110 giây; giọng Hoa, Eleven v4, Vietnamese.
+Đồ họa chữ/sơ đồ nguyên bản; không nhạc/SFX/ảnh tư liệu.
+Lời đọc hiện trực tiếp trên hình; captions.vi.vtt là phụ đề rời.
+Có poster.png, transcript.vi.txt, manifest.json và lesson-handoff.json.
+
+Nguồn năm mục tiêu dùng SRC-MT68-07 (Nhân Dân 2008), chỉ phạm vi danh sách.
+Nguồn sách SRC-MT68-02 vẫn candidate. Không mở rộng verdict nguồn.
+
+Phạm vi: đồ án học tập phi thương mại. Credit: ElevenLabs · elevenlabs.io.
+Audio đã được anh nghe và nghiệm thu ngày 03/10/2026.
+Video mới dựng: chờ nghiệm thu bản cuối trước phát hành/tích hợp bài học.
