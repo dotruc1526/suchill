@@ -60,8 +60,9 @@ Phase 9 đã được product owner duyệt ngày 2026-09-23; `SPEC-FIRST FREEZE
 | M0 | DONE | Typecheck/build/test, canonical/legacy boundary và client-secret scan đã đạt | Product owner approved close, 2026-09-28; evidence: `fe4072b`, GitHub Quality run #31 success, local `npm run quality` pass with Chrome |
 | M1 | DONE | Gate M1 trong Phase 9 có evidence và reviewer kiểm tra | Product Owner nghiệm thu M1-07 và M1-08; approved close, 2026-09-29; evidence: PR #53/#56, QA keyboard 26 checkpoints, quality PASS và ảnh 375px/430px |
 | M2 | DONE | Ba gate Phase 9 đạt; M2-01..06 đã được reviewer nghiệm thu và Quality pass | Product Owner Dương approved close, 2026-10-01; evidence: PR #70 / `a4d22b2`, DOC-018 |
-| M3 | OPEN | Learning frontend hoàn chỉnh trên mock services theo Gate M3 | Product Owner Dương approved open, 2026-10-01; M3 tasks chỉ bắt đầu sau claim hợp lệ |
-| M4–M7 | LOCKED | Mở từng milestone sau khi milestone trước được duyệt | Chưa có |
+| M3 | DONE | Learning frontend hoàn chỉnh trên mock services theo Gate M3 | Product Owner Dương approved close, 2026-10-02; evidence: PR #98 / `f0a2bdf`, M3-01..07 DONE, DOC-019 |
+| M4 | OPEN | Supabase foundation thay mock adapter không đổi UI theo Gate M4 | Product Owner Dương approved open, 2026-10-02; M4 tasks chỉ bắt đầu sau claim hợp lệ; rotate privileged key trước integration môi trường dùng chung |
+| M5–M7 | LOCKED | Mở từng milestone sau khi milestone trước được duyệt | Chưa có |
 
 `DONE` của từng task không tự mở milestone tiếp theo. Executor ghi evidence theo gate Phase 9; reviewer/QA kiểm tra; Product owner duyệt rõ ràng và ghi ngày, evidence, milestone được mở vào bảng này trước khi nhóm bắt đầu implementation milestone kế tiếp. Content track có task/dependency riêng: Member 1 có thể nhận `CONTENT-009` nghiên cứu nguồn sơ bộ trong khi M0 đang mở; việc đó không mở milestone implementation hoặc chốt nội dung canonical.
 
@@ -111,6 +112,7 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 | DOC-015 | Team handoff | Gán tên 5 thành viên và tạo PR tài liệu trên nhánh riêng | Codex | DONE | DOC-010 | [`docs/tasks/done/DOC-015.md`](../tasks/done/DOC-015.md) | [PR #7](https://github.com/dotruc1526/suchill/pull/7) đã mở vào `main`; Product owner review |
 | DOC-016 | Milestone gate | Ghi quyết định Product owner đóng M0 và mở M1 | Product owner | DONE | M0-00..07 | [`docs/tasks/done/DOC-016.md`](../tasks/done/DOC-016.md) | M0 đóng/M1 mở ngày 2026-09-28; source-of-truth và handoff đã đồng bộ |
 | DOC-018 | Milestone gate | Audit Gate M2, đóng M2 và mở M3 | Dương (Product Owner) + Codex | DONE | M2-01..06 | [`docs/tasks/done/DOC-018.md`](../tasks/done/DOC-018.md) | Ba gate M2 đạt trên `a4d22b2`; Product Owner duyệt đóng M2/mở M3 ngày 2026-10-01 |
+| DOC-019 | Milestone gate | Audit Gate M3, đóng M3 và mở M4 | Dương (Product Owner) + Codex | DONE | M3-01..07 | [`docs/tasks/done/DOC-019.md`](../tasks/done/DOC-019.md) | Ba gate M3 đạt trên `5c795b2` (runtime `f0a2bdf`); Product Owner duyệt đóng M3/mở M4 ngày 2026-10-02 |
 | DOC-017 | Documentation sync | Rà và đồng bộ task/content docs tách khỏi PR #61 | Dương (Member 4); Codex executor | REVIEW | PR #61 merged; `fd52278` reference | [`docs/tasks/active/DOC-017.md`](../tasks/active/DOC-017.md) | PR62 merged `85b79a9`; Hưng post-merge scope ACCEPTED trên `1dcba50`. Audit 2026-10-02 giữ content REVIEW/production BLOCKED; Thọ và Trúc confirmed current card states 2026-10-02, chờ task-level closure; [evidence](../tasks/evidence/DOC-017-closeout.md) |
 | M1-01 | Design system | Figma handoff và token contract | Trúc (Member 2) | DONE | Gate M0 | [`docs/tasks/done/M1-01.md`](../tasks/done/M1-01.md) | Handoff đã được Hưng triển khai trong FE-003; Vinh QA xác nhận sau merge PR #33 |
 
@@ -232,6 +234,7 @@ Mỗi lần handoff quan trọng thêm một dòng mới nhất ở đầu bản
 
 | Date | Task | Author | Update | Evidence / next owner |
 |---|---|---|---|---|
+| 2026-10-02 | DOC-019 / Gate M3 | Dương (Product Owner) + Codex | Audit ba điều kiện Gate M3 đạt (phạm vi mock); Product Owner đóng M3 và mở M4. M4 implementation chỉ được bắt đầu theo dependency, task card, reviewer và file claim; rotate privileged key trước integration môi trường dùng chung | PR #98 merge `f0a2bdf`; main `5c795b2` Quality success; M3-01..07 DONE; [DOC-019](../tasks/done/DOC-019.md); next Vinh claim task M4 hợp lệ, Dương/Hưng phối hợp consumer/shell |
 | 2026-10-02 | CONTENT-004/010/011 | Trúc (Member 2) | Media/handoff review recorded (authoring scope): per-candidate decisions confirmed, text-first fallback sufficient, `mediaRef: null`; rights/audio/final files still pending, "media có quyền" boxes unchecked | [CONTENT-004](../tasks/active/CONTENT-004.md); next Hưng recheck + PO handoff decision; CONTENT-007 BLOCKED, tasks REVIEW |
 | 2026-10-02 | PR #99 / CONTENT-017 | Trúc (Member 2) | TEXT APPROVED closeout CONTENT-017 (PR #54 merged `0075079`, Trúc/PO approved, Quality 2/2, validator PASS, card/board/index đồng bộ); không dùng GitHub approve | [CONTENT-017](../tasks/done/CONTENT-017.md); chờ PO xác nhận closeout rồi merge PR #99 |
 | 2026-10-02 | CONTENT-012 / CONTENT-014 | Trúc (Member 2) | APPROVED historical/learning scope cho `QUIZ-MT68.json` hash `4013b399…667eb` (verdict riêng, không suy từ CONTENT-010); `reviewStatus` đồng bộ, validator PASS | [CONTENT-012](../tasks/active/CONTENT-012.md); next Vinh QA quiz; CONTENT-004/010/011 chờ Hưng recheck + media/handoff; production BLOCKED |
