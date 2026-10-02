@@ -18,3 +18,5 @@
 - Verification: docs-only; diff/link checks trước commit, không chạy runtime tests vì không đổi code.
 - Env/migration/dependency impact: none.
 - Next action: Hưng/Vinh review docs sync; các acceptance runtime còn thiếu giữ nguyên.
+
+- Consumer review checkpoint: Dương APPROVED PR88 exact head 68580ed; independent quality 95 unit/22 component/7 E2E, scan 338/0. Evidence in snapshot; Hưng still re-reviews new remediation. No adapter runtime changes.
