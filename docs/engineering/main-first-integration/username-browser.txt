@@ -1,0 +1,2 @@
+Hosted username Chrome UI PASS: signup without email/confirmation;375/430 fits; repeat-password gate; immediate Home; same UUID/0XP after reload; signout; wrong-password rejection; correct username login; own synthetic password change and new-password login.
+Exact current-run username account cleanup PASS; retained user account and credentials untouched.

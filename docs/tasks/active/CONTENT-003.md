@@ -15,8 +15,19 @@
 - Branch: `codex/truc-content003-source-review`; base main `c7a5ad5`.
 - Depends on: CONTENT-002 và DOC-004 DONE trên board; acceptance CONTENT-002 đã tick đủ. Handoff cũ còn ghi ô trống sẽ được ghi rõ là superseded.
 - Files claimed: `docs/content/HISTORICAL-SOURCES.md`, `MEDIA-REVIEW-MT68.md`, `PRODUCTION-NOTES.md`; card này, `docs/tasks/evidence/CONTENT-003-source-review-2026-10-02.md`, `docs/tasks/active/README.md`, các row CONTENT-003/007 và checkpoint trong `docs/project/TASK-BOARD.md`.
-- Next action: Trúc xác nhận registry hash/Tier 3 và chọn audio route có quyền; Vinh recheck metadata/diff; PO quyết định production handoff sau acceptance.
+- Next action: Trúc xác nhận registry hash/Tier 3 và evidence quyền audio ElevenLabs theo cấu hình đã chọn; Vinh recheck metadata/diff; PO quyết định production handoff sau acceptance.
 - Out of scope: runtime, chapter 1972, MP4/thu âm production, duyệt quyền ảnh optional, tự mở CONTENT-007 hoặc milestone.
+
+### Cập nhật phương án voice — 2026-10-02
+
+- Owner: Trúc; Executor: Codex theo yêu cầu Trúc; Reviewer: Trúc media/historical, Vinh technical QA.
+- Status: REVIEW; Started: 2026-10-02 (hiệu chỉnh phương án audio).
+- Files claimed: card này, `docs/content/MEDIA-REVIEW-MT68.md`, `docs/content/PRODUCTION-NOTES.md`, dòng CONTENT-003 và checkpoint tương ứng trong task board.
+- Scope / acceptance: ghi đúng nhà cung cấp, giọng, model và ngôn ngữ do Trúc chọn; phân biệt lựa chọn cấu hình với nghiệm thu quyền và file audio.
+- Quyết định của Trúc: dùng **ElevenLabs**, giọng **Hoa - Smooth, Gentle and Poetic**, giọng người Việt Nam theo mô tả Trúc cung cấp; model **Eleven v4**, ngôn ngữ **Vietnamese**. Chi tiết/evidence tại [media review](../../content/MEDIA-REVIEW-MT68.md#phương-án-voice-do-trúc-chọn--2026-10-02).
+- Next action: ghi voice ID/link thư viện đúng giọng Hoa, gói tài khoản và bằng chứng quyền sử dụng; khi production đủ gate mới tạo audio, ghi file/hash và QA timing/caption.
+- Pending: chưa có voice ID, evidence quyền tài khoản/giọng hoặc file audio mới; source review/handoff còn theo card. CONTENT-007 vẫn BLOCKED.
+- Handoff: chỉ sửa 4 tài liệu nêu trên, không đổi narration/caption hoặc review verdict; không có thay đổi env/migration. Không chạy build/test ứng dụng vì chỉ cập nhật tài liệu; kiểm tra diff của các file đã sửa.
 
 ## Acceptance và handoff hiện hành — 2026-10-02
 
@@ -29,7 +40,7 @@
 
 Verification: authoring validator PASS (5 node, 7 scene, 6 đường đi, 5 quiz, 9 cue 110s); 7 source rows/7 claim rows unique; chapter 1972 byte-identical; 10 authoring/catalog inputs unchanged; local Markdown links PASS; `git diff --check` PASS. Không chạy app build/typecheck vì docs-only, không runtime/env/migration/dependency impact.
 
-Changed files: registry, MEDIA-REVIEW-MT68, PRODUCTION-NOTES, card/evidence CONTENT-003, task board và active index. Known issues: book scan/source 02 chưa truy cập; Tier 3 mới chờ reviewer; audio chưa chọn/thu/consent; map còn pending, sourceIds production revision cần owner/reviewer; chưa có asset final. Không yêu cầu phải có MP4 cuối trước khi mở task dựng MP4. M4 OPEN / M5–M7 LOCKED; CONTENT-007 BLOCKED cho tới dependency/PO decision và claim riêng.
+Changed files: registry, MEDIA-REVIEW-MT68, PRODUCTION-NOTES, card/evidence CONTENT-003, task board và active index. Known issues: book scan/source 02 chưa truy cập; Tier 3 mới chờ reviewer; audio đã chọn ElevenLabs/Hoa/Eleven v4/Vietnamese, chưa có voice ID/quyền/file xuất; map còn pending, sourceIds production revision cần owner/reviewer; chưa có asset final. Không yêu cầu phải có MP4 cuối trước khi mở task dựng MP4. M4 OPEN / M5–M7 LOCKED; CONTENT-007 BLOCKED cho tới dependency/PO decision và claim riêng.
 
 ## Lượt review và sửa regression — 2026-09-28 (snapshot cũ)
 

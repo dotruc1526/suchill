@@ -8,7 +8,9 @@
 
 Đọc [PILOT-SCREENPLAY.md](./PILOT-SCREENPLAY.md). Nguồn lời đọc duy nhất là [PILOT-NARRATION.json](./PILOT-NARRATION.json); [VTT](./PILOT-CAPTIONS.vtt) khớp chữ, tổng 110s. Năm scene có đủ cue. Bỏ yêu cầu bản ghi thơ, clip Cronkite, tiếng nổ/nhạc và giờ lịch sử chưa đối chiếu.
 
-Visual dự kiến: thẻ chữ/sơ đồ không địa lý; không giả làm tư liệu gốc. Chưa tạo MP4/audio/poster. Trúc cần thu thử giọng hợp lệ, đo timing, xuất manifest/hash và QA nghe/xem trước production acceptance.
+Visual dự kiến: thẻ chữ/sơ đồ không địa lý; không giả làm tư liệu gốc. Chưa tạo MP4/audio/poster.
+
+Voice theo lựa chọn Trúc ngày 2026-10-02: **dùng ElevenLabs, giọng Hoa - Smooth, Gentle and Poetic (người Việt Nam theo mô tả Trúc), model Eleven v4 (`eleven_v4`), ngôn ngữ Vietnamese**. Xem [cấu hình và evidence còn thiếu](./MEDIA-REVIEW-MT68.md#phương-án-voice-do-trúc-chọn--2026-10-02). Chờ voice ID và bằng chứng quyền sử dụng; khi đủ gate mới tạo bản thử, đo timing, xuất manifest/hash và QA nghe/xem trước production acceptance.
 
 ## Bài 2 và dữ liệu
 
@@ -22,4 +24,4 @@ Visual dự kiến: thẻ chữ/sơ đồ không địa lý; không giả làm t
 
 ## Media và next action
 
-[MEDIA-REVIEW-MT68.md](./MEDIA-REVIEW-MT68.md) ghi từng quyết định license/caption và những ứng viên loại khỏi phương án bắt buộc. Trúc đã ghi authoring media/handoff review, Vinh/Hưng đã ACCEPTED technical/review-state reconciliation; registry mới và lựa chọn audio trong CONTENT-003 còn cần reviewer xác nhận. CONTENT-006 giữ REFERENCE_ONLY; không dùng clip cũ thay pilot. M0–M3 DONE, M4 OPEN, M5–M7 LOCKED. Production CONTENT-007 vẫn BLOCKED; PO quyết định handoff sau khi source/media/audio plan được duyệt. MP4/poster/manifest và audio/caption sync cuối là đầu ra CONTENT-007, không phải prerequisite phải có trước khi dựng.
+[MEDIA-REVIEW-MT68.md](./MEDIA-REVIEW-MT68.md) ghi từng quyết định license/caption và những ứng viên loại khỏi phương án bắt buộc. Trúc đã ghi authoring media/handoff review, Vinh/Hưng đã ACCEPTED technical/review-state reconciliation; registry mới và quyền audio ElevenLabs trong CONTENT-003 còn cần reviewer xác nhận. CONTENT-006 giữ REFERENCE_ONLY; không dùng clip cũ thay pilot. M0–M3 DONE, M4 OPEN, M5–M7 LOCKED. Production CONTENT-007 vẫn BLOCKED; PO quyết định handoff sau khi source/media/audio plan được duyệt. MP4/poster/manifest và audio/caption sync cuối là đầu ra CONTENT-007, không phải prerequisite phải có trước khi dựng.

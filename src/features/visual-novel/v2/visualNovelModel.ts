@@ -1,5 +1,6 @@
 import type { LearningServices, Result, StoryCheckpointContext } from '../../../services/next/contracts'
-import type { SceneChoice, StoryVersion, VisualNovelScene } from '../../../types/v2/content'
+import type { DeliveredSceneChoice as SceneChoice, DeliveredStoryVersion as StoryVersion } from '../../../services/next/storyDelivery'
+import type { KnowledgeCheckChoice } from '../../../types/v2/content'
 
 export type VisualNovelContext = Omit<StoryCheckpointContext, 'operationId'>
 export type ChoiceFeedback = {
@@ -14,6 +15,7 @@ export type VisualNovelSession = {
   visitedSceneIds: string[]
   lockedChoiceIds: string[]
   replay: boolean
+  revision?: number
   feedback?: ChoiceFeedback
   pendingSceneId?: string
 }
@@ -72,7 +74,17 @@ export async function loadVisualNovel(
   if (!storyResult.ok) return storyResult
   const progressResult = await services.progress.getEpisodeProgress(context.storyVersionId)
   if (!progressResult.ok) return progressResult
-  const progress = progressResult.value
+  let progress = progressResult.value
+  if (!progress && services.progress.recordChoiceWithFeedback) {
+    const initialized = await services.progress.saveEpisodeCheckpoint({...context,
+      currentSceneId:storyResult.value.startSceneId, visitedSceneIds:[], expectedRevision:0, operationId:crypto.randomUUID()})
+    if (!initialized.ok) {
+      if (initialized.error !== 'conflict') return initialized
+      const current = await services.progress.getEpisodeProgress(context.storyVersionId)
+      if (!current.ok || !current.value) return initialized
+      progress = current.value
+    } else progress = initialized.value
+  }
   const currentSceneId = progress?.currentSceneId ?? storyResult.value.startSceneId
   if (!sceneExists(storyResult.value, currentSceneId)) return { ok: false, error: 'validation' }
   return success({
@@ -81,7 +93,7 @@ export async function loadVisualNovel(
     confirmedSceneId: currentSceneId,
     visitedSceneIds: progress?.visitedSceneIds ?? [],
     lockedChoiceIds: progress?.lockedChoiceIds ?? [],
-    replay: false,
+    replay: false, revision: progress?.revision,
   })
 }
 
@@ -98,7 +110,7 @@ export async function advanceVisualNovel(
   if (session.replay) return success({ ...session, currentSceneId: nextSceneId, feedback: undefined, pendingSceneId: undefined })
 
   const saved = await services.progress.saveEpisodeCheckpoint({
-    ...context, operationId, currentSceneId: nextSceneId,
+    ...context, operationId, currentSceneId: nextSceneId, expectedRevision:session.revision,
     visitedSceneIds: [...session.visitedSceneIds, scene.id],
   })
   if (!saved.ok) return saved
@@ -107,12 +119,12 @@ export async function advanceVisualNovel(
     currentSceneId: saved.value.currentSceneId,
     confirmedSceneId: saved.value.currentSceneId,
     visitedSceneIds: saved.value.visitedSceneIds,
-    lockedChoiceIds: saved.value.lockedChoiceIds,
+    lockedChoiceIds: saved.value.lockedChoiceIds, revision:saved.value.revision,
   })
 }
 
 const feedbackFor = (choice: SceneChoice): ChoiceFeedback => choice.kind === 'knowledge_check'
-  ? { choiceId: choice.id, outcome: choice.isCorrect ? 'correct' : 'incorrect', message: choice.explanation }
+  ? { choiceId: choice.id, outcome: ('isCorrect' in choice && choice.isCorrect) ? 'correct' : 'incorrect', message: ('explanation' in choice ? choice.explanation as string : 'Chưa có phản hồi từ dịch vụ.') }
   : { choiceId: choice.id, outcome: 'neutral', message: choice.response ?? 'Lựa chọn đã được ghi nhận.' }
 
 export async function chooseVisualNovel(
@@ -127,23 +139,32 @@ export async function chooseVisualNovel(
   const choice = scene.choices.find(item => item.id === choiceId)
   if (!choice) return { ok: false, error: 'validation' }
 
+  let revision = session.revision
+  let trustedFeedback: ChoiceFeedback | undefined
   let pendingSceneId = choice.nextSceneId ?? scene.id
   let lockedChoiceIds = session.lockedChoiceIds
   let visitedSceneIds = session.visitedSceneIds
-  if (!session.replay) {
+  if (services.progress.recordChoiceWithFeedback) {
+    const saved = await services.progress.recordChoiceWithFeedback({ ...context, operationId, sceneId: scene.id, choiceId, replay: session.replay, expectedRevision:session.revision })
+    if (!saved.ok) return saved
+    trustedFeedback = saved.value.choiceFeedback
+    if (!session.replay) revision = saved.value.revision
+    pendingSceneId = saved.value.currentSceneId
+    if (!session.replay) { lockedChoiceIds = saved.value.lockedChoiceIds; visitedSceneIds = saved.value.visitedSceneIds }
+  } else if (!session.replay) {
     const saved = await services.progress.recordChoice({ ...context, operationId, sceneId: scene.id, choiceId })
     if (!saved.ok) return saved
     pendingSceneId = saved.value.currentSceneId
     lockedChoiceIds = saved.value.lockedChoiceIds
     visitedSceneIds = saved.value.visitedSceneIds
-  } else if (choice.kind === 'knowledge_check' && !choice.isCorrect && scene.policy === 'retry_until_correct') {
+  } else if (choice.kind === 'knowledge_check' && !('isCorrect' in choice && choice.isCorrect) && scene.policy === 'retry_until_correct') {
     pendingSceneId = scene.id
   }
   if (!sceneExists(session.story, pendingSceneId)) return { ok: false, error: 'validation' }
   return success({
     ...session,
     confirmedSceneId: session.replay ? session.confirmedSceneId : pendingSceneId,
-    feedback: feedbackFor(choice), pendingSceneId, lockedChoiceIds, visitedSceneIds,
+    feedback: trustedFeedback ?? feedbackFor(choice), pendingSceneId, lockedChoiceIds, visitedSceneIds, revision,
   })
 }
 

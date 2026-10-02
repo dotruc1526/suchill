@@ -6,6 +6,7 @@ import { QuizFlow } from '../../quiz/v2'
 import { VisualNovelPlayerV2 } from '../../visual-novel/v2'
 import { LessonRenderer, type LessonBlockSlots } from '../lesson'
 import { VideoLessonPlayer } from '../video'
+import { VideoFallbackControl } from '../completion/VideoFallbackControl'
 import { videoPlayerContext, visualNovelPlayerContext } from './lessonPlayerContexts'
 
 type VisualNovelBlock = Extract<LessonBlock, { kind: 'visual_novel' }>
@@ -46,7 +47,10 @@ export function IntegratedLessonRenderer({ lessonId, services, headingRef, docum
 }) {
   const slots = useMemo<LessonBlockSlots>(() => ({
     visualNovel: ({ block }) => <VisualNovelLessonBlock lessonId={lessonId} block={block} services={services} />,
-    video: ({ block }) => <VideoLessonPlayer services={services} context={videoPlayerContext(lessonId, block)} />,
+    video: ({ block }) => <div className="space-y-3">
+      <VideoLessonPlayer services={services} context={videoPlayerContext(lessonId, block)} />
+      <VideoFallbackControl lessonId={lessonId} blockId={block.id} services={services} />
+    </div>,
     quiz: ({ block }) => <QuizFlow services={services} questionSetId={block.questionSetId} />,
   }), [lessonId, services])
 

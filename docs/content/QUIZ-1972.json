@@ -1,0 +1,151 @@
+{
+  "id": "quiz-1972-chapter-assessment",
+  "title": "Đánh giá Chương: Chiến dịch Điện Biên Phủ trên không 1972",
+  "questions": [
+    {
+      "id": "q-1972-01",
+      "objectiveId": "CLO-1",
+      "question": "Mục đích chiến lược chủ yếu của chính quyền Mỹ khi phát động cuộc tập kích đường không Linebacker II cuối tháng 12/1972 là gì?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Tiêu diệt toàn bộ lực lượng hải quân miền Bắc"
+        },
+        {
+          "id": "B",
+          "text": "Gây sức ép quân sự tối đa buộc Việt Nam chấp nhận sửa đổi các điều khoản Hiệp định Paris theo ý Mỹ"
+        },
+        {
+          "id": "C",
+          "text": "Mở đường cho quân đội Mỹ đổ bộ đường bộ ra Hà Nội"
+        },
+        {
+          "id": "D",
+          "text": "Chiếm đóng vĩnh viễn các sân bay quân sự tại miền Bắc"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": "Không quân Mỹ phát động Linebacker II nhằm dùng sức mạnh bom rải thảm B-52 để ép phái đoàn Việt Nam tại Hội nghị Paris phải nhượng bộ và chấp nhận các điều khoản có lợi cho Mỹ.",
+      "sourceIds": [
+        "SRC-LB2-01",
+        "SRC-LB2-05"
+      ]
+    },
+    {
+      "id": "q-1972-02",
+      "objectiveId": "CLO-2",
+      "question": "Trong tổ hợp tên lửa phòng không SAM-2, thành phần nào là không gian làm việc chung, nơi kíp chiến đấu trực tiếp phối hợp hiệp đồng để chỉ huy và điều khiển hỏa lực?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Cabin điều khiển (Xe K)"
+        },
+        {
+          "id": "B",
+          "text": "Trận địa pháo cao xạ tầm thấp bảo vệ sân bay"
+        },
+        {
+          "id": "C",
+          "text": "Trạm quan sát mắt tầm xa bố trí trên điểm cao"
+        },
+        {
+          "id": "D",
+          "text": "Khu vực kho kỹ thuật lắp ráp và tiếp nạp nhiên liệu đạn"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanation": "Theo tư liệu lịch sử được ghi nhận trong CLM-1972-VN-002, Cabin điều khiển (Xe K) là thành phần sở chỉ huy của tổ hợp SAM-2, nơi toàn bộ kíp chiến đấu cùng làm việc và phối hợp hiệp đồng chặt chẽ để chỉ huy và điều khiển hỏa lực.",
+      "sourceIds": [
+        "SRC-1972-01",
+        "SRC-1972-WEB-02"
+      ]
+    },
+    {
+      "id": "q-1972-03",
+      "objectiveId": "CLO-3",
+      "question": "Trước thách thức từ môi trường gây nhiễu điện tử dày đặc của B-52, bộ đội tên lửa Việt Nam đã dựa vào tài liệu đúc kết kinh nghiệm thực tiễn nào để tìm ra phương pháp vạch nhiễu đánh địch?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Sổ tay hướng dẫn kỹ thuật bay của đối phương thu giữ được"
+        },
+        {
+          "id": "B",
+          "text": "Cuốn tài liệu nghiên cứu tác chiến thường được gọi là 'Cẩm nang bìa đỏ'"
+        },
+        {
+          "id": "C",
+          "text": "Tài liệu kỹ thuật radar nguyên bản từ nước ngoài chưa qua cải tiến"
+        },
+        {
+          "id": "D",
+          "text": "Kế hoạch tác chiến hiệp đồng bộ binh đường bộ năm 1968"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": "Theo tư liệu lịch sử được ghi nhận trong CLM-1972-VN-003, cuốn tài liệu 'Cách đánh B-52 của bộ đội tên lửa' (thường gọi là 'Cẩm nang bìa đỏ'), đúc kết từ thực tiễn nghiên cứu tại chiến trường Vĩnh Linh và Quân khu 4, đã đóng vai trò then chốt giúp bộ đội tên lửa phân tích bối cảnh gây nhiễu và vạch ra cách đánh B-52 hiệu quả.",
+      "sourceIds": [
+        "SRC-1972-03",
+        "SRC-1972-WEB-01"
+      ]
+    },
+    {
+      "id": "q-1972-04",
+      "objectiveId": "CLO-4",
+      "question": "Đợt tập kích quy mô lớn nhất của Không quân Mỹ trong chiến dịch (với 105 lần chiếc B-52 đánh phá đồng loạt Hà Nội, Hải Phòng, Thái Nguyên, trong đó bom rải thảm tàn phá khu phố Khâm Thiên) diễn ra vào thời điểm nào?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Đêm 18/12/1972"
+        },
+        {
+          "id": "B",
+          "text": "Đêm 20/12/1972"
+        },
+        {
+          "id": "C",
+          "text": "Đêm 26/12/1972"
+        },
+        {
+          "id": "D",
+          "text": "Đêm 29/12/1972"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanation": "Đêm 26/12/1972, Không quân Mỹ mở đợt tập kích ác liệt nhất với 105 lần chiếc B-52 đánh phá Hà Nội, Hải Phòng và Thái Nguyên. Trong đợt này, bom rải thảm đã tàn phá khu phố Khâm Thiên (Hà Nội), cướp đi sinh mạng của 287 đồng bào. Quân dân ta giáng trả đòn quyết định, bắn rơi 8 máy bay B-52 trong một đêm.",
+      "sourceIds": [
+        "SRC-LB2-02",
+        "SRC-LB2-03"
+      ]
+    },
+    {
+      "id": "q-1972-05",
+      "objectiveId": "CLO-4",
+      "question": "Thắng lợi 12 ngày đêm 'Điện Biên Phủ trên không' đã trực tiếp dẫn tới kết quả mang tính bước ngoặt nào trên mặt trận ngoại giao?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Mỹ tuyên bố rút khỏi Hội nghị Paris vô điều kiện"
+        },
+        {
+          "id": "B",
+          "text": "Mỹ buộc phải ngừng ném bom từ vĩ tuyến 20 trở ra (30/12/1972) và chấp nhận ký Hiệp định Paris (27/01/1973)"
+        },
+        {
+          "id": "C",
+          "text": "Các nước đồng minh của Mỹ cử thêm quân viễn chinh vào miền Nam"
+        },
+        {
+          "id": "D",
+          "text": "Hội đàm Paris bị kéo dài thêm 2 năm mà không đạt được thỏa thuận"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanation": "Tổn thất nặng nề của B-52 buộc Tổng thống Nixon phải ra lệnh ngừng ném bom ngày 30/12/1972 và nối lại đàm phán, dẫn tới việc ký kết Hiệp định Paris ngày 27/01/1973, buộc toàn bộ quân Mỹ phải rút khỏi Việt Nam.",
+      "sourceIds": [
+        "SRC-LB2-01",
+        "SRC-LB2-05"
+      ]
+    }
+  ]
+}

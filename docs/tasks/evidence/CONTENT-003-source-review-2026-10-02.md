@@ -49,7 +49,7 @@ Nguồn 07 là evidence bổ sung ở registry claim 01. Chưa tự thay sourceI
 ## 4. Media/audio plan và production gate
 
 - Mandatory visual đề nghị: typography + schematic nguyên bản, nhãn educational explanation; không optional image/video. Giữ sáu BLOCKED và hai NEEDS_MEDIA_REVIEW trong catalog, không approve quyền từ URL bài báo.
-- Audio route đang chờ lựa chọn của Trúc qua câu hỏi trong chat. Có checklist/consent mẫu ở [MEDIA-REVIEW-MT68](../../content/MEDIA-REVIEW-MT68.md); chưa có lựa chọn, signed permission, tài khoản/provider hoặc bản thu được giả định.
+- Trúc đã chọn ElevenLabs, Hoa - Smooth, Gentle and Poetic (người Việt Nam theo mô tả Trúc), Eleven v4, Vietnamese ngày 2026-10-02. [Media plan](../../content/MEDIA-REVIEW-MT68.md) ghi cấu hình; voice ID/link profile, gói tài khoản, evidence quyền sử dụng và file/hash vẫn pending.
 - Không nhạc/SFX; không Edge TTS/clip CONTENT-006, không thơ có quyền chưa rõ. Nếu chọn giọng người đọc, phải có người đọc xác nhận script/hash, quyền ghi âm/hậu kỳ/phát hành web/PWA và cách credit; không mặc định voice cloning.
 - Preproduction: Trúc xác nhận registry và plan rights/audio, Vinh QA metadata, PO quyết định handoff; CONTENT-007 chỉ được claim sau dependency hợp lệ.
 - Production outputs: source design/font/license, audio/MP4/poster/manifest/hash, đo timing/caption sync và device/player QA. Không yêu cầu có MP4 trước khi mở việc tạo MP4.
@@ -57,7 +57,7 @@ Nguồn 07 là evidence bổ sung ở registry claim 01. Chưa tự thay sourceI
 ## 5. Handoff và acceptance pending
 
 - Implemented: registry Mậu Thân thống nhất IDs; locator evidence 7/7 claims; sách chưa đọc được ghi candidate rõ; current gates; quyền/media/audio workflow rõ; không đổi artifact authoring hoặc section 1972.
-- Trúc cần xác nhận Tier 3/claim-source scope và lựa chọn audio có quyền trên revision này. Quyền được giao làm task không phải chữ ký acceptance cho kết quả chưa xem.
+- Trúc cần xác nhận Tier 3/claim-source scope và evidence quyền audio cho cấu hình đã chọn trên revision này. Quyền được giao làm task không phải chữ ký acceptance cho kết quả chưa xem.
 - Vinh recheck structural metadata/diff; PO quyết định production riêng. CONTENT-003 chỉ chuyển REVIEW sau phần triển khai; không tự chuyển DONE hoặc CONTENT-007 READY.
 - Changed files: HISTORICAL-SOURCES.md, MEDIA-REVIEW-MT68.md, PRODUCTION-NOTES.md; CONTENT-003 card, board CONTENT-003/checkpoint, active index, evidence này.
 - Environment/migration/dependency/runtime impact: none.
@@ -69,3 +69,9 @@ Nguồn 07 là evidence bổ sung ở registry claim 01. Chưa tự thay sourceI
 - Independent integrity audit: PASS 7 unique MT68 source rows + 7 unique claim rows; section 1972 byte-identical với base; 10 authoring/catalog inputs byte-identical.
 - Local Markdown links trong các file review: PASS; `git diff --check`: PASS.
 - Không kiểm chứng recorded audio timing, actual media files, rights signatures, reviewer verdict hoặc runtime bằng các checks này.
+
+## 6. Cập nhật branch sau main và lựa chọn voice
+
+- Hợp nhất main `818e24d`; giải quyết xung đột registry bằng cách giữ phần reconciliation Mậu Thân, giữ nguyên section 1972 của main hiện hành. Không sửa authored narration/story/quiz/map. Evidence không thay human verdict.
+- Đồng bộ cấu hình voice Trúc đã chọn trong media plan, production notes, card, board và index. Quyền sử dụng/file audio vẫn pending.
+- Kiểm tra diff whitespace đạt; không chạy lại test/build ứng dụng cho thay đổi tài liệu.

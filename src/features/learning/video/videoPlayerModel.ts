@@ -54,6 +54,8 @@ export class VideoCheckpointQueue {
   private items: VideoCheckpointPayload[] = []
   private flushing = false
   private failed = false
+  private initializationOperation?: string
+  private initializationConfirmed = false
   private readonly write: (payload: VideoCheckpointPayload) => Promise<Result<VideoProgress>>
   private readonly onSaved: (progress: VideoProgress) => void
   private readonly onError: (error: ServiceErrorCode) => void
@@ -68,8 +70,17 @@ export class VideoCheckpointQueue {
     this.onError = onError
   }
 
+  get playbackInitialized() { return this.initializationConfirmed }
+
+  /** Called by an actual play event, before collecting any elapsed playback. */
+  initializePlayback(positionSeconds: number, operationId: string) {
+    if (this.initializationOperation !== undefined) return
+    this.initializationOperation = operationId
+    this.enqueue({ positionSeconds, watchedRanges: [], operationId })
+  }
+
   enqueue(payload: VideoCheckpointPayload) {
-    this.items.push(payload)
+    this.items.push({ ...payload, watchedRanges: payload.watchedRanges.map(range => ({ ...range })) })
     if (!this.failed) void this.flush()
   }
 
@@ -85,14 +96,17 @@ export class VideoCheckpointQueue {
   private async flush(): Promise<void> {
     if (this.flushing || this.failed || this.items.length === 0) return
     this.flushing = true
-    const result = await this.write(this.items[0])
+    let result: Result<VideoProgress>
+    try { result = await this.write(this.items[0]) }
+    catch { result = { ok: false, error: 'server_error' } }
     this.flushing = false
     if (!result.ok) {
       this.failed = true
       this.onError(result.error)
       return
     }
-    this.items.shift()
+    const saved = this.items.shift()
+    if (saved?.operationId === this.initializationOperation) this.initializationConfirmed = true
     this.onSaved(result.value)
     await this.flush()
   }
