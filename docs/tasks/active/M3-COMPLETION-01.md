@@ -72,3 +72,10 @@ Hưng review contract/architecture and new explicit-action API; Dương confirm 
 - Owner/executor Vinh/Codex; REVIEW; Hưng/Dương review integrated head.
 - Files claimed: card/evidence, board adapter row and any overlapping docs resolution; import QA83 merged changes from main unchanged, no independent Home/QA83 edits.
 - Input: adapter 5a771db (Hưng ACCEPTED in user-provided review), main cda4a69 (PR83 merged). Resolve actual conflicts preserving both task records, then run full quality and publish integrated head. M3-06 stays BLOCKED.
+
+## Integrated-main verification — 2026-10-02
+- Merged main `cda4a69` (PR83) into adapter `5a771db`; the only conflict was active index `docs/tasks/active/README.md`. Retained adapter entry and all current-main task entries.
+- Home/global CSS, shared Button and all `tests/qa` browser/fixture files exactly match main. Completion runtime and regression test changes remain exactly as Hưng reviewed at `5a771db`; no runtime delta from integration.
+- Full quality on integrated tree PASS: typecheck/build, 93 unit / 22 component / 7 E2E; client scan 338 files / 0 unsafe; diff check PASS. This now includes PR83 delayed 12-second navigation/reload, personalized Home, keyboard/focus/44px and player retry regressions. Log `/tmp/suchill-pr88-integration-quality.log` (local only).
+- Hưng's user-provided re-review ACCEPTED contract/architecture at `5a771db`; not represented as a new GitHub approval. Dương still confirms episode-streak/range remediation and final integrated head; both reviewers check current CI before merge. Task REVIEW, M3-06 UI BLOCKED and milestone gates unchanged.
+- Files changed by integration: main imports plus active index resolution; this card/evidence and adapter board row for latest handoff. No additional runtime, dependency/env/migration changes. `.DS_Store` untouched.
