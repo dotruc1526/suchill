@@ -1,6 +1,6 @@
 # M6–M7: video 1954 có sẵn và chuẩn bị phát hành
 
-Phạm vi: [M6-M7-TRIAL-001](../../tasks/active/M6-M7-TRIAL-001.md), [MVP-1954-001](../../tasks/active/MVP-1954-001.md). Người dùng đã đổi MVP sang 1954; không yêu cầu tạo thêm video/audio. Quyết định chủ đề không tự nghiệm thu lịch sử, media, thiết bị hoặc release. M6 đang mở; PO ghi gate M7 riêng.
+Phạm vi: [M6-M7-TRIAL-001](../../tasks/active/M6-M7-TRIAL-001.md), [MVP-1954-001](../../tasks/active/MVP-1954-001.md). Người dùng đã đổi MVP sang 1954; không yêu cầu tạo thêm video/audio. Quyết định chủ đề không tự nghiệm thu lịch sử, media, thiết bị hoặc release. M6 và M7 đang mở song song theo quyết định APPROVED của Dương/PR113; dependency và release gate riêng vẫn giữ nguyên.
 
 | Phần | Có thể dùng lại | Cần kiểm chứng thật |
 |---|---|---|
@@ -8,7 +8,7 @@ Phạm vi: [M6-M7-TRIAL-001](../../tasks/active/M6-M7-TRIAL-001.md), [MVP-1954-0
 | Nội dung MVP | Quyết định 1954 mới; clip dẫn nhập có sẵn | Curriculum nhiều lesson, mục tiêu/phạm vi, fact/fiction/source và historical/learning review của bản 1954 |
 | Phần mềm | M4/M5 đã đóng; M6-02/03/05 DONE; Hosting/catalog bounded review đạt sau sửa Back | M6-01 desktop icon launch, M6-06 manual accessibility và M6-07 matrix còn thiếu |
 | Canonical | Schema/version/RLS và player | Import version bất biến sau approval; không đổi fixture thành nội dung lịch sử |
-| Preview | Firebase suchill-preview / m6-android-1954 đã triển khai; technical review APPROVE | Bản sửa cuối cần HTTPS smoke; preview không phải release canonical |
+| Preview | Firebase suchill-preview / m6-android-1954 đã triển khai; technical review APPROVE | Build37ad329a8f1a2abd4cff đã đạt HTTPS smoke/re-review; preview không phải release canonical |
 | Release | Người dùng xác nhận các bước Android cơ bản đạt; isolated Hosting rollback PASS | Privacy/contact/retention thực, review nội dung/quyền, manual/device còn lại và PO acceptance |
 
 Mậu Thân/1972 giữ nguyên dữ liệu authoring đã duyệt nhưng không còn là đầu vào bắt buộc của MVP1954. Không áp dụng approval ElevenLabs Free của Mậu Thân cho audio Edge TTS của clip1954. Giữ nguyên clip theo yêu cầu; review final có thể tiếp tục chặn publication khi finding chưa giải quyết.
@@ -40,4 +40,6 @@ Manifest release phải có reviewStatus approved và publicationScope canonical
 
 Nguồn gate: [Phase9](../../specs/phases/09-implementation-roadmap.md), [Phase8](../../specs/phases/08-qa-accessibility-release-spec.md). Các mục thiết bị, preview và rollback có biểu mẫu ngắn bên cạnh.
 
-Checkpoint 2026-10-03: người dùng yêu cầu báo cáo ngắn, không hỏi thêm thông tin thiết bị. Giữ đúng kết quả đã quan sát; không tạo hồ sơ dài hoặc ghi PASS cho manual/iOS/chấp thuận chưa có. M6 OPEN; M7 LOCKED.
+Checkpoint 2026-10-03: người dùng yêu cầu báo cáo ngắn, không hỏi thêm thông tin thiết bị. Giữ đúng kết quả đã quan sát; không tạo hồ sơ dài hoặc ghi PASS cho manual/iOS/chấp thuận chưa có. M6 OPEN; M7 OPEN theo ngoại lệ lịch trình APPROVED, chưa nghiệm thu phát hành.
+
+Latest approved scheduling decision: M7 now OPEN alongside M6 by Dương/PR113; earlier LOCKED wording is superseded. Individual historical/media/manual/privacy/release dependencies are unchanged. [Decision](../../tasks/active/M7-GATE-OPEN-001.md).

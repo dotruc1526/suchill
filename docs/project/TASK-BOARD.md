@@ -467,25 +467,42 @@ Product Owner explicitly selects **1954 / Trước cơn bão**, replacing the cu
 
 | ID | Owner / Executor | Reviewer | Status | Depends on | Card / next action |
 |---|---|---|---|---|---|
-| HOSTING-PREVIEW-001 | Codex root | Independent Codex technical APPROVE; actual basic Android user PASS | DONE | M6-02/03/05; supplied1954reference preview; explicit Firebase project approval | [Card](../tasks/active/HOSTING-PREVIEW-001.md); temporary HTTPS preview accepted, independent24/24 + HTTPS smoke PASS; full device/media/M6/M7/live gates separate |
+| HOSTING-PREVIEW-001 | Codex root | Independent Codex technical APPROVE; actual basic Android user PASS | DONE | M6-02/03/05; supplied1954reference preview; explicit Firebase project approval | [Card](../tasks/done/HOSTING-PREVIEW-001.md); temporary HTTPS preview accepted, independent24/24 + HTTPS smoke PASS; full device/media/M6/M7/live gates separate |
 
 ## Current preview UI request — 2026-10-03
 
 | Task | Scope | Owner / Reviewer | Status | Dependencies | Evidence / Next action |
 |---|---|---|---|---|---|
-| MVP-1954-CATALOG-001 | Existing HTTPS HỌC preview: Chapter1—1954, only episode1 open, episodes2–7 temporarily locked | Codex root / independent Codex software APPROVE | REVIEW | MVP-1954-001 DONE; M6-02/03/05 DONE; Hosting preview available; explicit user outline/request | [Card](../tasks/active/MVP-1954-CATALOG-001.md); repaired Back/source-notes independent4/4 PASS; deploy repaired build and smoke before DONE; media/XP/canonical/release gates separate |
+| MVP-1954-CATALOG-001 | Existing HTTPS HỌC preview: Chapter1—1954, only episode1 open, episodes2–7 temporarily locked | Codex root / independent Codex preview APPROVE | DONE | MVP-1954-001 DONE; M6-02/03/05 DONE; Hosting preview available; explicit user outline/request | [Card](../tasks/done/MVP-1954-CATALOG-001.md); repaired build37ad329a8f1a2abd4cff independently verified, catalog4/4 + HTTPS smoke PASS; physical/manual/media/XP/canonical/release acceptance separate |
 
 ## Final acceptance continuation — 2026-10-03
 
 | Task | Owner / Executor | Reviewer | Status | Dependencies / next action |
 |---|---|---|---|---|
-| M6-ACCEPTANCE-002 | Codex root / root + independent audit lanes | Independent bounded technical reviewers; human media/device/PO gates distinct | REVIEW | M6 OPEN; current software/Hosting/catalog REVIEW; [card](../tasks/active/M6-ACCEPTANCE-002.md); software APPROVE, Quality381/reference19/catalog4 PASS; isolated rollback PASS; final repaired Hosting smoke pending; no gate bypass |
+| M6-ACCEPTANCE-002 | Codex root / root + independent audit lanes | Independent bounded technical APPROVE; human media/device/PO release gates distinct | DONE | [Card](../tasks/done/M6-ACCEPTANCE-002.md); Quality381/reference19/catalog4 + repaired HTTPS smoke PASS; rollback exercised; M6 OPEN/M7 OPEN scheduling decision retained, full milestone/release acceptance separate |
+
+## Current M7 execution — 2026-10-03
+
+M7 OPEN alongside M6 by latest APPROVED PO decision. Existing preview/readiness checkpoints saying LOCKED are historical; full individual prerequisites still apply.
+
+| Task | Owner / Executor | Reviewer | Status | Dependencies / next action |
+|---|---|---|---|---|
+| M7-01 | Codex / content_release_audit | root APPROVE bounded selection | DONE | Phase3/MVP-1954-001/PO decision accepted; [card](../tasks/done/M7-01.md); Chapter1/1954, pilot Trước cơn bão, objective/perspective reused; onlyepisode1 preview, six remain locked |
+| M7-02 | Codex / content_release_audit | Independent source preparation APPROVE; historical/media final gate separate | REVIEW | M7-01 DONE; [card](../tasks/active/M7-02.md); original28cues mapped, three official sources checked; cue27/strategic framing and final media review still pending |
+
+M7-03 waits for reviewed1954curriculum/media, not old1968inputs; M7-04 sign-off then M7-05 canonical import. M7-06 needs fullM6 + import; M7-07..09 follow regression → canonical preview → internal journey → release. No downstream task claimed through unresolved dependencies. Existing internal preview stays available with episode2–7locked.
 
 ## PR109 review and M7 preparation — 2026-10-03
 
 | ID | Owner / Executor | Reviewer | Status | Started | Files / Next action |
 |---|---|---|---|---|---|
 | PR109-REVIEW-001 | Codex integration / Codex | Dương handoff; specialists separate | REVIEW | 2026-10-03 | [Card](../tasks/active/PR109-REVIEW-001.md); bounded SOFTWARE APPROVE85e4f3c; Quality381/reference22/latest preview4/E2E11 PASS; [evidence](../tasks/evidence/PR109-review-2026-10-03.md). |
-| M7-01 | Dương / Codex | Dương scope; Thọ learning, pending | REVIEW | 2026-10-03 | [Card](../tasks/active/M7-01.md); [scope brief](../content/CHAPTER-1954-SCOPE.md) ready for review; M7-02 awaits acceptance. |
+| M7-1954-SCOPE-002 | Dương / Codex | Independent learning review; Dương content handoff | IN PROGRESS | 2026-10-03 | [Card](../tasks/active/M7-1954-SCOPE-002.md); [scope brief](../content/CHAPTER-1954-SCOPE.md) complete chapter scope from Phase1 and approved outline; preserve bounded M7-01 DONE. |
 
-M7-02 remains BACKLOG pending M7-01 reviewer acceptance. M7-03..09 preserve roadmap dependencies; temporary preview is not canonical content or release acceptance.
+M7-02 is REVIEW per the accepted upstream pilot-source checkpoint; the chapter extension below does not clear its final historical gate. M7-03..09 preserve roadmap dependencies; temporary preview is not canonical content or release acceptance.
+
+## Chapter source preparation — 2026-10-03
+
+| Task | Owner / Executor | Reviewer | Status | Started | Files / next action |
+|---|---|---|---|---|---|
+| M7-02-CHAPTER-001 | Codex integration / disjoint research lanes | Independent preparation check; historical final gate separate | IN PROGRESS | 2026-10-03 | [Card](../tasks/active/M7-02-CHAPTER-001.md); authoritative source/claim register for7episodes; keep parent M7-02 REVIEW. |

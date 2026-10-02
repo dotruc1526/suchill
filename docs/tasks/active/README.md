@@ -52,4 +52,6 @@ Các file `active.md`, `CONTENT-003-004-REVIEW.md`, `PR21-HANDOFF.md`, `BEQA-LOC
 ## PR109 / M7 preparation — 2026-10-03
 
 - [PR109-REVIEW-001](./PR109-REVIEW-001.md): REVIEW; independent technical review and evidence.
-- [M7-01](./M7-01.md): REVIEW; selected1954chapter scope/objectives/perspective brief.
+- [M7-1954-SCOPE-002](./M7-1954-SCOPE-002.md): IN PROGRESS; selected1954chapter scope/objectives/perspective brief.
+
+- [M7-02-CHAPTER-001](./M7-02-CHAPTER-001.md): IN PROGRESS; source/claim research for7episodes, independent historical/media acceptance separate.

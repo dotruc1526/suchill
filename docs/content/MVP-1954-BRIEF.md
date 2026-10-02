@@ -11,4 +11,4 @@ No new video is requested. Use the supplied original file and original audio unc
 
 ## Preview catalog decision — 2026-10-03
 
-User supplied [seven-episode authoring outline](./CHAPTER-1954-OUTLINE.md) and explicitly requested Chapter1—Năm1954 in HỌC, the existing episode1 video open, episodes2–7 temporarily locked. This is approved preview placement/availability only. Proposed quizzes, interactions, badges, XP, completion and automatic unlock in the outline are authoring proposals, not runtime/backend approvals. [Task](../tasks/active/MVP-1954-CATALOG-001.md).
+User supplied [seven-episode authoring outline](./CHAPTER-1954-OUTLINE.md) and explicitly requested Chapter1—Năm1954 in HỌC, the existing episode1 video open, episodes2–7 temporarily locked. This is approved preview placement/availability only. Proposed quizzes, interactions, badges, XP, completion and automatic unlock in the outline are authoring proposals, not runtime/backend approvals. [Task](../tasks/done/MVP-1954-CATALOG-001.md).
