@@ -94,7 +94,7 @@ const io = new Server(httpServer, {
   maxHttpBufferSize: 4096,
   allowRequest: (req, done) => done(null, allowed(req.headers.origin)),
   cors: {
-    origin: origins,
+    origin: (origin, done) => done(null, allowed(origin)),
     methods: ['GET', 'POST']
   }
 });
