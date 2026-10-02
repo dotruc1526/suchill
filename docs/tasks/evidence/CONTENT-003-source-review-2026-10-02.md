@@ -105,3 +105,20 @@ Audio verdict cập nhật: **BLOCKED_FOR_COMMERCIAL_USE**, do Free không có c
 ### Xác nhận source scope của Trúc — 2026-10-02
 
 Trúc trả lời câu hỏi review trên chat: **“ACCEPT phạm vi nguồn nêu trên”**. Verdict **ACCEPTED_BY_TRÚC** bound registry SHA-256 `369205fcbd713a74acaa0149e6c21d2c3734260d4265e7b8f87edd5868e3bba5`: SRC-MT68-07 Tier 3 chỉ xác nhận danh sách năm mục tiêu; SRC-MT68-05 Tier 3 đối chiếu SRC-MT68-04 chỉ xác nhận vai trò hậu cần căn hầm; SRC-MT68-02 candidate. Supersede trạng thái source human confirmation pending tại các snapshot trước; không sửa registry, không suy rộng thành media/audio/production acceptance. Audio Free vẫn BLOCKED_FOR_COMMERCIAL_USE; Vinh QA và PO handoff còn riêng.
+
+
+## 7. Vinh technical recheck — 2026-10-02
+
+Reviewed PR111 head `cd9f998`, base `818e24d`; technical verdict **ACCEPTED (structural metadata/diff only)**. Registry current SHA-256 `369205fcbd713a74acaa0149e6c21d2c3734260d4265e7b8f87edd5868e3bba5` matches mục 6. Seven source rows and seven claim rows have unique IDs. Source 02 remains a candidate, source 07 is supplemental evidence; no published metadata/JSON source IDs were silently replaced.
+
+Independent verification:
+
+- 1972 source/claim tables unchanged against base; eight inputs byte-identical: PILOT-SCREENPLAY.md, PILOT-NARRATION.json, PILOT-CAPTIONS.vtt, LESSON-02-STORY.json, MAP-MT68.json, QUIZ-MT68.json, DETAILED-MEDIA-CATALOG.csv, CURRICULUM-MAP.md.
+- Four validators PASS: validate-mt68-authoring.mjs, validate-1972-authoring.mjs, validate-1972-lesson03.mjs, validate-1972-quiz.mjs. These establish structure/reference invariants, not historical/legal approval.
+- 203 local Markdown paths resolve in the seven originally changed docs; diff whitespace PASS. Original PR diff is seven docs, no runtime/env/migration changes.
+- check-task-docs.mjs does not pass globally: M4-M5-INTEGRATION-001 board/card mismatch also reproduces in main workspace. CONTENT-003 changes do not resolve that separate issue.
+- Official [ElevenLabs models documentation](https://elevenlabs.io/docs/overview/models) rechecked: eleven_v4 and Vietnamese are listed. This does not verify the Hoa profile, account entitlement or output rights.
+
+Corrections: separate completed technical QA from pending Trúc historical/media acceptance and PO production decision; replace current CONTENT-003 production-plan gate wording with approved DOC-020/021 (M4/M5 CLOSED, M6 OPEN). Historical gate notes remain snapshots. No historical source or content wording altered. Parent remains REVIEW; CONTENT-007 remains BLOCKED.
+
+Handoff updated after concurrent source record 00c8d92: Trúc source acceptance is recorded for the same registry hash; voice ID and Free plan are recorded. Audio rights suitable for release remain pending with Trúc, as explicitly directed by the user. PO decides production only after acceptance. Audio files/timing/MP4 are future production outputs, not evidence already obtained. Runtime suite skipped because this is documentation-only; no env/migration impact.

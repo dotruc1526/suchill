@@ -15,7 +15,7 @@
 - Branch: `codex/truc-content003-source-review`; base main `c7a5ad5`.
 - Depends on: CONTENT-002 và DOC-004 DONE trên board; acceptance CONTENT-002 đã tick đủ. Handoff cũ còn ghi ô trống sẽ được ghi rõ là superseded.
 - Files claimed: `docs/content/HISTORICAL-SOURCES.md`, `MEDIA-REVIEW-MT68.md`, `PRODUCTION-NOTES.md`; card này, `docs/tasks/evidence/CONTENT-003-source-review-2026-10-02.md`, `docs/tasks/active/README.md`, các row CONTENT-003/007 và checkpoint trong `docs/project/TASK-BOARD.md`.
-- Next action: Trúc xác nhận registry hash/Tier 3 và evidence quyền audio ElevenLabs theo cấu hình đã chọn; Vinh recheck metadata/diff; PO quyết định production handoff sau acceptance.
+- Next action: Vinh đã ACCEPTED phạm vi metadata/diff tại lượt recheck bên dưới; hồ sơ Trúc source ACCEPT tại 00c8d92 đã có, quyền audio vẫn chờ Trúc; PO quyết định production handoff riêng sau acceptance.
 - Out of scope: runtime, chapter 1972, MP4/thu âm production, duyệt quyền ảnh optional, tự mở CONTENT-007 hoặc milestone.
 
 ### Cập nhật phương án voice — 2026-10-02
@@ -47,11 +47,12 @@
 - [x] Trúc ACCEPT source verdict/Tier 3/phạm vi claim ngày 2026-10-02 theo registry SHA-256 `369205fcbd713a74acaa0149e6c21d2c3734260d4265e7b8f87edd5868e3bba5` (evidence mục 8 và xác nhận cuối).
 - [x] Trúc cung cấp voice ID `5g2DMFQF8xR0KmnuNr4U`, gói Free, Eleven v4 ngày 2026-10-02 (user-provided).
 - [ ] Audio rights cho mục đích phát hành: BLOCKED_FOR_COMMERCIAL_USE vì gói Free; cần phương án/gói phù hợp và evidence trước sign-off.
-- [ ] Vinh technical QA/reviewer nghiệm thu task; PO production decision riêng.
+- [x] Vinh technical QA metadata/diff ACCEPTED theo evidence recheck bên dưới; không thay historical/media verdict.
+- [ ] PO production decision riêng sau khi dependency và rights/source plan được reviewer nghiệm thu.
 
 Verification: authoring validator PASS (5 node, 7 scene, 6 đường đi, 5 quiz, 9 cue 110s); 7 source rows/7 claim rows unique; chapter 1972 byte-identical; 10 authoring/catalog inputs unchanged; local Markdown links PASS; `git diff --check` PASS. Không chạy app build/typecheck vì docs-only, không runtime/env/migration/dependency impact.
 
-Changed files: registry, MEDIA-REVIEW-MT68, PRODUCTION-NOTES, card/evidence CONTENT-003, task board và active index. Known issues: book scan/source 02 chưa truy cập; Tier 3 mới chờ reviewer; audio đã chọn ElevenLabs/Hoa/Eleven v4/Vietnamese, chưa có voice ID/quyền/file xuất; map còn pending, sourceIds production revision cần owner/reviewer; chưa có asset final. Không yêu cầu phải có MP4 cuối trước khi mở task dựng MP4. M4 OPEN / M5–M7 LOCKED; CONTENT-007 BLOCKED cho tới dependency/PO decision và claim riêng.
+Changed files: registry, MEDIA-REVIEW-MT68, PRODUCTION-NOTES, card/evidence CONTENT-003, task board và active index. Known issues: book scan/source 02 chưa truy cập; Tier 3 mới chờ reviewer; audio đã chọn ElevenLabs/Hoa/Eleven v4/Vietnamese, chưa có voice ID/quyền/file xuất; map còn pending, sourceIds production revision cần owner/reviewer; chưa có asset final. Không yêu cầu phải có MP4 cuối trước khi mở task dựng MP4. M4/M5 đã CLOSED, M6 OPEN theo DOC-020/021; CONTENT-007 BLOCKED cho tới dependency/PO decision và claim riêng.
 
 ## Lượt review và sửa regression — 2026-09-28 (snapshot cũ)
 
@@ -169,12 +170,12 @@ Tuy nhiên, hội đồng thẩm định ghi nhận **04 lỗi lịch sử & k�
 ## Vinh technical recheck — claim 2026-10-02
 
 - Owner: Trúc (CONTENT-003); Executor/reviewer technical QA: Vinh, Codex hỗ trợ theo yêu cầu người dùng.
-- Status: IN PROGRESS cho lượt recheck; parent CONTENT-003 giữ REVIEW.
+- Status: REVIEW cho lượt recheck đã hoàn tất; parent CONTENT-003 giữ REVIEW.
 - Started: 2026-10-02; Branch: codex/truc-content003-source-review; reviewed head: cd9f998.
 - Depends on: CONTENT-002/DOC-004 DONE; PR111 đã có hồ sơ source remediation để review.
 - Files claimed cho lượt này: card CONTENT-003, evidence CONTENT-003-source-review-2026-10-02, MEDIA-REVIEW-MT68, PRODUCTION-NOTES, dòng CONTENT-003/007 và checkpoint trong TASK-BOARD, active index.
 - Acceptance: đối chiếu hash/IDs/references, authoring bytes và section 1972 với base 818e24d; validator/diff/local links đạt; next action tách technical QA khỏi historical/audio/PO verdict.
-- Next action: chạy kiểm tra độc lập, sửa metadata/handoff mâu thuẫn, ghi kết quả và bàn giao Trúc/PO. Không ký historical/media thay reviewer.
+- Next action: technical QA hoàn tất; chờ Trúc xử lý quyền audio và PO production handoff riêng. Source acceptance được ghi ở 00c8d92, không ký historical/media thay reviewer.
 
 ## Checkpoint audio sau phản hồi Trúc — 2026-10-02
 
@@ -186,4 +187,14 @@ Tuy nhiên, hội đồng thẩm định ghi nhận **04 lỗi lịch sử & k�
 
 - Trúc trả lời trực tiếp: “ACCEPT phạm vi nguồn nêu trên”. Chấp nhận đúng registry SHA-256 `369205fcbd713a74acaa0149e6c21d2c3734260d4265e7b8f87edd5868e3bba5`: SRC-MT68-07 Tier 3 chỉ danh sách năm mục tiêu; SRC-MT68-05 Tier 3, đối chiếu SRC-MT68-04, chỉ vai trò hậu cần căn hầm; SRC-MT68-02 vẫn candidate. Các giới hạn/perspective/locator khác giữ nguyên.
 - Supersede các ghi chú chờ human source confirmation ở trên. Registry không sửa byte để giữ binding sign-off. Không cấp verdict mới cho authored artifacts hoặc quyền ảnh/audio.
-- Next: Vinh recheck metadata/diff; chốt phương án audio có quyền phù hợp với phạm vi sử dụng (Free không có quyền thương mại); PO quyết định handoff riêng. CONTENT-003 REVIEW, CONTENT-007 BLOCKED.
+- Next: Vinh technical metadata/diff ACCEPTED theo mục bên dưới; chờ Trúc chốt phương án audio có quyền phù hợp với phạm vi sử dụng; PO quyết định handoff riêng. CONTENT-003 REVIEW, CONTENT-007 BLOCKED.
+
+
+### Technical result — Vinh, 2026-10-02
+
+- Verdict: **ACCEPTED trong phạm vi structural metadata/diff** trên PR111 cd9f998; các sửa tiếp theo chỉ cập nhật hồ sơ recheck/gate, không đổi registry hay authored content.
+- Registry SHA-256: `369205fcbd713a74acaa0149e6c21d2c3734260d4265e7b8f87edd5868e3bba5`; 7 source IDs và 7 claim IDs unique. Section nguồn/claim 1972 và 8 authoring/catalog inputs đối chiếu byte-identical với base 818e24d.
+- Bốn authoring validators PASS; 203 local Markdown paths trong 7 file diff ban đầu tồn tại; diff whitespace PASS. Xem [evidence recheck](../evidence/CONTENT-003-source-review-2026-10-02.md#7-vinh-technical-recheck--2026-10-02).
+- Full task-doc checker còn báo `M4-M5-INTEGRATION-001: board/card status mismatch`; lỗi cũng tái hiện ở workspace main, ngoài CONTENT-003. Không báo toàn project-doc suite PASS.
+- Không chạy runtime suite vì docs-only; không env/migration impact. Không xác nhận source history/Tier 3, license, voice profile hoặc audio timing bằng structural checks.
+- Remaining: hồ sơ Trúc source ACCEPT tại 00c8d92 đã ghi nhận đúng hash; voice ID/gói Free đã có trong checkpoint mới, quyền audio phù hợp phạm vi phát hành vẫn chờ Trúc theo yêu cầu người dùng. PO quyết định production riêng; CONTENT-003 REVIEW, CONTENT-007 BLOCKED. DOC-020/021 đã đóng M4/M5, mở M6; nhắc M4 OPEN/M5 LOCKED trước đó là snapshot cũ, không dùng làm gate hiện hành.
