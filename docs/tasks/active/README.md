@@ -4,6 +4,10 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOC
 
 > Last synchronized: 2026-10-01 — M3-01..05 và M3-UX-01 đã được reviewer xác nhận, PR merge và chuyển sang done/.
 
+## M3 QA
+
+- [QA-002](./QA-002.md) — `REVIEW`; mobile/player matrix và browser regressions đạt trên mock; Hưng review shared Button/evidence, Dương xác nhận player.
+
 ## Milestone 3 — Home visual follow-up
 
 - [M3-UX-02](../done/M3-UX-02.md) — DONE; Dương consumer, Hưng UI/tokens và Vinh checkpoint/focus QA accepted ngày 2026-10-02.
