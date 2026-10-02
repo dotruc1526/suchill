@@ -30,6 +30,27 @@ const safeError = (value: unknown): ServiceErrorCode =>
 /** Auth identities are resolved only by the trusted function; no mapping is delivered to the browser. */
 export async function accountAccess(client: AuthClient, body: Record<string, unknown>, token?: string): Promise<Result<Record<string, unknown>>> {
   if (!online()) return failure('offline')
+  const isLan = typeof window !== 'undefined' && /^(192\.168\.|10\.|172\.(1[6-9]|2\d|3[0-1])\.)/.test(window.location.hostname)
+  if (isLan) {
+    try {
+      const serverUrl = `${window.location.protocol}//${window.location.hostname}:3001`
+      const res = await fetch(`${serverUrl}/api/account-access`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
+        body: JSON.stringify(body),
+      })
+      const data = await res.json()
+      if (!res.ok || (data && typeof data === 'object' && 'error' in data)) {
+        return failure(data && typeof data === 'object' && 'error' in data ? safeError(data.error) : 'server_error')
+      }
+      return success(data as Record<string, unknown>)
+    } catch {
+      // fallback to invoke
+    }
+  }
   if (!client.functions) return failure('server_error')
   try {
     const { data, error } = await client.functions.invoke('account-access', { body, timeout: 25_000,

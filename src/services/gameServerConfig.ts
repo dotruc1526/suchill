@@ -7,5 +7,6 @@ export function resolveGameServerUrl(configured: string | undefined, location: {
     return url.origin;
   }
   if (["localhost", "127.0.0.1"].includes(location.hostname)) return "http://localhost:3001";
+  if (/^(192\.168\.|10\.|172\.(1[6-9]|2\d|3[0-1])\.)/.test(location.hostname)) return `${location.protocol}//${location.hostname}:3001`;
   throw new Error("Chưa cấu hình địa chỉ máy chủ Đấu Trí (VITE_GAME_SERVER_URL).");
 }

@@ -40,7 +40,7 @@ export function useSocketGame(options: {
       });
       socket.on("pvp_standings", (value: TrialStandings) => setStandings(value));
       socket.on("disconnect", () => dispatch({ type: "patch", value: { connected: false, error: "Mất kết nối. Đang kết nối lại; trận do server quản lý." } }));
-      socket.on("connect_error", error => {
+      socket.on("connect_error", (error: Error) => {
         setConnecting(false); setConnectionMessage(null); intent.current = null; setPendingAction(false);
         if (error.message.includes("Invalid player session")) connection.forget();
         dispatch({ type: "patch", value: { connected: false, error: "Không kết nối được máy chủ hoặc phiên không hợp lệ. Hãy kết nối lại." } });

@@ -513,3 +513,7 @@ M7-02 is REVIEW per the accepted upstream pilot-source checkpoint; the chapter e
 | Task | Owner / Executor | Reviewer | Status | Dependencies / next action |
 |---|---|---|---|---|
 | M7-1954-CONTEXT-001 | Codex root | independent hosting_catalog_review APPROVE | DONE | [Card](../tasks/done/M7-1954-CONTEXT-001.md); deployed9abdb3f1df7a3759e34d verified; independent4/4 +8remotehashes PASS; visible cue27 clarification, immutable video and six locks retained; final M7-02/media/manual/release gates separate |
+
+## PRACTICE-DEMO-001 — User requested navigation demo
+
+Owner/Executor: Codex (integration). Reviewer: Hưng / Vinh. Status: REVIEW. Started: 2026-10-03. Dependencies: M3-05 DONE, M6/M7 OPEN. Files and acceptance: [card](../tasks/active/PRACTICE-DEMO-001.md). Evidence: typecheck/build PASS; 29 related tests PASS. Next: reviewer checks navigation, mobile interaction and isolated demo boundary.

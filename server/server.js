@@ -5,6 +5,14 @@ import cors from 'cors';
 import socketHandler from './socketHandler.js';
 import { createSessionStore } from './sessionStore.js';
 import { pathToFileURL } from 'node:url';
+import { existsSync } from 'node:fs';
+import { askSuu } from './aiService.js';
+
+for (const envPath of ['server/.env', '.env']) {
+  if (existsSync(envPath)) {
+    try { process.loadEnvFile(envPath); } catch {}
+  }
+}
 
 export function createGameServer(options = {}) {
 const app = express();
@@ -15,7 +23,13 @@ if (process.env.NODE_ENV === 'production' && (!process.env.ALLOWED_ORIGINS || !p
 if (process.env.NODE_ENV === 'production' && process.env.SESSION_SECRET.length < 32) throw new Error('SESSION_SECRET must have at least 32 characters');
 const proxyHops = Number(process.env.TRUST_PROXY_HOPS || 0);
 if (Number.isInteger(proxyHops) && proxyHops > 0) app.set('trust proxy', proxyHops);
-const allowed = origin => !origin || origins.includes(origin);
+const allowed = origin => {
+  if (!origin || origins.includes(origin)) return true;
+  if (process.env.NODE_ENV !== 'production') {
+    if (/^https?:\/\/(localhost|127\.0\.0\.1|192\.168\.\d+\.\d+|10\.\d+\.\d+\.\d+|172\.(1[6-9]|2\d|3[0-1])\.\d+\.\d+)(:\d+)?$/.test(origin)) return true;
+  }
+  return false;
+};
 app.use(cors({ origin: (origin, done) => done(null, allowed(origin)) }));
 app.use(express.json({ limit: '2kb' }));
 const sessions = createSessionStore(options.secret || process.env.SESSION_SECRET);
@@ -35,6 +49,44 @@ app.post('/session', (req, res) => {
 
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok' });
+});
+
+app.post('/api/ai/chat', async (req, res) => {
+  if (!allowed(req.headers.origin)) return res.status(403).json({ error: 'Origin denied' });
+  const question = req.body?.question;
+  if (typeof question !== 'string' || !question.trim()) {
+    return res.status(400).json({ error: 'Question required' });
+  }
+  try {
+    const result = await askSuu(question);
+    res.setHeader('Cache-Control', 'no-store');
+    res.json(result);
+  } catch {
+    res.status(500).json({ error: 'AI service unavailable' });
+  }
+});
+
+app.post('/api/account-access', async (req, res) => {
+  if (!allowed(req.headers.origin)) return res.status(403).json({ error: 'Origin denied' });
+  try {
+    const supabaseUrl = process.env.VITE_SUPABASE_URL || 'https://kyfqlhpweetsridmqkvl.supabase.co';
+    const anonKey = process.env.VITE_SUPABASE_PUBLISHABLE_KEY || 'sb_publishable_wO1jo1V6v0PguFkcBjAvYQ_sEc8Gb4B';
+    const authHeader = req.headers.authorization;
+    const response = await fetch(`${supabaseUrl}/functions/v1/account-access`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Origin': 'http://localhost:8443',
+        'apikey': anonKey,
+        ...(authHeader ? { Authorization: authHeader } : {}),
+      },
+      body: JSON.stringify(req.body),
+    });
+    const data = await response.json();
+    res.status(response.status).json(data);
+  } catch {
+    res.status(500).json({ error: 'server_error' });
+  }
 });
 
 const httpServer = createServer(app);
