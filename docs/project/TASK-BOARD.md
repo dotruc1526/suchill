@@ -367,3 +367,10 @@ AI phải đọc task board trước khi làm việc. Nếu task `BLOCKED` hoặ
 - Content task có review/source status.
 - Backend task có migration/RLS/security evidence.
 - Task board cập nhật status, evidence và handoff note.
+
+## Main-first integration checkpoint
+
+| ID | Owner | Status | Depends on | Evidence / next action |
+|---|---|---|---|---|
+| M4-M5-INTEGRATION-001 | Codex; QA/PO review pending | IN PROGRESS | DOC-019, M3 DONE; M4 OPEN | [Task card](../tasks/active/M4-M5-INTEGRATION-001.md); preserve accepted main M3, review candidate before comprehensive verification; M5 gate unchanged |
+
