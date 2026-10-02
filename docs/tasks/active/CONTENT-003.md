@@ -29,13 +29,24 @@
 - Pending: chưa có voice ID, evidence quyền tài khoản/giọng hoặc file audio mới; source review/handoff còn theo card. CONTENT-007 vẫn BLOCKED.
 - Handoff: chỉ sửa 4 tài liệu nêu trên, không đổi narration/caption hoặc review verdict; không có thay đổi env/migration. Không chạy build/test ứng dụng vì chỉ cập nhật tài liệu; kiểm tra diff của các file đã sửa.
 
+## Lượt xử lý review theo yêu cầu Trúc — 2026-10-02
+
+- Owner: Trúc; Executor: Codex; Reviewer: Trúc historical/media, Vinh technical QA; Status: REVIEW; Started: 2026-10-02.
+- Files claimed: card này, evidence CONTENT-003, MEDIA-REVIEW-MT68 và các dòng CONTENT-003 trong task board.
+- Scope / acceptance: đối chiếu lại các nguồn Tier 3 đang chờ, cung cấp kết luận để Trúc duyệt đúng hash; bổ sung điều kiện quyền ElevenLabs và tách các mục pending. Không ký human verdict thay Trúc.
+- Checkpoint: Nhân Dân 2008 xác nhận list-membership năm mục tiêu; VOH 2023 và Nhân Dân 2013 đối chiếu vai trò hậu cần. Đề nghị ACCEPT source scope giới hạn; sách source 02 vẫn candidate. Xem mục 8 của [evidence](../evidence/CONTENT-003-source-review-2026-10-02.md).
+- Next action: Trúc xác nhận riêng source verdict trên hash `369205fcbd713a74acaa0149e6c21d2c3734260d4265e7b8f87edd5868e3bba5`; cung cấp voice ID/link và tên gói ElevenLabs để chốt quyền audio; Vinh QA độc lập.
+- Handoff: chỉ tài liệu, không env/migration/runtime; registry và authored artifacts không đổi. Chưa có bằng chứng gói tài khoản hoặc voice profile. Không chạy app build/test cho cập nhật review docs; kiểm tra diff whitespace.
+
 ## Acceptance và handoff hiện hành — 2026-10-02
 
 - [x] Source IDs/claim IDs Mậu Thân có một nghĩa duy nhất, locator/tier/perspective và giới hạn wording rõ.
 - [x] 7/7 claim có nguồn đọc được hỗ trợ; SRC-MT68-02 chưa đọc trực tiếp được ghi candidate, SRC-MT68-07 bổ sung evidence cho danh sách mục tiêu.
 - [x] Phương án bắt buộc chữ/sơ đồ nguyên bản; 6 BLOCKED/2 NEEDS_MEDIA_REVIEW loại khỏi mandatory route; không cấp quyền ảnh/clip optional.
 - [x] Checklist quyền audio, consent và ranh giới preproduction/production outputs đã ghi rõ.
-- [ ] Trúc xác nhận registry revision/Tier 3 và audio rights route; không ghi chữ ký thay reviewer.
+- [ ] Trúc xác nhận source verdict/Tier 3/phạm vi claim theo registry hash hiện hành (kết luận đề nghị ở evidence mục 8).
+- [x] Trúc cung cấp voice ID `5g2DMFQF8xR0KmnuNr4U`, gói Free, Eleven v4 ngày 2026-10-02 (user-provided).
+- [ ] Audio rights cho mục đích phát hành: BLOCKED_FOR_COMMERCIAL_USE vì gói Free; cần phương án/gói phù hợp và evidence trước sign-off.
 - [ ] Vinh technical QA/reviewer nghiệm thu task; PO production decision riêng.
 
 Verification: authoring validator PASS (5 node, 7 scene, 6 đường đi, 5 quiz, 9 cue 110s); 7 source rows/7 claim rows unique; chapter 1972 byte-identical; 10 authoring/catalog inputs unchanged; local Markdown links PASS; `git diff --check` PASS. Không chạy app build/typecheck vì docs-only, không runtime/env/migration/dependency impact.
@@ -153,3 +164,20 @@ Tuy nhiên, hội đồng thẩm định ghi nhận **04 lỗi lịch sử & k�
 
 ---
 *Báo cáo cũ chưa là sign-off; xem assignment và blocker hiện hành ở đầu card.*
+
+
+## Vinh technical recheck — claim 2026-10-02
+
+- Owner: Trúc (CONTENT-003); Executor/reviewer technical QA: Vinh, Codex hỗ trợ theo yêu cầu người dùng.
+- Status: IN PROGRESS cho lượt recheck; parent CONTENT-003 giữ REVIEW.
+- Started: 2026-10-02; Branch: codex/truc-content003-source-review; reviewed head: cd9f998.
+- Depends on: CONTENT-002/DOC-004 DONE; PR111 đã có hồ sơ source remediation để review.
+- Files claimed cho lượt này: card CONTENT-003, evidence CONTENT-003-source-review-2026-10-02, MEDIA-REVIEW-MT68, PRODUCTION-NOTES, dòng CONTENT-003/007 và checkpoint trong TASK-BOARD, active index.
+- Acceptance: đối chiếu hash/IDs/references, authoring bytes và section 1972 với base 818e24d; validator/diff/local links đạt; next action tách technical QA khỏi historical/audio/PO verdict.
+- Next action: chạy kiểm tra độc lập, sửa metadata/handoff mâu thuẫn, ghi kết quả và bàn giao Trúc/PO. Không ký historical/media thay reviewer.
+
+## Checkpoint audio sau phản hồi Trúc — 2026-10-02
+
+- Đã nhận voice ID `5g2DMFQF8xR0KmnuNr4U`, gói Free, Eleven v4; supersede ghi chú thiếu voice ID/gói bên trên. Chưa xác minh profile độc lập, chưa có audio final.
+- Audio Free không có quyền thương mại: `BLOCKED_FOR_COMMERCIAL_USE`. Next: xác định phạm vi phát hành và phương án quyền phù hợp; nếu thương mại, tạo output mới trên gói đủ quyền sau content gate và kiểm tra Beta/điều khoản. Không coi nâng gói là cấp quyền hồi tố output Free.
+- Source verdict đề nghị vẫn chờ Trúc xác nhận đúng hash. CONTENT-003 REVIEW; CONTENT-007 BLOCKED, không có production sign-off.

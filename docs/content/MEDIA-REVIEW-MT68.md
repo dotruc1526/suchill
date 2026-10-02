@@ -37,6 +37,8 @@ Phương án hiện hành là TTS ElevenLabs theo lựa chọn của Trúc dư�
 |---|---|
 | Nhà cung cấp | ElevenLabs |
 | Giọng | Hoa - Smooth, Gentle and Poetic |
+| Voice ID | `5g2DMFQF8xR0KmnuNr4U` (Trúc cung cấp; chưa đối chiếu profile trong tài khoản) |
+| Gói tài khoản | Free (Trúc xác nhận ngày 2026-10-02) |
 | Người Việt Nam / chất giọng | Theo mô tả và lựa chọn của Trúc; chờ link thư viện/voice ID xác nhận đúng profile |
 | Model | Eleven v4 (`eleven_v4`) |
 | Ngôn ngữ | Vietnamese (tiếng Việt) |
@@ -64,3 +66,11 @@ Poster/sơ đồ chữ do nhóm tạo cần source file, font/license thực t�
 - Bổ sung voice ID/link giọng Hoa và evidence quyền sử dụng ElevenLabs; khi đủ gate mới tạo audio, đo timing và đồng bộ caption theo audio.
 - Xuất MP4/poster/manifest, kiểm tra mobile/fallback/keyboard/caption trên player khi task mở.
 - Nếu dùng ảnh optional: nghiệm thu item, caption/alt/crop, attribution và điều kiện phạm vi sử dụng trước tích hợp.
+
+## Evidence quyền ElevenLabs — 2026-10-02
+
+[Chính sách publish chính thức](https://help.elevenlabs.io/hc/en-us/articles/13313564601361-Can-I-publish-the-content-I-generate-on-the-platform): Free không có quyền thương mại; paid plans có commercial license cho eligible content, loại trừ Beta Services và vẫn cần quyền đối với input/voice cùng điều khoản áp dụng. Trúc xác nhận voice ID `5g2DMFQF8xR0KmnuNr4U`, gói Free, model Eleven v4. Trạng thái: `BLOCKED_FOR_COMMERCIAL_USE`; không có commercial license cho output tạo trên Free. Chưa xác minh độc lập profile Hoa trong tài khoản.
+
+Cần link/voice ID Hoa, tên gói và evidence ngày generation, kiểm tra trạng thái model/service và phạm vi web/PWA. Không cung cấp API key. Cấu hình đã chọn không đồng nghĩa quyền audio đã được nghiệm thu; bản thu/file/hash và timing/caption QA được bổ sung khi task production đủ gate.
+
+Checkpoint sau phản hồi Trúc: voice ID và gói đã được cung cấp. Các ghi chú trước đó “chưa có voice ID/gói” là snapshot superseded. Nếu cần phát hành thương mại, phải tạo audio mới trong gói có quyền phù hợp và xác minh service/model không thuộc Beta cùng điều khoản tại thời điểm tạo; nâng gói không cấp lại quyền cho output Free cũ. Chưa tạo audio hoặc duyệt phát hành.

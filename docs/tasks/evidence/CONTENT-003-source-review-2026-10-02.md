@@ -76,3 +76,28 @@ Nguồn 07 là evidence bổ sung ở registry claim 01. Chưa tự thay sourceI
 - Đồng bộ cấu hình voice Trúc đã chọn trong media plan, production notes, card, board và index. Quyền sử dụng/file audio vẫn pending.
 - Kiểm tra diff whitespace đạt; không chạy lại test/build ứng dụng cho thay đổi tài liệu.
 - Registry SHA-256 hiện hành sau hợp nhất main: `369205fcbd713a74acaa0149e6c21d2c3734260d4265e7b8f87edd5868e3bba5`. Hash cũ ở mục 3 chỉ là snapshot lượt sửa ban đầu.
+
+## 8. Kết luận đề nghị để Trúc xác nhận — theo yêu cầu xử lý review
+
+Ngày đối chiếu: 2026-10-02; PR #111 head trước lượt này `cd9f998`; registry không sửa, SHA-256 `369205fcbd713a74acaa0149e6c21d2c3734260d4265e7b8f87edd5868e3bba5`.
+
+**Source verdict đề nghị: ACCEPT trong phạm vi dưới đây; human confirmation PENDING.** Yêu cầu “xử lý” là yêu cầu làm review, chưa là chữ ký chấp nhận kết luận cụ thể này.
+
+- SRC-MT68-07 / CLM-MT68-01: đọc lại bài Nhân Dân 28/01/2008, đoạn bắt đầu “...Ngay từ ngày” xác nhận đủ năm mục tiêu. Chấp nhận đề nghị Tier 3 chỉ cho danh sách; không mở rộng sang giờ, ngày, số liệu hoặc việc chiếm giữ. Reasoning: bài báo có nhà xuất bản/ngày/locator, phạm vi hẹp; không nâng thành nguồn archival hay xác nhận sách SRC-MT68-02.
+- SRC-MT68-05 / CLM-MT68-04: VOH 22/08/2023, các đoạn về Trần Văn Lai mua nhà/đào hầm và Đội 5 tập trung nhận vũ khí, đối chiếu Nhân Dân 14/02/2013 phần đội Biệt động 5 tại hầm Năm Lai. Chấp nhận đề nghị Tier 3 cho giải thích hậu cần phổ thông, không dùng ảnh hiện trạng làm ảnh năm 1968, không thêm thông số vũ khí/vật liệu/niên biểu chưa review.
+- Giữ SRC-MT68-02 candidate; nguồn retired/perspective/chronology qualification giữ nguyên. Không thay sourceIds hoặc suy thành verdict cho map, quiz, screenplay hay package khác.
+- Hai bài báo hỗ trợ fact không cấp quyền dùng ảnh/audio. Mandatory visual vẫn chữ/sơ đồ nguyên bản, không nhạc/SFX/optional media.
+
+**Audio verdict: PENDING_ACCOUNT_AND_VOICE_EVIDENCE.** Cấu hình Trúc đã chọn được giữ; không suy rights approval từ tên provider.
+
+Đọc [chính sách publish ElevenLabs](https://help.elevenlabs.io/hc/en-us/articles/13313564601361-Can-I-publish-the-content-I-generate-on-the-platform) ngày 2026-10-02: Free không có commercial license; paid plans có commercial license cho eligible content, ngoại trừ Beta Services và vẫn phụ thuộc quyền sở hữu trí tuệ/điều khoản. Output Free không được coi là có quyền thương mại chỉ vì nâng gói sau đó. Chưa biết gói của Trúc hoặc trạng thái dịch vụ thực dùng, nên chưa kết luận quyền cho audio Sử Chill.
+
+Evidence cần bổ sung trước audio rights sign-off: voice ID/link profile Hoa; tên gói/account evidence tại thời điểm generation; model/service có thuộc Beta hay không và điều khoản áp dụng; mục đích/phạm vi web/PWA; ngày generation. File/hash/timing/caption QA là đầu ra production về sau, không dùng việc chưa có MP4 làm blocker để mở task tạo MP4.
+
+Sau human source confirmation và đủ audio plan evidence: Vinh recheck, PO quyết định production handoff riêng. Task REVIEW, CONTENT-007 BLOCKED. Không env/migration/runtime impact; diff whitespace check cho các tài liệu đã sửa.
+
+### Phản hồi Trúc về audio — 2026-10-02
+
+Trúc cung cấp voice ID `5g2DMFQF8xR0KmnuNr4U`, gói **Free**, model **Eleven v4**. Provider/label/language vẫn ElevenLabs / Hoa - Smooth, Gentle and Poetic / Vietnamese. Identity là thông tin user-provided; chưa đối chiếu profile trong tài khoản.
+
+Audio verdict cập nhật: **BLOCKED_FOR_COMMERCIAL_USE**, do Free không có commercial license theo chính sách chính thức nêu trên. Voice ID/gói không còn là thông tin thiếu; không coi phản hồi này là xác nhận quyền thương mại hoặc source verdict. Audio chưa được tạo. Với nhánh phát hành thương mại: chọn gói có quyền phù hợp, tạo audio mới khi gói có hiệu lực, kiểm tra service/model không thuộc Beta và lưu evidence. Với nhánh phi thương mại: phải xác định phạm vi và attribution theo điều khoản, không tự cho phép tích hợp production.
