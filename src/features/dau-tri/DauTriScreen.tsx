@@ -28,6 +28,7 @@ export default function DauTriScreen({ userId, playerName = "Người chơi", on
       <h1 className="flex items-center gap-2 text-xl font-bold"><DauTriIcon aria-hidden="true" /> ĐẤU TRÍ LỊCH SỬ</h1>
       <p role="status" className="text-sm" style={{ color: state.connected ? theme.colors.correct.text : theme.colors.textSecondary }}>{state.connected ? "Đã kết nối máy chủ • PvP hai người" : "Chưa kết nối máy chủ"}</p>
     </header>
+    {game.connectionMessage && <p role="status" className="text-sm">{game.connectionMessage}</p>}
     {state.error && <Card><p role="alert" className="text-sm">{state.error}</p><Button className="min-h-11 mt-2" onClick={game.retryConnection}>KẾT NỐI LẠI</Button></Card>}
     {state.phase === "idle" && <BattleLobby connected={state.connected} onFind={game.joinQueue} onCreate={game.createRoom} onJoin={game.joinRoom} />}
     {state.phase === "searching" && <Card><h2 className="font-bold">Đang chờ người chơi online…</h2><p className="text-sm my-3">Không tự ghép bot. Bạn có thể hủy hoặc rủ bạn bè vào cùng máy chủ.</p><Button className="min-h-11" variant="outline" onClick={game.cancelQueue}>HỦY TÌM TRẬN</Button></Card>}

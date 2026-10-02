@@ -1,10 +1,12 @@
 import { io } from "socket.io-client";
 import { resolveGameServerUrl } from "./gameServerConfig";
+import { waitForGameServer } from "./gameServerReadiness";
 
 export interface GameCredentials { token: string; player: { userId: string; username: string; exp: number; level: number; expiresAt: number } }
 export interface GameConnectionOptions {
   username: string; scope: string; signal: AbortSignal;
   credentials?: GameCredentials;
+  onStatus?: (message: string) => void;
 }
 
 export function gameServerUrl() {
@@ -13,6 +15,7 @@ export function gameServerUrl() {
 
 export async function openGameConnection(options: GameConnectionOptions) {
   const url = gameServerUrl();
+  await waitForGameServer(url, { signal: options.signal, onStatus: options.onStatus });
   const key = `suchill.dautri.session:${url}:${options.scope}`;
   let credential = options.credentials;
   if (!credential) {

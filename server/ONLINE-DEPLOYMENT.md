@@ -59,3 +59,7 @@ Nếu chạy Node không Docker, hosting dùng install `npm ci --omit=dev` và s
 Tình trạng hiện tại: người dùng chưa có hosting; Docker config và probe có thể kiểm tra local trước, chưa có public URL hoặc evidence Wi-Fi ↔ 4G.
 
 Nguồn cấu hình: [Socket.IO reverse proxy](https://socket.io/docs/v4/reverse-proxy/), [client options và polling/WebSocket](https://socket.io/docs/v4/client-options/).
+
+## Cấu hình Render đã chuẩn bị
+
+Root `render.yaml` và [hướng dẫn bật khác mạng](./RENDER-SETUP.md) cung cấp đường deploy cụ thể cho bản trial. Client xử lý cold start tối đa 90s. Firebase preview build nhận VITE_GAME_SERVER_URL qua publicConfiguration; chưa có URL thật thì không tự chế địa chỉ hoặc trận giả.

@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto'
 import { lstat, mkdir, readFile, realpath, readdir, writeFile } from 'node:fs/promises'
 import { resolve, relative, sep } from 'node:path'
 import { pathToFileURL } from 'node:url'
+import { resolveGameServerUrl } from '../../src/services/gameServerConfig.ts'
 
 export const videoHash = '2b7def3cd371275f73f062707b9cd212bca663b4b8e66eeb980272b5c092f0ec'
 const manifestHash = 'd1bfd0bd021df6bd52a00eb6bac5dbe3c7dbe814a13a0e1edd7d485c23647474'
@@ -37,7 +38,7 @@ export async function verifiedPackage(packageDir) {
 export function publicConfiguration(text) {
   const values = {}
   for (const line of text.split(/\r?\n/)) {
-    const match = /^(VITE_SUPABASE_URL|VITE_SUPABASE_PUBLISHABLE_KEY)\s*=\s*(.*?)\s*$/.exec(line)
+    const match = /^(VITE_SUPABASE_URL|VITE_SUPABASE_PUBLISHABLE_KEY|VITE_GAME_SERVER_URL)\s*=\s*(.*?)\s*$/.exec(line)
     if (!match) continue
     values[match[1]] = match[2].replace(/^(['"])(.*)\1$/, '$2')
   }
@@ -49,6 +50,9 @@ export function publicConfiguration(text) {
     let payload
     try { payload = JSON.parse(Buffer.from(key.split('.')[1], 'base64url').toString()) } catch {}
     if (payload?.role !== 'anon') throw new Error('Expected a publishable/anon client key')
+  }
+  if (values.VITE_GAME_SERVER_URL?.trim()) {
+    values.VITE_GAME_SERVER_URL = resolveGameServerUrl(values.VITE_GAME_SERVER_URL, { protocol: 'https:', hostname: 'hosted-preview' })
   }
   return values
 }

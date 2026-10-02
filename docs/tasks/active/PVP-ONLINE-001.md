@@ -5,7 +5,7 @@
 Started: 2026-10-03 (Asia/Saigon).
 Owner: Product Owner / người dùng. Executor: Codex root.
 Reviewer: Product Owner + frontend/backend/QA reviewer (chưa nghiệm thu).
-Branch: codex/dautri-online-pr109. Base: PR109 `85e4f3c`.
+Branch: codex/dautri-online-pr109. Base mới nhất: PR109 `51a7eed` (2026-10-03).
 
 ## Quyết định scope và dependency
 
@@ -19,6 +19,7 @@ Input: prototype local engine Socket.IO và feature UI có sẵn; review PR109 t
 - `src/features/dau-tri/`, `src/services/gameSocketService.ts`, `src/types/dauTri.ts`.
 - Integration hotspots trong nhánh riêng: App, BottomNav, types index, package/lock, env example.
 - New PvP docs/task/evidence. Không thay learning/auth/database contracts hoặc migration.
+- Follow-up: root render.yaml, cold-start service/tests và scripts/release/build-hosting-preview.mjs/tests để URL backend đi vào bản Firebase thật.
 
 ## Acceptance
 

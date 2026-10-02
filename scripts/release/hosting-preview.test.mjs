@@ -34,6 +34,15 @@ test('client config only admits two public values and rejects privileged credent
   assert.throws(() => publicConfiguration(url.replace('https:', 'http:') + publicKey), /HTTPS/)
 })
 
+test('hosting build carries a validated public PvP endpoint while rejecting insecure or credential-bearing endpoints', () => {
+  const base = 'VITE_SUPABASE_URL=https://owned.supabase.co\nVITE_SUPABASE_PUBLISHABLE_KEY=sb_publishable_ownedtest\n';
+  assert.equal(publicConfiguration(base + 'VITE_GAME_SERVER_URL=https://owned-game.onrender.com/').VITE_GAME_SERVER_URL, 'https://owned-game.onrender.com');
+  for (const url of ['http://owned-game.example', 'https://user:pass@owned-game.example', 'https://owned-game.example/private']) {
+    assert.throws(() => publicConfiguration(base + 'VITE_GAME_SERVER_URL=' + url));
+  }
+  assert.equal(publicConfiguration(base).VITE_GAME_SERVER_URL, undefined);
+});
+
 test('hosted output inventory refuses secrets and any unclaimed output file', async () => {
   const temporary = await mkdtemp(join(tmpdir(), 'suchill-hosting-audit-'))
   try {

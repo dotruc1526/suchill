@@ -9,6 +9,7 @@ export function useSocketGame(options: {
 } = {}) {
   const [state, dispatch] = useReducer(gameReducer, initialGameState({ username: options.initialPlayer?.username || "Người chơi", exp: 0, level: 0 }));
   const [attempt, setAttempt] = useState(0);
+  const [connectionMessage, setConnectionMessage] = useState<string | null>(null);
   const socketRef = useRef<Socket | null>(null);
   const latest = useRef(options); latest.current = options;
   const username = options.initialPlayer?.username || "Người chơi";
@@ -19,11 +20,11 @@ export function useSocketGame(options: {
     let alive = true;
     dispatch({ type: "idle" });
     dispatch({ type: "patch", value: { connected: false, error: null } });
-    void openGameConnection({ username, scope, signal: abort.signal, credentials: latest.current.credentials }).then(connection => {
+    void openGameConnection({ username, scope, signal: abort.signal, credentials: latest.current.credentials, onStatus: message => { if (alive) setConnectionMessage(message); } }).then(connection => {
       if (!alive) { connection.socket.disconnect(); return; }
       const socket = connection.socket; socketRef.current = socket;
       dispatch({ type: "patch", value: { player: connection.player } });
-      socket.on("connect", () => dispatch({ type: "patch", value: { connected: true, error: null } }));
+      socket.on("connect", () => { setConnectionMessage(null); dispatch({ type: "patch", value: { connected: true, error: null } }); });
       socket.on("disconnect", () => dispatch({ type: "patch", value: { connected: false, error: "Mất kết nối. Đang kết nối lại; trận do server quản lý." } }));
       socket.on("connect_error", error => {
         if (error.message.includes("Invalid player session")) connection.forget();
@@ -40,7 +41,7 @@ export function useSocketGame(options: {
         if (seenResult.current !== data.roomId) { seenResult.current = data.roomId; latest.current.onGameOver?.(data); }
       });
       socket.connect();
-    }).catch(() => { if (alive) dispatch({ type: "patch", value: { error: "Không thể mở phiên chơi. Kiểm tra địa chỉ máy chủ và kết nối Internet." } }); });
+    }).catch(() => { if (alive) { setConnectionMessage(null); dispatch({ type: "patch", value: { error: "Không thể mở phiên chơi. Kiểm tra địa chỉ máy chủ và kết nối Internet." } }); } });
     return () => { alive = false; abort.abort(); socketRef.current?.disconnect(); socketRef.current = null; };
   }, [scope, username, attempt]);
 
@@ -50,7 +51,7 @@ export function useSocketGame(options: {
     socketRef.current.emit(event, payload);
   }, []);
   return {
-    state, retryConnection: () => setAttempt(value => value + 1),
+    state, connectionMessage, retryConnection: () => setAttempt(value => value + 1),
     joinQueue: () => send("join_queue"), cancelQueue: () => send("cancel_queue"),
     createRoom: () => send("create_room"), joinRoom: (code: string) => send("join_room", { code }),
     leaveRoom: () => send("leave_room"),
