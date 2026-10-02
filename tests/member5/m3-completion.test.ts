@@ -320,3 +320,25 @@ test('backwards completion day rolls back; retry stays stable and summary exclud
   assert.equal(unwrap(await services.users.getAccountSummary())?.currentStreak, 1)
   assert.equal(unwrap(await services.users.getAccountSummary())?.requiredLessonCount, 2)
 })
+
+
+test('M3 mock completion stays pending offline and confirms the same intent only after reconnect', async () => {
+  const services = setup(catalog())
+  const input = { lessonId: 'lesson', operationId: 'offline-preserved-intent' }
+  unwrap(await services.completion.recordBlockAction({ lessonId: 'lesson', blockId: 'text', operationId: 'offline-read', action: 'acknowledge' }))
+  const original = Object.getOwnPropertyDescriptor(globalThis, 'navigator')
+  try {
+    Object.defineProperty(globalThis, 'navigator', { configurable: true, value: { onLine: false } })
+    assert.deepEqual(await services.completion.completeLesson(input), { ok: false, error: 'offline' })
+    assert.equal(unwrap(await services.users.getAccountSummary()).totalXp, 0)
+    assert.equal(unwrap(await services.completion.getLessonCompletion('lesson')), null)
+    Object.defineProperty(globalThis, 'navigator', { configurable: true, value: { onLine: true } })
+    assert.equal(unwrap(await services.completion.completeLesson(input)).kind, 'completed')
+    assert.equal(unwrap(await services.users.getAccountSummary()).totalXp, 10)
+    assert.equal(unwrap(await services.completion.completeLesson(input)).kind, 'completed')
+    assert.equal(unwrap(await services.users.getAccountSummary()).totalXp, 10)
+  } finally {
+    if (original) Object.defineProperty(globalThis, 'navigator', original)
+    else Reflect.deleteProperty(globalThis, 'navigator')
+  }
+})

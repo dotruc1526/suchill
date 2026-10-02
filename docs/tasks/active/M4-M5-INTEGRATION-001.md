@@ -72,3 +72,25 @@ User requested continuation so PR106 can be merged. Main remainsc7a5ad5; candida
 Additional evidence files claimed: docs/engineering/main-first-integration/username-browser.txt and REPORT.md checkpoint/handoff only. No runtime or applied migration edit.
 
 Core username configured Chrome UI PASS; exact synthetic cleanup PASS. Optional recovery remains pending; AUTH card stays REVIEW. Runtime unchanged, evidence/docs updated. Next action: commit/push evidence, verify current-head CI and convert PR106 to Ready for review, without main merge or milestone closure.
+
+## Full M4/M5 integration acceptance audit — 2026-10-02
+
+User requested recheck/completion through M5 and merge readiness. Independent read-only reviewers: pr106_m4_acceptance, pr106_m5_acceptance, pr106_auth_recovery_review; exact baselinea21be26. Claim root: integration acceptance report/review/evidence, this card and integration board checkpoint; M4 cards status/paths only after independent acceptance; M5 cards evidence only while gate locked. Finding triage adds claims for mainServices.ts, canonical/offline queue integration, completion controller and video checkpoint helpers/tests, analytics roll-forward migration030 only if isolated reproduction proves necessary. Applied001–029 are immutable. Corrections are integration defects in preexisting authorized delivery, not a new claim of blocked M5 tasks or content publication. Preserve root contributor changes and retained account. Next action: reproduce/fix findings, independent re-review, relevant native/hosted/Quality validation, per-card acceptance table and explicit remaining PO gates. Optional recovery sender remains a separate AUTH addon acceptance.
+
+## Independent M4 task closure claim — 2026-10-02
+
+- Executor / reviewer: Codex pr106_m4_acceptance, independent technical review under the user's explicit authorization to review, repair, re-review and mark acceptance-complete tasks DONE. No named human review or PO milestone approval is inferred.
+- Scope / files claimed: docs/tasks/active/M4-01..08.md moved to docs/tasks/done/ with main-based acceptance checkpoints; docs/project/TASK-BOARD.md M4 candidate rows and links; relative documentation links affected by those moves. Root owns the final acceptance report and other runtime/evidence changes.
+- Status: IN PROGRESS for this documentation checkpoint; integration task remains REVIEW. M4 remains OPEN and M5 remains LOCKED/BLOCKED.
+- Verified basis: current main-based M4 technical review APPROVED; independent59/59 service/Auth/config/session checks,32 SQL PASS plus one native-only skip;522 source/tracked/bundle files with0 unsafe matches. Native030 full72/72 and real Chrome video initialization/retry/context PASS were supplied by root. Final Quality and hosted030 execution are still in progress and are not claimed complete here.
+- Next action: record per-card technical approval/evidence and handoff, migrate card links, run documentation validator and diff check. Finalexact counts will be recorded by root in docs/engineering/main-first-integration/FINAL-ACCEPTANCE.md.
+
+## Final preservation repair claim — 2026-10-02
+
+Root claims src/services/next/mockCompletion.ts and tests/member5/m3-completion.test.ts for the independently reproduced offline mock regression after canonical queue correction. Original M3 E2E requires pending intent/no confirmed XP when offline. Preserve all original assertions; enforce offline at the mock service boundary while hosted intent still reaches its durable queue. Reviewer finding: pr106_m5_acceptance; independent re-review requested after repair.
+
+## Verified integration checkpoint and refreshed main claim — 2026-10-02
+
+Full native through03072/72 PASS; exact030 payload applied to development target; real hosted030+canonical9/9 PASS and all exact owned fixtures cleaned. Actual Chrome video initialization/retry/stale account guards PASS. Independent M4 review moved8 cards toDONE and board/card/link validation passes. Agent docs claim was interrupted after factual card/board updates; root retains prior independent acceptance verdict and completes the handoff. Final Quality found offline mock regression; service-boundary guard and26 focused regression tests nowPASS; Quality rerun and independent review remain required.
+
+Remote main advanced to2ee9c51 (content PR65/107/108); no runtime changes,19 content/docs paths. Root claims merge refresh into this integration branch, retains main historical/PO/architecture decisions, no publishing or direct main write. git merge-tree predicts clean merge. Next action: commit reviewed corrections, merge currentmain into candidate, run final Quality plus accepted new content validators, review fresh status/CI and complete acceptance report. M4 milestone remainsOPEN; M5LOCKED/BLOCKED.

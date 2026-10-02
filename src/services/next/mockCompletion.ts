@@ -47,6 +47,8 @@ export function createMockCompletionServices(
       return success(copy(store.receipts.get(progressKey(session.userId, lessonId, ctx.policy.contentVersionId)) ?? null))
     },
     async completeLesson(input): Promise<Result<CompletionOutcome>> {
+      // The local fixture has no transport queue; preserve M3 pending/no-XP semantics.
+      if (typeof navigator !== 'undefined' && navigator.onLine === false) return failure('offline')
       if (!validId(session.userId)) return failure('unauthorized')
       if (!validId(input.lessonId) || !validId(input.operationId) ||
         Object.keys(input).some(key => !['lessonId', 'operationId'].includes(key))) return failure('validation')

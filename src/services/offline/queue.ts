@@ -1,11 +1,11 @@
-import { failure, type Result } from '../next/backendContracts.ts'
+import { failure, type Result, type ServiceErrorCode } from '../next/backendContracts.ts'
 
 export type PendingKind = 'save_lesson_checkpoint' | 'save_episode_checkpoint' | 'record_choice' | 'save_video_position'
-  | 'submit_practice' | 'submit_scored' | 'complete_block' | 'complete_lesson' | 'complete_daily_review'
+  | 'submit_practice' | 'submit_scored' | 'complete_block' | 'complete_lesson' | 'complete_daily_review' | 'complete_main_lesson'
 export type PendingOperation = { userId: string; kind: PendingKind; input: Record<string, unknown>; error?: string }
 export type QueueStorage = Pick<Storage, 'getItem' | 'setItem'>
 const key = 'suchill.pending.v1'
-const kinds: PendingKind[] = ['save_lesson_checkpoint', 'save_episode_checkpoint', 'record_choice', 'save_video_position', 'submit_practice', 'submit_scored', 'complete_block', 'complete_lesson', 'complete_daily_review']
+const kinds: PendingKind[] = ['save_lesson_checkpoint', 'save_episode_checkpoint', 'record_choice', 'save_video_position', 'submit_practice', 'submit_scored', 'complete_block', 'complete_lesson', 'complete_daily_review', 'complete_main_lesson']
 const allowed = new Set(['operationId', 'lessonId', 'blockId', 'currentBlockId', 'completedBlockIds', 'storyVersionId', 'currentSceneId', 'visitedSceneIds', 'sceneId', 'choiceId', 'replay', 'expectedRevision', 'positionSeconds', 'watchedRanges', 'questionSetId', 'attemptId', 'answers', 'method'])
 const identity = (operation: PendingOperation) => `${operation.userId}:${operation.input.operationId}`
 
@@ -51,7 +51,7 @@ export class OfflineQueue {
     this.serial = next.catch(() => undefined)
     return next
   }
-  async dispatch<T>(operation: PendingOperation, send: () => Promise<Result<T>>): Promise<Result<T>> {
+  async dispatch<T>(operation: PendingOperation, send: () => Promise<Result<T>>, pendingError?: (value: T) => ServiceErrorCode | undefined): Promise<Result<T>> {
     if (!valid(operation)) return failure('validation')
     const snapshot = structuredClone(operation)
     try {
@@ -65,7 +65,11 @@ export class OfflineQueue {
           let result: Result<T>
           try { result = await send() } catch { result = failure('server_error') }
           if (result.ok) {
-            if (previous) this.write(this.read().filter(item => identity(item) !== identity(snapshot)))
+            if (previous) {
+              const error = pendingError?.(result.value)
+              this.write(error ? this.read().map(item => identity(item) === identity(snapshot) ? { ...item, error } : item)
+                : this.read().filter(item => identity(item) !== identity(snapshot)))
+            }
             return result
           }
           if (!['offline', 'server_error'].includes(result.error)) {

@@ -1,4 +1,4 @@
-import type { LearningServices, Result } from '../next/backendContracts.ts'
+import type { LearningServices, Result, ServiceErrorCode } from '../next/backendContracts.ts'
 import { failure } from '../next/backendContracts.ts'
 import { OfflineQueue, type PendingKind, type PendingOperation } from './queue.ts'
 
@@ -7,7 +7,7 @@ export function createOfflineLearningServices(base: LearningServices, queue: Off
     const session = await base.auth.getSession()
     return session.ok ? session.value?.userId ?? '' : ''
   }
-  function send(operation: PendingOperation): Promise<Result<unknown>> {
+  async function send(operation: PendingOperation): Promise<Result<unknown>> {
     // Inputs are originally typed at enqueue and validated again by the trusted backend.
     const input = { ...operation.input, expectedSubject: operation.userId } as never
     switch (operation.kind) {
@@ -20,9 +20,15 @@ export function createOfflineLearningServices(base: LearningServices, queue: Off
       case 'complete_block': return base.completion.completeBlock(input)
       case 'complete_lesson': return base.completion.completeLesson(input)
       case 'complete_daily_review': return base.completion.completeDailyReview(input)
+      case 'complete_main_lesson': {
+        if (!base.mainContract) return failure('server_error')
+        const result = await base.mainContract.completeLesson(input)
+        // Ineligible completion has no receipt; keep its durable intent recoverable.
+        return result.ok && result.value.kind === 'ineligible' ? failure('validation') : result
+      }
     }
   }
-  const wrap = <I extends { operationId: string }, O>(kind: PendingKind, action: (input: I) => Promise<Result<O>>) => async (input: I) => {
+  const wrap = <I extends { operationId: string }, O>(kind: PendingKind, action: (input: I) => Promise<Result<O>>, pendingError?: (value: O) => ServiceErrorCode | undefined) => async (input: I) => {
     const snapshot = structuredClone(input)
     const userId = await currentUser()
     if (!userId) return failure<O>('unauthorized')
@@ -35,10 +41,13 @@ export function createOfflineLearningServices(base: LearningServices, queue: Off
       // The backend still derives all ownership from auth.uid().
       const result = await action({ ...snapshot, expectedSubject: userId })
       return await currentUser() === userId ? result : failure('unauthorized')
-    })
+    }, pendingError)
   }
   const services: LearningServices = {
     ...base,
+    mainContract: base.mainContract ? { ...base.mainContract,
+      completeLesson: wrap('complete_main_lesson', base.mainContract.completeLesson, result => result.kind === 'ineligible' ? 'validation' : undefined),
+    } : undefined,
     account: { ...base.account, async updateSettings(input) {
       const snapshot = structuredClone(input) as typeof input & { expectedSubject?: string }
       const userId = await currentUser()

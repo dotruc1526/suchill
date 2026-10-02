@@ -375,18 +375,18 @@ AI phải đọc task board trước khi làm việc. Nếu task `BLOCKED` hoặ
 | M4-M5-INTEGRATION-001 | Codex; QA/PO review pending | REVIEW | DOC-019, M3 DONE; M4 OPEN | [Task card](../tasks/active/M4-M5-INTEGRATION-001.md); main M3 preserved; hosted029/learning/username UI verified; technical review APPROVED; PR106 preparing Ready for review; formal M4/M5 gates unchanged |
 
 
-### Backend integration candidates (main-first; gates unchanged)
+### Backend integration task acceptance (main-first; gates unchanged)
 
 | ID | Owner | Status | Depends on | Evidence / next action |
 |---|---|---|---|---|
-| M4-01 | Codex technical candidate; QA/PO approval pending | REVIEW | M3 DONE; M4 OPEN | [Card](../tasks/active/M4-01.md); hosted029 verified; technical re-review APPROVED; named QA/PO M4 acceptance pending |
-| M4-02 | Codex technical candidate; QA/PO approval pending | REVIEW | M3 DONE; M4 OPEN | [Card](../tasks/active/M4-02.md); hosted029 verified; technical re-review APPROVED; named QA/PO M4 acceptance pending |
-| M4-03 | Codex technical candidate; QA/PO approval pending | REVIEW | M3 DONE; M4 OPEN | [Card](../tasks/active/M4-03.md); hosted029 verified; technical re-review APPROVED; named QA/PO M4 acceptance pending |
-| M4-04 | Codex technical candidate; QA/PO approval pending | REVIEW | M3 DONE; M4 OPEN | [Card](../tasks/active/M4-04.md); hosted029 verified; technical re-review APPROVED; named QA/PO M4 acceptance pending |
-| M4-05 | Codex technical candidate; QA/PO approval pending | REVIEW | M3 DONE; M4 OPEN | [Card](../tasks/active/M4-05.md); hosted029 verified; technical re-review APPROVED; named QA/PO M4 acceptance pending |
-| M4-06 | Codex technical candidate; QA/PO approval pending | REVIEW | M3 DONE; M4 OPEN | [Card](../tasks/active/M4-06.md); hosted029 verified; technical re-review APPROVED; named QA/PO M4 acceptance pending |
-| M4-07 | Codex technical candidate; QA/PO approval pending | REVIEW | M3 DONE; M4 OPEN | [Card](../tasks/active/M4-07.md); hosted029 verified; technical re-review APPROVED; named QA/PO M4 acceptance pending |
-| M4-08 | Codex technical candidate; QA/PO approval pending | REVIEW | M3 DONE; M4 OPEN | [Card](../tasks/active/M4-08.md); hosted029 verified; technical re-review APPROVED; named QA/PO M4 acceptance pending |
+| M4-01 | Codex; independent delegated reviewer | DONE | M3 DONE; M4 OPEN | [Card](../tasks/done/M4-01.md); main-based technical acceptance APPROVED; [final evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO milestone acceptance remains separate |
+| M4-02 | Codex; independent delegated reviewer | DONE | M3 DONE; M4 OPEN | [Card](../tasks/done/M4-02.md); main-based technical acceptance APPROVED; [final evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO milestone acceptance remains separate |
+| M4-03 | Codex; independent delegated reviewer | DONE | M3 DONE; M4 OPEN | [Card](../tasks/done/M4-03.md); main-based technical acceptance APPROVED; [final evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO milestone acceptance remains separate |
+| M4-04 | Codex; independent delegated reviewer | DONE | M3 DONE; M4 OPEN | [Card](../tasks/done/M4-04.md); main-based technical acceptance APPROVED; [final evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO milestone acceptance remains separate |
+| M4-05 | Codex; independent delegated reviewer | DONE | M3 DONE; M4 OPEN | [Card](../tasks/done/M4-05.md); main-based technical acceptance APPROVED; [final evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO milestone acceptance remains separate |
+| M4-06 | Codex; independent delegated reviewer | DONE | M3 DONE; M4 OPEN | [Card](../tasks/done/M4-06.md); main-based technical acceptance APPROVED; [final evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO milestone acceptance remains separate |
+| M4-07 | Codex; independent delegated reviewer | DONE | M3 DONE; M4 OPEN | [Card](../tasks/done/M4-07.md); main-based technical acceptance APPROVED; [final evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO milestone acceptance remains separate |
+| M4-08 | Codex; independent delegated reviewer | DONE | M3 DONE; M4 OPEN | [Card](../tasks/done/M4-08.md); main-based technical acceptance APPROVED; [final evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO milestone acceptance remains separate |
 | M5-01 | Codex technical candidate; QA/PO approval pending | BLOCKED | Formal M4 acceptance; PO opens M5 | [Card](../tasks/blocked/M5-01.md); existing code reuse only; M5 gate remains locked |
 | M5-02 | Codex technical candidate; QA/PO approval pending | BLOCKED | Formal M4 acceptance; PO opens M5 | [Card](../tasks/blocked/M5-02.md); existing code reuse only; M5 gate remains locked |
 | M5-03 | Codex technical candidate; QA/PO approval pending | BLOCKED | Formal M4 acceptance; PO opens M5 | [Card](../tasks/blocked/M5-03.md); existing code reuse only; M5 gate remains locked |
