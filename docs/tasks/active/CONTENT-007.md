@@ -1,7 +1,7 @@
 # CONTENT-007 — Video theo kịch bản cho bài học MVP
 
-> Status: IN PROGRESS\
-> Last updated: 2026-10-02
+> Status: REVIEW\
+> Last updated: 2026-10-03
 
 ## Assignment
 
@@ -12,7 +12,7 @@
 - Executor name: Trúc; Codex hỗ trợ sản xuất theo yêu cầu PO Dương
 - Reviewer: Thọ/Product owner + historical reviewer; Vinh kiểm tra media/accessibility
 - Codex task/thread: chat hiện hành, PO Dương giao sản xuất và tích hợp
-- Branch: codex/truc-content003-source-review
+- Branch: codex/truc-content007-video
 - Started: 2026-10-02; BLOCKED → READY theo PO → IN PROGRESS/claim
 - Depends on: CONTENT-003 (pilot source/media review), CONTENT-004 (kịch bản/storyboard video), DOC-004 (`DONE`)
 
@@ -25,8 +25,8 @@
 
 ## Acceptance criteria
 
-- [ ] Member 1 bàn giao kịch bản/storyboard, mục tiêu học, vị trí video trong lesson và danh sách nguồn; historical reviewer xác nhận claims/media đủ điều kiện sản xuất.
-- [ ] Member 2 bàn giao ít nhất một video đúng kịch bản, có bản xuất mobile và poster; không dùng ảnh/âm thanh/tư liệu thiếu quyền hoặc sai bối cảnh.
+- [x] Member 1 bàn giao kịch bản/storyboard, mục tiêu học, vị trí video trong lesson và danh sách nguồn; historical reviewer xác nhận claims/media đủ điều kiện sản xuất.
+- [x] Member 2 bàn giao ít nhất một video đúng kịch bản, có bản xuất mobile và poster; không dùng ảnh/âm thanh/tư liệu thiếu quyền hoặc sai bối cảnh.
 - [ ] Có phụ đề tiếng Việt đồng bộ, transcript, attribution/license, mô tả thay thế và fallback khi video không tải.
 - [ ] Member 1 và historical reviewer duyệt bản cuối; thay đổi fact/media sau duyệt phải review lại.
 - [ ] Member 4 nhận media package và metadata cần cho FE-006; việc gắn vào lesson và kiểm thử resume/fallback thuộc FE-006/QA-005 sau khi CONTENT-007 bàn giao.
@@ -69,3 +69,18 @@
 - Đã tạo [hướng dẫn copy 9 đoạn](../../content/production/mt68-v1/COPY-VAO-ELEVENLABS.md), bản LOI-DOC.txt, 9 cue txt, cue-timing.json và scripts/content/build-mt68-video.py. Nguồn lời đọc đúng PILOT-NARRATION.json, không đổi authoring snapshot.
 - Anh tự export theo yêu cầu mới; cần gửi 9 file audio. Script dựng kiểm tra input/timing, không cắt lời, xuất package in_review; yêu cầu ffmpeg/ffprobe, Pillow và font/license. Máy hiện không có ffmpeg trong PATH, chưa chạy render/build script hoặc tests.
 - Chưa có MP4 để gắn canonical: bước service/lesson publication giữ pending; chưa sửa mock fixture 1972, chưa tạo URL giả hoặc đánh dấu media published. Không có runtime/env/migration changes.
+
+## Claim dựng bản video — 2026-10-03
+
+- Main đã kiểm tra: b9a0f0d; PR111 MERGED. Owner Trúc, Executor Codex, Reviewer Trúc/Thọ (bản cuối), Vinh (media/accessibility), Dương (PO).
+- Anh đã nghe và xác nhận “audio đạt, dựng video tiếp”; 9/9 MP3 trên Desktop/mp3 là input được nghiệm thu trong chat này.
+- Files claimed bổ sung: scripts/content/mt68_video_art.py; docs/tasks/evidence/CONTENT-007-video-2026-10-03.md; production/mt68-v1/render package. Không đổi narration/story/source snapshot.
+- Next action: dựng đồ họa chữ/sơ đồ cho 5 scene, 110 giây, phụ đề/poster/transcript/manifest; kiểm tra layout và metadata. Bản video cuối chuyển REVIEW để người phụ trách duyệt trước publication/integration.
+
+## Bản dựng hoàn tất / handoff REVIEW — 2026-10-03
+
+- Có master 1080×1920 và mobile 720×1280, 110 giây, poster, captions.vi.vtt, transcript, manifest/hash, lesson-handoff.json và media-checks.json. Chữ lời đọc hiện trực tiếp trên video, credit ElevenLabs trên mọi card/title.
+- [Evidence bản dựng](../evidence/CONTENT-007-video-2026-10-03.md). Audio 9/9 đã được user nghiệm thu; decode 2/2 MP4 PASS; 9 layout đã xem. Caption sync cuối/device playback và final editorial acceptance còn pending.
+- Changed files: scripts/content/build-mt68-video.py, mt68_video_art.py, production/mt68-v1/render final assets/metadata; task card/board/index/evidence. Không đổi authoring snapshots, runtime, env hoặc migration.
+- Status REVIEW: Trúc/Thọ review bản video cuối, Vinh media/accessibility QA, Dương nhận. Metadata target lesson-mt68-01-video đã chuẩn bị, chưa publish/storage URL; service/lesson integration tiến hành sau final asset acceptance theo card.
+- Những đoạn “chưa có audio/MP4” và “BLOCKED” ở checkpoint cũ là lịch sử; trạng thái hiện hành theo checkpoint này.

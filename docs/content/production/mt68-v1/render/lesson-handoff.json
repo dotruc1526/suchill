@@ -1,0 +1,33 @@
+{
+  "lessonId": "lesson-mt68-01-video",
+  "mediaId": "media.mt68.pilot.v1",
+  "title": "Kế hoạch Giao Thừa — elevenlabs.io",
+  "reviewStatus": "in_review",
+  "publicationStatus": "not_published",
+  "contentType": "video/mp4",
+  "durationSeconds": 110,
+  "renditions": [
+    {
+      "file": "pilot-master.mp4",
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "file": "pilot-mobile.mp4",
+      "width": 720,
+      "height": 1280
+    }
+  ],
+  "poster": "poster.png",
+  "posterAlt": "Kế hoạch Giao Thừa, bài dẫn nhập về tư liệu Mậu Thân 1968.",
+  "captions": {
+    "file": "captions.vi.vtt",
+    "language": "vi"
+  },
+  "transcript": "transcript.vi.txt",
+  "fallback": "transcript.vi.txt; same nine narration cues in order",
+  "attribution": "Giọng Hoa · ElevenLabs · elevenlabs.io; đồ án học tập phi thương mại",
+  "autoplay": false,
+  "storageUrl": null,
+  "nextAction": "Final editorial/media/accessibility review, then publish through media service and bind lesson video block. No technical fixture replacement."
+}
