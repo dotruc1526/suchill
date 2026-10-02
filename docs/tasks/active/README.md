@@ -24,3 +24,5 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOC
 
 Các file `active.md`, `CONTENT-003-004-REVIEW.md`, `PR21-HANDOFF.md`, `BEQA-LOCAL-001-MATRIX.md` và `M1-PR-REVIEW-GUIDE.md` là evidence/handoff, không phải task card độc lập.
 
+
+- [M3-COMPLETION-01](./M3-COMPLETION-01.md): Vinh — REVIEW; completion/account-summary mock D1–D7; Hưng/Dương review before UI.

@@ -1,3 +1,5 @@
+import type { MockCompletionStore } from './mockCompletionStore.ts'
+import { completionPolicy } from './mockCompletionEvidence.ts'
 import type { MockCatalog } from './mock.ts'
 import { failure, success, type QuizService, type QuizOption, type QuestionFeedback, type Result, type ScoredQuizReceipt, type ScoredQuizSubmission } from './contracts.ts'
 import type { MultipleChoiceQuestion, PublishStatus, QuestionSet } from '../../types/v2/content.ts'
@@ -13,8 +15,8 @@ export type MockQuizFixture = {
   grade: (input: ScoredQuizSubmission) => MockQuizGrade
 }
 
-export function createMockQuizService(catalog: MockCatalog, session: { userId: string }): QuizService {
-  const processedQuizzes = new Map<string, { signature: string; result: ScoredQuizReceipt }>()
+export function createMockQuizService(catalog: MockCatalog, session: { userId: string }, completionStore?: MockCompletionStore): QuizService {
+  const processedQuizzes = completionStore?.quizOperations ?? new Map<string, { signature: string; result: ScoredQuizReceipt }>()
   const copy = <T>(value: T): T => structuredClone(value)
   const published = (value: { status: string }) => value.status === 'published'
   const attemptKey = (userId: string, operationId: string) => JSON.stringify([userId, operationId])
@@ -81,6 +83,16 @@ export function createMockQuizService(catalog: MockCatalog, session: { userId: s
       feedback,
     }
     processedQuizzes.set(key, { signature, result })
+    for (const lesson of catalog.lessons.filter(item => item.status === 'published')) {
+      const policy = completionPolicy(catalog, lesson.id)
+      if (policy && lesson.blocks.some(block =>
+        (block.kind === 'quiz' && block.questionSetId === input.questionSetId) ||
+        (block.kind === 'video' && block.knowledgeCheckSetId === input.questionSetId))) {
+        const evidenceKey = JSON.stringify([userId, input.questionSetId, policy.contentVersionId])
+        const best = completionStore?.quizzes.get(evidenceKey)
+        if (!best || result.score > best.score || (!best.passed && result.passed)) completionStore?.quizzes.set(evidenceKey, copy(result))
+      }
+    }
     return success(copy(result))
   }
   return {

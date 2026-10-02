@@ -10,7 +10,7 @@ test('FE-011 formats the domain display name and trims surrounding whitespace', 
 })
 
 test('FE-011 reads the user service and falls back without blocking Home', async () => {
-  const users = (getCurrentProfile: UserService['getCurrentProfile']): UserService => ({ getCurrentProfile })
+  const users = (getCurrentProfile: UserService['getCurrentProfile']): UserService => ({ getCurrentProfile, getAccountSummary: async () => success(null) })
   assert.equal(await loadHomeGreeting(users(async () => success({ id: 'u1', displayName: 'Dương', locale: 'vi-VN' }))), 'XIN CHÀO, Dương')
   assert.equal(await loadHomeGreeting(users(async () => success(null))), 'XIN CHÀO')
   assert.equal(await loadHomeGreeting(users(async () => failure('unauthorized'))), 'XIN CHÀO')
