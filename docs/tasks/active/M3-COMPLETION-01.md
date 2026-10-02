@@ -71,17 +71,17 @@ Hưng review contract/architecture and new explicit-action API; Dương confirm 
 ## Main integration claim — 2026-10-02
 - Owner/executor Vinh/Codex; REVIEW; Hưng/Dương review integrated head.
 - Files claimed: card/evidence, board adapter row and any overlapping docs resolution; import QA83 merged changes from main unchanged, no independent Home/QA83 edits.
-- Input: adapter 5a771db (Hưng ACCEPTED in user-provided review), main cda4a69 (PR83 merged). Resolve actual conflicts preserving both task records, then run full quality and publish integrated head. M3-06 stays BLOCKED.
+- Input: adapter 5a771db (Hưng CHANGES REQUESTED: optional-only completion and backwards-day findings remained), main cda4a69 (PR83 merged). Resolve actual conflicts preserving both task records, then run full quality and publish integrated head. M3-06 stays BLOCKED.
 
 ## Integrated-main verification — 2026-10-02
 - Merged main `cda4a69` (PR83) into adapter `5a771db`; the only conflict was active index `docs/tasks/active/README.md`. Retained adapter entry and all current-main task entries.
 - Home/global CSS, shared Button and all `tests/qa` browser/fixture files exactly match main. Completion runtime and regression test changes remain exactly as Hưng reviewed at `5a771db`; no runtime delta from integration.
 - Full quality on integrated tree PASS: typecheck/build, 93 unit / 22 component / 7 E2E; client scan 338 files / 0 unsafe; diff check PASS. This now includes PR83 delayed 12-second navigation/reload, personalized Home, keyboard/focus/44px and player retry regressions. Log `/tmp/suchill-pr88-integration-quality.log` (local only).
-- Hưng's user-provided re-review ACCEPTED contract/architecture at `5a771db`; not represented as a new GitHub approval. Dương still confirms episode-streak/range remediation and final integrated head; both reviewers check current CI before merge. Task REVIEW, M3-06 UI BLOCKED and milestone gates unchanged.
+- Corrected reviewer history: Hưng CHANGES REQUESTED at `5a771db` because optional-only completion and backwards-day findings remained; the earlier ACCEPTED wording was inaccurate. This is not a GitHub approval record. Dương still confirms episode-streak/range remediation and final integrated head; both reviewers check current CI before merge. Task REVIEW, M3-06 UI BLOCKED and milestone gates unchanged.
 - Files changed by integration: main imports plus active index resolution; this card/evidence and adapter board row for latest handoff. No additional runtime, dependency/env/migration changes. `.DS_Store` untouched.
 
 ## Optional-only / backwards-day remediation claim — 2026-10-02
-- Executor Vinh/Codex; reviewers Hưng/Dương; REVIEW. Two newly supplied findings supersede the earlier partial acceptance; adapter not accepted yet.
+- Executor Vinh/Codex; reviewers Hưng/Dương; REVIEW. Two remaining findings explain Hưng CHANGES REQUESTED at 5a771db; the earlier partial-acceptance wording was inaccurate. Adapter not accepted yet.
 - Files claimed: `src/services/next/mockCompletion.ts`, `src/services/next/mockCompletionTime.ts`, `tests/member5/m3-completion.test.ts`, this card/evidence and adapter board row.
 - Fail closed for catalogs with no required learning block (optional engagement is not completion authority); reject new completion dates before the account's latest confirmed local completion day before ledger writes; summary cannot count future streak days. Preserve same-operation retry and required lesson/episode dedupe. No UI/Home/QA83 changes.
 
@@ -91,15 +91,21 @@ Hưng review contract/architecture and new explicit-action API; Dương confirm 
 - New completions cannot predate the latest confirmed local completion day for the same account; Result validation occurs before receipt, operation, reward, progress or streak writes. Same-operation retries retain original outcome/receipt; rejected operation can retry when clock recovers. Other accounts are independent. Summary ignores qualifying days later than its clock day, without removing the confirmed ledger.
 - Regression verifies optional-only mixed/VN/quiz, no writes/XP/streak, optional video alone, required+optional success, full store rollback, idempotent retry, account isolation, same-day recovered-clock success and summary not counting future days. Focused completion suite 19/19 PASS.
 - Full quality PASS: typecheck/build, 95 unit / 22 component / 7 E2E, scan 338 files / 0 unsafe; diff check PASS. Log `/tmp/suchill-pr88-optional-clock-quality.log` (local only).
-- Hưng/Dương re-review these new changes and current CI before acceptance/merge. Earlier partial acceptance does not cover these findings. Adapter REVIEW, UI M3-06 BLOCKED; no milestone gate, Home, QA83, env/migration/dependency changes.
+- Hưng/Dương re-review these new changes and current CI before acceptance/merge. Hưng CHANGES REQUESTED at 5a771db covered these remaining findings; no acceptance at that head is claimed. Adapter REVIEW, UI M3-06 BLOCKED; no milestone gate, Home, QA83, env/migration/dependency changes.
 
 ## Reviewer acceptance (Hưng — optional-only/backwards-day fixes) — 2026-10-02
 
 - Reviewer: Hưng (Member 3); scope: contract/architecture của runtime delta `68580ed` (hai fix + tests). Dương re-review consumer/integrated head vẫn đang chờ.
-- Head đã xác nhận: `68580ed` trên `codex/m3-completion-mock` (PR88 OPEN). Baseline đã ACCEPT trước đó: `5a771db`.
+- Head đã xác nhận: `68580ed` trên `codex/m3-completion-mock` (PR88 OPEN). Baseline `5a771db`: CHANGES REQUESTED do optional-only completion và backwards-day; ghi ACCEPT trước đó là sai lịch sử review.
 - Verdict: ACCEPTED cả hai fix, không blocker. Adapter giữ REVIEW đến khi Dương xác nhận và CI xanh.
 - Fix 1 (optional-only): gate `.some(required && !(video && optional))` fail-closed bằng `validation` trước mọi write, bao trùm cả lesson rỗng; `completionPolicy` chỉ tồn tại trên `VideoBlock` trong canonical types nên điều kiện là đầy đủ; lịch sử already_completed và mixed required+optional giữ nguyên; operation ID không bị tiêu thụ.
 - Fix 2 (backwards-day): watermark ngày theo account trước write, rollback toàn phần (test deep-equal store); retry cùng operation giữ receipt gốc; summary lọc ngày tương lai, không xóa ledger; cùng-ngày và khác account độc lập. Khớp D6 (không suy eligibility từ device clock).
 - Tests: 2 regression mới + 1 cập nhật, assertions zero-write/rollback/isolation/recovery đầy đủ. Tự kiểm sensitivity: chạy suite trên source pre-fix `6c5a777` FAIL đúng 3 test, khôi phục fix PASS 19/19.
 - Tự verify độc lập trên `68580ed`: typecheck PASS, build PASS (E2E), 95 unit / 22 component / 7 browser E2E PASS, scan 338/0, `git diff --check` sạch. Không đổi UI/Home/QA83/env/migration.
 - Next: Dương re-review và CI xanh trên head hiện tại; sau đó Vinh mở/merge PR88 theo handoff. Không quyết gate M3.
+
+## Review-history correction — 2026-10-02
+- Vinh/Codex docs claim: this card and its evidence only; correction requested in Hưng screenshot supplied by Vinh.
+- `5a771db`: CHANGES REQUESTED, not ACCEPTED; video-range/episode-streak fixes did not resolve the separate optional-only/backwards-day findings.
+- `68580ed`: Hưng confirms no new contract/architecture blocker after those remaining fixes; chat verdict and committed reviewer record do not imply a new GitHub approval submission. Dương consumer re-review of current runtime and CI is still required.
+- Pulled remote `0580fe1` first; preserved Hưng latest reviewer record and merged QA-002 DONE/main update. No source/test changes; adapter REVIEW and M3-06 BLOCKED.
