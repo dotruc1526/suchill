@@ -1,7 +1,0 @@
-Dương consumer review: ACCEPTED at fb02f7d90c1005593bb14afe98619967369aaebb.
-
-No blocking findings in consumer learning flow. Home selects in_progress before not_started; existing checkpoints and stable IDs are preserved; accepted renderer/player integration is retained.
-
-Independent verification on exact PR head: typecheck/build PASS, 74 unit, 22 component, 4 Chrome E2E PASS. Additional Chrome Home Start -> lesson -> Chapter -> Home -> Resume check PASS, including same lesson and heading/Back focus. GitHub Quality run 368 success.
-
-Streak 7 days and goal 6/10 minutes are explicitly scoped read-only mock visuals. Task stays REVIEW pending Hung UI/tokens and Vinh QA sign-off. No merge or milestone change.
