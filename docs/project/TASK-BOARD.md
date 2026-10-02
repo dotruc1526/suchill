@@ -496,4 +496,4 @@ M7-03 waits for reviewed1954curriculum/media, not old1968inputs; M7-04 sign-off 
 
 | Task | Owner / Executor | Reviewer | Status | Dependencies / next action |
 |---|---|---|---|---|
-| M7-1954-CONTEXT-001 | Codex root | existing independent hosting_catalog_review SOFTWARE APPROVE | REVIEW | [Card](../tasks/active/M7-1954-CONTEXT-001.md); visible cue27 clarification using prior narrower wording; existing internal preview only, immutable video and six locks retained; final M7-02/media/manual/release gates separate |
+| M7-1954-CONTEXT-001 | Codex root | independent hosting_catalog_review APPROVE | DONE | [Card](../tasks/done/M7-1954-CONTEXT-001.md); deployed9abdb3f1df7a3759e34d verified; independent4/4 +8remotehashes PASS; visible cue27 clarification, immutable video and six locks retained; final M7-02/media/manual/release gates separate |
