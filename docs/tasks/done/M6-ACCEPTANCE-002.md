@@ -1,17 +1,17 @@
 # M6-ACCEPTANCE-002 — Independent review and remaining release preparation
 
-> Status: REVIEW
+> Status: DONE
 > Last updated: 2026-10-03
 
 - Owner: Codex root under user's explicit “làm tất cả cho tôi”.
 - Executor: root; independent read-only reviewers hosting_catalog_review, accessibility_review, content_release_audit.
-- Reviewer: disjoint technical reviewers; root reviews delegated reports and external inputs. Named human historical/media/PO/device decisions remain distinct.
+- Reviewer: independent hosting_catalog_review APPROVE for bounded integration/Hosting/catalog; accessibility_review SOFTWARE APPROVE for its disjoint repairs. Named human historical/media/PO/device decisions remain distinct.
 - Started: 2026-10-03; READY → IN PROGRESS after M6 OPEN and completed software candidates.
 - Branch: codex/m6-pwa-completion; initial HEAD12456ddaa8ea6b6f5aa3cb4cd54ebea80cc9b395.
-- Depends on: DOC-021/M6 OPEN; HOSTING-PREVIEW-001 and MVP-1954-CATALOG-001 REVIEW with local/HTTPS/CI evidence; explicit user continuation.
+- Depends on: DOC-021/M6 OPEN; HOSTING-PREVIEW-001 and MVP-1954-CATALOG-001 DONE for bounded preview work; explicit user continuation.
 - Files claimed: this card; docs/project/TASK-BOARD.md; docs/platform/release/READINESS.md, FIREBASE-PREVIEW.md, INTERNAL-TEST.md, ROLLBACK.md. Reviewers only write separate reports under root workspace output/. Any runtime repair requires a narrow added claim before editing; all media immutable.
 - Acceptance: independently review current software, repair/retest actual findings; record user-observed device results accurately; exercise isolated temporary Hosting rollback if possible; record concise revision-bound test results and reviewer verdicts; replace stale setup claims in readiness docs; no missing approval/test may be labeled passed.
-- Next action: deploy repaired build37ad329a8f1a2abd4cff to the existing temporary channel, verify actual HTTPS, then independent reviewer closes only this bounded task.
+- Next action: continue only eligible tasks under the APPROVED M7 OPEN scheduling decision; full M6 manual/device/media and public-release gates remain pending.
 
 Preserve original1954video/audio/sidecars and temporary locks on episodes2–7. No new media production, account/password/progress mutation, canonical seed/publication, live promotion/billing, merge or M7 opening. User's broad work request authorizes completion efforts, not fabricated reviewer or prerequisite evidence. M6-04/07 BLOCKED cards are not claimed for implementation.
 
@@ -36,3 +36,5 @@ Root additionally claims docs/tasks/active/M6-06.md, docs/tasks/blocked/M6-07.md
 ## Bounded software handoff — 2026-10-03
 
 Quality PASS: 381 passed, 0 failed, 3 native-only SQL skips; source/client-bundle secret scan 686 files, zero unsafe matches. Reference/package/transport/CORS19/19 and catalog4/4 PASS. Independent accessibility re-review SOFTWARE APPROVE: eight repaired states, zero direct WCAG-tag violations, plus three hosted Auth views without violations; texture contrast requires human judgment, no full conformance claim. Hosting reviewer APPROVE/DONE; catalog APPROVE awaits deployed repaired-build smoke. Original MP4/sidecars/manifest unchanged. Isolated preview rollback PASS; user Android observations retained without another questionnaire. Executor IN PROGRESS → REVIEW. No env/migration/account/reward/media/live impact from these repairs. M6-01/06 REVIEW, M6-04/07 BLOCKED, M7 LOCKED for existing gates.
+
+Independent final integration review on 2026-10-03: APPROVE; repaired build37ad329a8f1a2abd4cff is deployed and independently verified by remote metadata/file hashes and actual HTTPS smoke. Current Quality381/reference19/catalog4 PASS; disjoint accessibility repairs accepted, isolated rollback exercised, real user basic Android observations retained and missing manual/media/device acceptance explicit. REVIEW → DONE closes only this review/repair/preparation task. The APPROVED PO scheduling decision M7-GATE-OPEN-001 now makes M7 OPEN alongside M6 OPEN, superseding earlier LOCKED checkpoints; it does not close M6 or grant release approval.

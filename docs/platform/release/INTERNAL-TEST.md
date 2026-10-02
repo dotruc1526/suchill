@@ -8,4 +8,6 @@ Người dùng 2026-10-03 trên Android, preview m6-android-1954 / build bfc05ef
 
 Đây là phản hồi thật của người dùng cho các bước trên, không thay nghiệm thu nội dung/quyền/media, học hiểu/quiz, manual accessibility hoặc toàn bộ release matrix. Browser regression của UI1954 mới được review riêng. Không lưu dữ liệu tài khoản, mật khẩu hoặc token trong hồ sơ này.
 
-M6 còn mở, M7 chưa mở. Trước public release, các bước còn lại theo Phase8 phải được reviewer và PO chấp nhận; không tự điền kết quả thay người dùng.
+M6 và M7 cùng OPEN theo quyết định PO mới; chưa đạt gate release. Trước public release, các bước còn lại theo Phase8 phải được reviewer và PO chấp nhận; không tự điền kết quả thay người dùng.
+
+Latest approved scheduling decision: M7 now OPEN alongside M6 by Dương/PR113; earlier LOCKED wording is superseded. Individual historical/media/manual/privacy/release dependencies are unchanged. [Decision](../../tasks/active/M7-GATE-OPEN-001.md).

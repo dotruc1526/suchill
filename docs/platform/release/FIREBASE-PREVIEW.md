@@ -34,4 +34,8 @@ Project/site suchill-preview is provisioned; official CLI authentication complet
 
 Auth follow-up: account-access previously accepted only local origins. The server setting ACCOUNT_ACCESS_ORIGINS now preserves four local defaults plus the exact temporary preview origin. Backend CORS environment changed; Auth redirect allowlist/email recovery remains separate and unchanged. Live QA login/read and rejected arbitrary origins PASS; user Android username login and basic install/video/offline retest confirmed PASS. Remove the temporary CORS entry upon channel retirement.
 
-Checkpoint mới 2026-10-03: Hosting bounded independent review APPROVE; người dùng xác nhận Android cơ bản đạt. Diễn tập [isolated rollback](./ROLLBACK.md) PASS. Root hoàn tất bản sửa Back/ARIA và nguồn minh họa rồi cập nhật cùng URL. Giữ Supabase Auth recovery allowlist/email callback và manual/full-device/media acceptance riêng; M7 LOCKED.
+Checkpoint mới 2026-10-03: Hosting bounded independent review APPROVE; người dùng xác nhận Android cơ bản đạt. Diễn tập [isolated rollback](./ROLLBACK.md) PASS. Bản sửa Back/ARIA và nguồn minh họa đã cập nhật cùng URL, build37ad329a8f1a2abd4cff, HTTPS smoke/re-review PASS. Giữ Supabase Auth recovery allowlist/email callback và manual/full-device/media acceptance riêng; M7 OPEN theo quyết định PO mới, chưa release.
+
+Latest approved scheduling decision: M7 now OPEN alongside M6 by Dương/PR113; earlier LOCKED wording is superseded. Individual historical/media/manual/privacy/release dependencies are unchanged. [Decision](../../tasks/active/M7-GATE-OPEN-001.md).
+
+Bản hiện tại: build37ad329a8f1a2abd4cff, source0925a30 (85e4f3c chỉ tích hợp docs PO); expires2026-10-10 04:16:46 Asia/Bangkok. Video/manifest nguyên hash. Exact85e4f3c GitHub Quality push/PR SUCCESS; không có live promotion.
