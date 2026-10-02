@@ -34,6 +34,8 @@ app.use(cors({ origin: (origin, done) => done(null, allowed(origin)) }));
 app.use(express.json({ limit: '2kb' }));
 const sessions = createSessionStore(options.secret || process.env.SESSION_SECRET);
 const requests = new Map();
+const aiRequests = new Map();
+let aiInFlight = 0;
 app.post('/session', (req, res) => {
   if (!allowed(req.headers.origin)) return res.status(403).json({ error: 'Origin denied' });
   const now = Date.now();
@@ -57,17 +59,29 @@ app.post('/api/ai/chat', async (req, res) => {
   if (typeof question !== 'string' || !question.trim()) {
     return res.status(400).json({ error: 'Question required' });
   }
+  const now = Date.now();
+  for (const [key, value] of aiRequests) if (now - value.start >= 60000) aiRequests.delete(key);
+  const value = aiRequests.get(req.ip) || { start: now, count: 0 };
+  if (value.count >= 10 || aiRequests.size >= 10000 || aiInFlight >= 8) {
+    res.setHeader('Retry-After', '60');
+    return res.status(429).json({ error: 'Too many AI requests' });
+  }
+  value.count += 1; aiRequests.set(req.ip, value); aiInFlight += 1;
   try {
-    const result = await askSuu(question);
+    const result = await (options.askSuu || askSuu)(question);
     res.setHeader('Cache-Control', 'no-store');
     res.json(result);
   } catch {
     res.status(500).json({ error: 'AI service unavailable' });
+  } finally {
+    aiInFlight -= 1;
   }
 });
 
 app.post('/api/account-access', async (req, res) => {
+  if (process.env.NODE_ENV === 'production') return res.status(404).json({ error: 'Not found' });
   if (!allowed(req.headers.origin)) return res.status(403).json({ error: 'Origin denied' });
+  res.setHeader('Cache-Control', 'no-store');
   try {
     const supabaseUrl = process.env.VITE_SUPABASE_URL || 'https://kyfqlhpweetsridmqkvl.supabase.co';
     const anonKey = process.env.VITE_SUPABASE_PUBLISHABLE_KEY || 'sb_publishable_wO1jo1V6v0PguFkcBjAvYQ_sEc8Gb4B';
@@ -81,6 +95,7 @@ app.post('/api/account-access', async (req, res) => {
         ...(authHeader ? { Authorization: authHeader } : {}),
       },
       body: JSON.stringify(req.body),
+      signal: AbortSignal.timeout(25000),
     });
     const data = await response.json();
     res.status(response.status).json(data);

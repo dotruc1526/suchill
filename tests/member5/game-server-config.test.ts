@@ -14,7 +14,13 @@ test('game config rejects credentials, paths, callbacks and non-HTTP transports'
     assert.throws(() => resolveGameServerUrl(value, location));
   }
 });
-test('only loopback development uses the local game server fallback', () => {
+test('HTTP loopback and private LAN development use local game server fallback', () => {
   assert.equal(resolveGameServerUrl('', { protocol: 'http:', hostname: 'localhost' }), 'http://localhost:3001');
-  assert.throws(() => resolveGameServerUrl('', { protocol: 'http:', hostname: '192.168.1.20' }), /Chưa cấu hình/);
+  for (const hostname of ['192.168.1.20', '10.0.0.2', '172.16.0.3', '172.31.1.2']) {
+    assert.equal(resolveGameServerUrl('', { protocol: 'http:', hostname }), `http://${hostname}:3001`);
+    assert.throws(() => resolveGameServerUrl('', { protocol: 'https:', hostname }), /Chưa cấu hình/);
+  }
+  for (const hostname of ['192.168.attacker.com', '10.attacker.com', '172.32.1.2', 'app.example.com']) {
+    assert.throws(() => resolveGameServerUrl('', { protocol: 'http:', hostname }), /Chưa cấu hình/);
+  }
 });
