@@ -2,7 +2,7 @@
 
 > Status: PROPOSED preparation; chưa triển khai hoặc chạy các test bên dưới.
 > Owner: Dương; executor: Codex; reviewers: Hưng (UI/architecture), Vinh (service/QA).
-> Date: 2026-10-02; contract tham chiếu PR88 `68580ed` còn OPEN.
+> Date: 2026-10-02; contract runtime `68580ed`; PR88 head `c816ec7` docs-only còn OPEN.
 
 Nguồn: [agreement D1–D7 và acceptance](../blocked/M3-06.md), [Phase 7](../../specs/phases/07-progress-reward-analytics-spec.md), [roadmap](../../specs/phases/09-implementation-roadmap.md), [contract PR88](https://github.com/dotruc1526/suchill/blob/68580edc7a0c5e465c8c3065e3a6060c0f169900/src/services/next/completionContracts.ts). Đây là chuẩn bị trong M3-STATUS-01; không claim runtime của task BLOCKED.
 
@@ -86,6 +86,6 @@ Controller tests dùng fake services, deferred promises, injected ID factory; ad
 
 ## Điều kiện chuyển sang runtime và handoff
 
-- PR88 phải có Hưng re-review hai fixes mới, acceptance và merge/handoff; đọc lại final contract nếu head thay đổi. Copy/checklist này không thay reviewer acceptance.
+- PR88 `c816ec7` đã ghi Hưng ACCEPTED hai fixes runtime `68580ed` và Dương APPROVED; Vinh cần tích hợp main/gỡ conflict, verify integrated head và CI 2/2, acceptance/merge/handoff; đọc lại final contract nếu head thay đổi. Copy/checklist này không thay reviewer acceptance.
 - Dương điền runtime files/reviewers/dependency, chuyển M3-06 READY → IN PROGRESS; chọn module/test filenames cụ thể lúc claim, phối hợp hotspot với Hưng/Vinh.
 - Khi runtime xong: typecheck/build, controller/component/adapter tests liên quan, full browser suite, client scan, ảnh mới 375/430px và handoff; chuyển REVIEW. Reviewer quyết DONE, Vinh làm M3-07 sau dependency, PO audit Gate M3 riêng.

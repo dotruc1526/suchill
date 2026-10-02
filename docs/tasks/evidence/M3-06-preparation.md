@@ -64,5 +64,5 @@ Loading/error announcements dùng status/alert phù hợp; heading/focus sau nav
 
 ## Consumer controller preparation — 2026-10-02
 
-- [Thiết kế controller, operation lifetime, error mapping và test cases](./M3-06-controller-plan.md) bám contract PR88 68580ed hiện OPEN; nguồn gap phía trên là lịch sử ngày 2026-10-01, không mô tả adapter branch hiện tại.
+- [Thiết kế controller, operation lifetime, error mapping và test cases](./M3-06-controller-plan.md) bám contract runtime PR88 68580ed (head c816ec7 docs-only hiện OPEN); nguồn gap phía trên là lịch sử ngày 2026-10-01, không mô tả adapter branch hiện tại.
 - Plan đã ghi thành tài liệu; implementation/tests chưa chạy, không runtime claim hoặc acceptance UI.

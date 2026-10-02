@@ -19,7 +19,7 @@
 - Env/migration/dependency impact: none.
 - Next action: Hưng/Vinh review docs sync; các acceptance runtime còn thiếu giữ nguyên.
 
-- Consumer review checkpoint: Dương APPROVED PR88 exact head 68580ed; independent quality 95 unit/22 component/7 E2E, scan 338/0. Evidence in snapshot; Hưng still re-reviews new remediation. No adapter runtime changes.
+- Consumer review checkpoint: Dương APPROVED PR88 exact head 68580ed; independent quality 95 unit/22 component/7 E2E, scan 338/0. Evidence in snapshot; Hưng ACCEPTED runtime 68580ed, recorded at docs-only c816ec7; Dương APPROVED c816ec7; Vinh integrated-head verification pending. No adapter runtime changes.
 
 ## Controller preparation claim — 2026-10-02
 
@@ -41,3 +41,16 @@
 - PR91 merged 21869e7 after Quality 2/2 SUCCESS; QA-002 DONE retained in board/index/snapshot, with Hưng acceptance preserved in done/QA-002.md.
 - Preserved both controller preparation commits, including corrected 18 planned scenarios. No runtime/env/migration changes.
 - Verification: local Markdown links and diff checks; CI must pass on pushed final head. Reviewer Hưng/Vinh reviews M3-STATUS-01 before DONE/merge; PR88 and M3-06 blockers remain.
+
+## PR90 review remediation claim — 2026-10-02
+
+- Owner/executor/reviewer/started: unchanged; scope docs-only feedback supplied by Dương.
+- Files claimed: this card, TASK-BOARD.md, blocked/M3-06.md, evidence/M3-status-2026-10-02.md, evidence/M3-06-controller-plan.md and evidence/M3-06-preparation.md. QA-002 done card/index are inherited from PR91 and not claimed for new edits.
+- Next: refresh PR88 c816ec7 acceptance versus unchanged runtime 68580ed, integrate latest main, verify links/CI and return REVIEW for Hưng delta sign-off.
+
+## PR90 supplied reviewer evidence / remediation handoff — 2026-10-02
+
+- Dương supplied screenshots: Vinh APPROVE a2698e0 (no blocker); Hưng CHANGES REQUESTED only for stale PR88 head/acceptance. Controller plan and other docs accepted; Hưng requests delta re-review before merge. These are text reviews, not claimed GitHub submissions.
+- Updated current board/card/snapshot/plan to c816ec7, distinguished unchanged runtime 68580ed and Hưng text ACCEPTED from GitHub approval. Dương APPROVED c816ec7 at review 5388117510.
+- Latest main remains 21869e7 and is already integrated; no rebase rewrite needed. PR88 remains CONFLICTING; Vinh integrated-head validation, CI 2/2 and merge/handoff pending.
+- Verification: docs-only local links/diff and status assertions; CI on new PR90 head required. No runtime/env/migration impact. Next: Hưng delta re-review; card REVIEW, M3-06 BLOCKED, M3 OPEN.
