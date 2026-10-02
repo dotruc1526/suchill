@@ -21,8 +21,8 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOC
 - [CONTENT-010](./CONTENT-010.md) — `REVIEW`; historical review đạt, chờ technical QA/media/handoff sign-off.
 - [CONTENT-011](./CONTENT-011.md) — `REVIEW`; historical review đạt, chờ technical QA/media/handoff sign-off.
 - [CONTENT-006](./CONTENT-006.md) — `IN PROGRESS`; video cũ chỉ `APPROVED_FOR_INTERNAL_REFERENCE_ONLY`, không phải media canonical.
-- [CONTENT-012](./CONTENT-012.md) — `REVIEW`; ngân hàng câu hỏi chờ content/media và technical QA sign-off.
-- [CONTENT-014](./CONTENT-014.md) — `REVIEW`; Vinh ACCEPTED technical structure; chờ Trúc xử lý P2 review-state mismatch trước overall handoff.
+- [CONTENT-012](./CONTENT-012.md) — `REVIEW`; Trúc APPROVED historical/learning cho quiz hash `4013b399…667eb`; chờ Vinh technical QA; không seed.
+- [CONTENT-014](./CONTENT-014.md) — `REVIEW`; review-state đồng bộ gồm verdict quiz riêng (map còn pending); Vinh ACCEPTED recheck PR #100, chờ Hưng recheck + task-level handoff.
 
 ## Experimental track
 

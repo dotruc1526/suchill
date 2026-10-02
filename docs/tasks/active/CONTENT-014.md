@@ -10,7 +10,7 @@
 - Depends on: DOC-003/004/006/009 đã DONE; bản nháp PR #21 đã có trên main. Đây là task sửa tài liệu/authoring, không claim sản xuất. `CONTENT-004` giữ `REVIEW` cùng gói technical QA/media/handoff này; `CONTENT-007` hiện BLOCKED cho đến khi artifact pilot và review record nhất quán.
 - Files claimed: `docs/content/PILOT-SCREENPLAY.md`, `PILOT-NARRATION.json`, `PILOT-CAPTIONS.vtt`, `LESSON-02-INTERACTIVE.md`, `LESSON-02-STORY.json`, `MAP-MT68.json`, `PRODUCTION-NOTES.md`, `CURRICULUM-MAP.md`, `HISTORICAL-SOURCES.md`, `DETAILED-MEDIA-CATALOG.csv`, `MEDIA-REVIEW-MT68.md`; board, card CONTENT-003/004/010/011/012 và PR21-HANDOFF.
 - Started: 2026-10-02 (review-state reconciliation)
-- Next action: Hưng/Vinh recheck PR85 review-state reconciliation; media/legal/production acceptance remains pending. No production handoff.
+- Next action: Vinh QA quiz sau verdict Trúc (CONTENT-012); Hưng recheck độc lập; Trúc media/handoff sign-off. Vinh đã ACCEPTED reconciliation CONTENT-004/010/011 tại PR #100. Media/legal/production acceptance remains pending. No production handoff.
 - File claim bổ sung: `docs/content/validate-mt68-authoring.mjs`, kiểm tra graph/ID/nguồn/timing/VTT cho các file trong task, không sửa runtime.
 - Out of scope: code/player/DB, chapter 1972, MP4 cuối, purchase/license requests, merge/release, CONTENT-006 và mở milestone.
 
@@ -67,3 +67,12 @@
 - `MAP-MT68.json` remains `NEEDS_HISTORICAL_REVIEW`: the report does not identify that artifact/revision as an accepted review target. `QUIZ-MT68.json` also remains `NEEDS_HISTORICAL_REVIEW`; CONTENT-012 requires its own explicit historical/learning verdict. Technical acceptance and validator coverage do not substitute for either verdict.
 - These review-state updates do not change content `status: draft`, `authoringOnly`, media rights/recording/transcript checks, or production eligibility. CONTENT-003/004 remain under review until their separate source/media/handoff acceptance is complete; CONTENT-007 remains BLOCKED. Current gate: M3 OPEN / M4 LOCKED.
 - Next action: Hưng/Vinh recheck these hash-bound status updates; Trúc/authorized reviewer must review CONTENT-012 separately. No content production task moves to READY.
+
+## Quiz verdict follow-up — Trúc, 2026-10-02
+
+- CONTENT-012 đã có verdict riêng: Trúc **APPROVED** historical/learning scope cho `QUIZ-MT68.json` đúng revision SHA-256 `4013b39954779b0b43640372b668c329662ca30386aff52c2c4cd8a664e667eb` (không suy từ CONTENT-010). Chi tiết đối chiếu từng câu hỏi tại [CONTENT-012](./CONTENT-012.md).
+- `reviewStatus` quiz đã đồng bộ `NEEDS_HISTORICAL_REVIEW` → `APPROVED_BY_HISTORICAL_REVIEWER`; current SHA-256 `44b9eed6fc1c94cbf8b4b662eaeb2580ad55b08994286bba2b86cf1891103912`. Quiz giữ `draft` + `authoringOnly`; `validate-mt68-authoring.mjs` PASS.
+- `MAP-MT68.json` vẫn `NEEDS_HISTORICAL_REVIEW` (report không bound verdict cụ thể cho map).
+- Bối cảnh recheck: Vinh đã ACCEPTED reconciliation cho CONTENT-004/010/011 và xác nhận CONTENT-012 blocked on verdict tại PR #100 (evidence `../evidence/CONTENT-014-recheck-2026-10-02.md` nằm trên nhánh PR #100, chưa merge vào nhánh này). Verdict quiz này chính là phần còn thiếu đó.
+- Verdict quiz không thay technical QA của Vinh, media review hay production approval. CONTENT-007 giữ BLOCKED; gate M3 OPEN / M4 LOCKED.
+- Next action: Vinh QA quiz sau verdict; Hưng recheck độc lập CONTENT-014; Trúc media/handoff sign-off cho CONTENT-004/010/011. Lưu ý merge: PR #99 và PR #100 cùng sửa board + CONTENT-012/014, bên merge sau rebase.

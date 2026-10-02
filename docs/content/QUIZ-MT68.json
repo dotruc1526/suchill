@@ -145,6 +145,6 @@
     }
   ],
   "status": "draft",
-  "reviewStatus": "NEEDS_HISTORICAL_REVIEW",
+  "reviewStatus": "APPROVED_BY_HISTORICAL_REVIEWER",
   "authoringOnly": true
 }
