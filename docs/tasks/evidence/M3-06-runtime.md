@@ -29,3 +29,6 @@ Author-controlled fixture policies identify technical versions/eligibility; no p
 Hưng: service/UI boundary, App composition hotspot, session lifecycle, neutral feedback, focus/mobile/accessibility. Vinh: typed retry/error outcomes, account isolation, technical policy metadata, receipt and summary authority, regressions. Runtime evidence is executor verification, not independent acceptance. Task REVIEW; reviewer decides DONE.
 
 In-memory mock does not survive full browser restart or guarantee cross-device persistence. No Supabase/Auth/backend, migration, dependency, secret or canonical media changes. Existing media/player service logic is unchanged; physical devices/screen-reader and canonical media require separate QA gates. M3-07 is still required after M3-06 acceptance; M3 OPEN/M4 LOCKED.
+
+## Final integrated verification
+- Integrated main `ed234e9` (PR85 QA/schema validation); kept all its card/board/index updates. Final full quality PASS: typecheck/build, 111 unit, 23 component, 8 Chrome E2E; scan 359/0. Runtime/UI unchanged by integration. Log `.git/m3-integrated-quality.log` local only.
