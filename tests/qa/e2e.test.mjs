@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict'
 import { spawn } from 'node:child_process'
 import { existsSync, readdirSync } from 'node:fs'
+import { createServer as createHttpServer } from 'node:http'
 import { mkdtemp, rm, writeFile } from 'node:fs/promises'
 import { homedir, tmpdir } from 'node:os'
 import { once } from 'node:events'
@@ -64,7 +65,7 @@ async function withChromePage(browser, url, run) {
   const profile = await mkdtemp(join(tmpdir(), 'suchill-e2e-'))
   const chrome = spawn(browser, [
     '--headless', '--no-sandbox', '--disable-gpu', '--no-first-run', '--no-default-browser-check',
-    '--remote-debugging-port=0', `--user-data-dir=${profile}`, url,
+    '--remote-debugging-port=0', `--user-data-dir=${profile}`, 'about:blank',
   ], { stdio: ['ignore', 'ignore', 'pipe'] })
   let socket
   try {
@@ -109,7 +110,42 @@ async function withChromePage(browser, url, run) {
     }
     assert.ok(page, `Chrome opened a page target: ${JSON.stringify(targetInfos)}`)
     const { sessionId } = await send('Target.attachToTarget', { targetId: page.targetId, flatten: true })
-    await run((method, params) => send(method, params, sessionId))
+    const command = (method, params) => send(method, params, sessionId)
+    await command('Page.enable')
+    const waitForDocument = async (loaderMatches, label) => {
+      let state
+      for (let attempt = 0; attempt < 200; attempt += 1) {
+        const { frameTree } = await command('Page.getFrameTree')
+        if (loaderMatches(frameTree.frame.loaderId)) {
+          try {
+            const evaluated = await command('Runtime.evaluate', {
+              expression: `({ url: location.href, ready: document.readyState !== 'loading' && Boolean(document.querySelector('#root')?.children.length) })`,
+              returnByValue: true,
+            })
+            state = evaluated.result?.value
+            if (state?.url === url && state.ready) return
+          } catch (error) {
+            // An old execution context can disappear while a new document commits.
+            if (!/context.*destroyed|Cannot find context/i.test(error.message)) throw error
+          }
+        }
+        await delay(50)
+      }
+      assert.fail(`${label}: expected a mounted document at ${url}; last state ${JSON.stringify(state)}`)
+    }
+    // Chrome always starts blank: no caller can reload/cancel its initial URL load.
+    const navigation = await command('Page.navigate', { url })
+    assert.ok(!navigation.errorText, `Chrome navigation failed: ${navigation.errorText}`)
+    await waitForDocument(loaderId => loaderId === navigation.loaderId, 'Initial navigation timeout')
+    await run(async (method, params) => {
+      if (method !== 'Page.reload') return command(method, params)
+      const { frameTree } = await command('Page.getFrameTree')
+      const previousLoader = frameTree.frame.loaderId
+      const result = await command(method, params)
+      // A reload response is not a readiness signal; don't inspect the old DOM.
+      await waitForDocument(loaderId => loaderId !== previousLoader, 'Reload navigation timeout')
+      return result
+    })
   } finally {
     socket?.close()
     await terminateChild(chrome)
@@ -118,6 +154,36 @@ async function withChromePage(browser, url, run) {
     await rm(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 })
   }
 }
+
+test('Chrome waits for delayed cold navigation and a new document after reload', async () => {
+  const browser = findBrowser()
+  assert.ok(browser, 'Set CHROME_PATH to a local Chromium/Chrome executable for E2E')
+  let requests = 0
+  const server = createHttpServer(async (request, response) => {
+    if (request.url !== '/') { response.writeHead(404).end(); return }
+    const documentId = ++requests
+    await delay(150)
+    response.writeHead(200, { 'Content-Type': 'text/html', 'Cache-Control': 'no-store' })
+    response.end(`<html><body><div id="root"></div><script>
+      setTimeout(() => { document.querySelector('#root').innerHTML = '<p data-document="${documentId}">Ready</p>' }, 150)
+    </script></body></html>`)
+  })
+  await new Promise(resolve => server.listen(0, '127.0.0.1', resolve))
+  try {
+    const address = server.address()
+    const url = `http://127.0.0.1:${address.port}/`
+    await withChromePage(browser, url, async cdp => {
+      const documentId = async () => (await cdp('Runtime.evaluate', {
+        expression: "document.querySelector('[data-document]')?.dataset.document", returnByValue: true,
+      })).result.value
+      assert.equal(await documentId(), '1', 'callback waits for the initial target URL and mounted DOM')
+      await cdp('Page.reload', { ignoreCache: true })
+      assert.equal(await documentId(), '2', 'reload waits for the new document, not the old ready DOM')
+    })
+  } finally {
+    await new Promise((resolve, reject) => server.close(error => error ? reject(error) : resolve()))
+  }
+})
 
 test('built app renders its home screen in a real local browser', async () => {
   const browser = findBrowser()

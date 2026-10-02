@@ -1,7 +1,7 @@
 # QA-002 — Mobile/player interaction matrix
 
 > Date: 2026-10-01
-> Latest revision tested: QA `db3ae9e` integrated with main `8131f05` on branch `codex/qa-002-mobile-player-matrix`; original matrix base was `1dcba50`
+> Latest revision tested: QA `01b3817` plus navigation remediation integrated with main `74c8059` on branch `codex/qa-002-mobile-player-matrix`; original matrix base was `1dcba50`
 > Scope: technical M3 mock services and non-canonical fixtures; not pilot media or release sign-off
 
 ## Method and result
@@ -37,7 +37,7 @@
 
 ## Reproduction
 
-- `npm run quality` (run with localhost/Chrome permission): typecheck, build, client-secret scan, unit, component and six browser E2E tests.
+- `npm run quality` (run with localhost/Chrome permission): typecheck, build, client-secret scan, unit, component and seven browser E2E tests (including delayed-navigation regression).
 - Focused browser checks: `node --test --test-name-pattern='Visual Novel remains keyboard' tests/qa/e2e.test.mjs` and `node --test --test-name-pattern='player mock exposes mobile' tests/qa/e2e.test.mjs`.
 - `git diff --check`.
 
@@ -64,3 +64,12 @@
 - Main's greeting/fallback/long-name mobile assertions and start/continuation navigation focus checks retained; both keyboard VN and media service-read/remount/offline retry regressions retained.
 - `npm run quality` PASS: typecheck/build, 76 unit / 22 component / 6 Chrome E2E, scan 330 files / 0 unsafe; diff check PASS. All browser checks cover 375px/430px as defined above.
 - Await Dương confirmation and CI on the refreshed head. QA-002 remains REVIEW, with the same device/canonical-media/reward limitations.
+
+## E2E navigation synchronization remediation — 2026-10-02
+- The previous shared helper could attach before Chrome committed its initial URL, then callers reloaded immediately. Controlled delayed-response/DOM reproduction makes the old helper fail the initial-document assertion.
+- Chrome now starts about:blank; after attach, Page.navigate explicitly loads the requested URL. Readiness checks require its loader, exact URL, non-loading document and mounted #root. Reload waits for a new loader/ready document; old DOM is not accepted. Bounded timeout/errors remain failures, not automatic retries.
+- New real-browser regression returns document IDs 1 and 2 across delayed initial navigation/reload. It PASSes with the fix; the original helper FAILs, and a separate diagnostic omitting only the reload barrier FAILs. All probe mutations restored.
+- Main `74c8059` integrated cleanly; Home runtime, shared Button and video/VN fixture unchanged. Personalized greeting/mobile navigation and both QA-002 regressions remain intact.
+- Full quality PASS: 76 unit / 22 component / 7 E2E, typecheck/build, scan 330 files / 0 unsafe. Device/media/screen-reader limitations above still apply.
+- QA-002 remains REVIEW pending Dương confirmation and CI on the new head. No gate changes.
+- Additional cold-browser suite run: `node --test tests/qa/e2e.test.mjs` PASS 7/7; log `/tmp/suchill-pr83-navigation-fix-e2e-repeat.log`.
