@@ -81,3 +81,9 @@
 - PR #54 (`content/tho-lesson-02-1972-vn-v2`) merged `0075079` ngày 2026-09-30: Trúc APPROVED historical/media, PO APPROVED nghiệm thu, Quality checks 2/2 SUCCESS.
 - Re-verified trên main `2abd202`: `validate-1972-authoring.mjs` PASS (5 nodes, 8/8 scenes, narration đủ 8 scene, không từ ngữ quy trình vi mô).
 - Card chuyển `active/` → `done/`; board và index đồng bộ. M3 vẫn OPEN; production/integration cần task/gate riêng.
+
+## Reviewer text approval — Trúc (Member 2), 2026-10-02
+
+- **TEXT APPROVED** closeout CONTENT-017 trên PR #99 (thay cho GitHub approve theo thỏa thuận; không bấm approve trên GitHub).
+- Đã đối chiếu: PR #54 MERGED `0075079` ngày 2026-09-30; Trúc APPROVED historical/media và PO APPROVED nghiệm thu tại head cuối; Quality checks 2/2 SUCCESS; `validate-1972-authoring.mjs` PASS trên main; card `done/`, board DONE, index đồng bộ; không còn link sống trỏ card `active/` (một dòng checkpoint lịch sử giữ tên file cũ đúng bản chất ghi chép).
+- Phạm vi approval: xác nhận hồ sơ closeout trung thực. Không quyết định gate milestone; production/integration cần task/gate riêng.

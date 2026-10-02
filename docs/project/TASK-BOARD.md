@@ -226,6 +226,7 @@ Mỗi lần handoff quan trọng thêm một dòng mới nhất ở đầu bản
 
 | Date | Task | Author | Update | Evidence / next owner |
 |---|---|---|---|---|
+| 2026-10-02 | PR #99 / CONTENT-017 | Trúc (Member 2) | TEXT APPROVED closeout CONTENT-017 (PR #54 merged `0075079`, Trúc/PO approved, Quality 2/2, validator PASS, card/board/index đồng bộ); không dùng GitHub approve | [CONTENT-017](../tasks/done/CONTENT-017.md); chờ PO xác nhận closeout rồi merge PR #99 |
 | 2026-10-02 | CONTENT-012 / CONTENT-014 | Trúc (Member 2) | APPROVED historical/learning scope cho `QUIZ-MT68.json` hash `4013b399…667eb` (verdict riêng, không suy từ CONTENT-010); `reviewStatus` đồng bộ, validator PASS | [CONTENT-012](../tasks/active/CONTENT-012.md); next Vinh QA quiz; CONTENT-004/010/011 chờ Hưng recheck + media/handoff; production BLOCKED |
 | 2026-10-02 | CONTENT-017 | Thọ (Member 1) + Codex | PR #54 merged `0075079`: Trúc APPROVED historical/media, PO APPROVED nghiệm thu; Quality 2/2 SUCCESS; re-verified validator PASS trên main; card chuyển done/, board/index đồng bộ | [CONTENT-017](../tasks/done/CONTENT-017.md); M3 vẫn OPEN, production cần gate riêng |
 | 2026-10-02 | DOC-017 | Trúc (Member 2 — reviewer) | Xác nhận trạng thái content hiện hành: CONTENT-003/004/010/011/012/014 REVIEW, CONTENT-007 BLOCKED, artifact pilot NEEDS_HISTORICAL_REVIEW; DOC-017 giữ REVIEW | [DOC-017](../tasks/active/DOC-017.md) mục Reviewer confirmation; next reviewer ghi task-level acceptance, giữ production BLOCKED |
