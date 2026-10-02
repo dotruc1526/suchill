@@ -1,7 +1,7 @@
 # CONTENT-003 — Historical source and media review pilot
 
-> Status: REVIEW\
-> Review Verdict: **SOURCE_SCOPE_ACCEPTED_BY_TRÚC** cho registry hash `369205fc…e3bba5`; audio plan INTERNAL_REFERENCE_ONLY theo quyết định Trúc; commercial/production audio vẫn BLOCKED\
+> Status: DONE\
+> Review Verdict: **SOURCE_SCOPE_ACCEPTED_BY_TRÚC** cho registry hash `369205fc…e3bba5`; audio plan APPROVED cho MVP học tập phi thương mại theo PO Dương; commercial use không được cấp quyền\
 > Date: 2026-10-02\
 > Reviewer: Trúc historical/media; Vinh technical QA\
 > Reference Report: [source review 2026-10-02](../evidence/CONTENT-003-source-review-2026-10-02.md). Báo cáo cũ bên dưới chỉ để truy vết.
@@ -11,7 +11,7 @@
 - Owner: Trúc (Member 2).
 - Executor: Codex hỗ trợ Trúc theo yêu cầu triển khai ngày 2026-10-02.
 - Reviewer: Trúc historical/media; Vinh technical QA; Product Owner quyết định production gate.
-- Status: REVIEW; Started: 2026-10-02 (đã claim IN PROGRESS trước khi sửa).
+- Status: DONE theo PO closeout bên dưới; Started: 2026-10-02 (đã claim IN PROGRESS trước khi sửa).
 - Branch: `codex/truc-content003-source-review`; base main `c7a5ad5`.
 - Depends on: CONTENT-002 và DOC-004 DONE trên board; acceptance CONTENT-002 đã tick đủ. Handoff cũ còn ghi ô trống sẽ được ghi rõ là superseded.
 - Files claimed: `docs/content/HISTORICAL-SOURCES.md`, `MEDIA-REVIEW-MT68.md`, `PRODUCTION-NOTES.md`; card này, `docs/tasks/evidence/CONTENT-003-source-review-2026-10-02.md`, `docs/tasks/active/README.md`, các row CONTENT-003/007 và checkpoint trong `docs/project/TASK-BOARD.md`.
@@ -57,7 +57,7 @@
 - [x] Trúc ACCEPT source verdict/Tier 3/phạm vi claim ngày 2026-10-02 theo registry SHA-256 `369205fcbd713a74acaa0149e6c21d2c3734260d4265e7b8f87edd5868e3bba5` (evidence mục 8 và xác nhận cuối).
 - [x] Trúc cung cấp voice ID `5g2DMFQF8xR0KmnuNr4U`, gói Free, Eleven v4 ngày 2026-10-02 (user-provided).
 - [x] Trúc chốt Free/internal reference only ngày 2026-10-02; acceptance chỉ cho lựa chọn phạm vi, không nghiệm thu file/license production.
-- [ ] Audio rights cho mục đích phát hành: BLOCKED_FOR_COMMERCIAL_USE vì gói Free; cần phương án/gói phù hợp và evidence trước sign-off.
+- [x] PO Dương chốt MVP học tập phi thương mại và APPROVED audio rights plan ElevenLabs Free cho scope này; title credit bắt buộc, final output QA thuộc CONTENT-007.
 - [x] Vinh technical QA metadata/diff ACCEPTED theo evidence recheck bên dưới; không thay historical/media verdict.
 - [ ] PO production decision riêng sau khi dependency và rights/source plan được reviewer nghiệm thu.
 
@@ -209,3 +209,16 @@ Tuy nhiên, hội đồng thẩm định ghi nhận **04 lỗi lịch sử & k�
 - Full task-doc checker còn báo `M4-M5-INTEGRATION-001: board/card status mismatch`; lỗi cũng tái hiện ở workspace main, ngoài CONTENT-003. Không báo toàn project-doc suite PASS.
 - Không chạy runtime suite vì docs-only; không env/migration impact. Không xác nhận source history/Tier 3, license, voice profile hoặc audio timing bằng structural checks.
 - Remaining: hồ sơ Trúc source ACCEPT tại 00c8d92 đã ghi nhận đúng hash; voice ID/gói Free đã có trong checkpoint mới, quyền audio phù hợp phạm vi phát hành vẫn chờ Trúc theo yêu cầu người dùng. PO quyết định production riêng; CONTENT-003 REVIEW, CONTENT-007 BLOCKED. DOC-020/021 đã đóng M4/M5, mở M6; nhắc M4 OPEN/M5 LOCKED trước đó là snapshot cũ, không dùng làm gate hiện hành.
+
+## Nghiệm thu Product Owner Dương — 2026-10-02 (quyết định mới nhất)
+
+- Dương tự xác nhận Product Owner, chốt Sử Chill hiện tại là đồ án học tập phi thương mại; phê duyệt ElevenLabs Free cho phạm vi MVP này và yêu cầu nghiệm thu CONTENT-003, UNBLOCK CONTENT-007, gắn video canonical vào lesson.
+- Quyết định này supersede giới hạn nội bộ trước đó của Trúc: audio được phép lên MVP academic/non-commercial sau khi tạo file, kiểm tra đúng cấu hình và hoàn thiện credit. Không cấp quyền thương mại hoặc bỏ kiểm tra output.
+- CONTENT-003 DONE trong phạm vi source/media plan/preproduction: source scope Trúc ACCEPT hash 369205fc…e3bba5; Vinh metadata/diff ACCEPT d17968b; PO chốt scope/license plan và handoff. Các checkbox production audio/final assets không thuộc nghiệm thu đầu vào CONTENT-003.
+- Credit bắt buộc trong **tiêu đề video**: “Kế hoạch Giao Thừa — elevenlabs.io”; attribution hiện trên player và credit app. Chính sách Free yêu cầu domain trong title, nên credit app đơn lẻ không thay credit tiêu đề. Kiểm tra Beta/service-specific terms tại generation; approval PO không miễn các điều kiện provider này.
+- CONTENT-007 được PO mở production theo authoring handoff CONTENT-004 hiện có (script/narration/VTT đã historical/technical review); không lấy REVIEW task-level cũ làm blocker cho handoff đã được PO cho phép. Final video/content acceptance vẫn riêng.
+- Chưa có MP4/audio canonical: ElevenLabs mở tới trang Sign In, không có phiên đăng nhập/connector TTS. Production tiếp tục chuẩn bị; cần Trúc/Dương đăng nhập hoặc cung cấp bản xuất. Không đánh dấu asset published, không dùng video CONTENT-006 thay thế.
+- Files claimed cho closeout/production: card/index/board/evidence CONTENT-003/007, media/production notes, production export package trong docs/content/production/mt68-v1 và script dựng; không env/migration/runtime impact ở closeout này.
+- Next: Trúc/Codex claim CONTENT-007, tạo video từ narration đã duyệt, credits/poster/VTT/transcript/hash; gắn media qua service interface sau khi có asset thật và reviewer final acceptance.
+
+Checkpoint truy cập sau đó: Dương đăng nhập ElevenLabs, Codex quan sát đúng Hoa/Eleven v4/Vietnamese/MP3 trên UI. Dương yêu cầu gói lời đọc để tự xuất; không còn blocker đăng nhập, đang chờ 9 audio exports cho CONTENT-007.

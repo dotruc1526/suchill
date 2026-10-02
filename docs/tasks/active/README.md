@@ -15,8 +15,8 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOC
 
 ## Content track
 
-- [CONTENT-003](./CONTENT-003.md) — `REVIEW`; registry remediation 7/7 claims supported, unique IDs, 1972/artifacts unchanged; Trúc ACCEPT source scope hash 369205fc…e3bba5; Trúc chốt audio ElevenLabs Free INTERNAL_REFERENCE_ONLY; commercial/production audio BLOCKED, Vinh technical metadata/diff ACCEPTED; Trúc source ACCEPT đã ghi; audio rights và PO production gate còn chờ.
 - [CONTENT-004](./CONTENT-004.md) — `REVIEW`; Trúc media/handoff review recorded 2026-10-02; Hưng recheck ACCEPTED; PO production handoff pending; rights/assets pending.
+- [CONTENT-007](./CONTENT-007.md) — IN PROGRESS; PO Dương mở production MVP phi thương mại, CONTENT-003 DONE; chờ audio ElevenLabs để dựng và gắn video canonical.
 - [CONTENT-010](./CONTENT-010.md) — `REVIEW`; Trúc media/handoff review recorded 2026-10-02; Hưng recheck ACCEPTED; PO production handoff pending; rights/assets pending.
 - [CONTENT-011](./CONTENT-011.md) — `REVIEW`; Trúc media/handoff review recorded 2026-10-02; Hưng recheck ACCEPTED; PO production handoff pending; rights/assets pending.
 - [CONTENT-006](./CONTENT-006.md) — `IN PROGRESS`; video cũ chỉ `APPROVED_FOR_INTERNAL_REFERENCE_ONLY`, không phải media canonical.

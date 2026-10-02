@@ -29,3 +29,7 @@ Voice theo lựa chọn Trúc ngày 2026-10-02: **dùng ElevenLabs, giọng Hoa 
 ## Phạm vi voice đã chốt — Trúc, 2026-10-02
 
 Giữ cấu hình ElevenLabs/Hoa/Eleven v4/Vietnamese và voice ID `5g2DMFQF8xR0KmnuNr4U` trên **Free**, chỉ **INTERNAL_REFERENCE_ONLY**, phi thương mại. Không còn chờ Trúc chọn audio route. Không dùng output Free làm audio canonical/production/phát hành thương mại. Chưa tạo hoặc nghiệm thu file audio. Vinh technical review ACCEPTED tại d17968b; PO handoff production và phương án audio đủ quyền vẫn riêng, CONTENT-007 BLOCKED.
+
+## PO mở production — 2026-10-02
+
+Dương nghiệm thu CONTENT-003, chốt audio Free cho MVP academic/non-commercial và explicit mở CONTENT-007. Title video “Kế hoạch Giao Thừa — elevenlabs.io”, credit ElevenLabs trên app/player; commercial rights không được cấp. Production package tại production/mt68-v1; final MP4/audio/poster/hash chưa có. Chưa gắn URL giả hoặc dùng clip CONTENT-006. Tích hợp canonical qua service sau khi output được kiểm tra; fallback vẫn cần cho lỗi tải/accessibility.

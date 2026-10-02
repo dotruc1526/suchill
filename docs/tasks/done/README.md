@@ -55,3 +55,5 @@
 - [M3-GATE-01](./M3-GATE-01.md) — DONE evidence preparation; PR101 accepted/merged 71d9cd7. Product Owner milestone decision remains PENDING.
 
 - [CONTENT-012-QA-01](./CONTENT-012-QA-01.md) — DONE technical authoring QA; Hưng ACCEPTED c7a84d6, Trúc handoff e3987fb, PR99 merged ddd73d4; media/production remains separate.
+
+- [CONTENT-003](./CONTENT-003.md) — DONE; Trúc source ACCEPT, Vinh technical ACCEPT, PO Dương nghiệm thu source/media plan cho MVP phi thương mại, mở CONTENT-007.

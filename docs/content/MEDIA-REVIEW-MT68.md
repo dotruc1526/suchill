@@ -83,3 +83,9 @@ Trúc chọn “1”: **giữ Free, chỉ làm bản tham khảo nội bộ**. A
 Nếu có bản tham khảo nội bộ về sau: lưu ngày generation, model/service status (kiểm tra Beta/điều khoản tại thời điểm dùng), narration revision, thiết lập, file/hash và nhãn “Tham khảo nội bộ — không dùng phát hành”. Nếu chia sẻ phi thương mại ngoài nhóm, phải review riêng phạm vi và attribution theo chính sách ElevenLabs; chính sách hiện yêu cầu elevenlabs.io hoặc 11.ai trong tiêu đề khi publish output Free. Chưa cho phép chia sẻ công khai hoặc dùng promotional/commercial.
 
 Phát hành/production vẫn cần phương án audio đủ quyền mới và reviewer/PO handoff riêng. Các snapshot “chờ Trúc chốt quyền/phương án audio” trước đó đã được quyết định phạm vi này thay thế; chưa thay verdict quyền production.
+
+## Quyết định PO hiện hành — 2026-10-02
+
+Dương chốt sản phẩm MVP đồ án học tập phi thương mại, APPROVED ElevenLabs Free cho scope này và mở production CONTENT-007. Phạm vi mới supersede internal-reference-only trước đó; commercial use vẫn không có quyền. Title video phải chứa **elevenlabs.io** (chính sách Free), đồng thời credit app/player. Việc ghi credit chỉ trong app không thay yêu cầu domain trong title. Model/service không được là Beta dùng trong production; kiểm tra tại thời điểm xuất.
+
+Giữ voice Hoa / 5g2DMFQF8xR0KmnuNr4U / Eleven v4 / Vietnamese, tạo audio mới; chưa có phiên ElevenLabs đăng nhập, file export, manifest hoặc QA timing. CONTENT-003 DONE cho source/media plan; final audio/video acceptance thuộc CONTENT-007 IN PROGRESS. Optional media vẫn chưa được duyệt; chỉ chữ/sơ đồ nguyên bản, không nhạc/SFX.
