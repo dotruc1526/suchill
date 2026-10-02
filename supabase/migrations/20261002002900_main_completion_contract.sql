@@ -5,13 +5,14 @@ create table private.m3_completion_receipts (
  lesson_id uuid not null references public.lessons on delete restrict,
  receipt jsonb not null, primary key(user_id,lesson_id)
 );
+alter table private.m3_completion_receipts enable row level security;
 revoke all on private.m3_completion_receipts from public,anon,authenticated;
 create function private.m3_receipt(p_user uuid,p_lesson uuid,p_granted uuid[] default '{}'::uuid[])
 returns jsonb language sql stable set search_path='' as $$
  select jsonb_build_object('userId',p_user,'lessonId',l.id,'contentVersionId',l.id,
  'confirmedAt',p.completed_at,'method',case
- when exists(select 1 from public.user_block_completions c where c.user_id=p_user and c.lesson_id=l.id and c.reason='accessible_fallback') then 'accessible_fallback'
- when exists(select 1 from public.user_block_completions c where c.user_id=p_user and c.lesson_id=l.id and c.reason='media_fallback') then 'media_fallback'
+ when exists(select 1 from public.user_block_completions c join public.lesson_blocks b on b.id=c.block_id where c.user_id=p_user and c.lesson_id=l.id and b.required and c.reason='accessible_fallback') then 'accessible_fallback'
+ when exists(select 1 from public.user_block_completions c join public.lesson_blocks b on b.id=c.block_id where c.user_id=p_user and c.lesson_id=l.id and b.required and c.reason='media_fallback') then 'media_fallback'
  else 'standard' end,'reason','required_blocks_satisfied',
  'rewards',coalesce((select jsonb_agg(jsonb_build_object('rewardType',q.reward_type,'activityId',q.activity_id,
  'eligibilityVersion',q.eligibility_version,'eligibilityKey',q.idempotency_key,

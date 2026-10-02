@@ -30,7 +30,8 @@ export function createMainLearningServices(base: BackendServices, userId: string
       getLessonCompletion: id => owned(() => base.mainContract ? base.mainContract.getCompletion(id, userId) : Promise.resolve(failure('server_error'))),
       completeLesson: input => owned(() => base.mainContract ? base.mainContract.completeLesson({...input, expectedSubject:userId}) : Promise.resolve(failure('server_error'))),
       recordBlockAction: input => owned(async () => {
-        const result = await base.completion.completeBlock({...input, method:input.action === 'acknowledge' ? 'standard' : input.action})
+        const { action, ...command } = input
+        const result = await base.completion.completeBlock({...command, method:action === 'acknowledge' ? 'standard' : action})
         return result.ok ? success(null) : result
       }),
     },

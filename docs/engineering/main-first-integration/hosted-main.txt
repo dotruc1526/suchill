@@ -1,0 +1,13 @@
+✔ hosted main content version, explicit text evidence, canonical replay and account summary (7646.9158ms)
+✔ hosted main JWT ownership rejects actor spoofing, operation reuse and direct private receipts (2931.4494ms)
+✔ hosted main simultaneous independent requests preserve one receipt and one lesson reward (1816.6584ms)
+✔ hosted main VN trusted feedback and required episode evidence gate one-time completion (2769.4374ms)
+✔ hosted main scored quiz keeps authoritative reward scopes and retries grant no additional XP (2942.2894ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 20214.1406

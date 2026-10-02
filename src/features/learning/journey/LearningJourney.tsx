@@ -3,7 +3,7 @@ import { EmptyState, ErrorState, LoadingState, OfflineState } from '../../../com
 import type { ServiceErrorCode } from '../../../services/next/contracts'
 import { useCompletionSession } from '../completion/CompletionSession'
 import { loadHomeGreeting } from '../../home/greetingModel'
-import { m3HomeActivityService } from '../../../services/next/m3HomeActivity'
+import { m3HomeActivityService, type HomeActivityService } from '../../../services/next/m3HomeActivity'
 import { JourneyChapter } from './JourneyChapter'
 import { JourneyHome } from './JourneyHome'
 import { JourneyLessonEntry } from './JourneyLessonEntry'
@@ -22,7 +22,7 @@ type FocusTarget =
   | { kind: 'chapter-button'; id: string }
   | { kind: 'lesson-button'; id: string }
 
-export function LearningJourney({ active = true }: { active?: boolean }) {
+export function LearningJourney({ active = true, activityService = m3HomeActivityService }: { active?: boolean; activityService?: HomeActivityService }) {
   const { services } = useCompletionSession()
   const [view, setView] = useState<JourneyView>({ type: 'home' })
   const [state, setState] = useState<LoadState>({ status: 'loading' })
@@ -37,9 +37,9 @@ export function LearningJourney({ active = true }: { active?: boolean }) {
 
   const refresh = useCallback(async () => {
     setState({ status: 'loading' })
-    const result = await loadJourney(services, m3HomeActivityService)
+    const result = await loadJourney(services, activityService)
     setState(result.ok ? { status: 'ready', snapshot: result.value } : { status: 'error', error: result.error })
-  }, [services])
+  }, [services, activityService])
 
   useEffect(() => { void refresh() }, [refresh])
   useEffect(() => {

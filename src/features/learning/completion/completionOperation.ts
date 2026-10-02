@@ -7,7 +7,7 @@ export class CompletionOperation<T> {
   private confirmed?: Result<T>
   private readonly execute: (operationId: string) => Promise<Result<T>>
 
-  constructor(execute: (operationId: string) => Promise<Result<T>>, operationId = globalThis.crypto.randomUUID()) {
+  constructor(execute: (operationId: string) => Promise<Result<T>>, operationId: string = globalThis.crypto.randomUUID()) {
     this.execute = execute
     this.operationId = operationId
   }

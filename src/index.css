@@ -90,3 +90,27 @@ body {
 .animate-bubble-in   { animation: bubble-in 0.25s ease-out forwards; }
 .animate-mascot-idle { animation: mascot-bounce 2.5s ease-in-out infinite; }
 .animate-pulse-glow  { animation: pulse-glow 2s ease-in-out infinite; }
+
+/* Account preference and OS preference both suppress decorative movement. */
+html[data-reduced-motion="true"] *,
+html[data-reduced-motion="true"] *::before,
+html[data-reduced-motion="true"] *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html[data-reduced-motion="true"] [class*="active:scale"]:active {
+  scale: 1 !important;
+  transform: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  [class*="active:scale"]:active { scale: 1 !important; transform: none !important; }
+}

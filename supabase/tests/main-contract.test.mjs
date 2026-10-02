@@ -4,7 +4,7 @@ import {createSupabaseLearningServices} from '../../src/services/supabase/servic
 import {scopeLearningServices} from '../../src/services/offline/accountScope.ts'
 import {createMainLearningServices} from '../../src/services/mainServices.ts'
 import {loadVisualNovel,advanceVisualNovel,chooseVisualNovel} from '../../src/features/visual-novel/v2/visualNovelModel.ts'
-import {createTestDatabase,ids,read,command,asRole,quizAnswers} from './harness.mjs'
+import {createTestDatabase,ids,uuid,read,command,asRole,quizAnswers} from './harness.mjs'
 let db
 before(async()=>{db=await createTestDatabase()})
 after(async()=>{await db?.close()})
@@ -90,4 +90,21 @@ test('native main independent requests serialize canonical receipts and grant XP
  const different=await Promise.all([a.main.completion.completeLesson({...input,operationId:'native-main-again-a'}),b.main.completion.completeLesson({...input,operationId:'native-main-again-b'})])
  assert.ok(different.every(result=>result.value.kind==='already_completed'&&result.value.receipt.rewards.every(reward=>reward.xpDelta===0)))
  assert.equal((await a.main.users.getAccountSummary()).value.totalXp,10)
+})
+
+test('receipt RLS default-deny and optional video fallback does not change required lesson method',async()=>{
+ const lid=uuid(9900),recap=uuid(9901),video=uuid(9902),chapter=uuid(9903)
+ assert.equal((await db.query("select relrowsecurity from pg_class where oid='private.m3_completion_receipts'::regclass")).rows[0].relrowsecurity,true)
+ assert.equal((await db.query("select count(*)::int n from pg_policies where schemaname='private' and tablename='m3_completion_receipts'")).rows[0].n,0)
+ await db.query("insert into public.chapters(id,slug,title,summary,historical_period_label,estimated_minutes) values($1,'optional-fallback-fixture','Technical fixture','Not canonical','Fixture',5)",[chapter])
+ await db.query("insert into public.lessons(id,chapter_id,order_index,slug,title,summary,format,estimated_minutes) values($1,$2,99,'optional-fallback-fixture','Technical fixture','Not canonical','mixed',5)",[lid,chapter])
+ await db.query("insert into public.lesson_blocks(id,lesson_id,order_index,kind,document_id,required) values($1,$2,0,'recap',$3,true)",[recap,lid,ids.recapDocument])
+ await db.query("insert into public.lesson_blocks(id,lesson_id,order_index,kind,media_asset_id,required,completion_policy) values($1,$2,1,'video',$3,false,'watch_threshold')",[video,lid,ids.video])
+ await db.query("update public.lessons set status='published' where id=$1",[lid])
+ await db.query("update public.chapters set status='published' where id=$1",[chapter])
+ const {main}=adapter()
+ assert.ok((await main.completion.recordBlockAction({lessonId:lid,blockId:recap,action:'acknowledge',operationId:'optional-recap-ack'})).ok)
+ assert.ok((await main.completion.recordBlockAction({lessonId:lid,blockId:video,action:'accessible_fallback',operationId:'optional-video-fallback'})).ok)
+ const completed=await main.completion.completeLesson({lessonId:lid,operationId:'optional-video-lesson'})
+ assert.ok(completed.ok);assert.equal(completed.value.kind,'completed');assert.equal(completed.value.receipt.method,'standard')
 })
