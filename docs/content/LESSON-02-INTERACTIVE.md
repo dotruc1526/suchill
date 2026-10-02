@@ -1,7 +1,7 @@
 # Bài 2: Sấm sét nội đô — Visual Novel đọc hồ sơ
 
 > CONTENT-010; revision [CONTENT-014](../tasks/active/CONTENT-014.md).
-> Status: NEEDS_HISTORICAL_REVIEW. Lesson ID: `lesson-mt68-02-interactive`.
+> Historical/language review: APPROVED_BY_HISTORICAL_REVIEWER (CONTENT-010; exact reviewed revision recorded in CONTENT-014). Authoring remains draft; not production-approved. Lesson ID: `lesson-mt68-02-interactive`.
 > Story version: `story-mt68-02-v2-draft`; objective CLO-2.
 > Thời lượng dự kiến 6–8 phút gồm đọc năm thẻ và đối chiếu nguồn; chưa usability test.
 
