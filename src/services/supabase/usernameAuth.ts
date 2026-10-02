@@ -30,7 +30,7 @@ const safeError = (value: unknown): ServiceErrorCode =>
 /** Auth identities are resolved only by the trusted function; no mapping is delivered to the browser. */
 export async function accountAccess(client: AuthClient, body: Record<string, unknown>, token?: string): Promise<Result<Record<string, unknown>>> {
   if (!online()) return failure('offline')
-  const isLan = typeof window !== 'undefined' && /^(192\.168\.|10\.|172\.(1[6-9]|2\d|3[0-1])\.)/.test(window.location.hostname)
+  const isLan = typeof window !== 'undefined' && window.location.protocol === 'http:' && /^(192\.168\.\d+\.\d+|10\.\d+\.\d+\.\d+|172\.(1[6-9]|2\d|3[0-1])\.\d+\.\d+)$/.test(window.location.hostname)
   if (isLan) {
     try {
       const serverUrl = `${window.location.protocol}//${window.location.hostname}:3001`

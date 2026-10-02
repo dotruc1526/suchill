@@ -27,6 +27,7 @@ const allowed = origin => {
   if (!origin || origins.includes(origin)) return true;
   if (process.env.NODE_ENV !== 'production') {
     if (/^https?:\/\/(localhost|127\.0\.0\.1|192\.168\.\d+\.\d+|10\.\d+\.\d+\.\d+|172\.(1[6-9]|2\d|3[0-1])\.\d+\.\d+)(:\d+)?$/.test(origin)) return true;
+    if (/^https:\/\/[a-z0-9-]+\.trycloudflare\.com$/.test(origin)) return true;
   }
   return false;
 };

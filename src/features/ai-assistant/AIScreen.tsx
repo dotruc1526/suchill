@@ -24,7 +24,10 @@ export function AIScreen() {
     setThinking(true)
 
     try {
-      const reply = await askHistoryAssistant(trimmed)
+      const [reply] = await Promise.all([
+        askHistoryAssistant(trimmed),
+        new Promise(resolve => setTimeout(resolve, 800)),
+      ])
       setMessages(m => [...m, { role: 'ai', text: reply }])
     } catch {
       setMessages(m => [
@@ -116,7 +119,7 @@ export function AIScreen() {
                 color: theme.colors.textMuted,
               }}
             >
-              SỬu đang tra cứu kho tư liệu lịch sử... 📚
+              Đang tra cứu kho tư liệu lịch sử... 📚
             </div>
           </div>
         )}
