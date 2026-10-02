@@ -1,5 +1,11 @@
 # Bật Đấu Trí khác Wi-Fi trên nền PR109
 
+## Bản thử hiện tại — độc lập dự án chính
+
+Theo yêu cầu “hoàn tất bản thử online”, frontend PvP khách và backend được đóng gói chung trên nhánh `codex/dautri-public-trial`. Dùng [TRIAL-DEPLOYMENT.md](./TRIAL-DEPLOYMENT.md); không cần sửa/deploy Firebase hoặc merge main. Dockerfile.pvp-trial dùng context repo root, Render tự cấp origin public của service. Bảng hạng chỉ trial.
+
+Các bước Firebase bên dưới là hướng dẫn tích hợp dự án chính sau này, chưa được phép thực hiện.
+
 Bản thử nghiệm gồm frontend Firebase của PR109 và một backend Socket.IO public. Hai người mở cùng frontend, backend ghép người thật từ mọi mạng trong queue chung.
 
 ## Backend
@@ -38,4 +44,4 @@ Gói Free có thể ngủ sau 15 phút không có traffic và khởi động l�
 
 Nguồn: [Blueprint](https://render.com/docs/blueprint-spec), [deploy button](https://render.com/docs/deploy-to-render), [WebSocket](https://render.com/docs/websocket), [giới hạn Free](https://render.com/docs/free).
 
-Chưa deploy trong phiên này: cần người dùng kết nối/đăng nhập tài khoản Render. Chưa có backend public URL, chưa claim Wi-Fi ↔ 4G PASS.
+Render đã đăng nhập và tạo service trial; đang đổi cấu hình sang gói standalone. Chưa claim Wi-Fi ↔ 4G PASS khi chưa có public probe và hai thiết bị thật.

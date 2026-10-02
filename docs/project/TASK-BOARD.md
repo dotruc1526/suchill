@@ -226,7 +226,7 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 | PLATFORM-005 | iOS | Đánh giá iOS sau Android | Unassigned | BLOCKED | PLATFORM-004, product approval | [`docs/tasks/blocked/PLATFORM-005.md`](../tasks/blocked/PLATFORM-005.md) | Chưa triển khai cho đến khi Android và product owner sẵn sàng |
 | BATTLE-001 | AI Battle cũ | Prototype người học đấu trí với AI | Nhóm AI Battle | CANCELLED | — | [Archived card](../tasks/archived/BATTLE-001.md) | PO bỏ scope cũ; giữ lịch sử, thay bằng PVP-ONLINE-001 |
 | BATTLE-002 | AI Battle cũ | Review prototype external | Product + Frontend + Backend + QA | CANCELLED | — | [Archived card](../tasks/archived/BATTLE-002.md) | Không dùng làm blocker PvP mới; scope PO thay ngày 2026-10-03 |
-| PVP-ONLINE-001 | PvP thử nghiệm | Đấu Trí online 1vs1, ghép ngẫu nhiên, khác mạng | Người dùng / PO; Codex executor | REVIEW | PR109 nền canonical; prototype local đã bàn giao | [Task card](../tasks/active/PVP-ONLINE-001.md) | PR115: UI legacy, nút/queue/phòng/standings PASS; chờ đăng nhập Render và Internet acceptance. Không merge hoặc đổi dự án chính nếu chưa user xác nhận; [evidence](../tasks/evidence/PVP-ONLINE-001.md) |
+| PVP-ONLINE-001 | PvP thử nghiệm | Đấu Trí online 1vs1, ghép ngẫu nhiên, khác mạng | Người dùng / PO; Codex executor | IN PROGRESS | PR109 nền canonical; prototype local đã bàn giao | [Task card](../tasks/active/PVP-ONLINE-001.md) | Standalone trial UI/backend cùng origin, Render đã đăng nhập; nhánh deploy codex/dautri-public-trial; không merge hoặc đổi dự án chính nếu chưa user xác nhận; [evidence](../tasks/evidence/PVP-ONLINE-001.md) |
 
 ## Active/review tasks
 

@@ -7,6 +7,7 @@ export interface GameConnectionOptions {
   username: string; scope: string; signal: AbortSignal;
   credentials?: GameCredentials;
   onStatus?: (message: string) => void;
+  serverOrigin?: string;
 }
 
 export function gameServerUrl() {
@@ -14,7 +15,7 @@ export function gameServerUrl() {
 }
 
 export async function openGameConnection(options: GameConnectionOptions) {
-  const url = gameServerUrl();
+  const url = options.serverOrigin ? resolveGameServerUrl(options.serverOrigin, window.location) : gameServerUrl();
   await waitForGameServer(url, { signal: options.signal, onStatus: options.onStatus });
   const key = `suchill.dautri.session:${url}:${options.scope}`;
   let credential = options.credentials;

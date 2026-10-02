@@ -5,7 +5,7 @@ import type { GameOverData, GameSnapshot, PlayerInfo, TrialStandings } from "../
 import { gameReducer, initialGameState } from "./gameState";
 
 export function useSocketGame(options: {
-  initialPlayer?: Partial<PlayerInfo>; onGameOver?: (data: GameOverData) => void; credentials?: GameCredentials;
+  initialPlayer?: Partial<PlayerInfo>; onGameOver?: (data: GameOverData) => void; credentials?: GameCredentials; serverOrigin?: string;
 } = {}) {
   const [state, dispatch] = useReducer(gameReducer, initialGameState({ username: options.initialPlayer?.username || "Người chơi", exp: 0, level: 0 }));
   const [attempt, setAttempt] = useState(0);
@@ -19,6 +19,7 @@ export function useSocketGame(options: {
   const latest = useRef(options); latest.current = options;
   const username = options.initialPlayer?.username || "Người chơi";
   const scope = options.initialPlayer?.userId || options.initialPlayer?.oderId || "guest";
+  const serverOrigin = options.serverOrigin;
   const seenResult = useRef<string | null>(null);
   useEffect(() => {
     const abort = new AbortController();
@@ -27,7 +28,7 @@ export function useSocketGame(options: {
     setConnecting(true); setStandings(null);
     dispatch({ type: "idle" });
     dispatch({ type: "patch", value: { connected: false, error: null } });
-    void openGameConnection({ username, scope, signal: abort.signal, credentials: latest.current.credentials, onStatus: message => { if (alive) setConnectionMessage(message); } }).then(connection => {
+    void openGameConnection({ username, scope, serverOrigin, signal: abort.signal, credentials: latest.current.credentials, onStatus: message => { if (alive) setConnectionMessage(message); } }).then(connection => {
       if (!alive || abort.signal.aborted) { connection.socket.disconnect(); return; }
       const socket = connection.socket; socketRef.current = socket;
       dispatch({ type: "patch", value: { player: connection.player } });
@@ -61,7 +62,7 @@ export function useSocketGame(options: {
       dispatch({ type: "patch", value: { error: error instanceof Error ? error.message : "Không thể mở phiên chơi. Hãy thử lại." } });
     } });
     return () => { alive = false; abort.abort(); socketRef.current?.disconnect(); socketRef.current = null; };
-  }, [scope, username, attempt]);
+  }, [scope, username, serverOrigin, attempt]);
 
   const send = useCallback((event: string, payload?: unknown) => {
     if (!socketRef.current?.connected) { dispatch({ type: "patch", value: { error: "Cần kết nối máy chủ trước khi chơi." } }); return; }

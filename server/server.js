@@ -5,12 +5,14 @@ import cors from 'cors';
 import socketHandler from './socketHandler.js';
 import { createSessionStore } from './sessionStore.js';
 import { pathToFileURL } from 'node:url';
+import { resolve } from 'node:path';
+import { deploymentOrigins } from './deploymentOrigins.js';
 
 export function createGameServer(options = {}) {
 const app = express();
-const origins = options.origins || (process.env.ALLOWED_ORIGINS || 'http://localhost:8443,http://127.0.0.1:8443').split(',').map(s => s.trim());
-if (process.env.NODE_ENV === 'production' && (!process.env.ALLOWED_ORIGINS || !process.env.SESSION_SECRET)) {
-  throw new Error('Production requires ALLOWED_ORIGINS and SESSION_SECRET');
+const origins = options.origins || deploymentOrigins();
+if (process.env.NODE_ENV === 'production' && !process.env.SESSION_SECRET) {
+  throw new Error('Production requires SESSION_SECRET');
 }
 if (process.env.NODE_ENV === 'production' && process.env.SESSION_SECRET.length < 32) throw new Error('SESSION_SECRET must have at least 32 characters');
 const proxyHops = Number(process.env.TRUST_PROXY_HOPS || 0);
@@ -36,6 +38,18 @@ app.post('/session', (req, res) => {
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok' });
 });
+
+const staticDir = options.staticDir || process.env.STATIC_DIR;
+if (staticDir) {
+  const directory = resolve(staticDir);
+  app.use((_req, res, next) => {
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-Robots-Tag', 'noindex, nofollow');
+    next();
+  });
+  app.get('/', (_req, res) => { res.setHeader('Cache-Control', 'no-store'); res.sendFile(resolve(directory, 'index-pvp.html')); });
+  app.use(express.static(directory, { index: false, dotfiles: 'deny' }));
+}
 
 const httpServer = createServer(app);
 const io = new Server(httpServer, {

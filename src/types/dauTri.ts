@@ -20,7 +20,7 @@ export type GameState = {
 };
 export type GameSnapshot = Omit<GameState, "gameOver" | "error" | "connected" | "roomCode"> & { serverNow: number };
 export type DauTriScreenProps = {
-  userId?: string; playerName?: string;
+  userId?: string; playerName?: string; serverOrigin?: string;
   onNavigateTab?: (tab: "home" | "practice" | "dautri" | "ai" | "profile") => void;
   onMatchActiveChange?: (active: boolean) => void;
 };

@@ -1,11 +1,11 @@
 # PVP-ONLINE-001 — Đấu Trí online 1vs1 từ prototype có sẵn
 
-> Status: REVIEW
+> Status: IN PROGRESS
 
 Started: 2026-10-03 (Asia/Saigon).
 Owner: Product Owner / người dùng. Executor: Codex root.
 Reviewer: Product Owner + frontend/backend/QA reviewer (chưa nghiệm thu).
-Branch: codex/dautri-online-pr109. Base mới nhất: PR109 `3e14b77` (2026-10-03).
+Integration branch: codex/dautri-online-pr109 (PR115). Public trial branch: codex/dautri-public-trial, dựa trên PvP `d48769a`; tách khỏi các commit AI/luyện tập đồng thời trên integration branch. PR109 base `3e14b77` (2026-10-03).
 
 ## Quyết định scope và dependency
 
@@ -21,6 +21,7 @@ Input: prototype local engine Socket.IO và feature UI có sẵn; review PR109 t
 - New PvP docs/task/evidence. Không thay learning/auth/database contracts hoặc migration.
 - Follow-up: root render.yaml, cold-start service/tests và scripts/release/build-hosting-preview.mjs/tests để URL backend đi vào bản Firebase thật.
 - Follow-up theo người dùng: khôi phục bố cục prototype legacy, sửa nút khi offline, thử toàn bộ luồng phòng/queue/luật/bảng xếp hạng; triển khai Internet khi có tài khoản hosting.
+- Online trial: frontend PvP riêng cùng origin/backend, Dockerfile.pvp-trial/vite.pvp.config.ts/index-pvp.html, service phiên khách và tests. Không đổi Firebase/main/Supabase.
 
 ## Acceptance
 
@@ -39,3 +40,5 @@ PvP thử nghiệm dùng phiên khách trên server; account chỉ cung cấp t�
 Next action: review bản tích hợp và chọn hosting để deploy backend, cấu hình frontend public URL, nghiệm thu Wi-Fi ↔ 4G. Người dùng đã chọn “Chưa có hosting — chuẩn bị bản deploy trước”. Không tự claim DONE/Internet PASS.
 
 Follow-up: đã có tài khoản Render/xác minh email; cần đăng nhập lại sau browser interruption. Người dùng yêu cầu xác nhận trước mọi merge/gộp main hoặc thay đổi dự án chính. Scope hoàn thiện UI/standings/controls vẫn trên nhánh riêng PR115; chưa tự merge/deploy Firebase hoặc chỉnh DB/Auth. Acceptance code đạt; Internet acceptance chờ backend public.
+
+2026-10-03: user đã đăng nhập Render trong Codex, cho phép hoàn tất bản thử online. Blueprint tạo service trial; đang chuyển sang gói frontend/backend cùng origin trên nhánh riêng. Built standalone QA 2/2 PASS, canonical PvP 4/4 PASS, backend 19/19 PASS (riêng lượt test combined lỗi screenshot đã sửa Page.bringToFront và built browser rerun PASS). Không merge, không thay Firebase/main/DB/Auth.

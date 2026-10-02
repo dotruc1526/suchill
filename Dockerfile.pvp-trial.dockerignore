@@ -1,0 +1,12 @@
+**
+!package.json
+!package-lock.json
+!index-pvp.html
+!vite.pvp.config.ts
+!src/
+!src/**
+!server/
+!server/*.js
+!server/package.json
+!server/package-lock.json
+**/.env*

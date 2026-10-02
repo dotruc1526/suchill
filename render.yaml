@@ -1,12 +1,12 @@
-# Trial backend only. Firebase continues hosting the frontend from PR109.
+# Standalone PvP trial: frontend and backend together, no Firebase/main changes.
 services:
   - type: web
     name: suchill-dautri-pvp
     runtime: docker
     plan: free
     region: singapore
-    dockerfilePath: ./server/Dockerfile
-    dockerContext: ./server
+    dockerfilePath: ./Dockerfile.pvp-trial
+    dockerContext: .
     healthCheckPath: /health
     numInstances: 1
     autoDeployTrigger: "off"
@@ -15,5 +15,3 @@ services:
         value: production
       - key: SESSION_SECRET
         generateValue: true
-      - key: ALLOWED_ORIGINS
-        sync: false

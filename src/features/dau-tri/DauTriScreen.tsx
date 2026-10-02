@@ -13,8 +13,8 @@ import { BattlePlayers } from "./components/BattlePlayers";
 import { BattleResult } from "./components/BattleResult";
 import { BattleModal } from "./components/BattleModal";
 
-export default function DauTriScreen({ userId, playerName = "Người chơi", onNavigateTab, onMatchActiveChange }: DauTriScreenProps) {
-  const game = useSocketGame({ initialPlayer: { userId, username: playerName } });
+export default function DauTriScreen({ userId, playerName = "Người chơi", serverOrigin, onNavigateTab, onMatchActiveChange }: DauTriScreenProps) {
+  const game = useSocketGame({ initialPlayer: { userId, username: playerName }, serverOrigin });
   const { state } = game;
   const [confirmExit, setConfirmExit] = useState(false);
   const [showRules, setShowRules] = useState(false), [showLeaderboard, setShowLeaderboard] = useState(false);
