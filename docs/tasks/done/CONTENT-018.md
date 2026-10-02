@@ -1,6 +1,6 @@
 # CONTENT-018 — Soạn bài học đọc tiêu chuẩn Bài 3 Chapter 1972 ("12 Ngày đêm rực lửa")
 
-> Status: REVIEW\
+> Status: DONE\
 > Last updated: 2026-10-02
 
 ## Assignment
