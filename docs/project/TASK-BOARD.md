@@ -404,3 +404,9 @@ AI phải đọc task board trước khi làm việc. Nếu task `BLOCKED` hoặ
 | M5-07 | Codex technical candidate; QA/PO approval pending | BLOCKED | Formal M4 acceptance; PO opens M5 | [Card](../tasks/blocked/M5-07.md); reused implementation technically APPROVED,330Quality/native72/hosted9 PASS; [evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); awaits PO gate |
 | AUTH-USERNAME-001 | Codex; QA/PO review pending | REVIEW | Existing Auth integration | [Card](../tasks/active/AUTH-USERNAME-001.md); core username browser flow PASS; optional recovery sender/email/redirect acceptance remains pending |
 | MAIN-INTEGRATION-AUDIT-002 | Codex; QA/PO review pending | REVIEW | Prior branch audit | [Card](../tasks/active/MAIN-INTEGRATION-AUDIT-002.md); historical audit, candidate now tracked by M4-M5-INTEGRATION-001 |
+
+### Post-merge sequential delivery review — 2026-10-02
+
+| ID | Owner / executor | Reviewer | Status | Started | Files / next action |
+|---|---|---|---|---|---|
+| POSTMERGE-REVIEW-001 | Codex root | Independent Codex postmerge reviewer APPROVE; PO gates pending | REVIEW |2026-10-02| [Card](../tasks/active/POSTMERGE-REVIEW-001.md); main8b5ae10 Quality330/hosted9 PASS; [M6/M7 readiness and blockers](../engineering/postmerge-m6-m7/READINESS.md); sequential PO gate response pending |
