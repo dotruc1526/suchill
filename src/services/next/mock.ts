@@ -1,3 +1,5 @@
+import { createMockCompletionServices } from './mockCompletion.ts'
+import type { MockCompletionPolicy } from './mockCompletionStore.ts'
 import type { Chapter, LearningDocument, Lesson, Locale, MediaAsset, StoryVersion } from '../../types/v2/content.ts'
 import { createMockProgressService, createMockProgressStore, type MockProgressStore } from './mockProgress.ts'
 import { createMockMediaService, type MockMediaResource } from './mockMedia.ts'
@@ -6,6 +8,7 @@ import { createMockQuizService, type MockQuizFixture } from './mockQuiz.ts'
 export type { MockQuizFixture } from './mockQuiz.ts'
 
 export type MockCatalog = {
+  completionPolicies?: MockCompletionPolicy[]
   documents?: LearningDocument[]
   chapters: Chapter[]
   lessons: Lesson[]
@@ -18,7 +21,7 @@ export type MockCatalog = {
 /** Isolated contract adapter for tests and future UI wiring; no demo data is canonical. */
 export function createMockLearningServices(
   catalog: MockCatalog,
-  session: { userId: string; displayName?: string; locale?: Locale },
+  session: { userId: string; displayName?: string; locale?: Locale; timezone?: string },
   now: () => string = () => new Date().toISOString(),
   progressStore: MockProgressStore = createMockProgressStore(),
 ): LearningServices {
@@ -26,7 +29,9 @@ export function createMockLearningServices(
   const published = <T extends { status?: string; reviewStatus?: string }>(value: T): boolean =>
     (value.status ?? value.reviewStatus) === 'published'
 
+  const completion = createMockCompletionServices(catalog, session, now, progressStore)
   return {
+    completion: completion.service,
     chapters: {
       async listPublished() {
         return success(copy(catalog.chapters.filter(published)))
@@ -56,8 +61,9 @@ export function createMockLearningServices(
     },
     media: createMockMediaService(catalog),
     progress: createMockProgressService(catalog, session, now, progressStore),
-    quiz: createMockQuizService(catalog, session),
+    quiz: createMockQuizService(catalog, session, progressStore.completion),
     users: {
+      getAccountSummary: completion.getAccountSummary,
       async getCurrentProfile() {
         if (!session.userId) return failure('unauthorized')
         return success({ id: session.userId, displayName: session.displayName ?? '', locale: session.locale ?? 'vi-VN' })
