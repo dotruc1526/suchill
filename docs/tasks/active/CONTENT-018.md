@@ -36,6 +36,11 @@
 - Files claimed:
   - `docs/tasks/active/CONTENT-018.md`
   - `docs/content/LESSON-03-1972-STANDARD.md`
+  - `docs/content/CHAPTER-1972-PACKAGE.md`
+  - `docs/content/CHUAN-HOA-NOI-DUNG-GIAO-DUC-1972.md`
+  - `docs/content/HISTORICAL-SOURCES.md`
+  - `docs/content/PILOT-SCREENPLAY.md`
+  - `docs/content/M3-INTEGRATION-GUIDE.md`
   - `docs/content/validate-1972-lesson03.mjs`
   - `docs/project/TASK-BOARD.md`
 
@@ -62,10 +67,11 @@
 | 2026-09-28 | Thọ (Member 1) | Khởi tạo task card CONTENT-018 và xác lập phạm vi soạn thảo Bài 3 Chapter 1972 | Card CONTENT-018; branch `content/tho-lesson-03-1972-reading` | Viết bài học đọc tiêu chuẩn và script validator | Không |
 | 2026-09-28 | Thọ (Member 1) | Hoàn thành bài học đọc tiêu chuẩn Bài 3 `LESSON-03-1972-STANDARD.md` và script kiểm thử tự động `validate-1972-lesson03.mjs` PASS 100%; chuyển REVIEW | `docs/content/LESSON-03-1972-STANDARD.md`, `validate-1972-lesson03.mjs` | Bàn giao cho Trúc thẩm định sử liệu và Product Owner nghiệm thu | Không |
 | 2026-10-01 | Thọ (Member 1) | Đồng bộ main sạch 0 conflict vào PR #65; xác minh 0-link-lỗi DOC-013; validator PASS 100% | `docs/content/LESSON-03-1972-STANDARD.md`, `validate-1972-lesson03.mjs` | Chờ Trúc và Product Owner duyệt PR #65 | Không |
+| 2026-10-02 | Thọ (Member 1) | Sửa mốc Bạch Mai tách khỏi Khâm Thiên: rạng sáng 22/12/1972, 28 người thiệt mạng gồm 27 nhân viên y tế và 1 bệnh nhân; thêm nguồn Báo Nhân Dân `SRC-1972-WEB-09`; bỏ claim quá mức về Tòa Đại sứ; handoff M3 khớp contract hiện có | 3 validators nội dung PASS; `git diff --check` PASS; claim và source registry được đồng bộ | Trúc thẩm định lại sử liệu trên head PR mới; CONTENT-018/019 vẫn REVIEW | Human sign-off chưa có |
 
 ## Handoff
 
-- Changed files: `docs/tasks/active/CONTENT-018.md`, `docs/content/LESSON-03-1972-STANDARD.md`, `docs/content/validate-1972-lesson03.mjs`, `docs/project/TASK-BOARD.md`.
-- Test/build result: `validate-1972-lesson03.mjs` PASS 100%, `validate-1972-authoring.mjs` PASS 100%, `check-client-env.mjs` PASS (0 secrets).
+- Changed files: `docs/tasks/active/CONTENT-018.md`, `docs/content/LESSON-03-1972-STANDARD.md`, `docs/content/CHAPTER-1972-PACKAGE.md`, `docs/content/CHUAN-HOA-NOI-DUNG-GIAO-DUC-1972.md`, `docs/content/HISTORICAL-SOURCES.md`, `docs/content/validate-1972-lesson03.mjs`, `docs/project/TASK-BOARD.md`.
+- Test/build result (2026-10-02): `node docs/content/validate-1972-authoring.mjs`, `node docs/content/validate-1972-lesson03.mjs`, `node docs/content/validate-1972-quiz.mjs`, và `git diff --check` đều PASS. Validator Lesson 3 chỉ xác nhận cấu trúc, event/date strings, claim/source IDs; không thẩm định fact. Chưa chạy app build/typecheck vì thay đổi chỉ nằm trong tài liệu và validator.
 - Environment/migration impact: docs/content-only, không ảnh hưởng runtime.
 - Next owner/action: Trúc (Historical Reviewer) thẩm định sử liệu và văn phong; Product Owner nghiệm thu.

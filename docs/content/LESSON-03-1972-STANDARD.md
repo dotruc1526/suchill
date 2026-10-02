@@ -31,7 +31,7 @@ Trận đánh đêm 20/12 đánh dấu sự phá sản của niềm tin từ L�
 
 Sau đợt tạm ngừng ném bom 36 giờ nhân dịp lễ Giáng sinh (từ 24h ngày 24/12 đến 11h ngày 26/12), đêm 26/12/1972, Không quân Mỹ mở đợt tập kích quy mô lớn nhất và tàn bạo nhất trong toàn bộ chiến dịch:
 - Huy động 105 lần chiếc máy bay chiến lược B-52 cùng hơn 100 máy bay chiến thuật yểm trợ, đồng loạt đánh phá từ nhiều hướng vào Hà Nội, Hải Phòng và Thái Nguyên. [CLM-1972-RD-002 / SRC-LB2-02, SRC-LB2-04]
-- Bom rải thảm B-52 đã tàn phá nghiêm trọng khu phố Khâm Thiên — một trong những khu dân cư đông đúc nhất của Hà Nội — cướp đi sinh mạng của 287 thường dân vô tội, làm bị thương 290 người và phá hủy gần 2.000 ngôi nhà. Trước đó, vào ngày 22/12, Bệnh viện Bạch Mai cũng bị bom phá hủy nặng nề, khiến 28 y bác sĩ và nhân viên y tế hy sinh. [CLM-1972-RD-003 / SRC-LB2-01, SRC-LB2-03]
+- Bom B-52 tàn phá khu phố Khâm Thiên đêm 26/12, làm 287 người thiệt mạng, 290 người bị thương và phá hủy gần 2.000 ngôi nhà. Trước đó, rạng sáng 22/12, Bệnh viện Bạch Mai bị ném bom; 28 người thiệt mạng, gồm 27 nhân viên y tế và 1 bệnh nhân. [CLM-1972-RD-003 / SRC-LB2-01, SRC-LB2-03, SRC-1972-WEB-09]
 
 Biến đau thương thành hành động, lực lượng phòng không ba thứ quân đã hiệp đồng chặt chẽ giáng trả đòn đích đáng:
 - Trong đêm 26/12, quân và dân miền Bắc đã bắn rơi 8 chiếc B-52 (riêng lực lượng phòng không Hà Nội tiêu diệt 5 chiếc, có 4 chiếc rơi tại chỗ) cùng 10 máy bay chiến thuật khác. [CLM-1972-RD-002 / SRC-LB2-02]
@@ -79,7 +79,7 @@ Tỷ lệ tổn thất máy bay ném bom chiến lược B-52 tăng vọt đến
 ### Danh mục Claim sử dụng trong bài:
 - `CLM-1972-RD-001`: Diễn biến đêm 20/12/1972, tên lửa phòng không Hà Nội bắn rơi 7 máy bay B-52 (`verified_fact`).
 - `CLM-1972-RD-002`: Đêm 26/12/1972 là đợt tập kích lớn nhất (105 lần chiếc B-52), quân dân miền Bắc bắn rơi 8 chiếc B-52 (`verified_fact`).
-- `CLM-1972-RD-003`: Hậu quả bom rải thảm tại Khâm Thiên đêm 26/12 (287 người thiệt mạng) và Bệnh viện Bạch Mai (`verified_fact`).
+- `CLM-1972-RD-003`: Tách rõ hai mốc: Khâm Thiên 26/12 (287 người chết, 290 người bị thương); Bạch Mai rạng sáng 22/12 (28 người chết, gồm 27 nhân viên y tế và 1 bệnh nhân) (`verified_fact`). Nguồn Bạch Mai: `SRC-1972-WEB-09`.
 - `CLM-1972-RD-004`: Tổn thất B-52 làm suy sụp ý chí của giới quân sự Mỹ, đe dọa khả năng răn đe chiến lược (`educational_explanation`).
 - `CLM-1972-RD-005`: Mỹ buộc phải tuyên bố ngừng ném bom ngày 30/12/1972 và ký Hiệp định Paris ngày 27/01/1973 (`verified_fact`).
 

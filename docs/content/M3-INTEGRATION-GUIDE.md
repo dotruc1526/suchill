@@ -19,7 +19,7 @@ $$\text{Authoring Asset (docs/content)} \xrightarrow{\text{Adapter Mapping}} \te
    - UI **không tự tính điểm, không tự xác định `passed`, không tự cộng XP hay tự trao huy hiệu**.
    - Kết quả đánh giá bài thi do `QuizService` trả về qua **`ScoredQuizReceipt`** gồm các trường: `{ attemptId, score, total, passed, feedback }`.
    - Tỷ lệ phần trăm có thể được UI tính cho mục đích hiển thị từ `Math.round((score / total) * 100)`.
-   - Phần thưởng điểm kinh nghiệm (XP) và chuỗi học tập (Streak) được xử lý thông qua service tiến độ/người dùng (`ProgressService` / `UserService`), tách biệt khỏi receipt trắc nghiệm.
+   - Contract hiện hành chưa cung cấp completion/reward/XP/streak API hoặc read model: `ProgressService` chỉ quản lý checkpoint/resume và `UserService.getCurrentProfile()` chỉ trả profile. Quy tắc Phase 7 là chính sách đã duyệt, không phải API có sẵn. M3 không hiển thị XP/streak đã xác nhận cho đến khi task backend/service và gate tương ứng cung cấp dữ liệu; không mở rộng `ScoredQuizReceipt` để chứa reward.
 3. **Trạng thái tài liệu:**
    - Các tệp trong `docs/content/` là sản phẩm của Content Lead đang trong quá trình thẩm định (`REVIEW`). Việc nạp thành fixture chính thức trong runtime phụ thuộc vào quyết định nghiệm thu của Trúc (Historical Reviewer) và Product Owner.
 
@@ -31,7 +31,7 @@ $$\text{Authoring Asset (docs/content)} \xrightarrow{\text{Adapter Mapping}} \te
 |---|---|---|---|---|
 | **Bài 1 (Video)** | `SCREENPLAY-1972.md`<br>`CAPTIONS-1972.vtt` | `MediaService`<br>`LessonService` | `MediaAsset`<br>`Lesson` (`format: 'video'`) | URL video, WebVTT subtitle tracks, text-first fallback card |
 | **Bài 2 (VN)** | `LESSON-02-1972-STORY.json`<br>`DIAGRAM-SAM2-1972.json` | `VisualNovelService`<br>`ProgressService` | `StoryVersion` (8 scenes)<br>Interactive Diagram (5 nodes) | Scene nodes, narrative choices, knowledge check, checkpoint session |
-| **Bài 3 (Standard)** | `LESSON-03-1972-STANDARD.md` | `DocumentService`<br>`LessonService` | `DomainDocument` (`doc-1972-03-standard`) | Structured content blocks, comparison table, reflection questions |
+| **Bài 3 (Standard)** | `LESSON-03-1972-STANDARD.md` | `DocumentService`<br>`LessonService` | `LearningDocument` (`doc-1972-03-standard`) | `DocumentSection`: `heading`, `paragraph`, `key_points` theo contract hiện hành |
 | **Bài 4 (Quiz)** | `QUIZ-1972.json` | `QuizService` | `QuestionSet`<br>`MultipleChoiceQuestion` | `DeliveredQuestion` (bảo mật answer key, nộp bài nhận receipt) |
 
 ---
@@ -60,8 +60,8 @@ $$\text{Authoring Asset (docs/content)} \xrightarrow{\text{Adapter Mapping}} \te
   - Sơ đồ có text-first fallback hoàn chỉnh cho từng node.
 
 ### 3.3. Bài 3: Bài Đọc Tiêu Chuẩn "12 Ngày đêm rực lửa" (`lsn-1972-03`)
-- **Tích hợp:** Domain adapter chuyển hóa `LESSON-03-1972-STANDARD.md` thành một `DomainDocument` có `id: 'doc-1972-03-standard'` chứa các section có kiểu phân biệt (`verified_fact`, `educational_explanation`, `reading_reflection`).
-- **UI:** Gọi `documentService.getById('doc-1972-03-standard')` để render typography chuẩn Inter, bảng đối chiếu số liệu tổn thất khách quan (Việt Nam vs USAF) và hộp suy ngẫm đọc hiểu.
+- **Tích hợp:** Adapter chuyển `LESSON-03-1972-STANDARD.md` thành `LearningDocument` theo `src/types/v2/document.ts`, gồm `id`, `title`, `locale`, `sections`, `sourceIds`, `status`. Mỗi section dùng đúng một trong các kind hiện có: `heading`, `paragraph`, `key_points`; không tạo `DomainDocument` hoặc section kind mới.
+- **UI:** Gọi `DocumentService.getById('doc-1972-03-standard')`. Trình bày các số liệu đối chiếu và câu hỏi đọc hiểu bằng `paragraph`/`key_points`; claim classification và locator chi tiết giữ trong authoring/source registry vì `DocumentSection` hiện không có metadata claim-level. Bảng/hộp reflection chuyên biệt cần contract/task được duyệt riêng.
 
 ### 3.4. Bài 4: Trắc Nghiệm Tổng Kết Chapter 1972 (`lsn-1972-04`)
 - **Ánh xạ Schema 3 tầng:**
@@ -97,7 +97,7 @@ $$\text{Authoring Asset (docs/content)} \xrightarrow{\text{Adapter Mapping}} \te
     - Tiêu chí đạt chuẩn: `passed === true` (khi `score / total >= 0.8`, tức đúng $\ge 4/5$ câu).
     - `feedback`: Mảng đầy đủ kết quả từng câu `{ questionId, outcome: 'correct' | 'incorrect', explanation }`.
 - **Chính sách Phần thưởng (Phase 7 Spec):**
-  - Phần thưởng hoàn thành (+20 XP cho lần đầu đạt bài kiểm tra cuối chapter, bonus +5 XP khi đạt $\ge 80\%$) và cập nhật chuỗi học tập (Streak) được xử lý độc lập qua service tiến độ/người dùng (`ProgressService` / `UserService`), UI hiển thị phần thưởng dựa trên dữ liệu từ các service này.
+  - Các mức thưởng và streak được mô tả trong Phase 7, nhưng interfaces hiện hành chưa có completion/reward/streak operation hay read model. M3 không thể lấy XP/streak xác nhận từ `ProgressService` hoặc `UserService`; không hiển thị reward cho đến khi task/backend gate riêng bổ sung API được duyệt. Không gán reward vào `ScoredQuizReceipt`.
 
 ---
 

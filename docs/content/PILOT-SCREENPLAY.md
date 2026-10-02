@@ -47,7 +47,7 @@ Dành cho người học khi tài nguyên video MP4 chưa sẵn sàng (`CONTENT-
 3. **Phân cảnh 3 — 5 Mục tiêu đầu não chiến lược tại Sài Gòn (45–70s):**
    Tại Sài Gòn, các mũi tiến công của Biệt động đồng loạt giáng đòn vào 5 mục tiêu trọng yếu: Tòa Đại sứ Mỹ, Dinh Độc Lập, Đài Phát thanh Sài Gòn, Bộ Tổng Tham mưu và Bộ Tư lệnh Hải quân. *(Nguồn: `SRC-MT68-02` / Phân loại: `verified_fact`)*
 4. **Phân cảnh 4 — Tinh thần chiến đấu và ranh giới cứ liệu (70–100s):**
-   Mỗi trận đánh diễn ra ác liệt: Đội 11 Biệt động làm chủ sân vườn và tầng dưới Tòa Đại sứ Mỹ trong hơn 6 giờ; Đội 5 Biệt động kiên cường chiến đấu tại Dinh Độc Lập khi bộc phá mở cổng không nổ. Khi nghiên cứu tư liệu, cần phân biệt việc tiến công vào khuôn viên với việc chiếm đóng toàn bộ công trình. *(Nguồn: `SRC-MT68-03`, `SRC-MT68-04` / Phân loại: `verified_fact`)*
+   Mỗi trận đánh diễn ra ác liệt. Đội 11 Biệt động tiến công vào khuôn viên Tòa Đại sứ Mỹ; không đồng nhất việc tiến công khuôn viên với việc chiếm tòa nhà chính. Đội 5 Biệt động chiến đấu tại Dinh Độc Lập khi bộc phá mở cổng không nổ. *(Nguồn: `SRC-MT68-03` / Phân loại: `fact candidate; NEEDS_HISTORICAL_REVIEW`)*
 5. **Phân cảnh 5 — Ý nghĩa bước ngoặt và định hướng bài học tiếp theo (100–110s):**
    Đòn bất ngờ Mậu Thân 1968 đã làm rung chuyển chính giới Mỹ, mở ra cục diện vừa đánh vừa đàm tại Hội nghị Paris. Người học tiếp tục chuyển sang Bài 2 để nghiên cứu sâu từng mục tiêu qua lăng kính tư liệu lịch sử. *(Nguồn: `SRC-MT68-01` / Phân loại: `educational_explanation`)*
 

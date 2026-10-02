@@ -101,13 +101,13 @@ Dành cho Hưng (Member 3) và Dương (Member 4) khi tích hợp gói nội dun
    - Node bắt đầu: `sam2-v1-briefing`, Node kết thúc: `sam2-v1-end`.
    - Lựa chọn narrative không có `isCorrect`, Scene 6 kiểm tra kiến thức có `isCorrect: true` và feedback sư phạm.
 3. **Standard Reading Reader (`DocumentService`):**
-   - Ánh xạ `LESSON-03-1972-STANDARD.md` vào `DomainDocument` (`doc-1972-03-standard`).
-   - UI gọi `documentService.getById` để lấy các structured blocks và bảng đối chiếu.
+   - Adapter ánh xạ `LESSON-03-1972-STANDARD.md` thành `LearningDocument` (`doc-1972-03-standard`) với các `DocumentSection` có `kind` đúng contract: `heading`, `paragraph` hoặc `key_points`.
+   - UI lấy tài liệu qua `DocumentService.getById`; dữ liệu đối chiếu và câu hỏi đọc hiểu được biểu diễn bằng các đoạn văn/ý chính hiện có. Contract hiện chưa có section kind cho bảng hoặc câu hỏi reflection riêng.
 4. **Quiz Assessment Engine (`QuizService`):**
    - Ánh xạ `QUIZ-1972.json` vào `QuestionSet`.
    - `QuizService.getQuestionSet` trả về `DeliveredQuestion` ẩn answer key/explanation trước submit.
    - UI nộp bài qua `submitPracticeAttempt` hoặc `submitScoredAttempt`.
-   - Tiêu chí đạt 80% (4/5 câu). Service trả về `ScoredQuizReceipt` gồm `{ attemptId, score, total, passed, feedback }`. UI suy ra tỷ lệ phần trăm từ `score / total` nếu cần. Phần thưởng XP (+20 XP lần đầu pass, bonus +5 XP) và streak được quản lý độc lập bởi các service tiến độ và hồ sơ người dùng theo Phase 7 spec, không nằm trong receipt trắc nghiệm.
+   - `ScoredQuizReceipt` hiện chỉ gồm `{ attemptId, score, total, passed, feedback }`; UI có thể tính tỷ lệ để trình bày từ `score / total`. `LearningServices` hiện chưa có operation/read model cho completion, XP hoặc streak. Quy tắc reward/streak thuộc Phase 7 đã duyệt nhưng cần backend/service task và gate riêng trước khi UI có thể hiển thị dữ liệu đã xác nhận; không thêm các field này vào quiz receipt.
 
 ---
 
@@ -157,7 +157,8 @@ Tuân thủ nghiêm ngặt **Quy chuẩn Bằng chứng và Trích dẫn Nguồn
 | **Báo Quân đội nhân dân** | *Hạ con "ngáo ộp" đầu tiên* | [qdnd.vn](https://ct.qdnd.vn/chan-dung-nguoi-linh/ha-con-ngao-op-dau-tien-528517) | Tiểu đoàn 59 (Trung đoàn 261) phóng 2 đạn SAM-2 bắn rơi chiếc B-52 đầu tiên tại cánh đồng Chuôm, Phù Lỗ lúc 20h13 đêm 18/12 | **Bài 2** |
 | **Báo Quân đội nhân dân** | *Huyền thoại tên lửa SAM-2* | [qdnd.vn](https://ct.qdnd.vn/phong-su-dieu-tra/huyen-thoai-ten-lua-sam-2-528519) | Cấu trúc kíp chiến đấu SAM-2 trong cabin Xe K, môi trường tác chiến điện tử ECM tháng 12/1972 | **Bài 2, Bài 4** |
 | **Báo Nhân Dân** | *"Pháo đài bay" B-52 đầu tiên đã bị hạ gục như thế* | [nhandan.vn](https://nhandan.vn/phao-dai-bay-b52-dau-tien-da-bi-ha-guc-nhu-the-post440097.html) | Tuyến lửa Vĩnh Linh 1966-1967 nghiên cứu cách đánh B-52, quá trình hình thành tài liệu "Cẩm nang bìa đỏ", SA-75 SAM-2 | **Bài 1, Bài 2** |
-| **Báo Nhân Dân** | *Thắng lợi của sức mạnh đại đoàn kết dân tộc* | [nhandan.vn](https://nhandan.vn/thang-loi-cua-suc-manh-dai-doan-ket-dan-toc-post385567.html) | Tội ác bom rải thảm B-52 tại phố Khâm Thiên đêm 26/12 (287 người chết, 290 người bị thương) và Bệnh viện Bạch Mai | **Bài 3, Bài 4** |
+| **Báo Nhân Dân** | *Thắng lợi của sức mạnh đại đoàn kết dân tộc* | [nhandan.vn](https://nhandan.vn/thang-loi-cua-suc-manh-dai-doan-ket-dan-toc-post385567.html) | Khâm Thiên đêm 26/12: 287 người chết, 290 người bị thương | **Bài 3, Bài 4** |
+| **Báo Nhân Dân** | *Ký ức 50 năm Bệnh viện Bạch Mai bị ném bom B-52* | [nhandan.vn](https://nhandan.vn/special/kyucbachmai/index.html) | Rạng sáng 22/12/1972: 28 người thiệt mạng, gồm 27 nhân viên y tế và 1 bệnh nhân | **Bài 3** |
 | **Tạp chí Cộng sản** | *Chiến thắng "Điện Biên Phủ trên không" - Ý chí, bản lĩnh và trí tuệ Việt Nam* | [tapchicongsan.org.vn](https://www.tapchicongsan.org.vn/en_US/web/guest/dang-uy-khoi-doanh-nghiep-trung-uong/-/2018/826621/view_content) | Phân tích đòn bẻ gãy ý chí tập kích Linebacker II, tác động trực tiếp buộc Nixon tuyên bố ngừng ném bom ngày 30/12/1972 | **Bài 3, Bài 4** |
 
 ---
@@ -174,7 +175,8 @@ Tuân thủ nghiêm ngặt **Quy chuẩn Bằng chứng và Trích dẫn Nguồn
 | **Bài 2: Visual Novel** (`CONTENT-016`, `CONTENT-017`) | Môi trường nhiễu điện tử dày đặc (nhiễu rãnh, nhiễu tiêu cực chaff) và thuật ngữ "vạch nhiễu tìm thù" | `educational_explanation` (`CLM-1972-VN-003`, `004`) | `SRC-1972-03`; `SRC-LB2-02` | [Báo QĐND Cuối tuần](https://ct.qdnd.vn/ho-so-tu-lieu/bai-2-chuan-bi-chu-dao-ky-luong-tren-tat-ca-moi-mat-521888) |
 | **Bài 2: Visual Novel** (`CONTENT-016`, `CONTENT-017`) | Chiếc B-52 đầu tiên bị bắn rơi tại chỗ lúc 20h13 đêm 18/12 bởi Tiểu đoàn 59 (Trung đoàn 261) tại cánh đồng Chuôm, Phù Lỗ | `verified_fact` | `SRC-LB2-02` (tr. 295–298) | [Báo QĐND Cuối tuần](https://ct.qdnd.vn/chan-dung-nguoi-linh/ha-con-ngao-op-dau-tien-528517) |
 | **Bài 3: Bài đọc** (`CONTENT-018`) | Đêm 20/12/1972: Đỉnh điểm bẻ gãy đợt tập kích ban đầu, bắn rơi 7 chiếc B-52 (5 chiếc rơi tại chỗ) | `verified_fact` (`CLM-1972-RD-001`) | `SRC-LB2-01` (tr. 628–630); `SRC-LB2-02` (tr. 308–312) | [Báo điện tử Chính phủ](https://baochinhphu.vn/ha-noi-dien-bien-phu-tren-khong-1972-suc-manh-viet-nam-va-tam-voc-thoi-dai-102221209145629429.htm) |
-| **Bài 3: Bài đọc** (`CONTENT-018`) | Đêm 26/12/1972: Không quân Mỹ ném bom rải thảm tàn sát phố Khâm Thiên (287 người thiệt mạng) và Bệnh viện Bạch Mai (28 cán bộ hy sinh) | `verified_fact` (`CLM-1972-RD-003`) | `SRC-LB2-01` (tr. 635–638); `SRC-LB2-03` (tr. 180–195) | [Báo Nhân Dân](https://nhandan.vn/thang-loi-cua-suc-manh-dai-doan-ket-dan-toc-post385567.html) |
+| **Bài 3: Bài đọc** (`CONTENT-018`) | Khâm Thiên, đêm 26/12/1972: 287 người thiệt mạng, 290 người bị thương | `verified_fact` (`CLM-1972-RD-003`) | `SRC-LB2-01`, `SRC-LB2-03` | [Báo Nhân Dân](https://nhandan.vn/thang-loi-cua-suc-manh-dai-doan-ket-dan-toc-post385567.html) |
+| **Bài 3: Bài đọc** (`CONTENT-018`) | Bệnh viện Bạch Mai, rạng sáng 22/12/1972: 28 người thiệt mạng, gồm 27 nhân viên y tế và 1 bệnh nhân | `verified_fact` (`CLM-1972-RD-003`) | `SRC-1972-WEB-09` | [Báo Nhân Dân](https://nhandan.vn/special/kyucbachmai/index.html) |
 | **Bài 3: Bài đọc** (`CONTENT-018`) | Đêm 26/12/1972: Quân dân miền Bắc bắn rơi 8 chiếc B-52 (Hà Nội diệt 5 chiếc), giáng đòn quyết định | `verified_fact` (`CLM-1972-RD-002`) | `SRC-LB2-02` (tr. 318–324) | [Báo QĐND](https://ct.qdnd.vn/ho-so-tu-lieu/bai-2-chuan-bi-chu-dao-ky-luong-tren-tat-ca-moi-mat-521888) |
 | **Bài 3: Bài đọc** (`CONTENT-018`) | Bảng đối chiếu số liệu tổn thất khách quan: VN công bố 81 máy bay (34 B-52) vs Không quân Mỹ thừa nhận 15-16 B-52 bị hạ | `uncertain_or_contested` (`CLM-LB2-001`) | `SRC-LB2-01` / `SRC-LB2-02` vs `SRC-LB2-04` / `SRC-LB2-05` | [Báo điện tử Chính phủ](https://baochinhphu.vn/ha-noi-dien-bien-phu-tren-khong-1972-suc-manh-viet-nam-va-tam-voc-thoi-dai-102221209145629429.htm) |
 | **Bài 3: Bài đọc** (`CONTENT-018`) | 07h00 ngày 30/12/1972 Mỹ tuyên bố ngừng ném bom; ngày 27/01/1973 ký kết Hiệp định Paris | `verified_fact` (`CLM-1972-RD-005`) | `SRC-LB2-01` (tr. 648–652); `SRC-LB2-05` (tr. 347–348) | [Tạp chí Cộng sản](https://www.tapchicongsan.org.vn/en_US/web/guest/dang-uy-khoi-doanh-nghiep-trung-uong/-/2018/826621/view_content) |

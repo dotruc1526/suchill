@@ -69,11 +69,11 @@ Việc bắn rơi B-52 ngay trong đêm tập kích đầu tiên đã đập tan
 
 | Fact | Evidence / Source | Confidence |
 |---|---|---|
-| **Thời gian bắt đầu chiến dịch:** Tối 18/12/1972, còi báo động rú lúc 19h15 tại Hà Nội. | *Nhật ký Tác chiến Hầm T1 Hoàng thành Thăng Long*; *Lịch sử Quân chủng PK-KQ (1963-2013)*, tr. 256. | [FACT] Cao (100%) |
-| **Quy mô huy động B-52 của Mỹ:** 193 máy bay B-52 (gồm B-52D và B-52G) từ căn cứ Andersen (Guam) và U-Tapao (Thái Lan). | USAF Historical Studies: *Linebacker II - A View from the Rock*; Báo QĐND, tư liệu 50 năm Điện Biên Phủ trên không. | [FACT] Cao (100%) |
-| **Dự báo của Chủ tịch Hồ Chí Minh:** Cuối năm 1967, Bác Hồ dặn đồng chí Phùng Thế Tài về việc B-52 sẽ đánh Hà Nội. | *Hồ Chí Minh Toàn tập*, Tập 15, NXB Chính trị Quốc gia; Lời kể của Thượng tướng Phùng Thế Tài. | [FACT] Cao (100%) |
-| **Chiếc B-52 đầu tiên rơi tại chỗ:** Tiểu đoàn 59, Trung đoàn 261 bắn rơi lúc 20h13 ngày 18/12/1972 tại Phù Lỗ. | *Lịch sử Bộ đội Tên lửa Phòng không (1965-2015)*, NXB QĐND, tr. 182-184. | [FACT] Cao (100%) |
-| **Tài liệu hướng dẫn đánh B-52:** "Cẩm nang cách đánh B-52" (bìa đỏ) hoàn thành tháng 10/1972. | Bản gốc lưu trữ tại Bảo tàng PK-KQ; Kỷ yếu Hội thảo khoa học Bộ Quốc phòng 2012. | [FACT] Cao (100%) |
+| **Thời gian bắt đầu chiến dịch:** Tối 18/12/1972, còi báo động rú lúc 19h15 tại Hà Nội. | *Nhật ký Tác chiến Hầm T1 Hoàng thành Thăng Long*; *Lịch sử Quân chủng PK-KQ (1963-2013)*, tr. 256. | [FACT CANDIDATE] Chờ reviewer lịch sử đối chiếu |
+| **Quy mô huy động B-52 của Mỹ:** 193 máy bay B-52 (gồm B-52D và B-52G) từ căn cứ Andersen (Guam) và U-Tapao (Thái Lan). | USAF Historical Studies: *Linebacker II - A View from the Rock*; Báo QĐND, tư liệu 50 năm Điện Biên Phủ trên không. | [FACT CANDIDATE] Chờ reviewer lịch sử đối chiếu |
+| **Dự báo của Chủ tịch Hồ Chí Minh:** Cuối năm 1967, Bác Hồ dặn đồng chí Phùng Thế Tài về việc B-52 sẽ đánh Hà Nội. | *Hồ Chí Minh Toàn tập*, Tập 15, NXB Chính trị Quốc gia; Lời kể của Thượng tướng Phùng Thế Tài. | [FACT CANDIDATE] Chờ reviewer lịch sử đối chiếu |
+| **Chiếc B-52 đầu tiên rơi tại chỗ:** Tiểu đoàn 59, Trung đoàn 261 bắn rơi lúc 20h13 ngày 18/12/1972 tại Phù Lỗ. | *Lịch sử Bộ đội Tên lửa Phòng không (1965-2015)*, NXB QĐND, tr. 182-184. | [FACT CANDIDATE] Chờ reviewer lịch sử đối chiếu |
+| **Tài liệu hướng dẫn đánh B-52:** "Cẩm nang cách đánh B-52" (bìa đỏ) hoàn thành tháng 10/1972. | Bản gốc lưu trữ tại Bảo tàng PK-KQ; Kỷ yếu Hội thảo khoa học Bộ Quốc phòng 2012. | [FACT CANDIDATE] Chờ reviewer lịch sử đối chiếu |
 
 ---
 
@@ -124,10 +124,10 @@ Mục tiêu quân sự và chính trị chủ yếu của chính quyền Nixon k
 ---
 
 ## 7. Content QA
-- **Historical accuracy:** PASS (Dữ kiện đối chiếu 100% tài liệu Bộ Quốc phòng và hồi ký tác chiến).
+- **Historical accuracy:** NEEDS_HISTORICAL_REVIEW (chưa có reviewer lịch sử ký duyệt phiên bản này; nguồn được liệt kê cần được đối chiếu theo từng claim).
 - **Educational value:** PASS (Làm rõ nguyên nhân, bản chất sự kiện và bài học về tầm nhìn dự báo chiến lược).
 - **Language:** PASS (Văn phong mạch lạc, giàu cảm xúc tự hào nhưng khách quan, không dùng từ ngữ quá khó).
-- **Quiz accuracy:** PASS (3 câu hỏi kiểm tra trực tiếp kiến thức cốt lõi, không mẹo, có trích dẫn nguồn).
+- **Quiz structure:** PASS (3 câu hỏi kiểm tra kiến thức cốt lõi, không mẹo, có trích dẫn nguồn); **factual answer keys:** NEEDS_HISTORICAL_REVIEW.
 
 ---
 
@@ -197,9 +197,9 @@ Khi thời cơ tác chiến xuất hiện, đạn tên lửa SAM-2 rời bệ ph
 
 | Fact | Evidence / Source | Confidence |
 |---|---|---|
-| **Cabin điều khiển (Xe K) và sự hiện diện của kíp chiến đấu:** Cabin điều khiển Xe K là thành phần sở chỉ huy trong tổ hợp SAM-2, nơi kíp chiến đấu cùng làm việc và hiệp đồng tác chiến ở mức khái quát (không tái dựng thao tác vi mô). | *Lịch sử Bộ đội Tên lửa Phòng không*; `CLM-1972-VN-002`; Báo QĐND. | [FACT] Cao (100%) |
-| **Bối cảnh gây nhiễu điện tử của B-52:** Đối đầu với B-52 diễn ra trong môi trường đối phương gây nhiễu điện tử dày đặc nhằm che giấu mục tiêu trên màn huỳnh quang. | *Lịch sử Quân chủng PK-KQ*; `CLM-1972-VN-003`; Báo QĐND. | [FACT] Cao (100%) |
-| **Vai trò của 'Cẩm nang bìa đỏ':** Cuốn tài liệu *"Cách đánh B-52 của bộ đội tên lửa"* do Quân chủng PK-KQ ban hành tháng 10/1972 đúc kết kinh nghiệm thực tiễn từ Vĩnh Linh và Quân khu 4, giúp định hình phương pháp vạch nhiễu. | Kỷ yếu Hội thảo 40 năm Chiến thắng Hà Nội - Điện Biên Phủ trên không (Bộ Quốc phòng 2012); `CLM-1972-VN-003`. | [FACT] Cao (100%) |
+| **Cabin điều khiển (Xe K) và sự hiện diện của kíp chiến đấu:** Cabin điều khiển Xe K là thành phần sở chỉ huy trong tổ hợp SAM-2, nơi kíp chiến đấu cùng làm việc và hiệp đồng tác chiến ở mức khái quát (không tái dựng thao tác vi mô). | *Lịch sử Bộ đội Tên lửa Phòng không*; `CLM-1972-VN-002`; Báo QĐND. | [FACT CANDIDATE] Chờ reviewer lịch sử đối chiếu |
+| **Bối cảnh gây nhiễu điện tử của B-52:** Đối đầu với B-52 diễn ra trong môi trường đối phương gây nhiễu điện tử dày đặc nhằm che giấu mục tiêu trên màn huỳnh quang. | *Lịch sử Quân chủng PK-KQ*; `CLM-1972-VN-003`; Báo QĐND. | [FACT CANDIDATE] Chờ reviewer lịch sử đối chiếu |
+| **Vai trò của 'Cẩm nang bìa đỏ':** Cuốn tài liệu *"Cách đánh B-52 của bộ đội tên lửa"* do Quân chủng PK-KQ ban hành tháng 10/1972 đúc kết kinh nghiệm thực tiễn từ Vĩnh Linh và Quân khu 4, giúp định hình phương pháp vạch nhiễu. | Kỷ yếu Hội thảo 40 năm Chiến thắng Hà Nội - Điện Biên Phủ trên không (Bộ Quốc phòng 2012); `CLM-1972-VN-003`. | [FACT CANDIDATE] Chờ reviewer lịch sử đối chiếu |
 | **Tinh thần 'Vạch nhiễu tìm thù':** Biểu tượng của trí tuệ, bản lĩnh và sự sáng tạo tập thể của bộ đội tên lửa phòng không Việt Nam trong việc nhận diện và tiêu diệt pháo đài bay B-52. | Báo Quân đội nhân dân; Bảo tàng PK-KQ. | [INTERPRETATION] Đồng thuận cao |
 
 ---
@@ -251,10 +251,10 @@ Cuốn tài liệu đúc kết kinh nghiệm đánh B-52 do Quân chủng PK-KQ 
 ---
 
 ## 7. Content QA
-- **Historical accuracy:** PASS (Cấu trúc xe điều khiển, thuật ngữ radar và phương pháp 3 điểm hoàn toàn chuẩn xác theo tài liệu huấn luyện PK-KQ).
+- **Historical accuracy:** NEEDS_HISTORICAL_REVIEW (các thuật ngữ và diễn giải kỹ thuật cần reviewer chuyên môn đối chiếu; chưa có sign-off cho phiên bản này).
 - **Educational value:** PASS (Giúp học sinh hiểu tường tận bản chất công nghệ và vai trò của con người trong chiến tranh hiện đại).
 - **Language:** PASS (Hình ảnh so sánh sinh động như "râu tôm", "hạt vừng", văn phong cuốn hút, kịch tính).
-- **Quiz accuracy:** PASS (Được kiểm tra cẩn thận, đáp án chuẩn xác và có giải thích sư phạm kèm theo).
+- **Quiz structure:** PASS (có giải thích sư phạm); **factual answer keys:** NEEDS_HISTORICAL_REVIEW.
 
 ---
 
@@ -281,7 +281,7 @@ Cuốn tài liệu đúc kết kinh nghiệm đánh B-52 do Quân chủng PK-KQ 
 ---
 
 ## 2. Hook
-Có những con số trong lịch sử không đơn thuần là dữ liệu thống kê, mà được viết bằng máu và nước mắt: **287 người dân vô tội thiệt mạng** trong một đêm tại con phố Khâm Thiên nhỏ bé, **28 y bác sĩ hy sinh** ngay dưới đống đổ nát của Bệnh viện Bạch Mai.
+Có những con số trong lịch sử không đơn thuần là dữ liệu thống kê, mà được viết bằng máu và nước mắt: **287 người dân vô tội thiệt mạng** trong một đêm tại con phố Khâm Thiên nhỏ bé, **28 người thiệt mạng tại Bệnh viện Bạch Mai rạng sáng 22/12/1972, gồm 27 nhân viên y tế và 1 bệnh nhân. [SRC-1972-WEB-09]**
 
 Nhưng cũng chính tại nơi đau thương tột cùng ấy, một kỳ tích quân sự vô tiền khoáng hậu đã xuất hiện: Hơn 30 "pháo đài bay" B-52 bị bắn rụng, buộc siêu cường số một thế giới phải tuyên bố đơn phương ngừng ném bom và cúi đầu ký tên vào bản hiệp định chấm dứt chiến tranh tại Paris!
 
@@ -324,11 +324,11 @@ Chiến thắng 12 ngày đêm cuối năm 1972 được nhân dân ta và bạn
 
 | Fact | Evidence / Source | Confidence |
 |---|---|---|
-| **Tội ác bom rải thảm tại Khâm Thiên:** Đêm 26/12/1972, bom B-52 làm chết 287 người, bị thương 290 người, phá hủy gần 2.000 căn nhà. | Hồ sơ di tích Tượng đài Khâm Thiên; *Lịch sử Đảng bộ thành phố Hà Nội*; Báo Nhân Dân số ra tháng 12/1972. | [FACT] Cao (100%) |
-| **Tổn thất B-52 kỷ lục đêm 26/12:** Quân dân miền Bắc bắn rơi 8 chiếc B-52 (Hà Nội diệt 5 chiếc, 4 chiếc rơi tại chỗ). | *Nhật ký Tác chiến Quân chủng PK-KQ*; Báo cáo Tổng kết Chiến dịch Phòng không 1972. | [FACT] Cao (100%) |
-| **Tổng số B-52 bị bắn rơi trong 12 ngày đêm:** 34 chiếc B-52 (trong tổng số 81 máy bay Mỹ bị tiêu diệt) theo công bố của Việt Nam. | *Lịch sử Quân chủng PK-KQ (1963-2013)*, NXB QĐND; Viện Lịch sử Quân sự Việt Nam. | [FACT] Cao (100%) |
-| **Mỹ tuyên bố ngừng ném bom:** 07h00 ngày 30/12/1972, Tổng thống Nixon ra lệnh dừng chiến dịch Linebacker II. | Thông cáo Nhà Trắng 30/12/1972; Tài liệu giải mật Hội đồng An ninh Quốc gia Hoa Kỳ. | [FACT] Cao (100%) |
-| **Ký kết Hiệp định Paris:** Ngày 27/01/1973, 4 bên chính thức ký kết văn kiện hiệp định tại Paris. | Văn kiện Hiệp định Paris 1973, Lưu trữ Bộ Ngoại giao Việt Nam. | [FACT] Cao (100%) |
+| **Tội ác bom rải thảm tại Khâm Thiên:** Đêm 26/12/1972, bom B-52 làm chết 287 người, bị thương 290 người, phá hủy gần 2.000 căn nhà. | Hồ sơ di tích Tượng đài Khâm Thiên; *Lịch sử Đảng bộ thành phố Hà Nội*; Báo Nhân Dân số ra tháng 12/1972. | [FACT CANDIDATE] Chờ reviewer lịch sử đối chiếu |
+| **Tổn thất B-52 kỷ lục đêm 26/12:** Quân dân miền Bắc bắn rơi 8 chiếc B-52 (Hà Nội diệt 5 chiếc, 4 chiếc rơi tại chỗ). | *Nhật ký Tác chiến Quân chủng PK-KQ*; Báo cáo Tổng kết Chiến dịch Phòng không 1972. | [FACT CANDIDATE] Chờ reviewer lịch sử đối chiếu |
+| **Tổng số B-52 bị bắn rơi trong 12 ngày đêm:** 34 chiếc B-52 (trong tổng số 81 máy bay Mỹ bị tiêu diệt) theo công bố của Việt Nam. | *Lịch sử Quân chủng PK-KQ (1963-2013)*, NXB QĐND; Viện Lịch sử Quân sự Việt Nam. | [FACT CANDIDATE] Chờ reviewer lịch sử đối chiếu |
+| **Mỹ tuyên bố ngừng ném bom:** 07h00 ngày 30/12/1972, Tổng thống Nixon ra lệnh dừng chiến dịch Linebacker II. | Thông cáo Nhà Trắng 30/12/1972; Tài liệu giải mật Hội đồng An ninh Quốc gia Hoa Kỳ. | [FACT CANDIDATE] Chờ reviewer lịch sử đối chiếu |
+| **Ký kết Hiệp định Paris:** Ngày 27/01/1973, 4 bên chính thức ký kết văn kiện hiệp định tại Paris. | Văn kiện Hiệp định Paris 1973, Lưu trữ Bộ Ngoại giao Việt Nam. | [FACT CANDIDATE] Chờ reviewer lịch sử đối chiếu |
 
 ### Bảng đối chiếu số liệu khách quan (Comparative Historical Data):
 | Tiêu chí | Công bố chính thống của Việt Nam (Bộ Quốc phòng) | Thừa nhận của Không quân Mỹ (USAF History Office) |
@@ -386,10 +386,10 @@ Hệ quả chính trị - ngoại giao trực tiếp và quan trọng nhất c�
 ---
 
 ## 7. Content QA
-- **Historical accuracy:** PASS (Dữ liệu Khâm Thiên, Bạch Mai và kết quả hiệp định Paris trùng khớp hoàn toàn văn bản nhà nước).
+- **Historical accuracy:** NEEDS_HISTORICAL_REVIEW (các dữ kiện Khâm Thiên, Bạch Mai và Hiệp định Paris chưa được reviewer lịch sử ký duyệt cho phiên bản này).
 - **Educational value:** PASS (Có bảng so sánh số liệu hai phía Việt - Mỹ, rèn luyện tư duy phản biện cho học sinh THPT).
 - **Language:** PASS (Văn phong xúc động, trang trọng, đậm chất nhân văn và hào khí lịch sử).
-- **Quiz accuracy:** PASS (3 câu hỏi bao hàm toàn diện từ tội ác chiến tranh, chiến thắng quân sự đến thắng lợi ngoại giao).
+- **Quiz coverage:** PASS (3 câu hỏi bao quát các chủ đề nêu trên); **factual answer keys:** NEEDS_HISTORICAL_REVIEW.
 
 ---
 
@@ -443,10 +443,10 @@ Chiến thắng "Điện Biên Phủ trên không" tháng 12/1972 là đỉnh ca
 
 | Fact | Evidence / Source | Confidence |
 |---|---|---|
-| **Thời gian toàn bộ chiến dịch 12 ngày đêm:** Từ 18/12 đến 30/12/1972 (Mỹ tạm dừng 36 tiếng đêm Noel). | *Lịch sử Đảng bộ thành phố Hà Nội*; Báo Quân đội Nhân dân. | [FACT] Cao (100%) |
-| **Tên gọi "Điện Biên Phủ trên không":** Do cố Thủ tướng Phạm Văn Đồng và các nhà báo quốc tế ví von ngay sau chiến dịch. | Báo Cứu Quốc số đặc biệt tháng 1/1973; Báo Cựu chiến binh Việt Nam. | [FACT] Cao (100%) |
-| **Mốc hoàn thành rút quân đội Mỹ:** Ngày 29/03/1973, những người lính Mỹ cuối cùng rời khỏi Việt Nam sau Hiệp định Paris. | Tư liệu lưu trữ Bộ Ngoại giao; Ban Chỉ đạo Tổng kết Chiến tranh. | [FACT] Cao (100%) |
-| **Mục tiêu giáo dục 4 CLO:** Phủ từ bối cảnh (CLO-1), công nghệ/chiến thuật (CLO-2), diễn biến bước ngoặt (CLO-3) đến ý nghĩa chiến lược (CLO-4). | Chuẩn khung chương trình Lịch sử lớp 9 và 12, Bộ Giáo dục và Đào tạo. | [FACT] Cao (100%) |
+| **Thời gian toàn bộ chiến dịch 12 ngày đêm:** Từ 18/12 đến 30/12/1972 (Mỹ tạm dừng 36 tiếng đêm Noel). | *Lịch sử Đảng bộ thành phố Hà Nội*; Báo Quân đội Nhân dân. | [FACT CANDIDATE] Chờ reviewer lịch sử đối chiếu |
+| **Tên gọi "Điện Biên Phủ trên không":** Do cố Thủ tướng Phạm Văn Đồng và các nhà báo quốc tế ví von ngay sau chiến dịch. | Báo Cứu Quốc số đặc biệt tháng 1/1973; Báo Cựu chiến binh Việt Nam. | [FACT CANDIDATE] Chờ reviewer lịch sử đối chiếu |
+| **Mốc hoàn thành rút quân đội Mỹ:** Ngày 29/03/1973, những người lính Mỹ cuối cùng rời khỏi Việt Nam sau Hiệp định Paris. | Tư liệu lưu trữ Bộ Ngoại giao; Ban Chỉ đạo Tổng kết Chiến tranh. | [FACT CANDIDATE] Chờ reviewer lịch sử đối chiếu |
+| **Mục tiêu giáo dục 4 CLO:** Phủ từ bối cảnh (CLO-1), công nghệ/chiến thuật (CLO-2), diễn biến bước ngoặt (CLO-3) đến ý nghĩa chiến lược (CLO-4). | Chuẩn khung chương trình Lịch sử lớp 9 và 12, Bộ Giáo dục và Đào tạo. | [FACT CANDIDATE] Chờ reviewer lịch sử đối chiếu |
 
 ---
 
@@ -521,10 +521,10 @@ Thắng lợi 12 ngày đêm 'Điện Biên Phủ trên không' đã trực ti�
 ---
 
 ## 7. Content QA
-- **Historical accuracy:** PASS (Được đối chiếu tỉ mỉ với sách Lịch sử Đảng bộ Hà Nội, Lịch sử PK-KQ, Lịch sử Bộ đội Tên lửa và Văn kiện Hiệp định Paris).
+- **Historical accuracy:** NEEDS_HISTORICAL_REVIEW (danh mục tài liệu chưa thay thế cho việc đối chiếu từng claim; reviewer lịch sử chưa ký duyệt phiên bản này).
 - **Educational value:** PASS (Ngân hàng câu hỏi phủ 100% 4 chuẩn đầu ra sư phạm CLO-1 đến CLO-4).
 - **Language:** PASS (Trong sáng, chuẩn mực, dễ đọc, phù hợp với tâm lý lứa tuổi học sinh THCS và THPT).
-- **Quiz accuracy:** PASS (5/5 câu hỏi rõ ràng, không mẹo, có nguồn dẫn chứng có thẩm quyền).
+- **Quiz structure:** PASS (5 câu hỏi rõ ràng, không mẹo, có nguồn); **factual answer keys:** NEEDS_HISTORICAL_REVIEW.
 
 ---
 

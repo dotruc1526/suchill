@@ -50,7 +50,8 @@ const requiredSources = [
   'SRC-LB2-02',
   'SRC-LB2-03',
   'SRC-LB2-04',
-  'SRC-LB2-05'
+  'SRC-LB2-05',
+  'SRC-1972-WEB-09'
 ];
 for (const src of requiredSources) {
   assert.ok(content.includes(src), `Lesson content must reference source: "${src}"`);
@@ -66,6 +67,6 @@ assert.ok(content.includes('Câu hỏi suy ngẫm'), 'Must contain reflection qu
 assert.ok(content.includes('Câu hỏi 1') && content.includes('Câu hỏi 2'), 'Must have at least 2 reflection questions');
 
 console.log('[PASS] Lesson 3 Standard Reading structure and pedagogical metadata valid.');
-console.log('[PASS] All historical events, claims, and sources verified with academic comparison.');
+console.log('[PASS] Required event dates, claim IDs and source IDs are present; historical facts require human source review.');
 console.log('[PASS] Text-first fallback and reflection questions intact.');
 console.log('--- ALL CHAPTER 1972 LESSON 3 VALIDATIONS PASSED ---');
