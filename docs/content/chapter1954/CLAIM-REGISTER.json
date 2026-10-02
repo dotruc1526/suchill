@@ -1,0 +1,860 @@
+{
+  "version": "research-preparation-v1",
+  "taskId": "M7-02-CHAPTER-001",
+  "asOf": "2026-10-03",
+  "researchStatus": "REVIEW",
+  "canonicalUseAllowed": false,
+  "classificationNote": "proposedTruthClass is a candidate; no historical verdict has been granted. truthClass=null, reviewer=null until independent historical review.",
+  "episodes": [
+    {
+      "number": 1,
+      "title": "Trước cơn bão",
+      "claimIds": [
+        "CLM-1954-01-001",
+        "CLM-1954-01-002",
+        "CLM-1954-01-003",
+        "CLM-1954-01-004",
+        "CLM-1954-01-005"
+      ],
+      "historicalScope": {
+        "time": "1953–1954",
+        "place": "Vietnam / Indochina; Geneva where relevant",
+        "event": "Chapter1954 research preparation"
+      }
+    },
+    {
+      "number": 2,
+      "title": "Vì sao lại là Điện Biên Phủ?",
+      "claimIds": [
+        "CLM-1954-02-001",
+        "CLM-1954-02-002",
+        "CLM-1954-02-003",
+        "CLM-1954-02-004",
+        "CLM-1954-02-005"
+      ],
+      "historicalScope": {
+        "time": "1953–1954",
+        "place": "Vietnam / Indochina; Geneva where relevant",
+        "event": "Chapter1954 research preparation"
+      }
+    },
+    {
+      "number": 3,
+      "title": "Chuẩn bị cho trận quyết chiến",
+      "claimIds": [
+        "CLM-1954-03-001",
+        "CLM-1954-03-002",
+        "CLM-1954-03-003",
+        "CLM-1954-03-004",
+        "CLM-1954-03-005",
+        "CLM-1954-03-006",
+        "CLM-1954-03-007"
+      ],
+      "historicalScope": {
+        "time": "1953–1954",
+        "place": "Vietnam / Indochina; Geneva where relevant",
+        "event": "Chapter1954 research preparation"
+      }
+    },
+    {
+      "number": 4,
+      "title": "56 ngày đêm",
+      "claimIds": [
+        "CLM-1954-04-001",
+        "CLM-1954-04-002",
+        "CLM-1954-04-003",
+        "CLM-1954-04-004",
+        "CLM-1954-04-005",
+        "CLM-1954-04-006",
+        "CLM-1954-04-007"
+      ],
+      "historicalScope": {
+        "time": "1954-03–1954-05",
+        "place": "Vietnam / Indochina; Geneva where relevant",
+        "event": "Chapter1954 research preparation"
+      }
+    },
+    {
+      "number": 5,
+      "title": "Ngày 7/5/1954",
+      "claimIds": [
+        "CLM-1954-05-001",
+        "CLM-1954-05-002",
+        "CLM-1954-05-003",
+        "CLM-1954-05-004",
+        "CLM-1954-05-005"
+      ],
+      "historicalScope": {
+        "time": "1954-03–1954-05",
+        "place": "Vietnam / Indochina; Geneva where relevant",
+        "event": "Chapter1954 research preparation"
+      }
+    },
+    {
+      "number": 6,
+      "title": "Từ Điện Biên Phủ đến Genève",
+      "claimIds": [
+        "CLM-1954-06-001",
+        "CLM-1954-06-002",
+        "CLM-1954-06-003",
+        "CLM-1954-06-004",
+        "CLM-1954-06-005",
+        "CLM-1954-06-006"
+      ],
+      "historicalScope": {
+        "time": "1954; planned1956",
+        "place": "Vietnam / Indochina; Geneva where relevant",
+        "event": "Chapter1954 research preparation"
+      }
+    },
+    {
+      "number": 7,
+      "title": "Việt Nam sau năm 1954",
+      "claimIds": [
+        "CLM-1954-07-001",
+        "CLM-1954-07-002",
+        "CLM-1954-07-003",
+        "CLM-1954-07-004",
+        "CLM-1954-07-005",
+        "CLM-1954-07-006",
+        "CLM-1954-07-007"
+      ],
+      "historicalScope": {
+        "time": "1954–1955; planned1956",
+        "place": "Vietnam / Indochina; Geneva where relevant",
+        "event": "Chapter1954 research preparation"
+      }
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLM-1954-01-001",
+      "episode": 1,
+      "statementVi": "Đến năm 1953, cuộc chiến ở Đông Dương đã kéo dài nhiều năm, gây sức ép quân sự và tài chính cho Pháp.",
+      "sourceIds": [
+        "SRC-1954-FRUS-337"
+      ],
+      "locator": "FRUS337pp656–657,659–660.",
+      "assessment": "supported_for_review",
+      "notesVi": "Tránh đếm chính xác số năm khi chưa chốt mốc 1945 hay kháng chiến toàn quốc 1946; không dùng số thương vong/chi phí làm quiz ở checkpoint này.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-01-002",
+      "episode": 1,
+      "statementVi": "Tháng 5/1953, Henri Navarre được cử làm Tổng chỉ huy quân đội Pháp ở Đông Dương.",
+      "sourceIds": [
+        "SRC-1954-VNMH-NAVARRE-2013",
+        "SRC-1954-FRUS-472"
+      ],
+      "locator": "Museum: đoạn bổ nhiệm; FRUS472Backgroundpp903–904.",
+      "assessment": "supported_for_review",
+      "notesVi": "Chỉ dùng tháng/năm ở đây; ngày bổ nhiệm cụ thể cần thêm hồ sơ gốc nếu biến thành câu hỏi.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-01-003",
+      "episode": 1,
+      "statementVi": "Trong họp Mỹ–Pháp tháng 7/1953, kế hoạch Navarre được trình bày nhằm tăng lực lượng cơ động và giành lại chủ động quân sự.",
+      "sourceIds": [
+        "SRC-1954-FRUS-337"
+      ],
+      "locator": "FRUS337pp658–659(a),662.",
+      "assessment": "supported_for_review",
+      "notesVi": "Đây là mục đích được người tham gia cuộc họp trình bày, không phải khẳng định kế hoạch đã thành công.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-01-004",
+      "episode": 1,
+      "statementVi": "Kế hoạch dự kiến phòng thủ ở phía Bắc trong 1953–1954, tiến công phía Nam, rồi chuyển trọng tâm tiến công ra Bắc khi đủ lực lượng.",
+      "sourceIds": [
+        "SRC-1954-VNMH-NAVARRE-2013",
+        "SRC-1954-FRUS-472"
+      ],
+      "locator": "Museum: hai bước kế hoạch; FRUS472pp905–906.",
+      "assessment": "supported_for_review",
+      "notesVi": "Phân biệt dự kiến với diễn biến thực tế. Không suy ra Điện Biên Phủ đã là mục tiêu cố định từ đầu kế hoạch.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-01-005",
+      "episode": 1,
+      "statementVi": "Chủ trương Đông Xuân 1953–1954 của phía Việt Nam hướng đến buộc Pháp phân tán lực lượng cơ động trên nhiều chiến trường.",
+      "sourceIds": [
+        "SRC-1954-VNMH-NAVARRE-2013"
+      ],
+      "locator": "Museum: chủ trương cuối9/1953.",
+      "assessment": "supported_for_review",
+      "notesVi": "Không dựng chuỗi nguyên nhân duy nhất hoặc ngụ ý mọi hoạt động chiến trường đều chỉ phục vụ một trận đánh.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-02-001",
+      "episode": 2,
+      "statementVi": "Điện Biên Phủ nằm ở vùng Tây Bắc Việt Nam.",
+      "sourceIds": [
+        "SRC-1954-VNMH-NAVARRE-2013"
+      ],
+      "locator": "Museum: đoạn Tây Bắc cuối bài.",
+      "assessment": "supported_for_review",
+      "notesVi": "Bản đồ 1954 cần provenance riêng; không đưa địa giới hành chính hiện nay vào sơ đồ quá khứ mà không ghi nhãn.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-02-002",
+      "episode": 2,
+      "statementVi": "Pháp đưa quân nhảy dù chiếm Điện Biên Phủ trong các ngày 20–22/11/1953, trước khi chiến dịch tháng 3/1954 mở màn.",
+      "sourceIds": [
+        "SRC-1954-VNMH-NAVARRE-2013"
+      ],
+      "locator": "Museum: mốc20–22/11/1953.",
+      "assessment": "supported_for_review",
+      "notesVi": "Tên mã Castor còn cần nguồn đọc được trực tiếp bổ sung; không nhầm thời gian chiếm đóng với thời gian trận đánh.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-02-003",
+      "episode": 2,
+      "statementVi": "Tập đoàn cứ điểm gồm ba khu: trung tâm Mường Thanh, khu Bắc và khu Nam Hồng Cúm.",
+      "sourceIds": [
+        "SRC-1954-VNMH-NAVARRE-2013"
+      ],
+      "locator": "Museum: ba phân khu.",
+      "assessment": "supported_for_review",
+      "notesVi": "Chưa đưa số lượng cứ điểm/tiểu đoàn vào đáp án vì cần khóa mốc thống kê và đối chiếu sơ đồ.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-02-004",
+      "episode": 2,
+      "statementVi": "Ý nghĩa chiến lược của Điện Biên Phủ liên quan cả Tây Bắc và hướng Thượng Lào.",
+      "sourceIds": [
+        "SRC-1954-VNMH-NAVARRE-2013",
+        "SRC-1954-FRUS-337"
+      ],
+      "locator": "Museum: vị trí; FRUS337pp659–660.",
+      "assessment": "supported_for_review",
+      "notesVi": "Diễn giải sư phạm; reviewer cần chốt bản đồ/hướng và mức đơn giản hóa, tránh gán một động cơ duy nhất cho mọi chỉ huy.",
+      "proposedTruthClass": "educational_explanation",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-02-005",
+      "episode": 2,
+      "statementVi": "Cần phân biệt kế hoạch Navarre mùa hè 1953 với quyết định chiếm và củng cố Điện Biên Phủ cuối 1953.",
+      "sourceIds": [
+        "SRC-1954-FRUS-337",
+        "SRC-1954-FRUS-472"
+      ],
+      "locator": "FRUS337pp658–659; FRUS472pp905–906.",
+      "assessment": "supported_for_review",
+      "notesVi": "Suy luận đối chiếu chronology, không phải trích dẫn nguồn. Câu clip/outline ngụ ý kế hoạch được thiết kế ngay từ đầu để diệt chủ lực tại Điện Biên Phủ cần historical reviewer sửa hoặc chứng minh riêng.",
+      "proposedTruthClass": "educational_explanation",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-03-001",
+      "episode": 3,
+      "statementVi": "Dân công góp sức vận chuyển lương thực cho chiến dịch bằng gánh bộ, xe đạp thồ và các phương tiện khác.",
+      "sourceIds": [
+        "SRC-1954-VNMH-BULLETIN-2024"
+      ],
+      "locator": "Trang in 20, đoạn hậu cần; trang in 22, thống kê phương tiện.",
+      "assessment": "supported_for_review",
+      "notesVi": "Không ngụ ý xe đạp thồ là phương tiện duy nhất; không biến đóng góp hậu cần thành một tình huống hư cấu được gọi là lời chứng.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-03-002",
+      "episode": 3,
+      "statementVi": "Sổ tay dân công Phú Thọ được bảo tàng lưu giữ ghi các chuyến giao nhận gạo, phụ tùng xe và quy định phục vụ chiến dịch.",
+      "sourceIds": [
+        "SRC-1954-VNMH-NOTEBOOK-2024"
+      ],
+      "locator": "Bài hiện vật 4701/Gy 3202, đoạn mô tả nội dung và danh sách giao nhận.",
+      "assessment": "supported_for_review",
+      "notesVi": "Ví dụ evidence cụ thể, không đại diện cho trải nghiệm của toàn bộ dân công. Chưa được phép sao chép ảnh sổ tay.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-03-003",
+      "episode": 3,
+      "statementVi": "Xe đạp thồ có thể tiếp tế trên những tuyến đường mà ô tô khó hoạt động.",
+      "sourceIds": [
+        "SRC-1954-VNMH-NOTEBOOK-2024"
+      ],
+      "locator": "Đoạn bàn về đặc điểm xe đạp thồ trước phần dẫn báo cáo 893-BC.",
+      "assessment": "supported_for_review",
+      "notesVi": "Giữ wording có điều kiện theo địa hình/tuyến đường; không khẳng định mọi đường ô tô đều bất khả dụng.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-03-004",
+      "episode": 3,
+      "statementVi": "Lực lượng công binh và phục vụ chiến dịch mở đường, bảo đảm giao thông và đưa pháo vào trận địa.",
+      "sourceIds": [
+        "SRC-1954-VNMH-BULLETIN-2024"
+      ],
+      "locator": "Trang in 20, đoạn hậu cần và chú thích hình 5–6.",
+      "assessment": "supported_for_review",
+      "notesVi": "Đủ cho lời kể khái quát; tên tuyến đường, độ dốc hoặc tốc độ kéo pháo cần nguồn chuyên biệt nếu đưa vào lesson.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-03-005",
+      "episode": 3,
+      "statementVi": "Ngày 26/1/1954, Võ Nguyên Giáp quyết định đổi sang phương châm đánh chắc, tiến chắc, theo đoạn hồi ức được Thư viện Đồng Nai tuyển đăng.",
+      "sourceIds": [
+        "SRC-1954-DNLIB-GIAP-EXCERPT-2024"
+      ],
+      "locator": "Đoạn ngày 26/1/1954, sau dòng thư mục nguồn 2004.",
+      "assessment": "supported_for_review",
+      "notesVi": "Ngày/actor được hỗ trợ trong nguồn curated, vẫn cần historical review và đối chiếu nguyên bản. Nguồn dùng tên phương án cũ 'đánh nhanh, thắng nhanh'; outline dùng 'đánh nhanh, giải quyết nhanh'. Không tự sửa quote để đồng nhất.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-03-006",
+      "episode": 3,
+      "statementVi": "Việc đổi phương châm đi kèm hoãn tiến công, kéo pháo ra và chuẩn bị lại hậu cần cho chiến dịch kéo dài hơn.",
+      "sourceIds": [
+        "SRC-1954-DNLIB-GIAP-EXCERPT-2024"
+      ],
+      "locator": "Đoạn lui quân/kéo pháo ra và đoạn cuối về báo cáo Trung ương.",
+      "assessment": "supported_for_review",
+      "notesVi": "Giữ attribution hồi ức; không thêm lời thoại, giờ họp hoặc nội tâm chưa đối chiếu nguyên bản.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-03-007",
+      "episode": 3,
+      "statementVi": "Các con số tổng kết dân công và lương thực cần ghi đúng đơn vị, phạm vi thống kê và nguồn trước khi thành đáp án.",
+      "sourceIds": [
+        "SRC-1954-VNMH-NOTEBOOK-2024",
+        "SRC-1954-VNMH-BULLETIN-2024"
+      ],
+      "locator": "Bài sổ tay, đoạn báo cáo 893-BC; PDF, trang in 22.",
+      "assessment": "needs_review",
+      "notesVi": "Hai bài dẫn các báo cáo khác nhau và dùng nhóm hàng/đơn vị khác nhau; chưa kết luận là mâu thuẫn thực chất. Không đồng nhất người với lượt người hoặc gạo với toàn bộ lương thực; cần kiểm tra báo cáo gốc nếu dùng số chính xác.",
+      "proposedTruthClass": "uncertain_or_contested",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-04-001",
+      "episode": 4,
+      "statementVi": "Chiến dịch Điện Biên Phủ mở màn ngày 13/3/1954 với trận tiến công Him Lam.",
+      "sourceIds": [
+        "SRC-1954-BTLSQG-PHASE-1",
+        "SRC-1954-BCP-THREE-PHASES"
+      ],
+      "locator": "Phần đợtI, đoạn trận Him Lam ngày13/3 và ảnh cùng ngày. BCP: mục mở màn,17giờ5phút.",
+      "assessment": "supported_for_review",
+      "notesVi": "Chưa dùng giờ/phút mở màn làm answer key; nguồn ghi 17 h và 17 h 05 khác nhau.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-04-002",
+      "episode": 4,
+      "statementVi": "Đợt I diễn ra 13–17/3/1954; Him Lam, Độc Lập và Bản Kéo là ba vị trí vòng ngoài bị đánh chiếm hoặc buộc ra hàng.",
+      "sourceIds": [
+        "SRC-1954-BCP-THREE-PHASES",
+        "SRC-1954-BTLSQG-PHASE-1"
+      ],
+      "locator": "BCP: mục mở màn; BTLSQG-I: Him Lam/Độc Lập/Bản Kéo.",
+      "assessment": "supported_for_review",
+      "notesVi": "Phân biệt đánh chiếm với ra hàng; tránh gọi cả ba là cùng một trận.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-04-003",
+      "episode": 4,
+      "statementVi": "Đợt II được bài Bảo tàng Lịch sử Quốc gia xác định từ 30/3 đến 30/4/1954.",
+      "sourceIds": [
+        "SRC-1954-BTLSQG-PHASE-2"
+      ],
+      "locator": "BTLSQG-II: đoạn đầu thân bài.",
+      "assessment": "supported_for_review",
+      "notesVi": "Dùng mốc cụ thể thay thẻ mơ hồ cuối tháng 3–tháng 4.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-04-004",
+      "episode": 4,
+      "statementVi": "Trong đợtII, bộ đội tiến công các cao điểm phía Đông và đào trận địa bao vây để hạn chế tiếp tế, thu hẹp khu vực quân Pháp kiểm soát.",
+      "sourceIds": [
+        "SRC-1954-BTLSQG-PHASE-2"
+      ],
+      "locator": "Ba đoạn đầu thân bài: phương án, phân khu trung tâm và giao thông hào; đoạn chủ trương cao điểm phíaĐông.",
+      "assessment": "supported_for_review",
+      "notesVi": "Không rút thành mọi cao điểm bị chiếm ngay 30/3; A 1 tiếp tục giao tranh.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-04-005",
+      "episode": 4,
+      "statementVi": "Đợt III từ 1–7/5/1954 tiếp tục đánh các vị trí còn lại và chuẩn bị tiến tới tổng công kích.",
+      "sourceIds": [
+        "SRC-1954-BTLSQG-PHASE-3"
+      ],
+      "locator": "BTLSQG-III: tiêu đề, đoạn đêm 1/5.",
+      "assessment": "supported_for_review",
+      "notesVi": "Tách bắt đầu đợt III 1/5 khỏi lệnh tổng công kích 7/5.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-04-006",
+      "episode": 4,
+      "statementVi": "Timeline nên thể hiện ba đợt tiến công chính; khoảng giữa đợtI vàII có hoạt động chuẩn bị trận địa, không phải chiến dịch dừng hoàn toàn.",
+      "sourceIds": [
+        "SRC-1954-BTLSQG-PHASE-1",
+        "SRC-1954-BTLSQG-PHASE-2"
+      ],
+      "locator": "BTLSQG-I: đoạn ngày bắt đầu ba đợt; BTLSQG-II: đoạn xây dựng trận địa trước cuối tháng3.",
+      "assessment": "supported_for_review",
+      "notesVi": "Diễn giải sư phạm; không thêm sự kiện cụ thể vào khoảng trống nếu thiếu nguồn.",
+      "proposedTruthClass": "educational_explanation",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-04-007",
+      "episode": 4,
+      "statementVi": "Cụm 56 ngày đêm là cách ghi trong BTLSQG; bài Báo Chính phủ đối chiếu ghi 55 ngày đêm.",
+      "sourceIds": [
+        "SRC-1954-BTLSQG-PHASE-3",
+        "SRC-1954-BCP-THREE-PHASES"
+      ],
+      "locator": "BTLSQG-III: đoạn 24h; BCP: mở màn/kết.",
+      "assessment": "needs_review",
+      "notesVi": "Reviewer chốt cách tính và wording quiz; chưa tự coi 55 là lỗi hoặc thay 56.",
+      "proposedTruthClass": "uncertain_or_contested",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-05-001",
+      "episode": 5,
+      "statementVi": "Chiều 7/5/1954, sau khi tiến công các vị trí gần Mường Thanh, bộ đội nhận lệnh tổng công kích lúc 15 h.",
+      "sourceIds": [
+        "SRC-1954-BTLSQG-PHASE-3"
+      ],
+      "locator": "BTLSQG-III: hai đoạn 14h/15h ngày 7/5.",
+      "assessment": "supported_for_review",
+      "notesVi": "Chỉ hỗ trợ diễn biến cùng ngày; không biến giờ này thành giờ bắt đầu toàn chiến dịch.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-05-002",
+      "episode": 5,
+      "statementVi": "Lúc 17 h 30 ngày 7/5/1954, sở chỉ huy ở Mường Thanh bị chiếm; De Castries và bộ tham mưu bị bắt.",
+      "sourceIds": [
+        "SRC-1954-BTLSQG-PHASE-3"
+      ],
+      "locator": "BTLSQG-III: đoạn 17h30 trước ảnh cờ.",
+      "assessment": "supported_for_review",
+      "notesVi": "Mốc này gắn sở chỉ huy; không khẳng định mọi vị trí cùng ngừng chiến đấu.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-05-003",
+      "episode": 5,
+      "statementVi": "Sau khi khu trung tâm thất thủ, hoạt động tiến công và truy bắt tại phân khu Nam còn tiếp diễn trong đêm 7/5.",
+      "sourceIds": [
+        "SRC-1954-BCP-THREE-PHASES"
+      ],
+      "locator": "BCP: cuối bài, phân khu Nam sau 17h30.",
+      "assessment": "supported_for_review",
+      "notesVi": "Ghi rõ Hồng Cúm/Isabelle ở bản đồ khi reviewer xác nhận tên tương ứng.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-05-004",
+      "episode": 5,
+      "statementVi": "Không nên mô tả 17 h 30 ngày 7/5 là thời điểm mọi hoạt động quân sự tại toàn bộ tập đoàn cứ điểm đồng loạt kết thúc.",
+      "sourceIds": [
+        "SRC-1954-BCP-THREE-PHASES"
+      ],
+      "locator": "BCP: đoạn phân khu Nam đến 24h.",
+      "assessment": "needs_review",
+      "notesVi": "Cần đối chiếu Hồng Cúm đêm 7/rạng 8/5; chưa xác minh đầy đủ nguồn Pháp do giới hạn truy cập.",
+      "proposedTruthClass": "uncertain_or_contested",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-05-005",
+      "episode": 5,
+      "statementVi": "Bài học nên tách kết quả quân sự ở Điện Biên Phủ khỏi tiến trình đình chiến qua đàm phán sau đó.",
+      "sourceIds": [
+        "SRC-1954-BTLSQG-PHASE-3",
+        "SRC-1954-GENEVA-CEASE"
+      ],
+      "locator": "BTLSQG-III: kết quả chiến dịch. FRUS1035: header20/7/1954, Articles10–11.",
+      "assessment": "supported_for_review",
+      "notesVi": "Đây là ranh giới dạy học; claim về Genève phải dựa nguồn Tập 6, không suy từ 7/5.",
+      "proposedTruthClass": "educational_explanation",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-06-001",
+      "episode": 6,
+      "statementVi": "Phần hội nghị Genève về Đông Dương bắt đầu8/5/1954.",
+      "sourceIds": [
+        "SRC-1954-GENEVA-MUSEUM",
+        "SRC-1954-GENEVA-DECL"
+      ],
+      "locator": "Đoạn 'Ngày8-5-1954'; FRUS volXVI contents ghi Indochina May8–July21.",
+      "assessment": "supported_for_review",
+      "notesVi": "Chỉ phần Đông Dương; toàn hội nghị có phần Triều Tiên từ26/4. Không nói chiến thắng tạo ra toàn hội nghị.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-06-002",
+      "episode": 6,
+      "statementVi": "Văn bản đình chỉ chiến sự Việt Nam đề ngày20/7; Tuyên bố cuối cùng đề ngày21/7/1954.",
+      "sourceIds": [
+        "SRC-1954-GENEVA-CEASE",
+        "SRC-1954-GENEVA-DECL"
+      ],
+      "locator": "Hai document headers; agreement footer2400hours20July1954.",
+      "assessment": "supported_for_review",
+      "notesVi": "Cần historical reviewer xác nhận wording trước canonical use.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-06-003",
+      "episode": 6,
+      "statementVi": "Giới tuyến quân sự là tạm thời, không được hiểu thành biên giới chính trị hay lãnh thổ.",
+      "sourceIds": [
+        "SRC-1954-GENEVA-DECL"
+      ],
+      "locator": "Paragraph6.",
+      "assessment": "supported_for_review",
+      "notesVi": "Cần historical reviewer xác nhận wording trước canonical use.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-06-004",
+      "episode": 6,
+      "statementVi": "Tuyên bố cuối cùng dự kiến tổng tuyển cử tháng7/1956.",
+      "sourceIds": [
+        "SRC-1954-GENEVA-DECL"
+      ],
+      "locator": "Paragraph7.",
+      "assessment": "supported_for_review",
+      "notesVi": "Đây là nội dung dự kiến của văn kiện; không chứng minh cuộc tuyển cử đã diễn ra.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-06-005",
+      "episode": 6,
+      "statementVi": "Tuyên bố cuối cùng không có chữ ký; không mô tả mọi phái đoàn cùng ký một hiệp định duy nhất.",
+      "sourceIds": [
+        "SRC-1954-GENEVA-MUSEUM",
+        "SRC-1954-GENEVA-CEASE"
+      ],
+      "locator": "Museum danh mục văn bản điểm2; agreement signatures.",
+      "assessment": "supported_for_review",
+      "notesVi": "Phân biệt các văn kiện và tuyên bố riêng; không dùng câu tổng quát '9nước ký'.",
+      "proposedTruthClass": "educational_explanation",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-06-006",
+      "episode": 6,
+      "statementVi": "Chiến trường và ngoại giao cần trình bày song song, tránh nối7/5 thành nguyên nhân duy nhất.",
+      "sourceIds": [
+        "SRC-1954-GENEVA-MUSEUM",
+        "SRC-1954-GENEVA-DECL"
+      ],
+      "locator": "Museum đoạn chuẩn bị đoàn/diễn biến; FRUS volXVI contents Korea April26–June15 và Indochina May8–July21.",
+      "assessment": "needs_review",
+      "notesVi": "Inference sư phạm; tác động cụ thể của chiến thắng tới từng lập trường cần nghiên cứu ngoại giao riêng.",
+      "proposedTruthClass": "educational_explanation",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-07-001",
+      "episode": 7,
+      "statementVi": "Hai lực lượng tập kết về các khu phía bắc/phía nam theo quy định quân sự.",
+      "sourceIds": [
+        "SRC-1954-GENEVA-CEASE"
+      ],
+      "locator": "Article1.",
+      "assessment": "supported_for_review",
+      "notesVi": "Nêu People's Army of Viet-Nam phía bắc; French Union forces phía nam. Không gọi hai quốc gia.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-07-002",
+      "episode": 7,
+      "statementVi": "Ngừng bắn quy định theo khu vực: Bắc27/7, Trung1/8, Nam11/8/1954.",
+      "sourceIds": [
+        "SRC-1954-GENEVA-CEASE"
+      ],
+      "locator": "Article11, ba bullet dates.",
+      "assessment": "supported_for_review",
+      "notesVi": "Không đồng nhất ngày văn kiện với mọi nơi đồng loạt ngừng bắn ngay21/7.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-07-003",
+      "episode": 7,
+      "statementVi": "Văn kiện quy định chuyển quân và trang bị hoàn tất trong300ngày.",
+      "sourceIds": [
+        "SRC-1954-GENEVA-CEASE"
+      ],
+      "locator": "Article15(a), referring Article2.",
+      "assessment": "supported_for_review",
+      "notesVi": "Thời hạn theo văn kiện, không là chứng minh mọi nghĩa vụ đều thực hiện.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-07-004",
+      "episode": 7,
+      "statementVi": "Văn kiện cho phép dân muốn chuyển vùng được giúp đỡ trong thời gian chuyển quân.",
+      "sourceIds": [
+        "SRC-1954-GENEVA-CEASE"
+      ],
+      "locator": "Article14(d).",
+      "assessment": "supported_for_review",
+      "notesVi": "Mô tả quy định, không suy thành mọi người tự nguyện hoặc được giúp đầy đủ.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-07-005",
+      "episode": 7,
+      "statementVi": "Ngày10/10/1954, Hà Nội được tiếp quản; sau đó tổ chức quản lý và khôi phục hoạt động.",
+      "sourceIds": [
+        "SRC-1954-HANOI-MUSEUM"
+      ],
+      "locator": "Đoạn10/10; đoạn bắt đầu 'Ngay sau khi tiếp quản'.",
+      "assessment": "supported_for_review",
+      "notesVi": "Ví dụ địa phương; không mở rộng thành toàn miền Bắc hoàn tất phục hồi ngay.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-07-006",
+      "episode": 7,
+      "statementVi": "Sầm Sơn là nơi đón người tập kết từ miền Nam trong1954–1955.",
+      "sourceIds": [
+        "SRC-1954-REGROUP-MUSEUM"
+      ],
+      "locator": "Đoạn25-9-1954; 'Từ tháng9-1954 đến hết năm1955'.",
+      "assessment": "supported_for_review",
+      "notesVi": "Ví dụ có địa điểm; không thêm con số hay gán suy nghĩ cho mọi gia đình.",
+      "proposedTruthClass": "verified_fact",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    },
+    {
+      "id": "CLM-1954-07-007",
+      "episode": 7,
+      "statementVi": "Phân biệt thi hành đình chiến với kế hoạch tổng tuyển cử; không viết dự kiến thành kết quả.",
+      "sourceIds": [
+        "SRC-1954-GENEVA-DECL",
+        "SRC-1954-GENEVA-CEASE"
+      ],
+      "locator": "Declaration paragraph7; agreement Articles11,14–15.",
+      "assessment": "supported_for_review",
+      "notesVi": "Bài dừng ở chuyển tiếp; muốn giải thích vì sao kế hoạch không thực hiện cần thêm nguồn1955–1956 và review.",
+      "proposedTruthClass": "educational_explanation",
+      "truthClass": null,
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "confidence": null,
+      "canonicalUseAllowed": false
+    }
+  ]
+}

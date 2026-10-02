@@ -7,7 +7,7 @@
 - Depends on: PR109 head 4ad6331; Quality run 641 SUCCESS; draft candidate available.
 - Files claimed: this card; docs/tasks/evidence/PR109-review-2026-10-03.md; docs/project/TASK-BOARD.md; docs/tasks/active/README.md. Runtime repair claims added only if findings require edits.
 - Acceptance: inspect complete changed-file scope and risky runtime paths; reproduce relevant tests; record actionable findings and limits; update board and handoff without claiming specialist acceptance.
-- Next action: Dương reviews recorded software verdict and M7-01 handoff; integrate documentation candidate; manual/media/device gates retain owners.
+- Next action: Integrate PR114 into PR109 after final CI/docs checks; seven-episode preparation handed off, manual/media/device gates retain owners.
 
 READY → IN PROGRESS after dependency and isolated-branch checks. Branch codex/pr109-review-m7. No existing contributor checkout changed.
 

@@ -1,0 +1,410 @@
+{
+  "version": "research-preparation-v1",
+  "taskId": "M7-02-CHAPTER-001",
+  "asOf": "2026-10-03",
+  "researchStatus": "REVIEW",
+  "canonicalUseAllowed": false,
+  "historicalReviewer": null,
+  "note": "Stable IDs and source-fit research only; AI preparation approval never replaces historical/media acceptance.",
+  "sources": [
+    {
+      "id": "SRC-1954-VNMH-NAVARRE-2013",
+      "title": "Kế hoạch Na-va và chiến cục Đông Xuân 1953-1954",
+      "publisher": "Bảo tàng Lịch sử Quốc gia",
+      "url": "https://baotanglichsu.vn/vi/Articles/3097/13850/ke-hoach-na-va-va-chien-cuc-djong-xuan-1953-1954.html",
+      "author": "Hoàng Ngọc Chính",
+      "publishedDate": "2013-03-15",
+      "accessedDate": "2026-10-03",
+      "tier": 2,
+      "perspective": "Vietnamese museum synthesis, not an original French operational order; referenced memoir not independently read.",
+      "locators": [
+        "Mở bài/bổ nhiệm; hai bước kế hoạch.",
+        "Chủ trương9/1953; Tây Bắc; ba phân khu."
+      ],
+      "sourceType": "curated_educational",
+      "language": "vi",
+      "supportsClaims": [
+        "CLM-1954-01-002",
+        "CLM-1954-01-004",
+        "CLM-1954-01-005",
+        "CLM-1954-02-001",
+        "CLM-1954-02-002",
+        "CLM-1954-02-003",
+        "CLM-1954-02-004"
+      ],
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "mediaReusePermission": "not_established"
+    },
+    {
+      "id": "SRC-1954-FRUS-337",
+      "title": "United States Minutes of the First United States-French Meeting at the Residence of the Secretary of State, Washington, July 12, 1953, 3 p.m.",
+      "publisher": "U.S. Department of State, Office of the Historian — FRUS 1952–1954, Indochina, Volume XIII, Part 1, document 337",
+      "url": "https://history.state.gov/historicaldocuments/frus1952-54v13p1/d337",
+      "author": "Philip W. Bonsal (người soạn biên bản, theo chú thích 1)",
+      "publishedDate": null,
+      "accessedDate": "2026-10-03",
+      "tier": 1,
+      "perspective": "US meeting minutes1953-07-12; note1 says circulated without clearance. Reported aims/estimates are participants' contemporary views.",
+      "locators": [
+        "FRUSpp656–660,662,666–667; military section(a)."
+      ],
+      "createdDate": "1953-07-12",
+      "sourceType": "primary",
+      "language": "en",
+      "supportsClaims": [
+        "CLM-1954-01-001",
+        "CLM-1954-01-003",
+        "CLM-1954-02-004",
+        "CLM-1954-02-005"
+      ],
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "mediaReusePermission": "not_established"
+    },
+    {
+      "id": "SRC-1954-FRUS-472",
+      "title": "Memorandum by the Director of the Office of Philippine and Southeast Asian Affairs (Bonsal) to the Assistant Secretary of State for Far Eastern Affairs (Robertson)",
+      "publisher": "U.S. Department of State, Office of the Historian — FRUS 1952–1954, Indochina, Volume XIII, Part 1, document 472",
+      "url": "https://history.state.gov/historicaldocuments/frus1952-54v13p1/d472",
+      "author": "Philip W. Bonsal",
+      "publishedDate": null,
+      "accessedDate": "2026-10-03",
+      "tier": 1,
+      "perspective": "Bản ghi nhớ phía Mỹ, ngày 1953-12-08; đánh giá đương thời sau chuyến O'Daniel. Các dự báo và lời khen Navarre là perspective của người viết, không phải kết quả lịch sử đã xảy ra. Không thấy ngày xuất bản web.",
+      "locators": [
+        "Backgroundpp903–904; achievements(4)/strategypp905–906."
+      ],
+      "createdDate": "1953-12-08",
+      "sourceType": "primary",
+      "language": "en",
+      "supportsClaims": [
+        "CLM-1954-01-002",
+        "CLM-1954-01-004",
+        "CLM-1954-02-005"
+      ],
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "mediaReusePermission": "not_established"
+    },
+    {
+      "id": "SRC-1954-VNMH-NOTEBOOK-2024",
+      "title": "Cuốn sổ tay của dân công tỉnh Phú Thọ trong chiến dịch Điện Biên Phủ, năm 1954",
+      "publisher": "Bảo tàng Lịch sử Quốc gia",
+      "url": "https://baotanglichsu.vn/vi/Articles/1002/74906/cuon-so-tay-cua-dan-cong-tinh-phu-tho-trong-chien-dich-djien-bien-phu-nam-1954.html",
+      "author": "Thu Nhuần",
+      "publishedDate": "2024-09-06",
+      "accessedDate": "2026-10-03",
+      "tier": 2,
+      "perspective": "Bài giới thiệu hiện vật có số đăng ký và hồ sơ lưu giữ; trang web là trình bày thứ cấp có trích tư liệu gốc, không phải toàn bộ facsimile sổ tay hoặc báo cáo gốc.",
+      "locators": [
+        "Đoạn giới thiệu hiện vật, số đăng ký 4701/Gy 3202.",
+        "Phần nội dung ghi chép từ tháng 2/1954 và các lượt giao nhận gạo.",
+        "Đoạn dẫn báo cáo Hội đồng cung cấp Mặt trận Trung ương số 893-BC, ngày 10/7/1954; tài liệu tham khảo cuối bài."
+      ],
+      "sourceType": "curated_educational",
+      "language": "vi",
+      "supportsClaims": [
+        "CLM-1954-03-002",
+        "CLM-1954-03-003",
+        "CLM-1954-03-007"
+      ],
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "mediaReusePermission": "not_established"
+    },
+    {
+      "id": "SRC-1954-VNMH-BULLETIN-2024",
+      "title": "Chiến thắng Điện Biên Phủ — Sức mạnh của lòng yêu nước và tinh thần đại đoàn kết toàn dân tộc",
+      "publisher": "Bảo tàng Lịch sử Quốc gia — Thông báo khoa học số 1/2024",
+      "url": "https://baotanglichsu.vn/DataFiles/2024/08/News/Tieng%20Viet/1.8.2024/Thong%20bao%20Khoa%20hoc%20so%201%20nam%202024/002.pdf",
+      "author": "Trần Thị Thu Hà",
+      "publishedDate": null,
+      "accessedDate": "2026-10-03",
+      "tier": 2,
+      "perspective": "Bài nghiên cứu/biên tập bảo tàng Việt Nam; số xuất bản 2024, không thấy ngày xuất bản chính xác trong PDF đã đọc. Có dẫn tư liệu, nhưng ảnh chỉ được xem làm locator nghiên cứu; chưa cấp quyền tái sử dụng.",
+      "locators": [
+        "Trang in 17: tên bài và tác giả; PDF trang 1.",
+        "Trang in 20: mở đường, vận chuyển, hình 5–6; PDF trang 4.",
+        "Trang in 22: thống kê đóng góp và dẫn Tổng cục Hậu cần 1978: 131; PDF trang 6."
+      ],
+      "sourceType": "curated_educational",
+      "language": "vi",
+      "supportsClaims": [
+        "CLM-1954-03-001",
+        "CLM-1954-03-004",
+        "CLM-1954-03-007"
+      ],
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "mediaReusePermission": "not_established"
+    },
+    {
+      "id": "SRC-1954-DNLIB-GIAP-EXCERPT-2024",
+      "title": "Chuyên đề Ký ức Điện Biên: Ngày 26 tháng 1 năm 1954",
+      "publisher": "Thư viện tỉnh Đồng Nai",
+      "url": "https://www.thuviendongnai.gov.vn/sachbaochuyende/Lists/Posts/Post.aspx?ID=6",
+      "author": null,
+      "publishedDate": "2024-03-28",
+      "accessedDate": "2026-10-03",
+      "tier": 2,
+      "perspective": "Trang thư viện tuyển đăng đoạn hồi ức, ghi nguồn Cựu chiến binh Việt Nam, 6/5/2004, tr. 3 và hồi ức Điện Biên Phủ, điểm hẹn lịch sử. Chưa đối chiếu nguyên bản sách; nhận định và nội tâm phải giữ attribution hồi ức.",
+      "locators": [
+        "Dòng thư mục nguồn bài báo 2004 ở đầu nội dung.",
+        "Đoạn quyết định ngày 26/1/1954 và đoạn mệnh lệnh lui quân/kéo pháo ra.",
+        "Đoạn cuối về báo cáo Trung ương và khó khăn hậu cần."
+      ],
+      "sourceType": "curated_educational",
+      "language": "vi",
+      "supportsClaims": [
+        "CLM-1954-03-005",
+        "CLM-1954-03-006"
+      ],
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "mediaReusePermission": "not_established"
+    },
+    {
+      "id": "SRC-1954-BTLSQG-PHASE-1",
+      "title": "Trận quyết chiến chiến lược – Tiêu diệt tập đoàn cứ điểm Điện Biên Phủ (13/3–7/5/1954). Đợt I. Chiến dịch Điện Biên Phủ: Đòn phủ đầu",
+      "publisher": "Bảo tàng Lịch sử Quốc gia",
+      "url": "https://baotanglichsu.vn/VI/Articles/3097/13943/tran-quyet-chien-chien-luoc-tieu-diet-tap-djoan-cu-djiem-djien-bien-phu-13-3-7-5-1954-djot-i-chien-dich-djien-bien-phu-djon-phu-djau.html",
+      "author": "Huệ – Chính (tổng hợp)",
+      "publishedDate": "2013-03-26",
+      "accessedDate": "2026-10-03",
+      "tier": 2,
+      "perspective": "Bảo tàng Việt Nam tổng hợp; góc nhìn Quân đội nhân dân Việt Nam, không phải văn kiện gốc.",
+      "locators": [
+        "Tổng quan ba đợt trước ảnh Him Lam.",
+        "Đợt I: Him Lam 13/3, Độc Lập 15/3, Bản Kéo 17/3.",
+        "Đoạn kết quả đợt I."
+      ],
+      "sourceType": "curated_educational",
+      "language": "vi",
+      "supportsClaims": [
+        "CLM-1954-04-001",
+        "CLM-1954-04-002",
+        "CLM-1954-04-006"
+      ],
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "mediaReusePermission": "not_established"
+    },
+    {
+      "id": "SRC-1954-BTLSQG-PHASE-2",
+      "title": "Trận quyết chiến chiến lược – Tiêu diệt tập đoàn cứ điểm Điện Biên Phủ (13/3–7/5/1954). Đợt II: Siết chặt vòng vây",
+      "publisher": "Bảo tàng Lịch sử Quốc gia",
+      "url": "https://baotanglichsu.vn/vi/Articles/3097/13976/tran-quyet-chien-chien-luoc-tieu-diet-tap-djoan-cu-djiem-djien-bien-phu-13-3-7-5-1954-djot-ii-siet-chat-vong-vay.html",
+      "author": "Huệ – Chính (tổng hợp)",
+      "publishedDate": "2013-03-30",
+      "accessedDate": "2026-10-03",
+      "tier": 2,
+      "perspective": "Bảo tàng Việt Nam tổng hợp về tiến công/vây lấn; không phải lời chứng gốc.",
+      "locators": [
+        "Đoạn đầu: 30/3–30/4 và phương án.",
+        "Đoạn chuẩn bị trước ảnh thứ nhất.",
+        "Diễn biến cao điểm phía Đông và A1."
+      ],
+      "sourceType": "curated_educational",
+      "language": "vi",
+      "supportsClaims": [
+        "CLM-1954-04-003",
+        "CLM-1954-04-004",
+        "CLM-1954-04-006"
+      ],
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "mediaReusePermission": "not_established"
+    },
+    {
+      "id": "SRC-1954-BTLSQG-PHASE-3",
+      "title": "Kỷ niệm 60 năm Chiến thắng Điện Biên Phủ – Đợt tiến công thứ 3 (1/5–7/5/1954)",
+      "publisher": "Bảo tàng Lịch sử Quốc gia",
+      "url": "https://baotanglichsu.vn/vi/Articles/2002/68156/ky-niem-60-nam-chien-thang-djien-bien-phu-djot-tien-cong-thu-3-1-5-7-5-1954.html",
+      "author": "Chu Lộc – Phương Thảo (tổng hợp)",
+      "publishedDate": "2014-05-06",
+      "accessedDate": "2026-10-03",
+      "tier": 2,
+      "perspective": "Bảo tàng Việt Nam tổng hợp Võ Nguyên Giáp (2004/2010); chưa đọc bản gốc.",
+      "locators": [
+        "Nhiệm vụ; đoạn đêm 1/5.",
+        "Đoạn 15h ngày 7/5.",
+        "Đoạn 17h30; phân khu Nam; 24h; 56 ngày.",
+        "Danh mục nguồn cuối bài."
+      ],
+      "sourceType": "curated_educational",
+      "language": "vi",
+      "supportsClaims": [
+        "CLM-1954-04-005",
+        "CLM-1954-04-007",
+        "CLM-1954-05-001",
+        "CLM-1954-05-002",
+        "CLM-1954-05-005"
+      ],
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "mediaReusePermission": "not_established"
+    },
+    {
+      "id": "SRC-1954-BCP-THREE-PHASES",
+      "title": "Chiến dịch Điện Biên Phủ: 3 đợt tấn công ác liệt",
+      "publisher": "Báo Điện tử Chính phủ",
+      "url": "https://baochinhphu.vn/chien-dich-dien-bien-phu-3-dot-tan-cong-ac-liet-10224050209051285.htm",
+      "author": "Phương Liên",
+      "publishedDate": "2024-05-02",
+      "accessedDate": "2026-10-03",
+      "tier": 3,
+      "perspective": "Báo Chính phủ Việt Nam; nguồn đối chiếu phổ thông, không phải hồ sơ tác chiến gốc.",
+      "locators": [
+        "Mục mở màn: đợt I/II.",
+        "Mục các điểm cao: đợt III.",
+        "Cuối bài: 17h30/24h, 55 ngày.",
+        "Đầu mục mở màn: 55 ngày."
+      ],
+      "sourceType": "edited_educational",
+      "language": "vi",
+      "supportsClaims": [
+        "CLM-1954-04-001",
+        "CLM-1954-04-002",
+        "CLM-1954-04-007",
+        "CLM-1954-05-003",
+        "CLM-1954-05-004"
+      ],
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "mediaReusePermission": "not_established"
+    },
+    {
+      "id": "SRC-1954-GENEVA-DECL",
+      "title": "The Final Declaration on Indochina (IC/43 Rev. 2)",
+      "publisher": "Office of the Historian, U.S. Department of State (FRUS)",
+      "author": "Geneva Conference document",
+      "publishedDate": null,
+      "accessedDate": "2026-10-03",
+      "tier": 1,
+      "perspective": "Primary conference text reproduced in a US diplomatic archive; not a claim that every participant signed it.",
+      "url": "https://history.state.gov/historicaldocuments/frus1952-54v16/d1038",
+      "locators": [
+        "Document 1038; header IC/43 Rev.2",
+        "Paragraph 6; paragraph 7"
+      ],
+      "createdDate": "1954-07-21",
+      "sourceType": "primary",
+      "language": "en",
+      "supportsClaims": [
+        "CLM-1954-06-001",
+        "CLM-1954-06-002",
+        "CLM-1954-06-003",
+        "CLM-1954-06-004",
+        "CLM-1954-06-006",
+        "CLM-1954-07-007"
+      ],
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "mediaReusePermission": "not_established"
+    },
+    {
+      "id": "SRC-1954-GENEVA-CEASE",
+      "title": "Agreement on the Cessation of Hostilities in Vietnam (IC/42 Rev. 2)",
+      "publisher": "Office of the Historian, U.S. Department of State (FRUS)",
+      "author": "Military-command agreement; reproduced English text",
+      "publishedDate": null,
+      "accessedDate": "2026-10-03",
+      "tier": 1,
+      "perspective": "Primary agreement transcript; French and Vietnamese originals are equally authentic according to document footer.",
+      "url": "https://history.state.gov/historicaldocuments/frus1952-54v16/d1035",
+      "locators": [
+        "Document 1035; header and signature/date footer",
+        "Articles 1, 11, 14, 15; Annex I(a)"
+      ],
+      "createdDate": "1954-07-20",
+      "sourceType": "primary",
+      "language": "en",
+      "supportsClaims": [
+        "CLM-1954-05-005",
+        "CLM-1954-06-002",
+        "CLM-1954-06-005",
+        "CLM-1954-07-001",
+        "CLM-1954-07-002",
+        "CLM-1954-07-003",
+        "CLM-1954-07-004",
+        "CLM-1954-07-007"
+      ],
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "mediaReusePermission": "not_established"
+    },
+    {
+      "id": "SRC-1954-GENEVA-MUSEUM",
+      "title": "Từ ngày 8-5 đến 21-7-1954: Hội nghị Giơnevơ",
+      "publisher": "Bảo tàng Lịch sử Quốc gia",
+      "author": "Phương Anh (tổng hợp)",
+      "publishedDate": "2016-05-06",
+      "accessedDate": "2026-10-03",
+      "tier": 2,
+      "perspective": "Vietnamese curated historical synthesis; broad shorthand must be checked against original documents.",
+      "url": "https://baotanglichsuquocgia.vn/vi/Articles/2002/68272/tu-ngay-8-5-djen-21-7-1954-hoi-nghi-gionevo.html",
+      "locators": [
+        "Đoạn bắt đầu 'Ngày 8-5-1954'",
+        "Mục 'Các văn bản ... chủ yếu gồm', điểm 2",
+        "Nguồn cuối bài: sách2015tr59–61; Hoàng Nguyên2015tr159"
+      ],
+      "sourceType": "curated_educational",
+      "language": "vi",
+      "supportsClaims": [
+        "CLM-1954-06-001",
+        "CLM-1954-06-005",
+        "CLM-1954-06-006"
+      ],
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "mediaReusePermission": "not_established"
+    },
+    {
+      "id": "SRC-1954-HANOI-MUSEUM",
+      "title": "Ủy ban Quân chính trong những ngày tiếp quản Hà Nội",
+      "publisher": "Bảo tàng Lịch sử Quốc gia",
+      "author": "Ths. Phạm Kim Thanh",
+      "publishedDate": "2016-11-02",
+      "accessedDate": "2026-10-03",
+      "tier": 2,
+      "perspective": "Vietnamese institutional/local history with archival and scholarly footnotes; does not establish every locality's experience.",
+      "url": "https://baotanglichsu.vn/VI/Articles/3097/19607/uy-ban-quan-chinh-trong-nhung-ngay-tiep-quan-ha-noi.html",
+      "locators": [
+        "Đoạn ngày10/10/1954; đoạn tiếp quản/khôi phục sản xuất",
+        "Chú thích1,2,4–8"
+      ],
+      "sourceType": "curated_educational",
+      "language": "vi",
+      "supportsClaims": [
+        "CLM-1954-07-005"
+      ],
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "mediaReusePermission": "not_established"
+    },
+    {
+      "id": "SRC-1954-REGROUP-MUSEUM",
+      "title": "60 năm ngày tập kết ra Bắc - Cuộc chuyển quân lịch sử",
+      "publisher": "Bảo tàng Lịch sử Quốc gia",
+      "author": "Lê Liên (Phòng GDCC)",
+      "publishedDate": "2014-10-31",
+      "accessedDate": "2026-10-03",
+      "tier": 2,
+      "perspective": "Vietnamese curated commemorative account; particular transfers and memories, not universal civilian sentiment.",
+      "url": "https://baotanglichsu.vn/vi/Articles/3097/17242/60-nam-ngay-tap-ket-ra-bac-cuoc-chuyen-quan-lich-su.html",
+      "locators": [
+        "Đoạn ngày25-9-1954 tại Lạch Hới/Sầm Sơn",
+        "Đoạn các đợt đón tiếp1954–1955; tên tác giả cuối bài"
+      ],
+      "sourceType": "curated_educational",
+      "language": "vi",
+      "supportsClaims": [
+        "CLM-1954-07-006"
+      ],
+      "reviewStatus": "needs_historical_review",
+      "reviewer": null,
+      "mediaReusePermission": "not_established"
+    }
+  ]
+}
