@@ -44,8 +44,8 @@
 - [x] Đáp án có giải thích sư phạm lịch sử rõ ràng, trung thực.
 - [x] 100% câu hỏi có `sourceIds` tham chiếu nguồn chính thống có thể truy vết.
 - [x] Script kiểm thử `validate-1972-quiz.mjs` chạy PASS 100%.
-- [ ] Trúc (Historical Reviewer) thẩm định tính chuẩn xác của câu hỏi và đáp án.
-- [ ] Product Owner nghiệm thu hoàn tất nội dung Chapter 1972.
+- [x] Trúc (Historical Reviewer) thẩm định tính chuẩn xác của câu hỏi và đáp án. — Confirmed tại review head `3fbf5ea` (q02/q03/q04) + quiz không đổi byte tới `b65dd2d`: [evidence §3](../evidence/CONTENT-018-truc-historical-rereview-2026-10-02.md) (GitHub Approve click pending).
+- [x] Product Owner nghiệm thu hoàn tất nội dung Chapter 1972. — PO ACCEPTED 2026-10-02 SAU CONTENT-018, cùng head `008b2f8`: [PO evidence](../evidence/CONTENT-018-019-po-acceptance-2026-10-02.md).
 
 ## Verification
 
@@ -59,9 +59,10 @@
 | 2026-09-29 | Thọ (Member 1) | Soạn thảo ngân hàng 5 câu hỏi trắc nghiệm Chapter 1972, phủ 4 CLO, kiểm thử tự động PASS 100%; chuyển REVIEW | `docs/content/QUIZ-1972.json`, `validate-1972-quiz.mjs` | Bàn giao Trúc thẩm định sử liệu và Product Owner nghiệm thu | Không |
 | 2026-10-01 | Thọ (Member 1) | Đồng bộ main sạch 0 conflict vào PR #65; xác minh 0-link-lỗi DOC-013; validator PASS 100% | `docs/content/QUIZ-1972.json`, `validate-1972-quiz.mjs` | Chờ Trúc và Product Owner duyệt PR #65 | Không |
 | 2026-10-02 | Thọ (Member 1) + Codex | Đồng bộ main `5c795b2` (PR #103) vào PR #65 (`9a3117d`, merge, không đổi file quiz); validator quiz PASS lại trên cây đã merge | Merge commit; `validate-1972-quiz.mjs` PASS | Chờ CONTENT-018 được nghiệm thu trước theo dependency; Trúc/PO duyệt | Chờ CONTENT-018 + human sign-off |
+| 2026-10-02 | Dương (Product Owner) | Nghiệm thu CONTENT-019 (SAU 018): quiz không đổi byte, 5 câu phủ 4 CLO, Trúc confirmed q02/q03/q04; PO đọc JSON + validator PASS | [PO evidence](../evidence/CONTENT-018-019-po-acceptance-2026-10-02.md) | Chờ Hưng re-review + merge PR65 | Hưng architecture re-review pending; merge BLOCKED bước 4 |
 
 ## Handoff
 
 - Changed files: `docs/tasks/active/CONTENT-019.md`, `docs/content/QUIZ-1972.json`, `docs/content/validate-1972-quiz.mjs`, `docs/project/TASK-BOARD.md`.
 - Test/build result: `validate-1972-quiz.mjs` PASS 100%, `check-client-env.mjs` PASS (0 secrets).
-- Next owner/action: Trúc (Historical Reviewer) thẩm định sử liệu; Dương (Member 4) sẵn sàng nạp vào Quiz Player trong M2.
+- Next owner/action: Hưng re-review kiến trúc; Trúc/Hưng cập nhật GitHub review lên Approved; PO đã ACCEPTED (sau 018) — merge khi đủ bước 4. Nạp runtime thuộc adapter task riêng, không thuộc PR này.

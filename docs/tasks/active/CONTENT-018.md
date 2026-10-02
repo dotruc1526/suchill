@@ -52,8 +52,8 @@
 - [x] Có ít nhất 2 câu hỏi suy ngẫm đọc hiểu sư phạm giúp người học liên hệ bối cảnh đàm phán ngoại giao.
 - [x] Text-first fallback hoàn chỉnh, không phụ thuộc vào hình ảnh ngoài chưa có bản quyền.
 - [x] Script kiểm thử `validate-1972-lesson03.mjs` chạy PASS 100%.
-- [ ] Trúc (Historical Reviewer) thẩm định sử liệu và ngôn ngữ.
-- [ ] Product Owner nghiệm thu phê duyệt.
+- [x] Trúc (Historical Reviewer) thẩm định sử liệu và ngôn ngữ. — TEXT APPROVED 2026-10-02, hash-bound head `b65dd2d`: [evidence](../evidence/CONTENT-018-truc-historical-rereview-2026-10-02.md) (GitHub Approve click pending; scoped Bạch Mai + Tòa Đại sứ, không gồm media/production).
+- [x] Product Owner nghiệm thu phê duyệt. — PO ACCEPTED 2026-10-02 tại head `008b2f8` (content `b65dd2d` + evidence Trúc), TRƯỚC CONTENT-019: [PO evidence](../evidence/CONTENT-018-019-po-acceptance-2026-10-02.md).
 
 ## Verification
 
@@ -70,10 +70,11 @@
 | 2026-10-02 | Thọ (Member 1) | Sửa mốc Bạch Mai tách khỏi Khâm Thiên: rạng sáng 22/12/1972, 28 người thiệt mạng gồm 27 nhân viên y tế và 1 bệnh nhân; thêm nguồn Báo Nhân Dân `SRC-1972-WEB-09`; bỏ claim quá mức về Tòa Đại sứ; handoff M3 khớp contract hiện có | 3 validators nội dung PASS; `git diff --check` PASS; claim và source registry được đồng bộ | Trúc thẩm định lại sử liệu trên head PR mới; CONTENT-018/019 vẫn REVIEW | Human sign-off chưa có |
 | 2026-10-02 | Thọ (Member 1) + Codex | Merge main `5c795b2` (PR #103) vào PR #65 (`9a3117d`); gỡ conflict board (giữ hàng main + hàng 018/019) và CONTENT-017 (lấy bản main); đối chiếu 4 finding P1/P2 của Trúc/Dương đã sửa từ head `22cb164`; chạy lại 4 validators PASS | Merge commit; 1972-authoring/lesson03/quiz + MT68 validators PASS; `git diff --check` PASS | Trúc re-review historical (Bạch Mai, Tòa Đại sứ), Dương re-review consumer (handoff M3); CONTENT-018/019 giữ REVIEW | Chờ human sign-off; sau merge PR cần re-sync hash CONTENT-004/014 do pilot files đổi bytes |
 | 2026-10-02 | Thọ (Member 1) + Codex | Lấy PR #65 tới head `8e027319e3871314c289cb93cfc7f0dabc2c8eac`; kiểm tra hai GitHub Quality checks đều SUCCESS; lập hash snapshot chưa-review cho các artifact bị đổi để reviewer bind verdict đúng revision | `PILOT-SCREENPLAY.md` SHA-256 `6d1bf23a68bf1ad629a53ef1fed7f46360476ca769d8ea527ffb8c07610e9d56`; `HISTORICAL-SOURCES.md` SHA-256 `f8606d62998965a6994b061e14abca9b9a4b7f39e06c95ed97057210402f10b2`; prior screenplay hash trong CONTENT-014 không còn khớp | Trúc re-review historical/hash-bound artifacts; Dương re-review consumer findings; yêu cầu GitHub reviewer chưa gửi được do connector 403/UI unavailable | Chờ reviewer; mọi hash trên là snapshot hiện tại, CHƯA phải approval |
+| 2026-10-02 | Dương (Product Owner) | Nghiệm thu CONTENT-018 (TRƯỚC 019): Trúc TEXT APPROVED hash-bound, PO đối chiếu 6/6 worktree SHA-256 khớp; consumer APPROVED; checklist + lesson + validators/CI đạt | [PO evidence](../evidence/CONTENT-018-019-po-acceptance-2026-10-02.md) | CONTENT-019 nghiệm thu tiếp theo; chờ Hưng re-review + merge | Hưng architecture re-review pending; merge BLOCKED bước 4 |
 
 ## Handoff
 
 - Changed files: `docs/tasks/active/CONTENT-018.md`, `docs/content/LESSON-03-1972-STANDARD.md`, `docs/content/CHAPTER-1972-PACKAGE.md`, `docs/content/CHUAN-HOA-NOI-DUNG-GIAO-DUC-1972.md`, `docs/content/HISTORICAL-SOURCES.md`, `docs/content/validate-1972-lesson03.mjs`, `docs/project/TASK-BOARD.md`.
 - Test/build result (2026-10-02): `node docs/content/validate-1972-authoring.mjs`, `node docs/content/validate-1972-lesson03.mjs`, `node docs/content/validate-1972-quiz.mjs`, và `git diff --check` đều PASS. Validator Lesson 3 chỉ xác nhận cấu trúc, event/date strings, claim/source IDs; không thẩm định fact. Chưa chạy app build/typecheck vì thay đổi chỉ nằm trong tài liệu và validator.
 - Environment/migration impact: docs/content-only, không ảnh hưởng runtime.
-- Next owner/action: Trúc (Historical Reviewer) thẩm định sử liệu và văn phong; Product Owner nghiệm thu.
+- Next owner/action: Hưng re-review kiến trúc; Trúc/Hưng cập nhật GitHub review lên Approved; Thọ đồng bộ nhãn CLM-1972-RD-003 (status-line-only, ghi hash mới); PO đã ACCEPTED — merge khi đủ bước 4.
