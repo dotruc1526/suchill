@@ -68,3 +68,17 @@
 ## Current PR92 remediation handoff
 - Supersedes all earlier waiting notes: main c29e4a7 adapter DONE, M3-06 READY and Vinh handoff complete. Preserved main claim-before-IN-PROGRESS condition.
 - Kept controller plan, refreshed snapshot, M3-07 BACKLOG and this REVIEW card. No source/env/migration impact. Next Hưng re-review new PR90 delta before merge; Dương may separately claim M3-06.
+
+## Reviewer acceptance (Hưng — PR90 delta) — 2026-10-02
+
+- Reviewer: Hưng (Member 3); scope: docs sync delta + controller preparation (service/UI boundary, architecture, a11y). Vinh docs/service scope: APPROVE text tại `a2698e0` (không blocker) theo evidence Dương cung cấp; không claim GitHub submission.
+- Head đã review: `92b41f5` trên `codex/m3-status-sync` (PR90); base `origin/main` tại `c29e4a7` (đã gồm PR92). GitHub báo MERGEABLE/CLEAN; Quality 2/2 SUCCESS trên đúng head.
+- Verdict: APPROVE delta, không blocker. Task giữ REVIEW đến khi merge; Dương merge sau khi CI xanh trên head chứa acceptance này.
+- Đã kiểm tra: docs-only 7 file (`docs/project/TASK-BOARD.md`, `docs/tasks/active/M3-06.md`, `docs/tasks/active/M3-STATUS-01.md`, `docs/tasks/active/README.md`, `docs/tasks/evidence/M3-06-controller-plan.md`, `docs/tasks/evidence/M3-06-preparation.md`, `docs/tasks/evidence/M3-status-2026-10-02.md`); `git diff --check` sạch; không đổi src/tests/package/env/migration.
+- Giữ nguyên main: adapter M3-COMPLETION-01 DONE, M3-06 READY tại `active/`; board chỉ thêm 2 dòng M3-07 BACKLOG và M3-STATUS-01 REVIEW; bảng gate không đổi (M3 OPEN, M4 LOCKED).
+- Snapshot khớp main: PR88 merged `a339af6`, PR92 merged `c29e4a7`, runtime không đổi từ `68580ed`, head PR88 cuối `e6a3940` CI 2/2 PASS, quality 95/22/7, scan 338/0; review history (Hưng CHANGES tại `5a771db` rồi ACCEPTED fix; Dương APPROVED `68580ed`/`c816ec7`) khớp card DONE.
+- Controller plan: 18 scenarios (C01–C13, U01–U02, B01–B03) đều planned, không claim PASS runtime; UI gọi controller, không đọc store/import legacy; tách completion/summary; retry giữ operation ID; epoch/generation chống stale/lẫn account; lỗi phân biệt, không gán lỗi thành 0 XP; role=status/alert, keyboard/focus, 44px, reduced motion, tokens/primitives. Khớp D1–D7, Phase 7.
+- Link: kiểm tra độc lập toàn cây PR90 — 455/455 link local hợp lệ, 0 gãy (riêng docs/tasks: 181/181).
+- Ghi nhận không chặn merge: (1) header Files claimed còn liệt kê `done/QA-002.md` dù không sửa mới (card đã tự đính chính); (2) card M3-06 còn chữ "blocked index" — tồn tại sẵn trên main; (3) số "139 link" trong handoff khác cách đếm phạm vi, 0 gãy đã xác minh độc lập; (4) card dài do nhiều checkpoint — chỉ ảnh hưởng đọc hiểu.
+- Text review ghi tại đây theo yêu cầu Hưng; chưa có GitHub APPROVED submission (phiên `gh` local đăng nhập tài khoản Compuerte, không phải Hưng).
+- Next: Dương merge PR90 khi CI xanh trên head mới; sau merge chuyển M3-STATUS-01 REVIEW → DONE; Dương claim runtime M3-06 độc lập theo card (PR90 không chặn); M3-07 chờ M3-06 acceptance; không đổi gate.
