@@ -5,7 +5,7 @@
 Started: 2026-10-03 (Asia/Saigon).
 Owner: Product Owner / người dùng. Executor: Codex root.
 Reviewer: Product Owner + frontend/backend/QA reviewer (chưa nghiệm thu).
-Branch: codex/dautri-online-pr109. Base mới nhất: PR109 `51a7eed` (2026-10-03).
+Branch: codex/dautri-online-pr109. Base mới nhất: PR109 `3e14b77` (2026-10-03).
 
 ## Quyết định scope và dependency
 

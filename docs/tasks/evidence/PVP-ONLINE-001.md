@@ -1,7 +1,7 @@
 # PVP-ONLINE-001 — Evidence và bàn giao
 
 Ngày: 2026-10-03 Asia/Saigon. Branch: `codex/dautri-online-pr109`.
-Base đã kiểm chứng: PR109 `51a7eed676febab6e10f9ae2092aaf737f524f29`, chưa merge PR109 hoặc nhánh này.
+Base mới nhất: PR109 `3e14b772431164ecda54cd3c7c09de6232d02fe8`, chưa merge PR109 hoặc nhánh này. Full Quality đạt trên `51a7eed`; cập nhật `3e14b77` chỉ đổi tài liệu/content registers, không đổi runtime/package. Sau rebase đã chạy lại typecheck và 11 deployment/config/readiness tests: PASS.
 Mã prototype lấy từ workspace người dùng; giữ engine/questions hiện có, không chép App/auth cũ.
 
 ## Phần đã làm
