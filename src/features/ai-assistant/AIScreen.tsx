@@ -43,7 +43,7 @@ export function AIScreen() {
       {/* Header */}
       <div className="px-4 pt-4 pb-3 shrink-0">
         <div className="flex items-center gap-3">
-          <Mascot emotion="happy" size={48} />
+          <Mascot decorative emotion="happy" size={48} />
           <div>
             <div className="font-serif font-bold text-base" style={{ color: '#3D1A00' }}>NGƯỜI DẪN CHUYỆN</div>
             <div className="font-sans text-xs" style={{ color: '#7A4020' }}>Hỏi mình bất cứ điều gì về lịch sử Việt Nam</div>
@@ -72,10 +72,10 @@ export function AIScreen() {
       </div>
 
       {/* Messages */}
-      <div ref={scrollRef} role="log" aria-label="Hội thoại với SỬu" aria-live="polite" aria-relevant="additions text" className="flex-1 overflow-y-auto px-4 py-3 space-y-4">
+      <div ref={scrollRef} role="log" tabIndex={0} aria-label="Hội thoại với SỬu" aria-live="polite" aria-relevant="additions text" className="flex-1 overflow-y-auto px-4 py-3 space-y-4">
         {messages.map((msg, i) => (
           <div key={i} className={`flex items-end gap-2 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
-            {msg.role === 'ai' && <Mascot emotion="happy" size={40} className="shrink-0" />}
+            {msg.role === 'ai' && <Mascot decorative emotion="happy" size={40} className="shrink-0" />}
             <div
               className="max-w-[78%] rounded-2xl px-4 py-3 font-sans text-sm leading-relaxed"
               style={{
@@ -91,7 +91,7 @@ export function AIScreen() {
         ))}
         {thinking && (
           <div role="status" className="flex items-end gap-2">
-            <Mascot emotion="thinking" size={40} animate />
+            <Mascot decorative emotion="thinking" size={40} animate />
             <div
               className="px-4 py-3 rounded-2xl font-sans text-sm"
               style={{

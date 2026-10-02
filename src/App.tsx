@@ -74,7 +74,8 @@ function AppContent({ profile, practice, activity, syncStatus }: {profile?: Reac
           {!navigation.isOverlay && <PwaStatus canUpdate={canUpdate} />}
           {!navigation.isOverlay && syncStatus}
           {!navigation.isOverlay && (
-            <div className="flex-1 overflow-y-auto">
+            <div className="flex-1 overflow-y-auto" role="region" tabIndex={0}
+              aria-label={{ home: 'Nội dung học bài', practice: 'Nội dung luyện tập', ai: 'Nội dung trợ lý lịch sử', profile: 'Nội dung hồ sơ' }[navigation.tab]}>
               <div hidden={navigation.tab !== 'home'}><LearningJourney active={navigation.tab === 'home'} activityService={activity} offlineStatusProvided={import.meta.env.PROD && import.meta.env.BASE_URL === '/' && pwaController.getSnapshot().supported} onSafeToUpdateChange={reportJourneySafety} /></div>
               {navigation.tab === 'practice' && (practice ?? <PracticeScreen />)}
               {navigation.tab === 'ai' && <AIScreen />}

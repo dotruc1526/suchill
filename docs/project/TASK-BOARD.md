@@ -429,7 +429,7 @@ AI phải đọc task board trước khi làm việc. Nếu task `BLOCKED` hoặ
 | M6-03 | Codex root | Independent Codex software APPROVE | DONE | accepted software prerequisites | [Card](../tasks/done/M6-03.md); skip-link fix/typecheck/Chrome10 PASS; milestone/device/media gates separate |
 | M6-04 | Codex root, coordinated lanes | Historical/media verdict separate | BLOCKED | M3-04 DONE;1954media final review | [Card](../tasks/blocked/M6-04.md); resolve stated dependency; no false DONE |
 | M6-05 | Codex root | Independent Codex software APPROVE | DONE | accepted software prerequisites | [Card](../tasks/done/M6-05.md); skip-link fix/typecheck/Chrome10 PASS; milestone/device/media gates separate |
-| M6-06 | Codex root / delegated audit | Independent source re-review; actual screen-reader evidence separate | REVIEW | M3 DONE, M6-05 DONE | [Card](../tasks/active/M6-06.md); four source findings fixed; targeted checks PASS; manual acceptance pending |
+| M6-06 | Codex root / delegated audit | Independent source re-review; actual screen-reader evidence separate | REVIEW | M3 DONE, M6-05 DONE | [Card](../tasks/active/M6-06.md); source/ARIA/keyboard/duplicate-ID fixes independently APPROVE; axe8 + Quality381 PASS; manual acceptance pending |
 | M6-07 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | BLOCKED | M6-01..06; approved video; real Android/iOS testers | [Card](../tasks/blocked/M6-07.md); resolve stated dependency; no false DONE |
 
 ### Earlier M6 handoff — superseded by current1954decision
@@ -459,10 +459,16 @@ Product Owner explicitly selects **1954 / Trước cơn bão**, replacing the cu
 
 | ID | Owner / Executor | Reviewer | Status | Depends on | Card / next action |
 |---|---|---|---|---|---|
-| HOSTING-PREVIEW-001 | Codex root | Independent technical review; actual Android user proof | REVIEW | M6-02/03/05; supplied1954reference preview; explicit Firebase project approval | [Card](../tasks/active/HOSTING-PREVIEW-001.md); [HTTPS evidence](../engineering/m6-pwa/HOSTING-PREVIEW-20261003.md); temporary preview deployed, browser/media/hash PASS; independent review and actual Android results pending; no live/canonical release |
+| HOSTING-PREVIEW-001 | Codex root | Independent Codex technical APPROVE; actual basic Android user PASS | DONE | M6-02/03/05; supplied1954reference preview; explicit Firebase project approval | [Card](../tasks/active/HOSTING-PREVIEW-001.md); temporary HTTPS preview accepted, independent24/24 + HTTPS smoke PASS; full device/media/M6/M7/live gates separate |
 
 ## Current preview UI request — 2026-10-03
 
 | Task | Scope | Owner / Reviewer | Status | Dependencies | Evidence / Next action |
 |---|---|---|---|---|---|
-| MVP-1954-CATALOG-001 | Existing HTTPS HỌC preview: Chapter1—1954, only episode1 open, episodes2–7 temporarily locked | Codex root / independent technical reviewer and user Android observations | REVIEW | MVP-1954-001 DONE; M6-02/03/05 DONE; Hosting preview available; explicit user outline/request | [Card](../tasks/active/MVP-1954-CATALOG-001.md); deployed cdc8b3db5c5f0b5ade70; Quality381 + reference19 + newUI3 PASS; review pending, no media/XP/canonical/release gate change |
+| MVP-1954-CATALOG-001 | Existing HTTPS HỌC preview: Chapter1—1954, only episode1 open, episodes2–7 temporarily locked | Codex root / independent Codex software APPROVE | REVIEW | MVP-1954-001 DONE; M6-02/03/05 DONE; Hosting preview available; explicit user outline/request | [Card](../tasks/active/MVP-1954-CATALOG-001.md); repaired Back/source-notes independent4/4 PASS; deploy repaired build and smoke before DONE; media/XP/canonical/release gates separate |
+
+## Final acceptance continuation — 2026-10-03
+
+| Task | Owner / Executor | Reviewer | Status | Dependencies / next action |
+|---|---|---|---|---|
+| M6-ACCEPTANCE-002 | Codex root / root + independent audit lanes | Independent bounded technical reviewers; human media/device/PO gates distinct | REVIEW | M6 OPEN; current software/Hosting/catalog REVIEW; [card](../tasks/active/M6-ACCEPTANCE-002.md); software APPROVE, Quality381/reference19/catalog4 PASS; isolated rollback PASS; final repaired Hosting smoke pending; no gate bypass |

@@ -62,3 +62,7 @@ No accounts, passwords, progress, backend configuration, migrations, dependency 
 ## Final source re-review — 2026-10-03
 
 Independent reviewer: SOFTWARE APPROVE for A11Y-01..04, no remaining source finding in this narrow scope. Root verified typecheck PASS, recovery Chrome 7/7 PASS (linked error focus and unchanged fragment), original M3 Chrome 9/9 PASS, fresh production polish 1/1 PASS and labelled lesson/quiz single-main SSR 1/1 PASS. New test-only selector/fixture failures were corrected before final PASS; original M3 tests were preserved. The full M6-06 task remains REVIEW for the manual/complete-scan acceptance above. [Current handoff](./1954-HANDOFF.md).
+
+## Current automated re-review — 2026-10-03
+
+Independent accessibility_review SOFTWARE APPROVE after repairing mascot semantics, named focusable scroll areas, valid TopBar groups, per-instance quiz heading/result/input IDs and the named VN scene group. Fresh targeted axe8/8states with zero direct WCAG-tag violations; earlier23local states and3actual HTTPS Auth views also had zero direct violations after first repairs. Repeated quiz region/control associations verified. The incomplete texture/overlap contrast result was compared with measured accepted tokens; no concrete contrast defect found. Current Quality381PASS/0fail/3nativeSQLskips, catalog4/4 and reference19/19 PASS. These results supersede the pending complete automated scan above for audited states; manual TalkBack/iOS/desktop icon launch/browser UI zoom remain unperformed. Full M6-06 stays REVIEW.

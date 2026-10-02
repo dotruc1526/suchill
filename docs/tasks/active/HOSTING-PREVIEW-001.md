@@ -1,16 +1,16 @@
 # HOSTING-PREVIEW-001 — HTTPS preview for actual Android checks
 
-> Status: REVIEW
+> Status: DONE
 > Last updated: 2026-10-03
 
 - Owner: Codex root, under the user's M6–M7 request and Android test input.
 - Executor: root.
-- Reviewer: independent technical reviewer; actual phone results from the user.
+- Reviewer: independent Codex hosting_catalog_review APPROVE (2026-10-03); actual basic Android results from the user.
 - Started: 2026-10-03; READY → IN PROGRESS after software prerequisites and explicit Firebase project/terms approval.
 - Depends on: M6-02/03/05 DONE; MVP-1954-001 bounded internal-preview DONE; user confirms Android and Google two-step verification, explicitly approves Firebase terms/project creation.
 - Files claimed: firebase.json, .firebaserc, .gitignore; scripts/release/build-hosting-preview.mjs; scripts/content/reference-preview/index.html; this card and task board. Existing video/audio, App/router, production content and migrations are unchanged.
 - Acceptance: verified Spark project/site suchill-preview; reproducible static app plus reference-preview build; only publishable/anon client configuration, no secret or account data in hosted files; reviewed headers/SPA fallback; temporary HTTPS preview URL and real browser smoke tests. No live channel/canonical publication or full M6/M7 closure.
-- Next action: prepare/review build and Hosting config, authenticate official CLI through the user's authorized Google session, deploy a temporary preview and obtain actual Android observations.
+- Next action: retain the temporary preview; remove only its CORS origin on retirement. Full device/media/release acceptance remains separate.
 
 Project was created through Firebase console after action-time terms approval. Gemini/Analytics/developer-program signup were disabled in setup. Console verifies Spark ($0/month) and project ID suchill-preview. Existing Supabase remains the backend; Firebase SDK/backend/billing is not added.
 
@@ -44,3 +44,5 @@ User confirms corrected Android username loginPASS2026-10-03. Remaining installa
 ## Latest Android observation — 2026-10-03
 
 User explicitly confirmed all requested basic install/icon, video/caption/resume, rotation/large text and offline opening steps work on build bfc05ef6fabc8087b4c0. [Matrix](../../platform/release/DEVICE-MATRIX.md). Exact model/version, TalkBack, two-build update, broader device cases and independent review remain pending. Earlier “no actual result” checkpoints are superseded; task/milestone status is unchanged. New catalog UI is claimed separately under MVP-1954-CATALOG-001.
+
+Independent reviewer accepted the bounded task on 2026-10-03: 24/24 targeted checks and actual HTTPS Chrome smoke PASS; package unchanged, private/reference caches excluded and exact-origin CORS isolated. Basic Android steps also PASS by user report. REVIEW → DONE applies only to temporary Hosting preview; no M6 closure, M7 opening, TalkBack, media-rights or live release approval.

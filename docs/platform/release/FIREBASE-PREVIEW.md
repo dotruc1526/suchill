@@ -1,6 +1,6 @@
 # Chuẩn bị Firebase Hosting preview
 
-Chưa xác nhận project/site, quyền deploy hoặc URL preview. Tài liệu này không thực hiện deployment. Hosting là frontend; Supabase tiếp tục quản lý Auth/database/Storage.
+Project/site suchill-preview và temporary channel m6-android-1954 đã được triển khai, technical Hosting review đạt. Các yêu cầu bên dưới áp dụng cho preview và promotion tiếp theo. Hosting là frontend; Supabase tiếp tục quản lý Auth/database/Storage.
 
 ## Đầu vào thực cần có
 
@@ -32,4 +32,6 @@ Không lưu URL callback chứa token hoặc credential vào evidence. [Gate](./
 
 Project/site suchill-preview is provisioned; official CLI authentication completed. Temporary channel m6-android-1954: https://suchill-preview--m6-android-1954-p8pbahbd.web.app/ ; [1954 reference](https://suchill-preview--m6-android-1954-p8pbahbd.web.app/reference), expires2026-10-10 03:08 Asia/Bangkok. Existing Spark plan, no live channel or billing/backend/Auth-domain change. [Exact evidence and limitations](../../engineering/m6-pwa/HOSTING-PREVIEW-20261003.md). Raw Firebase media Range is unsupported here; the preview uses a size/hash-verified page-memory copy for native resume. Android/manual/independent acceptance remains pending. Authentication recovery origin allowlist is not modified or accepted by this preview.
 
-Auth follow-up: account-access previously accepted only local origins. The server setting ACCOUNT_ACCESS_ORIGINS now preserves four local defaults plus the exact temporary preview origin. Backend CORS environment changed; Auth redirect allowlist/email recovery remains separate and unchanged. Live QA login/read and rejected arbitrary origins PASS; user Android retest pending. Remove the temporary CORS entry upon channel retirement.
+Auth follow-up: account-access previously accepted only local origins. The server setting ACCOUNT_ACCESS_ORIGINS now preserves four local defaults plus the exact temporary preview origin. Backend CORS environment changed; Auth redirect allowlist/email recovery remains separate and unchanged. Live QA login/read and rejected arbitrary origins PASS; user Android username login and basic install/video/offline retest confirmed PASS. Remove the temporary CORS entry upon channel retirement.
+
+Checkpoint mới 2026-10-03: Hosting bounded independent review APPROVE; người dùng xác nhận Android cơ bản đạt. Diễn tập [isolated rollback](./ROLLBACK.md) PASS. Root hoàn tất bản sửa Back/ARIA và nguồn minh họa rồi cập nhật cùng URL. Giữ Supabase Auth recovery allowlist/email callback và manual/full-device/media acceptance riêng; M7 LOCKED.

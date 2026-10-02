@@ -61,6 +61,9 @@ test('actual mock production app: keyboard bypass, mobile/landscape/large text a
       const tab = label => cdp.evaluate('Array.from(document.querySelectorAll("nav button")).find(button=>button.textContent===' + JSON.stringify(label) + ').click()')
       await tab('HỒ SƠ')
       await cdp.waitFor('Boolean(document.querySelector("#profile-heading"))')
+      assert.equal(await cdp.evaluate('document.querySelector("[role=region]").tabIndex'), 0)
+      await cdp.evaluate('document.querySelector("[role=region]").focus()')
+      assert.equal(await cdp.evaluate('document.activeElement.getAttribute("role")'), 'region')
       assert.equal(await cdp.evaluate('document.querySelectorAll("main").length'),1)
       await tab('AI')
       await cdp.waitFor('Boolean(document.querySelector("[role=log]"))')
@@ -92,11 +95,21 @@ test('lesson and quiz regions retain labels inside one application main landmark
     const noop=()=>{}
     const html=renderToStaticMarkup(React.createElement('main',{id:'qa-main'},
       React.createElement(LessonContentView,{content:lesson}),
-      React.createElement(QuizFlowView,{session,submitting:false,answersLocked:false,onToggle:noop,onSubmit:noop,onEditAfterError:noop,onRetryPractice:noop})))
+      ...Array.from({length:2},()=>React.createElement(QuizFlowView,{session,receipt:{mode:'practice',feedback:[]},submitting:false,answersLocked:false,onToggle:noop,onSubmit:noop,onEditAfterError:noop,onRetryPractice:noop}))))
     assert.equal((html.match(/<main[ >]/g)||[]).length,1)
-    for(const id of ['lesson-entry-heading','quiz-heading']) {
-      assert.ok(html.includes('aria-labelledby="'+id+'"'))
-      assert.ok(html.includes('id="'+id+'"'))
+    const ids=Array.from(html.matchAll(/\sid="([^"]+)"/g),match=>match[1])
+    assert.equal(new Set(ids).size,ids.length,'repeated quiz consumers have unique heading, result and input IDs')
+    const namedSections=Array.from(html.matchAll(/aria-labelledby="([^"]+)"/g),match=>match[1])
+    assert.equal(namedSections.length,5,'lesson and both quiz/result sections stay named')
+    for(const id of namedSections) assert.ok(ids.includes(id),'region label resolves: '+id)
+    for(const tag of ['h1','h2']) {
+      const quizHeadingIds=Array.from(html.matchAll(new RegExp('<'+tag+' id="([^"]+)"[^>]*>(Bài kiểm tra|Kết quả luyện tập)</'+tag+'>','g')),match=>match[1])
+      assert.equal(quizHeadingIds.length,2)
+      assert.ok(quizHeadingIds.every(id=>namedSections.includes(id)),'each quiz section names its own '+tag)
     }
+    const controls=Array.from(html.matchAll(/<input id="([^"]+)"/g),match=>match[1])
+    const labels=Array.from(html.matchAll(/<label[^>]*for="([^"]+)"/g),match=>match[1])
+    assert.equal(controls.length,2)
+    assert.deepEqual(labels,controls,'each repeated option label targets its own control')
   } finally { await server.close() }
 })

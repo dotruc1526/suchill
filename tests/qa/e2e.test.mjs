@@ -635,7 +635,7 @@ test('M3-07 deterministic renderer states, quiz retry, long Vietnamese and mute 
       await press(`[...${practice}.querySelectorAll('button')].find(b => b.textContent === 'THỬ GỬI LẠI')`)
       await waitFor(`${practice}.textContent.includes('Kết quả luyện tập')`, 'practice result')
       assert.equal(await evaluate(`${practice}.querySelector('[role=status]')?.textContent.includes('Chính xác')`), true)
-      assert.equal(await evaluate("document.activeElement?.getAttribute('aria-labelledby')"), 'quiz-result-heading')
+      assert.equal(await evaluate(`${practice}.contains(document.activeElement) && document.getElementById(document.activeElement?.getAttribute('aria-labelledby'))?.textContent === 'Kết quả luyện tập'`), true, 'focused result names its own practice heading')
       const scored = "document.querySelectorAll('[data-testid=quiz-flow-v2]')[1]"
       await evaluate(`${scored}.querySelector('input').click()`); await press(`${scored}.querySelector('button')`)
       await waitFor(`${scored}.textContent.includes('Kết quả: 1/1')`, 'trusted scored result')

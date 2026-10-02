@@ -41,18 +41,27 @@ export default function Preview1954Learning({ active = true, offlineStatusProvid
     returnFocus.current = null
   }, [active, view])
   function navigate(next: PreviewView) {
-    history.pushState(null, '', location.pathname + location.search + hashes[next])
+    history.pushState({ suchillPreview1954: { from: view } }, '', location.pathname + location.search + hashes[next])
     setView(next)
+  }
+  function goBack() {
+    const parent: PreviewView = view === 'video' ? 'chapter' : 'home'
+    returnFocus.current = view === 'video' ? 'episode' : 'chapter'
+    if (history.state?.suchillPreview1954?.from === parent) {
+      history.back()
+    } else {
+      // Direct links and Home→video have no chapter entry to pop. Replace this
+      // view with its parent so Android/browser Back cannot reopen the video.
+      history.replaceState(history.state, '', location.pathname + location.search + hashes[parent])
+      setView(parent)
+    }
   }
   function openEpisode(id: string) { if (canOpenEpisode(id)) navigate('video') }
   if (!active) return null
 
   return <section data-testid="preview1954-learning" aria-labelledby="preview1954-heading" className="space-y-4 px-4 py-4" style={{ color: theme.colors.textPrimary }}>
     {offline && !offlineStatusProvided && <OfflineState />}
-    {view !== 'home' && <Button variant="outline" data-testid="preview1954-back" onClick={() => {
-      returnFocus.current = view === 'video' ? 'episode' : 'chapter'
-      navigate(view === 'video' ? 'chapter' : 'home')
-    }}>‹ {view === 'video' ? 'VỀ DANH SÁCH TẬP' : 'VỀ HỌC BÀI'}</Button>}
+    {view !== 'home' && <Button variant="outline" data-testid="preview1954-back" onClick={goBack}>‹ {view === 'video' ? 'VỀ DANH SÁCH TẬP' : 'VỀ HỌC BÀI'}</Button>}
     <header>
       {view !== 'home' && <p className="text-xs font-bold" style={{ color: theme.colors.textSecondary }}>{previewChapter.label} · NĂM 1954</p>}
       <h1 id="preview1954-heading" ref={heading} tabIndex={-1} className="text-2xl font-bold outline-none">{view === 'home' ? 'Học bài' : view === 'chapter' ? 'Năm 1954' : 'Tập 1 — Trước cơn bão'}</h1>

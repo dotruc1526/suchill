@@ -1,19 +1,11 @@
-# Một lượt người dùng thử nội bộ
+# Kết quả người dùng thử nội bộ
 
-Dùng preview đúng build/content version sau technical QA. Người thử thật tự thao tác; agent không tự điền phản hồi thay họ. Một hoặc hai video thử là đủ cho scope này.
+Người dùng 2026-10-03 trên Android, preview m6-android-1954 / build bfc05ef6fabc8087b4c0:
 
-| Người thử / ngày / thiết bị | Build + content version | Hành trình đã làm | Điều khó hiểu / lỗi | Mức độ / owner | Sửa và thử lại / evidence |
-|---|---|---|---|---|---|
-| Chưa cung cấp | Chưa cung cấp | CHƯA KIỂM | — | — | — |
+- Ban đầu tài khoản đã tạo nhưng đăng nhập bằng tên báo lỗi. Root sửa CORS đúng origin preview, giữ bốn origin local; domain lạ vẫn bị chặn. Người dùng thử lại và xác nhận “Đăng nhập được”.
+- Người dùng xác nhận “Đã thử hết, đều chạy được” cho cài app/mở từ icon, video/phụ đề/resume, xoay màn hình/chữ lớn và mở khi tắt mạng.
+- Người dùng yêu cầu không ghi hồ sơ bằng chứng và không cung cấp thêm cấu hình máy; không hỏi lại. TalkBack/iOS, hai-build update, hiệu năng máy yếu và thử UI1954 mới trên điện thoại chưa được quan sát.
 
-Hành trình ngắn:
+Đây là phản hồi thật của người dùng cho các bước trên, không thay nghiệm thu nội dung/quyền/media, học hiểu/quiz, manual accessibility hoặc toàn bộ release matrix. Browser regression của UI1954 mới được review riêng. Không lưu dữ liệu tài khoản, mật khẩu hoặc token trong hồ sơ này.
 
-- Đăng nhập tài khoản thử của chính mình, vào chapter, đọc nguồn và phân biệt label fact/fiction.
-- Mở video, caption/transcript; dừng, thoát và học tiếp; làm choice/quiz và kiểm tra explanation.
-- Mất mạng, đọc pending/fallback; kết nối lại, reload và xem tiến độ không bị cộng lặp.
-- Đổi build khi đang có bài học/tab khác; nhận update ở Home và xác nhận không mất việc đang làm.
-- Tự tìm tùy chọn mute, reduced motion, đăng xuất và thông tin liên hệ/privacy.
-
-Hỏi ba điều: người thử hiểu bài muốn dạy gì; hành động nào khó tìm/khó đọc; bước nào khiến họ mất tin tưởng hoặc không thể tiếp tục. Ghi lời phản hồi ngắn với đồng ý của người thử, tránh dữ liệu cá nhân không cần thiết.
-
-Blocker/Critical phải sửa và review lại trước release. Major cần quyết định product+technical bằng văn bản, owner và hạn xử lý theo Phase 8. Người thử mới cần nhận đúng bản sửa; không đánh dấu resolved chỉ vì commit đã có.
+M6 còn mở, M7 chưa mở. Trước public release, các bước còn lại theo Phase8 phải được reviewer và PO chấp nhận; không tự điền kết quả thay người dùng.

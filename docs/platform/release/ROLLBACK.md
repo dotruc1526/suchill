@@ -1,22 +1,12 @@
-# Rollback một bản web/PWA
+# Rollback web/PWA
 
-Chuẩn bị trước release; chưa có deployment hoặc rollback thực nào được xác nhận ở hồ sơ này.
+Diễn tập 2026-10-03 PASS trên channel tách biệt, không thay link người dùng hoặc live.
 
-| Dữ liệu cần ghi | Giá trị thực |
-|---|---|
-| Build/commit ứng viên và manifest media SHA | Chưa cung cấp |
-| Firebase project/site/channel + release ID | Chưa cung cấp |
-| Bản Hosting tốt trước đó | Chưa cung cấp |
-| Backend environment + migration version | Chưa cung cấp |
-| Canonical content version cũ/mới | Chưa cung cấp |
-| Người có quyền rollback và tiêu chí kích hoạt | Chưa cung cấp |
-| URL/evidence kiểm thử rollback | Chưa cung cấp |
+- Project/site: suchill-preview. Channel QA m6-rollback-1954, [URL](https://suchill-preview--m6-rollback-1954-vo04nbif.web.app); hết hạn 2026-10-04 04:02 Asia/Bangkok.
+- Đã kiểm tra bản tốt 0aeb37eef6bebd8b / build bfc05ef6fabc8087b4c0 → ứng viên b57c74b74e2de7d9 / build cdc8b3db5c5f0b5ade70 → bản tốt cũ.
+- Release ứng viên /1790975078736000; rollback /1790975090578000 trong projects/777513574147/sites/suchill-preview/channels/m6-rollback-1954/releases/.
+- Mỗi lần: video gốc 1080×1920, 28 cue, resume17 giây, completed=false và storage không liên quan giữ nguyên. Link người dùng giữ release /1790973825289000 khi diễn tập; live chưa publish.
+- MP4 SHA256 2b7def3cd371275f73f062707b9cd212bca663b4b8e66eeb980272b5c092f0ec; manifest d1bfd0bd021df6bd52a00eb6bac5dbe3c7dbe814a13a0e1edd7d485c23647474.
+- Không đổi Auth domains, CORS, backend, migration hoặc canonical content. Đây là rollback transport preview; không nghiệm thu rollback tài khoản/schema/thiết bị thật.
 
-1. Giữ build tốt trước đó và preview của nó. Kiểm tra sign-in/read/resume với schema hiện hành trước khi coi là rollback khả dụng.
-2. Nếu release lỗi: owner dừng promotion, chọn release Hosting tốt đã ghi và dùng chức năng rollback của project/site đúng mục tiêu. Không xóa project, database hoặc user progress.
-3. RLS/reward/content version là backend riêng; quay frontend không tự quay schema. Migration đã áp dụng giữ nguyên, sửa bằng roll-forward được review. Published content sửa bằng version mới.
-4. Service worker có thể còn phục vụ build cũ cho tab đang mở. Thử Home update/reopen, phiên cũ và offline; không xóa localStorage/queue/Auth để ép cập nhật.
-5. Kiểm tra anonymous/account A/B, sign-out, canonical read, pending sync và replay XP sau rollback. Ghi kết quả thực cùng thời gian/người thực hiện.
-6. Chỉ đóng incident khi reviewer chấp nhận evidence; không gọi phương án chưa thử là recovery PASS.
-
-Với lỗi lịch sử/media, gỡ promotion/phiên bản khỏi release theo publication workflow được duyệt; giữ audit và checkpoint của version cũ.
+Khi frontend lỗi, dừng promotion và chọn đúng version tốt đã kiểm tra của đúng site/channel. Không xóa user progress, Auth hoặc queue để ép cập nhật. Tab cũ có worker riêng: kiểm tra update tại Home, reopen/offline và phiên cũ trước khi đóng incident. Quay frontend không quay schema; migration đã áp dụng sửa bằng roll-forward, nội dung published sửa bằng version mới. Authenticated read/pending sync/replay reward vẫn là kiểm tra riêng trước public release.
