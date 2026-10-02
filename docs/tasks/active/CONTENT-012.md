@@ -9,18 +9,18 @@
 - Executor: Trúc (Member 2), Codex hỗ trợ sửa PR #21 theo quyền Thọ cấp.
 - Reviewer: Trúc (historical/learning/media theo quyền Thọ giao); Vinh (technical QA); sign-off bản mới còn chờ.
 - Started: 2026-09-27 (lượt sửa); bản nháp trước do Thọ thực hiện.
-- Branch revision hiện hành: PR #21 đã merge; verdict 2026-10-02 của Trúc nằm trên nhánh PR #99 `codex/tho-content017-closeout` (open).
+- Branch revision hiện hành: PR #21 đã merge; verdict 2026-10-02 của Trúc nằm trên nhánh PR #99 `codex/tho-content017-closeout`, merged `ddd73d4`.
 - Depends on: CONTENT-008 (DONE trên nhánh PR); sửa bản nháp trong content track, không mở M1.
 - Files claimed: `docs/content/QUIZ-MT68.json`; card này. Registry/catalog/board do cùng executor Trúc đồng bộ theo [handoff PR21](./PR21-HANDOFF.md).
-- Next action: Vinh technical QA sau verdict historical/learning của Trúc (quiz reviewed hash `4013b399…667eb`); giữ authoring-only, không seed/integrate.
-- Blocker: chờ Vinh technical QA; media/production chưa duyệt. Không phát hành, tích hợp hoặc seed.
+- Next action: technical authoring QA/handoff accepted by Hưng/Trúc; remaining media/production acceptance before any release. Keep draft/authoring-only, no seed/integrate.
+- Blocker: media rights/assets and production approval remain pending. Không phát hành, tích hợp hoặc seed.
 
 ## Acceptance
 
 - [x] Năm câu có objective/source hợp lệ; không dùng đáp án lịch pháp thiếu căn cứ; chưa seed production. (Trúc verdict 2026-10-02 cho reviewed hash `4013b399…667eb`; quiz vẫn `draft` + `authoringOnly`, chưa seed.)
 - [x] Reviewer xác nhận nội dung/learning objective. (Trúc APPROVED historical/learning scope 2026-10-02; verdict riêng cho quiz, không suy từ CONTENT-010.)
 - [ ] Media có quyền, caption/alt/fallback và nguồn item cụ thể trước phát hành.
-- [ ] Technical QA và handoff được xác nhận.
+- [x] Technical QA và handoff được xác nhận trong authoring scope: Hưng ACCEPTED QA at c7a84d6; Trúc handoff at e3987fb; PR99 merged ddd73d4. Media/production remain separate.
 
 ## Checkpoint
 
@@ -74,3 +74,9 @@ Verdict riêng cho quiz, không suy từ CONTENT-010 hay bất kỳ lesson nào.
 - Giới hạn verdict: chỉ historical/learning scope. Không thay technical QA của Vinh, media review, hay production/seed approval. Quiz giữ `status: draft` và `authoringOnly: true`.
 - Đồng bộ trạng thái: `reviewStatus` `NEEDS_HISTORICAL_REVIEW` → `APPROVED_BY_HISTORICAL_REVIEWER`; reviewed SHA-256 `4013b399…667eb`, current SHA-256 `44b9eed6fc1c94cbf8b4b662eaeb2580ad55b08994286bba2b86cf1891103912`. `validate-mt68-authoring.mjs` PASS sau đồng bộ.
 - Next: Vinh technical QA; task giữ REVIEW cho đến khi technical QA + media/handoff đạt. Không seed/integrate.
+
+## Technical QA after separate quiz verdict — Vinh, 2026-10-02
+
+- Trúc recorded historical/learning APPROVED in PR99 (`fbaf3b3`) for reviewed hash `4013b399…667eb`; current status-only hash `44b9eed6…3912`. PR99 is now merged `ddd73d4`; its main quiz bytes match the tested snapshot. Earlier pending entries describe their historical base.
+- Vinh **ACCEPTED technical authoring scope** on exact PR99 `7d94d94`: hashes/status-only delta, 5 questions/20 options, stable IDs, answer/source/objective references, nonempty wording/explanations PASS; 5 malformed-input probes rejected; pristine validator PASS after restoration.
+- [Evidence and limits](../evidence/CONTENT-012-technical-qa-2026-10-02.md). Technical QA/handoff is accepted by Hưng/Trúc and integrated here; remaining media checklist stays open; no runtime or production acceptance inferred.

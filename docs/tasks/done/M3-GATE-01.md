@@ -1,6 +1,6 @@
 # M3-GATE-01 — M3 QA closeout and Product Owner gate handoff
 
-> Status: REVIEW
+> Status: DONE
 > Last updated: 2026-10-02
 
 ## Assignment / explicit claim
@@ -50,3 +50,15 @@
 - Gate mapping: 3 điều kiện trong evidence khớp từng chữ Phase 9 Gate M3, mỗi điều kiện có evidence test + boundary mock rõ ràng; test files tồn tại trên main.
 - Docs hygiene: proposal CANCELLED đúng ở archived/, M3-07/A11Y đúng ở done/, không còn bản active thừa; PR101 đúng docs-only (13 file); board row + index nhất quán REVIEW; links trong evidence resolve.
 - Ranh giới giữ đúng: PO decision UNSIGNED, không claim M4, không claim production/content acceptance. Task giữ REVIEW chờ Dương PO audit/quyết định. M3 OPEN/M4 LOCKED, không đổi gate.
+
+## Preparation acceptance / closeout — 2026-10-02
+
+- Hưng and Dương text ACCEPTED the preparation/closeout at PR101 head `1fbf415`; user supplied both reviewer records in this chat. No formal GitHub approval is inferred.
+- PR101 merged `71d9cd7e44ec62fea2a3c4ecc13af2552c30bd9b`; its docs/evidence have been integrated. All preparation acceptance criteria above are satisfied; preparation task DONE.
+- Earlier “review pending” checkpoints are historical. Next belongs to Product Owner Dương: sign the separate gate decision in the evidence and milestone table. **M3 stays OPEN; M4 stays LOCKED.**
+- Current closeout claim: Vinh/Codex, branch `codex/vinh-content012-qa-gate-closeout`; move this card active→done and synchronize its board/index/evidence links only. No runtime or milestone approval claim.
+
+
+## PR104 record integration
+
+- Hưng technical/docs ACCEPTED record from PR104 (merged 3504932) is retained above unchanged as a historical review at base b716b41. Its REVIEW wording refers to the then-pending PO audit. Current DONE closes evidence preparation only; PO milestone decision remains UNSIGNED and M3 OPEN/M4 LOCKED.
