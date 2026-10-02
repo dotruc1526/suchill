@@ -53,3 +53,15 @@ Quy tắc đồng bộ: một task có một ID; board và card phải cùng sta
 Ví dụ cho Member 1: content track có thể chạy độc lập với milestone code khi dependency riêng đã đạt. `CONTENT-004` đang `REVIEW`: historical/language review đã được đồng bộ cho screenplay/narration đúng revision/hash, nhưng technical QA/media/audio/handoff chưa sign-off; `CONTENT-012` quiz có verdict Trúc trên PR99 (merged ddd73d4); Vinh technical snapshot QA hoàn tất trong [CONTENT-012-QA-01](./done/CONTENT-012-QA-01.md), technical QA/handoff đã accepted; media/production còn pending. `CONTENT-007` vẫn `BLOCKED` theo dependency content/media. M3 đang OPEN, M4 LOCKED; việc mở milestone kỹ thuật không tự mở content production.
 
 Superseded proposals may be CANCELLED and moved to [archived](./archived/README.md); preserve evidence and reason, distinguish cancellation from reviewer acceptance.
+
+## CONTENT-007 checkpoint 2026-10-03
+
+PR111 đã merge, PO đã mở production phi thương mại. Trúc/user nghiệm thu 9 audio; Codex dựng video 110s master/mobile, poster/VTT/transcript/manifest và metadata handoff. [Card](./active/CONTENT-007.md) hiện REVIEW; [evidence](./evidence/CONTENT-007-video-2026-10-03.md). Final video/media/accessibility acceptance và publication/integration còn pending. Những ghi chú BLOCKED/chưa có media phía trên là snapshot cũ được checkpoint này thay thế.
+
+## CONTENT-007 revision v2 — 2026-10-03
+
+Theo feedback Trúc, candidate đã làm lại thành collage/cut-out/SỬu, 63.06s theo audio nguyên tốc độ; bản110s typography v1 không phải candidate hiện hành. [Evidence v2](./evidence/CONTENT-007-collage-v2-2026-10-03.md); task REVIEW, final caption/illustration/device acceptance và publication/integration pending.
+
+## CONTENT-007 Trúc acceptance — 2026-10-03
+
+Trúc **APPROVED** video collage v2 đúng head `4c00692` và hash master/mobile trong [evidence v2](./evidence/CONTENT-007-collage-v2-2026-10-03.md). Phần final editorial/illustration của Trúc đã đạt; còn Thọ xác nhận kịch bản, Vinh caption/device/media QA, Dương nhận handoff và tích hợp. Task REVIEW; package chưa published.

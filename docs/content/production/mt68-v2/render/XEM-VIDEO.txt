@@ -1,0 +1,14 @@
+KẾ HOẠCH GIAO THỪA — SỬu dẫn chuyện — elevenlabs.io
+
+Bản mới v2: collage giấy / hoạt hình cut-out, video dọc 9:16.
+Xem pilot-collage-mobile.mp4 (720×1280, 30fps).
+Bản master: pilot-collage-master.mp4 (1080×1920, 30fps).
+Dài 63,06 giây theo đúng 9 đoạn audio Hoa đã duyệt.
+Không kéo chậm, không thêm khoảng chờ hình, không đổi lời đọc.
+Có push-in/pan/parallax, vật thể xuất hiện theo ý lời, SỬu chào/chỉ dẫn/suy nghĩ, phụ đề ngắn và hook sang Bài hai.
+
+Bản này thay phương án chữ 110 giây để nghiệm thu.
+Minh họa không phải tư liệu ảnh hay tái dựng kiến trúc; không bản đồ.
+Credit: ElevenLabs · elevenlabs.io. Phạm vi đồ án phi thương mại.
+Đã decode kiểm tra hai MP4; caption sync cuối/historical illustration/mobile QA và publication đang REVIEW.
+Prompt/asset trong ART-DIRECTION.md và assets/.

@@ -1,0 +1,238 @@
+{
+  "id": "media.mt68.pilot.collage.v2",
+  "reviewStatus": "in_review",
+  "title": "Kế hoạch Giao Thừa — SỬu dẫn chuyện — elevenlabs.io",
+  "scope": "academic_non_commercial",
+  "date": "2026-10-03",
+  "durationSeconds": 63.0595918367347,
+  "audio": {
+    "provider": "ElevenLabs",
+    "plan": "Free",
+    "voiceId": "5g2DMFQF8xR0KmnuNr4U",
+    "model": "eleven_v4",
+    "language": "Vietnamese",
+    "audioIdentityVerified": false,
+    "identityEvidence": "UI observed Hoa / Eleven v4 / Vietnamese; voice ID supplied by user, not copied from account.",
+    "humanAcceptance": "User accepted all nine original MP3s in chat, 2026-10-03",
+    "policy": "Concatenate decoded samples in order; no padding, atempo, normalization or edits.",
+    "pcmSha256": "c94207dbf0955f48f76af9b66038f8d50d355513d75e11d87ab34623b0458438",
+    "inputs": [
+      {
+        "id": "p01a",
+        "inputSha256": "0c74dbf14d702d164fc1a2d9d3627d1d7ae13d1a5d0788986328d187d6244b3e",
+        "decodedPcmSha256": "1a365fc880e19365cbb86d3e3cbf3f4f43275b84eb48caaea838e58183718520",
+        "sampleStart": 0,
+        "sampleCount": 283392
+      },
+      {
+        "id": "p01b",
+        "inputSha256": "eb187fb5d5ba9fc84c05ffc33f5f2b92d2b4fee315d21216225ea6a9668a65f5",
+        "decodedPcmSha256": "1a6dee480c88783aaace786e169c101fc9f583d5628d359aa5ae4116347b898d",
+        "sampleStart": 283392,
+        "sampleCount": 266112
+      },
+      {
+        "id": "p02a",
+        "inputSha256": "13b8f5b5883019cec23f06ed1e74fb0c3ca814cf4e4af2f76405ce434ce97334",
+        "decodedPcmSha256": "83fb6d0b8564b9e32fc14b311b91021ca6c9bc207ebf22f4a08cd131eb3430d3",
+        "sampleStart": 549504,
+        "sampleCount": 216576
+      },
+      {
+        "id": "p02b",
+        "inputSha256": "8d1e43c85466ef6b2079d1645b1633daac3c97f8c1747170aaac2c31538b3350",
+        "decodedPcmSha256": "c8fee77ef5485fbcf3835541139751e89a93a115c649e8e081436f4f49fe9664",
+        "sampleStart": 766080,
+        "sampleCount": 428544
+      },
+      {
+        "id": "p03a",
+        "inputSha256": "33553532eb713753b6ea9988ddcddbe4043e58432fdc8f7c21191aba13e8c4e4",
+        "decodedPcmSha256": "f7c7f189d50a92fedcbc7846853ac70efba6bdcf31e88c4ddd9f12cf46424561",
+        "sampleStart": 1194624,
+        "sampleCount": 231552
+      },
+      {
+        "id": "p03b",
+        "inputSha256": "46a7c0c38ffd19332683d1ebbed19f38a731a9616d39b3d600082dbb07bbd335",
+        "decodedPcmSha256": "375d034523632034a2a7f2e5f84ca262fe97c2fad316338f3bf487c9eb7508fa",
+        "sampleStart": 1426176,
+        "sampleCount": 368640
+      },
+      {
+        "id": "p04a",
+        "inputSha256": "bbc78c4f758749531b327b42afb1b644153cd2286ba166d5899ecb57ffb22e88",
+        "decodedPcmSha256": "9d8708fa991a0857832c051e38017b02ec8c72cbe072b36e83934c2d1685af61",
+        "sampleStart": 1794816,
+        "sampleCount": 351360
+      },
+      {
+        "id": "p04b",
+        "inputSha256": "a05ba1d63fa65f9d9fb87b017b93af554fda113e11175d84340843322d0937ce",
+        "decodedPcmSha256": "30bed0d4c4db1d6cb629692c3fa95b7b621acaaeecf8ba2f42934cb4982b371d",
+        "sampleStart": 2146176,
+        "sampleCount": 319104
+      },
+      {
+        "id": "p05",
+        "inputSha256": "93cd80119a071a98ab24d8caeec88d3534a9bfd8c0e961d801735f3723529c4e",
+        "decodedPcmSha256": "0fc969ed243e070070c8ad5fe9a4eb5e3d8ea73b70eb58651859637ad2c442ae",
+        "sampleStart": 2465280,
+        "sampleCount": 315648
+      }
+    ]
+  },
+  "visuals": {
+    "style": "cinematic historical collage / 2D paper cut-out / vintage Vietnamese scrapbook",
+    "mascotReference": "docs/engineering/m3-ux/assets/suu.png",
+    "fictionalLabel": "MINH HỌA HƯ CẤU",
+    "assets": {
+      "logistics-cutout.png": "8fa47adfcf1a89d7237612e93cf50963742fcb8ac816971c149b4afa0f20178a",
+      "city-cutout.png": "67f5e6ed0e4263f6537ba18d470140560f0128a48b20241b952f5410fc13d54d",
+      "research-cutout.png": "f7c86f080f3a651e0f9e6bb37f28364837b9fb5d80ec3986e73692521f3e90f6"
+    },
+    "mascotAssets": {
+      "suu-cheer.png": "a1020085404817814e3ed7a4c42f8475f54ac9715f0d9d2039d230046b6b7c2a",
+      "suu-thinking.png": "513e7add75ec689126becd5bd3b70b1dcde37d936382ddad43473a5a180b91d2",
+      "suu-pointing.png": "7c36912bcbb4f9884d878c79c67ecdfff82d1ee3c605ec1cb9defe6526aedc35"
+    },
+    "generationTool": "built-in imagegen",
+    "architecturalIcons": "Symbolic diagrams, not reconstructions or maps",
+    "motion": "30fps push-in, pan, foreground parallax, object reveals and mascot reactions"
+  },
+  "fontSha256": "f5f552c8c5edb61fe6efb824baf4d4de47b1a8689ab4925ff43f7bd6a4ebece5",
+  "fontLicense": "Google Noto, SIL OFL 1.1; bundled LibreOffice LICENSE:1996–2004",
+  "narrationSha256": "b9e7d17f8503796621e6624785628585477dc9e34633e4224e6b484eefc137ed",
+  "registrySha256": "369205fcbd713a74acaa0149e6c21d2c3734260d4265e7b8f87edd5868e3bba5",
+  "sourceIds": [
+    "SRC-MT68-01",
+    "SRC-MT68-03",
+    "SRC-MT68-04",
+    "SRC-MT68-05",
+    "SRC-MT68-07"
+  ],
+  "sourceScope": "p03a/p03b supported by source 07 for target names only; source 02 remains candidate",
+  "files": {
+    "pilot-collage-master.mp4": "3811a1c07e26ea3bc1ac41aa97dd81c2e7d938fd0767c475e5be6f2aaa7a0b7b",
+    "pilot-collage-mobile.mp4": "ec93193ca873fbe00b9c481697da3be90ccb35dc642020a4809554210db60d8e",
+    "poster.png": "9fe877659bdab2c89480ff3425d74d389f720fcf39f64bd9dd06503065725052",
+    "captions.vi.vtt": "a3bc449792b46deec140b6f1d82448843e1431989dec6d0bb9febe21011da0c5",
+    "transcript.vi.txt": "1fbedab7288231d130f1b46c3b2cb750d7b34b656a40c2d0bc7a56658dab2d4a",
+    "timeline.json": "9eba31600bffbcb4de0198920d68f2739a133904d8c8732a95dc893ec4ad2822"
+  },
+  "pending": [
+    "final_listening_caption_review",
+    "device_playback",
+    "service_lesson_publication"
+  ],
+  "humanAcceptances": [
+    {
+      "reviewer": "Trúc (Member 2 / historical-media reviewer)",
+      "date": "2026-10-03",
+      "verdict": "APPROVED",
+      "statement": "oke a duyệt video này nha",
+      "evidence": "Direct human approval in current chat after final v2 video preview",
+      "reviewedHead": "4c00692b401749e5260b282cc4dd9eef141ff2c4",
+      "mediaId": "media.mt68.pilot.collage.v2",
+      "scope": [
+        "final_video_editorial_visual_review",
+        "historical_illustration_review"
+      ],
+      "artifactSha256": {
+        "pilot-collage-master.mp4": "3811a1c07e26ea3bc1ac41aa97dd81c2e7d938fd0767c475e5be6f2aaa7a0b7b",
+        "pilot-collage-mobile.mp4": "ec93193ca873fbe00b9c481697da3be90ccb35dc642020a4809554210db60d8e",
+        "poster.png": "9fe877659bdab2c89480ff3425d74d389f720fcf39f64bd9dd06503065725052",
+        "captions.vi.vtt": "a3bc449792b46deec140b6f1d82448843e1431989dec6d0bb9febe21011da0c5",
+        "transcript.vi.txt": "1fbedab7288231d130f1b46c3b2cb750d7b34b656a40c2d0bc7a56658dab2d4a",
+        "timeline.json": "9eba31600bffbcb4de0198920d68f2739a133904d8c8732a95dc893ec4ad2822"
+      },
+      "remainingReviews": [
+        "Thọ: final script acceptance",
+        "Vinh: final listening/caption sync and device/media accessibility",
+        "Dương: consumer handoff and service/lesson publication"
+      ]
+    }
+  ],
+  "technicalQa": {
+    "reviewer": "Vinh / Codex technical QA",
+    "date": "2026-10-03",
+    "reviewedHead": "eb60b3caa1f65622ec45d7e00169368bcfa1d141",
+    "verdict": "TECHNICAL_CHECKS_PASS_WITH_REMAINING_HUMAN_QA",
+    "artifactHashBinding": "Same six hashes as Trúc approval at 4c00692; media bytes unchanged",
+    "checks": {
+      "approvedHashes": "6/6 PASS",
+      "fullDecodeFaststart": "2/2 PASS",
+      "captionStructureAndText": "33 cues PASS; exact narration/transcript text",
+      "pcmContinuity": "9/9 segments hash match",
+      "chromeMobileViewports": [
+        375,
+        430
+      ],
+      "browserPlaybackSeekCaptions": "PASS; 33/33 active cues at midpoints per viewport, touch play, ended; no autoplay"
+    },
+    "limitations": [
+      "No physical Android/iOS or Safari test",
+      "No listening verdict for word-level caption synchronization or pronunciation",
+      "Standalone native-video package harness; no service/lesson/resume/fallback integration acceptance"
+    ],
+    "evidence": "docs/tasks/evidence/CONTENT-007-vinh-media-qa-2026-10-03.md",
+    "remaining": [
+      "Human final listening/caption sync and physical-device playback",
+      "Service/lesson publication integration"
+    ]
+  },
+  "scriptAcceptanceRecorded": {
+    "reviewer": "Thọ (Member 1 / Content Lead)",
+    "verdict": "SCRIPT APPROVED",
+    "recordCommit": "bdc6dc9f368c8a6c47bfe06854f5e254e83f0447",
+    "date": "2026-10-03",
+    "evidence": "docs/tasks/evidence/CONTENT-007-collage-v2-2026-10-03.md",
+    "scope": "9/9 narration text concordance with authored script, same approved master/mobile hashes; not device/caption-listening QA"
+  },
+  "consumerAcceptance": {
+    "reviewer": "Dương (Member 4 / learning consumer)",
+    "executor": "Codex hỗ trợ Dương",
+    "date": "2026-10-03",
+    "verdict": "ACCEPTED",
+    "reviewedHead": "5f2ab7b37d948930bfdc9c41ae90c4c7ed72813f",
+    "mediaId": "media.mt68.pilot.collage.v2",
+    "scope": "consumer_package_handoff_for_future_integration",
+    "artifactSha256": {
+      "pilot-collage-master.mp4": "3811a1c07e26ea3bc1ac41aa97dd81c2e7d938fd0767c475e5be6f2aaa7a0b7b",
+      "pilot-collage-mobile.mp4": "ec93193ca873fbe00b9c481697da3be90ccb35dc642020a4809554210db60d8e",
+      "poster.png": "9fe877659bdab2c89480ff3425d74d389f720fcf39f64bd9dd06503065725052",
+      "captions.vi.vtt": "a3bc449792b46deec140b6f1d82448843e1431989dec6d0bb9febe21011da0c5",
+      "transcript.vi.txt": "1fbedab7288231d130f1b46c3b2cb750d7b34b656a40c2d0bc7a56658dab2d4a",
+      "timeline.json": "9eba31600bffbcb4de0198920d68f2739a133904d8c8732a95dc893ec4ad2822"
+    },
+    "evidence": "Dương text review in current chat and explicit request to complete handoff and merge PR112",
+    "limitations": [
+      "Not an application integration or publication acceptance",
+      "Final listening/caption sync and physical-device QA remain pending",
+      "Storage URLs and service/lesson publication remain pending"
+    ]
+  },
+  "integrationPlan": {
+    "lessonId": "lesson-mt68-01-video",
+    "mediaId": "media.mt68.pilot.collage.v2",
+    "contract": "MediaService.getResolvedAsset -> ResolvedMediaAsset -> VideoLessonPlayer",
+    "durationSeconds": 63.0595918367347,
+    "resources": {
+      "url": "pilot-collage-mobile.mp4 (resolve only after approved storage delivery)",
+      "poster": "poster.png with posterAlt",
+      "captionTracks": "captions.vi.vtt, locale vi-VN, label Phụ đề tiếng Việt",
+      "transcript": "transcript.vi.txt, locale vi-VN",
+      "fallback": "transcript URL",
+      "attribution": "ElevenLabs · elevenlabs.io; academic non-commercial",
+      "caption": "MINH HỌA HƯ CẤU"
+    },
+    "requirements": [
+      "No autoplay; keep native accessible controls",
+      "Avoid duplicate burned-in and sidecar captions; retain optional sidecar accessibility",
+      "Preserve the lesson completionPolicy, including reach_end where authored; do not infer policy from media duration",
+      "Use v2 duration63.059592s rather than obsolete v1 110s",
+      "Claim runtime integration separately after final QA and approved storage URLs; verify resume, retry/fallback and mobile player then"
+    ],
+    "publicationStatus": "not_published"
+  }
+}
