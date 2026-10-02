@@ -43,6 +43,6 @@
 
 ## Recheck — Vinh, 2026-10-02 (vẫn blocked, chưa QA được)
 
-- Đã kiểm tra trên `origin/main` `2abd202`: chưa có verdict historical/learning riêng cho quiz tại SHA-256 `4013b39954779b0b43640372b668c329662ca30386aff52c2c4cd8a664e667eb` (card, board, historical report 2026-09-28 và PR #99 mở đều xác nhận còn pending; PR #99 chỉ là objective pre-review, không phải verdict).
+- Đã kiểm tra trên `origin/main` `2abd202`: chưa có verdict historical/learning riêng cho quiz tại SHA-256 `4013b39954779b0b43640372b668c329662ca30386aff52c2c4cd8a664e667eb` (card, board, historical report 2026-09-28 và main tại base đều xác nhận còn pending; verdict của Trúc đã ghi trong PR #99 mở).
 - `QUIZ-MT68.json` byte-identical với snapshot đã QA, giữ `NEEDS_HISTORICAL_REVIEW` đúng; validator PASS.
 - Vinh technical QA quiz vẫn chờ Trúc/historical reviewer ghi verdict riêng đúng hash. Không seed/integrate. Task giữ REVIEW.

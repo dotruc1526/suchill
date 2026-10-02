@@ -97,3 +97,9 @@
 - Ghi nhận minh bạch: commit reconciliation `3210776` do Vinh/Codex thực hiện thao tác máy theo phạm vi Trúc xác nhận (board log 2026-10-02; DOC-017); recheck này là kiểm tra bytes tái hiện được, không thay quyết định historical scope của Trúc. Hưng recheck độc lập cũng ACCEPTED (verdict ở trên).
 - Quiz CONTENT-012 giữ `NEEDS_HISTORICAL_REVIEW` đúng vì historical report 2026-09-28 không liệt kê CONTENT-012 trong phạm vi; Vinh QA quiz vẫn chờ verdict riêng của Trúc/historical reviewer (PR #99).
 - Task giữ REVIEW; media (6 BLOCKED/2 NEEDS_MEDIA_REVIEW), audio/recording, handoff và production acceptance vẫn pending. CONTENT-007 giữ BLOCKED. Gate: M3 OPEN / M4 LOCKED.
+
+## Review acknowledgement — Trúc (Member 2), 2026-10-02
+
+- Trúc (historical scope owner, requested reviewer) ACKNOWLEDGES Vinh's recheck: 8/8 hashes, status-only diff scope, quiz/map pending-at-base và validator PASS được xác minh chính xác theo đúng reconciliation Trúc đã duyệt; phạm vi historical CONTENT-004/010/011 (loại quiz) mô tả đúng. Trúc đã đối chiếu độc lập 16/16 blob hash + 5/5 verdict-commit identity + phạm vi diff — tất cả khớp.
+- Đã sửa 1 dòng lỗi thời trong commit này: parenthetical "PR #99 chỉ là objective pre-review" trong checkpoint CONTENT-012 (đúng lúc Vinh viết; PR #99 hiện đã mang verdict thật `fbaf3b3` + sign-off của Trúc, vẫn chưa merge).
+- Merge order: PR này mergeable trên main hiện tại; PR #99 (mang verdict) vẫn cần merge main + PO duyệt riêng. Thứ tự nào cũng được với điều kiện bên merge sau re-sync; không hàm ý duyệt production/media/seed. Task giữ REVIEW; CONTENT-007 BLOCKED.
