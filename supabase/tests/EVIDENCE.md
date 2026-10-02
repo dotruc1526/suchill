@@ -1,6 +1,12 @@
 # M4/M5 local database evidence — 2026-10-02
 
-## Re-review and native PostgreSQL 17 result
+## Hosted follow-up and final roll-forward026 result
+
+Final native-mode `npm run test:db`: **50/50 PASS**,0failed/0skipped,37.742seconds, PostgreSQL17.11, migrations001–026. Eight overlapping independent native sessions remain verified; persisted reopen intentionally uses PGlite and two native guards are connection-free. Temporary cluster stopped after completion. The026 upgrade regression preserves function OIDs/owners/ACLs/security/search paths, tests PT409 stale-write rollback and original receipts, and re-applies safely. Applied001–025 are unchanged.
+
+Default Quality SQL mode passes42 and intentionally skips native concurrency; separate native run covers that suite. Actual hosted Auth/JWT/PostgREST/Storage, email confirmation and browser checks are now verified in [hosted evidence](../../docs/engineering/hosted-supabase/EVIDENCE.md). Older results below are dated implementation checkpoints; their hosted limitations do not describe the current integration result. Physical-device/release, historical/media and unidentified older-key revocation remain separate.
+
+## Earlier re-review and native PostgreSQL17 checkpoint
 
 The final native-mode run on 2026-10-02 completed with exit 0: **49 tests, 49 passed, 0 failed, 0 skipped**, 30.5 seconds. It used the dedicated disposable loopback PostgreSQL **17.11** cluster, all 25 ordered migrations, actual domain adapters over SQL RPC and eight independent overlapping connections in every native contention subcase. The persisted-file reopen test intentionally remained PGlite; two native-configuration guards are pure pre-connection tests. This result is a native-mode suite count, not a claim that all 49 tests used the native engine.
 

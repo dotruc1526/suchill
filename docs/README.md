@@ -45,9 +45,10 @@ docs/
 - [AI Battle](./features/ai-battle/README.md)
 - [UI/UX và reusable engineering](./engineering/UI-UX-ENGINEERING-GUIDE.md)
 - [PWA và hướng phát hành](./platform/APP-DEPLOYMENT-PLAN.md)
-- [M3–M5 isolated delivery và nghiệm thu](./tasks/active/M3-M5-DELIVERY.md)
+- [M3–M5 isolated delivery và nghiệm thu](./tasks/done/M3-M5-DELIVERY.md)
 - [Review toàn bộ 27 task: kết quả, sửa lỗi và trạng thái nghiệm thu](./engineering/review-all/EVIDENCE.md)
-- [Supabase local setup và giới hạn kiểm chứng](../supabase/README.md)
+- [Supabase setup và kết quả kiểm chứng thật](../supabase/README.md)
+- [Hosted Supabase: Auth/email, API/Storage/RLS và nghiệm thu](./engineering/hosted-supabase/EVIDENCE.md)
 
 ## Trạng thái tài liệu
 

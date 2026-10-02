@@ -1,8 +1,8 @@
 # M3–M5 delivery evidence — 2026-10-02
 
-> Latest acceptance: [all-task review](../review-all/EVIDENCE.md) — final Quality237 PASS, native-mode49 PASS on PostgreSQL17.11, 16/27 original REVIEW cards DONE, 11 remain REVIEW. Individual technical acceptance does not close the hosted/milestone/content production gates. Counts below describe the earlier implementation checkpoint unless explicitly updated.
+> Latest acceptance: [hosted verification](../hosted-supabase/EVIDENCE.md) and [all-task review](../review-all/EVIDENCE.md) — Quality238 PASS, native-mode50 PASS on PostgreSQL17.11/migrations26, hosted transport12 and Auth9 PASS.22/27 original REVIEW cards DONE;5 content cards remain REVIEW. Technical delivery is DONE; formal PO milestone/content/release gates remain separate. Older counts below are checkpoint history.
 
-Branch: `codex/m3-m5-complete`, baseline `fb02f7d`. Product Owner authorized complete implementation through M5 in this chat. The baseline includes the existing Home visual restoration; unrelated untracked `.worktrees/`, `branches/`, `output/` and `pr-77-merged.png` are preserved. Implementation is ready for review; milestone closure and hosted acceptance remain separate.
+Branch: `codex/m3-m5-complete`, baseline `fb02f7d`. Product Owner authorized complete implementation through M5 in this chat. The baseline includes the existing Home visual restoration; unrelated untracked `.worktrees/`, `branches/`, `output/` and `pr-77-merged.png` are preserved. Technical implementation and hosted independent review are accepted; formal milestone/content/release acceptance remains separate.
 
 ## Delivered behavior
 
@@ -34,11 +34,11 @@ Separate service/UI/database reviewers found and verified repairs for stale acco
 
 Reviewers are Codex agents, not team-member approvals. Hưng/Vinh and Product Owner acceptance have not been invented or recorded as complete.
 
-## Environment and remaining acceptance
+## Current hosted environment and remaining acceptance
 
-No hosted Supabase project was contacted or migrated. This workspace has no configured hosted runtime or confirmation that the previously exposed privileged key was rotated. A text-only configuration/rotation clarification is pending; no key was requested in chat.
+The user-authorized fresh Free development project is configured and all26 ordered migrations are applied with exact SQL history. Real Auth/email/browser, REST/RPC/Storage and trusted learning checks pass; [hosted evidence](../hosted-supabase/EVIDENCE.md) records versions, checks, repairs and cleanup. Existing migrations001–025 are immutable;026 repairs intentional40001 business conflicts that caused hosted PostgREST14 infinite retries. Final server has0 active learning RPC loops.
 
-Before M4/M5 closure, use a disposable safely configured stack/project to verify actual Auth sign-up confirmation/session refresh/sign-out, PostgREST anon/A/B/trusted behavior and Storage signing/path isolation. PostgreSQL17 migrations and genuine overlapping-session races now pass in the linked all-task review. [Backend setup](../../../supabase/README.md) gives the configuration and policy contract. Never reuse the exposed privileged key or reset a hosted database.
+No old credential is reused; revocation of the unidentified historically exposed key remains unproved and a separate production follow-up. Five original content cards still need exact source/media/task sign-off; completed technical QA does not create licensing evidence. Formal PO milestone acceptance and M6/M7 opening remain separate.
 
 Known limits: video telemetry bounds implausible ranges using server elapsed time and cannot prove attention; offline playback without server initialization may need authored fallback. Mock data is technical and in-memory, not canonical content or a real account. Achievement list stays empty until an approved catalog/rule exists. Build may warn about the existing native Vite config and the main chunk exceeding 500 kB; PWA/performance gates belong to M6. New runtime dependencies are Supabase JS; PGlite is test-only.
 
@@ -46,4 +46,4 @@ Known limits: video telemetry bounds implausible ranges using server elapsed tim
 
 Files are grouped under `src/features/auth|profile|practice|learning/completion`, `src/services/next|supabase|offline`, `src/app`, `supabase/`, technical public assets and related tests/cards. No production migration, seed publication or content/media approval changed. Keep applied/shared migrations immutable and add roll-forward files. Run `npm ci` then `npm run quality`; run `npm run dev` for the clearly labeled technical fixture when public environment variables are absent.
 
-Next action: review the branch implementation and complete hosted/native gate evidence after safe configuration; then Product Owner can decide milestone closure. M6/M7 remain outside the latest requested scope.
+Next action: Product Owner reviews completed branch and formal milestone gate; content owners complete the exact remaining source/media/handoff prerequisites. M6/M7 remain outside the latest requested scope.

@@ -19,6 +19,7 @@ test('RPC boundary routes exact IDs and original operation identity, without sup
 test('database, network and malformed responses become domain errors and never expose raw messages', async () => {
   assert.equal(databaseError('42501'), 'unauthorized')
   assert.equal(databaseError('40001'), 'conflict')
+  assert.equal(databaseError('PT409'), 'conflict')
   assert.equal(databaseError('22P02'), 'validation')
   assert.equal(databaseError('P0002'), 'not_found')
   const fail = createLearningRpc(async () => ({ data: null, error: { code: '42501', message: 'sensitive text' } }))

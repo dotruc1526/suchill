@@ -9,7 +9,7 @@ export function databaseError(code?: string): ServiceErrorCode {
   if (['42501', '28000', 'PGRST301', 'PGRST302'].includes(code ?? '')) return 'unauthorized'
   if (code === 'P0002') return 'not_found'
   if (['22023', '22P02', '23514', '23503'].includes(code ?? '')) return 'validation'
-  if (['40001', '23505', '23P01'].includes(code ?? '')) return 'conflict'
+  if (['PT409', '40001', '23505', '23P01'].includes(code ?? '')) return 'conflict'
   return 'server_error'
 }
 

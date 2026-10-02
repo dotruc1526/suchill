@@ -17,7 +17,7 @@
     "test:component": "node --test tests/qa/component.test.mjs",
     "test:db": "node --test supabase/tests/*.test.mjs",
     "test:authoring": "node docs/content/validate-mt68-authoring.mjs && node docs/content/validate-1972-authoring.mjs && node --test docs/content/authoring-validators.test.mjs",
-    "test:e2e": "npm run build && node --test tests/qa/e2e.test.mjs",
+    "test:e2e": "node scripts/member5/run-fixture-e2e.mjs",
     "test": "npm run test:unit && npm run test:component && npm run test:db && npm run test:authoring && npm run test:e2e",
     "quality": "npm run typecheck && npm run build && node scripts/member5/check-client-env.mjs --require-bundle && npm test && node scripts/member5/check-client-env.mjs --require-bundle"
   },

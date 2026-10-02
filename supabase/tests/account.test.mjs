@@ -17,7 +17,7 @@ test('account settings, streak, daily review and analytics follow server policie
   assert.equal(changed.soundMuted,true)
   assert.equal(changed.reducedMotion,true)
   assert.equal(changed.timezone,'America/Adak')
-  await fail(command(db,'update_settings',{timezone:'Pacific/Kiritimati',operationId:'timezone-repeat'}),'40001')
+  await fail(command(db,'update_settings',{timezone:'Pacific/Kiritimati',operationId:'timezone-repeat'}),'PT409')
   assert.equal((await db.query("select count(*) count from private.audit_events where user_id=$1 and kind='timezone_changed'",[ids.userA])).rows[0].count,1)
  })
  await t.test('enabled daily review earns5 once per account day; attempt cannot replay into another timezone day',async()=>{
@@ -39,7 +39,7 @@ test('account settings, streak, daily review and analytics follow server policie
   assert.equal(replay.xpGranted,0)
   assert.equal(replay.localDate,review.localDate)
   const shifted=await command(db,'submit_practice',{questionSetId:ids.practice,answers:quizAnswers(),operationId:'shifted-attempt'})
-  await fail(command(db,'complete_daily_review',{questionSetId:ids.practice,attemptId:shifted.attemptId,operationId:'shifted-review'}),'40001')
+  await fail(command(db,'complete_daily_review',{questionSetId:ids.practice,attemptId:shifted.attemptId,operationId:'shifted-review'}),'PT409')
   assert.equal((await read(db,'account')).totalXp,5)
   await fail(command(db,'complete_daily_review',{questionSetId:ids.practice,attemptId:first.attemptId,operationId:'b-claims-a'},ids.userB))
  })

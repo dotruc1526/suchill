@@ -25,7 +25,7 @@ function browserChecks(cdp) {
 }
 
 test('scored quiz confirms trusted feedback and repeat assessment grants no extra XP', async () => {
-  const server = await preview({ preview: { host: '127.0.0.1', port: 0, strictPort: false } })
+  const server = await preview({ build: { outDir: process.env.SUCHILL_QA_BUILD_DIR || 'dist' }, preview: { host: '127.0.0.1', port: 0, strictPort: false } })
   try {
     const browser = findBrowser()
     assert.ok(browser)
@@ -56,7 +56,7 @@ test('scored quiz confirms trusted feedback and repeat assessment grants no extr
 })
 
 test('daily review requires explicit confirmation and repeat practice cannot farm rewards', async () => {
-  const server = await preview({ preview: { host: '127.0.0.1', port: 0, strictPort: false } })
+  const server = await preview({ build: { outDir: process.env.SUCHILL_QA_BUILD_DIR || 'dist' }, preview: { host: '127.0.0.1', port: 0, strictPort: false } })
   try {
     const browser = findBrowser()
     assert.ok(browser)
@@ -88,7 +88,7 @@ test('daily review requires explicit confirmation and repeat practice cannot far
 })
 
 test('video media failure exposes readable fallback and trusted recap permits completion', async () => {
-  const server = await preview({ preview: { host: '127.0.0.1', port: 0, strictPort: false } })
+  const server = await preview({ build: { outDir: process.env.SUCHILL_QA_BUILD_DIR || 'dist' }, preview: { host: '127.0.0.1', port: 0, strictPort: false } })
   try {
     const browser = findBrowser()
     assert.ok(browser)
@@ -230,7 +230,7 @@ async function withChromePage(browser, url, run) {
 }
 
 test('confirmed lesson rewards survive revisit and a newly signed-in account sees isolated progress', async () => {
-  const server = await preview({ preview: { host: '127.0.0.1', port: 0, strictPort: false } })
+  const server = await preview({ build: { outDir: process.env.SUCHILL_QA_BUILD_DIR || 'dist' }, preview: { host: '127.0.0.1', port: 0, strictPort: false } })
   try {
     const browser = findBrowser()
     assert.ok(browser)
@@ -278,7 +278,7 @@ test('confirmed lesson rewards survive revisit and a newly signed-in account see
 })
 
 test('offline lesson completion displays pending, then synchronizes once after reconnect', async () => {
-  const server = await preview({ preview: { host: '127.0.0.1', port: 0, strictPort: false } })
+  const server = await preview({ build: { outDir: process.env.SUCHILL_QA_BUILD_DIR || 'dist' }, preview: { host: '127.0.0.1', port: 0, strictPort: false } })
   try {
     const browser = findBrowser()
     assert.ok(browser)
@@ -314,7 +314,7 @@ test('built app renders its home screen in a real local browser', async () => {
   const browser = findBrowser()
   assert.ok(browser, 'Set CHROME_PATH to a local Chromium/Chrome executable for E2E')
 
-  const server = await preview({ preview: { host: '127.0.0.1', port: 0, strictPort: false } })
+  const server = await preview({ build: { outDir: process.env.SUCHILL_QA_BUILD_DIR || 'dist' }, preview: { host: '127.0.0.1', port: 0, strictPort: false } })
   try {
     const address = server.httpServer.address()
     assert.ok(address && typeof address !== 'string')
@@ -331,7 +331,7 @@ test('learning journey stays usable and uncut at mobile widths', async () => {
   const browser = findBrowser()
   assert.ok(browser, 'Set CHROME_PATH to a local Chromium/Chrome executable for E2E')
 
-  const server = await preview({ preview: { host: '127.0.0.1', port: 0, strictPort: false } })
+  const server = await preview({ build: { outDir: process.env.SUCHILL_QA_BUILD_DIR || 'dist' }, preview: { host: '127.0.0.1', port: 0, strictPort: false } })
   try {
     const address = server.httpServer.address()
     assert.ok(address && typeof address !== 'string')
@@ -391,7 +391,7 @@ test('learning journey moves focus on forward and back navigation', async () => 
   const browser = findBrowser()
   assert.ok(browser, 'Set CHROME_PATH to a local Chromium/Chrome executable for E2E')
 
-  const server = await preview({ preview: { host: '127.0.0.1', port: 0, strictPort: false } })
+  const server = await preview({ build: { outDir: process.env.SUCHILL_QA_BUILD_DIR || 'dist' }, preview: { host: '127.0.0.1', port: 0, strictPort: false } })
   try {
     const address = server.httpServer.address()
     assert.ok(address && typeof address !== 'string')
@@ -428,7 +428,7 @@ test('Visual Novel close and completion restore focus to the opener', async () =
   const browser = findBrowser()
   assert.ok(browser, 'Set CHROME_PATH to a local Chromium/Chrome executable for E2E')
 
-  const server = await preview({ preview: { host: '127.0.0.1', port: 0, strictPort: false } })
+  const server = await preview({ build: { outDir: process.env.SUCHILL_QA_BUILD_DIR || 'dist' }, preview: { host: '127.0.0.1', port: 0, strictPort: false } })
   try {
     const address = server.httpServer.address()
     assert.ok(address && typeof address !== 'string')

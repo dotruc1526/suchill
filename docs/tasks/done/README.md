@@ -47,3 +47,13 @@ Accepted by Codex specialists and root cross-review under explicit user delegati
 - [M0-05](./M0-05.md) — unit/component/E2E smoke đạt; không thêm dependency runtime; PR #24 đã merge, bổ sung fix reproducibility Node 24 ngày 2026-09-28.
 - [M0-07](./M0-07.md) — `npm run quality` contract local/CI đạt; PR #24 đã merge và CI xanh; Node 24/26 support được ghi trong package/README.
 - [M0-06](./M0-06.md) — env/secret guard và scan đạt; Hưng và Product owner xác nhận qua lời Vinh ngày 2026-09-27; rotation thật trước M4.
+
+## Hosted technical acceptance — 2026-10-02
+
+- [M4-01](./M4-01.md) — DONE after fresh hosted verification and independent technical review; formal milestone/content/release gates remain separate.
+- [M4-05](./M4-05.md) — DONE after fresh hosted verification and independent technical review; formal milestone/content/release gates remain separate.
+- [M4-06](./M4-06.md) — DONE after fresh hosted verification and independent technical review; formal milestone/content/release gates remain separate.
+- [M4-07](./M4-07.md) — DONE after fresh hosted verification and independent technical review; formal milestone/content/release gates remain separate.
+- [M4-08](./M4-08.md) — DONE after fresh hosted verification and independent technical review; formal milestone/content/release gates remain separate.
+- [M3-M5-DELIVERY](./M3-M5-DELIVERY.md) — DONE after fresh hosted verification and independent technical review; formal milestone/content/release gates remain separate.
+- [SUPABASE-HOSTED-001](./SUPABASE-HOSTED-001.md) — DONE after fresh hosted verification and independent technical review; formal milestone/content/release gates remain separate.

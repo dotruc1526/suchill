@@ -58,7 +58,7 @@ test('native PostgreSQL independent overlapping sessions preserve authority and 
  await t.test('stale checkpoint contenders reject without persisting operation rows',async()=>{
   const results=await contenders(db,ids.userA,Array.from({length:jobs},(_,i)=>()=>command(db,'save_lesson_checkpoint',{lessonId:ids.mixedLesson,currentBlockId:ids.recapBlock,completedBlockIds:[],expectedRevision:0,operationId:`native-cursor-${i}`})))
   assert.equal(results.filter(r=>r.status==='fulfilled').length,1)
-  results.filter(r=>r.status==='rejected').forEach(r=>assert.equal(r.reason.code,'40001'))
+  results.filter(r=>r.status==='rejected').forEach(r=>assert.equal(r.reason.code,'PT409'))
   assert.equal(await count(db,"select count(*) count from private.operations where user_id=$1 and operation_id like 'native-cursor-%'",[ids.userA]),1)
   assert.equal((await read(db,'lesson_progress',ids.mixedLesson)).revision,1)
  })
@@ -81,7 +81,7 @@ test('native PostgreSQL independent overlapping sessions preserve authority and 
   assert.equal(video.positionSeconds,80)
   const results=await contenders(db,ids.userA,Array.from({length:jobs},(_,i)=>()=>command(db,'save_video_position',{...context,positionSeconds:90,watchedRanges:[{start:80,end:90}],expectedRevision:video.revision,operationId:`native-video-stale-${i}`})))
   assert.equal(results.filter(r=>r.status==='fulfilled').length,1)
-  results.filter(r=>r.status==='rejected').forEach(r=>assert.equal(r.reason.code,'40001'))
+  results.filter(r=>r.status==='rejected').forEach(r=>assert.equal(r.reason.code,'PT409'))
   assert.equal(await count(db,"select count(*) count from private.operations where user_id=$1 and operation_id like 'native-video-stale-%'",[ids.userA]),1)
   assert.deepEqual((await read(db,'video_progress',ids.videoLesson,ids.videoBlock)).watchedRanges,[{start:0,end:90}])
  })

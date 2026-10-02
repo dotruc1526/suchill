@@ -89,5 +89,5 @@
 ## Re-review decision — 2026-10-02
 
 - Reviewer: Codex specialist review and root cross-review under explicit user delegation. Local implementation/draft checks pass; task remains REVIEW because full acceptance is not evidenced.
-- Remaining prerequisite / next action: Recorded audio/video and media rights/listening/viewing handoff missing; draft technical QA PASS.
+- Remaining prerequisite / next action: Exact current source revision, selected narration/media rights review and screenplay task handoff missing; draft technical QA PASS. Final MP4/poster and listening/viewing production acceptance belong CONTENT-007 and are not prerequisites of screenplay approval.
 - Evidence: [all-task audit](../../engineering/review-all/EVIDENCE.md). No missing key rotation, license, recording or human historical verdict is fabricated.
