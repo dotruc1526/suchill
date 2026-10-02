@@ -119,3 +119,23 @@
 - Verdict: **SCRIPT APPROVED**.
 - Bản đối chiếu hash-bound: Master `3811a1c07e26ea3bc1ac41aa97dd81c2e7d938fd0767c475e5be6f2aaa7a0b7b`, Mobile `ec93193ca873fbe00b9c481697da3be90ccb35dc642020a4809554210db60d8e`.
 - Next action: Vinh kiểm tra phụ đề/phát trên điện thoại/media accessibility; Dương nhận consumer handoff để gắn vào bài học.
+
+
+## Vinh media QA claim — 2026-10-03
+
+- Owner: Trúc; Executor technical QA: Vinh, Codex hỗ trợ theo yêu cầu người dùng; Reviewer/handoff consumer: Dương. CONTENT-007 parent giữ REVIEW.
+- Status: REVIEW cho lượt QA kỹ thuật đã hoàn tất; Started: 2026-10-03; reviewed PR112 head eb60b3c.
+- Depends on: PO academic non-commercial production handoff và Trúc final-v2 approval ghi trong card; review candidate, không publish.
+- Files claimed: section QA trong card này, docs/tasks/evidence/CONTENT-007-vinh-media-qa-2026-10-03.md, metadata technicalQa trong production/mt68-v2/render/lesson-handoff.json và manifest.json; evidence snapshots trong docs/tasks/evidence/content007-vinh-media-qa/ và harness scripts/member5/qa-content007-media.mjs. Không sửa media đã được duyệt, source/history hoặc runtime.
+- Acceptance: hashes đúng bản approved; metadata/codec/decode, 33 cue/VTT/narration/transcript concordance, playback/seek/captions ở Chrome mobile viewports 375/430; ghi rõ giới hạn final listening và physical-device QA.
+- Next action: chạy kiểm tra độc lập, ghi finding/evidence để Dương nhận handoff. Không giả kết quả nghe trên điện thoại thật hoặc chữ ký Thọ.
+
+
+### Vinh technical result — 2026-10-03
+
+- **TECHNICAL CHECKS PASS WITH REMAINING HUMAN QA**, reviewed eb60b3c. [Evidence](../evidence/CONTENT-007-vinh-media-qa-2026-10-03.md).
+- 6/6 approved hashes; 2/2 MP4 full decode/faststart; 33 VTT cues exact text/monotonic/in bounds; 9 PCM segment hashes match. Chrome375/430 phone viewports: touch play, seek, active33/33 captions, playback to end PASS; snapshots/results attached.
+- No physical handset test and no final listening/word-level sync verdict. These remain pending explicitly; package tests do not certify service/lesson integration, resume or production rights.
+- Next: human listening/device check; Thọ SCRIPT APPROVED ghi tại bdc6dc9; Dương receives technical evidence and completes consumer/publication handoff. Parent CONTENT-007 REVIEW; media remains in_review/not_published/storageUrl=null. Media bytes unchanged; no env/migration impact.
+
+- Đồng bộ sau rebase: giữ nguyên Thọ SCRIPT APPROVED tại bdc6dc9; 6 hash asset không đổi. Các next action cũ chờ Thọ đã được checkpoint mới thay thế.

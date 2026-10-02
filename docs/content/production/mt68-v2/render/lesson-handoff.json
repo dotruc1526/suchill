@@ -21,7 +21,7 @@
   "storageUrl": null,
   "supersedes": "media.mt68.pilot.v1 (110s typography candidate)",
   "fallback": "Nine original narration texts in transcript.vi.txt; source links through existing registry",
-  "nextAction": "Trúc APPROVED final v2 at recorded hashes. Thọ final script acceptance; Vinh caption listening/device/media QA; Dương consumer handoff, then media service and lesson publication.",
+  "nextAction": "Trúc final v2 and Thọ SCRIPT APPROVED recorded. Vinh package technical QA PASS (hash/decode/caption structure/Chrome375/430). Final listening and physical-device QA remain pending; Dương consumer handoff/publication separate.",
   "humanAcceptances": [
     {
       "reviewer": "Trúc (Member 2 / historical-media reviewer)",
@@ -49,5 +49,41 @@
         "Dương: consumer handoff and service/lesson publication"
       ]
     }
-  ]
+  ],
+  "technicalQa": {
+    "reviewer": "Vinh / Codex technical QA",
+    "date": "2026-10-03",
+    "reviewedHead": "eb60b3caa1f65622ec45d7e00169368bcfa1d141",
+    "verdict": "TECHNICAL_CHECKS_PASS_WITH_REMAINING_HUMAN_QA",
+    "artifactHashBinding": "Same six hashes as Trúc approval at 4c00692; media bytes unchanged",
+    "checks": {
+      "approvedHashes": "6/6 PASS",
+      "fullDecodeFaststart": "2/2 PASS",
+      "captionStructureAndText": "33 cues PASS; exact narration/transcript text",
+      "pcmContinuity": "9/9 segments hash match",
+      "chromeMobileViewports": [
+        375,
+        430
+      ],
+      "browserPlaybackSeekCaptions": "PASS; 33/33 active cues at midpoints per viewport, touch play, ended; no autoplay"
+    },
+    "limitations": [
+      "No physical Android/iOS or Safari test",
+      "No listening verdict for word-level caption synchronization or pronunciation",
+      "Standalone native-video package harness; no service/lesson/resume/fallback integration acceptance"
+    ],
+    "evidence": "docs/tasks/evidence/CONTENT-007-vinh-media-qa-2026-10-03.md",
+    "remaining": [
+      "Human final listening/caption sync and physical-device playback",
+      "Dương consumer/publication integration"
+    ]
+  },
+  "scriptAcceptanceRecorded": {
+    "reviewer": "Thọ (Member 1 / Content Lead)",
+    "verdict": "SCRIPT APPROVED",
+    "recordCommit": "bdc6dc9f368c8a6c47bfe06854f5e254e83f0447",
+    "date": "2026-10-03",
+    "evidence": "docs/tasks/evidence/CONTENT-007-collage-v2-2026-10-03.md",
+    "scope": "9/9 narration text concordance with authored script, same approved master/mobile hashes; not device/caption-listening QA"
+  }
 }

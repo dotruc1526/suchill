@@ -1,0 +1,48 @@
+[
+  {
+    "width": 375,
+    "initial": {
+      "paused": true,
+      "autoplay": false,
+      "inline": true,
+      "w": 720,
+      "h": 1280,
+      "duration": 63.066667,
+      "cues": 33,
+      "overflow": false,
+      "transcript": 918,
+      "canPlay": "probably"
+    },
+    "captions": 33,
+    "playing": {
+      "paused": false,
+      "time": 36.840285,
+      "error": null,
+      "frames": 3676
+    },
+    "ended": true
+  },
+  {
+    "width": 430,
+    "initial": {
+      "paused": true,
+      "autoplay": false,
+      "inline": true,
+      "w": 720,
+      "h": 1280,
+      "duration": 63.066667,
+      "cues": 33,
+      "overflow": false,
+      "transcript": 918,
+      "canPlay": "probably"
+    },
+    "captions": 33,
+    "playing": {
+      "paused": false,
+      "time": 36.851781,
+      "error": null,
+      "frames": 7571
+    },
+    "ended": true
+  }
+]
