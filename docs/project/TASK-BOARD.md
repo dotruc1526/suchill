@@ -4,6 +4,14 @@
 > Owner: Project team\
 > Purpose: Nguồn context chung cho product owner, thành viên nhóm và AI agents
 
+## Latest APPROVED PO decision — 2026-10-03
+
+Dương yêu cầu “Tôi là Dương, mở M07 đi” sau báo cáo trạng thái M6/M7. **M7 OPEN song song M6 OPEN** theo ngoại lệ lịch trình do PO duyệt. Quyết định này thay thế yêu cầu đóng M6 trước khi mở M7 và các checkpoint “M7 LOCKED” phía dưới (lưu làm lịch sử). Không nghiệm thu M6 hoặc tự chuyển task DONE. Dependency từng task, historical/media review, security/accessibility và release acceptance giữ nguyên. [M7-GATE-OPEN-001](../tasks/active/M7-GATE-OPEN-001.md) ghi nguồn, scope và handoff.
+
+| ID | Owner / Executor | Reviewer | Status | Started | Files / Next action |
+|---|---|---|---|---|---|
+| M7-GATE-OPEN-001 | Dương / Codex | Dương (PO decision); integration review pending | REVIEW | 2026-10-03 | Board + decision card only; integrate documentation decision, then claim eligible M7 tasks with valid dependencies. |
+
 ## Cách dùng file này
 
 Đây là task board cấp project. Mỗi task phải có một ID duy nhất. Không tạo task mới chỉ bằng cách viết trong chat; hãy ghi task vào file này để người khác và AI có thể đọc lại context.
@@ -64,7 +72,7 @@ Phase 9 đã được product owner duyệt ngày 2026-09-23; `SPEC-FIRST FREEZE
 | M4 | DONE | Supabase foundation gate accepted on the development target | Product Owner Dương approved close, 2026-10-02; [DOC-020](../tasks/done/DOC-020.md), merged PR #110, PR #106 and independent post-merge review |
 | M5 | DONE | Trusted progress/reward/streak/analytics gate accepted | Product Owner Dương approved close, 2026-10-02; [DOC-021](../tasks/done/DOC-021.md), merged PR #110 |
 | M6 | OPEN | PWA install/update/offline, mobile performance and accessibility evidence plus PO acceptance | Product Owner Dương approved open, 2026-10-02, DOC-021. Content/media/physical-device gates remain distinct. |
-| M7 | LOCKED | Full M6 gate and explicit Product Owner acceptance | Not opened; canonical media/content/release inputs remain required. |
+| M7 | OPEN | Task dependencies and full content/security/accessibility/release gates remain required | Dương (Product Owner) approved open, 2026-10-03, explicit chat instruction; scheduling exception allows M7 alongside M6 OPEN; [decision](../tasks/active/M7-GATE-OPEN-001.md). |
 
 `DONE` của từng task không tự mở milestone tiếp theo. Executor ghi evidence theo gate Phase 9; reviewer/QA kiểm tra; Product owner duyệt rõ ràng và ghi ngày, evidence, milestone được mở vào bảng này trước khi nhóm bắt đầu implementation milestone kế tiếp. Content track có task/dependency riêng: Member 1 có thể nhận `CONTENT-009` nghiên cứu nguồn sơ bộ trong khi M0 đang mở; việc đó không mở milestone implementation hoặc chốt nội dung canonical.
 
