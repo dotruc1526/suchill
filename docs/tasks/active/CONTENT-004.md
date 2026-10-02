@@ -120,3 +120,15 @@ Phạm vi: media/handoff reviewer portion cho gói pilot authoring (screenplay/n
 - KHÔNG bao gồm: duyệt quyền/license bất kỳ candidate nào, nghiệm thu asset cuối (caption/crop/attribution), bản thu, MP4/manifest, QA player, production readiness. Ô acceptance "media có quyền" giữ nguyên chưa tick; CONTENT-007 giữ BLOCKED.
 - Handoff statement: gói authoring đủ để Member 2 bắt đầu planning sản xuất (kịch bản + nguồn + fallback spec đã khóa); bản thân production chờ quyền, bản thu, file cuối và quyết định PO.
 - Next: Hưng recheck độc lập; PO quyết định handoff. Task giữ REVIEW; gate M3 OPEN / M4 LOCKED.
+
+## Hash update sau PR #65 merge — 2026-10-02
+
+PR #65 (merged `b1bbe0e`) sửa `PILOT-SCREENPLAY.md` (wording Tòa Đại sứ, text-first fallback). Trúc đã TEXT APPROVED bytes mới này tại `b65dd2d` trong biên bản [CONTENT-018-truc-historical-rereview-2026-10-02.md](../evidence/CONTENT-018-truc-historical-rereview-2026-10-02.md). Hash chính thức trên main sau merge:
+
+| Artifact | SHA-256 (post-PR65, Trúc APPROVED) |
+|---|---|
+| `PILOT-SCREENPLAY.md` | `6d1bf23a68bf1ad629a53ef1fed7f46360476ca769d8ea527ffb8c07610e9d56` |
+| `HISTORICAL-SOURCES.md` | `32914d5964769cf0c69a71da5b9ad41a6aecc3a6852e55edb75db9cf721cc481` (sau CLM-1972-RD-003 sync) |
+
+Hash cũ `80470eff...` (PILOT-SCREENPLAY trước PR #65) không còn áp dụng. Verdict Trúc cho `PILOT-NARRATION.json` và `PILOT-CAPTIONS.vtt` không đổi — hai file này không thay đổi trong PR #65.
+Task giữ REVIEW; production chưa được mở; CONTENT-007 giữ BLOCKED.

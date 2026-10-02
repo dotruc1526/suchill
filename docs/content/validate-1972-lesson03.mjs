@@ -4,7 +4,7 @@ import assert from 'node:assert';
 
 const ROOT_DIR = process.cwd();
 const LESSON_PATH = path.join(ROOT_DIR, 'docs', 'content', 'LESSON-03-1972-STANDARD.md');
-const TASK_PATH = path.join(ROOT_DIR, 'docs', 'tasks', 'active', 'CONTENT-018.md');
+const TASK_PATH = path.join(ROOT_DIR, 'docs', 'tasks', 'done', 'CONTENT-018.md');
 
 console.log('--- Validating Chapter 1972 Lesson 3 Standard Reading Assets ---');
 
