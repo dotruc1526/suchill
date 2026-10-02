@@ -22,4 +22,4 @@ Visual dự kiến: thẻ chữ/sơ đồ không địa lý; không giả làm t
 
 ## Media và next action
 
-[MEDIA-REVIEW-MT68.md](./MEDIA-REVIEW-MT68.md) ghi từng quyết định license/caption và những ứng viên loại khỏi phương án bắt buộc. Trúc nghiệm thu nội dung theo quyền được giao; QA kỹ thuật vẫn cần evidence. CONTENT-006 giữ REFERENCE_ONLY; không dùng clip cũ thay pilot này; M0/M1 đã đóng, M2 kỹ thuật đang OPEN, còn content/media production vẫn bị khóa theo artifact review.
+[MEDIA-REVIEW-MT68.md](./MEDIA-REVIEW-MT68.md) ghi từng quyết định license/caption và những ứng viên loại khỏi phương án bắt buộc. Trúc đã ghi authoring media/handoff review, Vinh/Hưng đã ACCEPTED technical/review-state reconciliation; registry mới và lựa chọn audio trong CONTENT-003 còn cần reviewer xác nhận. CONTENT-006 giữ REFERENCE_ONLY; không dùng clip cũ thay pilot. M0–M3 DONE, M4 OPEN, M5–M7 LOCKED. Production CONTENT-007 vẫn BLOCKED; PO quyết định handoff sau khi source/media/audio plan được duyệt. MP4/poster/manifest và audio/caption sync cuối là đầu ra CONTENT-007, không phải prerequisite phải có trước khi dựng.

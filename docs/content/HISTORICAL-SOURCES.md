@@ -1,87 +1,52 @@
-# Nguồn và claim — bản sửa PR #21
+# Nguồn và claim — Mậu Thân, registry revision 2026-10-02
 
-> Status: NEEDS_HISTORICAL_REVIEW
-> Access date: 2026-09-27. Người tra cứu: Trúc, Codex hỗ trợ.
-> Reviewer/sign-off: chưa xác nhận. Có nguồn không đồng nghĩa đã APPROVED.
+> Status: NEEDS_HISTORICAL_REVIEW cho revision registry này; không thu hồi verdict đã có của các artifact.
+> Executor: Codex hỗ trợ Trúc. Access date: 2026-10-02. Historical/media reviewer: Trúc; technical QA: Vinh.
+> Evidence: [CONTENT-003 source review](../tasks/evidence/CONTENT-003-source-review-2026-10-02.md).
 
-Review lại 2026-09-28: xem [kết quả từng cue](../tasks/active/CONTENT-003-004-REVIEW.md). SRC-MT68-02 đã được cập nhật ấn bản sách in chính quy NXB Quân đội Nhân dân (tr. 142-186) và cổng Bảo tàng Biệt động Sài Gòn, thay thế link redirect loop cũ. Các source khác đã đọc được chỉ hỗ trợ wording giới hạn, chưa thay human sign-off.
+Một ID chỉ có một nghĩa. Revision này loại bảng MT68 trùng ID ở cuối bản cũ, giữ nguyên ID đang được narration/story/quiz tham chiếu và giữ nguyên section 1972. Kết quả SUPPORTED là kiểm chứng nguồn hỗ trợ wording, chưa phải chữ ký reviewer cho registry mới.
 
-## Registry có locator
+## Source registry Mậu Thân
 
-Các ID dưới đây dùng cho Bài 2–4 và quiz sửa lần này. Ngôn ngữ nguồn VN: tiếng Việt; US: tiếng Anh. Nguồn báo chí cần reviewer chấp nhận theo Phase 3; không tự nâng thành tài liệu lưu trữ.
-
-| ID | Title / author or institution / publisher | Loại / ngày | Canonical URL và relevant locator | Supports claims / giới hạn |
+| ID | Title / institution / publisher | Type / date / tier | Canonical URL và locator | Supports claims / giới hạn |
 |---|---|---|---|---|
-| SRC-MT68-01 | U.S. Involvement in the Vietnam War: The Tet Offensive, 1968 — Office of the Historian, U.S. Department of State | curated_educational; không ghi ngày | [Bài tổng thuật](https://history.state.gov/milestones/1961-1968/tet), đoạn mở đầu; đoạn bắt đầu “The first phase”; hai đoạn cuối | CLM-MT68-05/07; góc nhìn cơ quan Mỹ, trang đã ngừng cập nhật |
-| SRC-MT68-02 | Biệt động Sài Gòn - Chợ Lớn - Gia Định trong Tổng tiến công và nổi dậy Xuân Mậu Thân 1968 — NXB Quân đội Nhân dân | institutional; 2018 (ISBN: 978-604-51-3788-8) | [Tư liệu NXB QĐND & Bảo tàng Biệt động](https://baotangbietdongsaigongiadinh.vn/lich-su-biet-dong-sai-gon), Chương IV tr. 142–186 liệt kê chi tiết 5 mục tiêu | CLM-MT68-01; hỗ trợ danh sách mục tiêu, không chứng minh toàn bộ diễn biến từng trận |
-| SRC-MT68-03 | “Viet Cong Invade American Embassy” — ADST, tái đăng lời kể E. Allan Wendt | primary (lời kể người tham dự) kèm biên tập; bản kể đăng 1981 | [Bài ADST](https://adst.org/2013/07/viet-cong-invade-american-embassy-the-1968-tet-offensive/), mở đầu phân biệt grounds/building và lời kể Wendt | CLM-MT68-02; perspective: western_archive; không lấy ngày ở lời dẫn làm nguồn duy nhất vì có khác biệt niên biểu |
-| SRC-MT68-04 | Đêm mùa Xuân năm ấy… — Trà My và Đặng Giang, Báo Nhân Dân | primary (phỏng vấn nhân chứng) kèm biên tập; 2013-02-14 | [Bài viết](https://nhandan.vn/dem-mua-xuan-nam-ay-post382619.html), đoạn “Họ là tổ biệt động”, “Đội hình tiến công” và lời kể Võ Thị Minh Nghĩa | CLM-MT68-03; chỉ dùng quy mô đội, bộc phá không nổ và người bị bắt; không suy diễn tỷ lệ thương vong |
-| SRC-MT68-05 | Căn nhà 287/70 - địa chỉ đỏ mang tên “Biệt động Sài Gòn” — Mỹ Trang, VOH | curated_educational; 2023-08-22 | [Bài khảo sát di tích](https://voh.com.vn/du-lich/can-nha-287-70-dia-chi-do-mang-ten-biet-dong-sai-gon-492233.html), đoạn địa chỉ, Trần Văn Lai, Đội 5 nhận vũ khí | CLM-MT68-04; địa chỉ/ảnh hiện trạng, không phải ảnh trận đánh |
-| SRC-MT68-06 | FRUS 1964–1968, Volume VI, Document 230 — Office of the Historian | primary; văn kiện về phiên họp 1968-05-13 | [Document 230](https://history.state.gov/historicaldocuments/frus1964-68v06/d230), đoạn mở đầu và chú thích điện văn 13926/13936/13963 | CLM-MT68-06; giới hạn phiên họp đầu tiên |
+| SRC-MT68-01 | U.S. Involvement in the Vietnam War: The Tet Offensive, 1968 — Office of the Historian, U.S. Department of State | curated_educational; không ghi ngày; Tier 2 | [Bài tổng thuật](https://history.state.gov/milestones/1961-1968/tet), mở đầu, phần first phase và hai đoạn cuối | CLM-MT68-05/07; góc nhìn cơ quan Mỹ; trang đã retired, không suy ra đơn nhân hay mọi nơi cùng thời điểm |
+| SRC-MT68-02 | Biệt động Sài Gòn - Chợ Lớn - Gia Định trong Tổng tiến công và nổi dậy Xuân Mậu Thân 1968 — NXB Quân đội Nhân dân | bibliographic candidate do hồ sơ cũ cung cấp; 2018, ISBN 978-604-51-3788-8, tr. 142–186 CHƯA đọc trực tiếp | [Link bảo tàng cũ](https://baotangbietdongsaigongiadinh.vn/lich-su-biet-dong-sai-gon); không truy cập được qua web tool ngày 2026-10-02 | CLM-MT68-01; không coi URL bảo tàng là bản scan sách. Bổ sung evidence đọc được tại SRC-MT68-07; không tự đổi nghĩa ID 02 |
+| SRC-MT68-03 | “Viet Cong Invade American Embassy” — ADST, tái đăng báo cáo của E. Allan Wendt | primary account với phần dẫn biên tập; báo cáo viết sau sự kiện, đăng WSJ 3–4/11/1981; Tier 1 cho lời kể, Tier 3 cho phần dẫn | [ADST](https://adst.org/2013/07/viet-cong-invade-american-embassy-the-1968-tet-offensive/), phần Endangered Lives và lời Wendt thuật lại báo cáo của Harper | CLM-MT68-02; western_archive; chỉ phân biệt khuôn viên/tòa nhà. Không dùng ngày trong phần dẫn, số giờ hoặc kết luận toàn bộ diễn biến như fact duy nhất |
+| SRC-MT68-04 | Đêm mùa Xuân năm ấy… — Trà My và Đặng Giang, Báo Nhân Dân | primary testimony trong bài báo biên tập; 2013-02-14; Tier 1 cho lời nhân chứng, Tier 3 cho thuật lại | [Nhân Dân](https://nhandan.vn/dem-mua-xuan-nam-ay-post382619.html), phần chuẩn bị tại hầm, đội hình tiến công, bộc phá và lời Võ Thị Minh Nghĩa | CLM-MT68-03/04; đội 15 người, bộc phá không nổ, bảy người bị bắt theo bài. Không suy diễn tỷ lệ thương vong |
+| SRC-MT68-05 | Căn nhà 287/70 - địa chỉ đỏ mang tên “Biệt động Sài Gòn” — Mỹ Trang, VOH | curated_educational / edited journalism; 2023-08-22; Tier 3 | [VOH](https://voh.com.vn/du-lich/can-nha-287-70-dia-chi-do-mang-ten-biet-dong-sai-gon-492233.html), phần Trần Văn Lai xây hầm, Đội 5 nhận vũ khí | CLM-MT68-04; chỉ vai trò hậu cần và địa chỉ hiện trạng. Đối chiếu SRC-MT68-04; bài báo không cấp quyền dùng ảnh |
+| SRC-MT68-06 | FRUS 1964–1968, Volume VI, Document 230 — Office of the Historian | primary / official archival compilation; 1968-05-13; Tier 1 | [Document 230](https://history.state.gov/historicaldocuments/frus1964-68v06/d230), đoạn mở đầu và chú thích điện văn 13926/13936/13963 | CLM-MT68-06; phiên họp toàn thể đầu tiên VNDCCH–Mỹ, không đồng nhất với ký Hiệp định Paris |
+| SRC-MT68-07 | Đồng bằng sông Cửu Long trong Cuộc Tổng tiến công và nổi dậy Xuân Mậu Thân 1968 — Báo Nhân Dân; trang không hiện byline riêng | edited historical journalism; 2008-01-28 03:56; Tier 3, chờ Trúc chấp nhận phạm vi | [Nhân Dân](https://nhandan.vn/dong-bang-song-cuu-long-trong-cuoc-tong-tien-cong-va-noi-day-xuan-mau-than-1968-post485149.html), đoạn bắt đầu “...Ngay từ ngày” liệt kê năm mục tiêu Sài Gòn | CLM-MT68-01; chỉ danh sách Dinh Độc Lập, Bộ Tổng Tham mưu, Bộ Tư lệnh Hải quân, Đài Phát thanh, Đại sứ quán Mỹ. Không lấy ngày/số liệu khác trong bài để mở rộng lesson |
 
-## Claim register
+## Claim register Mậu Thân
 
-Tất cả dòng: review_status = NEEDS_HISTORICAL_REVIEW; reviewer = pending; confidence = qualified. Phạm vi: Mậu Thân 1968, Sài Gòn và tác động ngoại giao. Chưa dùng nhãn verified_fact trong dữ liệu phát hành.
+Phạm vi: wording đang có trong pilot/Bài 2–4/quiz. Historical/learning verdict đã có ở CONTENT-004/010/011/012 chỉ áp dụng artifact/revision tương ứng; acceptance của registry mới và Tier 3 còn chờ Trúc. Không tự cấp nhãn published hoặc runtime verified_fact.
 
-| Claim ID | Text/reference và truth class | Source IDs | Wording constraint |
+| Claim ID | Wording / class đề xuất | Source IDs | Check 2026-10-02 / giới hạn |
 |---|---|---|---|
-| CLM-MT68-01 | Năm node trong Bài 2; fact candidate | SRC-MT68-02 | Danh sách mục tiêu không chứng minh mọi mục tiêu bị chiếm |
-| CLM-MT68-02 | Thẻ Đại sứ quán; fact candidate | SRC-MT68-03 | Phân biệt khuôn viên với tòa nhà |
-| CLM-MT68-03 | Đội 5 và kết quả bộc phá ở Bài 3; fact candidate | SRC-MT68-04 | Không nói cổng bị đánh sập; không suy diễn thương vong |
-| CLM-MT68-04 | Cơ sở 287/70 và nhận vũ khí; fact candidate | SRC-MT68-05 | Địa chỉ theo bài khảo sát, tránh lẫn tên đường lịch sử/hiện đại |
-| CLM-MT68-05 | Tác động và chính sách Mỹ ở Bài 4; educational_explanation | SRC-MT68-01 | Nêu góc nhìn nguồn, không quan hệ nhân quả tuyệt đối |
-| CLM-MT68-06 | Mốc phiên họp ở Bài 4; fact candidate | SRC-MT68-06 | Không đồng nhất đàm phán với ký hiệp định |
-| CLM-MT68-07 | Bối cảnh đô thị cuối tháng 1, Bài 2; fact candidate | SRC-MT68-01 | Không nói mọi nơi cùng phút/giao thừa |
+| CLM-MT68-01 | Danh sách năm mục tiêu trong Bài 2; fact candidate | SRC-MT68-02 (candidate), SRC-MT68-07 (đọc được) | SUPPORTED bằng nguồn 07; nguồn 02 chưa đọc trực tiếp. Danh sách không chứng minh chiếm giữ; map metadata vẫn pending |
+| CLM-MT68-02 | Phân biệt khuôn viên Đại sứ quán và tòa nhà; fact candidate | SRC-MT68-03 | SUPPORTED cho wording giới hạn; không khẳng định chiếm cả tòa nhà, tầng dưới, số giờ hay ngày từ phần dẫn |
+| CLM-MT68-03 | Đội 5 và bộc phá không nổ; fact candidate | SRC-MT68-04 | SUPPORTED; lời nhân chứng phân biệt chuẩn bị/kết quả, không suy diễn thương vong |
+| CLM-MT68-04 | Hầm gắn Trần Văn Lai, Đội 5 nhận vũ khí; fact candidate | SRC-MT68-05, SRC-MT68-04 | SUPPORTED bởi hai bài; địa chỉ/ảnh hiện trạng không là tên đường/ảnh năm 1968 |
+| CLM-MT68-05 | Tác động dư luận/chính sách Mỹ; educational_explanation | SRC-MT68-01 | SUPPORTED theo góc nhìn nguồn, không đơn nhân, không ngừng toàn bộ ném bom ngay tháng 3 |
+| CLM-MT68-06 | Phiên họp toàn thể đầu tiên 13/5/1968; fact candidate | SRC-MT68-06 | SUPPORTED bởi đoạn đầu Document 230; không phải ngày ký Hiệp định |
+| CLM-MT68-07 | Cuối tháng 1/1968, nhiều đô thị miền Nam; fact candidate | SRC-MT68-01 | SUPPORTED; không đồng nhất mọi nơi cùng phút/giao thừa |
 
-## Nguồn cũ cần bổ sung
+## Quyết định cần reviewer xác nhận
 
-Các tên sách “Đại cương Lịch sử Việt Nam tập 3”, “Lịch sử Nam Bộ kháng chiến tập 2”, sách chuyên đề Biệt động và tư liệu bảo tàng vẫn là ứng viên nghiên cứu: cần ấn bản, tác giả, trang/catalog trước khi dùng làm bằng chứng. Không coi tên sách hoặc homepage là locator.
+- Đề xuất Trúc chấp nhận SRC-MT68-07 Tier 3 cho list-membership của CLM-MT68-01: bài có nhà xuất bản/ngày/đoạn liệt kê đọc được, phạm vi hẹp trùng wording đã có; không nâng thành sách/archival. SRC-MT68-02 vẫn candidate, chưa xác minh ISBN/trang sách độc lập.
+- Đề xuất chấp nhận SRC-MT68-05 Tier 3 cho vai trò hậu cần phổ thông, có nguồn nhân chứng SRC-MT68-04 đối chiếu. Các lời nhân chứng và phần dẫn báo phải tách tier.
+- Nguồn 01 retired; giữ qualification. Nguồn 03 có khác biệt ngày ở phần dẫn; không dùng để xác nhận chronology. Những giới hạn này thuộc verdict đề nghị, không phải approval AI.
+- Chưa sửa sourceIds trong narration/story/map/quiz đã review. Khi dùng nguồn 07 trong authoring/runtime, owner phải tạo source-metadata revision, cập nhật hash và được reviewer xác nhận; không tự thay snapshot đã duyệt.
 
-Các ID SRC-VN-01…05 trong bản quiz trước chưa có registry tương ứng; bản sửa chuyển sang SRC-MT68-xx. Chưa xác minh lời thơ là lệnh tác chiến chung, cơ chế lịch GMT+7/GMT+8 hoặc mọi claim của pilot; không dùng những điều này làm đáp án đã duyệt.
+## Coverage và provenance
 
-Đính chính registry cũ: cơ sở 287/70 gắn với Đội 5 đánh Dinh Độc Lập, không gán thành nơi Đội 11 xuất phát. Bản hiện tại không khẳng định cơ quan quản lý bảo tàng khi chưa có hồ sơ.
+Pilot: p01a → CLM-MT68-07; p02a/p02b → CLM-MT68-04; p03a/p03b → CLM-MT68-01; p04a → CLM-MT68-02; p04b → CLM-MT68-03. p01b/p05 là educational_explanation.
+Các câu hỏi/story giữ đúng IDs đang có. Không dùng lại hiệu lệnh thơ, lịch GMT+7/GMT+8, vật liệu nắp hầm, số giờ giữ toàn bộ Đại sứ quán hoặc lời nhân vật thật thiếu locator. Bảng MT68 trùng cũ đã bị loại vì tái gán source ID 01–06 và claim ID 01–03 sang nghĩa khác; lịch sử vẫn truy vết tại main `c7a5ad5`.
 
-## Quyền media tách khỏi quyền trích nguồn
+## Quyền media và scope
 
-[Catal​og ứng viên](./DETAILED-MEDIA-CATALOG.csv) chưa chứng minh quyền tái sử dụng. URL bài báo, Wikimedia category, tên kho LOC/TTU/Internet Archive hoặc mục đích giáo dục không tự xác nhận license. Phải kiểm tra item cụ thể, tác giả/chủ quyền, điều kiện, attribution và phạm vi sử dụng; không suy đoán Public Domain/Fair Use. Các đề xuất cũ về AP/CBS/Pathé/VTV chỉ là đầu mối tìm nguồn.
-
-## Việc reviewer cần làm
-
-Trúc được Thọ giao toàn bộ phần sửa và historical/learning/media review theo xác nhận ngày 2026-09-27. Codex lập bản đối chiếu, không giả chữ ký của Trúc. Trúc xác nhận trên bản cụ thể; Vinh kiểm tra kỹ thuật trước nghiệm thu.
-
-## Coverage của bản authoring v2
-
-- Pilot cue p01a → CLM-MT68-07; p02a/p02b → CLM-MT68-04; p03a/p03b → CLM-MT68-01; p04a → CLM-MT68-02; p04b → CLM-MT68-03.
-- Cue p01b/p05 và lời giải thích phương pháp là educational_explanation, không thêm dữ kiện lịch sử.
-- MAP-MT68.json và LESSON-02-STORY.json có claim/source ID ở từng node/scene; nguồn cho overview là hợp của năm node.
-- Không sử dụng lại hiệu lệnh thơ, múi giờ làm đáp án, tên vật liệu nắp hầm, số giờ giữ toàn bộ Đại sứ quán hay các diễn biến thiếu locator.
-- Diễn giải “không đồng nhất kế hoạch với kết quả” dùng để hướng dẫn đọc nguồn, không phải trích dẫn nguyên văn.
-- Giữ NEEDS_HISTORICAL_REVIEW cho đến khi Trúc ghi xác nhận trên bản narration/story cụ thể. Việc được giao quyền review không tự tạo kết quả review.
-## 6. Nguồn Cổng thông tin Điện tử & Báo chí Nhà nước
-10. **Đài Truyền hình Việt Nam (VTV)**
-    - Kho tư liệu video thời sự và phim tài liệu chính thống về Kháng chiến chống Mỹ.
-11. **Thư viện Pháp luật (thuvienphapluat.vn)**
-    - Các bài viết tổng hợp tiến trình lịch sử, văn bản pháp quy thời kỳ 1954-1975.
-12. **Tạp chí Việt Nam Hội nhập (vietnamhoinhap.vn)**
-    - Phân tích bài học xây dựng lực lượng vũ trang nhân dân từ thắng lợi của cuộc Kháng chiến chống Mỹ.
-
-
-## Source Registry (Machine-readable)
-
-| SRC-MT68-01 | Đại cương Lịch sử Việt Nam Tập 3 | NXB Giáo dục Việt Nam | verified_fact |
-| SRC-MT68-02 | Lịch sử Nam Bộ kháng chiến Tập 2 (1954-1975) | NXB Chính trị Quốc gia Sự thật | verified_fact |
-| SRC-MT68-03 | Biệt động Sài Gòn - Chợ Lớn - Gia Định trong Tổng tiến công và nổi dậy Xuân Mậu Thân 1968 | NXB Quân đội Nhân dân | verified_fact |
-| SRC-MT68-04 | Tư liệu Bảo tàng Biệt động Sài Gòn | Cục Di sản văn hóa | verified_fact |
-| SRC-MT68-05 | Thơ chúc Tết Mậu Thân 1968 của Chủ tịch Hồ Chí Minh & Di tích Hầm vũ khí 287/70 Võ Văn Tần | Đài Tiếng nói Việt Nam & Bảo tàng | verified_fact |
-| SRC-MT68-06 | The Vietnam Center and Sam Johnson Vietnam Archive | Texas Tech University | cross_reference |
-
-## Claim Registry
-
-| CLM-MT68-01 | Năm mục tiêu đầu não tại Sài Gòn: Tòa Đại sứ Mỹ, Dinh Độc Lập, Đài Phát thanh, Bộ Tổng Tham mưu, Bộ Tư lệnh Hải quân | verified_fact |
-| CLM-MT68-02 | Đội 11 Biệt động đánh vào Tòa Đại sứ Mỹ, làm chủ trận địa hơn 6 giờ | verified_fact |
-| CLM-MT68-03 | Giờ nổ súng thực tế tại Sài Gòn: rạng sáng Mồng 2 Tết (31/01/1968), có độ lệch múi giờ GMT+7/GMT+8 | verified_fact |
-
----
+[Catal​og ứng viên](./DETAILED-MEDIA-CATALOG.csv) có 6 BLOCKED / 2 NEEDS_MEDIA_REVIEW. Chỉ dùng các bài trên để kiểm chứng/paraphrase fact có attribution; URL nguồn không cấp quyền tải ảnh/clip/nhạc. Phương án bắt buộc là chữ/sơ đồ nguyên bản, không ảnh optional, không nhạc/SFX. Audio cần phương án có quyền được Trúc xác nhận trước production; xem [media plan](./MEDIA-REVIEW-MT68.md).
 
 ## Chapter 1972: Source Registry (Chiến dịch Linebacker II / Điện Biên Phủ trên không)
 

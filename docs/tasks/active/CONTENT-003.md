@@ -1,14 +1,39 @@
 # CONTENT-003 — Historical source and media review pilot
 
 > Status: REVIEW\
-> Review Verdict: **NEEDS_REVISION** (Yêu cầu hiệu chỉnh trước khi sản xuất video và mở khóa bài học)\
-> Date: 2026-09-26\
-> Reviewer: Trúc theo quyền Thọ giao; chưa có sign-off bản mới\
-> Reference Report: đường dẫn báo cáo cũ nằm ngoài repo, không truy cập được; phần ghi nhận cũ được giữ bên dưới để truy vết.
+> Review Verdict: **PENDING_REVIEWER_CONFIRMATION** cho registry revision 2026-10-02\
+> Date: 2026-10-02\
+> Reviewer: Trúc historical/media; Vinh technical QA\
+> Reference Report: [source review 2026-10-02](../evidence/CONTENT-003-source-review-2026-10-02.md). Báo cáo cũ bên dưới chỉ để truy vết.
 
-## Assignment hiện hành — 2026-09-27
+## Assignment hiện hành — 2026-10-02
 
-## Lượt review và sửa regression — 2026-09-28
+- Owner: Trúc (Member 2).
+- Executor: Codex hỗ trợ Trúc theo yêu cầu triển khai ngày 2026-10-02.
+- Reviewer: Trúc historical/media; Vinh technical QA; Product Owner quyết định production gate.
+- Status: REVIEW; Started: 2026-10-02 (đã claim IN PROGRESS trước khi sửa).
+- Branch: `codex/truc-content003-source-review`; base main `c7a5ad5`.
+- Depends on: CONTENT-002 và DOC-004 DONE trên board; acceptance CONTENT-002 đã tick đủ. Handoff cũ còn ghi ô trống sẽ được ghi rõ là superseded.
+- Files claimed: `docs/content/HISTORICAL-SOURCES.md`, `MEDIA-REVIEW-MT68.md`, `PRODUCTION-NOTES.md`; card này, `docs/tasks/evidence/CONTENT-003-source-review-2026-10-02.md`, `docs/tasks/active/README.md`, các row CONTENT-003/007 và checkpoint trong `docs/project/TASK-BOARD.md`.
+- Next action: Trúc xác nhận registry hash/Tier 3 và chọn audio route có quyền; Vinh recheck metadata/diff; PO quyết định production handoff sau acceptance.
+- Out of scope: runtime, chapter 1972, MP4/thu âm production, duyệt quyền ảnh optional, tự mở CONTENT-007 hoặc milestone.
+
+## Acceptance và handoff hiện hành — 2026-10-02
+
+- [x] Source IDs/claim IDs Mậu Thân có một nghĩa duy nhất, locator/tier/perspective và giới hạn wording rõ.
+- [x] 7/7 claim có nguồn đọc được hỗ trợ; SRC-MT68-02 chưa đọc trực tiếp được ghi candidate, SRC-MT68-07 bổ sung evidence cho danh sách mục tiêu.
+- [x] Phương án bắt buộc chữ/sơ đồ nguyên bản; 6 BLOCKED/2 NEEDS_MEDIA_REVIEW loại khỏi mandatory route; không cấp quyền ảnh/clip optional.
+- [x] Checklist quyền audio, consent và ranh giới preproduction/production outputs đã ghi rõ.
+- [ ] Trúc xác nhận registry revision/Tier 3 và audio rights route; không ghi chữ ký thay reviewer.
+- [ ] Vinh technical QA/reviewer nghiệm thu task; PO production decision riêng.
+
+Verification: authoring validator PASS (5 node, 7 scene, 6 đường đi, 5 quiz, 9 cue 110s); 7 source rows/7 claim rows unique; chapter 1972 byte-identical; 10 authoring/catalog inputs unchanged; local Markdown links PASS; `git diff --check` PASS. Không chạy app build/typecheck vì docs-only, không runtime/env/migration/dependency impact.
+
+Changed files: registry, MEDIA-REVIEW-MT68, PRODUCTION-NOTES, card/evidence CONTENT-003, task board và active index. Known issues: book scan/source 02 chưa truy cập; Tier 3 mới chờ reviewer; audio chưa chọn/thu/consent; map còn pending, sourceIds production revision cần owner/reviewer; chưa có asset final. Không yêu cầu phải có MP4 cuối trước khi mở task dựng MP4. M4 OPEN / M5–M7 LOCKED; CONTENT-007 BLOCKED cho tới dependency/PO decision và claim riêng.
+
+## Lượt review và sửa regression — 2026-09-28 (snapshot cũ)
+
+Các dependency/next action cũ bên dưới được assignment/acceptance 2026-10-02 thay thế; CONTENT-002 hiện DONE với bốn checkbox reviewer đạt. Không dùng ô trống trong handoff cũ làm blocker mới.
 
 - Owner / Executor: Trúc; Codex thực hiện đối chiếu và sửa tài liệu theo yêu cầu.
 - Reviewer: Trúc historical/learning/media; Vinh technical QA.

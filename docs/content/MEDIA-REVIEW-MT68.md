@@ -33,9 +33,19 @@ Trúc có thể tự thu giọng của mình hoặc cung cấp bản thu có quy
 
 Poster/sơ đồ chữ do nhóm tạo cần source file, font/license thực tế, ngày xuất, rendition và hash. Hiện mới có thiết kế trong screenplay, chưa có file để nghiệm thu.
 
-## Trạng thái còn thiếu
+## Checkpoint CONTENT-003 — 2026-10-02
 
-- Historical/learning sign-off cho bản narration/story mới.
+- Historical/learning của screenplay/narration/lesson/quiz đã có verdict theo các card CONTENT-004/010/011/012; không yêu cầu ký lại wording không đổi. Registry mới cần xác nhận Tier 3/locator riêng; map artifact vẫn pending.
+- Mandatory media plan đề nghị: chữ/sơ đồ do nhóm tạo, không ảnh/clip optional, không nhạc/SFX. Sáu candidate BLOCKED và hai NEEDS_MEDIA_REVIEW tiếp tục bị loại khỏi bản bắt buộc; lượt này không tái thẩm định hoặc cấp quyền dùng chúng.
+- Audio: đang chờ Trúc chọn người tự thu/người đọc có consent hoặc dịch vụ TTS có điều khoản phù hợp. Không có provider/account/recording/permission nào được tự ghi APPROVED. CONTENT-006 không là nguồn audio cho pilot.
+- Trước khi production được mở: reviewer chấp nhận registry/source scope và phương án quyền media/audio, PO ghi quyết định handoff, task CONTENT-007 có claim riêng. Bản thu/MP4/poster/manifest cuối là đầu ra phải kiểm tra sau khi sản xuất; không yêu cầu có MP4 trước khi bắt đầu dựng.
+- Mẫu consent cho giọng người đọc: ghi tên người đọc, ngày, script/hash narration, cho phép ghi âm/chỉnh timing âm lượng/đồng bộ phụ đề và dùng trong video Sử Chill trên web/PWA, phạm vi phát hành và cách ghi công; chỉ có hiệu lực sau khi chính người đọc xác nhận. Không điền chữ ký hộ người đọc; không mặc định đồng ý quảng cáo hoặc voice cloning.
+- Source file thiết kế và font/rendition/hash phải được ghi khi tạo asset trong CONTENT-007; chưa có font/file cuối được kiểm tra. Phần chữ/sơ đồ hiện là spec, chưa phải asset final đã duyệt.
+- Gate hiện hành: M0–M3 DONE / M4 OPEN / M5–M7 LOCKED. CONTENT-007 vẫn BLOCKED theo content gate riêng.
+
+## Trạng thái còn thiếu — cập nhật 2026-10-02
+
+- Reviewer xác nhận registry revision 2026-10-02 và phương án audio; các verdict artifact đã có được giữ theo hash của từng card.
 - Trúc chọn hoặc thu audio hợp lệ; đo timing và đồng bộ caption theo audio.
 - Xuất MP4/poster/manifest, kiểm tra mobile/fallback/keyboard/caption trên player khi task mở.
 - Nếu dùng ảnh optional: nghiệm thu item, caption/alt/crop, attribution và điều kiện phạm vi sử dụng trước tích hợp.
