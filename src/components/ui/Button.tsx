@@ -28,7 +28,7 @@ export function Button({
 
   const sizeStyles = {
     sm: 'px-3 py-1.5 text-xs',
-    md: 'px-4 py-2.5 text-sm',
+    md: 'min-h-11 min-w-11 px-4 py-2.5 text-sm',
     lg: 'w-full py-3.5 text-sm tracking-wider',
   }[size]
 
