@@ -49,3 +49,7 @@ Independent reviewer: Codex hosted_contract_tests agent, read-only re-review und
 Final verification:314 Quality tests passed, native0296/6, real hosted5/5 and configured Chrome UI passed. Retained account read-only sign-in and10XP/one lesson are unchanged; disposable fixture cleanup passed. Receipt table RLS is enabled/default-deny and direct client access/actor spoofing are denied. Exact prepared transaction/history payload validates against source.
 
 No named Hưng/Vinh/Dương approval is inferred. Human QA/PO acceptance, M4 closure, M5 opening and separate acceptance, historical-key revocation, canonical content/media and production gates remain. Final evidence is in the [report](./REPORT.md).
+
+## Final independent review — refreshed main and030
+
+This checkpoint supersedes earlier314-test/pending-main notes. Main2ee9c51 integrates cleanly and its authored/reviewed content remains identical. M4reviewer APPROVE8technicalcards; M5reviewer reproduced offline/video/analytics P2 defects, reviewed repairs and ran hosted9/9. Authreviewer independently APPROVE final raw-mock offline guard and original asset-ID plus queue guards,71fresh tests PASS. Original M3 assertions untouched. FinalQuality330PASS, native72/72, hosted9/9, actualChrome3video assertions PASS. No unresolved actionable P2 remains in these reviewed core scopes. Optional recovery addon and formal PO milestone gates stay open. [Authoritative acceptance/handoff](./FINAL-ACCEPTANCE.md).

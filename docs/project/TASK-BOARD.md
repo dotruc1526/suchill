@@ -380,7 +380,7 @@ AI phải đọc task board trước khi làm việc. Nếu task `BLOCKED` hoặ
 
 | ID | Owner | Status | Depends on | Evidence / next action |
 |---|---|---|---|---|
-| M4-M5-INTEGRATION-001 | Codex; QA/PO review pending | REVIEW | DOC-019, M3 DONE; M4 OPEN | [Task card](../tasks/active/M4-M5-INTEGRATION-001.md); main M3 preserved; hosted029/learning/username UI verified; technical review APPROVED; PR106 preparing Ready for review; formal M4/M5 gates unchanged |
+| M4-M5-INTEGRATION-001 | Codex; QA/PO review pending | REVIEW | DOC-019, M3 DONE; M4 OPEN | [Task card](../tasks/active/M4-M5-INTEGRATION-001.md); main2ee9c51 incorporated;330Quality/native72/hosted9 PASS; M4 technical cardsDONE; M5 technical evidence ready; current-head CI/merge review pending; formal gates unchanged |
 
 
 ### Backend integration task acceptance (main-first; gates unchanged)
@@ -395,12 +395,12 @@ AI phải đọc task board trước khi làm việc. Nếu task `BLOCKED` hoặ
 | M4-06 | Codex; independent delegated reviewer | DONE | M3 DONE; M4 OPEN | [Card](../tasks/done/M4-06.md); main-based technical acceptance APPROVED; [final evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO milestone acceptance remains separate |
 | M4-07 | Codex; independent delegated reviewer | DONE | M3 DONE; M4 OPEN | [Card](../tasks/done/M4-07.md); main-based technical acceptance APPROVED; [final evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO milestone acceptance remains separate |
 | M4-08 | Codex; independent delegated reviewer | DONE | M3 DONE; M4 OPEN | [Card](../tasks/done/M4-08.md); main-based technical acceptance APPROVED; [final evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO milestone acceptance remains separate |
-| M5-01 | Codex technical candidate; QA/PO approval pending | BLOCKED | Formal M4 acceptance; PO opens M5 | [Card](../tasks/blocked/M5-01.md); existing code reuse only; M5 gate remains locked |
-| M5-02 | Codex technical candidate; QA/PO approval pending | BLOCKED | Formal M4 acceptance; PO opens M5 | [Card](../tasks/blocked/M5-02.md); existing code reuse only; M5 gate remains locked |
-| M5-03 | Codex technical candidate; QA/PO approval pending | BLOCKED | Formal M4 acceptance; PO opens M5 | [Card](../tasks/blocked/M5-03.md); existing code reuse only; M5 gate remains locked |
-| M5-04 | Codex technical candidate; QA/PO approval pending | BLOCKED | Formal M4 acceptance; PO opens M5 | [Card](../tasks/blocked/M5-04.md); existing code reuse only; M5 gate remains locked |
-| M5-05 | Codex technical candidate; QA/PO approval pending | BLOCKED | Formal M4 acceptance; PO opens M5 | [Card](../tasks/blocked/M5-05.md); existing code reuse only; M5 gate remains locked |
-| M5-06 | Codex technical candidate; QA/PO approval pending | BLOCKED | Formal M4 acceptance; PO opens M5 | [Card](../tasks/blocked/M5-06.md); existing code reuse only; M5 gate remains locked |
-| M5-07 | Codex technical candidate; QA/PO approval pending | BLOCKED | Formal M4 acceptance; PO opens M5 | [Card](../tasks/blocked/M5-07.md); existing code reuse only; M5 gate remains locked |
+| M5-01 | Codex technical candidate; QA/PO approval pending | BLOCKED | Formal M4 acceptance; PO opens M5 | [Card](../tasks/blocked/M5-01.md); reused implementation technically APPROVED,330Quality/native72/hosted9 PASS; [evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); awaits PO gate |
+| M5-02 | Codex technical candidate; QA/PO approval pending | BLOCKED | Formal M4 acceptance; PO opens M5 | [Card](../tasks/blocked/M5-02.md); reused implementation technically APPROVED,330Quality/native72/hosted9 PASS; [evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); awaits PO gate |
+| M5-03 | Codex technical candidate; QA/PO approval pending | BLOCKED | Formal M4 acceptance; PO opens M5 | [Card](../tasks/blocked/M5-03.md); reused implementation technically APPROVED,330Quality/native72/hosted9 PASS; [evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); awaits PO gate |
+| M5-04 | Codex technical candidate; QA/PO approval pending | BLOCKED | Formal M4 acceptance; PO opens M5 | [Card](../tasks/blocked/M5-04.md); reused implementation technically APPROVED,330Quality/native72/hosted9 PASS; [evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); awaits PO gate |
+| M5-05 | Codex technical candidate; QA/PO approval pending | BLOCKED | Formal M4 acceptance; PO opens M5 | [Card](../tasks/blocked/M5-05.md); reused implementation technically APPROVED,330Quality/native72/hosted9 PASS; [evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); awaits PO gate |
+| M5-06 | Codex technical candidate; QA/PO approval pending | BLOCKED | Formal M4 acceptance; PO opens M5 | [Card](../tasks/blocked/M5-06.md); reused implementation technically APPROVED,330Quality/native72/hosted9 PASS; [evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); awaits PO gate |
+| M5-07 | Codex technical candidate; QA/PO approval pending | BLOCKED | Formal M4 acceptance; PO opens M5 | [Card](../tasks/blocked/M5-07.md); reused implementation technically APPROVED,330Quality/native72/hosted9 PASS; [evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); awaits PO gate |
 | AUTH-USERNAME-001 | Codex; QA/PO review pending | REVIEW | Existing Auth integration | [Card](../tasks/active/AUTH-USERNAME-001.md); core username browser flow PASS; optional recovery sender/email/redirect acceptance remains pending |
 | MAIN-INTEGRATION-AUDIT-002 | Codex; QA/PO review pending | REVIEW | Prior branch audit | [Card](../tasks/active/MAIN-INTEGRATION-AUDIT-002.md); historical audit, candidate now tracked by M4-M5-INTEGRATION-001 |

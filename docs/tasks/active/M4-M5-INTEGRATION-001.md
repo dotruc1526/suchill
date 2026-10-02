@@ -11,7 +11,7 @@
 - Branch: codex/m4-m5-main-integration
 - Depends on: DOC-019 DONE; M3 DONE; M4 OPEN
 - Files claimed: this isolated worktree's services/adapters, runtime composition, new roll-forward migration, integration tests and evidence. Main M3 components/contracts remain the baseline. Root workspace changes belong to their existing owners.
-- Next action: update PR106 with final hosted verification, obtain named QA/PO acceptance for M4, then explicitly open and separately accept M5.
+- Next action: push final evidence to PR106 and verify current-head CI/mergeability; after reviewed merge re-review main, then obtain PO M4 acceptance/open M5 and separate M5 acceptance.
 
 ## Scope and gates
 
@@ -94,3 +94,11 @@ Root claims src/services/next/mockCompletion.ts and tests/member5/m3-completion.
 Full native through03072/72 PASS; exact030 payload applied to development target; real hosted030+canonical9/9 PASS and all exact owned fixtures cleaned. Actual Chrome video initialization/retry/stale account guards PASS. Independent M4 review moved8 cards toDONE and board/card/link validation passes. Agent docs claim was interrupted after factual card/board updates; root retains prior independent acceptance verdict and completes the handoff. Final Quality found offline mock regression; service-boundary guard and26 focused regression tests nowPASS; Quality rerun and independent review remain required.
 
 Remote main advanced to2ee9c51 (content PR65/107/108); no runtime changes,19 content/docs paths. Root claims merge refresh into this integration branch, retains main historical/PO/architecture decisions, no publishing or direct main write. git merge-tree predicts clean merge. Next action: commit reviewed corrections, merge currentmain into candidate, run final Quality plus accepted new content validators, review fresh status/CI and complete acceptance report. M4 milestone remainsOPEN; M5LOCKED/BLOCKED.
+
+Documentation preservation claim: refreshed main leaves docs/content/LESSON-03-1972-STANDARD.md linking ../tasks/active/CONTENT-018.md after its accepted card moved to done. Root fixes only that local card path to ../tasks/done/CONTENT-018.md. No authored historical/media/assessment content or review hash meaning is changed. All other accepted main content remains byte-identical.
+
+Hash preservation correction: no authored lesson bytes will change. The proposed one-link edit was reverted after verifying hash-bound human approvals. Root claims only docs/tasks/active/CONTENT-018.md as a compatibility redirect to the canonical done card; it has no task status or duplicate claim. All imported main content and review artifacts remain byte-identical.
+
+## Final current verification and handoff — 2026-10-02
+
+Main2ee9c51 merged cleanly; runtime0c9f0d8 finalQuality330PASS(230unit/29component/62SQL/9originalM3Chrome),3native-onlyskipscoveredbynative72/72, hosted9/9, actualChromevideo3assertionsPASS. Independent finalAuthreview71PASS/APPROVE closes mockoffline andasset/queueguard findings; M4technicalcardsDONE, M5per-cardtechnicalAPPROVEevidencerecordedbutformalBLOCKEDunchanged. Exactmaincontent/reviewbytespreservedviaold-cardlinkredirect.030appliedtodevelopment;001–029unchanged. Docs/link/status andsecret scanpass. Noaccountreset/mainmerge/productionrelease. [Finalacceptance](../../engineering/main-first-integration/FINAL-ACCEPTANCE.md) supersedesoldercounts/pendingnotes. Nextaction:commit/pushfinaldocs,checkcurrentheadCI/mergeability,reviewmainaftermergebeforeseparatemilestoneacceptance.
