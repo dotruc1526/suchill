@@ -46,6 +46,7 @@ docs/
 - [UI/UX và reusable engineering](./engineering/UI-UX-ENGINEERING-GUIDE.md)
 - [PWA và hướng phát hành](./platform/APP-DEPLOYMENT-PLAN.md)
 - [M3–M5 isolated delivery và nghiệm thu](./tasks/active/M3-M5-DELIVERY.md)
+- [Review toàn bộ 27 task: kết quả, sửa lỗi và trạng thái nghiệm thu](./engineering/review-all/EVIDENCE.md)
 - [Supabase local setup và giới hạn kiểm chứng](../supabase/README.md)
 
 ## Trạng thái tài liệu

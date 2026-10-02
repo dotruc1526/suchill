@@ -1,125 +1,48 @@
-import fs from 'node:fs';
-import path from 'node:path';
+import assert from 'node:assert/strict';
+import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { checkDraft, checkRefs, checkStory, readAuthoring, readAuthoringJson, registryIds, uniqueIds } from './authoringValidation.mjs';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const contentDir = __dirname;
-
-function assert(condition, message) {
-  if (!condition) {
-    console.error(`FAIL: ${message}`);
-    process.exit(1);
+const defaultDir = dirname(fileURLToPath(import.meta.url));
+const expectedSceneIds = ['sam2-v1-briefing', 'sam2-v1-crew', 'sam2-v1-perspective',
+  'sam2-v1-coordination', 'sam2-v1-interference', 'sam2-v1-check', 'sam2-v1-debrief', 'sam2-v1-end'];
+export function validate1972Authoring(dir = defaultDir) {
+  const evidence = readAuthoring(dir, 'CONTENT-016-EVIDENCE.md');
+  const sources = registryIds(evidence, 'SRC-');
+  const claims = registryIds(evidence, 'CLM-1972-');
+  const refs = item => checkRefs(item, sources, claims);
+  const diagram = readAuthoringJson(dir, 'DIAGRAM-SAM2-1972.json');
+  assert.equal(diagram.id, 'diagram-sam2-crew-1972');
+  checkDraft(diagram, false);
+  refs(diagram);
+  assert(Array.isArray(diagram.nodes) && diagram.nodes.length >= 5, 'At least five diagram nodes');
+  uniqueIds(diagram.nodes.map(node => node.id), 'Diagram node IDs');
+  for (const node of diagram.nodes) {
+    assert(node.name?.trim() && node.textFallback?.trim(), 'Diagram name/text fallback');
+    assert(node.sourceId && node.claimId, 'Diagram references required');
+    refs(node);
   }
-}
-
-console.log('--- Validating Chapter 1972 Lesson 2 Authoring Assets ---');
-
-// 1. Validate DIAGRAM-SAM2-1972.json
-const diagramPath = path.join(contentDir, 'DIAGRAM-SAM2-1972.json');
-assert(fs.existsSync(diagramPath), 'DIAGRAM-SAM2-1972.json must exist');
-const diagramData = JSON.parse(fs.readFileSync(diagramPath, 'utf8'));
-
-assert(diagramData.id === 'diagram-sam2-crew-1972', 'diagramData id must be diagram-sam2-crew-1972');
-assert(Array.isArray(diagramData.nodes), 'diagramData nodes must be an array');
-assert(diagramData.nodes.length >= 5, `diagramData must have >= 5 nodes, got ${diagramData.nodes.length}`);
-
-for (const node of diagramData.nodes) {
-  assert(node.id && node.name, `Node must have id and name: ${JSON.stringify(node)}`);
-  assert(node.textFallback && node.textFallback.trim().length > 0, `Node ${node.id} must have textFallback for accessibility`);
-  assert(node.claimId, `Node ${node.id} must reference a claimId`);
-  assert(node.sourceId, `Node ${node.id} must reference a sourceId`);
-}
-
-// Ensure diagram does not contain unapproved micro-mechanics or command/parameter relations
-const diagramRaw = fs.readFileSync(diagramPath, 'utf8');
-const forbiddenDiagramTerms = ['phát lệnh', 'bám sát và phát lệnh', 'nhận tham số điều khiển', 'tay quay', 'khẩu lệnh'];
-for (const term of forbiddenDiagramTerms) {
-  assert(!diagramRaw.includes(term), `DIAGRAM-SAM2-1972.json must not include unapproved micro-mechanic term: "${term}"`);
-}
-console.log(`[PASS] Diagram data valid: ${diagramData.nodes.length} nodes with text-first fallback; no unapproved control relations.`);
-
-// 2. Validate LESSON-02-1972-STORY.json
-const storyPath = path.join(contentDir, 'LESSON-02-1972-STORY.json');
-assert(fs.existsSync(storyPath), 'LESSON-02-1972-STORY.json must exist');
-const storyData = JSON.parse(fs.readFileSync(storyPath, 'utf8'));
-
-assert(storyData.id === 'story-1972-sam2-v1-draft', 'storyData id must be story-1972-sam2-v1-draft');
-assert(Array.isArray(storyData.scenes), 'storyData scenes must be an array');
-assert(storyData.scenes.length === 8, `Expected exactly 8 scenes, got ${storyData.scenes.length}`);
-
-const sceneMap = new Map();
-storyData.scenes.forEach(s => sceneMap.set(s.id, s));
-
-const expectedSceneIds = [
-  'sam2-v1-briefing',
-  'sam2-v1-crew',
-  'sam2-v1-perspective',
-  'sam2-v1-coordination',
-  'sam2-v1-interference',
-  'sam2-v1-check',
-  'sam2-v1-debrief',
-  'sam2-v1-end'
-];
-
-for (const sid of expectedSceneIds) {
-  assert(sceneMap.has(sid), `Missing required scene: ${sid}`);
-}
-
-// Check nextSceneId transitions and choices
-for (const scene of storyData.scenes) {
-  if (scene.nextSceneId) {
-    assert(sceneMap.has(scene.nextSceneId), `Scene ${scene.id} nextSceneId '${scene.nextSceneId}' does not exist`);
+  const diagramRaw = readAuthoring(dir, 'DIAGRAM-SAM2-1972.json');
+  for (const term of ['phát lệnh', 'bám sát và phát lệnh', 'nhận tham số điều khiển', 'tay quay', 'khẩu lệnh']) {
+    assert(!diagramRaw.includes(term), `Unapproved diagram procedure: ${term}`);
   }
-  if (scene.choices) {
-    assert(Array.isArray(scene.choices), `Scene ${scene.id} choices must be an array`);
-    for (const choice of scene.choices) {
-      assert(choice.id && choice.label, `Choice in ${scene.id} must have id and label`);
-      assert(choice.nextSceneId && sceneMap.has(choice.nextSceneId), `Choice ${choice.id} target '${choice.nextSceneId}' does not exist`);
-      if (choice.kind === 'branching') {
-        assert(choice.isCorrect === undefined, `Branching choice ${choice.id} must not have isCorrect`);
-      } else if (choice.kind === 'knowledge_check') {
-        assert(typeof choice.isCorrect === 'boolean', `Knowledge check ${choice.id} must have boolean isCorrect`);
-        assert(choice.explanation && choice.explanation.trim().length > 0, `Knowledge check ${choice.id} must have explanation`);
-      }
-    }
+  const story = readAuthoringJson(dir, 'LESSON-02-1972-STORY.json');
+  assert.equal(story.id, 'story-1972-sam2-v1-draft');
+  assert.equal(story.diagramDocumentId, diagram.id, 'Diagram identity');
+  assert.equal(story.scenes.length, expectedSceneIds.length, 'Exactly eight scenes');
+  for (const id of expectedSceneIds) assert(story.scenes.some(scene => scene.id === id), `Missing scene: ${id}`);
+  const graph = checkStory(story, refs, diagram.nodes, 'requiredDiagramNodeIds');
+  const narration = readAuthoring(dir, 'LESSON-02-1972-NARRATION.md');
+  for (const id of expectedSceneIds) assert(narration.includes(id), `Narration missing scene: ${id}`);
+  const forbidden = ['tọa độ mục tiêu', 'tham số không gian', 'thao tác tay quay', 'bó chổi chà', '45 máy gây nhiễu', 'bẻ gãy chiến dịch'];
+  for (const term of forbidden) {
+    assert(!narration.includes(term), `Unapproved narration term: ${term}`);
+    assert(!JSON.stringify(story).includes(term), `Unapproved story term: ${term}`);
   }
+  return { ...graph, diagramNodes: diagram.nodes.length };
 }
-
-// Graph reachability analysis: all scenes reachable from start and can reach end
-const reachable = new Set();
-function traverse(sceneId) {
-  if (reachable.has(sceneId)) return;
-  reachable.add(sceneId);
-  const s = sceneMap.get(sceneId);
-  if (!s) return;
-  if (s.nextSceneId) traverse(s.nextSceneId);
-  if (s.choices) {
-    for (const c of s.choices) {
-      traverse(c.nextSceneId);
-    }
-  }
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  const result = validate1972Authoring();
+  console.log(`PASS: ${result.diagramNodes} unique diagram nodes; ${result.sceneCount} scenes; ${result.paths} terminating paths covering every required scene/artifact; source/claim references; choice taxonomy; draft boundary.`);
+  console.log('Not verified: historical accuracy, real media rights, runtime accessibility, human sign-off.');
 }
-traverse(storyData.startSceneId);
-
-for (const sid of expectedSceneIds) {
-  assert(reachable.has(sid), `Scene ${sid} is unreachable from start scene ${storyData.startSceneId}`);
-}
-console.log(`[PASS] Story graph valid: 8 reachable scenes, valid choices and transitions.`);
-
-// 3. Validate LESSON-02-1972-NARRATION.md
-const narrationPath = path.join(contentDir, 'LESSON-02-1972-NARRATION.md');
-assert(fs.existsSync(narrationPath), 'LESSON-02-1972-NARRATION.md must exist');
-const narrationContent = fs.readFileSync(narrationPath, 'utf8');
-
-for (const sid of expectedSceneIds) {
-  assert(narrationContent.includes(sid), `Narration doc must cover scene ${sid}`);
-}
-
-const forbiddenNarrationTerms = ['tọa độ mục tiêu', 'tham số không gian', 'thao tác tay quay', 'bó chổi chà', '45 máy gây nhiễu', 'bẻ gãy chiến dịch'];
-for (const term of forbiddenNarrationTerms) {
-  assert(!narrationContent.includes(term), `LESSON-02-1972-NARRATION.md must not include unapproved term: "${term}"`);
-}
-console.log(`[PASS] Narration markdown covers all 8 scenes; forbidden technical procedure terms absent.`);
-
-console.log('--- ALL CHAPTER 1972 LESSON 2 AUTHORING VALIDATIONS PASSED ---');

@@ -41,9 +41,11 @@ export async function loadQuizFlow(
   services: LearningServices,
   questionSetId: string,
 ): Promise<Result<QuizFlowSession>> {
-  const result = await services.quiz.getQuestionSet(questionSetId)
-  if (!result.ok) return result
-  return { ok: true, value: { delivery: result.value, answers: {} } }
+  try {
+    const result = await services.quiz.getQuestionSet(questionSetId)
+    if (!result.ok) return result
+    return { ok: true, value: { delivery: result.value, answers: {} } }
+  } catch { return { ok: false, error: 'server_error' } }
 }
 
 export function toggleQuizOption(answers: QuizAnswers, questionId: string, optionId: string): QuizAnswers {
@@ -71,12 +73,14 @@ export async function submitQuizFlow(
       selectedOptionIds: [...session.answers[question.id]],
     })),
   }
-  if (session.delivery.set.mode === 'practice') {
-    const result: Result<PracticeQuizReceipt> = await services.quiz.submitPracticeAttempt(input)
-    return result.ok ? { ok: true, value: { mode: 'practice', ...result.value } } : result
-  }
-  const result = await services.quiz.submitScoredAttempt(input)
-  return result.ok ? { ok: true, value: { mode: 'scored', ...result.value } } : result
+  try {
+    if (session.delivery.set.mode === 'practice') {
+      const result: Result<PracticeQuizReceipt> = await services.quiz.submitPracticeAttempt(input)
+      return result.ok ? { ok: true, value: { mode: 'practice', ...result.value } } : result
+    }
+    const result = await services.quiz.submitScoredAttempt(input)
+    return result.ok ? { ok: true, value: { mode: 'scored', ...result.value } } : result
+  } catch { return { ok: false, error: 'server_error' } }
 }
 
 export const resetQuizFlow = (session: QuizFlowSession): QuizFlowSession => ({ ...session, answers: {} })

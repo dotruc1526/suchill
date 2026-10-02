@@ -23,33 +23,38 @@ export function createOfflineLearningServices(base: LearningServices, queue: Off
     }
   }
   const wrap = <I extends { operationId: string }, O>(kind: PendingKind, action: (input: I) => Promise<Result<O>>) => async (input: I) => {
+    const snapshot = structuredClone(input)
     const userId = await currentUser()
     if (!userId) return failure<O>('unauthorized')
-    const { expectedSubject, ...queuedInput } = input as I & { expectedSubject?: string }
+    const { expectedSubject, ...queuedInput } = snapshot as I & { expectedSubject?: string }
     if (expectedSubject !== undefined && expectedSubject !== userId) return failure<O>('unauthorized')
     // Subject is a transport precondition, not durable user-authored payload.
     return queue.dispatch<O>({ userId, kind, input: { ...queuedInput } }, async () => {
       if (await currentUser() !== userId) return failure('unauthorized')
       // This precondition follows the original account through asynchronous token lookup.
       // The backend still derives all ownership from auth.uid().
-      const result = await action({ ...input, expectedSubject: userId })
+      const result = await action({ ...snapshot, expectedSubject: userId })
       return await currentUser() === userId ? result : failure('unauthorized')
     })
   }
   const services: LearningServices = {
     ...base,
     account: { ...base.account, async updateSettings(input) {
+      const snapshot = structuredClone(input) as typeof input & { expectedSubject?: string }
       const userId = await currentUser()
       if (!userId) return failure('unauthorized')
-      const bound = { ...input, expectedSubject: userId }
+      if (snapshot.expectedSubject !== undefined && snapshot.expectedSubject !== userId) return failure('unauthorized')
+      const bound = { ...snapshot, expectedSubject: userId }
       const result = await base.account.updateSettings(bound)
       return await currentUser() === userId ? result : failure('unauthorized')
     } },
     analytics: { async track(event) {
       try {
+        const snapshot = structuredClone(event) as typeof event & { expectedSubject?: string }
         const userId = await currentUser()
         if (!userId) return
-        const bound = { ...event, expectedSubject: userId }
+        if (snapshot.expectedSubject !== undefined && snapshot.expectedSubject !== userId) return
+        const bound = { ...snapshot, expectedSubject: userId }
         await base.analytics.track(bound)
       } catch { /* Optional telemetry must never interrupt learning. */ }
     } },

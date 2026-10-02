@@ -44,15 +44,20 @@ export function getHomeContinuation(chapters: JourneyChapter[]) {
 }
 
 export async function startLesson(services: LearningServices, lesson: JourneyLesson) {
+  const actor = await services.auth.getSession()
+  if (!actor.ok || !actor.value) return { ok: false as const, error: 'unauthorized' as const }
   const existing = await services.progress.getLessonProgress(lesson.id)
+  if (existing.ok && existing.value && existing.value.userId !== actor.value.userId) return { ok: false as const, error: 'unauthorized' as const }
   if (!existing.ok || existing.value) return existing
 
   const firstBlock = [...lesson.blocks].sort((a, b) => a.order - b.order)[0]
   if (!firstBlock) return { ok: false as const, error: 'not_found' as const }
-  return services.progress.saveCheckpoint({
+  const input = {
     lessonId: lesson.id,
     currentBlockId: firstBlock.id,
     completedBlockIds: [],
     operationId: `m3-01:start:${lesson.id}`,
-  })
+    expectedSubject: actor.value.userId,
+  }
+  return services.progress.saveCheckpoint(input)
 }

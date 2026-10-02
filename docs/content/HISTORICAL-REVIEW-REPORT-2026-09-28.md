@@ -9,6 +9,8 @@
 
 ## 1. Fact Verification (Xác minh Sử liệu chi tiết)
 
+> **Technical provenance audit 2026-10-02:** Phần ghi chú `FACT-004` bên dưới nói lực lượng tiến công làm chủ tầng dưới, nhưng [tường thuật E. Allan Wendt do ADST lưu trữ](https://adst.org/2013/07/viet-cong-invade-american-embassy-the-1968-tet-offensive/) phân biệt khuôn viên với tòa nhà và ghi không vào được tòa nhà. Hai mô tả không đồng nhất. Không dùng ghi chú tầng dưới, số giờ hoặc verdict cũ để mở rộng claim đã khóa trong bản authoring hiện hành; bản hiện hành chỉ nói khuôn viên không đồng nghĩa toàn bộ tòa nhà. Historical Reviewer cần đối chiếu nguồn/trang cụ thể và ghi quyết định cho phần mâu thuẫn trước mọi tái sử dụng/publish. Bảng và verdict năm 2026-09-28 được giữ làm lịch sử review, không phải xác nhận mới của Codex.
+
 | ID | Claim / Dữ kiện lịch sử | Kết quả | Nguồn kiểm chứng chính thống | Ghi chú thẩm định |
 |---|---|---|---|---|
 | **FACT-001** | Bối cảnh cuối tháng 01/1968, các đợt tiến công nổ ra tại nhiều đô thị miền Nam (Mậu Thân 1968) | **VERIFIED** | *Lịch sử kháng chiến chống Mỹ cứu nước (1954 - 1975)*, Tập V, Viện Lịch sử Quân sự Việt Nam (NXB Chính trị Quốc gia Sự thật). | Đợt 1 nổ súng đêm 29 rạng sáng 30/1 tại miền Trung - Tây Nguyên và đêm 30 rạng sáng 31/1 tại Sài Gòn. |
@@ -52,6 +54,8 @@
 ---
 
 ## 4. Media & Copyright (Bản quyền Tư liệu)
+
+> **Technical audit 2026-10-02 — giới hạn hiệu lực của bảng cũ:** Các nhãn `VERIFIED`, Public Domain hoặc CC-BY-SA trong bảng dưới đây không kèm item/permission evidence và không cấp quyền dùng media. [Catalog từng item](./DETAILED-MEDIA-CATALOG.csv) và [media review](./MEDIA-REVIEW-MT68.md) là hồ sơ quyền hiện hành: MED-MT68-01/02/03/05/06/07 `BLOCKED`/`UNVERIFIED`; MED-MT68-04/08 `NEEDS_MEDIA_REVIEW`. Bản vẽ/tư liệu hiện vật `SRC-1972-03` cũng không tự cấp quyền tái sử dụng ảnh. Bảng được giữ để truy vết kết luận cũ; verdict historical/language ở mục 6 không được diễn giải thành media/license approval. Chỉ dùng text/fallback của bản nháp; không tải, seed hoặc publish các ứng viên này.
 
 | Media / Asset ID | Nội dung tư liệu | Nguồn lưu trữ | License | Trạng thái thẩm định |
 |---|---|---|---|---|

@@ -92,3 +92,14 @@ test('M3 integration maps stable lesson and block identities into player context
     id: 'video-block', order: 1, required: true, kind: 'video', mediaAssetId: 'video-1', completionPolicy: 'reach_end',
   }), { lessonId, blockId: 'video-block', mediaAssetId: 'video-1' })
 })
+
+test('lesson startup cannot write an old account click into the account selected during progress lookup', async () => {
+  const actor = { userId: 'A' }
+  const services = createMockLearningServices({ chapters: [chapter], lessons: [lesson], storyVersions: [], mediaAssets: [] }, actor)
+  const original = services.progress.getLessonProgress
+  services.progress.getLessonProgress = async id => { const result = await original(id); actor.userId = 'B'; return result }
+  assert.deepEqual(await startLesson(services, { ...lesson, progressStatus: 'not_started' }), { ok: false, error: 'unauthorized' })
+  assert.deepEqual(await original(lesson.id), { ok: true, value: null })
+  actor.userId = 'A'
+  assert.deepEqual(await original(lesson.id), { ok: true, value: null })
+})

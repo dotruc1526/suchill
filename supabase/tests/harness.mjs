@@ -13,7 +13,7 @@ export const ids = Object.freeze({
   correct1: uuid(76), wrong1: uuid(77), correct2: uuid(78), wrong2: uuid(79), correct3: uuid(80), wrong3: uuid(81),
 })
 
-const bootstrap = `
+export const bootstrap = `
 create role anon nologin; create role authenticated nologin; create role service_role nologin bypassrls;
 create schema auth; create schema storage;
 create table auth.users(id uuid primary key, raw_user_meta_data jsonb not null default '{}');
@@ -30,12 +30,19 @@ grant execute on function storage.foldername(text) to anon,authenticated;
 `
 
 /** Real PostgreSQL SQL/RLS harness. Auth and Storage HTTP/JWT services are deliberately outside this harness. */
-export async function createTestDatabase({ seed = true, dataDir, existingBuckets = false } = {}) {
+export async function createTestDatabase({ seed = true, dataDir, existingBuckets = false, existingUsers = false, throughMigration } = {}) {
+  if (process.env.SUCHILL_NATIVE_PG_URL && !dataDir) {
+    const { createNativeTestDatabase } = await import('./nativeHarness.mjs')
+    return createNativeTestDatabase({ seed, existingBuckets, existingUsers, throughMigration })
+  }
   const db = new PGlite(dataDir)
   await db.exec(bootstrap)
+  if (existingUsers) await db.query('insert into auth.users(id,raw_user_meta_data) values($1,$2),($3,$4)', [uuid(8001), {displayName:'Existing A',timezone:'Europe/Paris'},uuid(8002),{displayName:'Existing B',timezone:'invalid-zone',role:'admin'}])
   if (existingBuckets) await db.exec("insert into storage.buckets(id,name,public) values('draft-media','draft-media',true),('published-media','published-media',true)")
   const migrations = (await readdir(new URL('../migrations/', import.meta.url))).filter(name => name.endsWith('.sql')).sort()
+  if (throughMigration && !migrations.includes(throughMigration)) throw new Error('Unknown migration checkpoint')
   for (const name of migrations) {
+    if (throughMigration && name > throughMigration) break
     try { await db.exec(await readFile(new URL(`../migrations/${name}`, import.meta.url), 'utf8')) }
     catch (error) { throw new Error(`Migration ${name}: ${error.message}`, { cause: error }) }
   }

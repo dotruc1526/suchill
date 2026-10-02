@@ -1,8 +1,9 @@
 # Bàn giao hiện hành sau PR #21
 
 > Status: HISTORICAL HANDOFF — các trạng thái task trong tài liệu này đã được verdict ngày 2026-09-28 thay thế; xem task board/card hiện hành.
+> Snapshot lịch sử: trạng thái M2 OPEN/M3–M7 LOCKED bên dưới không còn là gate hiện hành. Ngày 2026-10-02 M0–M2 DONE, M3 OPEN, M4–M5 được phép triển khai nhánh riêng; content production vẫn BLOCKED.
 > PR #21 đã merge tại cd89038; main khi bắt đầu lượt này: 165b9ac (đã có PR #22).
-> Task thực hiện: [CONTENT-014](./CONTENT-014.md).
+> Task thực hiện: [CONTENT-014](../done/CONTENT-014.md).
 
 ## Quyền và người phụ trách
 

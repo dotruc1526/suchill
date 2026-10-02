@@ -66,20 +66,9 @@ Trúc được Thọ giao toàn bộ phần sửa và historical/learning/media 
     - Phân tích bài học xây dựng lực lượng vũ trang nhân dân từ thắng lợi của cuộc Kháng chiến chống Mỹ.
 
 
-## Source Registry (Machine-readable)
+## Một registry duy nhất cho Mậu Thân
 
-| SRC-MT68-01 | Đại cương Lịch sử Việt Nam Tập 3 | NXB Giáo dục Việt Nam | verified_fact |
-| SRC-MT68-02 | Lịch sử Nam Bộ kháng chiến Tập 2 (1954-1975) | NXB Chính trị Quốc gia Sự thật | verified_fact |
-| SRC-MT68-03 | Biệt động Sài Gòn - Chợ Lớn - Gia Định trong Tổng tiến công và nổi dậy Xuân Mậu Thân 1968 | NXB Quân đội Nhân dân | verified_fact |
-| SRC-MT68-04 | Tư liệu Bảo tàng Biệt động Sài Gòn | Cục Di sản văn hóa | verified_fact |
-| SRC-MT68-05 | Thơ chúc Tết Mậu Thân 1968 của Chủ tịch Hồ Chí Minh & Di tích Hầm vũ khí 287/70 Võ Văn Tần | Đài Tiếng nói Việt Nam & Bảo tàng | verified_fact |
-| SRC-MT68-06 | The Vietnam Center and Sam Johnson Vietnam Archive | Texas Tech University | cross_reference |
-
-## Claim Registry
-
-| CLM-MT68-01 | Năm mục tiêu đầu não tại Sài Gòn: Tòa Đại sứ Mỹ, Dinh Độc Lập, Đài Phát thanh, Bộ Tổng Tham mưu, Bộ Tư lệnh Hải quân | verified_fact |
-| CLM-MT68-02 | Đội 11 Biệt động đánh vào Tòa Đại sứ Mỹ, làm chủ trận địa hơn 6 giờ | verified_fact |
-| CLM-MT68-03 | Giờ nổ súng thực tế tại Sài Gòn: rạng sáng Mồng 2 Tết (31/01/1968), có độ lệch múi giờ GMT+7/GMT+8 | verified_fact |
+Registry có locator và claim register ở đầu file là nguồn ID duy nhất cho gói authoring Mậu Thân hiện hành. Bảng nguồn/claim cũ từng lặp các ID `SRC-MT68-01…06` và `CLM-MT68-01…03` với ý nghĩa khác đã được gỡ trong technical review ngày 2026-10-02; không đổi wording, trạng thái review hoặc cấp approval lịch sử mới. Các đầu mối sách chưa khóa locator chỉ thuộc phần nghiên cứu, không được thay thế ID đã liên kết trong JSON.
 
 ---
 
@@ -105,14 +94,16 @@ Trúc được Thọ giao toàn bộ phần sửa và historical/learning/media 
 
 ## Chapter 1972: Claim Register
 
+Đối với Lesson 2, matrix có locator và giới hạn authoring mới nhất nằm ở [CONTENT-016-EVIDENCE.md](./CONTENT-016-EVIDENCE.md#2-claim-matrix-cho-lesson-2). Sáu claim VN dưới đây chỉ tóm tắt phạm vi đó; không khôi phục chi tiết kíp/quy trình đã bị reviewer loại bỏ. `SRC-1972-01` là alias của `SRC-LB2-02` theo evidence này. Approval historical không cấp quyền dùng ảnh/audio và không publish StoryVersion.
+
 | Claim ID | Text / Nội dung khẳng định | Truth class | Source IDs | Wording constraint |
 |---|---|---|---|---|
-| `CLM-1972-VN-001` | Hệ thống tên lửa phòng không SAM-2 (S-75 Dvina) là vũ khí chủ lực đánh B-52 | `verified_fact` | `SRC-LB2-02`, `SRC-1972-WEB-01` | Dùng chuẩn tên `SAM-2` / `S-75 Dvina` |
-| `CLM-1972-VN-002` | Cấu tạo kíp chiến đấu trong cabin Xe K gồm Sĩ quan điều khiển và 3 trắc thủ | `verified_fact` | `SRC-1972-02`, `SRC-1972-WEB-02` | Không bịa đặt khẩu lệnh hoặc nội tâm cá nhân |
-| `CLM-1972-VN-003` | Không quân Mỹ triển khai môi trường tác chiến điện tử ECM và rải nhiễu dày đặc | `verified_fact` | `SRC-LB2-02`, `SRC-LB2-04`, `SRC-1972-WEB-02` | Mô tả khách quan chiến thuật gây nhiễu |
-| `CLM-1972-VN-004` | Thuật ngữ "vạch nhiễu tìm thù" và Cẩm nang bìa đỏ tháng 10/1972 | `educational_explanation` | `SRC-1972-03`, `SRC-1972-WEB-01`, `SRC-1972-WEB-03` | Dùng làm tiêu đề / diễn giải sư phạm |
-| `CLM-1972-VN-005` | Đối tượng tác chiến trọng tâm là máy bay ném bom chiến lược B-52 | `verified_fact` | `SRC-LB2-01`, `SRC-LB2-02`, `SRC-1972-WEB-01` | Khẳng định B-52 là mục tiêu bảo vệ Hà Nội |
-| `CLM-1972-VN-006` | Vai trò người học là người phân tích hồ sơ huấn luyện tác chiến | `educational_explanation` | Phase 1–3 Spec, LESSON-02 Brief | Phân nhánh đọc hiểu, không thay đổi lịch sử |
+| `CLM-1972-VN-001` | Lesson đề cập SAM-2/S-75 Dvina trong bối cảnh phòng không Việt Nam năm 1972 | `verified_fact` | `SRC-1972-WEB-01` | Không đưa thông số kỹ thuật vào Lesson 2 |
+| `CLM-1972-VN-002` | Lesson đề cập kíp chiến đấu SAM-2 và phối hợp ở mức khái quát | `verified_fact` | `SRC-1972-WEB-02`, `SRC-1972-WEB-01` | Không nêu số người, chức danh, vị trí, khẩu lệnh, thao tác hay thứ tự tác chiến |
+| `CLM-1972-VN-003` | Nhiễu điện tử là một phần của đối đầu B-52–phòng không tháng 12/1972 | `verified_fact` | `SRC-1972-WEB-02` | Không mô phỏng tín hiệu radar thật, tần số hoặc cách khắc chế |
+| `CLM-1972-VN-004` | "Vạch nhiễu tìm thù" là nhan đề/diễn giải sư phạm về tìm mục tiêu trong nhiễu | `educational_explanation` | `SRC-1972-WEB-01`, `SRC-1972-WEB-03` | Không biến framing thành mechanic hay quy trình tác chiến |
+| `CLM-1972-VN-005` | B-52 là đối tượng tác chiến trong cuộc tập kích đường không tháng 12/1972 | `verified_fact` | `SRC-1972-WEB-01`, `SRC-1972-WEB-02` | Không đưa số tổn thất hoặc nguyên nhân rơi vào Lesson 2 |
+| `CLM-1972-VN-006` | Người học phân tích hồ sơ, không thay đổi lịch sử | `educational_explanation` | Phase 1–3 Spec, LESSON-02 Brief | Dữ liệu hiện tại tuyến tính; không mạo danh nhân vật thật |
 | `CLM-1972-RD-001` | Đêm 20/12/1972: Tên lửa phòng không Hà Nội bắn rơi 7 máy bay B-52 (5 rơi tại chỗ) | `verified_fact` | `SRC-LB2-01`, `SRC-LB2-02` | Đỉnh điểm bẻ gãy đợt tập kích ban đầu |
 | `CLM-1972-RD-002` | Đêm 26/12/1972: Đợt tập kích lớn nhất (105 lần B-52), ta bắn rơi 8 chiếc B-52 | `verified_fact` | `SRC-LB2-02` | Đòn giáng trả quyết định bẻ gãy ý chí tập kích |
 | `CLM-1972-RD-003` | Tội ác ném bom Khâm Thiên đêm 26/12 (287 người chết) và Bệnh viện Bạch Mai 22/12 | `verified_fact` | `SRC-LB2-01`, `SRC-LB2-03` | Tôn trọng sự thật lịch sử, tưởng niệm nạn nhân |

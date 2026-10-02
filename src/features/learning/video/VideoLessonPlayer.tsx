@@ -7,13 +7,16 @@ import {
   VideoCheckpointQueueRegistry, type VideoPlayerContext, type VideoPlayerSession,
 } from './videoPlayerModel'
 
-type LoadState = { status: 'loading' } | { status: 'error'; error: ServiceErrorCode } | { status: 'ready'; session: VideoPlayerSession }
+type LoadState = { status: 'loading' } | { status: 'error'; error: ServiceErrorCode }
+  | { status: 'ready'; session: VideoPlayerSession; contextKey: string; services: LearningServices }
 const operationId = () => globalThis.crypto.randomUUID()
 
-export function VideoProgressSaveError({ error, onRetry }: { error: ServiceErrorCode; onRetry: () => void }) {
+export function VideoProgressSaveError({ error, onRetry, onReload }: { error: ServiceErrorCode; onRetry: () => void; onReload?: () => void }) {
+  const rejected = error === 'conflict' || error === 'validation'
   return <div role="alert" className="space-y-2">
-    <p>Chưa lưu được tiến độ video ({error}). Dữ liệu chưa lưu vẫn được giữ lại.</p>
-    <Button variant="outline" onClick={onRetry}>THỬ LƯU LẠI</Button>
+    <p>{rejected ? 'Tiến độ video chưa được chấp nhận. Tải tiến độ mới từ dịch vụ để tiếp tục; các checkpoint video chưa xác nhận trên màn hình này sẽ được bỏ.'
+      : `Chưa lưu được tiến độ video (${error}). Dữ liệu chưa lưu vẫn được giữ lại.`}</p>
+    <Button variant="outline" onClick={rejected && onReload ? onReload : onRetry}>{rejected && onReload ? 'TẢI LẠI TIẾN ĐỘ VIDEO' : 'THỬ LƯU LẠI'}</Button>
   </div>
 }
 
@@ -22,6 +25,7 @@ export function VideoLessonPlayer({ services, context }: { services: LearningSer
   const [mediaFailed, setMediaFailed] = useState(false)
   const [retryKey, setRetryKey] = useState(0)
   const [loadRetryKey, setLoadRetryKey] = useState(0)
+  const [writerRevision, setWriterRevision] = useState(0)
   const [saveError, setSaveError] = useState<ServiceErrorCode>()
   const videoRef = useRef<HTMLVideoElement>(null)
   const segmentStartRef = useRef<number | null>(null)
@@ -39,7 +43,7 @@ export function VideoLessonPlayer({ services, context }: { services: LearningSer
         payload => {
           // Capture once: lost-response retries must retain the original signature.
           payload.expectedRevision ??= revisionsRef.current.get(queue) ?? 0
-          return saveVideoCheckpoint(services, context, payload.positionSeconds, payload.watchedRanges, payload.operationId, payload.expectedRevision)
+          return saveVideoCheckpoint(services, context, payload.positionSeconds, payload.watchedRanges, payload.operationId, payload.expectedRevision, payload.expectedSubject)
         },
         progress => {
           queueErrorsRef.current.delete(queue)
@@ -47,7 +51,7 @@ export function VideoLessonPlayer({ services, context }: { services: LearningSer
           if (activeQueueRef.current !== queue) return
           setSaveError(undefined)
           setState(current => current.status === 'ready' && current.session.asset.id === context.mediaAssetId
-            ? { status: 'ready', session: { ...current.session, progress, resumePositionSeconds: progress.positionSeconds } }
+            ? { ...current, session: { ...current.session, progress, resumePositionSeconds: progress.positionSeconds } }
             : current)
         },
         error => {
@@ -59,11 +63,12 @@ export function VideoLessonPlayer({ services, context }: { services: LearningSer
       )
       return queue
     })
-  }, [context, contextKey, services])
+  }, [context, contextKey, services, writerRevision])
   activeQueueRef.current = checkpointQueue
 
   useEffect(() => {
     let active = true
+    activeQueueRef.current = checkpointQueue
     setState({ status: 'loading' })
     setMediaFailed(false)
     setRetryKey(0)
@@ -73,24 +78,29 @@ export function VideoLessonPlayer({ services, context }: { services: LearningSer
     void loadVideoPlayer(services, context).then(result => {
       if (active) {
         if (result.ok) revisionsRef.current.set(checkpointQueue, result.value.progress?.revision)
-        setState(result.ok ? { status: 'ready', session: result.value } : { status: 'error', error: result.error })
+        setState(result.ok ? { status: 'ready', session: result.value, contextKey, services } : { status: 'error', error: result.error })
       }
-    })
-    return () => { active = false }
+    }).catch(() => { if (active) setState({ status: 'error', error: 'server_error' }) })
+    return () => { active = false; if (activeQueueRef.current === checkpointQueue) activeQueueRef.current = null }
   }, [checkpointQueue, context.blockId, context.lessonId, context.mediaAssetId, contextKey, loadRetryKey, services])
 
   if (state.status === 'loading') return <LoadingState message="Đang tải video bài học..." />
   if (state.status === 'error') return <ErrorState message={`Không thể tải video (${state.error}).`} onRetry={() => setLoadRetryKey(value => value + 1)} />
+  if (state.contextKey !== contextKey || state.services !== services) return <LoadingState message="Đang tải video bài học..." />
   const { session } = state
   const persist = (positionSeconds: number) => {
     const ranges = observedRange(segmentStartRef.current, lastObservedRef.current, session.asset.durationSeconds)
     segmentStartRef.current = null
-    checkpointQueue.enqueue({ positionSeconds, watchedRanges: ranges, operationId: operationId() })
+    checkpointQueue.enqueue({ positionSeconds, watchedRanges: ranges, operationId: operationId(), expectedSubject: session.userId })
   }
   const currentTime = (event: SyntheticEvent<HTMLVideoElement>) => event.currentTarget.currentTime
 
   return <div className="space-y-3">
-    {saveError && <VideoProgressSaveError error={saveError} onRetry={() => checkpointQueue.retry()} />}
+    {saveError && <VideoProgressSaveError error={saveError} onRetry={() => checkpointQueue.retry()} onReload={() => {
+      registryRef.current.reset(services, contextKey)
+      activeQueueRef.current = null
+      setWriterRevision(value => value + 1)
+    }} />}
     <VideoPlayerView
     asset={session.asset} videoRef={videoRef} mediaFailed={mediaFailed} retryKey={retryKey}
     onLoadedMetadata={event => {
@@ -99,7 +109,7 @@ export function VideoLessonPlayer({ services, context }: { services: LearningSer
     }}
     onPlay={event => {
       const position = currentTime(event)
-      checkpointQueue.enqueue({ positionSeconds: position, watchedRanges: [], operationId: operationId() })
+      checkpointQueue.enqueue({ positionSeconds: position, watchedRanges: [], operationId: operationId(), expectedSubject: session.userId })
       segmentStartRef.current = position; lastObservedRef.current = position
     }}
     onPause={event => persist(currentTime(event))}
@@ -112,7 +122,7 @@ export function VideoLessonPlayer({ services, context }: { services: LearningSer
     }}
     onEnded={event => { lastObservedRef.current = currentTime(event); persist(currentTime(event)) }}
     onError={() => setMediaFailed(true)}
-    onRetry={() => { setMediaFailed(false); setRetryKey(value => value + 1) }}
+    onRetry={() => { setMediaFailed(false); setRetryKey(value => value + 1); setLoadRetryKey(value => value + 1) }}
     />
   </div>
 }

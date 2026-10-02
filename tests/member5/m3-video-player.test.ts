@@ -101,3 +101,62 @@ test('M3-04 creates a new writer when services change for the same video context
   await new Promise(resolve => setImmediate(resolve))
   assert.deepEqual(writes, ['B:new-session'])
 })
+
+test('M3-04 captures the loading actor and rejects progress DTOs returned for another account', async () => {
+  const session = { userId: 'A' }
+  const base = createMockLearningServices(playbackCatalog(), session, now)
+  const loaded = await loadVideoPlayer(base, context)
+  assert.equal(loaded.ok && loaded.value.userId, 'A')
+  const foreign = { ...base, progress: { ...base.progress, async getVideoProgress() {
+    return { ok: true as const, value: { userId: 'B', lessonId: context.lessonId, blockId: context.blockId,
+      positionSeconds: 50, watchedRanges: [], completed: false, updatedAt: now() } }
+  } } }
+  assert.deepEqual(await loadVideoPlayer(foreign, context), { ok: false, error: 'unauthorized' })
+})
+
+test('M3-04 retained video payloads cannot write the originating actor progress into a later account', async () => {
+  const actor = { userId: 'A' }, base = createMockLearningServices(playbackCatalog(), actor, now)
+  let first = true
+  const errors: string[] = []
+  const queue = new VideoCheckpointQueue(async payload => {
+    if (first) { first = false; return { ok: false, error: 'offline' } }
+    return saveVideoCheckpoint(base, context, payload.positionSeconds, payload.watchedRanges, payload.operationId, payload.expectedRevision, payload.expectedSubject)
+  }, () => {}, error => errors.push(error))
+  queue.enqueue({ positionSeconds: 10, watchedRanges: [], operationId: 'original-A', expectedSubject: 'A' })
+  await new Promise(resolve => setImmediate(resolve))
+  actor.userId = 'B'
+  queue.retry()
+  await new Promise(resolve => setImmediate(resolve))
+  assert.deepEqual(errors, ['offline', 'unauthorized'])
+  assert.deepEqual(await base.progress.getVideoProgress(context.lessonId, context.blockId), { ok: true, value: null })
+  assert.equal(queue.pending()[0].expectedSubject, 'A')
+})
+
+test('M3-04 a thrown video transport remains retryable rather than locking the writer forever', async () => {
+  let failing = true
+  const errors: string[] = []
+  const queue = new VideoCheckpointQueue(async payload => {
+    if (failing) { failing = false; throw new Error('transport') }
+    return { ok: true, value: { userId: 'A', lessonId: 'lesson', blockId: 'video-block', positionSeconds: payload.positionSeconds,
+      watchedRanges: [], completed: false, updatedAt: now() } }
+  }, () => {}, error => errors.push(error))
+  queue.enqueue({ positionSeconds: 10, watchedRanges: [], operationId: 'retryable' })
+  await new Promise(resolve => setImmediate(resolve))
+  assert.deepEqual(errors, ['server_error'])
+  queue.retry()
+  await new Promise(resolve => setImmediate(resolve))
+  assert.deepEqual(queue.pending(), [])
+})
+
+test('explicit rejected-video reload creates a fresh writer while preserving other video contexts', async () => {
+  const registry = new VideoCheckpointQueueRegistry(), service = {}, key = videoContextKey(context)
+  const rejected = registry.getOrCreate(service, key, () => new VideoCheckpointQueue(async () => ({ ok: false, error: 'conflict' }), () => {}, () => {}))
+  const other = registry.getOrCreate(service, 'other', () => new VideoCheckpointQueue(async () => ({ ok: false, error: 'offline' }), () => {}, () => {}))
+  rejected.enqueue({ positionSeconds: 50, watchedRanges: [], operationId: 'stale', expectedRevision: 1 })
+  await new Promise(resolve => setImmediate(resolve))
+  registry.reset(service, key)
+  const fresh = registry.getOrCreate(service, key, () => new VideoCheckpointQueue(async () => ({ ok: false, error: 'offline' }), () => {}, () => {}))
+  assert.notEqual(fresh, rejected)
+  assert.deepEqual(fresh.pending(), [])
+  assert.equal(registry.getOrCreate(service, 'other', () => { throw new Error('must retain other video') }), other)
+})

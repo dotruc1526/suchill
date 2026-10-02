@@ -58,7 +58,9 @@ test('daily review deduplicates across sets/reload/races, rejects stale days and
   })))
   assert.equal(repeated.every(result => result.ok && result.value.xpGranted === 0 && result.value.alreadyCompleted), true)
   instant = '2026-10-03T07:00:00Z'
-  assert.deepEqual(await services.completion.completeDailyReview({ ...input, operationId: 'stale' }), { ok: false, error: 'validation' })
+  const consumed = await services.completion.completeDailyReview({ ...input, operationId: 'stale' })
+  assert.equal(consumed.ok && consumed.value.xpGranted, 0)
+  assert.equal(consumed.ok && consumed.value.localDate, '2026-10-02')
   assert.deepEqual(await services.completion.completeDailyReview(input), first)
   await services.quiz.submitPracticeAttempt(reviewInput('review1', 'today'))
   const next = await services.completion.completeDailyReview({ questionSetId: 'review1', attemptId: 'attempt.today', operationId: 'next-day' })
@@ -68,4 +70,35 @@ test('daily review deduplicates across sets/reload/races, rejects stale days and
   assert.deepEqual(await services.completion.completeDailyReview({ questionSetId: 'review1', attemptId: 'attempt.today', operationId: 'next-day' }), { ok: false, error: 'validation' })
   const summary = await services.account.getSummary()
   assert.equal(summary.ok && summary.value.totalXp, 0)
+})
+
+test('every confirmed daily attempt retains its original day including zero-XP after a timezone change', async () => {
+  const catalog = accountCatalog(), store = createMockProgressStore(), session = { userId: 'a', timezone: 'America/Adak' }
+  catalog.quizzes = [reviewFixture('review')]
+  catalog.dailyReviewSetIds = ['review']
+  let instant = '2026-10-02T08:30:00Z'
+  let services = createMockLearningServices(catalog, session, () => instant, store)
+  const attempt = (id: string) => services.quiz.submitPracticeAttempt(reviewInput('review', id))
+  const claim = (id: string, operationId: string) => services.completion.completeDailyReview({ questionSetId: 'review', attemptId: `attempt.${id}`, operationId })
+  await attempt('first')
+  assert.equal((await claim('first', 'claim-first')).ok, true)
+  await attempt('zero')
+  const zero = await claim('zero', 'claim-zero')
+  assert.equal(zero.ok && zero.value.xpGranted, 0)
+  assert.equal(zero.ok && zero.value.localDate, '2026-10-01')
+  await attempt('unconsumed')
+  // The old timezone day has ended while both attempts now map to October 2 in the new timezone.
+  instant = '2026-10-02T09:30:00Z'
+  assert.equal((await services.account.updateSettings({ timezone: 'Pacific/Kiritimati' })).ok, true)
+  services = createMockLearningServices(catalog, session, () => instant, store)
+  const replay = await claim('zero', 'zero-after-zone')
+  assert.equal(replay.ok && replay.value.xpGranted, 0)
+  assert.equal(replay.ok && replay.value.localDate, '2026-10-01')
+  assert.equal((await services.account.getSummary()).ok, true)
+  await attempt('fresh')
+  const fresh = await claim('fresh', 'fresh-after-zone')
+  assert.equal(fresh.ok && fresh.value.xpGranted, 5)
+  assert.equal(fresh.ok && fresh.value.totalXp, 10)
+  instant = '2026-10-04T09:30:00Z'
+  assert.deepEqual(await claim('unconsumed', 'stale-unconsumed'), { ok: false, error: 'validation' })
 })

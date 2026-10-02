@@ -5,10 +5,12 @@ import { failure } from '../next/contracts.ts'
 import { createSupabaseAuth } from './auth.ts'
 import { createSupabaseMedia, publishedStoragePath } from './media.ts'
 import { createLearningRpc } from './rpc.ts'
+import { createAccountReader } from './accountReads.ts'
 
 /** Adapter DTOs are projected in SQL; React sees only domain service contracts. */
 export function createSupabaseLearningServices(client: SupabaseClient, config: PublicSupabaseConfig): LearningServices {
   const rpc = createLearningRpc((name, input) => client.rpc(name, input))
+  const accountRead = createAccountReader(client, rpc)
   async function command<T>(kind: string, input: object) {
     try {
       const session = await client.auth.getSession()
@@ -28,16 +30,16 @@ export function createSupabaseLearningServices(client: SupabaseClient, config: P
       if (error || !data?.signedUrl) throw new Error('Media unavailable')
       return data.signedUrl
     }),
-    users: { getCurrentProfile: () => rpc.read('profile') },
+    users: { getCurrentProfile: () => accountRead('profile') },
     progress: {
-      getLessonProgress: id => rpc.read('lesson_progress', id),
+      getLessonProgress: id => accountRead('lesson_progress', id),
       saveCheckpoint: input => command('save_lesson_checkpoint', input),
-      getEpisodeProgress: id => rpc.read('episode_progress', id),
+      getEpisodeProgress: id => accountRead('episode_progress', id),
       saveEpisodeCheckpoint: input => command('save_episode_checkpoint', input),
       recordChoice: input => command('record_choice', input),
-      getVideoProgress: (id, blockId) => rpc.read('video_progress', id, blockId),
+      getVideoProgress: (id, blockId) => accountRead('video_progress', id, blockId),
       saveVideoPosition: input => command('save_video_position', input),
-      getResumePoint: id => rpc.read('resume', id),
+      getResumePoint: id => accountRead('resume', id),
     },
     quiz: {
       getQuestionSet: id => rpc.read('quiz', id),
@@ -50,8 +52,8 @@ export function createSupabaseLearningServices(client: SupabaseClient, config: P
       completeDailyReview: input => command('complete_daily_review', input),
     },
     account: {
-      getSummary: () => rpc.read('account'),
-      getSettings: () => rpc.read('settings'),
+      getSummary: () => accountRead('account'),
+      getSettings: () => accountRead('settings'),
       updateSettings: input => command('update_settings', input),
     },
     auth: createSupabaseAuth(client),

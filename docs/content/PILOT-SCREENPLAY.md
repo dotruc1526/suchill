@@ -1,6 +1,6 @@
 # Pilot: Kế hoạch Giao Thừa — bản sửa authoring v2
 
-> CONTENT-014 sửa theo review CONTENT-003/004; [task](../tasks/active/CONTENT-014.md).
+> CONTENT-014 sửa theo review CONTENT-003/004; [task](../tasks/done/CONTENT-014.md).
 > Lesson: `lesson-mt68-01-video`. Status: NEEDS_HISTORICAL_REVIEW.
 > Tên tập là nhan đề biên tập, không khẳng định mọi nơi nổ súng đúng giao thừa.
 > Chưa thu âm, chưa xuất MP4; CONTENT-007 vẫn BLOCKED.

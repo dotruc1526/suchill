@@ -36,13 +36,13 @@ Hotspot claims: root exclusively owns package/lockfile and App.tsx; database age
 - [x] Unique ledger/operation receipts and account-row serialization; retries/recreated adapters cannot regrant reward in local tests. Native independent-session race verification remains below.
 - [x] Server/account timezone streak, best quiz score, optional privacy-minimal analytics.
 - [x] Offline queue uses original operation IDs and account isolation; no premature confirmed reward.
-- [x] Final `npm run quality` PASS: typecheck/build, 125 unit + 22 component + 33 SQL + 9 browser tests (189 total), source/bundle scans with zero unsafe matches; independent review findings repaired.
+- [x] Final re-review `npm run quality` PASS: typecheck/build, 146 unit + 22 component + 41 SQL + 19 authoring + 9 browser tests (237 passed; native-only test skipped here and verified separately), source/bundle scans with zero unsafe matches.
 - [ ] Hosted Supabase integration verified after safe configuration and key-rotation confirmation.
-- [ ] Native PostgreSQL 17 and genuine multi-session/device race matrix verified.
+- [x] Native PostgreSQL 17.11 migrations and genuine multi-session matrix PASS49/49; eight overlapping independent sessions; actual hosted device/Auth/REST/Storage gate remains separate.
 
 ## Environment blocker
 
-Hosted Supabase project and rotation confirmation have been requested without asking for secrets. Until verified, hosted integration and milestone closure are unverified. Local implementation/testing proceeds under the approved branch scope.
+Hosted Supabase project and rotation confirmation have been requested without asking for secrets. Until verified, hosted integration and milestone closure are unverified. Native PG17 and local implementation testing are complete. [All-task re-review](../../engineering/review-all/EVIDENCE.md) accepts 16 of 27 initial REVIEW cards; 11 retain specific external prerequisites.
 
 ## Handoff
 
@@ -58,3 +58,9 @@ Hosted Supabase project and rotation confirmation have been requested without as
 |---|---|---|
 | 2026-10-02 | Separate branch and individual roadmap claims; service/UI/backend implemented; independent review findings repaired; final Quality PASS | Review branch deliverable |
 | 2026-10-02 | Account/session/queue, replay, daily/timezone, correction scopes, video fallback and actual VN model → SQL regressions established | Review branch evidence; hosted/native acceptance pending |
+
+## Re-review decision — 2026-10-02
+
+- Reviewer: Codex specialist review and root cross-review under explicit user delegation. Local implementation/draft checks pass; task remains REVIEW because full acceptance is not evidenced.
+- Remaining prerequisite / next action: Hosted acceptance and rotation missing; individual technical task acceptance does not close milestone.
+- Evidence: [all-task audit](../../engineering/review-all/EVIDENCE.md). No missing key rotation, license, recording or human historical verdict is fabricated.

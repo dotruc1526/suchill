@@ -53,17 +53,27 @@ export class OfflineQueue {
   }
   async dispatch<T>(operation: PendingOperation, send: () => Promise<Result<T>>): Promise<Result<T>> {
     if (!valid(operation)) return failure('validation')
-    let result: Result<T> = failure('offline')
-    if (this.online()) {
-      try { result = await send() } catch { result = failure('server_error') }
-      if (result.ok || !['offline', 'server_error'].includes(result.error)) return result
-    }
+    const snapshot = structuredClone(operation)
     try {
       return await this.lock(async () => {
         const items = this.read()
-        const previous = items.find(item => identity(item) === identity(operation))
-        if (previous && JSON.stringify([previous.kind, previous.input]) !== JSON.stringify([operation.kind, operation.input])) return failure('conflict')
-        if (!previous) this.write([...items, structuredClone(operation)])
+        const previous = items.find(item => identity(item) === identity(snapshot))
+        if (previous && JSON.stringify([previous.kind, previous.input]) !== JSON.stringify([snapshot.kind, snapshot.input])) return failure('conflict')
+        const first = items.find(item => item.userId === snapshot.userId)
+        // New online work must not overtake a durable prerequisite for its owner.
+        if (this.online() && (!first || identity(first) === identity(snapshot))) {
+          let result: Result<T>
+          try { result = await send() } catch { result = failure('server_error') }
+          if (result.ok) {
+            if (previous) this.write(this.read().filter(item => identity(item) !== identity(snapshot)))
+            return result
+          }
+          if (!['offline', 'server_error'].includes(result.error)) {
+            if (previous) this.write(this.read().map(item => identity(item) === identity(snapshot) ? { ...item, error: result.error } : item))
+            return result
+          }
+        }
+        if (!previous) this.write([...items, snapshot])
         return failure('offline')
       })
     } catch { return failure('server_error') }

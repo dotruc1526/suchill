@@ -15,6 +15,8 @@ export const createMockAccountStore = () => ({
   blocks: new Map<string, { method: CompletionMethod; completedAt: string }>(),
   lessons: new Map<string, { completedAt: string }>(),
   attempts: new Map<string, MockQuizAttempt[]>(),
+  dailyReviewAttemptClaims: new Map<string, string>(),
+  dailyReviewClaims: new Map<string, { userId: string; localDate: string; timezone: string; claimedAt: string }>(),
   rewards: new Map<string, RewardLedgerEntry>(),
   streakDays: new Set<string>(),
   operations: new Map<string, { signature: string; result: unknown }>(),

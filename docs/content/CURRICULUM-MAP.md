@@ -1,6 +1,6 @@
 # Curriculum Mậu Thân 1968 — bản sửa sau PR #21
 
-> Outline CONTENT-008; revision [CONTENT-014](../tasks/active/CONTENT-014.md).
+> Outline CONTENT-008; revision [CONTENT-014](../tasks/done/CONTENT-014.md).
 > Status: IN_REVIEW. Chọn chapter không phải approval xuất bản.
 > Scope: kháng chiến chống Mỹ tại Việt Nam; chapter mẫu Mậu Thân 1968.
 > Chapter ID: `chapter-mau-than-1968`; slug: `mau-than-1968`.
@@ -56,4 +56,4 @@ Phương án authoring bắt buộc dùng chữ/sơ đồ nguyên bản; ảnh t
 
 ## Gate còn lại
 
-Trúc xác nhận historical/learning/media cho bản cụ thể, Vinh kiểm tra technical QA; pilot cần audio/poster/video thật và kiểm tra nghe/xem. Không ghi DONE/APPROVED thay người kiểm tra. CONTENT-006 vẫn REFERENCE_ONLY; M0/M1 đã đóng, M2 kỹ thuật đang OPEN, nhưng content/media production vẫn BLOCKED cho đến khi artifact pilot có sign-off.
+Trúc xác nhận historical/learning/media cho bản cụ thể, Vinh kiểm tra technical QA; pilot cần audio/poster/video thật và kiểm tra nghe/xem. Không ghi DONE/APPROVED thay người kiểm tra. CONTENT-006 vẫn REFERENCE_ONLY. Cập nhật 2026-10-02: M0–M2 đã đóng, M3 OPEN, M4–M5 được phép triển khai trên nhánh riêng; content/media production vẫn BLOCKED cho đến khi artifact pilot có sign-off. Task board giữ quyết định gate hiện hành.

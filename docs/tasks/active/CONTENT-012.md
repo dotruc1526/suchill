@@ -27,4 +27,10 @@
 - 2026-09-27: nhận sửa PR #21 từ `4fa6cd0`; chuẩn hóa ACTIVE, hoàn tất bản sửa tài liệu và chuyển REVIEW. Không ghi sign-off thay reviewer.
 - Evidence, kết quả kiểm tra và phần thiếu: [PR21-HANDOFF.md](./PR21-HANDOFF.md).
 
-- Checkpoint bổ sung 2026-09-27: Trúc được giao toàn bộ revision; [CONTENT-014](./CONTENT-014.md) chứa bản authoring và kiểm tra mới. Không ký sign-off thay người review.
+- Checkpoint bổ sung 2026-09-27: Trúc được giao toàn bộ revision; [CONTENT-014](../done/CONTENT-014.md) chứa bản authoring và kiểm tra mới. Không ký sign-off thay người review.
+
+## Re-review decision — 2026-10-02
+
+- Reviewer: Codex specialist review and root cross-review under explicit user delegation. Local implementation/draft checks pass; task remains REVIEW because full acceptance is not evidenced.
+- Remaining prerequisite / next action: Historical/learning sign-off, media/license and handoff criteria missing; five-question draft QA PASS.
+- Evidence: [all-task audit](../../engineering/review-all/EVIDENCE.md). No missing key rotation, license, recording or human historical verdict is fabricated.

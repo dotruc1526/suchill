@@ -20,6 +20,7 @@ export function QuizFlow({ services, questionSetId, onSubmitted }: { services: L
   const [answersLocked, setAnswersLocked] = useState(false)
   const [loadRetryKey, setLoadRetryKey] = useState(0)
   const operationIdRef = useRef(newOperationId())
+  const submitBusyRef = useRef(false)
   const submissionGateRef = useRef(new QuizSubmissionGate(questionSetId))
   submissionGateRef.current.activate(questionSetId)
   useEffect(() => {
@@ -28,6 +29,7 @@ export function QuizFlow({ services, questionSetId, onSubmitted }: { services: L
     setState({ status: 'loading' })
     setReceipt(undefined)
     setSubmitting(false)
+    submitBusyRef.current = false
     setSubmissionError(undefined)
     setAnswersLocked(false)
     operationIdRef.current = newOperationId()
@@ -36,7 +38,7 @@ export function QuizFlow({ services, questionSetId, onSubmitted }: { services: L
         ? { status: 'ready', session: result.value }
         : { status: 'error', error: result.error, questionSetId })
     })
-    return () => { active = false }
+    return () => { active = false; submissionGateRef.current.invalidate() }
   }, [loadRetryKey, questionSetId, services])
 
   if (state.status === 'loading') return <LoadingState message="Đang tải bài kiểm tra..." />
@@ -46,12 +48,15 @@ export function QuizFlow({ services, questionSetId, onSubmitted }: { services: L
   if (state.session.delivery.set.id !== questionSetId) return <LoadingState message="Đang tải bài kiểm tra..." />
   const replaceSession = (session: QuizFlowSession) => setState({ status: 'ready', session })
   const submit = async () => {
+    if (submitBusyRef.current || receipt) return
+    submitBusyRef.current = true
     setSubmitting(true)
     setAnswersLocked(true)
     setSubmissionError(undefined)
     const submissionToken = submissionGateRef.current.begin(state.session.delivery.set.id)
     const result = await submitQuizFlow(services, state.session, operationIdRef.current)
     if (!submissionGateRef.current.isCurrent(submissionToken)) return
+    submitBusyRef.current = false
     setSubmitting(false)
     if (result.ok) { setReceipt(result.value); onSubmitted?.(result.value) }
     else setSubmissionError(`Chưa thể nộp bài (${result.error}).`)

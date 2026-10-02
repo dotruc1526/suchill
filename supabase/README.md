@@ -8,7 +8,7 @@ The migrations implement normalized content, account-owned progress, private ans
 npm run test:db
 ```
 
-The test harness runs the migration SQL against PGlite's PostgreSQL 18.3 engine. It emulates `auth.users`, `auth.uid()` and Storage metadata/policies, creates distinct `anon`/`authenticated`/`service_role` roles, and executes role-scoped SQL transactions. It tests real PostgreSQL constraints, RLS, grants, PL/pgSQL, transactions and persisted database reopen. It does not emulate Supabase Auth/Storage HTTP services, verify hosted JWT/session behavior, or supply independent native database connections. Concurrent promises use PGlite's serialized connection; native multi-connection race testing remains a hosted/local-stack gate.
+Without native-test environment variables, the harness runs migration SQL against PGlite's PostgreSQL 18.3 engine. It emulates `auth.users`, `auth.uid()` and Storage metadata/policies, creates distinct `anon`/`authenticated`/`service_role` roles, and executes role-scoped SQL transactions. It tests real PostgreSQL constraints, RLS, grants, PL/pgSQL, transactions and persisted database reopen. PGlite does not supply independent native connections; its concurrent promises use one serialized connection. The optional native factory below supplies PostgreSQL 17 connections. Neither mode emulates Supabase Auth/Storage HTTP or verifies hosted JWT/session behavior.
 
 With Docker and Supabase CLI available, `supabase start` uses the isolated `suchill-local` project configuration and PostgreSQL 17. Apply/review migrations on a disposable local stack first, then run the same anon/A/B policy matrix through real Auth/REST/Storage. Do not reset a hosted database. Once migrations have been shared/applied, add roll-forward migrations instead of editing existing files.
 
@@ -44,4 +44,24 @@ Analytics is opt-in, disabled by default, and event-specific with primitive meta
 
 Database tests cover publication/draft boundaries, private keys, cross-user grants/RLS, Storage paths, immutable records, trusted block/lesson policies, path-scoped VN checks and replay, video seeking/union/budget/fallback, quiz retries/mastery/bonus, correction reward scopes, timezone/daily review, optional analytics/failure, session preconditions, account deletion, same-operation/recreated-adapter replay and persisted database reopen. Test content is explicitly technical and never serves as canonical historical publication evidence.
 
-Local SQL evidence supports implementation review. Hosted Auth/REST/Storage behavior, key rotation, native PostgreSQL 17 and native multi-session races remain unverified until a safely configured stack is available; M4/M5 milestone acceptance must preserve that distinction.
+Publication additionally rejects duplicate grading keys, impossible knowledge-check choices, scene branches without a playable end route, unsafe Storage path segments and non-finite media durations. The question-set DTO includes the authored `dailyReviewEligible` flag. Existing Auth identities receive missing profile/settings/streak rows without replacing preferences. All of these changes use migrations 021–024.
+
+Migration 025 binds every confirmed daily-review attempt, including a zero-XP claim after another attempt already qualified that account day. Replay after a timezone change preserves that attempt's original day and cannot create another reward. Upgrading an older database backfills bindings from existing confirmed receipts. Fresh future-day attempts retain normal eligibility.
+
+## Native PostgreSQL verification
+
+`supabase/tests/nativeHarness.mjs` can run the SQL suites against a dedicated disposable PostgreSQL 17 cluster on loopback port 54329. The harness requires explicit opt-in, accepts no URL query/hash overrides, builds normalized connection parameters and creates/drops only its randomly named `suchill_review_<uuid>` databases. It initializes test-only Auth/Storage metadata schemas; it does not start Supabase HTTP services. Native role bootstrap affects only the explicitly selected disposable cluster.
+
+```powershell
+$env:SUCHILL_NATIVE_PG_URL = 'postgresql://postgres@127.0.0.1:54329/postgres'
+$env:SUCHILL_NATIVE_PG_TEST_CLUSTER = '1'
+npm run test:db
+Remove-Item Env:SUCHILL_NATIVE_PG_URL
+Remove-Item Env:SUCHILL_NATIVE_PG_TEST_CLUSTER
+```
+
+The normal command without these environment variables uses PGlite and explicitly skips the native concurrency suite. The persisted PGlite reopen test remains PGlite even during a native run. Native concurrency tests require eight overlapping independent sessions, verified as blocked native backends before releasing an account-row barrier. They cover identical/distinct operation IDs, reward/streak uniqueness, stale revisions and rollback, quiz attempts, video union, daily claims and A/B isolation. [Database evidence](./tests/EVIDENCE.md) records actual run results and their remaining boundaries.
+
+The re-review native-mode suite passed **49/49** on PostgreSQL 17.11 with migrations 001–025. The suite count includes the intentional PGlite reopen test and two pure configuration guards; the evidence separates those from native SQL/concurrency verification.
+
+Hosted Auth/REST/Storage behavior and credential rotation still require a safely configured Supabase project. Local database evidence does not confirm those integration gates or close M4/M5 milestone acceptance.

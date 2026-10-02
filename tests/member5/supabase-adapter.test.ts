@@ -2,6 +2,8 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { createLearningRpc, databaseError } from '../../src/services/supabase/rpc.ts'
 import { publishedStoragePath, createSupabaseMedia } from '../../src/services/supabase/media.ts'
+import { createAccountReader } from '../../src/services/supabase/accountReads.ts'
+import type { SupabaseClient } from '@supabase/supabase-js'
 
 test('RPC boundary routes exact IDs and original operation identity, without supplying a user ID', async () => {
   const calls: unknown[] = []
@@ -40,4 +42,39 @@ test('published media resolves reviewed poster/captions/transcript and rejects d
   assert.equal(result.ok && result.value.poster?.altText, 'Poster')
   assert.throws(() => publishedStoragePath('draft-media/secret.mp4'))
   assert.throws(() => publishedStoragePath('published-media/../secret.mp4'))
+})
+
+test('account reads reject an A to B to A transition even for settings DTOs without an owner field', async () => {
+  let userId = 'A', removed = 0, listener: (event: string, session: unknown) => void = () => {}
+  const client = { auth: {
+    getSession: async () => ({ data: { session: { user: { id: userId } } }, error: null }),
+    onAuthStateChange: (callback: typeof listener) => { listener = callback; return { data: { subscription: { unsubscribe() { removed++ } } } } },
+  } } as unknown as Pick<SupabaseClient, 'auth'>
+  const change = (id: string) => { userId = id; listener('SIGNED_IN', { user: { id } }) }
+  const rpc = createLearningRpc(async () => {
+    change('B')
+    const data = { soundMuted: true, timezone: 'UTC' }
+    change('A')
+    return { data, error: null }
+  })
+  assert.deepEqual(await createAccountReader(client, rpc)('settings'), { ok: false, error: 'unauthorized' })
+  assert.equal(removed, 1, 'A rejected read does not retain its SDK observer.')
+})
+
+test('account read checks returned progress ownership and does not reject same-user token refresh', async () => {
+  let removed = 0, listener: (event: string, session: unknown) => void = () => {}
+  const client = { auth: {
+    getSession: async () => ({ data: { session: { user: { id: 'A' } } }, error: null }),
+    onAuthStateChange: (callback: typeof listener) => { listener = callback; return { data: { subscription: { unsubscribe() { removed++ } } } } },
+  } } as unknown as Pick<SupabaseClient, 'auth'>
+  let owner = 'B'
+  const rpc = createLearningRpc(async () => {
+    listener('TOKEN_REFRESHED', { user: { id: 'A' } })
+    return { data: { userId: owner, lessonId: 'lesson' }, error: null }
+  })
+  const read = createAccountReader(client, rpc)
+  assert.deepEqual(await read('lesson_progress', 'lesson'), { ok: false, error: 'unauthorized' })
+  owner = 'A'
+  assert.deepEqual(await read('lesson_progress', 'lesson'), { ok: true, value: { userId: 'A', lessonId: 'lesson' } })
+  assert.equal(removed, 2)
 })

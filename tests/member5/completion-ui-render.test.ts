@@ -34,7 +34,7 @@ test('receipt renders only service-provided XP and streak, with a focusable stat
 test('pending and policy failures have text feedback without reward confirmation', async () => {
   const { CompletionFeedback } = await vite.ssrLoadModule('/src/features/learning/completion/CompletionFeedback.tsx')
   const offline = renderToStaticMarkup(React.createElement(CompletionFeedback, { error: 'offline' }))
-  assert.ok(offline.includes('role="alert"') && offline.includes('XP và streak chưa được xác nhận'))
+  assert.ok(offline.includes('role="alert"') && offline.includes('XP và streak chỉ được ghi nhận sau xác nhận của dịch vụ'))
   const validation = renderToStaticMarkup(React.createElement(CompletionFeedback, { error: 'validation' }))
   assert.ok(validation.includes('Chưa đủ điều kiện hoàn thành'))
   const unauthorized = renderToStaticMarkup(React.createElement(CompletionFeedback, { error: 'unauthorized' }))

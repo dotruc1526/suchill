@@ -2,6 +2,17 @@
 
 Đặt task card đã được reviewer xác nhận `DONE` tại đây. Không xóa checkpoint/evidence cũ.
 
+## Delegated all-task review — 2026-10-02
+
+Accepted by Codex specialists and root cross-review under explicit user delegation; [evidence/remaining prerequisites](../../engineering/review-all/EVIDENCE.md). No new named human approval or milestone closure is inferred.
+
+- [M3-06](./M3-06.md), [M3-07](./M3-07.md), [M3-UX-02](./M3-UX-02.md) — completion/profile, learning QA and Home visual/service journey.
+- [M4-02](./M4-02.md), [M4-03](./M4-03.md), [M4-04](./M4-04.md) — versioned content/account schema and actual native SQL/RLS matrix.
+- [M5-01](./M5-01.md), [M5-02](./M5-02.md), [M5-03](./M5-03.md), [M5-04](./M5-04.md), [M5-05](./M5-05.md), [M5-06](./M5-06.md), [M5-07](./M5-07.md) — trusted progress/completion/rewards/streak/assessment/privacy/offline.
+- [CONTENT-014](./CONTENT-014.md), [CONTENT-017](./CONTENT-017.md) — draft authoring acceptance; media/runtime publication remains separate.
+- [DOC-017](./DOC-017.md) — current task/content documentation sync; historical Git-object limitation recorded.
+- [QA-REVIEW-ALL-001](./QA-REVIEW-ALL-001.md) — audit complete; 16 accepted cards and 11 documented external prerequisites.
+
 - [M3-INTEGRATION-01](./M3-INTEGRATION-01.md) — Journey/renderer/player slots; PR #79 merged `a55b924`, Hưng/Vinh approved và 2/2 Quality PASS.
 
 - [M3-UX-01](./M3-UX-01.md) — UI/UX handoff; PR #77 merged, Hưng/Vinh approved và Dương/PO nghiệm thu tại `23cf354`.

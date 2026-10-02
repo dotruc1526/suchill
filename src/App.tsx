@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { TopBar } from './components/layout/TopBar'
 import { BottomNav } from './components/layout/BottomNav'
 import { Button, ErrorState, LoadingState } from './components/ui'
@@ -9,13 +9,16 @@ import { AccountProfile } from './features/profile/AccountProfile'
 import { AccountAccess } from './features/auth/AccountAccess'
 import { useLearningAccount } from './app/useLearningAccount'
 import { createLearningRuntime } from './services/runtime'
+import { scopeLearningServices } from './services/offline/accountScope'
 import { theme } from './theme/tokens'
 import type { Tab } from './types'
 
 function RuntimeApp({ runtime }: { runtime: ReturnType<typeof createLearningRuntime> }) {
   const [tab, setTab] = useState<Tab>('home')
   const account = useLearningAccount(runtime)
-  const services = runtime.services
+  const services = useMemo(() => account.session
+    ? scopeLearningServices(runtime.services, account.session.userId) : runtime.services,
+  [runtime.services, account.session?.userId])
   const refresh = () => { void account.refresh() }
   return <div className="flex min-h-screen items-center justify-center" style={{ background: theme.colors.pageBg }}>
     <div className="relative flex w-full flex-col overflow-hidden" data-reduced-motion={account.reducedMotion || undefined}
@@ -32,6 +35,10 @@ function RuntimeApp({ runtime }: { runtime: ReturnType<typeof createLearningRunt
         </>}
       </div>}
       {account.syncError && <p role="alert" className="px-4 text-sm">Chưa đọc được hàng đợi trên thiết bị. Hãy kiểm tra quyền lưu trữ rồi thử lại.</p>}
+      {account.accountError && <div role="alert" className="px-4 py-2 text-sm">
+        <p>Chưa tải được dữ liệu tài khoản. Hãy thử lại để cập nhật tiến độ và cài đặt.</p>
+        <Button variant="outline" onClick={refresh}>THỬ TẢI TÀI KHOẢN</Button>
+      </div>}
       <div className="flex-1 overflow-y-auto" key={`${account.session?.userId ?? 'anonymous'}:${account.generation}`}>
         {account.loading ? <LoadingState message="Đang tải tài khoản..." />
           : !account.session ? <section className="p-4"><AccountAccess services={services} onAccountChange={refresh} /></section>

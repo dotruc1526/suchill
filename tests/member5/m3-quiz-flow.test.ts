@@ -89,3 +89,18 @@ test('M3-05 rejects a late submission after the active question set changes', ()
   gate.invalidate()
   assert.equal(gate.isCurrent(currentSubmission), false)
 })
+
+test('M3-05 unexpected transport throws yield retryable domain errors without stuck loading/submission', async () => {
+  const base = services()
+  const failing = { ...base, quiz: { ...base.quiz,
+    async getQuestionSet() { throw new Error('delivery transport') },
+    async submitPracticeAttempt() { throw new Error('submit transport') },
+    async submitScoredAttempt() { throw new Error('submit transport') },
+  } }
+  assert.deepEqual(await loadQuizFlow(failing, 'quiz-practice'), { ok: false, error: 'server_error' })
+  for (const id of ['quiz-practice', 'quiz-scored']) {
+    const loaded = await loadQuizFlow(base, id)
+    assert.ok(loaded.ok)
+    assert.deepEqual(await submitQuizFlow(failing, { ...loaded.value, answers: { q1: ['a'], q2: ['b'] } }, 'stable'), { ok: false, error: 'server_error' })
+  }
+})

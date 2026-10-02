@@ -62,3 +62,40 @@ test('ambiguous lost response is queued with same operation ID for authoritative
   assert.deepEqual(await queue.dispatch(operation, async () => failure('server_error')), failure('offline'))
   assert.equal(queue.list('A')[0].input.operationId, 'op-stable')
 })
+
+test('online retry checks durable signature before transport and removes its confirmed pending record', async () => {
+  let online = false, calls = 0
+  const queue = new OfflineQueue(storage(), () => online)
+  await queue.dispatch(operation, async () => failure('offline'))
+  online = true
+  const send = async () => { calls++; return success(null) }
+  assert.deepEqual(await queue.dispatch({ ...operation, input: { ...operation.input, lessonId: 'changed' } }, send), failure('conflict'))
+  assert.equal(calls, 0, 'A different payload cannot win before the original queued intent.')
+  assert.deepEqual(await queue.dispatch(operation, send), success(null))
+  assert.equal(calls, 1)
+  assert.deepEqual(queue.list('A'), [])
+})
+
+test('new online commands wait for their owner prerequisites without blocking another account', async () => {
+  let online = false, calls = 0
+  const queue = new OfflineQueue(storage(), () => online)
+  await queue.dispatch(operation, async () => failure('offline'))
+  online = true
+  const send = async () => { calls++; return success(null) }
+  const later = { ...operation, input: { ...operation.input, operationId: 'later' } }
+  assert.deepEqual(await queue.dispatch(later, send), failure('offline'))
+  assert.equal(calls, 0)
+  assert.deepEqual(queue.list('A').map(item => item.input.operationId), ['op-stable', 'later'])
+  assert.deepEqual(await queue.dispatch({ ...operation, userId: 'B' }, send), success(null))
+  const sent: unknown[] = []
+  await queue.sync('A', async item => { sent.push(item.input.operationId); return success(null) }, async () => 'A')
+  assert.deepEqual(sent, ['op-stable', 'later'])
+  assert.deepEqual(queue.list('A'), [])
+})
+
+test('ambiguous sends retain the original payload even if the caller mutates its object', async () => {
+  const queue = new OfflineQueue(storage(), () => true)
+  const input = { ...operation, input: { ...operation.input } }
+  await queue.dispatch(input, async () => { input.input.lessonId = 'mutated'; return failure('server_error') })
+  assert.equal(queue.list('A')[0].input.lessonId, 'lesson')
+})

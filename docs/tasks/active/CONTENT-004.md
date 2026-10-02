@@ -5,7 +5,7 @@
 
 ## Assignment
 
-- Phase / milestone: MVP content track; độc lập với M2 đang OPEN
+- Phase / milestone: MVP content track; độc lập với các milestone kỹ thuật (M2 đã đóng 2026-10-01)
 - Workstream: Product + Content
 - Accountable owner: Thọ (Member 1)
 - Executor type: Human hoặc Codex hỗ trợ bản nháp
@@ -85,3 +85,9 @@
 - Test result: authoring validator PASS theo CONTENT-014; thay đổi docs/content không có runtime, environment hoặc migration impact.
 - Known issues: Vinh chưa technical-QA task-level handoff; catalog hiện có 6/8 media item chưa đủ evidence và 2/8 còn `NEEDS_MEDIA_REVIEW` theo `CONTENT-014`.
 - Next owner/action: Vinh xác nhận technical QA/handoff và Trúc hoàn tất media sign-off; chỉ sau đó reviewer mới chuyển task `DONE` và Product owner xem xét mở CONTENT-007.
+
+## Re-review decision — 2026-10-02
+
+- Reviewer: Codex specialist review and root cross-review under explicit user delegation. Local implementation/draft checks pass; task remains REVIEW because full acceptance is not evidenced.
+- Remaining prerequisite / next action: Recorded audio/video and media rights/listening/viewing handoff missing; draft technical QA PASS.
+- Evidence: [all-task audit](../../engineering/review-all/EVIDENCE.md). No missing key rotation, license, recording or human historical verdict is fabricated.

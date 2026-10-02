@@ -22,4 +22,4 @@ Visual dự kiến: thẻ chữ/sơ đồ không địa lý; không giả làm t
 
 ## Media và next action
 
-[MEDIA-REVIEW-MT68.md](./MEDIA-REVIEW-MT68.md) ghi từng quyết định license/caption và những ứng viên loại khỏi phương án bắt buộc. Trúc nghiệm thu nội dung theo quyền được giao; QA kỹ thuật vẫn cần evidence. CONTENT-006 giữ REFERENCE_ONLY; không dùng clip cũ thay pilot này; M0/M1 đã đóng, M2 kỹ thuật đang OPEN, còn content/media production vẫn bị khóa theo artifact review.
+[MEDIA-REVIEW-MT68.md](./MEDIA-REVIEW-MT68.md) ghi từng quyết định license/caption và những ứng viên loại khỏi phương án bắt buộc. Trúc nghiệm thu nội dung theo quyền được giao; QA kỹ thuật vẫn cần evidence. CONTENT-006 giữ REFERENCE_ONLY; không dùng clip cũ thay pilot này. Cập nhật 2026-10-02: M0–M2 đã đóng, M3 OPEN, M4–M5 được phép triển khai trên nhánh riêng; content/media production vẫn bị khóa theo artifact review. Gate hiện hành nằm trên task board.

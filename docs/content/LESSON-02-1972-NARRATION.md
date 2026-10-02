@@ -23,6 +23,12 @@
    - Sơ đồ khí tài SAM-2 hỗ trợ điều hướng bàn phím (Tab/Arrow keys), tương thích màn hình di động 375px/430px và chế độ `reduced-motion`.
    - Không sử dụng hình ảnh/âm thanh chưa có bản quyền hoặc giả lập sai lệch tín hiệu kỹ thuật.
 
+### Phạm vi visual/audio của bản nháp — technical review 2026-10-02
+
+Các `Visual Cue`/`Audio Cue` bên dưới là ý định biên tập tùy chọn chưa được xác minh và chưa chọn asset; không phải dữ kiện lịch sử, mô tả khí tài đã duyệt hay bằng chứng quyền sử dụng. Chi tiết ba màn radar, đồng hồ/núm xoay, hình tín hiệu nhiễu, ảnh kíp chiến đấu và âm thanh cabin không được tự chuyển thành reconstruction/runtime media. Trải nghiệm bắt buộc chỉ gồm lời dẫn đã viết và sơ đồ khái quát nguyên bản ở [DIAGRAM-SAM2-1972.json](./DIAGRAM-SAM2-1972.json), kèm danh sách text equivalent; không phụ thuộc các cue này.
+
+Nếu sản xuất visual/audio, tạo task/file claim và khóa source item, creator/rightsholder, license/permission, caption/alt, transcript/cue sheet và fallback theo Phase 3/8 trước tích hợp. Khi không có bằng chứng, dùng chữ/sơ đồ trừu tượng. Technical review authoring không xác nhận accessibility của renderer, không cấp quyền ảnh/audio, không mở `CONTENT-007`, không seed/publish StoryVersion.
+
 ---
 
 ## 2. Diễn biến Chi tiết Scene-by-Scene (8 Phân cảnh)

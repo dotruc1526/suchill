@@ -31,9 +31,22 @@ export function createMockCompletionService(catalog: MockCatalog, store: MockPro
         const instant = now(), account = ensureMockAccount(authority, session)
         const localDate = mockLocalDate(instant, account.settings.timezone)
         const attempt = authority.attempts.get(accountKey(session.userId, input.questionSetId))?.find(attempt =>
-          attempt.receipt.attemptId === input.attemptId && attempt.mode === 'practice' && attempt.localDate === localDate &&
+          attempt.receipt.attemptId === input.attemptId && attempt.mode === 'practice' &&
           attempt.receipt.total >= 3 && attempt.receipt.feedback.length === fixture.set.questionIds.length)
         if (!attempt) return failure('validation')
+        const attemptKey = accountKey(session.userId, input.attemptId)
+        const claimedDate = authority.dailyReviewAttemptClaims.get(attemptKey)
+        if (claimedDate) return success({ status: 'confirmed' as const, xpGranted: 0, totalXp: mockTotalXp(authority, session.userId),
+          currentStreak: mockCurrentStreak(account, instant), alreadyCompleted: true, localDate: claimedDate })
+        if (mockLocalDate(attempt.attemptedAt, account.settings.timezone) !== localDate) return failure('validation')
+        const previous = [...authority.dailyReviewClaims.values()].filter(claim => claim.userId === session.userId)
+          .sort((a, b) => b.claimedAt.localeCompare(a.claimedAt))[0]
+        if (previous && previous.timezone !== account.settings.timezone && mockLocalDate(instant, previous.timezone) <= previous.localDate) return failure('conflict')
+        // Every confirmed attempt is consumed, even when another attempt earned today's reward.
+        authority.dailyReviewAttemptClaims.set(attemptKey, localDate)
+        const dayKey = accountKey(session.userId, localDate)
+        if (!authority.dailyReviewClaims.has(dayKey)) authority.dailyReviewClaims.set(dayKey,
+          { userId: session.userId, localDate, timezone: account.settings.timezone, claimedAt: instant })
         const xpGranted = grantMockReward(catalog, authority, session, 'daily_review', localDate, instant)
         if (xpGranted) qualifyMockStreak(authority, session, instant)
         return success({ status: 'confirmed' as const, xpGranted, totalXp: mockTotalXp(authority, session.userId),

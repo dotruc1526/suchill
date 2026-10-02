@@ -1,6 +1,6 @@
 # CONTENT-014 — Hoàn thiện gói authoring Mậu Thân sau PR #21
 
-> Status: REVIEW
+> Status: DONE
 > Started: 2026-09-27
 
 - Owner: Trúc (Member 2), theo quyền Thọ giao làm toàn bộ phần sửa còn lại.
@@ -20,7 +20,7 @@
 - [x] JSON map không chứa claim bị bác bỏ hoặc tọa độ giả bị hiểu là địa lý.
 - [x] Media có quyết định từng ứng viên và phương án không phụ thuộc asset chưa đủ quyền.
 - [x] Curriculum/production notes/source/board/card nhất quán cho phạm vi sửa; kết quả kiểm tra và bước còn cần con người rõ.
-- [ ] Reviewer xác nhận bản authoring trong PR; các dấu kiểm trên là evidence thực hiện, không phải sign-off phát hành.
+- [x] Codex technical reviewer và root xác nhận bản authoring trên nhánh review này ngày 2026-10-02 theo yêu cầu nghiệm thu được người dùng ủy quyền. Không ghi một GitHub/human approval chưa xảy ra; không phải sign-off phát hành.
 
 ## Verification — 2026-09-27
 
@@ -33,4 +33,11 @@
 
 - Chưa có build/runtime impact; không environment/migration.
 - Quyền thực hiện không thay bằng chứng quyền tác giả, file thu âm hoặc nghiệm thu nghe/xem.
-- CONTENT-006 giữ IN PROGRESS/REFERENCE_ONLY; M2 OPEN, M3–M7 LOCKED.
+- CONTENT-006 giữ IN PROGRESS/REFERENCE_ONLY; Gate snapshot superseded: M0–M2 DONE, M3 OPEN, M4–M5 implementation authorized; content production remains BLOCKED.
+
+## Accepted review and current handoff — 2026-10-02
+
+- Reviewer decision: Codex independent specialists plus root cross-review, under the user's explicit delegation to review, repair and close acceptance-complete tasks. Status DONE applies to this card's technical/authoring scope; it does not claim a new Hưng/Vinh/Trúc approval or milestone closure. This checkpoint supersedes older pending next actions.
+- Evidence: [all-task audit](../../engineering/review-all/EVIDENCE.md); final Quality PASS and native-mode 49/49 PASS. Files changed, tests, environment/migration impact and remaining integration/content limits are listed in that report.
+- Accepted deliverable is draft remediation: 5 nodes, 7 scenes, 6 terminating paths, 5 quiz questions and 9 matching narration/VTT cues110s. Reviewer confirmation is recorded on this isolated branch under the latest user delegation; production/media cards remain REVIEW/BLOCKED.
+- Next action: none for this accepted deliverable. Hosted setup/rotation, real Auth/REST/Storage and canonical media rights remain assigned to their open cards; milestone decisions remain separate.

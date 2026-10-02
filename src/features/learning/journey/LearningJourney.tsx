@@ -37,6 +37,7 @@ export function LearningJourney({ services = m3JourneyServices, activityService,
   const lessonButtonsRef = useRef(new Map<string, HTMLButtonElement>())
   const pendingFocusRef = useRef<FocusTarget | null>(null)
   const loadRevisionRef = useRef(0)
+  const navigationRevisionRef = useRef(0)
 
   const refresh = useCallback(async () => {
     setState({ status: 'loading' })
@@ -50,7 +51,7 @@ export function LearningJourney({ services = m3JourneyServices, activityService,
   useEffect(() => {
     setView({ type: 'home' })
     void refresh()
-    return () => { loadRevisionRef.current += 1 }
+    return () => { loadRevisionRef.current += 1; navigationRevisionRef.current += 1 }
   }, [refresh])
   useEffect(() => {
     const update = () => setOffline(!navigator.onLine)
@@ -82,9 +83,12 @@ export function LearningJourney({ services = m3JourneyServices, activityService,
   const openLesson = async (chapterId: string, lessonId: string) => {
     const selected = state.snapshot.chapters.find(item => item.id === chapterId)?.lessons.find(item => item.id === lessonId)
     if (!selected) return
+    const navigation = ++navigationRevisionRef.current
     const result = await startLesson(services, selected)
+    if (navigation !== navigationRevisionRef.current) return
     if (!result.ok) { setState({ status: 'error', error: result.error }); return }
     await refresh()
+    if (navigation !== navigationRevisionRef.current) return
     pendingFocusRef.current = { kind: 'heading' }
     setView({ type: 'lesson', chapterId, lessonId })
   }
@@ -97,6 +101,7 @@ export function LearningJourney({ services = m3JourneyServices, activityService,
         pendingFocusRef.current = null
       }
     }} onBack={() => {
+      navigationRevisionRef.current += 1
       pendingFocusRef.current = { kind: 'lesson-button', id: lesson.id }
       setView({ type: 'chapter', chapterId: chapter.id })
       void refresh()
@@ -108,6 +113,7 @@ export function LearningJourney({ services = m3JourneyServices, activityService,
       headingRef={chapterHeadingRef}
       lessonButtonRef={(id, element) => { element ? lessonButtonsRef.current.set(id, element) : lessonButtonsRef.current.delete(id) }}
       onBack={() => {
+        navigationRevisionRef.current += 1
         pendingFocusRef.current = { kind: 'chapter-button', id: chapter.id }
         setView({ type: 'home' })
       }}
@@ -121,6 +127,7 @@ export function LearningJourney({ services = m3JourneyServices, activityService,
     headingRef={homeHeadingRef}
     chapterButtonRef={(id, element) => { element ? chapterButtonsRef.current.set(id, element) : chapterButtonsRef.current.delete(id) }}
     onChapter={chapterId => {
+      navigationRevisionRef.current += 1
       pendingFocusRef.current = { kind: 'heading' }
       setView({ type: 'chapter', chapterId })
     }}

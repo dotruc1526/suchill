@@ -111,3 +111,9 @@ Tuy nhiên, hội đồng thẩm định ghi nhận **04 lỗi lịch sử & k�
 
 ---
 *Báo cáo cũ chưa là sign-off; xem assignment và blocker hiện hành ở đầu card.*
+
+## Re-review decision — 2026-10-02
+
+- Reviewer: Codex specialist review and root cross-review under explicit user delegation. Local implementation/draft checks pass; task remains REVIEW because full acceptance is not evidenced.
+- Remaining prerequisite / next action: Readable source evidence, historical artifact/audio/media sign-off missing; provenance conflict recorded.
+- Evidence: [all-task audit](../../engineering/review-all/EVIDENCE.md). No missing key rotation, license, recording or human historical verdict is fabricated.

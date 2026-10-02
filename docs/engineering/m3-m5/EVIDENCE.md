@@ -1,5 +1,7 @@
 # M3–M5 delivery evidence — 2026-10-02
 
+> Latest acceptance: [all-task review](../review-all/EVIDENCE.md) — final Quality237 PASS, native-mode49 PASS on PostgreSQL17.11, 16/27 original REVIEW cards DONE, 11 remain REVIEW. Individual technical acceptance does not close the hosted/milestone/content production gates. Counts below describe the earlier implementation checkpoint unless explicitly updated.
+
 Branch: `codex/m3-m5-complete`, baseline `fb02f7d`. Product Owner authorized complete implementation through M5 in this chat. The baseline includes the existing Home visual restoration; unrelated untracked `.worktrees/`, `branches/`, `output/` and `pr-77-merged.png` are preserved. Implementation is ready for review; milestone closure and hosted acceptance remain separate.
 
 ## Delivered behavior
@@ -14,7 +16,7 @@ Branch: `codex/m3-m5-complete`, baseline `fb02f7d`. Product Owner authorized com
 
 React reads service/domain contracts. `App.tsx` composes the app and displays account-confirmed values; it does not calculate or grant XP. Answer keys and correctness are excluded from VN/quiz delivery until trusted submission. AI Battle reward integration and PWA release are outside M3–M5.
 
-## Verification
+## Original implementation verification (before all-task re-review)
 
 - Actual VN model → Supabase adapter → PostgreSQL regression PASS. This exercises first-load checkpoint initialization, transitions and trusted feedback without manually seeding the player cursor. VN regressions also cover simultaneous initialization, account switching during load and rejecting another account's returned progress DTO.
 - Unit suite: 125/125 PASS, including replay, revisions, completion, media resource validation, account/settings/telemetry switching, VN initialization and durable queue failures.
@@ -36,7 +38,7 @@ Reviewers are Codex agents, not team-member approvals. Hưng/Vinh and Product Ow
 
 No hosted Supabase project was contacted or migrated. This workspace has no configured hosted runtime or confirmation that the previously exposed privileged key was rotated. A text-only configuration/rotation clarification is pending; no key was requested in chat.
 
-Before M4/M5 closure, use a disposable safely configured stack/project to verify actual Auth sign-up confirmation/session refresh/sign-out, PostgREST anon/A/B/trusted behavior, Storage signing/path isolation, PostgreSQL 17 migrations and genuine multiple-session completion races. [Backend setup](../../../supabase/README.md) gives the configuration and policy contract. Never reuse the exposed privileged key or reset a hosted database.
+Before M4/M5 closure, use a disposable safely configured stack/project to verify actual Auth sign-up confirmation/session refresh/sign-out, PostgREST anon/A/B/trusted behavior and Storage signing/path isolation. PostgreSQL17 migrations and genuine overlapping-session races now pass in the linked all-task review. [Backend setup](../../../supabase/README.md) gives the configuration and policy contract. Never reuse the exposed privileged key or reset a hosted database.
 
 Known limits: video telemetry bounds implausible ranges using server elapsed time and cannot prove attention; offline playback without server initialization may need authored fallback. Mock data is technical and in-memory, not canonical content or a real account. Achievement list stays empty until an approved catalog/rule exists. Build may warn about the existing native Vite config and the main chunk exceeding 500 kB; PWA/performance gates belong to M6. New runtime dependencies are Supabase JS; PGlite is test-only.
 

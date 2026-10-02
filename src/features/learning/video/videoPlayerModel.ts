@@ -2,7 +2,7 @@ import type { LearningServices, ResolvedMediaAsset, Result, ServiceErrorCode } f
 import type { VideoProgress } from '../../../types/v2/progress'
 
 export type VideoPlayerContext = { lessonId: string; blockId: string; mediaAssetId: string }
-export type VideoPlayerSession = { asset: ResolvedMediaAsset; progress: VideoProgress | null; resumePositionSeconds: number }
+export type VideoPlayerSession = { userId: string; asset: ResolvedMediaAsset; progress: VideoProgress | null; resumePositionSeconds: number }
 
 export const videoContextKey = (context: VideoPlayerContext) =>
   `${context.lessonId}:${context.blockId}:${context.mediaAssetId}`
@@ -14,15 +14,20 @@ export async function loadVideoPlayer(
   services: LearningServices,
   context: VideoPlayerContext,
 ): Promise<Result<VideoPlayerSession>> {
+  const actor = await services.auth.getSession()
+  if (!actor.ok || !actor.value) return { ok: false, error: 'unauthorized' }
   const assetResult = await services.media.getResolvedAsset(context.mediaAssetId)
   if (!assetResult.ok) return assetResult
   if (assetResult.value.kind !== 'video') return { ok: false, error: 'validation' }
   const progressResult = await services.progress.getVideoProgress(context.lessonId, context.blockId)
   if (!progressResult.ok) return progressResult
+  const current = await services.auth.getSession()
+  if (!current.ok || current.value?.userId !== actor.value.userId ||
+    progressResult.value && progressResult.value.userId !== actor.value.userId) return { ok: false, error: 'unauthorized' }
   const duration = assetResult.value.durationSeconds
   const savedPosition = progressResult.value?.positionSeconds ?? 0
   const resumePositionSeconds = duration && savedPosition <= duration ? savedPosition : 0
-  return { ok: true, value: { asset: assetResult.value, progress: progressResult.value, resumePositionSeconds } }
+  return { ok: true, value: { userId: actor.value.userId, asset: assetResult.value, progress: progressResult.value, resumePositionSeconds } }
 }
 
 export function observedRange(start: number | null, end: number, duration?: number) {
@@ -39,10 +44,11 @@ export async function saveVideoCheckpoint(
   watchedRanges: Array<{ start: number; end: number }>,
   operationId: string,
   expectedRevision?: number,
+  expectedSubject?: string,
 ): Promise<Result<VideoProgress>> {
-  return services.progress.saveVideoPosition({
-    lessonId: context.lessonId, blockId: context.blockId, positionSeconds, watchedRanges, operationId, expectedRevision,
-  })
+  const input = { lessonId: context.lessonId, blockId: context.blockId, positionSeconds, watchedRanges, operationId, expectedRevision,
+    ...(expectedSubject ? { expectedSubject } : {}) }
+  return services.progress.saveVideoPosition(input)
 }
 
 export type VideoCheckpointPayload = {
@@ -50,6 +56,7 @@ export type VideoCheckpointPayload = {
   watchedRanges: Array<{ start: number; end: number }>
   operationId: string
   expectedRevision?: number
+  expectedSubject?: string
 }
 
 export class VideoCheckpointQueue {
@@ -87,7 +94,8 @@ export class VideoCheckpointQueue {
   private async flush(): Promise<void> {
     if (this.flushing || this.failed || this.items.length === 0) return
     this.flushing = true
-    const result = await this.write(this.items[0])
+    let result: Result<VideoProgress>
+    try { result = await this.write(this.items[0]) } catch { result = { ok: false, error: 'server_error' } }
     this.flushing = false
     if (!result.ok) {
       this.failed = true
@@ -114,5 +122,9 @@ export class VideoCheckpointQueueRegistry {
     const queue = create()
     serviceQueues.set(contextKey, queue)
     return queue
+  }
+
+  reset(services: object, contextKey: string) {
+    this.queues.get(services)?.delete(contextKey)
   }
 }
