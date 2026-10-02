@@ -7,9 +7,10 @@ import { getHomeContinuation, type JourneyChapter } from './journeyModel'
 import { HomeGoalCard, HomeStreakCard } from './HomeActivityCards'
 import type { Ref } from 'react'
 
-export function JourneyHome({ chapters, activity, headingRef, chapterButtonRef, onChapter, onLesson }: {
+export function JourneyHome({ chapters, activity, greeting = 'XIN CHÀO', headingRef, chapterButtonRef, onChapter, onLesson }: {
   chapters: JourneyChapter[]
   activity?: HomeActivitySummary
+  greeting?: string
   headingRef: Ref<HTMLHeadingElement>
   chapterButtonRef: (id: string, element: HTMLButtonElement | null) => void
   onChapter: (id: string) => void
@@ -20,7 +21,7 @@ export function JourneyHome({ chapters, activity, headingRef, chapterButtonRef, 
   return (
     <section data-testid="learning-journey" className="space-y-4 px-4 py-4" aria-labelledby="journey-heading">
       <div>
-        <h1 ref={headingRef} tabIndex={-1} data-testid="journey-title" id="journey-heading" className="flex items-center gap-2 font-sans text-2xl font-normal outline-none" style={{ color: theme.colors.textPrimary }}>XIN CHÀO <HandIcon size={24} aria-hidden="true" /></h1>
+        <h1 ref={headingRef} tabIndex={-1} data-testid="journey-title" id="journey-heading" className="flex items-center gap-2 font-sans text-2xl font-normal outline-none" style={{ color: theme.colors.textPrimary }}><span data-testid="journey-greeting" className="min-w-0 break-words" style={{ overflowWrap: 'anywhere' }}>{greeting}</span><HandIcon size={24} aria-hidden="true" className="shrink-0" /></h1>
         <p className="mt-1 font-sans text-sm" style={{ color: theme.colors.textSecondary }}>Hôm nay bạn muốn khám phá điều gì?</p>
       </div>
       {activity && <HomeStreakCard activity={activity} />}

@@ -4,9 +4,13 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOC
 
 > Last synchronized: 2026-10-01 — M3-01..05 và M3-UX-01 đã được reviewer xác nhận, PR merge và chuyển sang done/.
 
+## M3 QA
+
+- [QA-002](../done/QA-002.md) — DONE; mobile/player matrix và browser regressions đạt trên mock; PR83 merged `cda4a69`, Dương APPROVED player, Hưng ACCEPTED harness/accessibility.
+
 ## Milestone 3 — Home visual follow-up
 
-- [M3-UX-02](./M3-UX-02.md) — REVIEW; restore Home visual layout while keeping PR #72 service journey.
+- [M3-UX-02](../done/M3-UX-02.md) — DONE; Dương consumer, Hưng UI/tokens và Vinh checkpoint/focus QA accepted ngày 2026-10-02.
 
 ## Content track
 
@@ -23,4 +27,3 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOC
 - [BATTLE-001](./BATTLE-001.md) — `IN PROGRESS (external)`; chờ repo/demo/rules/security handoff trước integration review.
 
 Các file `active.md`, `CONTENT-003-004-REVIEW.md`, `PR21-HANDOFF.md`, `BEQA-LOCAL-001-MATRIX.md` và `M1-PR-REVIEW-GUIDE.md` là evidence/handoff, không phải task card độc lập.
-
