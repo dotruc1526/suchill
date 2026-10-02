@@ -1,6 +1,6 @@
 # M3-STATUS-01 — Đồng bộ tiến độ M3
 
-> Status: REVIEW
+> Status: DONE
 > Last updated: 2026-10-02
 
 - Owner: Dương (Member 4).
@@ -82,3 +82,8 @@
 - Ghi nhận không chặn merge: (1) header Files claimed còn liệt kê `done/QA-002.md` dù không sửa mới (card đã tự đính chính); (2) card M3-06 còn chữ "blocked index" — tồn tại sẵn trên main; (3) số "139 link" trong handoff khác cách đếm phạm vi, 0 gãy đã xác minh độc lập; (4) card dài do nhiều checkpoint — chỉ ảnh hưởng đọc hiểu.
 - Text review ghi tại đây theo yêu cầu Hưng; chưa có GitHub APPROVED submission (phiên `gh` local đăng nhập tài khoản Compuerte, không phải Hưng).
 - Next: Dương merge PR90 khi CI xanh trên head mới; sau merge chuyển M3-STATUS-01 REVIEW → DONE; Dương claim runtime M3-06 độc lập theo card (PR90 không chặn); M3-07 chờ M3-06 acceptance; không đổi gate.
+
+## Reviewer-authorized post-merge closeout — 2026-10-02
+- Records Hưng instruction in acceptance above: after merge transition REVIEW → DONE. Vinh earlier docs/service APPROVE preserved.
+- PR90 merged `e7e8aac` from exact acceptance head `65c82d2`, Quality 2/2 SUCCESS.
+- Closeout claim: card relocation, board own row, active/done indexes and status snapshot. No runtime/env/migration impact; M3-06 stays READY until Dương claims files; M3 OPEN/M4 LOCKED.
