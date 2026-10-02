@@ -26,14 +26,14 @@ test('canonical BottomNav renders all tabs and selected state', async () => {
     React.createElement(BottomNav, { tab: 'home', onTab: () => {} }),
   )
 
-  for (const label of ['HỌC', 'LUYỆN TẬP', 'AI', 'HỒ SƠ']) {
+  for (const label of ['HỌC', 'LUYỆN TẬP', 'ĐẤU TRÍ', 'AI', 'HỒ SƠ']) {
     assert.ok(html.includes(label), `missing tab: ${label}`)
   }
-  assert.equal((html.match(/<button/g) ?? []).length, 4)
+  assert.equal((html.match(/<button/g) ?? []).length, 5)
   assert.ok(html.includes('max(16px, env(safe-area-inset-bottom))'))
   assert.ok(html.includes('min-height:44px'))
   assert.ok(html.includes('aria-current="page"'))
-  assert.equal((html.match(/<svg/g) ?? []).length, 4)
+  assert.equal((html.match(/<svg/g) ?? []).length, 5)
   assert.doesNotMatch(html, /🏠|🧠|🤖|👤/)
 })
 

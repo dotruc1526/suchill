@@ -18,15 +18,18 @@
     "test:db": "node --test supabase/tests/*.test.mjs",
     "test:authoring": "node docs/content/validate-mt68-authoring.mjs && node docs/content/validate-1972-authoring.mjs",
     "test:e2e": "node scripts/member5/run-fixture-e2e.mjs",
-    "test": "npm run test:unit && npm run test:component && npm run test:db && npm run test:authoring && npm run test:e2e && npm run test:pwa",
+    "test": "npm run test:unit && npm run test:component && npm run test:db && npm run test:authoring && npm run test:e2e && npm run test:pwa && npm run test:pvp && npm run test:pvp:ui",
     "quality": "npm run typecheck && npm run build && node scripts/member5/check-client-env.mjs --require-bundle && npm test && node scripts/member5/check-client-env.mjs --require-bundle",
     "test:pwa": "node --test tests/qa/pwa-lifecycle.test.mjs",
-    "test:pwa:install": "node --test tests/qa/pwa-install.test.mjs"
+    "test:pwa:install": "node --test tests/qa/pwa-install.test.mjs",
+    "test:pvp": "node --test server/tests/*.test.js",
+    "test:pvp:ui": "node --test tests/qa/pvp-ui.test.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.117.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "socket.io-client": "4.8.3"
   },
   "devDependencies": {
     "@electric-sql/pglite": "^0.5.8",

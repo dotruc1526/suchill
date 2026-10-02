@@ -28,3 +28,7 @@ Nhánh đang phát triển cần cung cấp cho project chính:
 - Danh sách phần đã xong, đang làm và blocker.
 
 Sau khi nhận bàn giao, team sẽ review để quyết định tích hợp vào `src/features/ai-battle/` hay giữ thành prototype độc lập.
+
+## Scope mới — 2026-10-03
+
+PO bỏ task AI Battle cũ; nội dung phía trên là lịch sử. Tính năng mới là [Đấu Trí PvP online 1vs1](../dau-tri/README.md), dựa trên prototype người dùng; không còn chờ external AI handoff.

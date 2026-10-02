@@ -25,7 +25,7 @@ Không dùng chat cũ làm nguồn sự thật duy nhất. Nếu tài liệu mâ
 - Mỗi milestone tiếp theo chỉ bắt đầu khi gate và dependency tương ứng đạt **và Product Owner duyệt rõ ràng milestone trước đó trên task board**. Task `DONE` riêng lẻ không tự mở milestone tiếp theo.
 - Demo Genève/vĩ tuyến 17 hiện tại là fixture kỹ thuật, không phải pilot/canonical content hay chuẩn nội dung mục tiêu.
 - Nội dung canonical chỉ nằm trong phạm vi kháng chiến chống Mỹ ở Việt Nam; ví dụ lịch sử ngoài phạm vi trong tài liệu cũ chỉ minh họa cấu trúc học, không tự trở thành lesson phát hành.
-- AI Battle là track thử nghiệm độc lập; chưa tích hợp reward/XP thật nếu chưa qua review contract và bảo mật.
+- PO đã bỏ scope AI Battle cũ; Đấu Trí mới là PvP online 1vs1 từ prototype của người dùng, track thử nghiệm độc lập theo PVP-ONLINE-001; chưa tích hợp reward/XP thật nếu chưa qua review contract và bảo mật.
 - PWA là target đầu tiên. Capacitor/Android/iOS bị chặn cho đến khi PWA ổn định và được duyệt riêng.
 
 ## 3. Task claim và theo dõi tiến độ

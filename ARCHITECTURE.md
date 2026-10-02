@@ -141,7 +141,7 @@ Visual Novel là authored scene graph:
 
 ## 9. Experimental boundary
 
-AI Battle tiếp tục ở repo/branch hoặc module độc lập cho đến khi có handoff gồm rules, contract, secret boundary, test và review. Nó không được tự ghi authoritative XP/streak trước khi integration được duyệt.
+PO bỏ AI Battle cũ ngày 2026-10-03. [Đấu Trí PvP online 1vs1](docs/features/dau-tri/README.md) được phát triển từ prototype người dùng theo PVP-ONLINE-001, qua feature hook và service Socket.IO tới backend riêng. Bản thử nghiệm dùng phiên khách và server-authoritative match state; XP/streak/rank tài khoản chỉ bật sau trusted settlement/identity/security review.
 
 ## 10. Change control
 

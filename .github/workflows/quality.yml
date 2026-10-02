@@ -24,6 +24,7 @@ jobs:
         with:
           install-dependencies: true
       - run: npm ci
+      - run: npm --prefix server ci
       - run: npm run quality
         env:
           CHROME_PATH: ${{ steps.chrome.outputs.chrome-path }}
