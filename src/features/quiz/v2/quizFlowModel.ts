@@ -38,7 +38,7 @@ export class QuizSubmissionGate {
 }
 
 export async function loadQuizFlow(
-  services: LearningServices,
+  services: Pick<LearningServices, 'quiz'>,
   questionSetId: string,
 ): Promise<Result<QuizFlowSession>> {
   const result = await services.quiz.getQuestionSet(questionSetId)
@@ -58,7 +58,7 @@ export const isQuizComplete = (delivery: QuestionSetDelivery, answers: QuizAnswe
   delivery.questions.every(question => (answers[question.id]?.length ?? 0) > 0)
 
 export async function submitQuizFlow(
-  services: LearningServices,
+  services: Pick<LearningServices, 'quiz'>,
   session: QuizFlowSession,
   operationId: string,
 ): Promise<Result<QuizReceipt>> {

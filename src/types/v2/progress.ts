@@ -7,8 +7,10 @@ export type LessonProgress = {
   status: ProgressStatus
   currentBlockId?: EntityId
   completedBlockIds: EntityId[]
+  confirmedCompletedBlockIds?: EntityId[]
   startedAt?: ISODateTime
   completedAt?: ISODateTime
+  revision?: number
   updatedAt: ISODateTime
 }
 export type EpisodeProgress = {
@@ -20,6 +22,7 @@ export type EpisodeProgress = {
   lockedChoiceIds: EntityId[]
   startedAt: ISODateTime
   completedAt?: ISODateTime
+  revision?: number
   updatedAt: ISODateTime
 }
 export type VideoProgress = {
@@ -29,6 +32,7 @@ export type VideoProgress = {
   positionSeconds: number
   watchedRanges: Array<{ start: number; end: number }>
   completed: boolean
+  revision?: number
   updatedAt: ISODateTime
 }
 export type LearningAttempt = {

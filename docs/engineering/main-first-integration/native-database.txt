@@ -1,0 +1,80 @@
+
+> figma-make-app@1.0.0 test:db
+> node --test supabase/tests/*.test.mjs
+
+▶ account settings, streak, daily review and analytics follow server policies
+  ✔ settings validate safe flags and audited timezone cooldown (2380.6626ms)
+  ✔ enabled daily review earns5 once per account day; attempt cannot replay into another timezone day (445.1568ms)
+  ✔ yesterday extends streak, old gap resets current, longest survives (34.7973ms)
+  ✔ analytics is optional, event-specific and rejects personal data fields (35.4107ms)
+  ✔ expectedSubject is a session guard and never overrides authenticated identity (22.564ms)
+✔ account settings, streak, daily review and analytics follow server policies (15187.6033ms)
+✔ actual adapter consumes normalized SQL catalog and media DTOs without exposing answer keys (10960.9299ms)
+✔ actual adapter completes explicit text policy and exact retry receives same confirmed receipt (82.4071ms)
+✔ actual VN model initializes and traverses trusted SQL feedback; adapter grades authored quiz (82.1735ms)
+✔ queued expected subject mismatch rejects before any other-user write or reward (11.8158ms)
+✔ required VN checks apply to the visited branch; completed replay changes no records (14952.4374ms)
+✔ trusted account deletion removes personal learning data while ordinary ledger mutation fails (3498.1581ms)
+✔ 025 to 026 preserves authority and receipts while business conflicts become final HTTP409 (14990.8674ms)
+✔ accepted main completion shape: ineligible retry, explicit acknowledgement, replay, restore and summary (10670.5087ms)
+✔ main RPC rejects account substitution, operation reuse and direct receipt access (26.6732ms)
+✔ main Visual Novel uses trusted feedback and server verifies episode before completion (228.4633ms)
+✔ main scored quiz completion retains authoritative reward scopes and no farming (79.0036ms)
+▶ native PostgreSQL independent overlapping sessions preserve authority and atomicity
+  ✔ same operation at eight simultaneous sessions returns one exact immutable receipt (425.3775ms)
+  ✔ different operation IDs for the same reward grant10 once and qualify one account day (468.3104ms)
+  ✔ stale checkpoint contenders reject without persisting operation rows (105.4012ms)
+  ✔ concurrent graded attempts produce unique indexes and one base/bonus reward (263.1294ms)
+  ✔ concurrent video checkpoints merge ranges and reject competing stale revisions (280.7219ms)
+  ✔ daily claims overlap across attempts but grant5 exactly once (269.8402ms)
+  ✔ A locking cannot redirect B ownership, B progresses independently and changed subject rolls back (53.6476ms)
+✔ native PostgreSQL independent overlapping sessions preserve authority and atomicity (14687.6905ms)
+✔ native harness validates dedicated cluster and normalizes config before any connection (19.649ms)
+✔ native bootstrap preserves PostgreSQL dollar quoting while adapting cluster roles (7.1254ms)
+▶ trusted SQL completion, grading, resume and retries preserve account rewards
+  ✔ checkpoints cannot spoof completed blocks and revision conflicts cannot rewind (66.441ms)
+  ✔ explicit text completion and concurrent distinct completion operations grant exactly10 (354.5477ms)
+  ✔ story traversal, submitted feedback and required checks protect episode20 (143.7821ms)
+  ✔ video union, server-time budget and90percent policy resist seeking/duplicates (61.0377ms)
+  ✔ fallback requires approved transcript and completed authored recap (43.1544ms)
+  ✔ trusted quiz grading, feedback, mastery and retries grant25 only once (85.1348ms)
+✔ trusted SQL completion, grading, resume and retries preserve account rewards (14481.3747ms)
+✔ minor immutable corrections reuse reward identity and existing buckets become safe (14752.8322ms)
+✔ scored attempts respect prerequisites, incremental bonus and corrected assessment scopes (3352.777ms)
+✔ analytics failure cannot roll back completion and successful commands emit minimal events once (2549.4847ms)
+✔ optional-policy video never blocks lesson completion even when the block flag is required (2365.3089ms)
+✔ roll-forward completion migration repairs an already-applied optional-video gate (2290.4075ms)
+✔ persisted PostgreSQL reopen preserves operation receipts and reward uniqueness (5454.337ms)
+✔ pre-existing Auth accounts are initialized without replacing account settings (14541.7768ms)
+✔ question-set delivery exposes authored daily eligibility without grading keys (3488.7626ms)
+✔ publication rejects knowledge checks that cannot advance or pass (2389.578ms)
+✔ publication rejects duplicate grading keys and unsafe or non-finite media metadata (2366.876ms)
+✔ every published VN branch must have a playable end route (2386.822ms)
+✔ a confirmed zero-XP daily attempt cannot become fresh after timezone reinterpretation (2660.8961ms)
+▶ SQL grants, RLS, publication and Storage protect anon/A/B boundaries
+  ✔ published relational DTOs have stable UUID identities and no keys (60.3604ms)
+  ✔ anon cannot read private keys, user data or invoke writes (32.4698ms)
+  ✔ A cannot read/write B; identity body override and direct XP writes fail (65.8852ms)
+  ✔ private helpers have no direct client execution grants (48.8668ms)
+  ✔ published roots, children, choice keys and append-only ledger reject mutation (553.8376ms)
+  ✔ publication fails closed for draft references and unsafe fallback resources (162.1943ms)
+  ✔ Storage anon reads only approved paths; avatars stay account scoped (73.6393ms)
+✔ SQL grants, RLS, publication and Storage protect anon/A/B boundaries (14501.6024ms)
+▶ username identities preserve Auth identity while keeping mapping and quotas server-only
+  ✔ GoTrue insert then trusted metadata update enrolls only the final committed row (588.0935ms)
+  ✔ anon and A/B cannot enumerate identities, mutate mappings or consume trusted quota (95.0195ms)
+  ✔ enrollment rejects public user metadata spoofing and rolls back account/profile creation (2356.0209ms)
+  ✔ claiming an existing email account is idempotent and preserves its UUID/progress rows (23.0961ms)
+  ✔ enrollment collision is atomic and cannot steal an existing email account alias (678.0933ms)
+  ✔ identity lookup follows verified Auth email changes without changing username/UUID (8.3868ms)
+  ✔ quota blocks only after the exact bound, expires and rejects malformed buckets (32.4191ms)
+  ✔ recovery tokens are owner-bound, expire, cannot replay, and stale tokens lose to replacement (51.1782ms)
+✔ username identities preserve Auth identity while keeping mapping and quotas server-only (17144.7846ms)
+ℹ tests 63
+ℹ suites 0
+ℹ pass 63
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 31492.1059

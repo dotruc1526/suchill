@@ -38,6 +38,7 @@ export type LessonBlock = TextBlock | VisualNovelBlock | VideoBlock | QuizBlock 
 
 export type LessonFormat = 'standard' | 'visual_novel' | 'video' | 'quiz' | 'mixed'
 export type Lesson = {
+  contentVersionId?: EntityId
   id: EntityId
   chapterId: EntityId
   slug: string

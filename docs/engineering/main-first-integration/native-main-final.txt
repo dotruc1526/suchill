@@ -1,0 +1,13 @@
+✔ accepted main completion shape: ineligible retry, explicit acknowledgement, replay, restore and summary (2181.8307ms)
+✔ main RPC rejects account substitution, operation reuse and direct receipt access (16.8362ms)
+✔ main Visual Novel uses trusted feedback and server verifies episode before completion (78.0793ms)
+✔ main scored quiz completion retains authoritative reward scopes and no farming (28.8806ms)
+✔ native main independent requests serialize canonical receipts and grant XP once (98.1748ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2838.6921

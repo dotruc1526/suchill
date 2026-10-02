@@ -1,3 +1,4 @@
+import type { DeliveredStoryVersion, StoryChoiceReceipt } from './storyDelivery.ts'
 import type { AccountSummary, CompletionService } from './completionContracts.ts'
 export type * from './completionContracts.ts'
 import type { Chapter, LearningDocument, Lesson, Locale, MediaAsset, MultipleChoiceQuestion, QuestionSet, StoryVersion } from '../../types/v2/content.ts'
@@ -19,7 +20,7 @@ export interface DocumentService {
   getById(documentId: string): Promise<Result<LearningDocument>>
 }
 export interface VisualNovelService {
-  getVersion(storyVersionId: string): Promise<Result<StoryVersion>>
+  getVersion(storyVersionId: string): Promise<Result<DeliveredStoryVersion>>
 }
 export interface MediaService {
   getResolvedAsset(mediaAssetId: string): Promise<Result<ResolvedMediaAsset>>
@@ -37,18 +38,20 @@ export type SaveLessonCheckpoint = {
   currentBlockId?: string
   completedBlockIds: string[]
   operationId: string
+  expectedRevision?: number
 }
 export interface ProgressService {
   getLessonProgress(lessonId: string): Promise<Result<LessonProgress | null>>
   saveCheckpoint(input: SaveLessonCheckpoint): Promise<Result<LessonProgress>>
   getEpisodeProgress(storyVersionId: string): Promise<Result<EpisodeProgress | null>>
   saveEpisodeCheckpoint(input: SaveEpisodeCheckpoint): Promise<Result<EpisodeProgress>>
+  recordChoiceWithFeedback?(input: RecordStoryChoice & { replay?: boolean; expectedRevision?: number }): Promise<Result<StoryChoiceReceipt>>
   recordChoice(input: RecordStoryChoice): Promise<Result<EpisodeProgress>>
   getVideoProgress(lessonId: string, blockId: string): Promise<Result<VideoProgress | null>>
   saveVideoPosition(input: SaveVideoPosition): Promise<Result<VideoProgress>>
   getResumePoint(lessonId: string): Promise<Result<ResumePoint>>
 }
-export type StoryCheckpointContext = { lessonId: string; blockId: string; storyVersionId: string; operationId: string }
+export type StoryCheckpointContext = { lessonId: string; blockId: string; storyVersionId: string; operationId: string; expectedRevision?: number }
 export type SaveEpisodeCheckpoint = StoryCheckpointContext & { currentSceneId: string; visitedSceneIds: string[] }
 export type RecordStoryChoice = StoryCheckpointContext & { sceneId: string; choiceId: string }
 export type SaveVideoPosition = {

@@ -1,4 +1,5 @@
-import { useEffect, useSyncExternalStore } from 'react'
+import { HostedApp } from './app/HostedApp'
+import { useEffect, useSyncExternalStore, type ReactNode } from 'react'
 import { CompletionSession, useCompletionSession } from './features/learning/completion/CompletionSession'
 import { m3JourneyServices, m3Session } from './services/next/m3JourneyFixture'
 import { theme } from './theme/tokens'
@@ -11,7 +12,7 @@ import { ProfileScreen } from './features/profile/ProfileScreen'
 import { AppViewRouter } from './app/AppViewRouter'
 import { useAppNavigation } from './app/useAppNavigation'
 
-function AppContent() {
+function AppContent({ profile, practice }: {profile?: ReactNode; practice?: ReactNode}) {
   const navigation = useAppNavigation()
   const { summary } = useCompletionSession()
   const account = useSyncExternalStore(summary.subscribe, summary.getSnapshot, summary.getSnapshot)
@@ -57,9 +58,9 @@ function AppContent() {
           {!navigation.isOverlay && (
             <div className="flex-1 overflow-y-auto">
               <div hidden={navigation.tab !== 'home'}><LearningJourney active={navigation.tab === 'home'} /></div>
-              {navigation.tab === 'practice' && <PracticeScreen />}
+              {navigation.tab === 'practice' && (practice ?? <PracticeScreen />)}
               {navigation.tab === 'ai' && <AIScreen />}
-              {navigation.tab === 'profile' && <ProfileScreen />}
+              {navigation.tab === 'profile' && <><ProfileScreen />{profile}</>}
             </div>
           )}
 
@@ -84,5 +85,7 @@ function AppContent() {
 }
 
 export default function App() {
+  if (import.meta.env.VITE_SUPABASE_URL || import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY)
+    return <HostedApp>{(profile, practice) => <AppContent profile={profile} practice={practice} />}</HostedApp>
   return <CompletionSession services={m3JourneyServices} userId={m3Session.userId} epoch="m3.mock.session.v1"><AppContent /></CompletionSession>
 }

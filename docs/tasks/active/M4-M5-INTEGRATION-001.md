@@ -1,9 +1,12 @@
 # M4-M5-INTEGRATION-001 — Main-first integration
 
+> Status: REVIEW
+> Last updated: 2026-10-02
+
 - Owner: Product Owner (requested)
 - Executor: Codex
 - Reviewer: QA / Product Owner; approval pending
-- Status: IN PROGRESS
+- Status: REVIEW
 - Started: 2026-10-02
 - Branch: codex/m4-m5-main-integration
 - Depends on: DOC-019 DONE; M3 DONE; M4 OPEN
@@ -26,3 +29,11 @@ User authorized integrating the isolated M4/M5 work onto current main, prioritiz
 ## Checkpoint
 
 Current GitHub main: c7a5ad5968b95b8d3dc41cab1dfd4dfd48830f88 (DOC-019). Source delivery: 61ace4d. Fresh managed worktree and integration branch created. No production database changes.
+
+## Review-before-verification checkpoint
+
+Main M3 restored; explicit backend contract/facade and new029 prepared. Typecheck PASS. Executor review findings repaired; see [review record](../../engineering/main-first-integration/REVIEW.md). Comprehensive verification starts after this checkpoint. Hosted029 and independent QA/PO approval remain pending.
+
+## Verification and handoff
+
+303 quality tests passed; PostgreSQL17 full63 and final canonical/race5 passed; scan512/0 unsafe; docs91 cards/688 links passed. [Report](../../engineering/main-first-integration/REPORT.md). Hosted029 blocked by automatic approval review pending specific payload approval. Main integration is REVIEW, not DONE; M4/M5 gates require separate QA/PO acceptance. Root workspace changes untouched.
