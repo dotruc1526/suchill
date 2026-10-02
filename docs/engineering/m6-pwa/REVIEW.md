@@ -66,3 +66,7 @@ M7 additionally needs final content/historical/learning/media sign-off, immutabl
 ## Reproduction / handoff
 
 Run npm run quality with a local CHROME_PATH. npm run test:pwa checks two production versions without backend access. npm run test:pwa:install attempts the owned-profile experimental desktop install and reports unavailable protocol honestly. Icon regeneration: set PWA_SHARP_MODULE to an installed Sharp module path and run node scripts/pwa/build-icons.mjs; checked-in PNGs require no CI dependency addition. Original logo/mascot PNGs remain for lossless comparison. Services/adapters retain trusted/idempotent rewards; no PWA UI awards XP.
+
+## CI asset correction — 2026-10-03
+
+Git LFS tracks all icons and WebP assets. Quality checkout now enables lfs:true so the runner validates real binary assets rather than pointer files. This is an infrastructure-only correction; the reviewed runtime and379PASS source remain unchanged. Current-head GitHub checks are required; earlier head checks are not final evidence. Documentation check103cards/868local links PASS; staged source/tracked/bundle scan613files/0unsafe matches. Three moved CONTENT-003 task links repaired without touching authored/source/verdict bytes.
