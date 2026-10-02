@@ -64,3 +64,11 @@ Status REVIEW remains required: verified optional sender, exact hosted redirect 
 ## Root integration finding — 2026-10-03
 
 React StrictMode re-runs useMemo initializers; createLearningRuntime constructs an SDK that consumes a one-time recovery URL. Root claims the existing HostedApp initializer plus a new owned hosted-recovery fixture and browser assertion. A per-document runtime is shared across StrictMode/remount, keeping the original verified recovery tracker. This is software rework under the active recovery card, not evidence of real email delivery. Previous helper approval is preserved; the new integrated boundary needs review with this evidence.
+
+## HTTPS login continuation claim — 2026-10-03
+
+User reported created account cannot sign in by username on the temporary Firebase preview. Read-only probe reproduces OPTIONS403/POST403 with no CORS header for exact origin https://suchill-preview--m6-android-1954-p8pbahbd.web.app. The default account-access origins only include local8443/5173. Root resumes this existing auth claim for exact-origin configuration repair, docs/engineering/m6-pwa/HOSTING-PREVIEW-20261003.md and a new scripts/release/hosting-auth-origin.test.mjs. Do not reset/delete/change the user's account/password/progress, disable authentication/JWT/RLS or add wildcard CORS. Reviewer remains pending; verify denied arbitrary origin and successful preflight/domain behavior before handoff. Inspect existing server origin setting before mutation to preserve authorized entries.
+
+## HTTPS repair evidence — 2026-10-03
+
+Exact preview origin was added to ACCOUNT_ACCESS_ORIGINS, preserving four original default local origins; no custom setting existed before. Live preflight204/exact ACAO, arbitrary-origin403 and localhost204PASS; CORS+username-server20/20PASS. Separate new QA signup/signout/username-login/sameUUID/0XP read and wrong-password rejectionPASS. User's account, password and progress untouched. No source Auth/RLS/JWT/redirect modification; only the exact CORS setting changes backend environment. [Evidence](../../engineering/m6-pwa/HOSTING-PREVIEW-20261003.md). Actual Android/user retest is pending; status REVIEW, no DONE. Temporary origin cleanup on channel retirement is recorded.
