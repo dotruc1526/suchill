@@ -67,3 +67,8 @@ Hưng review contract/architecture and new explicit-action API; Dương confirm 
 - Regression checks adjacent/overlapping/reordered/gapped ranges, non-required VN lesson first completion, replay/minor version/cross-lesson story reuse and account isolation. Both new tests FAIL on the previous runtime (ineligible instead of completed; streak 0 instead of 1), PASS after restoration of the fix. Diagnostic changes were restored.
 - Full `npm run quality` PASS: typecheck/build, 93 unit / 22 component / 4 E2E, scan 334 files / 0 unsafe; focused completion 17/17; diff check PASS. Logs: `/tmp/suchill-pr88-remediation-quality.log`, `/tmp/suchill-pr88-remediation-baseline.log` (local only).
 - No Home, QA83 harness, UI, dependency, env or migration changes. Prior Dương consumer acceptance applies to dcc3079; Hưng and Dương must re-review this runtime delta. Task remains REVIEW; M3-06 UI stays BLOCKED pending acceptance; milestone gates unchanged.
+
+## Main integration claim — 2026-10-02
+- Owner/executor Vinh/Codex; REVIEW; Hưng/Dương review integrated head.
+- Files claimed: card/evidence, board adapter row and any overlapping docs resolution; import QA83 merged changes from main unchanged, no independent Home/QA83 edits.
+- Input: adapter 5a771db (Hưng ACCEPTED in user-provided review), main cda4a69 (PR83 merged). Resolve actual conflicts preserving both task records, then run full quality and publish integrated head. M3-06 stays BLOCKED.
