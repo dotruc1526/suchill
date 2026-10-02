@@ -8,7 +8,9 @@
 
 Đọc [PILOT-SCREENPLAY.md](./PILOT-SCREENPLAY.md). Nguồn lời đọc duy nhất là [PILOT-NARRATION.json](./PILOT-NARRATION.json); [VTT](./PILOT-CAPTIONS.vtt) khớp chữ, tổng 110s. Năm scene có đủ cue. Bỏ yêu cầu bản ghi thơ, clip Cronkite, tiếng nổ/nhạc và giờ lịch sử chưa đối chiếu.
 
-Visual dự kiến: thẻ chữ/sơ đồ không địa lý; không giả làm tư liệu gốc. Chưa tạo MP4/audio/poster. Trúc cần thu thử giọng hợp lệ, đo timing, xuất manifest/hash và QA nghe/xem trước production acceptance.
+Visual dự kiến: thẻ chữ/sơ đồ không địa lý; không giả làm tư liệu gốc. Chưa tạo MP4/audio/poster.
+
+Voice theo lựa chọn Trúc ngày 2026-10-02: **dùng ElevenLabs, giọng Hoa - Smooth, Gentle and Poetic (người Việt Nam theo mô tả Trúc), model Eleven v4 (`eleven_v4`), ngôn ngữ Vietnamese**. Xem [cấu hình và evidence còn thiếu](./MEDIA-REVIEW-MT68.md#phương-án-voice-do-trúc-chọn--2026-10-02). Chờ voice ID và bằng chứng quyền sử dụng; khi đủ gate mới tạo bản thử, đo timing, xuất manifest/hash và QA nghe/xem trước production acceptance.
 
 ## Bài 2 và dữ liệu
 
@@ -22,4 +24,12 @@ Visual dự kiến: thẻ chữ/sơ đồ không địa lý; không giả làm t
 
 ## Media và next action
 
-[MEDIA-REVIEW-MT68.md](./MEDIA-REVIEW-MT68.md) ghi từng quyết định license/caption và những ứng viên loại khỏi phương án bắt buộc. Trúc nghiệm thu nội dung theo quyền được giao; QA kỹ thuật vẫn cần evidence. CONTENT-006 giữ REFERENCE_ONLY; không dùng clip cũ thay pilot này; M0/M1 đã đóng, M2 kỹ thuật đang OPEN, còn content/media production vẫn bị khóa theo artifact review.
+[MEDIA-REVIEW-MT68.md](./MEDIA-REVIEW-MT68.md) ghi từng quyết định license/caption và những ứng viên loại khỏi phương án bắt buộc. Trúc đã ghi authoring media/handoff review, Vinh/Hưng đã ACCEPTED technical/review-state reconciliation; registry mới đã có source acceptance của Trúc theo CONTENT-003; quyền audio phù hợp phạm vi phát hành vẫn chờ Trúc. CONTENT-006 giữ REFERENCE_ONLY; không dùng clip cũ thay pilot. M0–M5 DONE, M6 OPEN, M7 LOCKED theo DOC-020/021 (PR110); content production có gate riêng. Production CONTENT-007 vẫn BLOCKED; PO quyết định handoff sau khi source/media/audio plan được duyệt. MP4/poster/manifest và audio/caption sync cuối là đầu ra CONTENT-007, không phải prerequisite phải có trước khi dựng.
+
+## Phạm vi voice đã chốt — Trúc, 2026-10-02
+
+Giữ cấu hình ElevenLabs/Hoa/Eleven v4/Vietnamese và voice ID `5g2DMFQF8xR0KmnuNr4U` trên **Free**, chỉ **INTERNAL_REFERENCE_ONLY**, phi thương mại. Không còn chờ Trúc chọn audio route. Không dùng output Free làm audio canonical/production/phát hành thương mại. Chưa tạo hoặc nghiệm thu file audio. Vinh technical review ACCEPTED tại d17968b; PO handoff production và phương án audio đủ quyền vẫn riêng, CONTENT-007 BLOCKED.
+
+## PO mở production — 2026-10-02
+
+Dương nghiệm thu CONTENT-003, chốt audio Free cho MVP academic/non-commercial và explicit mở CONTENT-007. Title video “Kế hoạch Giao Thừa — elevenlabs.io”, credit ElevenLabs trên app/player; commercial rights không được cấp. Production package tại production/mt68-v1; final MP4/audio/poster/hash chưa có. Chưa gắn URL giả hoặc dùng clip CONTENT-006. Tích hợp canonical qua service sau khi output được kiểm tra; fallback vẫn cần cho lỗi tải/accessibility.

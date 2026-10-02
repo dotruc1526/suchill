@@ -1,0 +1,59 @@
+{
+  "narrationSha256": "b9e7d17f8503796621e6624785628585477dc9e34633e4224e6b484eefc137ed",
+  "cues": [
+    {
+      "id": "p01a",
+      "startSeconds": 0,
+      "endSeconds": 10,
+      "input": "p01a.txt"
+    },
+    {
+      "id": "p01b",
+      "startSeconds": 10,
+      "endSeconds": 20,
+      "input": "p01b.txt"
+    },
+    {
+      "id": "p02a",
+      "startSeconds": 20,
+      "endSeconds": 32,
+      "input": "p02a.txt"
+    },
+    {
+      "id": "p02b",
+      "startSeconds": 32,
+      "endSeconds": 45,
+      "input": "p02b.txt"
+    },
+    {
+      "id": "p03a",
+      "startSeconds": 45,
+      "endSeconds": 57,
+      "input": "p03a.txt"
+    },
+    {
+      "id": "p03b",
+      "startSeconds": 57,
+      "endSeconds": 70,
+      "input": "p03b.txt"
+    },
+    {
+      "id": "p04a",
+      "startSeconds": 70,
+      "endSeconds": 85,
+      "input": "p04a.txt"
+    },
+    {
+      "id": "p04b",
+      "startSeconds": 85,
+      "endSeconds": 100,
+      "input": "p04b.txt"
+    },
+    {
+      "id": "p05",
+      "startSeconds": 100,
+      "endSeconds": 110,
+      "input": "p05.txt"
+    }
+  ]
+}
