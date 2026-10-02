@@ -11,3 +11,7 @@
 - No runtime, dependency, env, migration, media, deploy or gate change. Shared board/index left to integration owner to avoid PR115 overlap.
 
 Handoff: [task](../active/M7-1954-QUALITY-REVIEW-004.md), [worksheet](../../content/chapter1954/HISTORICAL-REVIEW-WORKSHEET.md). The worksheet is a dated snapshot and must be reconciled with register updates. Workflow validates preparation-v1 only; final approved schema requires separate review. Branch-protection required-check configuration is outside this change.
+
+## Final assigned review
+
+Review of f36aa585: ACCEPT, no actionable findings; same-author Codex review explicitly requested by user. Actual GitHub Quality and register-quality push/PR 4/4 SUCCESS; 31 tests independently rerun in this review PASS. Block-by-block worksheet comparison confirms 42 exact statement/locator/notes/class/assessment/source-ID mappings and blank verdicts. PR109 unchanged at 5f1c813, mergeable. Task card DONE for bounded preparation/software; historical acceptance pending. Subsequent review-record commit changes docs only and requires its own CI result before merge.
