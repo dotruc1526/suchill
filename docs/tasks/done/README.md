@@ -12,6 +12,7 @@
 - [M3-05](./M3-05.md) — Quiz flow; PR #76 merged, Hưng/Vinh approved `fc7a830`.
 
 - [DOC-018](./DOC-018.md) — Product Owner Dương audit Gate M2 đạt; đóng M2 và mở M3 ngày 2026-10-01.
+- [DOC-019](./DOC-019.md) — Product Owner Dương audit Gate M3 đạt (phạm vi mock); đóng M3 và mở M4 ngày 2026-10-02.
 - [QA-006](./QA-006.md) — E2E Chrome cleanup/target discovery được bounded; cả hai Quality checks PR #71 pass.
 - [QA-002](./QA-002.md) — Mobile/player matrix; PR #83 merged `cda4a69`, Dương APPROVED player behavior, Hưng ACCEPTED harness/accessibility; 76 unit/22 component/7 E2E.
 - [M2-01](./M2-01.md) — Domain types v2; Hưng ACCEPTED 2026-09-30 trên main `7175bda`; gate M2 do PO quyết riêng.
