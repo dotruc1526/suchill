@@ -16,3 +16,7 @@ Task: [card](../active/M7-1954-REGISTER-CHECK-003.md). Tool: [README](../../../s
 Limitations: preparation-v1 only; rejects all final approval/publishing transitions pending a separate reviewed schema. Does not check historical truth, URL reachability, rights, date chronology or source independence. No automatic integration with package/CI in this scope. Historical M7-02 and release gates remain unchanged.
 
 Next action: independent software review; integration owner can later claim package/CI to wire the documented check into Quality. Task remains REVIEW until reviewer acceptance.
+
+## Assigned review evidence — 2026-10-03
+
+Reviewer: Codex under explicit PO assignment; also implementation author, not independent. Reviewed implementation/test/README/task scope at 34e5e05. Dedicated tests rerun: 31 PASS / 0 fail. Extra probes: recursively frozen register inputs accepted without mutation; null/primitive/object/array rows in source/claim/episode arrays rejected without throwing. PASS. No actionable findings. Metadata nullability and proposed classes agree with Phase 3 and current preparation register. PR109 fetched at unchanged 3e14b77; five paths only, no overlap. PR117 Quality 2/2 SUCCESS and MERGEABLE at review time. Acceptance recorded in task card as DONE for bounded software only. Subsequent documentation-only review-record commit needs its own CI checks; no verdict is invented for future runs.
