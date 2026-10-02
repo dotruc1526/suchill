@@ -3,7 +3,7 @@
 Đặt task card tại đây khi không thể tiếp tục. Card phải ghi blocker cụ thể, điều kiện mở chặn và người cần hành động.
 
 - Hồ sơ đã chuyển: [CONTENT-002](../done/CONTENT-002.md), [CONTENT-008](../done/CONTENT-008.md); [CONTENT-003](../active/CONTENT-003.md) và [CONTENT-004](../active/CONTENT-004.md) đang `REVIEW`.
-- [CONTENT-007](./CONTENT-007.md) — `BLOCKED`; artifact pilot vẫn ghi `NEEDS_HISTORICAL_REVIEW`, chờ content owner/historical reviewer đồng bộ và xác nhận trước production.
+- [CONTENT-007](./CONTENT-007.md) — `BLOCKED`; screenplay/narration historical state đã đồng bộ theo hash, nhưng source/media/audio-rights/handoff còn pending; quiz cần verdict riêng. M3 OPEN / M4 LOCKED không mở content production.
 - [M3-06](../active/M3-06.md) — READY; PR88 adapter accepted/merged; Dương must claim UI files before implementation.
 - [CONTENT-005](./CONTENT-005.md) — content/QA kiểm tra bài học và video; chờ nội dung hoàn chỉnh.
 - [PLATFORM-004](./PLATFORM-004.md) — đánh giá Capacitor/Android sau PWA và approval riêng.

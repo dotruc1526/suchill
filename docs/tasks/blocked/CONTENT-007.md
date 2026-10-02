@@ -40,7 +40,7 @@
 
 | Date/time | Executor | Completed | Evidence | Next action | Blocker |
 |---|---|---|---|---|---|
-| 2026-09-28 | Historical Reviewer | Báo cáo tổng hợp ghi CONTENT-004 APPROVED và đề xuất mở CONTENT-007 | `docs/content/HISTORICAL-REVIEW-REPORT-2026-09-28.md` | Đối chiếu review status trên từng artifact pilot | Artifact gốc vẫn ghi `NEEDS_HISTORICAL_REVIEW` |
+| 2026-09-28 | Historical Reviewer | Báo cáo tổng hợp ghi CONTENT-004 APPROVED và đề xuất mở CONTENT-007 | `docs/content/HISTORICAL-REVIEW-REPORT-2026-09-28.md` | Đối chiếu review status trên từng artifact pilot | Review state được đồng bộ cho screenplay/narration theo hash; media/audio rights và combined handoff vẫn pending |
 | 2026-09-29 | Dương + Codex | Xử lý finding P1 PR #62: không mở production khi artifact và báo cáo tổng hợp chưa nhất quán; đưa task về `BLOCKED` | Review của Hưng trên PR #62; task board/card/index đã đồng bộ | Content owner/historical reviewer cập nhật review status trên artifact hoặc ghi quyết định rõ ràng; sau đó review lại dependency | Chưa có xác nhận owner/reviewer trên artifact pilot |
 | 2026-09-23 | Product owner + Codex | Chốt Member 2 là người biên tập video cho bài học MVP; tạo task riêng với FE-006 player | Quyết định trong task hiện tại; task board/Phase 9 | Member 1 chọn pilot và bàn giao script/source; gán tên Member 2 rồi claim media files | CONTENT-003/004 chưa xong, chưa có tên thật Member 2 |
 | 2026-09-23 | Codex | Product owner gán Trúc là Member 2 | TEAM-OWNERSHIP / DOC-015 | Chờ Thọ bàn giao script/source và historical review | CONTENT-003/004 chưa xong |
@@ -50,5 +50,5 @@
 - Changed files: chưa có media asset.
 - Test/build result: chưa sản xuất/tích hợp video.
 - Environment/migration impact: chưa xác định; Member 5 review storage/metadata trước tích hợp.
-- Known issues/risks: artifact pilot vẫn ghi `NEEDS_HISTORICAL_REVIEW`; quyền audio/từng asset và MP4 cuối chưa có. Không dùng CONTENT-006 làm bản mặc định.
-- Next owner/action: Content owner/historical reviewer đồng bộ review status trên artifact pilot và xác nhận dependency. Chỉ sau đó Trúc mới claim branch/files và chuyển task sang `IN PROGRESS`; Vinh QA media/accessibility, Dương tích hợp bằng FE-006 sau media review và milestone phù hợp.
+- Known issues/risks: quiz/map/source registry còn historical review pending; quyền audio/từng asset và MP4 cuối chưa có. CONTENT-006 chỉ là `REFERENCE_ONLY` nội bộ, không dùng làm canonical content hoặc bản phát hành.
+- Next owner/action: hoàn tất source/media/audio-rights và combined handoff review; xử lý quiz verdict riêng. CONTENT-007 giữ `BLOCKED` cho đến khi dependency và media rights đạt, có task claim rõ. Gate hiện hành M3 OPEN / M4 LOCKED; M3 không tự mở content production.
