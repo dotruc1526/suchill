@@ -9,7 +9,7 @@
 - Executor: Trúc (Member 2), Codex hỗ trợ sửa PR #21 theo quyền Thọ cấp.
 - Reviewer: Trúc (historical/learning/media theo quyền Thọ giao); Vinh (technical QA); sign-off bản mới còn chờ.
 - Started: 2026-09-27 (lượt sửa); bản nháp trước do Thọ thực hiện.
-- Branch revision hiện hành: `codex/mt68-complete-handoff`; PR #21 đã merge.
+- Branch revision hiện hành: PR #21 đã merge; verdict 2026-10-02 của Trúc nằm trên nhánh PR #99 `codex/tho-content017-closeout` (open).
 - Depends on: CONTENT-008 (DONE trên nhánh PR); sửa bản nháp trong content track, không mở M1.
 - Files claimed: `docs/content/QUIZ-MT68.json`; card này. Registry/catalog/board do cùng executor Trúc đồng bộ theo [handoff PR21](./PR21-HANDOFF.md).
 - Next action: Vinh technical QA sau verdict historical/learning của Trúc (quiz reviewed hash `4013b399…667eb`); giữ authoring-only, không seed/integrate.
