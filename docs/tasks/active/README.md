@@ -6,7 +6,6 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOC
 
 ## M3 QA
 
-- [M3-07](./M3-07.md) — IN PROGRESS; Vinh/Codex claimed full learning-loop QA, Hưng/Dương review; dependency M3-01..06 DONE.
 
 - [QA-002](../done/QA-002.md) — DONE; mobile/player matrix và browser regressions đạt trên mock; PR83 merged `cda4a69`, Dương APPROVED player, Hưng ACCEPTED harness/accessibility.
 
@@ -34,6 +33,8 @@ Các file `active.md`, `CONTENT-003-004-REVIEW.md`, `PR21-HANDOFF.md`, `BEQA-LOC
 ## QA track
 
 
-- [M3-CONTRACT-REVIEW-01](./M3-CONTRACT-REVIEW-01.md) — REVIEW; historical G2/G5 proposal superseded by approved D1–D7 and PR88/92; archival docs review only, no UI blocker.
 
 - [M3-06](../done/M3-06.md) — DONE; Hưng/Vinh accepted, PR94 merged 20e3263; final head CI 2/2 PASS.
+
+
+- [M3-GATE-01](./M3-GATE-01.md) — REVIEW; closeout/technical Gate M3 evidence ready; Product Owner decision pending.

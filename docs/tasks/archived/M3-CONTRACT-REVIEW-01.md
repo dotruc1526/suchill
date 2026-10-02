@@ -1,6 +1,6 @@
 # M3-CONTRACT-REVIEW-01 — Vinh review completion/profile proposal
 
-> Status: REVIEW\
+> Status: CANCELLED — superseded; archived, not reviewer-accepted DONE\
 > Last updated: 2026-10-01
 
 - Owner: Vinh (Member 5); Executor: Codex hỗ trợ Vinh.
@@ -28,3 +28,8 @@
 ## Current-context clarification — 2026-10-02
 - The proposal above is a historical 2026-10-01 review, not the current contract or implementation blocker. Approved D1–D7 in PR84 and accepted adapter PR88 (a339af6) supersede its open decisions. PR92 (c29e4a7) records adapter DONE and M3-06 READY for Dương UI claim.
 - Preserve original recommendations as evidence; no new runtime claim or contract decision here. Hưng reviews this archived proposal record only. M3-07 still waits for accepted M3-06 UI; M3 OPEN/M4 LOCKED.
+
+## Archival decision — 2026-10-02
+- Vinh authorized closing current M3 paperwork. Retire this historical proposal task as CANCELLED/superseded by approved D1–D7 in PR84 and accepted adapter/consumer implementations PR88/92/94/98.
+- Original recommendations/checkpoints preserved. Cancellation is bookkeeping, not a claim Hưng/PO accepted the old proposal or a new contract decision.
+- No pending runtime blocker remains here. M3-06 DONE; M3-07 accepted runtime1541cb9 and merged f0a2bdf. Gate M3 still awaits explicit PO decision.

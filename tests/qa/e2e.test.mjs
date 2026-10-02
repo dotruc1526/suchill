@@ -587,3 +587,65 @@ test('completion/profile loop retains confirmed service totals, retry intent and
     })
   } finally { await new Promise((resolve, reject) => server.httpServer.close(error => error ? reject(error) : resolve())) }
 })
+
+test('M3-07 deterministic renderer states, quiz retry, long Vietnamese and mute persistence at mobile widths', async () => {
+  const browser = findBrowser(); assert.ok(browser, 'Chromium is required')
+  const server = await createServer({ server: { host: '127.0.0.1', port: 0 } }); await server.listen()
+  try {
+    const address = server.httpServer.address()
+    const url = `http://127.0.0.1:${address.port}/tests/qa/fixtures/learning-loop.html`
+    for (const width of [375, 430]) await withChromePage(browser, url, async cdp => {
+      const evaluate = async expression => (await cdp('Runtime.evaluate', { expression, returnByValue: true })).result.value
+      const waitFor = async (expression, label) => {
+        for (let attempt = 0; attempt < 100; attempt++) { if (await evaluate(expression)) return; await delay(50) }
+        assert.fail(`M3-07 timeout: ${label}`)
+      }
+      const press = async expression => {
+        await evaluate(`${expression}.focus()`)
+        await cdp('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Enter', code: 'Enter', text: '\r' })
+        await cdp('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Enter', code: 'Enter' })
+      }
+      await cdp('Emulation.setDeviceMetricsOverride', { width, height: 850, deviceScaleFactor: 1, mobile: false })
+      await cdp('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] })
+      await waitFor("Boolean(window.loopFixture) && document.body.textContent.includes('Đang tải nội dung bài học')", 'held loading state')
+      assert.equal(await evaluate("document.querySelector('[role=status]')?.textContent.includes('Đang tải nội dung bài học')"), true, `loading announcement ${width}px`)
+      assert.equal(await evaluate("document.querySelector('[role=status]')?.getAttribute('aria-atomic')"), 'true')
+      assert.equal(await evaluate("document.querySelector('.animate-spin')?.getAttribute('aria-hidden')"), 'true')
+      await waitFor("getComputedStyle(document.querySelector('.animate-spin')).animationName === 'none'", 'spinner stops under reduced motion')
+      await cdp('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'no-preference' }] })
+      await waitFor("getComputedStyle(document.querySelector('.animate-spin')).animationName === 'spin'", 'spinner available without reduced motion')
+      await cdp('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] })
+      await waitFor("getComputedStyle(document.querySelector('.animate-spin')).animationName === 'none'", 'spinner responds to live preference change')
+      // Readiness is controlled by the service promise, not an arbitrary timeout.
+      await evaluate('window.loopFixture.offline(true); window.loopFixture.release()')
+      await waitFor("document.body.textContent.includes('Không thể tải bài học (offline)')", 'typed offline error')
+      assert.equal(await evaluate("document.querySelector('[role=alert]')?.textContent.includes('Không thể tải bài học (offline)')"), true, `load error announcement ${width}px`)
+      const retry = "[...document.querySelectorAll('button')].find(b => b.textContent === 'Thử lại')"
+      await evaluate('window.loopFixture.offline(false)'); await press(retry)
+      await waitFor("document.body.textContent.includes('Đang tải nội dung bài học')", 'retry loading')
+      await evaluate('window.loopFixture.release()')
+      await waitFor("document.querySelectorAll('[data-testid=quiz-flow-v2]').length === 2", 'actual integrated quiz consumers')
+      assert.equal(await evaluate("document.documentElement.scrollWidth <= innerWidth"), true, `long Vietnamese overflow ${width}`)
+      assert.equal(await evaluate("[...document.querySelectorAll('label,button')].every(e => e.getBoundingClientRect().height >= 44)"), true, 'targets >=44px')
+      const practice = "document.querySelector('[data-testid=quiz-flow-v2]')"
+      await evaluate(`${practice}.querySelector('input').click()`)
+      await press(`${practice}.querySelector('button')`)
+      await waitFor(`${practice}.querySelector('[role=alert]')?.textContent.includes('offline')`, 'quiz error announcement')
+      assert.equal(await evaluate(`${practice}.querySelector('input').matches(':disabled')`), true, 'answers locked during retry')
+      await press(`[...${practice}.querySelectorAll('button')].find(b => b.textContent === 'THỬ GỬI LẠI')`)
+      await waitFor(`${practice}.textContent.includes('Kết quả luyện tập')`, 'practice result')
+      assert.equal(await evaluate(`${practice}.querySelector('[role=status]')?.textContent.includes('Chính xác')`), true)
+      assert.equal(await evaluate("document.activeElement?.getAttribute('aria-labelledby')"), 'quiz-result-heading')
+      const scored = "document.querySelectorAll('[data-testid=quiz-flow-v2]')[1]"
+      await evaluate(`${scored}.querySelector('input').click()`); await press(`${scored}.querySelector('button')`)
+      await waitFor(`${scored}.textContent.includes('Kết quả: 1/1')`, 'trusted scored result')
+      assert.equal(await evaluate('document.documentElement.scrollWidth <= innerWidth'), true, 'long feedback wraps')
+      await press("document.querySelector('[data-testid=mute]')")
+      assert.equal(await evaluate("localStorage.getItem('suchill_sound_muted')"), 'true')
+      await cdp('Page.reload'); await waitFor("document.querySelector('[data-testid=mute]')?.getAttribute('aria-pressed') === 'true'", 'mute after reload')
+      await evaluate('window.loopFixture.empty(); window.loopFixture.release()')
+      await waitFor("document.body.textContent.includes('Bài học chưa có nội dung')", 'empty content distinct from error')
+      assert.equal(await evaluate("document.body.textContent.includes('Không thể tải')"), false)
+    })
+  } finally { await server.close() }
+})
