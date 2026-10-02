@@ -13,8 +13,9 @@ export function ErrorState({
   onRetry,
 }: ErrorStateProps) {
   return (
-    <div className="flex flex-col items-center justify-center p-6 text-center min-h-[220px]">
+    <div role="alert" aria-atomic="true" className="flex flex-col items-center justify-center p-6 text-center min-h-[220px]">
       <div
+        aria-hidden="true"
         className="w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-3"
         style={{
           background: theme.colors.incorrect.bg,

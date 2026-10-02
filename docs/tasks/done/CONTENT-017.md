@@ -1,7 +1,7 @@
 # CONTENT-017 — Soạn kịch bản chi tiết Scene-by-Scene và Story Data Bài 2 Visual Novel Chapter 1972 ("Kíp chiến đấu SAM-2 — Vạch nhiễu tìm thù")
 
 > Status: DONE\
-> Last updated: 2026-10-01
+> Last updated: 2026-10-02
 
 ## Assignment
 
@@ -29,7 +29,7 @@
   - Viết bộ kiểm thử kiểm tra tính toàn vẹn của dữ liệu: `docs/content/validate-1972-authoring.mjs`.
 - Out of scope: Dựng video MP4, lập trình renderer/UI runtime, seed DB hay mở Milestone M2.
 - Files claimed:
-  - `docs/tasks/active/CONTENT-017.md`
+  - `docs/tasks/done/CONTENT-017.md`
   - `docs/content/LESSON-02-1972-NARRATION.md`
   - `docs/content/LESSON-02-1972-STORY.json`
   - `docs/content/DIAGRAM-SAM2-1972.json`
@@ -48,12 +48,12 @@
 - [x] 100% dữ kiện bám sát Claim ID từ `CONTENT-016-EVIDENCE.md` và nguồn chính thống (Báo QĐND, Lịch sử QCPK-KQ, Cẩm nang bìa đỏ).
 - [x] Script kiểm thử tự động `validate-1972-authoring.mjs` chạy PASS.
 - [x] Trúc (Historical Reviewer) thẩm định sử liệu và ngôn ngữ: Trúc đã APPROVE trên PR #54 (review lúc 07:53 ngày 2026-09-30 trên head `f641530`).
-- [x] Product Owner nghiệm thu phê duyệt: PO Compuerte đã nghiệm thu và merge PR #54 vào main tại commit `0075079`.
+- [x] Product Owner nghiệm thu phê duyệt: PO (`@Compuerte`) APPROVED trên PR #54 ngày 2026-09-30; PR merged `0075079`, Quality 2/2 SUCCESS.
 
 ## Verification
 
 - Commands/checks: `node docs/content/validate-1972-authoring.mjs`, `git diff --check`, `node scripts/member5/check-client-env.mjs`.
-- Expected result: Bản kịch bản và dữ liệu authoring hoàn chỉnh, đã được Trúc duyệt và Product Owner nghiệm thu merge main.
+- Expected result: Bản kịch bản và dữ liệu authoring hoàn chỉnh, sẵn sàng bàn giao cho Trúc (Historical Reviewer) thẩm định và Product Owner nghiệm thu.
 
 ## Progress checkpoints
 
@@ -68,11 +68,38 @@
 | 2026-09-30 | Thọ + Codex | Tiếp thu PO review tại head `0412226`: tổng quát hóa sơ đồ/narration theo claim 002; bỏ phát biểu nhân quả chưa có nguồn; loại bảng nguồn ngoài scope; ghi rõ phạm vi approval GitHub và yêu cầu re-review | `validate-1972-authoring.mjs` PASS (5 nodes, 8/8 scenes); client-env scan 240 files/0 unsafe; `git diff --check` PASS. Full quality cần CI trên PR vì worktree không có `node_modules`. | Trúc và PO review bản cập nhật; xác nhận CI xanh trước merge | Chờ CI/re-review |
 | 2026-09-30 | Thọ + Codex | Xử lý triệt để finding [P1] theo review Trúc tại head `fdbf5e7`: (1) Sơ đồ SAM-2 đưa về mức thuần túy liệt kê thành phần khí tài và sự hiện diện kíp; bỏ quan hệ điều khiển, phát lệnh, truyền nhận tham số vi mô; (2) Scene 4 Narration/Story bỏ mô tả tọa độ mục tiêu và tham số không gian; (3) Validator bổ sung kiểm tra khóa từ ngữ quy trình tác chiến vi mô; Trúc APPROVED tại head `f641530` | `DIAGRAM-SAM2-1972.json`, `LESSON-02-1972-NARRATION.md`, `LESSON-02-1972-STORY.json`, `validate-1972-authoring.mjs`; validator PASS 100% | Trúc (Historical Reviewer) đã approve lúc 07:53 ngày 2026-09-30 | Không |
 | 2026-09-30 | Thọ + Codex | Xử lý triệt để các blocker N1, N2, N3 từ review của Dương (Member 4): (1) Cập nhật card CONTENT-017 (branch v2, date 2026-09-30, tick Trúc approved); (2) Dọn dẹp 100% link gãy trong TASK-BOARD.md đảm bảo chuẩn 0-link-lỗi DOC-013; (3) Đồng bộ wording 'tiếp cận tuyến tính' trong Narration; (4) Chuẩn bị nội dung cập nhật PR description 5 nút | `docs/tasks/active/CONTENT-017.md`, `docs/project/TASK-BOARD.md`, `docs/content/LESSON-02-1972-NARRATION.md`; link check 0 lỗi | PO và Dương submit approval cuối để merge PR #54 | Không |
-| 2026-10-01 | Thọ (Member 1) | PR #54 đã được Trúc duyệt và Product Owner nghiệm thu merge vào main (commit 0075079); chuyển card CONTENT-017 sang docs/tasks/done/ | Commit `0075079` trên main | Bàn giao trọn gói Chapter 1972 (PR #65) | Không |
 
 ## Handoff
 
-- Changed files: `docs/tasks/done/CONTENT-017.md`, `docs/content/LESSON-02-1972-NARRATION.md`, `docs/content/LESSON-02-1972-STORY.json`, `docs/content/DIAGRAM-SAM2-1972.json`, `docs/content/validate-1972-authoring.mjs`, `docs/project/TASK-BOARD.md`.
+- Changed files: `docs/tasks/done/CONTENT-017.md`, `docs/content/LESSON-02-1972-NARRATION.md`, `docs/content/LESSON-02-1972-STORY.json`, `docs/content/DIAGRAM-SAM2-1972.json`, `docs/content/validate-1972-authoring.mjs`, `docs/project/TASK-BOARD.md`, `docs/content/HISTORICAL-REVIEW-REPORT-2026-09-28.md`.
 - Test/build result: `validate-1972-authoring.mjs` PASS; `npm run quality` local PASS; markdown link validation PASS 0 broken links.
 - Environment/migration impact: docs/content-only, không ảnh hưởng runtime; không cài thêm dependencies.
-- Next owner/action: Đã hoàn tất và merge vào main. Status: `DONE`.
+- Next owner/action: không còn; task `DONE`, không quyết định gate milestone.
+
+## Closeout — 2026-10-02
+
+- PR #54 (`content/tho-lesson-02-1972-vn-v2`) merged `0075079` ngày 2026-09-30: Trúc APPROVED historical/media, PO APPROVED nghiệm thu, Quality checks 2/2 SUCCESS.
+- Re-verified trên main `2abd202`: `validate-1972-authoring.mjs` PASS (5 nodes, 8/8 scenes, narration đủ 8 scene, không từ ngữ quy trình vi mô).
+- Card chuyển `active/` → `done/`; board và index đồng bộ. M3 vẫn OPEN; production/integration cần task/gate riêng.
+
+## Reviewer text approval — Trúc (Member 2), 2026-10-02
+
+- **TEXT APPROVED** closeout CONTENT-017 trên PR #99 (thay cho GitHub approve theo thỏa thuận; không bấm approve trên GitHub).
+- Đã đối chiếu: PR #54 MERGED `0075079` ngày 2026-09-30; Trúc APPROVED historical/media và PO APPROVED nghiệm thu tại head cuối; Quality checks 2/2 SUCCESS; `validate-1972-authoring.mjs` PASS trên main; card `done/`, board DONE, index đồng bộ; không còn link sống trỏ card `active/` (một dòng checkpoint lịch sử giữ tên file cũ đúng bản chất ghi chép).
+- Phạm vi approval: xác nhận hồ sơ closeout trung thực. Không quyết định gate milestone; production/integration cần task/gate riêng.
+
+## PR99 final integration claim — Vinh / Codex, 2026-10-02
+
+- User authorized final verification and merge PR99. Executor Vinh/Codex handles integration only; authoring/content ownership remains Thọ/Trúc.
+- Branch: local `codex/pr99-final-integration`, updates remote `codex/tho-content017-closeout`.
+- Files claimed: conflict resolution in TASK-BOARD.md, active/CONTENT-014.md, active/README.md; this final integration checkpoint; PR description.
+- Scope: preserve quiz verdict and authored bytes from `7d94d94`, preserve Hưng independent recheck from main `b716b41`, synchronize current next actions. No runtime/media/gate changes.
+- Next: run both authoring validators, hash/content-delta checks, links and CI on integrated head; merge only when checks pass.
+
+## Final integration verification — 2026-10-02
+
+- Resolved three documentation conflicts against main `b716b41`, preserving both Trúc quiz/media records and Hưng independent sync recheck. No authored artifact bytes changed from PR99 `7d94d94`.
+- Verified PR54: Trúc and PO `Compuerte` APPROVED final head `8a8a4a1`, merged `0075079`; both Quality checks SUCCESS. Existing closeout relies on that accepted authoring scope, not new production approval.
+- Quiz current LF hash `44b9eed6fc1c94cbf8b4b662eaeb2580ad55b08994286bba2b86cf1891103912`; net content delta against main is exactly one reviewStatus line. Quiz stays draft/authoringOnly; map review remains pending.
+- MT68 validator PASS (5 nodes/7 scenes/6 paths/5 questions/9 cues); 1972 validator PASS (5 nodes/8 scenes/narration); 196 changed-doc local links resolve, diff check PASS.
+- Runtime/env/migration/dependency impact: none; runtime suite not rerun for record-only integration. CI must pass on pushed head before merge; no M3 closure/M4 opening or media publication.

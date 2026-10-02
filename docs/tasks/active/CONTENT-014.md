@@ -6,11 +6,11 @@
 - Owner: Trúc (Member 2), theo quyền Thọ giao làm toàn bộ phần sửa còn lại.
 - Executor: Trúc; Codex hỗ trợ. Một executor duy nhất.
 - Reviewer: Trúc phụ trách historical/learning/media theo quyền được giao; Vinh giữ vai trò technical QA. Historical/language verdict được đồng bộ riêng theo artifact hashes bên dưới; media/production chưa sign-off.
-- Branch: `codex/vinh-qa001-content014`, PR #85 technical-QA head `5959175`; review-state reconciliation pushed at `3210776` (PR remains unmerged). Gate comparison source: `origin/main` `c29e4a7`.
+- Branch: `codex/vinh-qa001-content014`, PR #85 technical-QA head `5959175`; review-state reconciliation pushed at `3210776` (PR #85 merged `ed234e9`, in `origin/main`). Recheck base: `origin/main` `2abd202`.
 - Depends on: DOC-003/004/006/009 đã DONE; bản nháp PR #21 đã có trên main. Đây là task sửa tài liệu/authoring, không claim sản xuất. `CONTENT-004` giữ `REVIEW` cùng gói technical QA/media/handoff này; `CONTENT-007` hiện BLOCKED cho đến khi artifact pilot và review record nhất quán.
 - Files claimed: `docs/content/PILOT-SCREENPLAY.md`, `PILOT-NARRATION.json`, `PILOT-CAPTIONS.vtt`, `LESSON-02-INTERACTIVE.md`, `LESSON-02-STORY.json`, `MAP-MT68.json`, `PRODUCTION-NOTES.md`, `CURRICULUM-MAP.md`, `HISTORICAL-SOURCES.md`, `DETAILED-MEDIA-CATALOG.csv`, `MEDIA-REVIEW-MT68.md`; board, card CONTENT-003/004/010/011/012 và PR21-HANDOFF.
 - Started: 2026-10-02 (review-state reconciliation)
-- Next action: Hưng/Vinh recheck PR85 review-state reconciliation; media/legal/production acceptance remains pending. No production handoff.
+- Next action: Vinh QA quiz sau verdict Trúc (PR này); PO handoff decision. Hưng recheck ACCEPTED (main, verdict bên dưới) + Vinh recheck ACCEPTED (PR #100 merged 9b96968, Trúc đã review ghi nhận); Trúc media/handoff sign-off trong PR này. Media/legal/production acceptance remains pending. No production handoff.
 - File claim bổ sung: `docs/content/validate-mt68-authoring.mjs`, kiểm tra graph/ID/nguồn/timing/VTT cho các file trong task, không sửa runtime.
 - Out of scope: code/player/DB, chapter 1972, MP4 cuối, purchase/license requests, merge/release, CONTENT-006 và mở milestone.
 
@@ -67,3 +67,64 @@
 - `MAP-MT68.json` remains `NEEDS_HISTORICAL_REVIEW`: the report does not identify that artifact/revision as an accepted review target. `QUIZ-MT68.json` also remains `NEEDS_HISTORICAL_REVIEW`; CONTENT-012 requires its own explicit historical/learning verdict. Technical acceptance and validator coverage do not substitute for either verdict.
 - These review-state updates do not change content `status: draft`, `authoringOnly`, media rights/recording/transcript checks, or production eligibility. CONTENT-003/004 remain under review until their separate source/media/handoff acceptance is complete; CONTENT-007 remains BLOCKED. Current gate: M3 OPEN / M4 LOCKED.
 - Next action: Hưng/Vinh recheck these hash-bound status updates; Trúc/authorized reviewer must review CONTENT-012 separately. No content production task moves to READY.
+
+## Independent recheck claim — Hưng, 2026-10-02
+
+- Reviewer: Hưng (Member 3), AI hỗ trợ thao tác kiểm tra; owner authoring vẫn Trúc.
+- Branch: `codex/hung-content014-recheck`; base `origin/main` `2abd202` (đã chứa PR85 merge `ed234e9`, gồm reconciliation `3210776`).
+- Files claimed cho review: evidence `docs/tasks/evidence/CONTENT-014-hung-recheck-2026-10-02.md`, section + Next action trong card này, row CONTENT-014 + update log trong board, dòng CONTENT-014 trong active index.
+- Scope: kiểm tra độc lập reconciliation bằng bytes; không sửa authored content, runtime, migration, env hay dependency; không ký historical/media/production thay Trúc/PO, không thay technical QA của Vinh.
+
+## Independent recheck verdict — Hưng, 2026-10-02
+
+- Review-state reconciliation **ACCEPTED** cho phạm vi CONTENT-004/010/011; P2 trong [technical QA 2026-10-01](../evidence/CONTENT-014-technical-qa.md) được **RESOLVED** ở chiều đồng bộ review record/artifact flags (đồng quan điểm với Vinh; mọi hash/diff/validator do Hưng chạy lại độc lập, không copy evidence PR #100).
+- Evidence: [Hưng recheck 2026-10-02](../evidence/CONTENT-014-hung-recheck-2026-10-02.md). Tóm tắt: 9/9 reviewed hash khớp report tại `30d0a4f`; 5/5 artifact approved byte-identical tại verdict commit `02c1128`; 4/4 current hash khớp card tại `2abd202`; toàn `docs/content/` diff đúng 4 dòng trạng thái; quiz/map giữ pending đúng (report 2026-09-28 không liệt kê CONTENT-012, không bound verdict cho map); `draft`/`authoringOnly` giữ nguyên; validator PASS trên worktree pristine.
+- Quiz verdict của Trúc nằm trên nhánh riêng (PR #99), chưa có ở base này; byte sanity (hash `44b9eed6…3912`, diff 1 dòng, giữ `draft` + `authoringOnly`) đạt, nhưng đây không phải review verdict historical/learning (quyền Trúc) và không phải technical QA quiz (lane Vinh sau verdict). `LESSON-03/04-STANDARD/SYNTHESIS.md` giữ header NEEDS, nằm ngoài claim CONTENT-014/P2/validator — không suy diễn, Trúc quyết định follow-up nếu cần.
+- Task giữ REVIEW; media (6 BLOCKED/2 NEEDS_MEDIA_REVIEW), audio/recording, handoff và production acceptance vẫn pending. CONTENT-007 giữ BLOCKED. Gate: M3 OPEN / M4 LOCKED, không đổi.
+- Lưu ý merge: PR #99 (Trúc) và PR #100 (Vinh) cùng sửa board + CONTENT-012/014; bên merge sau rebase và giữ cả ba verdict/checkpoint.
+
+## Technical recheck claim — Vinh, 2026-10-02
+
+- Reviewer executor: Codex hỗ trợ Vinh; owner authoring vẫn Trúc.
+- Branch: `codex/vinh-content014-recheck`; base `origin/main` `2abd202` (đã chứa PR85 merge `ed234e9`).
+- Files claimed cho review: card này, checkpoint CONTENT-004/010/011/012, active index, board các row/update log tương ứng và `docs/tasks/evidence/CONTENT-014-recheck-2026-10-02.md`.
+- Scope: kiểm tra lại reconciliation bằng bytes; không sửa authored content, runtime, migration, env hay dependency; không ký historical/media/production thay Trúc/PO.
+
+## Historical technical recheck verdict — Vinh, 2026-10-02 (base 2abd202)
+
+- Review-state reconciliation **ACCEPTED** cho phạm vi CONTENT-004/010/011; P2 trong [technical QA 2026-10-01](../evidence/CONTENT-014-technical-qa.md) được **RESOLVED** ở chiều đồng bộ review record/artifact flags.
+- Evidence: [recheck 2026-10-02](../evidence/CONTENT-014-recheck-2026-10-02.md). Tóm tắt: 8/8 hash khớp card; 5 artifact approved byte-identical giữa verdict commit `02c1128` và snapshot `30d0a4f`; diff reviewed→current chỉ đổi dòng trạng thái; quiz/map byte-identical và giữ pending đúng; `draft`/`authoringOnly` giữ nguyên; validator PASS.
+- Ghi nhận minh bạch: commit reconciliation `3210776` do Vinh/Codex thực hiện thao tác máy theo phạm vi Trúc xác nhận (board log 2026-10-02; DOC-017); recheck này là kiểm tra bytes tái hiện được, không thay quyết định historical scope của Trúc. Hưng recheck độc lập cũng ACCEPTED (verdict ở trên).
+- Quiz CONTENT-012 giữ `NEEDS_HISTORICAL_REVIEW` đúng vì historical report 2026-09-28 không liệt kê CONTENT-012 trong phạm vi; Vinh QA quiz vẫn chờ verdict riêng của Trúc/historical reviewer (PR #99).
+- Task giữ REVIEW; media (6 BLOCKED/2 NEEDS_MEDIA_REVIEW), audio/recording, handoff và production acceptance vẫn pending. CONTENT-007 giữ BLOCKED. Gate: M3 OPEN / M4 LOCKED.
+
+## Review acknowledgement — Trúc (Member 2), 2026-10-02
+
+- Trúc (historical scope owner, requested reviewer) ACKNOWLEDGES Vinh's recheck: 8/8 hashes, status-only diff scope, quiz/map pending-at-base và validator PASS được xác minh chính xác theo đúng reconciliation Trúc đã duyệt; phạm vi historical CONTENT-004/010/011 (loại quiz) mô tả đúng. Trúc đã đối chiếu độc lập 16/16 blob hash + 5/5 verdict-commit identity + phạm vi diff — tất cả khớp.
+- Đã sửa 1 dòng lỗi thời trong commit này: parenthetical "PR #99 chỉ là objective pre-review" trong checkpoint CONTENT-012 (đúng lúc Vinh viết; PR #99 hiện đã mang verdict thật `fbaf3b3` + sign-off của Trúc, vẫn chưa merge).
+- Merge order: PR này mergeable trên main hiện tại; PR #99 (mang verdict) vẫn cần merge main + PO duyệt riêng. Thứ tự nào cũng được với điều kiện bên merge sau re-sync; không hàm ý duyệt production/media/seed. Task giữ REVIEW; CONTENT-007 BLOCKED.
+
+## Quiz verdict follow-up — Trúc, 2026-10-02
+
+- CONTENT-012 đã có verdict riêng: Trúc **APPROVED** historical/learning scope cho `QUIZ-MT68.json` đúng revision SHA-256 `4013b39954779b0b43640372b668c329662ca30386aff52c2c4cd8a664e667eb` (không suy từ CONTENT-010). Chi tiết đối chiếu từng câu hỏi tại [CONTENT-012](./CONTENT-012.md).
+- `reviewStatus` quiz đã đồng bộ `NEEDS_HISTORICAL_REVIEW` → `APPROVED_BY_HISTORICAL_REVIEWER`; current SHA-256 `44b9eed6fc1c94cbf8b4b662eaeb2580ad55b08994286bba2b86cf1891103912`. Quiz giữ `draft` + `authoringOnly`; `validate-mt68-authoring.mjs` PASS.
+- `MAP-MT68.json` vẫn `NEEDS_HISTORICAL_REVIEW` (report không bound verdict cụ thể cho map).
+- Bối cảnh recheck: Vinh đã ACCEPTED reconciliation cho CONTENT-004/010/011 và xác nhận CONTENT-012 blocked on verdict tại PR #100 (evidence `../evidence/CONTENT-014-recheck-2026-10-02.md` nằm trên nhánh PR #100, chưa merge vào nhánh này). Verdict quiz này chính là phần còn thiếu đó.
+- Verdict quiz không thay technical QA của Vinh, media review hay production approval. CONTENT-007 giữ BLOCKED; gate M3 OPEN / M4 LOCKED.
+- Next action: Vinh QA quiz sau verdict; Hưng recheck độc lập CONTENT-014; Trúc media/handoff sign-off cho CONTENT-004/010/011. Lưu ý merge: PR #99 và PR #100 cùng sửa board + CONTENT-012/014, bên merge sau rebase.
+
+## Trúc media/handoff sign-off — 2026-10-02
+
+- Trúc đã ghi media/handoff review (authoring scope) trên card [CONTENT-004](./CONTENT-004.md), [CONTENT-010](./CONTENT-010.md), [CONTENT-011](./CONTENT-011.md): per-candidate decisions confirmed (6 BLOCKED loại khỏi mandatory route; 2 NEEDS_MEDIA_REVIEW optional-only, không duyệt dùng), text-first fallback đủ, `mediaRef: null`, audio/file cuối specified-but-missing.
+- KHÔNG duyệt quyền/license, asset cuối, bản thu hay production. Ô "media có quyền" giữ chưa tick; CONTENT-007 giữ BLOCKED.
+- Còn lại: Vinh QA quiz (CONTENT-012, PR #103); PO quyết định handoff (Hưng + Vinh recheck đã ACCEPTED). Task giữ REVIEW; gate M3 OPEN / M4 LOCKED.
+
+## Current integration next action — Vinh, 2026-10-02
+
+- PR103 records Vinh snapshot quiz QA, Hưng technical ACCEPTED at c7a84d6 and Trúc handoff at e3987fb. Both reviewer records were supplied by the user; PR103 integration follows PR99. Earlier pending entries are historical.
+- Trúc PR100 review record is preserved from concurrent PR99 update 006aa46; Hưng recheck from PR102 remains intact. Rights/audio/final assets and PO production acceptance remain pending; no milestone or publishing decision.
+
+## PR99/100 integration — Dương/PO, 2026-10-02
+- Integration claim: resolve overlapping board/index/card edits only. PR100 merged 9b96968; preserve Vinh and Hưng reconciliation evidence and Trúc historical/learning and authoring handoff verdicts.
+- Supersedes historical quiz-pending-at-base notes: quiz historical review is approved at reviewed hash 4013b399; current status-only hash 44b9eed6. MAP remains pending. PR103 QA/handoff remains separate and unmerged.
+- No production approval, no task DONE beyond CONTENT-017, no milestone change.

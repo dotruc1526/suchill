@@ -12,8 +12,8 @@
 - Branch revision hiện hành: `codex/mt68-complete-handoff`; PR #21 đã merge.
 - Depends on: CONTENT-008 (DONE trên nhánh PR); sửa bản nháp trong content track, không mở M1.
 - Files claimed: `docs/content/LESSON-03-STANDARD.md`, `docs/content/LESSON-04-SYNTHESIS.md`; card này. Registry/catalog/board do cùng executor Trúc đồng bộ theo [handoff PR21](../active/PR21-HANDOFF.md).
-- Next action: Vinh xác nhận technical QA/handoff và Trúc hoàn tất media sign-off trong CONTENT-014.
-- Blocker: CONTENT-014 còn `REVIEW`; 6/8 media item chưa đủ evidence và 2/8 còn `NEEDS_MEDIA_REVIEW`.
+- Next action: Hưng recheck độc lập CONTENT-014; Product owner quyết định handoff. Trúc đã ghi media/handoff review 2026-10-02 (authoring scope).
+- Blocker: thiếu evidence quyền 6/8 media item, 2/8 còn `NEEDS_MEDIA_REVIEW`; chưa có audio/file cuối; Hưng recheck + PO decision còn lại. Không production.
 
 ## Acceptance
 
@@ -36,3 +36,19 @@
 - Technical structure/reference checks **ACCEPTED** trên snapshot `30d0a4f` trong [CONTENT-014 QA report](../evidence/CONTENT-014-technical-qa.md); giới hạn/checked inputs có SHA-256 trong report.
 - Overall handoff vẫn **CHANGES REQUESTED** P2: Trúc cần đồng bộ review record với artifact pending flags và ghi đúng revision được historical reviewer duyệt. Quiz approval không được suy từ approval của các lesson.
 - Task giữ REVIEW; technical approval không thay historical/media/PO production acceptance. Combined technical+handoff/media checklist chưa đánh dấu hoàn tất.
+
+## Technical recheck — Vinh, 2026-10-02
+
+- Review-state P2 **RESOLVED** cho phạm vi task này: lesson artifacts thuộc diện historical verdict đã đồng bộ đúng revision (xem [CONTENT-014 recheck](./CONTENT-014.md) và [evidence](../evidence/CONTENT-014-recheck-2026-10-02.md)).
+- Technical QA của Vinh (structure + review-state sync) **ACCEPTED**; không thay media/handoff/production acceptance.
+- Task giữ REVIEW: chờ Trúc media/handoff sign-off; CONTENT-007 giữ BLOCKED.
+
+## Media/handoff review — Trúc (Member 2), 2026-10-02
+
+Phạm vi: media/handoff reviewer portion cho Bài 3/4 (standard lessons). Historical/learning đã APPROVED; review này chỉ bao gồm media/handoff.
+
+- Bài 3 CONFIRMED: MED-06 (ảnh di tích hầm 287/70) BLOCKED — bài báo dùng cho fact không cấp quyền ảnh; nếu sau này được cấp quyền, caption phải ghi thời điểm chụp, không coi là ảnh trận đánh 1968. Fallback văn bản đứng vững.
+- Bài 4 CONFIRMED: MED-07 (clip CBS) BLOCKED, không suy luận Fair Use thành giấy phép; MED-08 NEEDS_MEDIA_REVIEW optional-only, KHÔNG duyệt dùng (CC BY 2.0 với điều kiện attribution + giới hạn dùng: không minh họa phản ứng ngay đêm Mậu Thân). Quy tắc Cronkite (không trích nguyên văn gán câu) và loại trừ ảnh hành quyết khi thiếu đánh giá phù hợp đối tượng được giữ.
+- KHÔNG bao gồm: duyệt quyền/license, nghiệm thu asset cuối (caption/alt/crop/attribution), production readiness. Các ô acceptance media và technical QA/handoff giữ nguyên chưa tick; CONTENT-007 giữ BLOCKED.
+- Handoff statement: gói authoring Bài 3/4 đủ để planning sản xuất; production chờ quyền, file cuối và quyết định PO.
+- Next: Hưng recheck độc lập; PO quyết định handoff. Task giữ REVIEW; gate M3 OPEN / M4 LOCKED.

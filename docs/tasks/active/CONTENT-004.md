@@ -89,7 +89,7 @@
 - Changed files/evidence: screenplay, narration, captions, source registry, historical review report, card và task board.
 - Test result: authoring validator PASS theo CONTENT-014; thay đổi docs/content không có runtime, environment hoặc migration impact.
 - Known issues: Vinh chưa technical-QA task-level handoff; catalog hiện có 6/8 media item chưa đủ evidence và 2/8 còn `NEEDS_MEDIA_REVIEW` theo `CONTENT-014`.
-- Next owner/action: Vinh xác nhận technical QA/handoff và Trúc hoàn tất media sign-off; chỉ sau đó reviewer mới chuyển task `DONE` và Product owner xem xét mở CONTENT-007.
+- Next owner/action (cập nhật 2026-10-02): Trúc đã ghi media/handoff review (quyền media/audio và file cuối vẫn pending); còn Hưng recheck độc lập và Product owner quyết định handoff; chỉ sau đó reviewer mới chuyển task `DONE` và xem xét mở CONTENT-007.
 
 ### Checkpoint đồng bộ artifact — 2026-10-02
 
@@ -102,3 +102,21 @@
 - Technical structure/reference checks **ACCEPTED** trên snapshot `30d0a4f` trong [CONTENT-014 QA report](../evidence/CONTENT-014-technical-qa.md); giới hạn/checked inputs có SHA-256 trong report.
 - Overall handoff vẫn **CHANGES REQUESTED** P2: Trúc cần đồng bộ review record với artifact pending flags và ghi đúng revision được historical reviewer duyệt. Quiz approval không được suy từ approval của các lesson.
 - Task giữ REVIEW; technical approval không thay historical/media/PO production acceptance. Combined technical+handoff/media checklist chưa đánh dấu hoàn tất.
+
+## Technical recheck — Vinh, 2026-10-02
+
+- Review-state P2 **RESOLVED** cho phạm vi task này: artifact flags đã đồng bộ đúng revision được duyệt (xem [CONTENT-014 recheck](./CONTENT-014.md) và [evidence](../evidence/CONTENT-014-recheck-2026-10-02.md)).
+- Technical QA của Vinh (structure + review-state sync) **ACCEPTED**; không thay media/audio/handoff/production acceptance.
+- Task giữ REVIEW: chờ Trúc media sign-off và handoff xác nhận; CONTENT-007 giữ BLOCKED.
+
+## Media/handoff review — Trúc (Member 2), 2026-10-02
+
+Phạm vi: media/handoff reviewer portion cho gói pilot authoring (screenplay/narration/VTT + media plan). Historical/learning đã APPROVED 2026-09-28; review này chỉ bao gồm media/handoff.
+
+- Per-candidate decisions CONFIRMED theo docs/content/MEDIA-REVIEW-MT68.md và docs/content/DETAILED-MEDIA-CATALOG.csv: 6 item BLOCKED (MED-01/02/03/05/06/07) loại khỏi mandatory route; MED-04 (PD-USGov evidence, jurisdiction review pending) và MED-08 (CC BY 2.0) giữ NEEDS_MEDIA_REVIEW, optional-only, KHÔNG duyệt dùng.
+- Mandatory route CONFIRMED chỉ chữ + sơ đồ nhóm tự tạo; validator khóa `mediaRef: null` nên không phụ thuộc asset chưa duyệt; mọi dòng catalog đều có fallback "Dùng văn bản bài học".
+- Audio CONFIRMED ở trạng thái specified-but-missing: narration phải thu mới kèm quyền sử dụng (tên file, người đọc, phạm vi, ngày, hash); không nhạc/SFX; loại trừ Edge TTS của CONTENT-006 và bản ghi thơ quyền chưa rõ. Chưa có bản thu hợp lệ nào.
+- Poster/schematic source file, font/license, rendition, hash: chưa sản xuất — ghi làm đầu vào CONTENT-007, không giả định đã có.
+- KHÔNG bao gồm: duyệt quyền/license bất kỳ candidate nào, nghiệm thu asset cuối (caption/crop/attribution), bản thu, MP4/manifest, QA player, production readiness. Ô acceptance "media có quyền" giữ nguyên chưa tick; CONTENT-007 giữ BLOCKED.
+- Handoff statement: gói authoring đủ để Member 2 bắt đầu planning sản xuất (kịch bản + nguồn + fallback spec đã khóa); bản thân production chờ quyền, bản thu, file cuối và quyết định PO.
+- Next: Hưng recheck độc lập; PO quyết định handoff. Task giữ REVIEW; gate M3 OPEN / M4 LOCKED.
