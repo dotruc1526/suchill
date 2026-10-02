@@ -61,3 +61,7 @@ PR111 đã merge, PO đã mở production phi thương mại. Trúc/user nghiệ
 ## CONTENT-007 revision v2 — 2026-10-03
 
 Theo feedback Trúc, candidate đã làm lại thành collage/cut-out/SỬu, 63.06s theo audio nguyên tốc độ; bản110s typography v1 không phải candidate hiện hành. [Evidence v2](./evidence/CONTENT-007-collage-v2-2026-10-03.md); task REVIEW, final caption/illustration/device acceptance và publication/integration pending.
+
+## CONTENT-007 Trúc acceptance — 2026-10-03
+
+Trúc **APPROVED** video collage v2 đúng head `4c00692` và hash master/mobile trong [evidence v2](./evidence/CONTENT-007-collage-v2-2026-10-03.md). Phần final editorial/illustration của Trúc đã đạt; còn Thọ xác nhận kịch bản, Vinh caption/device/media QA, Dương nhận handoff và tích hợp. Task REVIEW; package chưa published.

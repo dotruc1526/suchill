@@ -121,10 +121,38 @@
     "timeline.json": "9eba31600bffbcb4de0198920d68f2739a133904d8c8732a95dc893ec4ad2822"
   },
   "pending": [
+    "member1_final_script_acceptance",
     "final_listening_caption_review",
-    "historical_illustration_review",
     "device_playback",
-    "final_editorial_acceptance",
+    "consumer_handoff",
     "service_lesson_publication"
+  ],
+  "humanAcceptances": [
+    {
+      "reviewer": "Trúc (Member 2 / historical-media reviewer)",
+      "date": "2026-10-03",
+      "verdict": "APPROVED",
+      "statement": "oke a duyệt video này nha",
+      "evidence": "Direct human approval in current chat after final v2 video preview",
+      "reviewedHead": "4c00692b401749e5260b282cc4dd9eef141ff2c4",
+      "mediaId": "media.mt68.pilot.collage.v2",
+      "scope": [
+        "final_video_editorial_visual_review",
+        "historical_illustration_review"
+      ],
+      "artifactSha256": {
+        "pilot-collage-master.mp4": "3811a1c07e26ea3bc1ac41aa97dd81c2e7d938fd0767c475e5be6f2aaa7a0b7b",
+        "pilot-collage-mobile.mp4": "ec93193ca873fbe00b9c481697da3be90ccb35dc642020a4809554210db60d8e",
+        "poster.png": "9fe877659bdab2c89480ff3425d74d389f720fcf39f64bd9dd06503065725052",
+        "captions.vi.vtt": "a3bc449792b46deec140b6f1d82448843e1431989dec6d0bb9febe21011da0c5",
+        "transcript.vi.txt": "1fbedab7288231d130f1b46c3b2cb750d7b34b656a40c2d0bc7a56658dab2d4a",
+        "timeline.json": "9eba31600bffbcb4de0198920d68f2739a133904d8c8732a95dc893ec4ad2822"
+      },
+      "remainingReviews": [
+        "Thọ: final script acceptance",
+        "Vinh: final listening/caption sync and device/media accessibility",
+        "Dương: consumer handoff and service/lesson publication"
+      ]
+    }
   ]
 }

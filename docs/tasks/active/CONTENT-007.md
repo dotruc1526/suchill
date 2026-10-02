@@ -102,3 +102,12 @@
 - Status REVIEW: Trúc/Thọ/Vinh/Dương review bản cụ thể; gắn service/lesson sau final acceptance, chưa published.
 
 - Layout recheck v2: dời SỬu khỏi nhãn mục tiêu, render lại hai MP4, recheck encoded frame36s; evidence/hash được cập nhật theo output cuối.
+
+## Trúc nghiệm thu bản video cuối — 2026-10-03
+
+- Xác nhận trực tiếp trong chat: **“oke a duyệt video này nha”** sau khi xem bản v2 đã sửa layout. Verdict **APPROVED** trong phạm vi Trúc: bản dựng/hình ảnh/cách kể chuyện và minh họa lịch sử.
+- Revision được xem: PR112 head `4c00692b401749e5260b282cc4dd9eef141ff2c4`, media `media.mt68.pilot.collage.v2`, 63.059592s.
+- Mobile SHA-256: `ec93193ca873fbe00b9c481697da3be90ccb35dc642020a4809554210db60d8e`; master SHA-256: `3811a1c07e26ea3bc1ac41aa97dd81c2e7d938fd0767c475e5be6f2aaa7a0b7b`. Manifest ghi cả sáu hash artifact đi kèm. Hash của sáu file trong repo và bản Desktop khớp; không render lại hoặc sửa bytes media sau duyệt.
+- Historical/illustration và final editorial review thuộc Trúc đã đạt. Còn Thọ xác nhận kịch bản bản cuối; Vinh nghe kiểm tra caption sync/phát trên thiết bị/media accessibility; Dương nhận consumer handoff và publication/integration. Phê duyệt trong chat không thay cho những kiểm tra này.
+- CONTENT-007 giữ REVIEW theo acceptance card; package `in_review`, `not_published`, `storageUrl=null`. Academic non-commercial/credit elevenlabs.io giữ đúng quyết định PO.
+- Changed files: card/board/index, evidence, art-direction, manifest/lesson-handoff metadata. Không runtime/env/migration changes; không chạy app tests/build vì chỉ ghi nghiệm thu, không sửa implementation. Next action: Thọ/Vinh hoàn tất phần review còn lại để Dương nhận tích hợp lesson-mt68-01-video.

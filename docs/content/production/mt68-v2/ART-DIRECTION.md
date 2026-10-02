@@ -42,3 +42,7 @@ Final assets: assets/*-cutout.png, assets/suu-cheer.png, assets/suu-thinking.png
 ## Review/publication
 
 Source 07 chỉ xác nhận năm tên mục tiêu; source 02 sách vẫn candidate. Nguồn 01/03/04/05 theo source verdict hiện hành. Generated illustration không bổ sung chứng cứ/fact. Final historical/illustration/media/voice ID account/caption/device acceptance và service publication vẫn cần reviewer; package in_review, không published.
+
+## Nghiệm thu hiện hành — 2026-10-03
+
+Trúc APPROVED bản v2 cuối tại PR112 head `4c00692` về bản dựng/hình ảnh/cách kể chuyện và minh họa lịch sử. Hash và lời xác nhận ghi trong [evidence](../../../tasks/evidence/CONTENT-007-collage-v2-2026-10-03.md) và render/manifest.json. Thọ final script acceptance, Vinh caption/device/media QA và Dương consumer/publication còn pending; ghi chú pending phía trên là snapshot trước xác nhận này.
