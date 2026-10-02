@@ -496,7 +496,7 @@ M7-03 waits for reviewed1954curriculum/media, not old1968inputs; M7-04 sign-off 
 
 | ID | Owner / Executor | Reviewer | Status | Started | Files / Next action |
 |---|---|---|---|---|---|
-| PR109-REVIEW-001 | Codex integration / Codex | Dương handoff; specialists separate | REVIEW | 2026-10-03 | [Card](../tasks/active/PR109-REVIEW-001.md); bounded SOFTWARE APPROVE85e4f3c; Quality381/reference22/latest preview4/E2E11 PASS; [evidence](../tasks/evidence/PR109-review-2026-10-03.md). |
+| PR109-REVIEW-001 | Codex integration / Codex | Dương handoff; specialists separate | REVIEW | 2026-10-03 | [Card](../tasks/active/PR109-REVIEW-001.md); bounded SOFTWARE APPROVE51a7eed; Quality381/reference22/latest context preview4/build/E2E11 PASS; [evidence](../tasks/evidence/PR109-review-2026-10-03.md). |
 | M7-1954-SCOPE-002 | Dương / Codex | Independent learning preparation APPROVE; Dương content handoff | REVIEW | 2026-10-03 | [Card](../tasks/active/M7-1954-SCOPE-002.md); [scope brief](../content/CHAPTER-1954-SCOPE.md) complete chapter scope from Phase1 and approved outline; preserve bounded M7-01 DONE. |
 
 M7-02 is REVIEW per the accepted upstream pilot-source checkpoint; the chapter extension below does not clear its final historical gate. M7-03..09 preserve roadmap dependencies; temporary preview is not canonical content or release acceptance.
