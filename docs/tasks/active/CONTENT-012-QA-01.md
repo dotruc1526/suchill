@@ -33,3 +33,4 @@
 
 - 215 local Markdown links in changed/new docs resolve; git diff --check PASS. Card/index/board state checks PASS; milestone rows remain M3 OPEN / M4–M7 LOCKED.
 - Runtime source and authored content are unchanged; no runtime suite rerun for this docs-only handoff.
+- Integration checkpoint: PR102 merged into main at b716b41 during preparation; two documentation conflicts resolved while preserving Hưng evidence. Final net-diff link scan: 217 links / 0 missing; diff check PASS.
