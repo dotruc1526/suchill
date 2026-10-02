@@ -12,8 +12,8 @@
 - Branch revision hiện hành: `codex/mt68-complete-handoff`; PR #21 đã merge.
 - Depends on: CONTENT-008 (DONE trên nhánh PR); sửa bản nháp trong content track, không mở M1.
 - Files claimed: `docs/content/LESSON-02-INTERACTIVE.md`; card này. Registry/catalog/board do cùng executor Trúc đồng bộ theo [handoff PR21](../active/PR21-HANDOFF.md).
-- Next action: Vinh xác nhận technical QA/handoff và Trúc hoàn tất media sign-off trong CONTENT-014.
-- Blocker: CONTENT-014 còn `REVIEW`; 6/8 media item chưa đủ evidence và 2/8 còn `NEEDS_MEDIA_REVIEW`.
+- Next action: Hưng recheck độc lập CONTENT-014; Product owner quyết định handoff. Trúc đã ghi media/handoff review 2026-10-02 (authoring scope).
+- Blocker: thiếu evidence quyền 6/8 media item, 2/8 còn `NEEDS_MEDIA_REVIEW`; chưa có audio/file cuối; Hưng recheck + PO decision còn lại. Không production.
 
 ## Acceptance
 
@@ -48,3 +48,14 @@
 - Review-state P2 **RESOLVED** cho phạm vi lesson/story task này: artifact flags đã đồng bộ đúng revision được duyệt (xem [CONTENT-014 recheck](./CONTENT-014.md) và [evidence](../evidence/CONTENT-014-recheck-2026-10-02.md)); map giữ pending đúng vì report không bound verdict cho map.
 - Technical QA của Vinh (structure + review-state sync) **ACCEPTED**; không thay media/source/handoff/production acceptance.
 - Task giữ REVIEW: chờ Trúc media/handoff sign-off; CONTENT-007 giữ BLOCKED.
+
+## Media/handoff review — Trúc (Member 2), 2026-10-02
+
+Phạm vi: media/handoff reviewer portion cho Bài 2 (interactive lesson + story + map cards). Historical/learning đã APPROVED; review này chỉ bao gồm media/handoff.
+
+- Map CONFIRMED trình bày ordered cards phi địa lý: không tọa độ đã duyệt; `optionalMediaCandidateId` chỉ là con trỏ catalog, không phải asset đã duyệt; validator xác nhận không tọa độ giả và `mediaRef: null`.
+- Per-candidate decisions CONFIRMED cho 5 node Bài 2: MED-01/02 BLOCKED (chưa xác minh item/license; không coi ảnh hiện đại là ảnh 1968); MED-03/05 BLOCKED (URL category chỉ để tìm kiếm, chưa chọn asset); MED-04 NEEDS_MEDIA_REVIEW optional-only, KHÔNG duyệt dùng (PD-USGov evidence, jurisdiction review pending; không gọi là ảnh chụp 1968).
+- Story scenes CONFIRMED text-first, không asset bắt buộc; nhãn nhánh rõ cho keyboard/focus, feedback bằng chữ (không chỉ màu), tôn trọng reduced motion, không nhạc/SFX/autoplay có âm thanh — ở mức authoring spec; hành vi player thực tế chưa kiểm chứng (thuộc phạm vi runtime của Vinh/Hưng).
+- KHÔNG bao gồm: duyệt quyền/license, nghiệm thu asset cuối, production readiness. Các ô acceptance media và technical QA/handoff giữ nguyên chưa tick; CONTENT-007 giữ BLOCKED.
+- Handoff statement: gói authoring Bài 2 đủ để planning sản xuất/tích hợp sau này; production chờ quyền, file cuối và quyết định PO.
+- Next: Hưng recheck độc lập; PO quyết định handoff. Task giữ REVIEW; gate M3 OPEN / M4 LOCKED.
