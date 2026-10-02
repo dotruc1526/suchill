@@ -54,3 +54,9 @@
 - Updated current board/card/snapshot/plan to c816ec7, distinguished unchanged runtime 68580ed and Hưng text ACCEPTED from GitHub approval. Dương APPROVED c816ec7 at review 5388117510.
 - Latest main remains 21869e7 and is already integrated; no rebase rewrite needed. PR88 remains CONFLICTING; Vinh integrated-head validation, CI 2/2 and merge/handoff pending.
 - Verification: docs-only local links/diff and status assertions; CI on new PR90 head required. No runtime/env/migration impact. Next: Hưng delta re-review; card REVIEW, M3-06 BLOCKED, M3 OPEN.
+
+## Post-PR88 merge claim — 2026-10-02
+- Owner/executor/reviewer/started unchanged. Claim: board, active index, this card, M3-06 blocked card and preparation/controller/snapshot evidence.
+- Next: integrate main a339af6, refresh merged adapter evidence, preserve reviewer-only closure and handoff gate.
+
+- Post-merge handoff: integrated main a339af6; no source delta relative main. Vinh approval of earlier PR90 and Hưng request for delta sign-off preserved; final PR90 delta needs Hưng review. Local docs checks and new CI required. No env/migration impact.

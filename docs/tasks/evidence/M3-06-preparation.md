@@ -66,3 +66,10 @@ Loading/error announcements dùng status/alert phù hợp; heading/focus sau nav
 
 - [Thiết kế controller, operation lifetime, error mapping và test cases](./M3-06-controller-plan.md) bám contract runtime PR88 68580ed (head c816ec7 docs-only hiện OPEN); nguồn gap phía trên là lịch sử ngày 2026-10-01, không mô tả adapter branch hiện tại.
 - Plan đã ghi thành tài liệu; implementation/tests chưa chạy, không runtime claim hoặc acceptance UI.
+
+## Current post-merge handoff — 2026-10-02
+
+- PR88 MERGED to main `a339af644758f965a2f851a56ede466d6f5bd5f6`, final head `e6a3940`; Quality 2/2 SUCCESS. Source/tests/config unchanged from consumer-approved `c816ec7` and runtime `68580ed`; final delta is docs/main integration and review-history correction.
+- Supersedes earlier OPEN/conflict/CI checkpoints above. Hưng ACCEPTED fixes at `68580ed`; Dương APPROVED consumer `c816ec7`. Baseline `5a771db` was Hưng CHANGES REQUESTED, not ACCEPTED.
+- Main adapter card still REVIEW, without explicit final Vinh handoff/closure. Vinh confirms integration handoff and reviewer closes adapter card; then Dương moves M3-06 BLOCKED → READY → IN PROGRESS with runtime file claim. Do not infer reviewer DONE from merge.
+- No runtime claim in this docs update; 18 planned UI scenarios remain unexecuted. M3-07 BACKLOG; M3 OPEN/M4 LOCKED.

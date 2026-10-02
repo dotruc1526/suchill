@@ -1,3 +1,4 @@
+import { createMockCompletionStore } from './mockCompletionStore.ts'
 import type { EpisodeProgress, LessonProgress, VideoProgress } from '../../types/v2/progress.ts'
 import { failure, success, type ProgressService, type Result } from './contracts.ts'
 import type { MockCatalog } from './mock.ts'
@@ -6,6 +7,7 @@ import { createPlaybackProgress } from './mockPlaybackProgress.ts'
 type ProgressRecord = LessonProgress | EpisodeProgress | VideoProgress
 /** Inject the same store into recreated adapters to simulate reload; never production persistence. */
 export const createMockProgressStore = () => ({
+  completion: createMockCompletionStore(),
   lessons: new Map<string, LessonProgress>(),
   episodes: new Map<string, EpisodeProgress>(),
   videos: new Map<string, VideoProgress>(),

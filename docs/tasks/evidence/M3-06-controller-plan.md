@@ -89,3 +89,10 @@ Controller tests dùng fake services, deferred promises, injected ID factory; ad
 - PR88 `c816ec7` đã ghi Hưng ACCEPTED hai fixes runtime `68580ed` và Dương APPROVED; Vinh cần tích hợp main/gỡ conflict, verify integrated head và CI 2/2, acceptance/merge/handoff; đọc lại final contract nếu head thay đổi. Copy/checklist này không thay reviewer acceptance.
 - Dương điền runtime files/reviewers/dependency, chuyển M3-06 READY → IN PROGRESS; chọn module/test filenames cụ thể lúc claim, phối hợp hotspot với Hưng/Vinh.
 - Khi runtime xong: typecheck/build, controller/component/adapter tests liên quan, full browser suite, client scan, ảnh mới 375/430px và handoff; chuyển REVIEW. Reviewer quyết DONE, Vinh làm M3-07 sau dependency, PO audit Gate M3 riêng.
+
+## Current post-merge handoff — 2026-10-02
+
+- PR88 MERGED to main `a339af644758f965a2f851a56ede466d6f5bd5f6`, final head `e6a3940`; Quality 2/2 SUCCESS. Source/tests/config unchanged from consumer-approved `c816ec7` and runtime `68580ed`; final delta is docs/main integration and review-history correction.
+- Supersedes earlier OPEN/conflict/CI checkpoints above. Hưng ACCEPTED fixes at `68580ed`; Dương APPROVED consumer `c816ec7`. Baseline `5a771db` was Hưng CHANGES REQUESTED, not ACCEPTED.
+- Main adapter card still REVIEW, without explicit final Vinh handoff/closure. Vinh confirms integration handoff and reviewer closes adapter card; then Dương moves M3-06 BLOCKED → READY → IN PROGRESS with runtime file claim. Do not infer reviewer DONE from merge.
+- No runtime claim in this docs update; 18 planned UI scenarios remain unexecuted. M3-07 BACKLOG; M3 OPEN/M4 LOCKED.
