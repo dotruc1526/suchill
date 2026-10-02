@@ -40,3 +40,4 @@ Các file `active.md`, `CONTENT-003-004-REVIEW.md`, `PR21-HANDOFF.md`, `BEQA-LOC
 
 - [M3-GATE-01](../done/M3-GATE-01.md) — DONE preparation; Hưng/Dương accepted PR101, merged 71d9cd7; separate PO gate decision pending.
 - [CONTENT-012-QA-01](../done/CONTENT-012-QA-01.md) — DONE technical authoring scope; Hưng QA ACCEPTED, Trúc handoff confirmed, PR99 merged; parent media/production remains REVIEW.
+
