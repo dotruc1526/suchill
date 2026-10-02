@@ -188,7 +188,7 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 
 | ID | Phase | Task | Owner | Status | Depends on | Files | Acceptance / next action |
 |---|---|---|---|---|---|---|---|
-| QA-001 | 8 | Schema/story validation checklist | Vinh (Member 5) | BACKLOG | DOC-006, DOC-009 | tests/validation | Broken links/missing objectives detected |
+| QA-001 | 8 / M3 | Schema/story validation checklist | Vinh (Member 5); Hưng reviewer; Dương consumer | DONE | DOC-006, DOC-009 DONE | [Card](../tasks/done/QA-001.md); [evidence](../tasks/evidence/QA-001-validation.md) | Hưng/Dương ACCEPTED; PR85 merged ed234e9. 17 validation tests PASS; final quality 100 unit/22 component/7 E2E, CI 2/2 PASS. Typed-validator scope only; historical/media/production gates separate. |
 | QA-002 | 8 / M3 | Mobile/player interaction test matrix | Vinh; Hưng reviewer; Dương consumer reviewer | DONE | FE-005, FE-006, DOC-009 DONE | [Card](../tasks/done/QA-002.md); [matrix](../tasks/evidence/QA-002-mobile-player-matrix.md) | PR83 merged `cda4a69`; Dương APPROVED `9718317`, Hưng ACCEPTED harness/accessibility trên main merged (76 unit/22 component/7 E2E, scan 332/0); card DONE, M3 OPEN |
 | QA-003 | 8 | Supabase RLS/security verification | Vinh (Member 5) | BACKLOG | BE-002, BE-003, DOC-009 | security tests | User cannot read/write another user’s progress |
 | QA-004 | 8 | Historical/media release gate | Historical reviewer | BACKLOG | CONTENT-003, CONTENT-005, CONTENT-007 | release checklist | 0 critical historical/source/media issue, gồm video MVP |

@@ -1,7 +1,7 @@
 # QA-001 — Schema/story validation evidence
 
 - Date: 2026-10-01; executor: Codex hỗ trợ Vinh; base `30d0a4f`.
-- Status: implementation REVIEW; Hưng nghiệm thu contract/architecture.
+- Status: DONE; Hưng contract/architecture and Dương consumer acceptance recorded in [completed card](../done/QA-001.md).
 - Scope: typed domain validators, technical fixtures; not a parser for arbitrary untrusted JSON or canonical publish/release approval.
 
 | Rule / Phase 5, 8 | Check | Result / limit |
@@ -34,3 +34,8 @@ Baseline objective table failed three tests: chapter/story accepted empty object
 - No Home/UI/adapter/QA83 changes versus main; validators and tests unchanged from original PR85. M3-COMPLETION-01 DONE, M3-06 READY and milestone gates preserved. QA-001 REVIEW; CONTENT-014 historical/media sign-off remains separate.
 - Full npm run quality PASS: typecheck/build, 100 unit / 22 component / 7 E2E; scan 347/0 unsafe; 149 changed Markdown-file links checked, zero missing targets; diff check PASS. Log /tmp/suchill-pr85-integration-quality.log (local only).
 - Next: Hưng/Dương confirm integrated docs/scope and CI before merge. No dependency/env/migration impact; .DS_Store untouched.
+
+## Accepted and merged closeout — 2026-10-02
+- PR85 merged ed234e9. Hưng/Dương formal approvals at 508b498 and integrated text acceptance at 5959175 are recorded with source/limits in the completed card. Validators/tests unchanged through final 07cbd97 docs integration.
+- Final verification before merge: focused validation 17/17; full quality 100 unit / 22 component / 7 E2E, typecheck/build PASS; scan 351/0 unsafe; 179 local Markdown links valid; final CI 2/2 SUCCESS.
+- Current state DONE supersedes historical REVIEW/next-review notes above. No remaining QA-001 code work; content release/security/M3-07 acceptance remain separate. Closeout only updates docs; runtime suite not repeated because source/tests unchanged.

@@ -31,7 +31,6 @@ Các file `active.md`, `CONTENT-003-004-REVIEW.md`, `PR21-HANDOFF.md`, `BEQA-LOC
 
 ## QA track
 
-- [QA-001](./QA-001.md) — REVIEW; schema/story checklist và regression, Hưng review.
 
 - [M3-CONTRACT-REVIEW-01](./M3-CONTRACT-REVIEW-01.md) — REVIEW; historical G2/G5 proposal superseded by approved D1–D7 and PR88/92; archival docs review only, no UI blocker.
 - [M3-06](./M3-06.md) — READY; Dương claims completion/profile UI files after accepted adapter PR88 handoff.
