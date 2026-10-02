@@ -12,7 +12,7 @@
 
 ## Contract proposal — approved with agreement D1–D7
 
-Thiết kế sau đã được review; agreement D1–D7 trong [task card](../blocked/M3-06.md) chốt các quyết định. Vinh vẫn phải claim files và triển khai/test trước UI consumer:
+Thiết kế sau đã được review; agreement D1–D7 trong [task card](../active/M3-06.md) chốt các quyết định. Vinh vẫn phải claim files và triển khai/test trước UI consumer:
 
 - `completion.completeLesson({ lessonId, operationId })`: service kiểm tra authored version và required block progress/attempts đã lưu; trả completion receipt với lesson/version identity, confirmed completion time và reward receipt. Caller không gửi XP, streak, passed hay eligibility flag.
 - `completion.getLessonCompletion(lessonId)`: phục hồi receipt confirmed khi remount/reload; phân biệt chưa complete và lỗi đọc.

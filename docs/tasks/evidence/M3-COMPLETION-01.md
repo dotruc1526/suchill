@@ -1,6 +1,6 @@
 # M3-COMPLETION-01 — Adapter evidence / consumer handoff
 
-Date: 2026-10-02. Status: REVIEW, implementation acceptance pending Hưng/Dương.
+Date: 2026-10-02. Status: DONE; adapter accepted by Hưng/Dương and PR88 merged a339af6. Earlier pending notes below are historical.
 Original base: `260d2d0`; current rebase base: `origin/main` `74c8059`; approved preparation/agreement source: [PR84](https://github.com/dotruc1526/suchill/pull/84), head `5144fa2dd57d2cc785e5f132fa3b78c923c05da0`. That card records text approvals; do not represent them as GitHub review submissions. PR84 was OPEN at the original implementation read and is now merged into current main; preparation approval is not adapter implementation acceptance.
 
 ## Implemented
@@ -48,7 +48,7 @@ Original base: `260d2d0`; current rebase base: `origin/main` `74c8059`; approved
 
 ## Independent Dương consumer verification — 2026-10-02
 
-- Exact head 13c4d80: CONSUMER FIT ACCEPTED; full Quality independently PASS, 91 unit / 22 component / 4 E2E, scan 334/0 unsafe. See [review record](../active/M3-COMPLETION-01.md).
+- Exact head 13c4d80: CONSUMER FIT ACCEPTED; full Quality independently PASS, 91 unit / 22 component / 4 E2E, scan 334/0 unsafe. See [review record](../done/M3-COMPLETION-01.md).
 - Hưng implementation review remains pending; adapter REVIEW / UI BLOCKED. No runtime changes from this review.
 
 ## PR88 two-finding remediation — 2026-10-02
@@ -72,3 +72,7 @@ Original base: `260d2d0`; current rebase base: `origin/main` `74c8059`; approved
 - Regression verifies optional-only mixed/VN/quiz, no writes/XP/streak, optional video alone, required+optional success, full store rollback, idempotent retry, account isolation, same-day recovered-clock success and summary not counting future days. Focused completion suite 19/19 PASS.
 - Full quality PASS: typecheck/build, 95 unit / 22 component / 7 E2E, scan 338 files / 0 unsafe; diff check PASS. Log `/tmp/suchill-pr88-optional-clock-quality.log` (local only).
 - Hưng/Dương re-review these new changes and current CI before acceptance/merge. Hưng CHANGES REQUESTED at 5a771db covered these remaining findings; no acceptance at that head is claimed. Adapter REVIEW, UI M3-06 BLOCKED; no milestone gate, Home, QA83, env/migration/dependency changes.
+
+## Final handoff
+- PR88 merged a339af6 after accepted runtime 68580ed, docs-only review history correction e6a3940 and CI 2/2 SUCCESS. Full runtime quality 95/22/7; scan 338/0. See [final acceptance](../done/M3-COMPLETION-01.md#final-acceptance-and-adapter-handoff--2026-10-02).
+- Dương M3-06 READY for explicit UI claim; preserve consumer contract/limitations above. No UI implementation or M3 gate acceptance is implied.
