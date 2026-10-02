@@ -30,4 +30,3 @@ Các file `active.md`, `CONTENT-003-004-REVIEW.md`, `PR21-HANDOFF.md`, `BEQA-LOC
 
 
 - [M3-06](./M3-06.md) — READY; Dương claims completion/profile UI files after accepted adapter PR88 handoff.
-
