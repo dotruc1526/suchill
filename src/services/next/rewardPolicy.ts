@@ -22,25 +22,30 @@ export function quizBonusEligible(score: number, total: number): boolean {
 }
 
 export type WatchedRange = { start: number; end: number }
-export function uniqueWatchedSeconds(ranges: WatchedRange[], durationSeconds: number): number {
-  if (!Number.isFinite(durationSeconds) || durationSeconds <= 0) return 0
+export function mergedWatchedRanges(ranges: WatchedRange[], durationSeconds: number): WatchedRange[] {
+  if (!Number.isFinite(durationSeconds) || durationSeconds <= 0) return []
   const sorted = ranges
     .filter(range => Number.isFinite(range.start) && Number.isFinite(range.end))
     .map(range => ({ start: Math.max(0, Math.min(durationSeconds, range.start)),
       end: Math.max(0, Math.min(durationSeconds, range.end)) }))
     .filter(range => range.end > range.start)
     .sort((a, b) => a.start - b.start)
-  let total = 0
+  const merged: WatchedRange[] = []
   let current: WatchedRange | undefined
   for (const range of sorted) {
     if (!current) current = { ...range }
     else if (range.start <= current.end) current.end = Math.max(current.end, range.end)
     else {
-      total += current.end - current.start
+      merged.push(current)
       current = { ...range }
     }
   }
-  return total + (current ? current.end - current.start : 0)
+  if (current) merged.push(current)
+  return merged
+}
+
+export function uniqueWatchedSeconds(ranges: WatchedRange[], durationSeconds: number): number {
+  return mergedWatchedRanges(ranges, durationSeconds).reduce((total, range) => total + range.end - range.start, 0)
 }
 
 export function videoThresholdReached(ranges: WatchedRange[], durationSeconds: number, threshold = 0.9): boolean {
