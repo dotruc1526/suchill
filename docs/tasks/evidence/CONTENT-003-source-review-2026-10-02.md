@@ -122,3 +122,11 @@ Independent verification:
 Corrections: separate completed technical QA from pending Trúc historical/media acceptance and PO production decision; replace current CONTENT-003 production-plan gate wording with approved DOC-020/021 (M4/M5 CLOSED, M6 OPEN). Historical gate notes remain snapshots. No historical source or content wording altered. Parent remains REVIEW; CONTENT-007 remains BLOCKED.
 
 Handoff updated after concurrent source record 00c8d92: Trúc source acceptance is recorded for the same registry hash; voice ID and Free plan are recorded. Audio rights suitable for release remain pending with Trúc, as explicitly directed by the user. PO decides production only after acceptance. Audio files/timing/MP4 are future production outputs, not evidence already obtained. Runtime suite skipped because this is documentation-only; no env/migration impact.
+
+## 9. Trúc chốt audio plan — 2026-10-02
+
+- Human decision: Trúc trả lời **“1”**, chọn **“Giữ Free, chỉ làm bản tham khảo nội bộ”** sau khi biết Free không có commercial license.
+- Verdict phạm vi kế hoạch: **INTERNAL_REFERENCE_ONLY_CONFIRMED_BY_TRÚC**; phi thương mại. Giữ ElevenLabs / Hoa - Smooth, Gentle and Poetic / 5g2DMFQF8xR0KmnuNr4U / Free / Eleven v4 / Vietnamese. Chưa xác minh độc lập profile hoặc tạo audio.
+- Kết luận rights: **BLOCKED_FOR_COMMERCIAL_USE** vẫn đúng. Không canonical/runtime/publish/production approval; không biến user decision thành license. Điều khoản/provider evidence ở mục 8; lưu generation/date/settings/file/hash khi tạo bản tham khảo và kiểm tra Beta/service-specific terms.
+- Historical/source ACCEPT đúng registry hash không đổi; Vinh technical ACCEPT tại d17968b vẫn áp dụng scope được ghi. Lượt này chỉ sửa 6 tài liệu trạng thái/handoff, không sửa source/authoring/media file; diff whitespace PASS, không build/test app/env/migration.
+- Next: reviewer/PO xem xét hồ sơ theo scope nội bộ; nếu mở production, phải giải quyết audio đủ quyền và dependency riêng. CONTENT-003 REVIEW, CONTENT-007 BLOCKED. Supersede ghi chú “chờ Trúc chốt phương án audio”; file/media production acceptance vẫn pending.

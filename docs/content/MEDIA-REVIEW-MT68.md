@@ -42,7 +42,8 @@ Phương án hiện hành là TTS ElevenLabs theo lựa chọn của Trúc dư�
 | Người Việt Nam / chất giọng | Theo mô tả và lựa chọn của Trúc; chờ link thư viện/voice ID xác nhận đúng profile |
 | Model | Eleven v4 (`eleven_v4`) |
 | Ngôn ngữ | Vietnamese (tiếng Việt) |
-| Trạng thái | Đã chọn cấu hình; quyền sử dụng và file audio chưa nghiệm thu |
+| Phạm vi Trúc chốt | INTERNAL_REFERENCE_ONLY; phi thương mại, chỉ tham khảo nội bộ |
+| Trạng thái | Đã chốt phương án nội bộ; file audio chưa nghiệm thu; commercial/production use BLOCKED |
 
 [Tài liệu model ElevenLabs](https://elevenlabs.io/docs/overview/models) được đối chiếu ngày 2026-10-02: model ID `eleven_v4`, có Vietnamese trong danh sách ngôn ngữ hỗ trợ. Tên giọng Hoa do Trúc cung cấp; chưa xác minh profile cụ thể trong tài khoản.
 
@@ -74,3 +75,11 @@ Poster/sơ đồ chữ do nhóm tạo cần source file, font/license thực t�
 Cần link/voice ID Hoa, tên gói và evidence ngày generation, kiểm tra trạng thái model/service và phạm vi web/PWA. Không cung cấp API key. Cấu hình đã chọn không đồng nghĩa quyền audio đã được nghiệm thu; bản thu/file/hash và timing/caption QA được bổ sung khi task production đủ gate.
 
 Checkpoint sau phản hồi Trúc: voice ID và gói đã được cung cấp. Các ghi chú trước đó “chưa có voice ID/gói” là snapshot superseded. Nếu cần phát hành thương mại, phải tạo audio mới trong gói có quyền phù hợp và xác minh service/model không thuộc Beta cùng điều khoản tại thời điểm tạo; nâng gói không cấp lại quyền cho output Free cũ. Chưa tạo audio hoặc duyệt phát hành.
+
+## Quyết định phạm vi audio của Trúc — 2026-10-02
+
+Trúc chọn “1”: **giữ Free, chỉ làm bản tham khảo nội bộ**. Audio plan `INTERNAL_REFERENCE_ONLY`, phi thương mại; không còn pending lựa chọn audio. Giữ đúng cấu hình/voice ID ở bảng trên. Quyết định này không cấp commercial license hoặc cho phép gắn vào canonical lesson/production; không tạo hoặc nghiệm thu audio trong lượt này.
+
+Nếu có bản tham khảo nội bộ về sau: lưu ngày generation, model/service status (kiểm tra Beta/điều khoản tại thời điểm dùng), narration revision, thiết lập, file/hash và nhãn “Tham khảo nội bộ — không dùng phát hành”. Nếu chia sẻ phi thương mại ngoài nhóm, phải review riêng phạm vi và attribution theo chính sách ElevenLabs; chính sách hiện yêu cầu elevenlabs.io hoặc 11.ai trong tiêu đề khi publish output Free. Chưa cho phép chia sẻ công khai hoặc dùng promotional/commercial.
+
+Phát hành/production vẫn cần phương án audio đủ quyền mới và reviewer/PO handoff riêng. Các snapshot “chờ Trúc chốt quyền/phương án audio” trước đó đã được quyết định phạm vi này thay thế; chưa thay verdict quyền production.

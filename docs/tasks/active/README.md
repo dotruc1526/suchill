@@ -15,7 +15,7 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOC
 
 ## Content track
 
-- [CONTENT-003](./CONTENT-003.md) — `REVIEW`; registry remediation 7/7 claims supported, unique IDs, 1972/artifacts unchanged; Trúc ACCEPT source scope hash 369205fc…e3bba5; audio ElevenLabs Free BLOCKED_FOR_COMMERCIAL_USE, Vinh technical metadata/diff ACCEPTED; Trúc source ACCEPT đã ghi; audio rights và PO production gate còn chờ.
+- [CONTENT-003](./CONTENT-003.md) — `REVIEW`; registry remediation 7/7 claims supported, unique IDs, 1972/artifacts unchanged; Trúc ACCEPT source scope hash 369205fc…e3bba5; Trúc chốt audio ElevenLabs Free INTERNAL_REFERENCE_ONLY; commercial/production audio BLOCKED, Vinh technical metadata/diff ACCEPTED; Trúc source ACCEPT đã ghi; audio rights và PO production gate còn chờ.
 - [CONTENT-004](./CONTENT-004.md) — `REVIEW`; Trúc media/handoff review recorded 2026-10-02; Hưng recheck ACCEPTED; PO production handoff pending; rights/assets pending.
 - [CONTENT-010](./CONTENT-010.md) — `REVIEW`; Trúc media/handoff review recorded 2026-10-02; Hưng recheck ACCEPTED; PO production handoff pending; rights/assets pending.
 - [CONTENT-011](./CONTENT-011.md) — `REVIEW`; Trúc media/handoff review recorded 2026-10-02; Hưng recheck ACCEPTED; PO production handoff pending; rights/assets pending.

@@ -25,3 +25,7 @@ Voice theo lựa chọn Trúc ngày 2026-10-02: **dùng ElevenLabs, giọng Hoa 
 ## Media và next action
 
 [MEDIA-REVIEW-MT68.md](./MEDIA-REVIEW-MT68.md) ghi từng quyết định license/caption và những ứng viên loại khỏi phương án bắt buộc. Trúc đã ghi authoring media/handoff review, Vinh/Hưng đã ACCEPTED technical/review-state reconciliation; registry mới đã có source acceptance của Trúc theo CONTENT-003; quyền audio phù hợp phạm vi phát hành vẫn chờ Trúc. CONTENT-006 giữ REFERENCE_ONLY; không dùng clip cũ thay pilot. M0–M5 DONE, M6 OPEN, M7 LOCKED theo DOC-020/021 (PR110); content production có gate riêng. Production CONTENT-007 vẫn BLOCKED; PO quyết định handoff sau khi source/media/audio plan được duyệt. MP4/poster/manifest và audio/caption sync cuối là đầu ra CONTENT-007, không phải prerequisite phải có trước khi dựng.
+
+## Phạm vi voice đã chốt — Trúc, 2026-10-02
+
+Giữ cấu hình ElevenLabs/Hoa/Eleven v4/Vietnamese và voice ID `5g2DMFQF8xR0KmnuNr4U` trên **Free**, chỉ **INTERNAL_REFERENCE_ONLY**, phi thương mại. Không còn chờ Trúc chọn audio route. Không dùng output Free làm audio canonical/production/phát hành thương mại. Chưa tạo hoặc nghiệm thu file audio. Vinh technical review ACCEPTED tại d17968b; PO handoff production và phương án audio đủ quyền vẫn riêng, CONTENT-007 BLOCKED.
