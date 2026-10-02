@@ -1,13 +1,13 @@
 # AUTH-USERNAME-001 — Username/password access with optional recovery email
 
-> Status: REVIEW\
+> Status: IN PROGRESS\
 > Started / last updated: 2026-10-02
 
 ## Assignment
 
 - Owner / Executor: Codex root.
 - Reviewer: username_security source/security review PASS; browser/mail/human acceptance pending.
-- Branch: codex/m3-m5-complete.
+- Branch: codex/m6-pwa-completion, based on merged main 8b5ae10; original username implementation is retained.
 - Dependencies: M4-07, SUPABASE-HOSTED-001 technical delivery DONE.
 - Authorization: user requested username/password instead of mandatory email confirmation; selected optional recovery email without blocking learning.
 - Files claimed: this card, own board/index entries, new authentication design/evidence, `src/features/auth/`, auth-only additions to `src/services/next/accountContracts.ts`, `src/services/next/mockAccount.ts`, `src/services/supabase/auth.ts`, new trusted account-access backend/function, new auth migration and tests; dev-only middleware registration in `vite.config.ts` if needed. No App/tokens/global CSS/package/lockfile ownership taken.
@@ -41,3 +41,16 @@ No old account deletion or password reset is included in this task. User-supplie
 ## PR106 core username UI acceptance — 2026-10-02
 
 Actual configured Chrome UI on allowed origin localhost5173: signup without email/confirmation,375/430 mobile fit, repeat-password validation, immediate Home, persistent browser reload/same UUID/0XP, signout, wrong-password rejection, correct username login and own synthetic password change/new-password login PASS. [UI evidence](../../engineering/main-first-integration/username-browser.txt). Runtime is unchanged from reviewed5640f29. Disposable account deleted only after checking exact newly generated UUID/email/username metadata; retained account/password/progress untouched. No real recovery email sent. This supersedes the earlier pending complete new-user browser sequence; optional recovery sender/delivery/reset acceptance remains pending and this card stays REVIEW. Next action: configure verified recovery sender and callback allowlist, validate real recovery with authorized recipient, then obtain separate reviewer/PO acceptance.
+
+## Post-merge recovery rework — 2026-10-02
+
+Independent postmerge reviewer identified a concrete missing acceptance: the SDK PASSWORD_RECOVERY event is discarded and /?account=recovery opens the learning Home instead of a reset form. This resumes the existing active Auth scope, independently of locked M6/M7. Core username acceptance remains reusable; no original account credentials/progress are changed.
+
+- Owner / Executor: Codex root coordinating disjoint recovery client/UI work.
+- Reviewer: independent postmerge_main_review; final mail/sender/redirect acceptance still pending.
+- Started: 2026-10-02. Status: IN PROGRESS (reopened from REVIEW for the verified recovery gap).
+- Files claimed: root owns this card, its board row, docs/engineering/auth-username/recovery-callback.md and src/app/HostedApp.tsx; client lane owns auth-only additions to src/services/next/accountContracts.ts, src/services/supabase/auth.ts, a new passwordRecovery.ts helper and tests/member5/password-recovery.test.ts; UI lane owns new recovery feature files and tests/qa/password-recovery-ui.test.mjs. Package/lockfile, App.tsx, tokens, global CSS, all applied migrations and unrelated contributor files remain unclaimed.
+- Acceptance: a dedicated callback/reset form only becomes usable after an SDK recovery event plus server-verified matching Auth subject; valid, missing/expired, offline/retry, repeated-password and account-switch cases; callback secrets are not surfaced in domain/UI/logs; own pending progress is preserved. Ordinary signin/signup and existing M3/M4/M5 regression must pass. Hosted email delivery/sender and real authorized recipient acceptance remain separate and unverified.
+- Next action: agree the minimal optional AuthService recovery contract, implement in claimed lanes, verify meaningful unit/browser checks and obtain an independent review before returning to REVIEW. No task DONE or milestone gate is inferred.
+
+Client lane additionally claims only the concurrent-listener fixture in tests/member5/username-client.test.ts; all prior assertions remain unchanged. It must model multiple SDK subscriptions so the recovery observer cannot be accidentally overwritten by the fixture.
