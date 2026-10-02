@@ -28,4 +28,4 @@
 - Acceptance: state/controller design, operation lifetime, account isolation, error mapping and executable test scenarios with expected results; label all tests planned.
 - Next action: write and verify docs-only plan, return REVIEW on PR90; M3-06 runtime stays BLOCKED.
 
-- Checkpoint completed: controller/state/operation/error design và 19 test scenarios đã ghi; tất cả tests mới là planned, không runtime acceptance. Local links/diff check PASS; no source/env/migration changes. Next Hưng/Vinh review docs trên PR90, Dương runtime sau PR88 handoff.
+- Checkpoint completed: controller/state/operation/error design và 18 test scenarios đã ghi; tất cả tests mới là planned, không runtime acceptance. Local links/diff check PASS; no source/env/migration changes. Next Hưng/Vinh review docs trên PR90, Dương runtime sau PR88 handoff.
