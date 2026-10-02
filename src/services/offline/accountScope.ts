@@ -28,9 +28,18 @@ export function scopeLearningServices(base: LearningServices, userId: string): L
     } catch { return failure('server_error') }
     finally { unsubscribe() }
   }
+  const secure = <O>(action: ((input: string, context?: { expectedSubject?: string }) => Promise<Result<O>>) | undefined) =>
+    action ? async (input: string): Promise<Result<O>> => {
+      if (!await owned()) return failure('unauthorized')
+      const result = await action(input, { expectedSubject: userId })
+      return await owned() ? result : failure('unauthorized')
+    } : undefined
   return {
     ...base,
-    auth: { ...base.auth, getSession: read(base.auth.getSession), signOut: async () => {
+    auth: { ...base.auth, getSession: read(base.auth.getSession),
+      claimUsername: secure(base.auth.claimUsername), setRecoveryEmail: secure(base.auth.setRecoveryEmail),
+      verifyRecoveryEmail: secure(base.auth.verifyRecoveryEmail), updatePassword: secure(base.auth.updatePassword),
+      signOut: async () => {
       if (!await owned()) return failure('unauthorized')
       return base.auth.signOut()
     } },

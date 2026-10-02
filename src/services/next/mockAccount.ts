@@ -12,14 +12,20 @@ const analyticsProperties: Record<AnalyticsEvent['name'], string[]> = {
   fallback_used: ['block_id', 'fallback_type'], lesson_completed: ['lesson_id', 'completion_method'],
   reward_granted: ['reward_type', 'xp_delta'], streak_qualified: ['local_date', 'current_streak'],
 }
-const validCredentials = (email: string, password: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && password.length >= 8
+const validEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) && value.length <= 254 && !value.endsWith('@accounts.suchill.invalid')
+const validName = (value: string) => /^[a-z0-9_]{3,32}$/.test(value)
+const validPassword = (value: string) => value.length >= 8 && value.length <= 128
+const normalized = (value: string) => value.trim().toLowerCase()
+const validCredentials = (identifier: string, password: string) =>
+  (validEmail(normalized(identifier)) || validName(normalized(identifier))) && validPassword(password)
 
 export function createMockAccountServices(store: MockAccountStore, session: MockSession, now: () => string): {
   account: AccountService; auth: AuthService; analytics: AnalyticsService
 } {
   const listeners = new Set<(session: AuthSession | null) => void>()
+  const currentCredential = () => [...store.credentials.values()].find(value => value.session.userId === session.userId)
   const currentSession = (): AuthSession | null => session.userId
-    ? { userId: session.userId, displayName: ensureMockAccount(store, session).displayName } : null
+    ? { ...(currentCredential()?.session ?? {}), userId: session.userId, displayName: ensureMockAccount(store, session).displayName } : null
   const emit = () => { for (const listener of listeners) { try { listener(currentSession()) } catch { /* Consumer cannot block auth. */ } } }
   return {
     account: {
@@ -69,11 +75,13 @@ export function createMockAccountServices(store: MockAccountStore, session: Mock
         return success(clone(credential.session))
       },
       async signUp(input) {
-        if (!validCredentials(input.email, input.password) || !input.displayName.trim() || input.displayName.length > 80 || !validTimezone(input.timezone)) return failure('validation')
-        const email = input.email.trim().toLowerCase()
-        if (store.credentials.has(email)) return failure('conflict')
-        const next = { userId: `mock.user.${store.credentials.size + 1}`, displayName: input.displayName.trim() }
-        store.credentials.set(email, { session: next, password: input.password })
+        const identifier = normalized(input.username ?? input.email)
+        if (!validCredentials(identifier, input.password) || (input.username !== undefined ? !validName(identifier) : !validEmail(identifier)) ||
+          !input.displayName.trim() || input.displayName.length > 80 || !validTimezone(input.timezone)) return failure('validation')
+        if (store.credentials.has(identifier)) return failure('conflict')
+        const next: AuthSession = { userId: `mock.user.${store.credentials.size + 1}`, displayName: input.displayName.trim(),
+          ...(input.username !== undefined ? { username: identifier } : {}) }
+        store.credentials.set(identifier, { session: next, password: input.password })
         session.userId = next.userId
         session.displayName = next.displayName
         session.timezone = input.timezone
@@ -83,6 +91,36 @@ export function createMockAccountServices(store: MockAccountStore, session: Mock
       },
       async signOut() { session.userId = ''; session.displayName = undefined; emit(); return success(null) },
       subscribe(listener) { listeners.add(listener); return () => { listeners.delete(listener) } },
+      async claimUsername(username, context) {
+        const name = normalized(username), credential = currentCredential()
+        if (!session.userId || !credential || (context?.expectedSubject !== undefined && context.expectedSubject !== session.userId)) return failure('unauthorized')
+        if (!validName(name)) return failure('validation')
+        if ((credential.session.username && credential.session.username !== name) ||
+          (store.credentials.has(name) && store.credentials.get(name) !== credential)) return failure('conflict')
+        credential.session.username = name
+        store.credentials.set(name, credential)
+        emit()
+        return success(clone(credential.session))
+      },
+      async setRecoveryEmail(email, context) {
+        const address = normalized(email), credential = currentCredential()
+        if (!session.userId || !credential || (context?.expectedSubject !== undefined && context.expectedSubject !== session.userId)) return failure('unauthorized')
+        if (!validEmail(address)) return failure('validation')
+        // Mock records pending setup; it never pretends that mailbox verification occurred.
+        credential.session.pendingRecoveryEmail = address
+        emit()
+        return success(clone(credential.session))
+      },
+      async requestPasswordReset(email) {
+        return validEmail(normalized(email)) ? success(null) : failure('validation')
+      },
+      async updatePassword(password, context) {
+        const credential = currentCredential()
+        if (!session.userId || !credential || (context?.expectedSubject !== undefined && context.expectedSubject !== session.userId)) return failure('unauthorized')
+        if (!validPassword(password)) return failure('validation')
+        credential.password = password
+        return success(null)
+      },
     },
     analytics: {
       async track(event) {

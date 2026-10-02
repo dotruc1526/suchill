@@ -8,6 +8,10 @@ M3–M5 technical delivery and Supabase follow-up are accepted in [done](../done
 
 ## Content track
 
+Login investigation: [AUTH-LOGIN-001](./AUTH-LOGIN-001.md) — REVIEW; exact8443 browser/owned-email proof, duplicate-password explanation; user's manual retry pending.
+
+Username access: [AUTH-USERNAME-001](./AUTH-USERNAME-001.md) — REVIEW; immediate hosted signup and8+9Auth tests PASS, UUID/progress retained; optional sender/redirect and final browser acceptance pending.
+
 - [CONTENT-003](./CONTENT-003.md) — REVIEW; readable source evidence and historical/media/audio sign-off.
 - [CONTENT-004](./CONTENT-004.md) — REVIEW; exact source revision, selected narration/media rights review and screenplay handoff; final MP4 belongs CONTENT-007.
 - [CONTENT-010](./CONTENT-010.md) — REVIEW; media/license and task acceptance.

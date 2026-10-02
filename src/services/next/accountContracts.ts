@@ -30,15 +30,28 @@ export interface CompletionService {
   completeDailyReview(input: CompleteDailyReviewInput): Promise<Result<DailyReviewReceipt>>
 }
 /** Credentials/tokens are adapter internals and never part of this UI-facing session. */
-export type AuthSession = { userId: string; displayName: string }
+export type AuthSession = {
+  userId: string; displayName: string; username?: string
+  /** Only a confirmed, real Auth email can be used for recovery. */
+  recoveryEmail?: string; pendingRecoveryEmail?: string
+}
+/** The legacy email field also accepts the application's username identifier. */
 export type SignInInput = { email: string; password: string }
-export type SignUpInput = SignInInput & { displayName: string; timezone: string }
+export type SignUpInput = SignInInput & { displayName: string; timezone: string; username?: string }
+/** A scoped consumer pins its rendering account before an asynchronous security mutation. */
+export type AuthMutationContext = { expectedSubject?: string }
 export interface AuthService {
   getSession(): Promise<Result<AuthSession | null>>
   signIn(input: SignInInput): Promise<Result<AuthSession>>
   signUp(input: SignUpInput): Promise<Result<AuthSession | null>>
   signOut(): Promise<Result<null>>
   subscribe(listener: (session: AuthSession | null) => void): () => void
+  claimUsername?(username: string, context?: AuthMutationContext): Promise<Result<AuthSession>>
+  /** Separate from registration: a failed recovery setup must not invalidate a new session. */
+  setRecoveryEmail?(email: string, context?: AuthMutationContext): Promise<Result<AuthSession>>
+  verifyRecoveryEmail?(token: string, context?: AuthMutationContext): Promise<Result<AuthSession>>
+  requestPasswordReset?(email: string): Promise<Result<null>>
+  updatePassword?(password: string, context?: AuthMutationContext): Promise<Result<null>>
 }
 export type AnalyticsEventName =
   | 'lesson_started' | 'lesson_resumed' | 'block_completed' | 'episode_started' | 'scene_viewed'

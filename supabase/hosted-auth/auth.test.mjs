@@ -47,7 +47,7 @@ test('hosted Auth and application account adapters', { timeout: 180_000 }, async
   })
 
   await t.test('password sign-in provisions authoritative profile/settings through Auth trigger', async () => {
-    assert.deepEqual(await login(a), { userId: a.id, displayName: a.displayName })
+    assert.deepEqual(await login(a), { userId: a.id, displayName: a.displayName, recoveryEmail: a.email })
     const invalid = await services.auth.signIn({ email: a.email, password: 'Invalid-test-password-9!' })
     assert.ok(!invalid.ok && invalid.error === 'unauthorized', 'Wrong password cannot authenticate')
     const profile = requireSuccess(await services.users.getCurrentProfile(), 'Profile')
@@ -67,7 +67,7 @@ test('hosted Auth and application account adapters', { timeout: 180_000 }, async
     assert.ok(storage.keys().includes(storageKey), 'SDK stored its session in the configured storage')
     await harness.dispose(first)
     const restored = harness.restoredClient(storage, storageKey), restoredAuth = createSupabaseAuth(restored)
-    assert.deepEqual(requireSuccess(await restoredAuth.getSession(), 'Restored session'), { userId: a.id, displayName: a.displayName })
+    assert.deepEqual(requireSuccess(await restoredAuth.getSession(), 'Restored session'), { userId: a.id, displayName: a.displayName, recoveryEmail: a.email })
     const profile = requireSuccess(await createSupabaseLearningServices(restored, publicConfig).users.getCurrentProfile(), 'Restored profile')
     assert.equal(profile.id, a.id, 'Persisted JWT performs an actual authorized RPC')
     requireSuccess(await restoredAuth.signOut(), 'Restored sign-out')

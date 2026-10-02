@@ -87,3 +87,17 @@ test('scoped reads discard ABA settings and release their observer, while thrown
   assert.deepEqual(await scopeLearningServices(guarded, 'A').account.getSettings(), failure('server_error'))
   assert.equal(removed, 2)
 })
+
+test('scoped security actions carry the rendered account through a switch during the guard await', async () => {
+  const base = createMockLearningServices(accountCatalog(), { userId: 'A' }, now)
+  let actor = 'A', mutations = 0
+  const guarded = { ...base, auth: { ...base.auth,
+    async getSession() { const result = success({ userId: actor, displayName: actor }); actor = 'B'; return result },
+    async updatePassword(_password: string, context?: { expectedSubject?: string }) {
+      if (context?.expectedSubject !== actor) return failure<null>('unauthorized')
+      mutations++; return success(null)
+    },
+  } }
+  assert.deepEqual(await scopeLearningServices(guarded, 'A').auth.updatePassword?.('fixture-password'), failure('unauthorized'))
+  assert.equal(mutations, 0)
+})

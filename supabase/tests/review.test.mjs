@@ -104,7 +104,14 @@ test('every published VN branch must have a playable end route',async t=>{
 test('a confirmed zero-XP daily attempt cannot become fresh after timezone reinterpretation',async t=>{
  const db=await createTestDatabase({throughMigration:'20261002002400_story_end_reachability.sql'})
  t.after(()=>db.close())
- await command(db,'update_settings',{timezone:'America/Adak',operationId:'zero-receipt-initial-zone'})
+ // Adak observes DST: its UTC-9 summer offset can share Kiritimati's date
+ // during 09:00-10:00 UTC. Pago Pago (UTC-11) stays >24h behind UTC+14,
+ // so a fresh attempt below always targets a different reward eligibility day.
+ const initialZone='Pacific/Pago_Pago',nextZone='Pacific/Kiritimati'
+ const distinct=(await db.query(`select bool_and((instant at time zone $1)::date < (instant at time zone $2)::date) value
+  from generate_series('2026-01-01 00:00:00+00'::timestamptz,'2026-12-31 23:00:00+00'::timestamptz,interval '1 hour') instant`,[initialZone,nextZone])).rows[0].value
+ assert.equal(distinct,true)
+ await command(db,'update_settings',{timezone:initialZone,operationId:'zero-receipt-initial-zone'})
  const attempt=async op=>command(db,'submit_practice',{questionSetId:ids.practice,answers:quizAnswers(),operationId:op})
  const claim=async(a,op)=>command(db,'complete_daily_review',{questionSetId:ids.practice,attemptId:a.attemptId,operationId:op})
  const first=await attempt('zero-receipt-first-attempt')
@@ -122,7 +129,7 @@ test('a confirmed zero-XP daily attempt cannot become fresh after timezone reint
  // cooldown having elapsed. The second receipt's day itself must remain fixed.
  await db.query("update private.daily_review_claims set local_date=local_date-1 where user_id=$1",[ids.userA])
  await db.query("update public.user_settings set timezone_changed_at=now()-interval '8 days' where user_id=$1",[ids.userA])
- await command(db,'update_settings',{timezone:'Pacific/Kiritimati',operationId:'zero-receipt-new-zone'})
+ await command(db,'update_settings',{timezone:nextZone,operationId:'zero-receipt-new-zone'})
  const replay=await claim(second,'zero-receipt-later-claim')
  assert.equal(replay.xpGranted,0)
  assert.equal(replay.localDate,original.localDate)

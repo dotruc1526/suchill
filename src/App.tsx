@@ -14,7 +14,7 @@ import { theme } from './theme/tokens'
 import type { Tab } from './types'
 
 function RuntimeApp({ runtime }: { runtime: ReturnType<typeof createLearningRuntime> }) {
-  const [tab, setTab] = useState<Tab>('home')
+  const [tab, setTab] = useState<Tab>(() => ['recovery', 'verify-recovery'].includes(new URLSearchParams(window.location.search).get('account') ?? '') ? 'profile' : 'home')
   const account = useLearningAccount(runtime)
   const services = useMemo(() => account.session
     ? scopeLearningServices(runtime.services, account.session.userId) : runtime.services,

@@ -267,7 +267,7 @@ test('confirmed lesson rewards survive revisit and a newly signed-in account see
       await waitFor("Boolean(document.querySelector('input[name=email]'))", 'Signed out')
       await evaluate("[...document.querySelectorAll('[data-testid=account-access] button')].find(button=>button.textContent.includes('CHƯA CÓ TÀI KHOẢN')).click()")
       await waitFor("Boolean(document.querySelector('input[name=displayName]'))", 'Sign-up form')
-      await evaluate("document.querySelector('input[name=displayName]').value='Tài khoản thử nghiệm B'; document.querySelector('input[name=email]').value='fixture-b@example.invalid'; document.querySelector('input[name=password]').value='fixture-password'; document.querySelector('form[aria-label=\"Tạo tài khoản\"]').requestSubmit()")
+      await evaluate("document.querySelector('input[name=displayName]').value='Tài khoản thử nghiệm B'; document.querySelector('input[name=username]').value='fixture_b'; document.querySelector('input[name=password]').value='fixture-password'; document.querySelector('input[name=passwordConfirm]').value='fixture-password'; document.querySelector('form[aria-label=\"Tạo tài khoản\"]').requestSubmit()")
       await waitFor("Boolean(document.querySelector('[data-testid=account-profile] dl'))", 'New account profile')
       assert.match(await evaluate("document.querySelector('[data-testid=account-profile] dl').textContent"), /Tổng XP0/)
       await evaluate("[...document.querySelectorAll('nav button')].find(button=>button.textContent==='HỌC').click()")

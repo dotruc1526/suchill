@@ -90,6 +90,14 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 
 ## Task board
 
+### Login investigation — 2026-10-02
+
+| ID | Owner / executor | Reviewer | Status | Started | Files / next action |
+|---|---|---|---|---|---|
+| AUTH-LOGIN-001 | Codex root | QA / user's manual password retry | REVIEW | 2026-10-02 | [Card](../tasks/active/AUTH-LOGIN-001.md); exact8443 owned-email login/10XP verified; duplicate registration does not reset password; manual retry remains |
+| AUTH-USERNAME-001 | Codex root | Independent security PASS / browser-mail acceptance pending | REVIEW | 2026-10-02 | [Card](../tasks/active/AUTH-USERNAME-001.md), [evidence](../engineering/auth-username/EVIDENCE.md);027/028 applied, immediate signup and hosted8+legacy9PASS; optional sender/redirect and final UI acceptance remain |
+
+
 ### Isolated M3–M5 delivery — 2026-10-02
 
 Hosted follow-up authorized by the user: [SUPABASE-HOSTED-001](../tasks/done/SUPABASE-HOSTED-001.md) — DONE after independent review. Fresh Free development project `kyfqlhpweetsridmqkvl`:26 migrations, actual Auth/email/browser, REST/Storage/RLS and trusted learning verified. [Hosted evidence](../engineering/hosted-supabase/EVIDENCE.md). No production release or canonical publication.
