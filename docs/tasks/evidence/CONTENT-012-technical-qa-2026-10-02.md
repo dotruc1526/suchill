@@ -45,7 +45,7 @@ Reproduction: export `7d94d94349de43dae1e0184753bd907cbf8b7ec6` with `git archiv
 
 - Vinh technical authoring QA is complete. Hưng reviews this evidence; Trúc retains content authority. Parent CONTENT-012 remains REVIEW pending remaining handoff/media/production acceptance.
 - PR99 must integrate its hash-bound verdict/status before this result describes main. Main still has the pre-verdict status; this report does not silently replace that artifact or another executor's open PR.
-- Related CONTENT-014 review-state rechecks are separate [PR100](https://github.com/dotruc1526/suchill/pull/100) and [PR102](https://github.com/dotruc1526/suchill/pull/102). Hưng's evidence there accepts synchronization, not production media.
+- Related CONTENT-014 review-state rechecks are separate [PR100](https://github.com/dotruc1526/suchill/pull/100) and [PR102](https://github.com/dotruc1526/suchill/pull/102). PR102 merged `b716b41` while this handoff was being prepared; PR100 remains OPEN. Hưng's evidence accepts synchronization, not production media.
 - No runtime mapper/seed/grading/UI behavior, real audio/media rights or production publication was tested/authorized. Authored JSON is not automatically a runtime QuestionSet DTO.
 - Runtime suite not rerun: this change only adds documentation; PR99 Quality 2/2 SUCCESS at the checked head is recorded as CI evidence, not a substitute for content review.
 - Source/env/migrations/dependencies: unchanged. M3 OPEN; M4 LOCKED; CONTENT-005 remains blocked by actual video/media dependencies.

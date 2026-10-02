@@ -21,7 +21,7 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOC
 - [CONTENT-011](./CONTENT-011.md) — `REVIEW`; historical review đạt, chờ technical QA/media/handoff sign-off.
 - [CONTENT-006](./CONTENT-006.md) — `IN PROGRESS`; video cũ chỉ `APPROVED_FOR_INTERNAL_REFERENCE_ONLY`, không phải media canonical.
 - [CONTENT-012](./CONTENT-012.md) — `REVIEW`; PR99 has Trúc quiz verdict; Vinh snapshot technical QA complete; integration/media/handoff still pending.
-- [CONTENT-014](./CONTENT-014.md) — `REVIEW`; Vinh technical structure ACCEPTED; synchronization rechecks recorded in PR100/102 (OPEN); final media/production/handoff still pending.
+- [CONTENT-014](./CONTENT-014.md) — `REVIEW`; Hưng independent sync recheck ACCEPTED, PR102 merged b716b41; Vinh PR100 OPEN; quiz snapshot QA complete; final media/production/handoff pending.
 
 ## Experimental track
 
