@@ -485,7 +485,7 @@ Product Owner explicitly selects **1954 / Trước cơn bão**, replacing the cu
 
 | ID | Owner / Executor | Reviewer | Status | Started | Files / Next action |
 |---|---|---|---|---|---|
-| PR109-REVIEW-001 | Codex integration / Codex | Dương handoff; specialists separate | IN PROGRESS | 2026-10-03 | [Card](../tasks/active/PR109-REVIEW-001.md); inspect runtime and reproduce checks on head4ad6331. |
+| PR109-REVIEW-001 | Codex integration / Codex | Dương handoff; specialists separate | REVIEW | 2026-10-03 | [Card](../tasks/active/PR109-REVIEW-001.md); bounded SOFTWARE APPROVE85e4f3c; Quality381/reference22/latest preview4/E2E11 PASS; [evidence](../tasks/evidence/PR109-review-2026-10-03.md). |
 | M7-01 | Dương / Codex | Dương scope; Thọ learning, pending | REVIEW | 2026-10-03 | [Card](../tasks/active/M7-01.md); [scope brief](../content/CHAPTER-1954-SCOPE.md) ready for review; M7-02 awaits acceptance. |
 
 M7-02 remains BACKLOG pending M7-01 reviewer acceptance. M7-03..09 preserve roadmap dependencies; temporary preview is not canonical content or release acceptance.
