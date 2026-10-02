@@ -37,4 +37,4 @@ Các file `active.md`, `CONTENT-003-004-REVIEW.md`, `PR21-HANDOFF.md`, `BEQA-LOC
 - [M3-06](../done/M3-06.md) — DONE; Hưng/Vinh accepted, PR94 merged 20e3263; final head CI 2/2 PASS.
 
 
-- [M3-GATE-01](./M3-GATE-01.md) — REVIEW; closeout/technical Gate M3 evidence ready; Product Owner decision pending.
+- [M3-GATE-01](./M3-GATE-01.md) — REVIEW; Hưng technical review ACCEPTED 2026-10-02; chờ Dương PO audit/quyết định.
