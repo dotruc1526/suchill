@@ -43,3 +43,6 @@ These are open contract decisions, not new XP/threshold policy: defaults already
 ## Current-context clarification — 2026-10-02
 - The proposal above is a historical 2026-10-01 review, not the current contract or implementation blocker. Approved D1–D7 in PR84 and accepted adapter PR88 (a339af6) supersede its open decisions. PR92 (c29e4a7) records adapter DONE and M3-06 READY for Dương UI claim.
 - Preserve original recommendations as evidence; no new runtime claim or contract decision here. Hưng reviews this archived proposal record only. M3-07 still waits for accepted M3-06 UI; M3 OPEN/M4 LOCKED.
+
+## Final archival context — 2026-10-02
+- [Proposal task](../archived/M3-CONTRACT-REVIEW-01.md) CANCELLED/superseded; no acceptance of this draft inferred. Canonical D1–D7 adapter and UI are accepted, M3-07 QA merged via PR98/f0a2bdf. No further G2/G5 runtime decision pending here; PO gate remains separate.
