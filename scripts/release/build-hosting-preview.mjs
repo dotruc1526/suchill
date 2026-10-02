@@ -92,7 +92,9 @@ export async function buildHostingPreview() {
   const config = publicConfiguration(await readFile(resolve(root, '.env.local'), 'utf8'))
   const virtualId = 'virtual:reference1954-package'
   await build({ root, mode: 'production', base: '/', envDir: false, envPrefix: [],
-    define: Object.fromEntries(Object.entries(config).map(([key, value]) => ['import.meta.env.' + key, JSON.stringify(value)])),
+    define: { ...Object.fromEntries(Object.entries(config).map(([key, value]) => ['import.meta.env.' + key, JSON.stringify(value)])),
+      'import.meta.env.VITE_INTERNAL_1954_PREVIEW': JSON.stringify('true'),
+      'import.meta.env.VITE_REFERENCE_1954_METADATA': JSON.stringify(JSON.stringify(metadata)) },
     plugins: [{ name: 'verified-reference1954-hosting',
       resolveId(id) { if (id === virtualId) return '\0' + virtualId },
       load(id) { if (id === '\0' + virtualId) return 'export default ' + JSON.stringify(metadata) } }],

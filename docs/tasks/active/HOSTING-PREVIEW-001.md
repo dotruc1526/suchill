@@ -40,3 +40,7 @@ User cannot log in by username on Android HTTPS preview; created account does no
 Android Auth finding technically repaired: exact CORS origin configured, live separate QA signup/login/read and arbitrary-origin rejection PASS. User retest pending; [evidence](../../engineering/m6-pwa/HOSTING-PREVIEW-20261003.md). CORS configuration is the sole follow-up backend environment change. No independent review/user PASS is inferred.
 
 User confirms corrected Android username loginPASS2026-10-03. Remaining installation/video/device/accessibility and independent technical review are pending; status REVIEW retained. Hosting candidatee9accf3CI2/2SUCCESS; follow-up103c513CI in progress at checkpoint.
+
+## Latest Android observation — 2026-10-03
+
+User explicitly confirmed all requested basic install/icon, video/caption/resume, rotation/large text and offline opening steps work on build bfc05ef6fabc8087b4c0. [Matrix](../../platform/release/DEVICE-MATRIX.md). Exact model/version, TalkBack, two-build update, broader device cases and independent review remain pending. Earlier “no actual result” checkpoints are superseded; task/milestone status is unchanged. New catalog UI is claimed separately under MVP-1954-CATALOG-001.

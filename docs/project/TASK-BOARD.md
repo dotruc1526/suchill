@@ -460,3 +460,9 @@ Product Owner explicitly selects **1954 / Trước cơn bão**, replacing the cu
 | ID | Owner / Executor | Reviewer | Status | Depends on | Card / next action |
 |---|---|---|---|---|---|
 | HOSTING-PREVIEW-001 | Codex root | Independent technical review; actual Android user proof | REVIEW | M6-02/03/05; supplied1954reference preview; explicit Firebase project approval | [Card](../tasks/active/HOSTING-PREVIEW-001.md); [HTTPS evidence](../engineering/m6-pwa/HOSTING-PREVIEW-20261003.md); temporary preview deployed, browser/media/hash PASS; independent review and actual Android results pending; no live/canonical release |
+
+## Current preview UI request — 2026-10-03
+
+| Task | Scope | Owner / Reviewer | Status | Dependencies | Evidence / Next action |
+|---|---|---|---|---|---|
+| MVP-1954-CATALOG-001 | Existing HTTPS HỌC preview: Chapter1—1954, only episode1 open, episodes2–7 temporarily locked | Codex root / independent technical reviewer and user Android observations | REVIEW | MVP-1954-001 DONE; M6-02/03/05 DONE; Hosting preview available; explicit user outline/request | [Card](../tasks/active/MVP-1954-CATALOG-001.md); deployed cdc8b3db5c5f0b5ade70; Quality381 + reference19 + newUI3 PASS; review pending, no media/XP/canonical/release gate change |

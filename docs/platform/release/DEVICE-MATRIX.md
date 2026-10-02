@@ -4,7 +4,7 @@ Ghi một dòng cho mỗi cấu hình thực dùng; để CHƯA KIỂM nếu ch�
 
 | Thiết bị / OS / browser version | Người thử / ngày | Browser và cài từ icon | Update hai version | Mất mạng / deep link / pending | Video / caption / âm thanh / hiệu năng | Evidence / lỗi |
 |---|---|---|---|---|---|---|
-| Android Chrome thực | Chưa cung cấp | CHƯA KIỂM | CHƯA KIỂM | CHƯA KIỂM | CHƯA KIỂM | — |
+| Android thực; mẫu máy/OS/browser version chưa cung cấp | Người dùng / 2026-10-03 | PASS do người dùng xác nhận cài/mở icon | CHƯA KIỂM | PASS mở app khi tắt mạng; deep link/pending chưa xác nhận | PASS video/caption/resume; hiệu năng chưa đo | Preview build bfc05ef6fabc8087b4c0; lời xác nhận trong chat |
 | iPhone Safari + Add to Home Screen | Chưa cung cấp | CHƯA KIỂM | CHƯA KIỂM | CHƯA KIỂM | CHƯA KIỂM | — |
 | Desktop Chrome/Edge | Chưa cung cấp | CHƯA KIỂM | CHƯA KIỂM | CHƯA KIỂM | CHƯA KIỂM | — |
 
@@ -25,3 +25,7 @@ App https://suchill-preview--m6-android-1954-p8pbahbd.web.app/ ; video /referenc
 Android user finding: created account could not log in with username. Server rejected the HTTPS Origin; corrected exact CORS allowlist and live QA/API checks PASS. User was asked to reload/retry the old account; real-device retest pending. No install/video/TalkBack outcome has been received, so CHƯA KIỂM remains.
 
 User Android login retest2026-10-03: PASS (“Đăng nhập được”). Exact model/OS/Chrome and installation/icon/video/rotation/offline/TalkBack results still pending; this one result does not fill the complete matrix row.
+
+## User confirms remaining basic Android checks — 2026-10-03
+
+After clarification, user explicitly replied “Đã thử hết, đều chạy được” to installation/icon launch, video/captions/17-second reload resume, rotation/large text and offline app opening. These basic steps are user-observed PASS on build bfc05ef6fabc8087b4c0. Model, Android/Chrome versions and TalkBack were not supplied; do not infer those, two-build update, pending/reconnect idempotency, measured weak-device performance or iOS/desktop acceptance. New Chapter1954 UI must be validated separately.

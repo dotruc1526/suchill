@@ -1,3 +1,4 @@
+import { lazyFeature } from '../../../app/LazyFeature'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { EmptyState, ErrorState, LoadingState, OfflineState } from '../../../components/ui'
 import type { ServiceErrorCode } from '../../../services/next/contracts'
@@ -22,7 +23,13 @@ type FocusTarget =
   | { kind: 'chapter-button'; id: string }
   | { kind: 'lesson-button'; id: string }
 
-export function LearningJourney({ active = true, activityService = m3HomeActivityService, offlineStatusProvided = false, onSafeToUpdateChange }: { active?: boolean; activityService?: HomeActivityService; offlineStatusProvided?: boolean; onSafeToUpdateChange?: (safe: boolean) => void }) {
+type JourneyProps = { active?: boolean; activityService?: HomeActivityService; offlineStatusProvided?: boolean; onSafeToUpdateChange?: (safe: boolean) => void }
+const Preview1954Learning = lazyFeature(() => import('../preview1954/Preview1954Learning'))
+export function LearningJourney(props: JourneyProps) {
+  if (import.meta.env.VITE_INTERNAL_1954_PREVIEW === 'true') return <Preview1954Learning {...props} />
+  return <PublishedLearningJourney {...props} />
+}
+function PublishedLearningJourney({ active = true, activityService = m3HomeActivityService, offlineStatusProvided = false, onSafeToUpdateChange }: JourneyProps) {
   const { services } = useCompletionSession()
   const [view, setView] = useState<JourneyView>({ type: 'home' })
   const [state, setState] = useState<LoadState>({ status: 'loading' })
