@@ -37,3 +37,13 @@ PR109 is an open draft on codex/m6-pwa-completion, head 5f1c813bafa5b854b3aa0fcf
 - GitHub connector then failed HTTP 401 token_revoked when reading target files. PR109 update cannot proceed until Codex authentication is restored. No remote files were changed.
 - Local deliverable remains ready for review; typecheck/build and 29 relevant tests passed. Direct browser/mobile evidence remains pending. Status stays REVIEW; reviewer acceptance is separate.
 - Next action: after user signs out/in, verify browser interaction and apply only claimed practice files to latest PR109 head.
+
+## Shared branch delivery — 2026-10-03
+
+- User explicitly authorized grouping practice with AI and online Battle. Git fetch verified feature/ai-chatbot and codex/dautri-online-pr109 both at 917b50c54431a47b57bd965676340e29988734a8; no Battle commits are missing.
+- feature/ai-chatbot pushed to GitHub; draft integration PR119 targets codex/m6-pwa-completion (PR109): https://github.com/dotruc1526/suchill/pull/119.
+- Validation: typecheck/build PASS; practice/quiz/backend 23 tests PASS; component 23 tests PASS; committed diff whitespace PASS.
+- Authentication restored. GitHub connector lacks create-PR permission; authorized GitHub CLI created PR119 successfully. Browser navigation now fails with local connection refused, so direct mobile UI evidence is still pending.
+- Status REVIEW. Reviewer acceptance, real AI provider response, public Wi-Fi/4G Battle acceptance and historical/security/release gates remain separate. No merge/deployment.
+- Current uncommitted server/server.js Socket.IO CORS adjustment belongs to ongoing work and was left unchanged.
+- Next action: reviewers inspect PR119; run direct mobile navigation/submit/retry after preview is reachable.
