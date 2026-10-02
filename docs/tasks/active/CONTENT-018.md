@@ -1,7 +1,7 @@
 # CONTENT-018 — Soạn bài học đọc tiêu chuẩn Bài 3 Chapter 1972 ("12 Ngày đêm rực lửa")
 
 > Status: REVIEW\
-> Last updated: 2026-10-01
+> Last updated: 2026-10-02
 
 ## Assignment
 
@@ -68,6 +68,7 @@
 | 2026-09-28 | Thọ (Member 1) | Hoàn thành bài học đọc tiêu chuẩn Bài 3 `LESSON-03-1972-STANDARD.md` và script kiểm thử tự động `validate-1972-lesson03.mjs` PASS 100%; chuyển REVIEW | `docs/content/LESSON-03-1972-STANDARD.md`, `validate-1972-lesson03.mjs` | Bàn giao cho Trúc thẩm định sử liệu và Product Owner nghiệm thu | Không |
 | 2026-10-01 | Thọ (Member 1) | Đồng bộ main sạch 0 conflict vào PR #65; xác minh 0-link-lỗi DOC-013; validator PASS 100% | `docs/content/LESSON-03-1972-STANDARD.md`, `validate-1972-lesson03.mjs` | Chờ Trúc và Product Owner duyệt PR #65 | Không |
 | 2026-10-02 | Thọ (Member 1) | Sửa mốc Bạch Mai tách khỏi Khâm Thiên: rạng sáng 22/12/1972, 28 người thiệt mạng gồm 27 nhân viên y tế và 1 bệnh nhân; thêm nguồn Báo Nhân Dân `SRC-1972-WEB-09`; bỏ claim quá mức về Tòa Đại sứ; handoff M3 khớp contract hiện có | 3 validators nội dung PASS; `git diff --check` PASS; claim và source registry được đồng bộ | Trúc thẩm định lại sử liệu trên head PR mới; CONTENT-018/019 vẫn REVIEW | Human sign-off chưa có |
+| 2026-10-02 | Thọ (Member 1) + Codex | Merge main `5c795b2` (PR #103) vào PR #65 (`9a3117d`); gỡ conflict board (giữ hàng main + hàng 018/019) và CONTENT-017 (lấy bản main); đối chiếu 4 finding P1/P2 của Trúc/Dương đã sửa từ head `22cb164`; chạy lại 4 validators PASS | Merge commit; 1972-authoring/lesson03/quiz + MT68 validators PASS; `git diff --check` PASS | Trúc re-review historical (Bạch Mai, Tòa Đại sứ), Dương re-review consumer (handoff M3); CONTENT-018/019 giữ REVIEW | Chờ human sign-off; sau merge PR cần re-sync hash CONTENT-004/014 do pilot files đổi bytes |
 
 ## Handoff
 

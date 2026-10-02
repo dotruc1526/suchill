@@ -1,7 +1,7 @@
 # CONTENT-019 — Đóng gói Ngân hàng câu hỏi trắc nghiệm Bài 4 Chapter 1972 (QUIZ-1972.json)
 
 > Status: REVIEW\
-> Last updated: 2026-10-01
+> Last updated: 2026-10-02
 
 ## Assignment
 
@@ -58,6 +58,7 @@
 |---|---|---|---|---|---|
 | 2026-09-29 | Thọ (Member 1) | Soạn thảo ngân hàng 5 câu hỏi trắc nghiệm Chapter 1972, phủ 4 CLO, kiểm thử tự động PASS 100%; chuyển REVIEW | `docs/content/QUIZ-1972.json`, `validate-1972-quiz.mjs` | Bàn giao Trúc thẩm định sử liệu và Product Owner nghiệm thu | Không |
 | 2026-10-01 | Thọ (Member 1) | Đồng bộ main sạch 0 conflict vào PR #65; xác minh 0-link-lỗi DOC-013; validator PASS 100% | `docs/content/QUIZ-1972.json`, `validate-1972-quiz.mjs` | Chờ Trúc và Product Owner duyệt PR #65 | Không |
+| 2026-10-02 | Thọ (Member 1) + Codex | Đồng bộ main `5c795b2` (PR #103) vào PR #65 (`9a3117d`, merge, không đổi file quiz); validator quiz PASS lại trên cây đã merge | Merge commit; `validate-1972-quiz.mjs` PASS | Chờ CONTENT-018 được nghiệm thu trước theo dependency; Trúc/PO duyệt | Chờ CONTENT-018 + human sign-off |
 
 ## Handoff
 
