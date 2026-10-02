@@ -18,8 +18,8 @@
 
 | File | SHA-256 |
 |---|---|
-| pilot-collage-master.mp4 | `1fb83e551ded3a7d41d9f0838c80cd519b8a8a690058b476753b0bd4e4d6ea2f` |
-| pilot-collage-mobile.mp4 | `ab5d675b9fb855dc492babba78328b63f6d0202f2a92c712ea39031378191ad0` |
+| pilot-collage-master.mp4 | `3811a1c07e26ea3bc1ac41aa97dd81c2e7d938fd0767c475e5be6f2aaa7a0b7b` |
+| pilot-collage-mobile.mp4 | `ec93193ca873fbe00b9c481697da3be90ccb35dc642020a4809554210db60d8e` |
 | poster.png | `9fe877659bdab2c89480ff3425d74d389f720fcf39f64bd9dd06503065725052` |
 | captions.vi.vtt | `a3bc449792b46deec140b6f1d82448843e1431989dec6d0bb9febe21011da0c5` |
 | transcript.vi.txt | `1fbedab7288231d130f1b46c3b2cb750d7b34b656a40c2d0bc7a56658dab2d4a` |
@@ -37,3 +37,7 @@
 - [Manifest](../../content/production/mt68-v2/render/manifest.json), [metadata lesson](../../content/production/mt68-v2/render/lesson-handoff.json), [media checks](../../content/production/mt68-v2/render/media-checks.json).
 - Trúc/Thọ final illustration/editorial acceptance; Vinh nghe caption/device/mediaQA; Dương publication/integration. CONTENT-007 REVIEW, storageUrl=null, not_published.
 - Lưu bản mới Desktop/mp3/video-mau-than-1968-v2, không ghi đè v1 hay9MP3 gốc.
+
+## Final layout correction
+
+- Đã dời SỬu sang góc dưới ở sequence năm mục tiêu để không che tên Dinh Độc Lập; render lại master/mobile và xem encoded frame36s. Hash trong bảng là bản cuối đã sửa.

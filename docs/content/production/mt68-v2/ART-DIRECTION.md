@@ -14,7 +14,7 @@ Trúc yêu cầu native vertical 9:16, cinematic historical collage, 2D cut-out,
 | 6.23–12.46s | Đọc tư liệu và chuẩn bị | Sổ tư liệu cut-out vào hình; pan và reaction |
 | 12.46–19.77s | Hậu cần | Không gian storage minh họa; crate slide-in/parallax |
 | 19.77–27.09s | Nhận vũ khí; đọc ảnh hiện trạng | Thêm crate, chuyển focus sang sổ; keyword phân biệt |
-| 27.09–33.89s | Ba tên mục tiêu đầu | Icon biểu tượng xuất hiện lần lượt theo lời; mascot giữa collage |
+| 27.09–33.89s | Ba tên mục tiêu đầu | Icon biểu tượng xuất hiện lần lượt theo lời; mascot góc dưới, không che tên mục tiêu |
 | 33.89–40.70s | Hai mục tiêu còn lại; giới hạn kết quả | Icon command/navy, keyword phân biệt tiến công/chiếm giữ |
 | 40.70–48.67s | Khuôn viên và tòa nhà | Sơ đồ biểu tượng fence/office; vòng highlight, SỬu suy nghĩ |
 | 48.67–55.90s | Bộc phá không nổ | Gate cut-out, keyword kết quả; camera tracking nhẹ |

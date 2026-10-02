@@ -11,6 +11,8 @@
     "voiceId": "5g2DMFQF8xR0KmnuNr4U",
     "model": "eleven_v4",
     "language": "Vietnamese",
+    "audioIdentityVerified": false,
+    "identityEvidence": "UI observed Hoa / Eleven v4 / Vietnamese; voice ID supplied by user, not copied from account.",
     "humanAcceptance": "User accepted all nine original MP3s in chat, 2026-10-03",
     "policy": "Concatenate decoded samples in order; no padding, atempo, normalization or edits.",
     "pcmSha256": "c94207dbf0955f48f76af9b66038f8d50d355513d75e11d87ab34623b0458438",
@@ -78,9 +80,7 @@
         "sampleStart": 2465280,
         "sampleCount": 315648
       }
-    ],
-    "audioIdentityVerified": false,
-    "identityEvidence": "UI observed Hoa / Eleven v4 / Vietnamese; voice ID supplied by user, not copied from account."
+    ]
   },
   "visuals": {
     "style": "cinematic historical collage / 2D paper cut-out / vintage Vietnamese scrapbook",
@@ -113,8 +113,8 @@
   ],
   "sourceScope": "p03a/p03b supported by source 07 for target names only; source 02 remains candidate",
   "files": {
-    "pilot-collage-master.mp4": "1fb83e551ded3a7d41d9f0838c80cd519b8a8a690058b476753b0bd4e4d6ea2f",
-    "pilot-collage-mobile.mp4": "ab5d675b9fb855dc492babba78328b63f6d0202f2a92c712ea39031378191ad0",
+    "pilot-collage-master.mp4": "3811a1c07e26ea3bc1ac41aa97dd81c2e7d938fd0767c475e5be6f2aaa7a0b7b",
+    "pilot-collage-mobile.mp4": "ec93193ca873fbe00b9c481697da3be90ccb35dc642020a4809554210db60d8e",
     "poster.png": "9fe877659bdab2c89480ff3425d74d389f720fcf39f64bd9dd06503065725052",
     "captions.vi.vtt": "a3bc449792b46deec140b6f1d82448843e1431989dec6d0bb9febe21011da0c5",
     "transcript.vi.txt": "1fbedab7288231d130f1b46c3b2cb750d7b34b656a40c2d0bc7a56658dab2d4a",

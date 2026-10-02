@@ -100,3 +100,5 @@
 - Decode2/2MP4 PASS, hashPCMinput khớp9/9 và không thêm sample; đã xem9encodedframes. Final caption listening/device/illustration/editorial review còn pending.
 - Changed files: scripts/content/build-mt68-collage.py, mt68_collage_frames.py/props.py/timeline.py; production/mt68-v2/; card/board/index/evidence. Không runtime/env/migration changes; không app tests/build vì chỉ media production.
 - Status REVIEW: Trúc/Thọ/Vinh/Dương review bản cụ thể; gắn service/lesson sau final acceptance, chưa published.
+
+- Layout recheck v2: dời SỬu khỏi nhãn mục tiêu, render lại hai MP4, recheck encoded frame36s; evidence/hash được cập nhật theo output cuối.

@@ -140,7 +140,7 @@ class Frames:
             if t > a + 4: self.text(im, 'KẾT QUẢ RA SAO?', (540, 775), 62)
         pose = 'thinking' if scene in [3, 4] else 'pointing' if int(t / 2.4) % 2 else 'cheer'
         mx, my, size = (520, 1060, 390) if scene == 5 else (210, 1360, 350)
-        if scene == 2: mx, my, size = 545, 875, 315
+        if scene == 2: mx, my, size = 180, 1440, 250
         self.object(im, 'suu-' + pose, mx, my, size, t, a, .6)
         im.alpha_composite(self.gradient)
         self.text(im, 'SỬ CHILL', (65, 64), 30, align='left')

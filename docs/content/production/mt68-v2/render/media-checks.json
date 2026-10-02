@@ -1,6 +1,6 @@
 {
   "pilot-collage-master.mp4": {
-    "bytes": 32323042,
+    "bytes": 32217390,
     "duration": "63.066667",
     "streams": [
       {
@@ -19,7 +19,7 @@
     "decode": "PASS"
   },
   "pilot-collage-mobile.mp4": {
-    "bytes": 14059537,
+    "bytes": 13980103,
     "duration": "63.066667",
     "streams": [
       {
