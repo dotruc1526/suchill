@@ -25,11 +25,11 @@ Supabase still owns passwords, sessions and auth.uid(). Username is an applicati
 
 Hosted checkpoint: 027 applied successfully and function source deployed. Actual GoTrue admin enrollment inserts `auth.users` before applying trusted app metadata, so immediate INSERT validation rejected even authorized enrollment. New roll-forward 028 defers the same validation to transaction commit and reads the final persisted row; 027 remains immutable. Added a transaction test matching GoTrue ordering. Source: https://github.com/supabase/auth/blob/v2.197.0/internal/api/admin.go#L473-L522.
 
-- [ ] New username signup/login/reload/signout, with no mandatory mailbox click.
+- [x] New username signup/login/reload/signout, with no mandatory mailbox click.
 - [x] Existing email login and UUID/progress preserved (actual hosted UUID/10XP/one lesson proof).
 - [ ] Optional recovery setup/reset is distinct from basic access and cannot take over another account.
 - [x] Server-side uniqueness/validation/rate limits; no credential or identity mapping exposed publicly.
-- [ ] Relevant typecheck/build/auth/security tests and real hosted/browser evidence.
+- [x] Relevant typecheck/build/auth/security tests and real hosted/browser evidence.
 - [x] Accurate handoff and REVIEW until independent acceptance.
 
 ## Handoff
@@ -37,3 +37,7 @@ Hosted checkpoint: 027 applied successfully and function source deployed. Actual
 [Evidence and deployment](../../engineering/auth-username/EVIDENCE.md). Both027 and028 now applied, and public username signup returns a real session immediately. Hosted username adapter8PASS; source/security gatesPASS. Core code is ready for review; no DONE claim while real recovery delivery/reset and final browser acceptance remain unverified. Additional root claims: account-scope regression, hosted Auth tests/expected confirmed-email DTO, diagnostic/deploy builders and this evidence. Existing unrelated UX edits remain intact.
 
 No old account deletion or password reset is included in this task. User-supplied duplicate-email/password scenario was tested separately: duplicate signup returned no session, requested password remained invalid, original credential still worked.
+
+## PR106 core username UI acceptance — 2026-10-02
+
+Actual configured Chrome UI on allowed origin localhost5173: signup without email/confirmation,375/430 mobile fit, repeat-password validation, immediate Home, persistent browser reload/same UUID/0XP, signout, wrong-password rejection, correct username login and own synthetic password change/new-password login PASS. [UI evidence](../../engineering/main-first-integration/username-browser.txt). Runtime is unchanged from reviewed5640f29. Disposable account deleted only after checking exact newly generated UUID/email/username metadata; retained account/password/progress untouched. No real recovery email sent. This supersedes the earlier pending complete new-user browser sequence; optional recovery sender/delivery/reset acceptance remains pending and this card stays REVIEW. Next action: configure verified recovery sender and callback allowlist, validate real recovery with authorized recipient, then obtain separate reviewer/PO acceptance.

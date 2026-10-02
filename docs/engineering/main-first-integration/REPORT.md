@@ -41,3 +41,7 @@ M4 integration cards remain REVIEW for named QA/PO acceptance of this main-based
 Historical privileged-key revocation still requires its existing gate evidence; fresh development credentials are isolated. Main contains overlapping MT68 source/claim registries with conflicting meanings. Main content and its accepted validator commands are preserved; an old-branch independent content-validator task is excluded. Canonical content/media publication, physical-device/performance/PWA acceptance and production release retain their separate gates. Passing fixture authoring checks is not historical/media publication approval.
 
 Root workspace codex/m3-m5-complete and other contributors' uncommitted changes are untouched. Temporary native PostgreSQL and candidate UI test servers are stopped; user localhost8443 is untouched. M6/M7 remain locked. Current-head GitHub Quality and PR mergeability must be checked after the final evidence commit is pushed.
+
+## PR106 readiness continuation
+
+User requested preparation for merge. Core username signup/login/reload/signout and own disposable-account password change passed real configured Chrome; exact-user cleanup passed. [Merge readiness](./MERGE-READINESS.md) records scope, review/CI, known optional recovery configuration and the post-merge re-review sequence. Runtime remains5640f29; this follow-up changes documentation/evidence only. Ready for review does not constitute main merge or milestone/production acceptance.

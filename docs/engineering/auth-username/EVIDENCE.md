@@ -99,3 +99,7 @@ native Auth. Production anti-abuse/sender/origin configuration remains a release
 
 No production release, main merge, M6/M7 opening or historical-key-rotation sign-off is
 included. Preserve unrelated Trúc UI/UX changes in the shared checkout.
+
+## Core browser acceptance on PR106 — 2026-10-02
+
+The earlier pending full username browser flow is superseded by actual configured Chrome on allowed origin localhost5173: no-email signup, repeat-password gate, immediate Home, mobile375/430, reload/same UUID/0XP, signout, incorrect/correct username password login and password change/new-password login PASS. [Execution log](../main-first-integration/username-browser.txt). Source is unchanged from reviewed5640f29. Screenshots were visually inspected; local files are output/main-first-integration/username-signup-375.png, username-signup-430.png and username-home-created.png. The exact current-run QA user was removed after UUID/email/username metadata verification; retained user untouched. Temporary QA preview stopped. No actual recovery mail/delivery/reset approval is claimed; that optional acceptance and server sender configuration remain pending. AUTH-USERNAME-001 stays REVIEW.

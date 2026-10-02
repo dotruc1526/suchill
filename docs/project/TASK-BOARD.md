@@ -372,7 +372,7 @@ AI phải đọc task board trước khi làm việc. Nếu task `BLOCKED` hoặ
 
 | ID | Owner | Status | Depends on | Evidence / next action |
 |---|---|---|---|---|
-| M4-M5-INTEGRATION-001 | Codex; QA/PO review pending | REVIEW | DOC-019, M3 DONE; M4 OPEN | [Task card](../tasks/active/M4-M5-INTEGRATION-001.md); main M3 preserved; hosted029/UI verified; independent technical re-review APPROVED; named QA/PO acceptance pending; M5 gate unchanged |
+| M4-M5-INTEGRATION-001 | Codex; QA/PO review pending | REVIEW | DOC-019, M3 DONE; M4 OPEN | [Task card](../tasks/active/M4-M5-INTEGRATION-001.md); main M3 preserved; hosted029/learning/username UI verified; technical review APPROVED; PR106 preparing Ready for review; formal M4/M5 gates unchanged |
 
 
 ### Backend integration candidates (main-first; gates unchanged)
@@ -394,5 +394,5 @@ AI phải đọc task board trước khi làm việc. Nếu task `BLOCKED` hoặ
 | M5-05 | Codex technical candidate; QA/PO approval pending | BLOCKED | Formal M4 acceptance; PO opens M5 | [Card](../tasks/blocked/M5-05.md); existing code reuse only; M5 gate remains locked |
 | M5-06 | Codex technical candidate; QA/PO approval pending | BLOCKED | Formal M4 acceptance; PO opens M5 | [Card](../tasks/blocked/M5-06.md); existing code reuse only; M5 gate remains locked |
 | M5-07 | Codex technical candidate; QA/PO approval pending | BLOCKED | Formal M4 acceptance; PO opens M5 | [Card](../tasks/blocked/M5-07.md); existing code reuse only; M5 gate remains locked |
-| AUTH-USERNAME-001 | Codex; QA/PO review pending | REVIEW | Existing Auth integration | [Card](../tasks/active/AUTH-USERNAME-001.md); preserve pending recovery email/redirect acceptance |
+| AUTH-USERNAME-001 | Codex; QA/PO review pending | REVIEW | Existing Auth integration | [Card](../tasks/active/AUTH-USERNAME-001.md); core username browser flow PASS; optional recovery sender/email/redirect acceptance remains pending |
 | MAIN-INTEGRATION-AUDIT-002 | Codex; QA/PO review pending | REVIEW | Prior branch audit | [Card](../tasks/active/MAIN-INTEGRATION-AUDIT-002.md); historical audit, candidate now tracked by M4-M5-INTEGRATION-001 |
