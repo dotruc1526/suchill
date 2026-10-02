@@ -56,7 +56,7 @@ Probe tạo đúng hai phiên khách riêng, kiểm tra health/CORS, socket, gh�
 
 Nếu chạy Node không Docker, hosting dùng install `npm ci --omit=dev` và start `npm start` tại server/. Cần Node 24+. Không dán SESSION_SECRET vào frontend hoặc file commit.
 
-Tình trạng hiện tại: người dùng chưa có hosting; Docker config và probe có thể kiểm tra local trước, chưa có public URL hoặc evidence Wi-Fi ↔ 4G.
+Tình trạng hiện tại: người dùng đã có tài khoản Render/xác minh email, đang nối lại phiên deploy; chưa có public URL hoặc evidence Wi-Fi ↔ 4G. Người dùng yêu cầu xác nhận trước thay đổi dự án chính/Firebase hiện có hoặc merge; thử backend riêng không thay main.
 
 Nguồn cấu hình: [Socket.IO reverse proxy](https://socket.io/docs/v4/reverse-proxy/), [client options và polling/WebSocket](https://socket.io/docs/v4/client-options/).
 

@@ -44,6 +44,21 @@ async function match(a, b) {
   return { ...question, roomId: ma.roomId };
 }
 
+test('standings use verified identity and a completed server result, ignoring client RP', async t => {
+  const f = await fixture(t), a = await f.player('Real A'), b = await f.player('Real B');
+  const initial = event(a.socket, 'pvp_standings'); a.socket.emit('get_standings', { rp: 999999 });
+  assert.deepEqual((await initial).entries, []);
+  const question = await match(a.socket, b.socket);
+  const result = event(a.socket, 'game_over'), ranking = event(a.socket, 'pvp_standings');
+  b.socket.emit('forfeit', { roomId: question.roomId });
+  assert.equal((await result).isWin, true);
+  const value = await ranking;
+  assert.equal(value.profile.userId, a.player.userId);
+  assert.equal(value.profile.rp, 50); assert.equal(value.profile.matches, 1);
+  assert.equal(value.entries.length, 2);
+  assert.equal(value.entries[0].username, 'Real A');
+});
+
 test('credentials reject tampering and malformed tokens', () => {
   const sessions = createSessionStore('test-secret');
   const issued = sessions.issue('Bạn');

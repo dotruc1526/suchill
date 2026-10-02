@@ -30,6 +30,7 @@ export async function openGameConnection(options: GameConnectionOptions) {
       try { sessionStorage.setItem(key, JSON.stringify(credential)); } catch { /* connection still usable */ }
     }
   }
+  options.signal.throwIfAborted();
   const socket = io(url, { auth: { token: credential.token }, forceNew: true, autoConnect: false, timeout: 10000, reconnectionAttempts: 10, reconnectionDelay: 1000 });
   return {
     socket, player: credential.player,

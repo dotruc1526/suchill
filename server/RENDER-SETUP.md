@@ -26,7 +26,7 @@ Trong file `.env.local` riêng của bản frontend PR109, giữ public Supabase
 VITE_GAME_SERVER_URL=https://<backend-thực>.onrender.com
 ```
 
-Script `node scripts/release/build-hosting-preview.mjs` đã được sửa để nhận biến này (bản gốc PR109 chỉ nhận hai biến Supabase nên không nối PvP được). Build kiểm tra HTTPS/origin và không đưa backend secret vào client. Deploy bản build lên preview channel qua quy trình Firebase hiện có; không đổi live site/Auth/database để bật PvP.
+Script `node scripts/release/build-hosting-preview.mjs` đã được sửa để nhận biến này (bản gốc PR109 chỉ nhận hai biến Supabase nên không nối PvP được). Build kiểm tra HTTPS/origin và không đưa backend secret vào client. Chuẩn bị bản build riêng để review; người dùng phải xác nhận trước khi deploy bản build lên Firebase hoặc sửa origin của preview hiện có. Không đổi live site/Auth/database để bật PvP.
 
 ## Kiểm thử
 

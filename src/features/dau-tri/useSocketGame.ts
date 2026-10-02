@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useReducer, useRef, useState } from "react";
 import type { Socket } from "socket.io-client";
 import { openGameConnection, type GameCredentials } from "../../services/gameSocketService";
-import type { GameOverData, GameSnapshot, PlayerInfo } from "../../types/dauTri";
+import type { GameOverData, GameSnapshot, PlayerInfo, TrialStandings } from "../../types/dauTri";
 import { gameReducer, initialGameState } from "./gameState";
 
 export function useSocketGame(options: {
@@ -10,6 +10,11 @@ export function useSocketGame(options: {
   const [state, dispatch] = useReducer(gameReducer, initialGameState({ username: options.initialPlayer?.username || "Người chơi", exp: 0, level: 0 }));
   const [attempt, setAttempt] = useState(0);
   const [connectionMessage, setConnectionMessage] = useState<string | null>(null);
+  const [connecting, setConnecting] = useState(true);
+  const [pendingAction, setPendingAction] = useState(false);
+  const [standings, setStandings] = useState<TrialStandings | null>(null);
+  const intent = useRef<{ event: string; payload?: unknown } | null>(null);
+  const abortRef = useRef<AbortController | null>(null);
   const socketRef = useRef<Socket | null>(null);
   const latest = useRef(options); latest.current = options;
   const username = options.initialPlayer?.username || "Người chơi";
@@ -17,16 +22,26 @@ export function useSocketGame(options: {
   const seenResult = useRef<string | null>(null);
   useEffect(() => {
     const abort = new AbortController();
+    abortRef.current = abort;
     let alive = true;
+    setConnecting(true); setStandings(null);
     dispatch({ type: "idle" });
     dispatch({ type: "patch", value: { connected: false, error: null } });
     void openGameConnection({ username, scope, signal: abort.signal, credentials: latest.current.credentials, onStatus: message => { if (alive) setConnectionMessage(message); } }).then(connection => {
-      if (!alive) { connection.socket.disconnect(); return; }
+      if (!alive || abort.signal.aborted) { connection.socket.disconnect(); return; }
       const socket = connection.socket; socketRef.current = socket;
       dispatch({ type: "patch", value: { player: connection.player } });
-      socket.on("connect", () => { setConnectionMessage(null); dispatch({ type: "patch", value: { connected: true, error: null } }); });
+      socket.on("connect", () => {
+        setConnecting(false); setConnectionMessage(null);
+        dispatch({ type: "patch", value: { connected: true, error: null } });
+        socket.emit("get_standings");
+        const action = intent.current; intent.current = null; setPendingAction(false);
+        if (action) socket.emit(action.event, action.payload);
+      });
+      socket.on("pvp_standings", (value: TrialStandings) => setStandings(value));
       socket.on("disconnect", () => dispatch({ type: "patch", value: { connected: false, error: "Mất kết nối. Đang kết nối lại; trận do server quản lý." } }));
       socket.on("connect_error", error => {
+        setConnecting(false); setConnectionMessage(null); intent.current = null; setPendingAction(false);
         if (error.message.includes("Invalid player session")) connection.forget();
         dispatch({ type: "patch", value: { connected: false, error: "Không kết nối được máy chủ hoặc phiên không hợp lệ. Hãy kết nối lại." } });
       });
@@ -41,7 +56,10 @@ export function useSocketGame(options: {
         if (seenResult.current !== data.roomId) { seenResult.current = data.roomId; latest.current.onGameOver?.(data); }
       });
       socket.connect();
-    }).catch(() => { if (alive) { setConnectionMessage(null); dispatch({ type: "patch", value: { error: "Không thể mở phiên chơi. Kiểm tra địa chỉ máy chủ và kết nối Internet." } }); } });
+    }).catch(error => { if (alive && !abort.signal.aborted) {
+      setConnecting(false); setConnectionMessage(null); intent.current = null; setPendingAction(false);
+      dispatch({ type: "patch", value: { error: error instanceof Error ? error.message : "Không thể mở phiên chơi. Hãy thử lại." } });
+    } });
     return () => { alive = false; abort.abort(); socketRef.current?.disconnect(); socketRef.current = null; };
   }, [scope, username, attempt]);
 
@@ -50,16 +68,28 @@ export function useSocketGame(options: {
     dispatch({ type: "patch", value: { error: null } });
     socketRef.current.emit(event, payload);
   }, []);
+  const start = (event: string, payload?: unknown) => {
+    if (socketRef.current?.connected) { send(event, payload); return; }
+    intent.current = { event, payload }; setPendingAction(true);
+    dispatch({ type: "patch", value: { error: null } });
+    if (!connecting) setAttempt(value => value + 1);
+  };
+  const cancelPending = () => {
+    intent.current = null; setPendingAction(false); abortRef.current?.abort();
+    socketRef.current?.disconnect(); setConnecting(false); setConnectionMessage(null);
+  };
   return {
-    state, connectionMessage, retryConnection: () => setAttempt(value => value + 1),
-    joinQueue: () => send("join_queue"), cancelQueue: () => send("cancel_queue"),
-    createRoom: () => send("create_room"), joinRoom: (code: string) => send("join_room", { code }),
+    state, connectionMessage, connecting, pendingAction, standings, cancelPending,
+    retryConnection: () => setAttempt(value => value + 1),
+    refreshStandings: () => socketRef.current?.connected ? send("get_standings") : setAttempt(value => value + 1),
+    joinQueue: () => start("join_queue"), cancelQueue: () => send("cancel_queue"),
+    createRoom: () => start("create_room"), joinRoom: (code: string) => start("join_room", { code }),
     leaveRoom: () => send("leave_room"),
     submitAnswer: (answerIndex: number) => {
       if (state.phase === "playing" && state.selectedAnswer === null && state.currentQuestion) send("submit_answer", { roomId: state.roomId, questionId: state.currentQuestion.questionId, answerIndex });
     },
     forfeit: () => send("forfeit", { roomId: state.roomId }),
-    playAgain: () => send("join_queue"),
+    playAgain: () => start("join_queue"),
     goHome: () => { if (state.phase === "searching") send("cancel_queue"); else if (state.phase === "waiting_room") send("leave_room"); else if (state.roomId && state.phase !== "result") send("forfeit", { roomId: state.roomId }); dispatch({ type: "idle" }); },
   };
 }

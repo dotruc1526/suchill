@@ -24,17 +24,25 @@ Mã prototype lấy từ workspace người dùng; giữ engine/questions hiện
 |---|---|
 | Full npm run quality | PASS: typecheck/build, unit/component/SQL/authoring/Chrome/PWA/PvP, cuối cùng secret scan 0 unsafe. Ba test native PostgreSQL được SKIP theo harness có sẵn; không claim DB live. |
 | npm --prefix server ci | PASS với manifest/lockfile đã chốt; kiểm chứng cài sạch, không dựa trên node_modules cũ |
-| Backend tests | 16/16 PASS: hai client thật, sáu client/ba trận, no bot, polling-only, reconnect, giả mạo, expired ready, 10 câu/combo, deployment probe |
-| Browser PvP | 2/2 PASS: hai trang Chrome app thật cùng câu/kết quả, lazy-load, từ chối rời queue, XP/storage giữ nguyên, 375/430/landscape; A→B→A dùng ba identity riêng và không giữ queue cũ |
+| Backend tests | 18/18 PASS: hai client thật, sáu client/ba trận, no bot, polling-only, reconnect, giả mạo, expired ready, 10 câu/combo, deployment probe; standings chỉ tính kết quả server, idempotent, không nhận RP client |
+| Browser PvP | 4/4 PASS: hai trang Chrome app thật cùng câu/kết quả, lazy-load, từ chối rời queue, XP/storage giữ nguyên, 375/430/landscape; A→B→A tách identity; luật/modal, bảng hạng/Tìm tôi, phòng bạn bè, mã lỗi, bỏ cuộc/ở lại, chơi lại/hủy queue, chờ/cancel backend |
 | URL config | 3/3 PASS: public HTTPS, từ chối đường dẫn/credential/callback/downgrade, localhost fallback chỉ loopback |
 | Final typecheck/build | PASS sau bổ sung URL config; dùng asset Git LFS thật |
 | Dependency audit backend | 0 vulnerabilities ở cài sạch và audit production |
 | Deployment/cold-start tests | 8/8 PASS: endpoint đi vào public config, từ chối URL không an toàn, retry health, abort và timeout |
 | Docs checker | Còn 1 finding có sẵn trong PR109: M7-02 có card REVIEW trong content/. Không phải regression PvP; checker không báo link hỏng mới. |
 | Docker runtime | Chưa chạy: máy không có docker CLI; cấu hình/probe được chuẩn bị, probe đã exercise trên server Node thật |
-| Wi-Fi ↔ 4G / backend public | Chưa chạy: người dùng chưa có hosting |
+| Wi-Fi ↔ 4G / backend public | Chưa chạy: người dùng đã có tài khoản Render và xác minh email; phiên browser bị mất sau gián đoạn, chờ đăng nhập lại. Chưa có backend public URL. |
 
-Full Quality đã chạy lại sau thay đổi cold-start, build preview và export type NodeNext: PASS; 726 source/tracked/bundle files, 0 unsafe matches. Không sửa learning/database source/migrations hoặc dữ liệu tài khoản. SQL checks dùng harness local có sẵn.
+Full Quality đã chạy lại sau khôi phục UI và thêm standings: PASS; 747 source/tracked/bundle files, 0 unsafe matches. Sau thu gọn khoảng cách mobile đã chạy lại typecheck/build/browser PvP/secret scan. SQL checks dùng harness local có sẵn, không sửa migration hoặc dữ liệu tài khoản.
+
+## Hoàn thiện thao tác và bố cục prototype
+
+- Khôi phục tiêu đề Trường đấu sử học, thẻ hạng/progress/thống kê, luật modal, tìm trận, màn VS, timer/combo/EXP trận và kết quả. Giữ tokens và component/service của app canonical.
+- Nút tìm trận/tạo phòng/vào phòng không còn bị khóa vĩnh viễn khi offline: lưu yêu cầu rồi nối máy chủ; có hủy kết nối, timeout và lỗi thật. Hủy không được tự ghép sau khi máy chủ thức.
+- Bảng hạng cũ sinh người chơi giả không được chép. `trialStandings.js` tính RP và thống kê từ kết quả server, có giới hạn/TTL; chỉ phiên khách thử nghiệm, không cấp rank hoặc reward tài khoản.
+- `node scripts/dev-pvp.mjs` mở frontend + backend local riêng ở port 8450, cache riêng để không ảnh hưởng Vite hiện có. Hai tab có thể ghép trận thật; URL local không phải Internet.
+- Người dùng yêu cầu xác nhận trước mọi merge/gộp main hoặc thay đổi dự án chính. Không merge PR109/PR115, không ghi source checkout chính, không tự deploy Firebase site/preview hiện có hoặc đổi database/Auth. Backend thử nghiệm độc lập chỉ dùng nhánh PvP.
 
 ## Bước tiếp theo
 

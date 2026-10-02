@@ -3,6 +3,7 @@ import { takeRandomPair } from './matchmaking.js';
 import { getRandomQuestions } from './questionsData.js';
 import { gameSnapshot, publicQuestion } from './gameSnapshot.js';
 import { attachPrivateRooms } from './privateRooms.js';
+import { createTrialStandings } from './trialStandings.js';
 
 
 
@@ -14,6 +15,7 @@ export default function socketHandler(io, config = {}) {
   const playerSessions = {};
   const completed = new Map();
   const privateRooms = new Map();
+  const standings = createTrialStandings();
   const questionMs = config.questionMs ?? 15000;
   const transitionMs = config.transitionMs ?? 3000;
   const countdownMs = config.countdownMs ?? 1000;
@@ -48,6 +50,7 @@ export default function socketHandler(io, config = {}) {
       if (++eventCount > 30) return next(new Error('Too many events'));
       next();
     });
+    socket.on('get_standings', () => socket.emit('pvp_standings', standings.snapshot(socket.data.player)));
     const removeQueue = () => {
       const index = matchQueue.findIndex(p => p.userId === playerId);
       if (index !== -1) matchQueue.splice(index, 1);
@@ -441,6 +444,7 @@ export default function socketHandler(io, config = {}) {
         [p1.userId]: p1.totalScore,
         [p2.userId]: p2.totalScore
       };
+      standings.record(roomId, [p1, p2], winner);
 
       const players = {};
 
@@ -497,6 +501,7 @@ export default function socketHandler(io, config = {}) {
 
           completed.set(pId, { data: gameOverData, expiresAt: Date.now() + 60000 });
           io.to(pId).emit('game_over', gameOverData);
+          io.to(pId).emit('pvp_standings', standings.snapshot(currentPlayer));
           delete playerSessions[pId];
         }
       }

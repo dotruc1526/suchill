@@ -20,6 +20,7 @@ Input: prototype local engine Socket.IO và feature UI có sẵn; review PR109 t
 - Integration hotspots trong nhánh riêng: App, BottomNav, types index, package/lock, env example.
 - New PvP docs/task/evidence. Không thay learning/auth/database contracts hoặc migration.
 - Follow-up: root render.yaml, cold-start service/tests và scripts/release/build-hosting-preview.mjs/tests để URL backend đi vào bản Firebase thật.
+- Follow-up theo người dùng: khôi phục bố cục prototype legacy, sửa nút khi offline, thử toàn bộ luồng phòng/queue/luật/bảng xếp hạng; triển khai Internet khi có tài khoản hosting.
 
 ## Acceptance
 
@@ -36,3 +37,5 @@ Input: prototype local engine Socket.IO và feature UI có sẵn; review PR109 t
 PvP thử nghiệm dùng phiên khách trên server; account chỉ cung cấp tên/scope hiển thị, không xác thực quyền bằng ID client. XP/xu/rank tài khoản chưa bật. Trạng thái RAM mất khi server restart; multi-instance chưa hỗ trợ. Ngân hàng câu server hiện có cần review lịch sử riêng trước release.
 
 Next action: review bản tích hợp và chọn hosting để deploy backend, cấu hình frontend public URL, nghiệm thu Wi-Fi ↔ 4G. Người dùng đã chọn “Chưa có hosting — chuẩn bị bản deploy trước”. Không tự claim DONE/Internet PASS.
+
+Follow-up: đã có tài khoản Render/xác minh email; cần đăng nhập lại sau browser interruption. Người dùng yêu cầu xác nhận trước mọi merge/gộp main hoặc thay đổi dự án chính. Scope hoàn thiện UI/standings/controls vẫn trên nhánh riêng PR115; chưa tự merge/deploy Firebase hoặc chỉnh DB/Auth. Acceptance code đạt; Internet acceptance chờ backend public.

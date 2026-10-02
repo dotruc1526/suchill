@@ -24,3 +24,5 @@ export type DauTriScreenProps = {
   onNavigateTab?: (tab: "home" | "practice" | "dautri" | "ai" | "profile") => void;
   onMatchActiveChange?: (active: boolean) => void;
 };
+export type TrialProfile = { userId: string; username: string; rp: number; matches: number; wins: number; streak: number; position: number | null };
+export type TrialStandings = { profile: TrialProfile; entries: TrialProfile[]; totalPlayers: number; mode: "trial" };

@@ -11,6 +11,10 @@ Hai thiết bị truy cập cùng origin backend public HTTPS; mạng Wi-Fi/4G c
 
 Queue chung ghép người chờ lâu nhất với đối thủ ngẫu nhiên mỗi 250ms; không dùng EXP client hoặc bot. Một người thì tiếp tục chờ. Phòng bạn bè dùng mã sáu ký tự, hết hạn sau 5 phút.
 
+Giao diện khôi phục bố cục prototype: Trường đấu sử học, thẻ hạng, luật modal, ghép/VS/timer/kết quả. Nút tìm trận/tạo phòng/vào phòng có thể khởi động kết nối khi offline, có hủy yêu cầu đang chờ.
+
+`get_standings`/`pvp_standings` phục vụ bảng hạng thử nghiệm từ kết quả server: thắng +50 RP, thua −5 (tối thiểu 0), hòa 0; chuỗi thắng ≥3 thêm 10 RP, ≥5 thêm 20 RP. Top 20 và vị trí của phiên khách hiện tại; không sinh người chơi giả. Dữ liệu RAM/TTL 24h, chưa gắn tài khoản hoặc ranked production.
+
 10 câu × 15 giây; server giữ đáp án, deadline, khóa đáp án một lần và tính điểm: đúng = 100 + 10 × số giây còn lại + 20 × combo trước câu. Sai/hết giờ = 0, reset combo. Tổng điểm bằng nhau là hòa. Đáp án đúng/giải thích chỉ công bố khi cả hai đã trả lời hoặc hết giờ.
 
 Disconnect chờ 30 giây; reconnect token cũ khôi phục snapshot. Quá hạn đối thủ thắng. Server replay kết quả 60 giây; result không ghi authoritative XP/xu/rank. Restart server mất trạng thái trận; chỉ triển khai một instance.
@@ -26,4 +30,6 @@ Disconnect chờ 30 giây; reconnect token cũ khôi phục snapshot. Quá hạn
 
 [Backend deployment](../../../server/ONLINE-DEPLOYMENT.md). `VITE_GAME_SERVER_URL` là public HTTPS origin; `ALLOWED_ORIGINS` là origin frontend chính xác. Firebase static hosting không chạy process Socket.IO.
 
-User chưa có hosting: có thể hoàn thành code/tests/Docker/runbook trước. Nghiệm thu Wi-Fi ↔ 4G, lịch sử/ngân hàng câu hỏi, tải lớn, tài khoản/reward và production release là các bước riêng chưa được claim PASS.
+Nghiệm thu Wi-Fi ↔ 4G, lịch sử/ngân hàng câu hỏi, tải lớn, tài khoản/reward và production release là các bước riêng chưa được claim PASS.
+
+User đã tạo/xác minh tài khoản Render; chưa có backend public hoạt động. Preview riêng: `node scripts/dev-pvp.mjs` → http://127.0.0.1:8450. Mọi merge hoặc thay đổi dự án chính phải chờ xác nhận của user; không tự deploy lại Firebase preview hiện có.
