@@ -121,10 +121,8 @@
     "timeline.json": "9eba31600bffbcb4de0198920d68f2739a133904d8c8732a95dc893ec4ad2822"
   },
   "pending": [
-    "member1_final_script_acceptance",
     "final_listening_caption_review",
     "device_playback",
-    "consumer_handoff",
     "service_lesson_publication"
   ],
   "humanAcceptances": [
@@ -180,7 +178,7 @@
     "evidence": "docs/tasks/evidence/CONTENT-007-vinh-media-qa-2026-10-03.md",
     "remaining": [
       "Human final listening/caption sync and physical-device playback",
-      "Dương consumer/publication integration"
+      "Service/lesson publication integration"
     ]
   },
   "scriptAcceptanceRecorded": {
@@ -190,5 +188,51 @@
     "date": "2026-10-03",
     "evidence": "docs/tasks/evidence/CONTENT-007-collage-v2-2026-10-03.md",
     "scope": "9/9 narration text concordance with authored script, same approved master/mobile hashes; not device/caption-listening QA"
+  },
+  "consumerAcceptance": {
+    "reviewer": "Dương (Member 4 / learning consumer)",
+    "executor": "Codex hỗ trợ Dương",
+    "date": "2026-10-03",
+    "verdict": "ACCEPTED",
+    "reviewedHead": "5f2ab7b37d948930bfdc9c41ae90c4c7ed72813f",
+    "mediaId": "media.mt68.pilot.collage.v2",
+    "scope": "consumer_package_handoff_for_future_integration",
+    "artifactSha256": {
+      "pilot-collage-master.mp4": "3811a1c07e26ea3bc1ac41aa97dd81c2e7d938fd0767c475e5be6f2aaa7a0b7b",
+      "pilot-collage-mobile.mp4": "ec93193ca873fbe00b9c481697da3be90ccb35dc642020a4809554210db60d8e",
+      "poster.png": "9fe877659bdab2c89480ff3425d74d389f720fcf39f64bd9dd06503065725052",
+      "captions.vi.vtt": "a3bc449792b46deec140b6f1d82448843e1431989dec6d0bb9febe21011da0c5",
+      "transcript.vi.txt": "1fbedab7288231d130f1b46c3b2cb750d7b34b656a40c2d0bc7a56658dab2d4a",
+      "timeline.json": "9eba31600bffbcb4de0198920d68f2739a133904d8c8732a95dc893ec4ad2822"
+    },
+    "evidence": "Dương text review in current chat and explicit request to complete handoff and merge PR112",
+    "limitations": [
+      "Not an application integration or publication acceptance",
+      "Final listening/caption sync and physical-device QA remain pending",
+      "Storage URLs and service/lesson publication remain pending"
+    ]
+  },
+  "integrationPlan": {
+    "lessonId": "lesson-mt68-01-video",
+    "mediaId": "media.mt68.pilot.collage.v2",
+    "contract": "MediaService.getResolvedAsset -> ResolvedMediaAsset -> VideoLessonPlayer",
+    "durationSeconds": 63.0595918367347,
+    "resources": {
+      "url": "pilot-collage-mobile.mp4 (resolve only after approved storage delivery)",
+      "poster": "poster.png with posterAlt",
+      "captionTracks": "captions.vi.vtt, locale vi-VN, label Phụ đề tiếng Việt",
+      "transcript": "transcript.vi.txt, locale vi-VN",
+      "fallback": "transcript URL",
+      "attribution": "ElevenLabs · elevenlabs.io; academic non-commercial",
+      "caption": "MINH HỌA HƯ CẤU"
+    },
+    "requirements": [
+      "No autoplay; keep native accessible controls",
+      "Avoid duplicate burned-in and sidecar captions; retain optional sidecar accessibility",
+      "Preserve the lesson completionPolicy, including reach_end where authored; do not infer policy from media duration",
+      "Use v2 duration63.059592s rather than obsolete v1 110s",
+      "Claim runtime integration separately after final QA and approved storage URLs; verify resume, retry/fallback and mobile player then"
+    ],
+    "publicationStatus": "not_published"
   }
 }

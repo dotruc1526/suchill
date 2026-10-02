@@ -56,3 +56,13 @@
 - **Verdict:** **SCRIPT APPROVED**.
 - **Đối chiếu:** Lời đọc trong video v2 khớp nguyên văn 9 phân đoạn kịch bản đã tác quyền, đúng trọng tâm mục tiêu học tập (CLO) của bài học Mậu Thân 1968.
 - **Tiếp theo:** Bàn giao cho Vinh (QA nghe kiểm tra caption sync/thiết bị di động) và Dương (nghiệm thu tích hợp bài học).
+
+
+## Dương consumer acceptance and merge handoff — 2026-10-03
+
+- **ACCEPTED consumer package handoff**, reviewed5f2ab7b; same six artifact hashes as Trúc-approved v2. Dương directly authorized completing this handoff and merging PR112. Thọ SCRIPT APPROVED and Vinh package technical QA are recorded separately.
+- MediaService mapping: media.mt68.pilot.collage.v2 -> lesson-mt68-01-video; mobile MP4, poster/alt, Vietnamese VTT/transcript, transcript fallback, attribution and fictional illustration label. Current player contract can consume these resources after URLs are resolved; source and reward interfaces unchanged.
+- Use duration63.059592s, not v1 110s; retain authored completionPolicy, including reach_end. No autoplay; preserve accessible native controls and transcript fallback. Resolve burned-in/sidecar duplication in the separately claimed consumer integration, retaining optional captions.
+- Verification: six artifact-byte SHA256 values match approved manifest;33 VTT cues ordered/in bounds; metadata IDs/duration consistent; diff check PASS. Runtime suite not repeated: this checkpoint changes metadata/docs only.
+- Merge accepts the candidate package into source control; media remains in_review/not_published/storageUrl=null. Final human listening/caption sync, physical-device QA, storage delivery and service/lesson integration are still pending. CONTENT-007 stays REVIEW. No fake URLs, runtime publication, task DONE or milestone changes.
+- Files changed: CONTENT-007 card, v2 evidence, manifest and lesson-handoff. No env/migration/dependency/media-byte changes. Next: finish remaining media QA, resolve approved URLs, then claim runtime integration and verify real-player resume/retry/fallback/mobile behavior.

@@ -139,3 +139,24 @@
 - Next: human listening/device check; Thọ SCRIPT APPROVED ghi tại bdc6dc9; Dương receives technical evidence and completes consumer/publication handoff. Parent CONTENT-007 REVIEW; media remains in_review/not_published/storageUrl=null. Media bytes unchanged; no env/migration impact.
 
 - Đồng bộ sau rebase: giữ nguyên Thọ SCRIPT APPROVED tại bdc6dc9; 6 hash asset không đổi. Các next action cũ chờ Thọ đã được checkpoint mới thay thế.
+
+
+## Dương consumer handoff claim — 2026-10-03
+
+- Owner consumer: Dương (Member 4); executor Codex hỗ trợ Dương; reviewer Vinh/Hưng for subsequent runtime integration.
+- User authorized completing Dương handoff and merging PR112. Reviewed base5f2ab7b; branch codex/truc-content007-video; READY → IN PROGRESS for this documentation checkpoint only.
+- Files claimed: this card, CONTENT-007-collage-v2 evidence, v2 manifest and lesson-handoff metadata. No runtime/storage/publication files claimed; no competing source owner affected.
+- Acceptance: record consumer package acceptance with exact artifact hashes; map resources to current MediaService contract; retain pending human listening/device QA and not_published state.
+- Next: verify metadata/hashes/diff, push acceptance, wait CI, merge candidate package. Final CONTENT-007 output/publication acceptance remains separate.
+
+
+## Dương consumer acceptance and merge handoff — 2026-10-03
+
+- **ACCEPTED consumer package handoff**, reviewed5f2ab7b; same six artifact hashes as Trúc-approved v2. Dương directly authorized completing this handoff and merging PR112. Thọ SCRIPT APPROVED and Vinh package technical QA are recorded separately.
+- MediaService mapping: media.mt68.pilot.collage.v2 -> lesson-mt68-01-video; mobile MP4, poster/alt, Vietnamese VTT/transcript, transcript fallback, attribution and fictional illustration label. Current player contract can consume these resources after URLs are resolved; source and reward interfaces unchanged.
+- Use duration63.059592s, not v1 110s; retain authored completionPolicy, including reach_end. No autoplay; preserve accessible native controls and transcript fallback. Resolve burned-in/sidecar duplication in the separately claimed consumer integration, retaining optional captions.
+- Verification: six artifact-byte SHA256 values match approved manifest;33 VTT cues ordered/in bounds; metadata IDs/duration consistent; diff check PASS. Runtime suite not repeated: this checkpoint changes metadata/docs only.
+- Merge accepts the candidate package into source control; media remains in_review/not_published/storageUrl=null. Final human listening/caption sync, physical-device QA, storage delivery and service/lesson integration are still pending. CONTENT-007 stays REVIEW. No fake URLs, runtime publication, task DONE or milestone changes.
+- Files changed: CONTENT-007 card, v2 evidence, manifest and lesson-handoff. No env/migration/dependency/media-byte changes. Next: finish remaining media QA, resolve approved URLs, then claim runtime integration and verify real-player resume/retry/fallback/mobile behavior.
+
+- Claim extension: own CONTENT-007 board row only, to synchronize the accepted consumer handoff; no gate/other-task changes.
