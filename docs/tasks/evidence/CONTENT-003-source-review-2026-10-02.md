@@ -32,7 +32,7 @@ Các đoạn được đọc bằng web tool ngày 2026-10-02. Không sao chép 
 
 ## 3. Binding tới artifact hiện hành
 
-Hash bytes tại workspace sau sửa registry; artifact content được đối chiếu không đổi với base `c7a5ad5`. Registry là revision mới và cần reviewer xác nhận đúng hash riêng, không mượn sign-off artifact khác.
+Snapshot hash sau lượt sửa ban đầu tại `773b6e6`, đối chiếu base `c7a5ad5`; không phải hash hiện hành sau hợp nhất main. Registry hiện hành cần reviewer xác nhận theo hash mới tại mục 6; không mượn sign-off artifact khác.
 
 | File trong docs/content | SHA-256 |
 |---|---|
@@ -75,3 +75,4 @@ Nguồn 07 là evidence bổ sung ở registry claim 01. Chưa tự thay sourceI
 - Hợp nhất main `818e24d`; giải quyết xung đột registry bằng cách giữ phần reconciliation Mậu Thân, giữ nguyên section 1972 của main hiện hành. Không sửa authored narration/story/quiz/map. Evidence không thay human verdict.
 - Đồng bộ cấu hình voice Trúc đã chọn trong media plan, production notes, card, board và index. Quyền sử dụng/file audio vẫn pending.
 - Kiểm tra diff whitespace đạt; không chạy lại test/build ứng dụng cho thay đổi tài liệu.
+- Registry SHA-256 hiện hành sau hợp nhất main: `369205fcbd713a74acaa0149e6c21d2c3734260d4265e7b8f87edd5868e3bba5`. Hash cũ ở mục 3 chỉ là snapshot lượt sửa ban đầu.
