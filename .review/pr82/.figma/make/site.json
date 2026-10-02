@@ -1,0 +1,10 @@
+{
+  "description": "Engage users in learning history through interactive storytelling and gamified experiences, making education enjoyable and accessible for all ages.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

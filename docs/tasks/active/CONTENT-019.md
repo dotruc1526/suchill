@@ -60,9 +60,10 @@
 | 2026-10-01 | Thọ (Member 1) | Đồng bộ main sạch 0 conflict vào PR #65; xác minh 0-link-lỗi DOC-013; validator PASS 100% | `docs/content/QUIZ-1972.json`, `validate-1972-quiz.mjs` | Chờ Trúc và Product Owner duyệt PR #65 | Không |
 | 2026-10-02 | Thọ (Member 1) + Codex | Đồng bộ main `5c795b2` (PR #103) vào PR #65 (`9a3117d`, merge, không đổi file quiz); validator quiz PASS lại trên cây đã merge | Merge commit; `validate-1972-quiz.mjs` PASS | Chờ CONTENT-018 được nghiệm thu trước theo dependency; Trúc/PO duyệt | Chờ CONTENT-018 + human sign-off |
 | 2026-10-02 | Dương (Product Owner) | Nghiệm thu CONTENT-019 (SAU 018): quiz không đổi byte, 5 câu phủ 4 CLO, Trúc confirmed q02/q03/q04; PO đọc JSON + validator PASS | [PO evidence](../evidence/CONTENT-018-019-po-acceptance-2026-10-02.md) | Chờ Hưng re-review + merge PR65 | Hưng architecture re-review pending; merge BLOCKED bước 4 |
+| 2026-10-02 | Hưng (Member 3) + agent | Re-review kiến trúc PR #65 tại head `f93f30f`: **ACCEPTED**, 0 finding (chung biên bản với CONTENT-018). Quiz blob `d3190f1f` không đổi từ `3fbf5ea`; 0 runtime coupling; 3/3 validators PASS | [Biên bản re-review](../evidence/CONTENT-018-019-hung-arch-rereview-2026-10-02.md) | GitHub Approve trên PR #65 → PO quyết định merge theo bước 4 | GitHub review states → Approved (ngoài phạm vi agent); merge BLOCKED bước 4 |
 
 ## Handoff
 
 - Changed files: `docs/tasks/active/CONTENT-019.md`, `docs/content/QUIZ-1972.json`, `docs/content/validate-1972-quiz.mjs`, `docs/project/TASK-BOARD.md`.
 - Test/build result: `validate-1972-quiz.mjs` PASS 100%, `check-client-env.mjs` PASS (0 secrets).
-- Next owner/action: Hưng re-review kiến trúc; Trúc/Hưng cập nhật GitHub review lên Approved; PO đã ACCEPTED (sau 018) — merge khi đủ bước 4. Nạp runtime thuộc adapter task riêng, không thuộc PR này.
+- Next owner/action: Hưng re-review kiến trúc **ACCEPTED** 2026-10-02 ([biên bản](../evidence/CONTENT-018-019-hung-arch-rereview-2026-10-02.md)); Trúc/Hưng cập nhật GitHub review lên Approved; PO đã ACCEPTED (sau 018) — merge khi đủ bước 4. Nạp runtime thuộc adapter task riêng, không thuộc PR này.

@@ -1,0 +1,47 @@
+[33mcommit 0d1d70491a3a83fe127b20df2676e53e1dc849b7[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mvisual-novel[m[33m)[m
+Author: Compuerte <compuerte0123@gmail.com>
+Date:   Mon Sep 14 15:21:45 2026 +0700
+
+    feat: implement visual novel feature and modular architecture framework
+
+[33mcommit 75961e2410af7d145871470218bb3527f7c45b09[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 45c13a4 636b465
+Author: dotruc1526 <dotruc1526@gmail.com>
+Date:   Mon Sep 14 15:15:37 2026 +0700
+
+    Merge pull request #3 from dotruc1526/frontend
+    
+    Frontend: interactive 1954 episode and application architecture
+
+[33mcommit 636b465aa13b160609b787fa50c8a59a8c275325[m[33m ([m[1;31morigin/frontend[m[33m)[m
+Author: dotruc1526 <dotruc1526@gmail.com>
+Date:   Mon Sep 14 15:06:35 2026 +0700
+
+    Refactor app into screens and shared components with XP persistence
+
+[33mcommit e82feaeac394d93442cc20856fdd0da9f467ccb8[m[33m ([m[1;31morigin/front[m[33m)[m
+Author: dotruc1526 <dotruc1526@gmail.com>
+Date:   Fri Sep 11 14:11:51 2026 +0700
+
+    Build interactive 1954 episode flow
+
+[33mcommit 45c13a49fa3732893f4c53474aae6e006bdf0273[m[33m ([m[1;32mmain[m[33m)[m
+Merge: 5311281 91c19ab
+Author: dotruc1526 <dotruc1526@gmail.com>
+Date:   Thu Sep 10 10:23:36 2026 +0700
+
+    Merge pull request #1 from dotruc1526/front
+    
+    Update historical journey interface
+
+[33mcommit 91c19ab8384d5c1d30c98c8f911d6a3dbf1c0ffe[m
+Author: dotruc1526 <dotruc1526@gmail.com>
+Date:   Thu Sep 10 09:50:41 2026 +0700
+
+    Update historical journey interface
+
+[33mcommit 5311281065d2d785bc7547f9e640beca7a85f7d7[m
+Author: dotruc1526 <dotruc1526@gmail.com>
+Date:   Wed Sep 9 14:54:33 2026 +0700
+
+    Initial commit

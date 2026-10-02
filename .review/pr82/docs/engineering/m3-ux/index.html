@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sử Chill · M3 UI/UX handoff</title>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="prototype.css">
+</head>
+<body>
+  <div class="workbench">
+  <aside class="review-tools" aria-label="Điều khiển bản thiết kế">
+    <strong class="review-brand">SỬ CHILL / M3</strong><h2>Một bài học,<br>nhiều cách khám phá.</h2><p>Bản thiết kế tương tác của Trúc<br>Đang chờ nhóm review.</p>
+    <details id="review-settings" open><summary>Xem màn & trạng thái</summary>
+    <label>Màn hình <select id="screen-select">
+      <option value="chapter">Chapter</option><option value="lesson">Lesson</option>
+      <option value="vn">Visual Novel</option><option value="video">Video</option>
+      <option value="quiz">Quiz</option><option value="complete">Completion</option>
+    </select></label>
+    <label>Trạng thái <select id="state-select">
+      <option value="ready">Sẵn sàng</option><option value="loading">Loading</option>
+      <option value="error">Error</option><option value="offline">Offline</option>
+      <option value="empty">Empty</option><option value="confirmed">Reward confirmed (fixture)</option>
+    </select></label>
+    <label>Chiều rộng bản xem <select id="width-select"><option value="430">430px</option><option value="375">375px</option></select></label>
+    <button id="reset-preview">Làm mới lượt xem</button>
+    <p>Chữ và hình là fixture thiết kế. Video, quiz và reward chỉ mô phỏng; chưa kết nối backend.</p>
+    </details>
+  </aside>
+  <div class="preview-stage"><div class="preview-label"><span>MOBILE PREVIEW</span><span>M3-UX-01 · REVIEW</span></div>
+  <div class="phone">
+    <header class="topbar">
+      <button id="back" class="icon-button" aria-label="Quay lại"></button>
+      <span class="wordmark"><span class="brand-seal"><img class="brand-mascot" src="assets/suu.png" width="36" height="31" alt="" aria-hidden="true" decoding="async"></span>Sử Chill</span>
+      <button id="mute" class="icon-button" aria-label="Bật âm thanh" aria-pressed="true"></button>
+    </header>
+    <main id="content" tabindex="-1"></main>
+    <footer class="bottom-note">HỌC CHẬM · HIỂU SÂU</footer>
+  </div>
+  </div></div>
+  <dialog id="restart-dialog" aria-labelledby="restart-title">
+    <h2 id="restart-title">Bắt đầu lại câu chuyện?</h2>
+    <p>Lựa chọn trong câu chuyện sẽ được đặt lại. Bạn có thể chọn một góc nhìn khác khi bắt đầu lại.</p>
+    <div class="stack"><button id="restart-cancel" autofocus>Tiếp tục học</button><button id="restart-confirm" class="primary">Bắt đầu lại</button></div>
+  </dialog>
+  <script type="module" src="prototype.js"></script>
+</body>
+</html>
