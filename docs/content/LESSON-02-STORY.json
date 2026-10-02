@@ -4,7 +4,7 @@
   "versionNumber": 2,
   "status": "draft",
   "authoringOnly": true,
-  "reviewStatus": "NEEDS_HISTORICAL_REVIEW",
+  "reviewStatus": "APPROVED_BY_HISTORICAL_REVIEWER",
   "createdAt": "2026-09-27T00:00:00+07:00",
   "startSceneId": "mt68-v2-overview",
   "learningObjectiveIds": [

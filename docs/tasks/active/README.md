@@ -6,6 +6,8 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOC
 
 ## M3 QA
 
+- [M3-07](./M3-07.md) — IN PROGRESS; Vinh/Codex claimed full learning-loop QA, Hưng/Dương review; dependency M3-01..06 DONE.
+
 - [QA-002](../done/QA-002.md) — DONE; mobile/player matrix và browser regressions đạt trên mock; PR83 merged `cda4a69`, Dương APPROVED player, Hưng ACCEPTED harness/accessibility.
 
 ## Milestone 3 — Home visual follow-up
@@ -20,10 +22,18 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOC
 - [CONTENT-011](./CONTENT-011.md) — `REVIEW`; historical review đạt, chờ technical QA/media/handoff sign-off.
 - [CONTENT-006](./CONTENT-006.md) — `IN PROGRESS`; video cũ chỉ `APPROVED_FOR_INTERNAL_REFERENCE_ONLY`, không phải media canonical.
 - [CONTENT-012](./CONTENT-012.md) — `REVIEW`; ngân hàng câu hỏi chờ content/media và technical QA sign-off.
-- [CONTENT-014](./CONTENT-014.md) — `REVIEW`; authoring remediation và validator đã đạt, chờ Vinh xác nhận task-level handoff.
+- [CONTENT-014](./CONTENT-014.md) — `REVIEW`; Vinh ACCEPTED technical structure; chờ Trúc xử lý P2 review-state mismatch trước overall handoff.
 
 ## Experimental track
 
 - [BATTLE-001](./BATTLE-001.md) — `IN PROGRESS (external)`; chờ repo/demo/rules/security handoff trước integration review.
 
 Các file `active.md`, `CONTENT-003-004-REVIEW.md`, `PR21-HANDOFF.md`, `BEQA-LOCAL-001-MATRIX.md` và `M1-PR-REVIEW-GUIDE.md` là evidence/handoff, không phải task card độc lập.
+
+
+## QA track
+
+
+- [M3-CONTRACT-REVIEW-01](./M3-CONTRACT-REVIEW-01.md) — REVIEW; historical G2/G5 proposal superseded by approved D1–D7 and PR88/92; archival docs review only, no UI blocker.
+
+- [M3-06](../done/M3-06.md) — DONE; Hưng/Vinh accepted, PR94 merged 20e3263; final head CI 2/2 PASS.

@@ -5,7 +5,7 @@
 
 ## Assignment
 
-- Phase / milestone: MVP content track; độc lập với M2 đang OPEN
+- Phase / milestone: MVP content track; độc lập với milestone code (M3 OPEN; M4 LOCKED)
 - Workstream: Product + Content
 - Accountable owner: Thọ (Member 1)
 - Executor type: Human hoặc Codex hỗ trợ bản nháp
@@ -90,3 +90,15 @@
 - Test result: authoring validator PASS theo CONTENT-014; thay đổi docs/content không có runtime, environment hoặc migration impact.
 - Known issues: Vinh chưa technical-QA task-level handoff; catalog hiện có 6/8 media item chưa đủ evidence và 2/8 còn `NEEDS_MEDIA_REVIEW` theo `CONTENT-014`.
 - Next owner/action: Vinh xác nhận technical QA/handoff và Trúc hoàn tất media sign-off; chỉ sau đó reviewer mới chuyển task `DONE` và Product owner xem xét mở CONTENT-007.
+
+### Checkpoint đồng bộ artifact — 2026-10-02
+
+- Historical/language approval thuộc phạm vi CONTENT-004 áp dụng cho đúng bytes của `PILOT-SCREENPLAY.md` (SHA-256 `80470eff0a489149a3324dc1b0d0846062d2712c0da9cbadd1655f97f80452be`) và `PILOT-NARRATION.json` (SHA-256 `138f0fd12f594931f5f735b02d1f4cbf6cc2be90b7f82fcedab9ca4fe89e7387`); `PILOT-CAPTIONS.vtt` SHA-256 `917854f6d74ec0c8454d4c414595ce360067357767dde4c55cf778fe2f672c6d` cũng byte-identical tại verdict commit `02c1128` và technical snapshot `30d0a4f`.
+- Các trạng thái lịch sử của artifacts trên được đồng bộ; tác vụ vẫn `REVIEW` do quyền media/audio, technical QA và handoff/production chưa đạt. Không đổi `draft`, không duyệt release.
+- Gate hiện hành: M3 OPEN / M4 LOCKED; CONTENT-007 vẫn BLOCKED theo dependency content/media.
+
+## Technical QA checkpoint — Vinh, 2026-10-01
+
+- Technical structure/reference checks **ACCEPTED** trên snapshot `30d0a4f` trong [CONTENT-014 QA report](../evidence/CONTENT-014-technical-qa.md); giới hạn/checked inputs có SHA-256 trong report.
+- Overall handoff vẫn **CHANGES REQUESTED** P2: Trúc cần đồng bộ review record với artifact pending flags và ghi đúng revision được historical reviewer duyệt. Quiz approval không được suy từ approval của các lesson.
+- Task giữ REVIEW; technical approval không thay historical/media/PO production acceptance. Combined technical+handoff/media checklist chưa đánh dấu hoàn tất.

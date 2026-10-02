@@ -461,3 +461,14 @@ test('M3 integration replaces the lesson placeholder with accepted typed player 
   assert.match(journeySource, /lessonHeadingRef\.current = element/)
   assert.match(journeySource, /pendingFocusRef\.current = null/)
 })
+
+test('account summary distinguishes empty/error from confirmed zero and exposes retry', async () => {
+  const { AccountSummaryView } = await vite.ssrLoadModule('/src/features/profile/AccountSummaryView.tsx')
+  const render = state => renderToStaticMarkup(React.createElement(AccountSummaryView, { state, onRetry: () => {} }))
+  assert.match(render({ status: 'empty' }), /Chưa có dữ liệu tài khoản/)
+  assert.match(render({ status: 'error', error: 'offline' }), /role="alert"/)
+  assert.doesNotMatch(render({ status: 'error', error: 'offline' }), /data-testid="confirmed-xp"/)
+  const zero = render({ status: 'ready', value: { userId: 'a', displayName: 'Nguyễn Thị Dương Anh Minh', totalXp: 0, currentStreak: 0, longestStreak: 0, requiredLessonCount: 0, achievements: [] } })
+  assert.match(zero, /data-testid="confirmed-xp"[^>]*>0</)
+  assert.match(zero, /Chưa có danh hiệu đã xác nhận/)
+})
