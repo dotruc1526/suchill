@@ -41,15 +41,15 @@ Fact candidate là ghi chú authoring đang chờ review, không phải giá tr�
 Dành cho người học khi tài nguyên video MP4 chưa sẵn sàng (`CONTENT-007`) hoặc khi người học chọn chế độ đọc tóm tắt:
 
 1. **Phân cảnh 1 — Bối cảnh chuyển hướng chiến lược (0–20s):**
-   Cuối tháng 1 năm 1968, các đợt tiến công nổ ra đồng loạt tại nhiều đô thị trọng điểm ở miền Nam. Đây là bước ngoặt bất ngờ, đưa chiến sự vào tận sào huyệt của đối phương. *(Nguồn: `SRC-MT68-01` / Phân loại: `verified_fact`)*
+   Cuối tháng 1 năm 1968, các đợt tiến công mở rộng vào nhiều đô thị ở miền Nam, trong đó có Sài Gòn. Bài học chỉ nêu địa bàn được nguồn ghi nhận, không khẳng định mọi nơi cùng một thời điểm. *(Nguồn: `SRC-MT68-01` / Phân loại: `verified_fact`)*
 2. **Phân cảnh 2 — Căn hầm bí mật và sự chuẩn bị công phu (20–45s):**
-   Cơ sở hầm chứa bí mật tại số 287/70 đường Trần Quý Cáp (nay là đường Võ Văn Tần) do chiến sĩ biệt động Trần Văn Lai xây dựng đã cất giấu gần 2 tấn vũ khí, là điểm tiếp nhận vũ khí bí mật cho Đội 5 Biệt động trước giờ xuất kích. *(Nguồn: `SRC-MT68-05` / Phân loại: `verified_fact`)*
+   Cơ sở hầm bí mật gắn với chiến sĩ biệt động Trần Văn Lai là nơi cất giấu và tiếp nhận vũ khí cho Đội 5 Biệt động trước giờ xuất kích; Bài 3 chỉ trình bày chức năng hậu cần của cơ sở, không gán vai trò chỉ huy. *(Nguồn: `SRC-MT68-05` / Phân loại: `verified_fact`)*
 3. **Phân cảnh 3 — 5 Mục tiêu đầu não chiến lược tại Sài Gòn (45–70s):**
-   Tại Sài Gòn, các mũi tiến công của Biệt động đồng loạt giáng đòn vào 5 mục tiêu trọng yếu: Tòa Đại sứ Mỹ, Dinh Độc Lập, Đài Phát thanh Sài Gòn, Bộ Tổng Tham mưu và Bộ Tư lệnh Hải quân. *(Nguồn: `SRC-MT68-02` / Phân loại: `verified_fact`)*
+   Tại Sài Gòn, nguồn liệt kê 5 mục tiêu trọng yếu trong tiến công nội đô: Tòa Đại sứ Mỹ, Dinh Độc Lập, Đài Phát thanh Sài Gòn, Bộ Tổng Tham mưu và Bộ Tư lệnh Hải quân. Danh sách không chứng minh mức độ chiếm giữ từng nơi; Bài 2 đối chiếu từng thẻ với nguồn. *(Nguồn: `SRC-MT68-02` / Phân loại: `verified_fact`)*
 4. **Phân cảnh 4 — Tinh thần chiến đấu và ranh giới cứ liệu (70–100s):**
    Mỗi trận đánh diễn ra ác liệt. Đội 11 Biệt động tiến công vào khuôn viên Tòa Đại sứ Mỹ; không đồng nhất việc tiến công khuôn viên với việc chiếm tòa nhà chính. Đội 5 Biệt động chiến đấu tại Dinh Độc Lập khi bộc phá mở cổng không nổ. *(Nguồn: `SRC-MT68-03` / Phân loại: `fact candidate; NEEDS_HISTORICAL_REVIEW`)*
 5. **Phân cảnh 5 — Ý nghĩa bước ngoặt và định hướng bài học tiếp theo (100–110s):**
-   Đòn bất ngờ Mậu Thân 1968 đã làm rung chuyển chính giới Mỹ, mở ra cục diện vừa đánh vừa đàm tại Hội nghị Paris. Người học tiếp tục chuyển sang Bài 2 để nghiên cứu sâu từng mục tiêu qua lăng kính tư liệu lịch sử. *(Nguồn: `SRC-MT68-01` / Phân loại: `educational_explanation`)*
+   Sau Mậu Thân 1968, dư luận và chính sách Mỹ có thay đổi cần phân biệt với kết quả quân sự và từng mốc ngoại giao ở Bài 4; không quy về một nguyên nhân duy nhất. Người học chuyển sang Bài 2 để đối chiếu từng mục tiêu với nguồn. *(Nguồn: `SRC-MT68-01` / Phân loại: `educational_explanation`)*
 
 ## Acceptance hiện hành
 
