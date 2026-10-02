@@ -44,4 +44,4 @@ Gói Free có thể ngủ sau 15 phút không có traffic và khởi động l�
 
 Nguồn: [Blueprint](https://render.com/docs/blueprint-spec), [deploy button](https://render.com/docs/deploy-to-render), [WebSocket](https://render.com/docs/websocket), [giới hạn Free](https://render.com/docs/free).
 
-Render đã đăng nhập và tạo service trial; đang đổi cấu hình sang gói standalone. Chưa claim Wi-Fi ↔ 4G PASS khi chưa có public probe và hai thiết bị thật.
+Standalone trial đã Live tại https://suchill-dautri-pvp-p3vm.onrender.com. Public socket probe + hai trang Chrome Internet PASS; hai điện thoại Wi-Fi ↔ 4G chưa nghiệm thu. Xem [evidence](../docs/tasks/evidence/PVP-PUBLIC-TRIAL-2026-10-03.md).

@@ -1,6 +1,6 @@
 # PVP-ONLINE-001 — Đấu Trí online 1vs1 từ prototype có sẵn
 
-> Status: IN PROGRESS
+> Status: REVIEW
 
 Started: 2026-10-03 (Asia/Saigon).
 Owner: Product Owner / người dùng. Executor: Codex root.
@@ -41,4 +41,4 @@ Next action: review bản tích hợp và chọn hosting để deploy backend, c
 
 Follow-up: đã có tài khoản Render/xác minh email; cần đăng nhập lại sau browser interruption. Người dùng yêu cầu xác nhận trước mọi merge/gộp main hoặc thay đổi dự án chính. Scope hoàn thiện UI/standings/controls vẫn trên nhánh riêng PR115; chưa tự merge/deploy Firebase hoặc chỉnh DB/Auth. Acceptance code đạt; Internet acceptance chờ backend public.
 
-2026-10-03: user đã đăng nhập Render trong Codex, cho phép hoàn tất bản thử online. Blueprint tạo service trial; đang chuyển sang gói frontend/backend cùng origin trên nhánh riêng. Built standalone QA 2/2 PASS, canonical PvP 4/4 PASS, backend 19/19 PASS (riêng lượt test combined lỗi screenshot đã sửa Page.bringToFront và built browser rerun PASS). Không merge, không thay Firebase/main/DB/Auth.
+2026-10-03: user đã đăng nhập Render trong Codex, cho phép hoàn tất bản thử online. Render Free/Singapore Live commit `4dd1d26` tại https://suchill-dautri-pvp-p3vm.onrender.com. Public health/CORS/random queue/same question/forfeit probe PASS; hai trang Chrome Internet nhập tên, phòng bạn bè/cùng câu/kết quả/bỏ cuộc/chơi lại/hủy PASS. Built standalone QA 2/2, canonical PvP 4/4, backend 19/19 PASS. Không merge, không thay Firebase/main/DB/Auth. Còn nghiệm thu hai điện thoại Wi-Fi ↔ 4G do user thực hiện; chưa claim physical-network PASS. [Public evidence](../evidence/PVP-PUBLIC-TRIAL-2026-10-03.md).

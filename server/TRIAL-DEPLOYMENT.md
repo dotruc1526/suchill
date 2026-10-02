@@ -2,6 +2,8 @@
 
 Nhánh deploy: `codex/dautri-public-trial`, dựa trên bản PvP `d48769a` đã kiểm chứng. Nhánh tích hợp PR115 đang có các thay đổi AI/luyện tập của task khác; nhánh public trial chỉ đóng gói Đấu Trí.
 
+Bản đang Live: https://suchill-dautri-pvp-p3vm.onrender.com — commit deploy `4dd1d26`, PR120 draft. Public random queue smoke và hai trang Chrome qua Internet đã PASS; Wi-Fi ↔ 4G trên hai điện thoại cần user nghiệm thu.
+
 Frontend guest và backend cùng một dịch vụ Render, một origin HTTPS, một instance Free/Singapore. Không deploy Firebase, không cần Supabase config, không merge main. UI nhập tên khách rồi tìm đối thủ hoặc tạo/vào phòng; hai mạng khác nhau cùng nối tới backend này.
 
 ## Deploy
