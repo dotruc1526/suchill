@@ -6,6 +6,8 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOC
 
 ## M3 QA
 
+- [M3-07](./M3-07.md) — IN PROGRESS; Vinh/Codex claimed full learning-loop QA, Hưng/Dương review; dependency M3-01..06 DONE.
+
 - [QA-002](../done/QA-002.md) — DONE; mobile/player matrix và browser regressions đạt trên mock; PR83 merged `cda4a69`, Dương APPROVED player, Hưng ACCEPTED harness/accessibility.
 
 ## Milestone 3 — Home visual follow-up
