@@ -50,3 +50,9 @@
 - Historical/illustration và final editorial review thuộc Trúc đã đạt. Còn Thọ xác nhận kịch bản bản cuối; Vinh nghe kiểm tra caption sync/phát trên thiết bị/media accessibility; Dương nhận consumer handoff và publication/integration. Phê duyệt trong chat không thay cho những kiểm tra này.
 - CONTENT-007 giữ REVIEW theo acceptance card; package `in_review`, `not_published`, `storageUrl=null`. Academic non-commercial/credit elevenlabs.io giữ đúng quyết định PO.
 - Changed files: card/board/index, evidence, art-direction, manifest/lesson-handoff metadata. Không runtime/env/migration changes; không chạy app tests/build vì chỉ ghi nghiệm thu, không sửa implementation. Next action: Thọ/Vinh hoàn tất phần review còn lại để Dương nhận tích hợp lesson-mt68-01-video.
+
+## Thọ (Member 1) nghiệm thu kịch bản video v2 — 2026-10-03
+
+- **Verdict:** **SCRIPT APPROVED**.
+- **Đối chiếu:** Lời đọc trong video v2 khớp nguyên văn 9 phân đoạn kịch bản đã tác quyền, đúng trọng tâm mục tiêu học tập (CLO) của bài học Mậu Thân 1968.
+- **Tiếp theo:** Bàn giao cho Vinh (QA nghe kiểm tra caption sync/thiết bị di động) và Dương (nghiệm thu tích hợp bài học).

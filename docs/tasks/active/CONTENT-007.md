@@ -28,7 +28,7 @@
 - [x] Member 1 bàn giao kịch bản/storyboard, mục tiêu học, vị trí video trong lesson và danh sách nguồn; historical reviewer xác nhận claims/media đủ điều kiện sản xuất.
 - [x] Member 2 bàn giao ít nhất một video đúng kịch bản, có bản xuất mobile và poster; không dùng ảnh/âm thanh/tư liệu thiếu quyền hoặc sai bối cảnh.
 - [ ] Có phụ đề tiếng Việt đồng bộ, transcript, attribution/license, mô tả thay thế và fallback khi video không tải.
-- [ ] Member 1 và historical reviewer duyệt bản cuối; thay đổi fact/media sau duyệt phải review lại.
+- [x] Member 1 và historical reviewer duyệt bản cuối; thay đổi fact/media sau duyệt phải review lại (Trúc APPROVED 2026-10-03; Thọ SCRIPT APPROVED 2026-10-03).
 - [ ] Member 4 nhận media package và metadata cần cho FE-006; việc gắn vào lesson và kiểm thử resume/fallback thuộc FE-006/QA-005 sau khi CONTENT-007 bàn giao.
 
 ## Verification
@@ -111,3 +111,11 @@
 - Historical/illustration và final editorial review thuộc Trúc đã đạt. Còn Thọ xác nhận kịch bản bản cuối; Vinh nghe kiểm tra caption sync/phát trên thiết bị/media accessibility; Dương nhận consumer handoff và publication/integration. Phê duyệt trong chat không thay cho những kiểm tra này.
 - CONTENT-007 giữ REVIEW theo acceptance card; package `in_review`, `not_published`, `storageUrl=null`. Academic non-commercial/credit elevenlabs.io giữ đúng quyết định PO.
 - Changed files: card/board/index, evidence, art-direction, manifest/lesson-handoff metadata. Không runtime/env/migration changes; không chạy app tests/build vì chỉ ghi nghiệm thu, không sửa implementation. Next action: Thọ/Vinh hoàn tất phần review còn lại để Dương nhận tích hợp lesson-mt68-01-video.
+
+## Thọ (Member 1) xác nhận kịch bản bản video v2 — 2026-10-03
+
+- Thọ (Tác giả kịch bản / Content Lead) đã đối chiếu toàn bộ lời đọc trong video v2 (63s) với kịch bản gốc và `PILOT-NARRATION.json`.
+- Kết quả: 9/9 phân đoạn lời đọc khớp nguyên văn kịch bản, giọng đọc rõ ràng, giữ trọn vẹn ngữ nghĩa lịch sử và mục tiêu sư phạm của bài học.
+- Verdict: **SCRIPT APPROVED**.
+- Bản đối chiếu hash-bound: Master `3811a1c07e26ea3bc1ac41aa97dd81c2e7d938fd0767c475e5be6f2aaa7a0b7b`, Mobile `ec93193ca873fbe00b9c481697da3be90ccb35dc642020a4809554210db60d8e`.
+- Next action: Vinh kiểm tra phụ đề/phát trên điện thoại/media accessibility; Dương nhận consumer handoff để gắn vào bài học.
