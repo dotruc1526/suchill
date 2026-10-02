@@ -128,3 +128,14 @@
 - Integration claim: resolve overlapping board/index/card edits only. PR100 merged 9b96968; preserve Vinh and Hưng reconciliation evidence and Trúc historical/learning and authoring handoff verdicts.
 - Supersedes historical quiz-pending-at-base notes: quiz historical review is approved at reviewed hash 4013b399; current status-only hash 44b9eed6. MAP remains pending. PR103 QA/handoff remains separate and unmerged.
 - No production approval, no task DONE beyond CONTENT-017, no milestone change.
+
+## Hash update sau PR #65 merge — 2026-10-02
+
+PR #65 (merged `b1bbe0e`) thay đổi `PILOT-SCREENPLAY.md` (wording Tòa Đại sứ + text-first fallback). Trúc TEXT APPROVED bytes mới tại `b65dd2d` trong biên bản [CONTENT-018-truc-historical-rereview-2026-10-02.md](../evidence/CONTENT-018-truc-historical-rereview-2026-10-02.md). Hash cập nhật:
+
+| Artifact | SHA-256 (post-PR65, Trúc APPROVED) |
+|---|---|
+| `PILOT-SCREENPLAY.md` | `6d1bf23a68bf1ad629a53ef1fed7f46360476ca769d8ea527ffb8c07610e9d56` |
+| `HISTORICAL-SOURCES.md` | `32914d5964769cf0c69a71da5b9ad41a6aecc3a6852e55edb75db9cf721cc481` (sau CLM-1972-RD-003 sync) |
+
+Hash cũ `PILOT-SCREENPLAY.md` tại verdict Trúc trước PR #65 (`80470eff...`) không còn áp dụng cho bytes hiện tại. `PILOT-NARRATION.json` và `PILOT-CAPTIONS.vtt` không đổi trong PR #65; verdict cũ vẫn valid. Task giữ REVIEW; CONTENT-007 giữ BLOCKED.

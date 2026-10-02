@@ -26,7 +26,7 @@ Tất cả dòng: review_status = NEEDS_HISTORICAL_REVIEW; reviewer = pending; c
 | Claim ID | Text/reference và truth class | Source IDs | Wording constraint |
 |---|---|---|---|
 | CLM-MT68-01 | Năm node trong Bài 2; fact candidate | SRC-MT68-02 | Danh sách mục tiêu không chứng minh mọi mục tiêu bị chiếm |
-| CLM-MT68-02 | Thẻ Đại sứ quán; fact candidate | SRC-MT68-03 | Phân biệt khuôn viên với tòa nhà |
+| CLM-MT68-02 | Đội 11 tiến công vào khuôn viên Tòa Đại sứ; không suy rộng thành chiếm tòa nhà hoặc gán thời lượng khi chưa có nguồn | SRC-MT68-03 | NEEDS_HISTORICAL_REVIEW; phân biệt khuôn viên với tòa nhà |
 | CLM-MT68-03 | Đội 5 và kết quả bộc phá ở Bài 3; fact candidate | SRC-MT68-04 | Không nói cổng bị đánh sập; không suy diễn thương vong |
 | CLM-MT68-04 | Cơ sở 287/70 và nhận vũ khí; fact candidate | SRC-MT68-05 | Địa chỉ theo bài khảo sát, tránh lẫn tên đường lịch sử/hiện đại |
 | CLM-MT68-05 | Tác động và chính sách Mỹ ở Bài 4; educational_explanation | SRC-MT68-01 | Nêu góc nhìn nguồn, không quan hệ nhân quả tuyệt đối |
@@ -78,7 +78,7 @@ Trúc được Thọ giao toàn bộ phần sửa và historical/learning/media 
 ## Claim Registry
 
 | CLM-MT68-01 | Năm mục tiêu đầu não tại Sài Gòn: Tòa Đại sứ Mỹ, Dinh Độc Lập, Đài Phát thanh, Bộ Tổng Tham mưu, Bộ Tư lệnh Hải quân | verified_fact |
-| CLM-MT68-02 | Đội 11 Biệt động đánh vào Tòa Đại sứ Mỹ, làm chủ trận địa hơn 6 giờ | verified_fact |
+| CLM-MT68-02 | Đội 11 Biệt động tiến công vào khuôn viên Tòa Đại sứ Mỹ; không khẳng định chiếm tòa nhà chính hoặc thời lượng khi chưa có nguồn | fact_candidate / NEEDS_HISTORICAL_REVIEW |
 | CLM-MT68-03 | Giờ nổ súng thực tế tại Sài Gòn: rạng sáng Mồng 2 Tết (31/01/1968), có độ lệch múi giờ GMT+7/GMT+8 | verified_fact |
 
 ---
@@ -102,6 +102,7 @@ Trúc được Thọ giao toàn bộ phần sửa và historical/learning/media 
 | `SRC-1972-WEB-06` | *"Pháo đài bay" B-52 đầu tiên đã bị hạ gục như thế* — Báo Nhân Dân (2021) | party_press; 2021-12-18 | [nhandan.vn](https://nhandan.vn/phao-dai-bay-b52-dau-tien-da-bi-ha-guc-nhu-the-post440097.html) | CLM-1972-VN-003/004; Tuyến lửa Vĩnh Linh 1966-1967, Cẩm nang bìa đỏ, SA-75 SAM-2 |
 | `SRC-1972-WEB-07` | *Thắng lợi của sức mạnh đại đoàn kết dân tộc* — Báo Nhân Dân (2012) | party_press; 2012-12-25 | [nhandan.vn](https://nhandan.vn/thang-loi-cua-suc-manh-dai-doan-ket-dan-toc-post385567.html) | CLM-1972-RD-003; Khâm Thiên bị bom B-52 tàn sát (287 người chết, 290 người bị thương) |
 | `SRC-1972-WEB-08` | *Chiến thắng "Điện Biên Phủ trên không" - Ý chí, bản lĩnh và trí tuệ Việt Nam* — Tạp chí Cộng sản (2022) | party_journal; 2022-12-15 | [tapchicongsan.org.vn](https://www.tapchicongsan.org.vn/en_US/web/guest/dang-uy-khoi-doanh-nghiep-trung-uong/-/2018/826621/view_content) | CLM-1972-RD-004/005; phân tích ý nghĩa chiến lược bẻ gãy Linebacker II |
+| `SRC-1972-WEB-09` | *Ký ức 50 năm Bệnh viện Bạch Mai bị ném bom B-52: Hàng trăm người bệnh cần cứu chữa, chúng tôi không thể sơ tán* — Báo Nhân Dân | official_press; 2022 | [nhandan.vn](https://nhandan.vn/special/kyucbachmai/index.html) | CLM-1972-RD-003; rạng sáng 22/12/1972 có 28 người thiệt mạng, gồm 27 nhân viên y tế và 1 bệnh nhân |
 
 ## Chapter 1972: Claim Register
 
@@ -115,7 +116,7 @@ Trúc được Thọ giao toàn bộ phần sửa và historical/learning/media 
 | `CLM-1972-VN-006` | Vai trò người học là người phân tích hồ sơ huấn luyện tác chiến | `educational_explanation` | Phase 1–3 Spec, LESSON-02 Brief | Phân nhánh đọc hiểu, không thay đổi lịch sử |
 | `CLM-1972-RD-001` | Đêm 20/12/1972: Tên lửa phòng không Hà Nội bắn rơi 7 máy bay B-52 (5 rơi tại chỗ) | `verified_fact` | `SRC-LB2-01`, `SRC-LB2-02` | Đỉnh điểm bẻ gãy đợt tập kích ban đầu |
 | `CLM-1972-RD-002` | Đêm 26/12/1972: Đợt tập kích lớn nhất (105 lần B-52), ta bắn rơi 8 chiếc B-52 | `verified_fact` | `SRC-LB2-02` | Đòn giáng trả quyết định bẻ gãy ý chí tập kích |
-| `CLM-1972-RD-003` | Tội ác ném bom Khâm Thiên đêm 26/12 (287 người chết) và Bệnh viện Bạch Mai 22/12 | `verified_fact` | `SRC-LB2-01`, `SRC-LB2-03` | Tôn trọng sự thật lịch sử, tưởng niệm nạn nhân |
+| `CLM-1972-RD-003` | Khâm Thiên đêm 26/12: 287 người chết; Bệnh viện Bạch Mai rạng sáng 22/12: 28 người chết, gồm 27 nhân viên y tế và 1 bệnh nhân | `verified_fact` | `SRC-LB2-01`, `SRC-LB2-03`, `SRC-1972-WEB-09` | Giữ riêng ngày, địa điểm và cơ cấu nạn nhân; Trúc TEXT APPROVED hash-bound `b65dd2d` (2026-10-02) — xem [biên bản](../tasks/evidence/CONTENT-018-truc-historical-rereview-2026-10-02.md) |
 | `CLM-1972-RD-004` | Tổn thất B-52 đe dọa trực tiếp uy tín răn đe chiến lược toàn cầu của Mỹ | `educational_explanation` | `SRC-LB2-04`, `SRC-LB2-05` | Diễn giải tác động quân sự tới ngoại giao |
 | `CLM-1972-RD-005` | 07h00 ngày 30/12/1972 Mỹ ngừng ném bom; ngày 27/01/1973 ký Hiệp định Paris | `verified_fact` | `SRC-LB2-01`, `SRC-LB2-05` | Mỹ chấp nhận ký hiệp định rút quân hoàn toàn |
 | `CLM-LB2-001` | Đối chiếu tổn thất B-52: VN công bố 34 B-52 / 81 máy bay vs Mỹ thừa nhận 15-16 B-52 | `uncertain_or_contested` | `SRC-LB2-01`, `SRC-LB2-02` vs `SRC-LB2-04`, `SRC-LB2-05` | Trình bày song song cả hai nguồn sử liệu |

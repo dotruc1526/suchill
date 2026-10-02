@@ -36,11 +36,26 @@ Fact candidate là ghi chú authoring đang chờ review, không phải giá tr�
 - Poster cần xuất mới: nền đơn sắc/token thương hiệu, tiêu đề và “Mậu Thân 1968 — đọc nguồn”; không ảnh tư liệu. Alt dự kiến: “Kế hoạch Giao Thừa, bài dẫn nhập về tư liệu Mậu Thân 1968.”
 - Chưa xuất poster/audio/video; metadata/hash/dung lượng/mobile QA chỉ điền khi có file thật.
 
+## Phương án Text-first Fallback (Bản đọc thay thế Video)
+
+Dành cho người học khi tài nguyên video MP4 chưa sẵn sàng (`CONTENT-007`) hoặc khi người học chọn chế độ đọc tóm tắt:
+
+1. **Phân cảnh 1 — Bối cảnh chuyển hướng chiến lược (0–20s):**
+   Cuối tháng 1 năm 1968, các đợt tiến công mở rộng vào nhiều đô thị ở miền Nam, trong đó có Sài Gòn. Bài học chỉ nêu địa bàn được nguồn ghi nhận, không khẳng định mọi nơi cùng một thời điểm. *(Nguồn: `SRC-MT68-01` / Phân loại: `verified_fact`)*
+2. **Phân cảnh 2 — Căn hầm bí mật và sự chuẩn bị công phu (20–45s):**
+   Cơ sở hầm bí mật gắn với chiến sĩ biệt động Trần Văn Lai là nơi cất giấu và tiếp nhận vũ khí cho Đội 5 Biệt động trước giờ xuất kích; Bài 3 chỉ trình bày chức năng hậu cần của cơ sở, không gán vai trò chỉ huy. *(Nguồn: `SRC-MT68-05` / Phân loại: `verified_fact`)*
+3. **Phân cảnh 3 — 5 Mục tiêu đầu não chiến lược tại Sài Gòn (45–70s):**
+   Tại Sài Gòn, nguồn liệt kê 5 mục tiêu trọng yếu trong tiến công nội đô: Tòa Đại sứ Mỹ, Dinh Độc Lập, Đài Phát thanh Sài Gòn, Bộ Tổng Tham mưu và Bộ Tư lệnh Hải quân. Danh sách không chứng minh mức độ chiếm giữ từng nơi; Bài 2 đối chiếu từng thẻ với nguồn. *(Nguồn: `SRC-MT68-02` / Phân loại: `verified_fact`)*
+4. **Phân cảnh 4 — Tinh thần chiến đấu và ranh giới cứ liệu (70–100s):**
+   Mỗi trận đánh diễn ra ác liệt. Đội 11 Biệt động tiến công vào khuôn viên Tòa Đại sứ Mỹ; không đồng nhất việc tiến công khuôn viên với việc chiếm tòa nhà chính. Đội 5 Biệt động chiến đấu tại Dinh Độc Lập khi bộc phá mở cổng không nổ. *(Nguồn: `SRC-MT68-03` / Phân loại: `fact candidate; NEEDS_HISTORICAL_REVIEW`)*
+5. **Phân cảnh 5 — Ý nghĩa bước ngoặt và định hướng bài học tiếp theo (100–110s):**
+   Sau Mậu Thân 1968, dư luận và chính sách Mỹ có thay đổi cần phân biệt với kết quả quân sự và từng mốc ngoại giao ở Bài 4; không quy về một nguyên nhân duy nhất. Người học chuyển sang Bài 2 để đối chiếu từng mục tiêu với nguồn. *(Nguồn: `SRC-MT68-01` / Phân loại: `educational_explanation`)*
+
 ## Acceptance hiện hành
 
 - [x] Đủ năm scene, cue cuối 110s, lời đọc và VTT đồng nhất.
 - [x] Loại khỏi bản nháp các claim về hiệu lệnh thơ, nguyên nhân lịch pháp, giờ Đại sứ quán chính xác chưa đối chiếu và vật liệu nắp hầm.
-- [x] Có source cho lời dẫn fact và phương án visual/fallback.
+- [x] Có source cho lời dẫn fact và phương án visual/fallback text-first hoàn chỉnh.
 - [ ] Trúc xác nhận historical/learning review bản v2.
 - [ ] Có audio hợp lệ và đo timing, poster/MP4 cuối, manifest/hash, phụ đề đồng bộ bản xuất.
 - [ ] Media/mobile/accessibility QA đạt trước khi mở sản xuất/tích hợp chính thức.
