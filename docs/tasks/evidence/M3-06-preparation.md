@@ -12,7 +12,7 @@
 
 ## Contract proposal — approved with agreement D1–D7
 
-Thiết kế sau đã được review; agreement D1–D7 trong [task card](../active/M3-06.md) chốt các quyết định. Vinh vẫn phải claim files và triển khai/test trước UI consumer:
+Thiết kế sau đã được review; agreement D1–D7 trong [task card](../done/M3-06.md) chốt các quyết định. Vinh vẫn phải claim files và triển khai/test trước UI consumer:
 
 - `completion.completeLesson({ lessonId, operationId })`: service kiểm tra authored version và required block progress/attempts đã lưu; trả completion receipt với lesson/version identity, confirmed completion time và reward receipt. Caller không gửi XP, streak, passed hay eligibility flag.
 - `completion.getLessonCompletion(lessonId)`: phục hồi receipt confirmed khi remount/reload; phân biệt chưa complete và lỗi đọc.
@@ -71,5 +71,5 @@ Loading/error announcements dùng status/alert phù hợp; heading/focus sau nav
 ## Current post-PR92 handoff — 2026-10-02
 
 - PR88 merged `a339af6`; PR92 merged main `c29e4a7`, closes [adapter card](../done/M3-COMPLETION-01.md) DONE and confirms Vinh handoff. Runtime unchanged from `68580ed`; reviewed final PR88 head `e6a3940`, CI 2/2 PASS.
-- [M3-06 card](../active/M3-06.md) READY; Dương must record runtime branch/controller/UI/tests file claim before READY → IN PROGRESS. No additional Vinh closure is pending. PR90 docs does not block the UI claim.
+- [M3-06 card](../done/M3-06.md) READY; Dương must record runtime branch/controller/UI/tests file claim before READY → IN PROGRESS. No additional Vinh closure is pending. PR90 docs does not block the UI claim.
 - 18 UI scenarios remain planned; M3-07 BACKLOG until M3-06 acceptance. M3 OPEN/M4 LOCKED.

@@ -34,4 +34,4 @@ Các file `active.md`, `CONTENT-003-004-REVIEW.md`, `PR21-HANDOFF.md`, `BEQA-LOC
 
 - [M3-CONTRACT-REVIEW-01](./M3-CONTRACT-REVIEW-01.md) — REVIEW; historical G2/G5 proposal superseded by approved D1–D7 and PR88/92; archival docs review only, no UI blocker.
 
-- [M3-06](./M3-06.md) — REVIEW; completion/profile UI implemented; Hưng/Vinh review [runtime evidence](../evidence/M3-06-runtime.md).
+- [M3-06](../done/M3-06.md) — DONE; Hưng/Vinh accepted, PR94 merged 20e3263; final head CI 2/2 PASS.
