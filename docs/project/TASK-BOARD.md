@@ -90,11 +90,17 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 
 ## Task board
 
+### Main integration audit — 2026-10-02
+
+| ID | Owner / executor | Reviewer | Status | Started | Files / next action |
+|---|---|---|---|---|---|
+| MAIN-INTEGRATION-AUDIT-002 | Codex root | User / Product Owner | REVIEW | 2026-10-02 | [card](../tasks/active/MAIN-INTEGRATION-AUDIT-002.md); [report](../engineering/main-integration-20261002/REPORT.md); standalone quality PASS,24 conflicts/48 type errors/26 failed unit tests in diagnostic merge; no main merge or gate change |
+
 ### Login investigation — 2026-10-02
 
 | ID | Owner / executor | Reviewer | Status | Started | Files / next action |
 |---|---|---|---|---|---|
-| AUTH-LOGIN-001 | Codex root | QA / user's manual password retry | REVIEW | 2026-10-02 | [Card](../tasks/active/AUTH-LOGIN-001.md); exact8443 owned-email login/10XP verified; duplicate registration does not reset password; manual retry remains |
+| AUTH-LOGIN-001 | Codex root | User reproduction accepted | DONE | 2026-10-02 | [Card](../tasks/done/AUTH-LOGIN-001.md); user confirmed successful login; UUID/progress retained; optional recovery remains separate |
 | AUTH-USERNAME-001 | Codex root | Independent security PASS / browser-mail acceptance pending | REVIEW | 2026-10-02 | [Card](../tasks/active/AUTH-USERNAME-001.md), [evidence](../engineering/auth-username/EVIDENCE.md);027/028 applied, immediate signup and hosted8+legacy9PASS; optional sender/redirect and final UI acceptance remain |
 
 

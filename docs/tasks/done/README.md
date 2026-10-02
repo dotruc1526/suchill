@@ -2,6 +2,8 @@
 
 Đặt task card đã được reviewer xác nhận `DONE` tại đây. Không xóa checkpoint/evidence cũ.
 
+- [AUTH-LOGIN-001](./AUTH-LOGIN-001.md) — user confirmed successful login on2026-10-02; optional recovery acceptance remains separate.
+
 ## Delegated all-task review — 2026-10-02
 
 Accepted by Codex specialists and root cross-review under explicit user delegation; [evidence/remaining prerequisites](../../engineering/review-all/EVIDENCE.md). No new named human approval or milestone closure is inferred.

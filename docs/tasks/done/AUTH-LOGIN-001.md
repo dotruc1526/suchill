@@ -1,16 +1,16 @@
 # AUTH-LOGIN-001 — Reproduce login with a fresh account
 
-> Status: REVIEW\
+> Status: DONE\
 > Started / last updated: 2026-10-02
 
 - Owner / Executor: Codex root, at the user's request.
-- Reviewer: QA / user reproduction; acceptance pending.
+- Reviewer: user reproduction accepted on 2026-10-02; existing browser/hosted QA evidence retained.
 - Branch: codex/m3-m5-complete.
 - Depends on: M4-07 and SUPABASE-HOSTED-001 technical delivery DONE.
 - Files claimed: this card, own task-board row, ignored `.env.login-check.local`, own evidence under `output/login-check/`.
 - Runtime/source files: claim `src/features/auth/AccountAccess.tsx` only for login error wording; concurrent UX changes preserved. Keep the approved six service error codes unchanged.
 - Scope: create one independent synthetic Auth signup without sending mail, test browser login before/after confirmation, reload persistence and sign-out. No password changes, deletion, release or milestone closure.
-- Next action: user's manual credential retry/change in Profile; username flow delivered separately in AUTH-USERNAME-001; milestone acceptance unchanged.
+- Next action: login investigation closed after user confirmation; optional recovery and full username-flow acceptance remain in AUTH-USERNAME-001; milestone acceptance unchanged.
 
 ## Acceptance
 
@@ -38,3 +38,7 @@ Limits: this verifies actual new Auth identity and browser login/confirmation/pe
 User then confirmed email `dotruc1526@gmail.com` and a rejected-login message (not a stuck loading state). Confirmed exact owned-email login succeeded at8443 using the original fixture credential. Opened only its pre-existing ignored `.env.hosted-signup.local` file in the user's local Codex editor so the owner can privately compare/copy the password; no credential value emitted to chat/logs and no reset performed. User's manual retry remains pending.
 
 Follow-up after the user requested password12345678: duplicate confirmed-email registration returned no session and did not replace the password. Actual hosted recheck after028 again rejected12345678 and accepted the original saved credential, preserving the same UUID,10XP andone completed lesson. [Username delivery evidence](../../engineering/auth-username/EVIDENCE.md) supersedes the earlier one-line error-wording implementation. No owned credential was changed or account recreated; the user can select a new password in Profile themselves.
+
+## User acceptance — 2026-10-02
+
+The user explicitly reported: “Được rồi tôi đã đăng nhập thành công”. This closes the pending manual login reproduction and this investigation. Earlier pending statements are historical checkpoints. No additional credential, account or hosted configuration change was made during the main-integration audit. This acceptance does not certify optional recovery delivery or close AUTH-USERNAME-001.

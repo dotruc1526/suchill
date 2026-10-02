@@ -8,7 +8,9 @@ M3–M5 technical delivery and Supabase follow-up are accepted in [done](../done
 
 ## Content track
 
-Login investigation: [AUTH-LOGIN-001](./AUTH-LOGIN-001.md) — REVIEW; exact8443 browser/owned-email proof, duplicate-password explanation; user's manual retry pending.
+Login investigation: [AUTH-LOGIN-001](../done/AUTH-LOGIN-001.md) — DONE; the user confirmed successful login on2026-10-02.
+
+Integration audit: [MAIN-INTEGRATION-AUDIT-002](./MAIN-INTEGRATION-AUDIT-002.md) — REVIEW; main and delivery quality pass separately,24 conflicts/48 type errors/26 failed unit tests in diagnostic merge; [report](../../engineering/main-integration-20261002/REPORT.md).
 
 Username access: [AUTH-USERNAME-001](./AUTH-USERNAME-001.md) — REVIEW; immediate hosted signup and8+9Auth tests PASS, UUID/progress retained; optional sender/redirect and final browser acceptance pending.
 

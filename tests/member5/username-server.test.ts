@@ -4,7 +4,7 @@ import { createAccountHandler } from '../../supabase/functions/account-access/ha
 import { createAccountTransport, identifierHash } from '../../supabase/functions/account-access/transport.mjs'
 
 // Deliberately synthetic keys and accounts; these tests never contact a hosted project.
-const config = { url: 'https://fixture.supabase.test', secretKey: 'sb_secret_fixture_only',
+const config = { url: 'https://fixture.supabase.test', secretKey: 'fixture-only-server-credential',
   publishableKey: 'sb_publishable_fixture_only', origins: ['http://localhost:8443'] }
 const fixtureTokens = { access_token: 'fixture-access', refresh_token: 'fixture-refresh' }
 type Call = { path: string; host: string; body: any; headers: Headers; method: string }
