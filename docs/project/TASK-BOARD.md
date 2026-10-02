@@ -143,7 +143,7 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 | M3-COMPLETION-01 | M3 mock services | Completion/account-summary adapter và tests D1–D7 | Vinh (Member 5); Codex executor | DONE | M3 OPEN; M3-01..05/integration DONE; PR84 agreement `5144fa2` | [card](../tasks/done/M3-COMPLETION-01.md) | PR88 merged a339af6; Hưng accepted contract/architecture runtime 68580ed, Dương approved consumer; merged head e6a3940 CI 2/2 PASS, quality 95/22/7, scan 338/0. Adapter handed off; M3-06 READY for Dương UI claim. |
 
 | M3-07 | M3 QA | Kiểm thử tương tác toàn bộ learning loop | Vinh; Dương phối hợp | BACKLOG | M3-01..06 DONE; card và file claim riêng trước triển khai | [Snapshot](../tasks/evidence/M3-status-2026-10-02.md) | Chờ completion/profile UI M3-06; QA-002 không thay thế task này; chưa claim runtime |
-| M3-STATUS-01 | M3 docs | Đồng bộ trạng thái/owner/next action | Dương; Codex executor; Hưng/Vinh review | REVIEW | M3 OPEN; PR83/88 đã đối chiếu | [Card](../tasks/active/M3-STATUS-01.md) | Docs-only; snapshot và controller/test preparation M3-06 ngày 2026-10-02; giữ acceptance còn thiếu và M3 OPEN |
+| M3-STATUS-01 | M3 docs | Đồng bộ trạng thái/owner/next action | Dương; Codex executor; Hưng/Vinh review | DONE | M3 OPEN; PR83/88 đã đối chiếu | [Card](../tasks/done/M3-STATUS-01.md) | PR90 merged e7e8aac; Hưng delta APPROVE, Vinh docs/service APPROVE; acceptance head 65c82d2 Quality 2/2 PASS; reviewer-authorized closeout, M3 OPEN |
 
 ### C. Backend and Supabase — theo dependency và milestone gate Phase 9
 
