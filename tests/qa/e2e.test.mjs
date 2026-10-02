@@ -112,9 +112,13 @@ async function withChromePage(browser, url, run) {
     const { sessionId } = await send('Target.attachToTarget', { targetId: page.targetId, flatten: true })
     const command = (method, params) => send(method, params, sessionId)
     await command('Page.enable')
+    // Interaction tests exercise the supported system-font fallback without a CDN dependency.
+    await command('Network.enable')
+    await command('Network.setBlockedURLs', { urls: ['*://fonts.googleapis.com/*', '*://fonts.gstatic.com/*'] })
     const waitForDocument = async (loaderMatches, label) => {
       let state
-      for (let attempt = 0; attempt < 200; attempt += 1) {
+      const deadline = Date.now() + 20_000
+      while (Date.now() < deadline) {
         const { frameTree } = await command('Page.getFrameTree')
         if (loaderMatches(frameTree.frame.loaderId)) {
           try {
@@ -165,7 +169,7 @@ test('Chrome waits for delayed cold navigation and a new document after reload',
     await delay(150)
     response.writeHead(200, { 'Content-Type': 'text/html', 'Cache-Control': 'no-store' })
     response.end(`<html><body><div id="root"></div><script>
-      setTimeout(() => { document.querySelector('#root').innerHTML = '<p data-document="${documentId}">Ready</p>' }, 150)
+      setTimeout(() => { document.querySelector('#root').innerHTML = '<p data-document="${documentId}">Ready</p>' }, ${documentId === 1 ? 12_000 : 150})
     </script></body></html>`)
   })
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve))
@@ -176,7 +180,7 @@ test('Chrome waits for delayed cold navigation and a new document after reload',
       const documentId = async () => (await cdp('Runtime.evaluate', {
         expression: "document.querySelector('[data-document]')?.dataset.document", returnByValue: true,
       })).result.value
-      assert.equal(await documentId(), '1', 'callback waits for the initial target URL and mounted DOM')
+      assert.equal(await documentId(), '1', 'callback waits for the initial target URL and a 12-second delayed mount')
       await cdp('Page.reload', { ignoreCache: true })
       assert.equal(await documentId(), '2', 'reload waits for the new document, not the old ready DOM')
     })

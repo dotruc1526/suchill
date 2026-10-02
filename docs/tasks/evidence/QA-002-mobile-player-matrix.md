@@ -73,3 +73,10 @@
 - Full quality PASS: 76 unit / 22 component / 7 E2E, typecheck/build, scan 330 files / 0 unsafe. Device/media/screen-reader limitations above still apply.
 - QA-002 remains REVIEW pending Dương confirmation and CI on the new head. No gate changes.
 - Additional cold-browser suite run: `node --test tests/qa/e2e.test.mjs` PASS 7/7; log `/tmp/suchill-pr83-navigation-fix-e2e-repeat.log`.
+
+## Slow Home mount / optional font network — 2026-10-02
+- Reviewer reports ~12-second Home mount and 3/4 old-main E2E failures. Home UI acceptance/M3-UX-02 DONE is unchanged; the test harness is the follow-up scope.
+- Readiness now polls loader/URL/mounted root up to 20 seconds. Initial navigation regression deliberately renders after 12 seconds; focused check PASS and reload still requires the second document.
+- CDP interaction checks block fonts.googleapis.com/fonts.gstatic.com and use the existing system-font fallback, avoiding optional font network dependency. No production CSS/font or Home edits; these interaction measurements do not certify final downloaded-font layout.
+- Verification must use the refreshed PR83 head; main's old four-test harness remains until merge. QA-002 remains REVIEW, no gate decision.
+- Latest full quality PASS: typecheck/build, 76 unit / 22 component / 7 E2E, scan 330 files / 0 unsafe; log `/tmp/suchill-pr83-slow-start-quality.log` (local only). Diff check PASS.
