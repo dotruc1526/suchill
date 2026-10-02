@@ -43,3 +43,5 @@ Nguồn gate: [Phase9](../../specs/phases/09-implementation-roadmap.md), [Phase8
 Checkpoint 2026-10-03: người dùng yêu cầu báo cáo ngắn, không hỏi thêm thông tin thiết bị. Giữ đúng kết quả đã quan sát; không tạo hồ sơ dài hoặc ghi PASS cho manual/iOS/chấp thuận chưa có. M6 OPEN; M7 OPEN theo ngoại lệ lịch trình APPROVED, chưa nghiệm thu phát hành.
 
 Latest approved scheduling decision: M7 now OPEN alongside M6 by Dương/PR113; earlier LOCKED wording is superseded. Individual historical/media/manual/privacy/release dependencies are unchanged. [Decision](../../tasks/active/M7-GATE-OPEN-001.md).
+
+Current clarification checkpoint2026-10-03: candidate9abdb3f1df7a3759e34d adds an always-visible historical note before the original1954video; catalog4/4 and typecheck/build PASS, independent software APPROVE. Deploy/HTTPS acceptance tracked by [M7-1954-CONTEXT-001](../../tasks/active/M7-1954-CONTEXT-001.md). Original content/media/canonical/manual/privacy/PO release gates stay in place. User all-work permission does not assert ownership of third-party audio or a device result.

@@ -491,3 +491,9 @@ M7 OPEN alongside M6 by latest APPROVED PO decision. Existing preview/readiness 
 | M7-02 | Codex / content_release_audit | Independent source preparation APPROVE; historical/media final gate separate | REVIEW | M7-01 DONE; [card](../tasks/active/M7-02.md); original28cues mapped, three official sources checked; cue27/strategic framing and final media review still pending |
 
 M7-03 waits for reviewed1954curriculum/media, not old1968inputs; M7-04 sign-off then M7-05 canonical import. M7-06 needs fullM6 + import; M7-07..09 follow regression → canonical preview → internal journey → release. No downstream task claimed through unresolved dependencies. Existing internal preview stays available with episode2–7locked.
+
+## Current preview clarification — 2026-10-03
+
+| Task | Owner / Executor | Reviewer | Status | Dependencies / next action |
+|---|---|---|---|---|
+| M7-1954-CONTEXT-001 | Codex root | existing independent hosting_catalog_review SOFTWARE APPROVE | REVIEW | [Card](../tasks/active/M7-1954-CONTEXT-001.md); visible cue27 clarification using prior narrower wording; existing internal preview only, immutable video and six locks retained; final M7-02/media/manual/release gates separate |
