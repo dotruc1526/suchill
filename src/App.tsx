@@ -1,4 +1,6 @@
-import { useEffect, useSyncExternalStore } from 'react'
+import { HostedApp } from './app/HostedApp'
+import type { HomeActivityService } from './services/next/m3HomeActivity'
+import { useEffect, useSyncExternalStore, type ReactNode } from 'react'
 import { CompletionSession, useCompletionSession } from './features/learning/completion/CompletionSession'
 import { m3JourneyServices, m3Session } from './services/next/m3JourneyFixture'
 import { theme } from './theme/tokens'
@@ -11,7 +13,7 @@ import { ProfileScreen } from './features/profile/ProfileScreen'
 import { AppViewRouter } from './app/AppViewRouter'
 import { useAppNavigation } from './app/useAppNavigation'
 
-function AppContent() {
+function AppContent({ profile, practice, activity, syncStatus }: {profile?: ReactNode; practice?: ReactNode; activity?: HomeActivityService; syncStatus?: ReactNode}) {
   const navigation = useAppNavigation()
   const { summary } = useCompletionSession()
   const account = useSyncExternalStore(summary.subscribe, summary.getSnapshot, summary.getSnapshot)
@@ -54,12 +56,13 @@ function AppContent() {
             account.value ? <TopBar xp={account.value.totalXp} streak={account.value.currentStreak} achievements={account.value.achievements.length} /> : <div role="status" className="px-4 py-3">Số liệu tài khoản chưa được xác nhận.</div>
           )}
 
+          {!navigation.isOverlay && syncStatus}
           {!navigation.isOverlay && (
             <div className="flex-1 overflow-y-auto">
-              <div hidden={navigation.tab !== 'home'}><LearningJourney active={navigation.tab === 'home'} /></div>
-              {navigation.tab === 'practice' && <PracticeScreen />}
+              <div hidden={navigation.tab !== 'home'}><LearningJourney active={navigation.tab === 'home'} activityService={activity} /></div>
+              {navigation.tab === 'practice' && (practice ?? <PracticeScreen />)}
               {navigation.tab === 'ai' && <AIScreen />}
-              {navigation.tab === 'profile' && <ProfileScreen />}
+              {navigation.tab === 'profile' && <><ProfileScreen />{profile}</>}
             </div>
           )}
 
@@ -84,5 +87,7 @@ function AppContent() {
 }
 
 export default function App() {
+  if (import.meta.env.VITE_SUPABASE_URL || import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY)
+    return <HostedApp>{(profile, practice, activity, syncStatus) => <AppContent profile={profile} practice={practice} activity={activity} syncStatus={syncStatus} />}</HostedApp>
   return <CompletionSession services={m3JourneyServices} userId={m3Session.userId} epoch="m3.mock.session.v1"><AppContent /></CompletionSession>
 }

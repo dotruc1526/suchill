@@ -1,0 +1,13 @@
+vite v8.3.0 building client environment for production...
+transforming...
+✓ 42 modules transformed.
+rendering chunks...
+computing gzip size...
+.tmp-video-init-dist/.tmp-video-init-fixture.html                  0.14 kB │ gzip:  0.13 kB
+.tmp-video-init-dist/assets/.tmp-video-init-fixture-D_BM3aWC.js  255.34 kB │ gzip: 80.00 kB
+
+✓ built in 247ms
+Range diagnostic {"calls":[{"account":"A","input":{"lessonId":"lesson","blockId":"video-block","positionSeconds":0,"watchedRanges":[],"operationId":"032780e6-b4f3-4427-94b2-71d0a48e092a"}},{"account":"A","input":{"lessonId":"lesson","blockId":"video-block","positionSeconds":1.420356,"watchedRanges":[{"start":0.005041,"end":1.420356}],"operationId":"0acb6152-1fac-4478-b836-016324c5bddf"}}],"v":{"time":1.420356,"paused":true,"ready":4}}
+Native playback initialization/ack/resume/elapsed PASS
+Native playback initialization retry identity PASS
+Native stale-account/context initialization response suppression PASS

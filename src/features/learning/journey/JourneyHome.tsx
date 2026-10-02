@@ -38,7 +38,7 @@ export function JourneyHome({ chapters, activity, greeting = 'XIN CHÀO', headin
           </div>
         </Card>
       )}
-      {activity && <HomeGoalCard activity={activity} />}
+      {activity && activity.goalMinutes > 0 && <HomeGoalCard activity={activity} />}
       <div className="flex items-center gap-2">
         <h2 className="font-sans text-base font-bold" style={{ color: theme.colors.textPrimary }}>HÀNH TRÌNH LỊCH SỬ</h2>
         <div className="h-px flex-1" style={{ background: theme.colors.borderMedium }} />

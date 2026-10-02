@@ -57,7 +57,6 @@ export function createCompletionController(services: LearningServices, context: 
         Object.values(state.actions).includes('pending')) return
       const request = generation
       operationId ??= makeId()
-      if (typeof navigator !== 'undefined' && navigator.onLine === false) { error('offline'); return }
       publish({ ...state, status: 'submitting', error: undefined })
       try {
         const result = await services.completion.completeLesson({ lessonId: context.lessonId, operationId })

@@ -13,7 +13,7 @@ export function JourneyLessonEntry({ lesson, services, headingRef, onBack }: {
   onBack: () => void
 }) {
   const session = useCompletionSession()
-  const controller = session.lesson(lesson.id, m3CompletionVersions[lesson.id] ?? 'unknown')
+  const controller = session.lesson(lesson.id, lesson.contentVersionId ?? m3CompletionVersions[lesson.id] ?? 'unknown')
   return (
     <section className="space-y-4 px-4 py-4" aria-label="Nội dung bài học">
       <button data-testid="journey-lesson-back" className="min-h-11 font-sans text-sm font-bold focus-visible:outline-2" onClick={onBack}>‹ VỀ CHƯƠNG</button>

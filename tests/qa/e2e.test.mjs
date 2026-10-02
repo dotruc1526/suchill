@@ -193,7 +193,7 @@ test('built app renders its home screen in a real local browser', async () => {
   const browser = findBrowser()
   assert.ok(browser, 'Set CHROME_PATH to a local Chromium/Chrome executable for E2E')
 
-  const server = await preview({ preview: { host: '127.0.0.1', port: 0, strictPort: false } })
+  const server = await preview({ envDir: false, build: { outDir: process.env.SUCHILL_QA_BUILD_DIR ?? 'dist' }, preview: { host: '127.0.0.1', port: 0, strictPort: false } })
   try {
     const address = server.httpServer.address()
     assert.ok(address && typeof address !== 'string')
@@ -210,7 +210,7 @@ test('learning journey stays usable and uncut at mobile widths', async () => {
   const browser = findBrowser()
   assert.ok(browser, 'Set CHROME_PATH to a local Chromium/Chrome executable for E2E')
 
-  const server = await preview({ preview: { host: '127.0.0.1', port: 0, strictPort: false } })
+  const server = await preview({ envDir: false, build: { outDir: process.env.SUCHILL_QA_BUILD_DIR ?? 'dist' }, preview: { host: '127.0.0.1', port: 0, strictPort: false } })
   try {
     const address = server.httpServer.address()
     assert.ok(address && typeof address !== 'string')
@@ -289,7 +289,7 @@ test('learning journey moves focus on forward and back navigation', async () => 
   const browser = findBrowser()
   assert.ok(browser, 'Set CHROME_PATH to a local Chromium/Chrome executable for E2E')
 
-  const server = await preview({ preview: { host: '127.0.0.1', port: 0, strictPort: false } })
+  const server = await preview({ envDir: false, build: { outDir: process.env.SUCHILL_QA_BUILD_DIR ?? 'dist' }, preview: { host: '127.0.0.1', port: 0, strictPort: false } })
   try {
     const address = server.httpServer.address()
     assert.ok(address && typeof address !== 'string')
@@ -344,7 +344,7 @@ test('Visual Novel close and completion restore focus to the opener', async () =
   const browser = findBrowser()
   assert.ok(browser, 'Set CHROME_PATH to a local Chromium/Chrome executable for E2E')
 
-  const server = await preview({ preview: { host: '127.0.0.1', port: 0, strictPort: false } })
+  const server = await preview({ envDir: false, build: { outDir: process.env.SUCHILL_QA_BUILD_DIR ?? 'dist' }, preview: { host: '127.0.0.1', port: 0, strictPort: false } })
   try {
     const address = server.httpServer.address()
     assert.ok(address && typeof address !== 'string')
@@ -384,7 +384,7 @@ test('Visual Novel remains keyboard operable and within 375px/430px mobile viewp
   const browser = findBrowser()
   assert.ok(browser, 'Set CHROME_PATH to a local Chromium/Chrome executable for E2E')
 
-  const server = await preview({ preview: { host: '127.0.0.1', port: 0, strictPort: false } })
+  const server = await preview({ envDir: false, build: { outDir: process.env.SUCHILL_QA_BUILD_DIR ?? 'dist' }, preview: { host: '127.0.0.1', port: 0, strictPort: false } })
   try {
     const address = server.httpServer.address()
     assert.ok(address && typeof address !== 'string')
@@ -535,7 +535,7 @@ test('player mock exposes mobile video fallback and Visual Novel error retry by 
 test('completion/profile loop retains confirmed service totals, retry intent and mobile focus', async () => {
   const browser = findBrowser()
   assert.ok(browser)
-  const server = await preview({ preview: { host: '127.0.0.1', port: 0, strictPort: false } })
+  const server = await preview({ envDir: false, build: { outDir: process.env.SUCHILL_QA_BUILD_DIR ?? 'dist' }, preview: { host: '127.0.0.1', port: 0, strictPort: false } })
   try {
     const address = server.httpServer.address()
     await withChromePage(browser, `http://127.0.0.1:${address.port}/`, async cdp => {

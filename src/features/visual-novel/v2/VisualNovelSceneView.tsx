@@ -1,7 +1,8 @@
 import type { ComponentType, Ref } from 'react'
 import { Button, Card } from '../../../components/ui'
 import { theme } from '../../../theme/tokens'
-import type { MediaScene, SceneChoice, VisualNovelScene } from '../../../types/v2/content'
+import type { MediaScene } from '../../../types/v2/content'
+import type { DeliveredSceneChoice as SceneChoice, DeliveredScene as VisualNovelScene } from '../../../services/next/storyDelivery'
 import type { ChoiceFeedback } from './visualNovelModel'
 
 export type VisualNovelMediaSlot = ComponentType<{ scene: MediaScene }>

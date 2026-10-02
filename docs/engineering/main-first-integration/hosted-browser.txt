@@ -1,0 +1,2 @@
+Hosted Chrome UI PASS: actual password sign-in;375/430 fits; real0 streak/no fake goal; explicit text gate + completion10XP + reload/replay unchanged; fallback rejection/recap/confirmation +20XP; stored motion suppresses transition; stale queued checkpoint conflict can be discarded and learning restored.
+Hosted Chrome exact synthetic-user cleanup PASS; retained account untouched.
