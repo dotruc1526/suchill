@@ -1,0 +1,25 @@
+{
+  "lessonId": "lesson-mt68-01-video",
+  "mediaId": "media.mt68.pilot.collage.v2",
+  "title": "Kế hoạch Giao Thừa — SỬu dẫn chuyện — elevenlabs.io",
+  "reviewStatus": "in_review",
+  "publicationStatus": "not_published",
+  "durationSeconds": 63.0595918367347,
+  "mobile": "pilot-collage-mobile.mp4",
+  "master": "pilot-collage-master.mp4",
+  "poster": "poster.png",
+  "posterAlt": "SỬu dẫn chuyện trong minh họa collage phố thị cho bài Mậu Thân 1968.",
+  "captions": {
+    "file": "captions.vi.vtt",
+    "language": "vi",
+    "alignmentReview": "pending final listening review"
+  },
+  "transcript": "transcript.vi.txt",
+  "credit": "ElevenLabs · elevenlabs.io — academic non-commercial",
+  "visualLabel": "MINH HỌA HƯ CẤU",
+  "autoplay": false,
+  "storageUrl": null,
+  "supersedes": "media.mt68.pilot.v1 (110s typography candidate)",
+  "fallback": "Nine original narration texts in transcript.vi.txt; source links through existing registry",
+  "nextAction": "Final video/illustration/caption/mobile acceptance, then media service and lesson publication."
+}

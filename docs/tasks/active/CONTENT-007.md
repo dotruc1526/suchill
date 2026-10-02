@@ -84,3 +84,19 @@
 - Changed files: scripts/content/build-mt68-video.py, mt68_video_art.py, production/mt68-v1/render final assets/metadata; task card/board/index/evidence. Không đổi authoring snapshots, runtime, env hoặc migration.
 - Status REVIEW: Trúc/Thọ review bản video cuối, Vinh media/accessibility QA, Dương nhận. Metadata target lesson-mt68-01-video đã chuẩn bị, chưa publish/storage URL; service/lesson integration tiến hành sau final asset acceptance theo card.
 - Những đoạn “chưa có audio/MP4” và “BLOCKED” ở checkpoint cũ là lịch sử; trạng thái hiện hành theo checkpoint này.
+
+## Revision v2 theo feedback Trúc — 2026-10-03
+
+- User yêu cầu thay bản chữ bằng cinematic historical collage / 2D cut-out / vintage Vietnamese scrapbook, SỬu nhất quán, hình phần lớn màn hình, subtitle nhỏ và motion mỗi 1.5–3s.
+- Audio timeline cố định từ 9 MP3 đã nghiệm thu: ghép nối nguyên tốc độ, không padding/chậm tiếng chờ hình. Thời lượng v2 đo từ audio, thay lịch 110s của bản v1 theo yêu cầu mới này; không sửa lời bình/narration authoring.
+- Owner Trúc; Executor Codex; Reviewer Trúc/Thọ, Vinh media/accessibility và Dương PO. Branch codex/truc-content007-video; status IN PROGRESS (revision từ REVIEW).
+- Files claimed bổ sung: scripts/content/mt68_collage*.py, docs/content/production/mt68-v2/ (assets/prompt/timeline/render/manifest/evidence). Asset SỬu dùng reference có sẵn trong repo; không sửa mascot runtime.
+- Next action: tạo minh họa collage phân lớp, dựng chuyển động theo audio, captions ngắn, master/mobile; nghiệm thu bản render mới. Không tự publication/integration trước final acceptance.
+
+## Handoff v2 collage — 2026-10-03
+
+- Candidate hiện hành là v2: 63.059592s theo 9 audio đã duyệt, không kéo chậm/padding; master1080×1920 và mobile720×1280 đều30fps. Bản typography110s v1 giữ làm revision trước.
+- Có 3 collage backdrop/3 pose SỬu, foreground object/parallax/camera motion, 33 caption ngắn, poster/transcript/manifest/timeline/lesson-handoff. [Evidence v2](../evidence/CONTENT-007-collage-v2-2026-10-03.md).
+- Decode2/2MP4 PASS, hashPCMinput khớp9/9 và không thêm sample; đã xem9encodedframes. Final caption listening/device/illustration/editorial review còn pending.
+- Changed files: scripts/content/build-mt68-collage.py, mt68_collage_frames.py/props.py/timeline.py; production/mt68-v2/; card/board/index/evidence. Không runtime/env/migration changes; không app tests/build vì chỉ media production.
+- Status REVIEW: Trúc/Thọ/Vinh/Dương review bản cụ thể; gắn service/lesson sau final acceptance, chưa published.

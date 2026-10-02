@@ -57,3 +57,7 @@ Superseded proposals may be CANCELLED and moved to [archived](./archived/README.
 ## CONTENT-007 checkpoint 2026-10-03
 
 PR111 đã merge, PO đã mở production phi thương mại. Trúc/user nghiệm thu 9 audio; Codex dựng video 110s master/mobile, poster/VTT/transcript/manifest và metadata handoff. [Card](./active/CONTENT-007.md) hiện REVIEW; [evidence](./evidence/CONTENT-007-video-2026-10-03.md). Final video/media/accessibility acceptance và publication/integration còn pending. Những ghi chú BLOCKED/chưa có media phía trên là snapshot cũ được checkpoint này thay thế.
+
+## CONTENT-007 revision v2 — 2026-10-03
+
+Theo feedback Trúc, candidate đã làm lại thành collage/cut-out/SỬu, 63.06s theo audio nguyên tốc độ; bản110s typography v1 không phải candidate hiện hành. [Evidence v2](./evidence/CONTENT-007-collage-v2-2026-10-03.md); task REVIEW, final caption/illustration/device acceptance và publication/integration pending.

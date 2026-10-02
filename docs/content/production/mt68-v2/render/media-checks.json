@@ -1,0 +1,40 @@
+{
+  "pilot-collage-master.mp4": {
+    "bytes": 32323042,
+    "duration": "63.066667",
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1080,
+        "height": 1920,
+        "duration": "63.066667",
+        "r_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "aac",
+        "duration": "63.059592",
+        "r_frame_rate": "0/0"
+      }
+    ],
+    "decode": "PASS"
+  },
+  "pilot-collage-mobile.mp4": {
+    "bytes": 14059537,
+    "duration": "63.066667",
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 1280,
+        "duration": "63.066667",
+        "r_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "aac",
+        "duration": "63.059592",
+        "r_frame_rate": "0/0"
+      }
+    ],
+    "decode": "PASS"
+  }
+}
