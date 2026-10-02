@@ -2,6 +2,8 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { EmptyState, ErrorState, LoadingState, OfflineState } from '../../../components/ui'
 import type { ServiceErrorCode } from '../../../services/next/contracts'
 import { m3JourneyServices } from '../../../services/next/m3JourneyFixture'
+import { loadHomeGreeting } from '../../home/greetingModel'
+import { m3HomeActivityService } from '../../../services/next/m3HomeActivity'
 import { JourneyChapter } from './JourneyChapter'
 import { JourneyHome } from './JourneyHome'
 import { JourneyLessonEntry } from './JourneyLessonEntry'
@@ -23,6 +25,7 @@ type FocusTarget =
 export function LearningJourney() {
   const [view, setView] = useState<JourneyView>({ type: 'home' })
   const [state, setState] = useState<LoadState>({ status: 'loading' })
+  const [greeting, setGreeting] = useState('XIN CHÀO')
   const [offline, setOffline] = useState(() => typeof navigator !== 'undefined' && !navigator.onLine)
   const homeHeadingRef = useRef<HTMLHeadingElement>(null)
   const chapterHeadingRef = useRef<HTMLHeadingElement>(null)
@@ -33,11 +36,16 @@ export function LearningJourney() {
 
   const refresh = useCallback(async () => {
     setState({ status: 'loading' })
-    const result = await loadJourney(m3JourneyServices)
+    const result = await loadJourney(m3JourneyServices, m3HomeActivityService)
     setState(result.ok ? { status: 'ready', snapshot: result.value } : { status: 'error', error: result.error })
   }, [])
 
   useEffect(() => { void refresh() }, [refresh])
+  useEffect(() => {
+    let active = true
+    void loadHomeGreeting(m3JourneyServices.users).then(value => { if (active) setGreeting(value) })
+    return () => { active = false }
+  }, [])
   useEffect(() => {
     const update = () => setOffline(!navigator.onLine)
     window.addEventListener('online', update)
@@ -65,6 +73,16 @@ export function LearningJourney() {
   const chapter = view.type === 'home' ? undefined : state.snapshot.chapters.find(item => item.id === view.chapterId)
   const lesson = view.type === 'lesson' ? chapter?.lessons.find(item => item.id === view.lessonId) : undefined
 
+  const openLesson = async (chapterId: string, lessonId: string) => {
+    const selected = state.snapshot.chapters.find(item => item.id === chapterId)?.lessons.find(item => item.id === lessonId)
+    if (!selected) return
+    const result = await startLesson(m3JourneyServices, selected)
+    if (!result.ok) { setState({ status: 'error', error: result.error }); return }
+    await refresh()
+    pendingFocusRef.current = { kind: 'heading' }
+    setView({ type: 'lesson', chapterId, lessonId })
+  }
+
   if (view.type === 'lesson' && chapter && lesson) {
     return <JourneyLessonEntry lesson={lesson} services={m3JourneyServices} headingRef={element => {
       lessonHeadingRef.current = element
@@ -86,19 +104,14 @@ export function LearningJourney() {
         pendingFocusRef.current = { kind: 'chapter-button', id: chapter.id }
         setView({ type: 'home' })
       }}
-      onLesson={async lessonId => {
-        const selected = chapter.lessons.find(item => item.id === lessonId)
-        if (!selected) return
-        const result = await startLesson(m3JourneyServices, selected)
-        if (!result.ok) { setState({ status: 'error', error: result.error }); return }
-        await refresh()
-        pendingFocusRef.current = { kind: 'heading' }
-        setView({ type: 'lesson', chapterId: chapter.id, lessonId })
-      }}
+      onLesson={lessonId => void openLesson(chapter.id, lessonId)}
     />
   }
   return <>{offline && <OfflineState />}<JourneyHome
     chapters={state.snapshot.chapters}
+    greeting={greeting}
+    activity={state.snapshot.activity}
+    onLesson={(chapterId, lessonId) => void openLesson(chapterId, lessonId)}
     headingRef={homeHeadingRef}
     chapterButtonRef={(id, element) => { element ? chapterButtonsRef.current.set(id, element) : chapterButtonsRef.current.delete(id) }}
     onChapter={chapterId => {
