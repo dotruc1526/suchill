@@ -28,5 +28,7 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOC
 
 Các file `active.md`, `CONTENT-003-004-REVIEW.md`, `PR21-HANDOFF.md`, `BEQA-LOCAL-001-MATRIX.md` và `M1-PR-REVIEW-GUIDE.md` là evidence/handoff, không phải task card độc lập.
 
-- [M3-STATUS-01](./M3-STATUS-01.md) — REVIEW; đồng bộ M3 docs, [snapshot](../evidence/M3-status-2026-10-02.md).
-- [M3-COMPLETION-01](./M3-COMPLETION-01.md) — REVIEW; PR88 merged a339af6, CI 2/2 PASS; Vinh reviewer closure/handoff confirmation pending.
+
+- [M3-06](./M3-06.md) — READY; Dương claims completion/profile UI files after accepted adapter PR88 handoff.
+
+- [M3-STATUS-01](./M3-STATUS-01.md) — REVIEW; [current M3 snapshot](../evidence/M3-status-2026-10-02.md) and controller preparation.

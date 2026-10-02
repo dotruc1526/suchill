@@ -2,9 +2,9 @@
 
 > Status: PROPOSED preparation; chưa triển khai hoặc chạy các test bên dưới.
 > Owner: Dương; executor: Codex; reviewers: Hưng (UI/architecture), Vinh (service/QA).
-> Date: 2026-10-02; contract runtime `68580ed`; PR88 head `c816ec7` docs-only còn OPEN.
+> Date: 2026-10-02; runtime contract `68580ed`; PR88 MERGED, PR92 handoff complete, M3-06 READY.
 
-Nguồn: [agreement D1–D7 và acceptance](../blocked/M3-06.md), [Phase 7](../../specs/phases/07-progress-reward-analytics-spec.md), [roadmap](../../specs/phases/09-implementation-roadmap.md), [contract PR88](https://github.com/dotruc1526/suchill/blob/68580edc7a0c5e465c8c3065e3a6060c0f169900/src/services/next/completionContracts.ts). Đây là chuẩn bị trong M3-STATUS-01; không claim runtime của task BLOCKED.
+Nguồn: [agreement D1–D7 và acceptance](../active/M3-06.md), [Phase 7](../../specs/phases/07-progress-reward-analytics-spec.md), [roadmap](../../specs/phases/09-implementation-roadmap.md), [contract PR88](https://github.com/dotruc1526/suchill/blob/68580edc7a0c5e465c8c3065e3a6060c0f169900/src/services/next/completionContracts.ts). Đây là chuẩn bị trong M3-STATUS-01; không claim runtime của task BLOCKED.
 
 ## Ranh giới và module dự kiến
 
@@ -86,13 +86,13 @@ Controller tests dùng fake services, deferred promises, injected ID factory; ad
 
 ## Điều kiện chuyển sang runtime và handoff
 
-- PR88 `c816ec7` đã ghi Hưng ACCEPTED hai fixes runtime `68580ed` và Dương APPROVED; Vinh cần tích hợp main/gỡ conflict, verify integrated head và CI 2/2, acceptance/merge/handoff; đọc lại final contract nếu head thay đổi. Copy/checklist này không thay reviewer acceptance.
+- PR92 completed adapter acceptance/handoff; M3-06 READY. Dương records runtime file claim before IN PROGRESS; use final contract on main.
 - Dương điền runtime files/reviewers/dependency, chuyển M3-06 READY → IN PROGRESS; chọn module/test filenames cụ thể lúc claim, phối hợp hotspot với Hưng/Vinh.
 - Khi runtime xong: typecheck/build, controller/component/adapter tests liên quan, full browser suite, client scan, ảnh mới 375/430px và handoff; chuyển REVIEW. Reviewer quyết DONE, Vinh làm M3-07 sau dependency, PO audit Gate M3 riêng.
 
-## Current post-merge handoff — 2026-10-02
 
-- PR88 MERGED to main `a339af644758f965a2f851a56ede466d6f5bd5f6`, final head `e6a3940`; Quality 2/2 SUCCESS. Source/tests/config unchanged from consumer-approved `c816ec7` and runtime `68580ed`; final delta is docs/main integration and review-history correction.
-- Supersedes earlier OPEN/conflict/CI checkpoints above. Hưng ACCEPTED fixes at `68580ed`; Dương APPROVED consumer `c816ec7`. Baseline `5a771db` was Hưng CHANGES REQUESTED, not ACCEPTED.
-- Main adapter card still REVIEW, without explicit final Vinh handoff/closure. Vinh confirms integration handoff and reviewer closes adapter card; then Dương moves M3-06 BLOCKED → READY → IN PROGRESS with runtime file claim. Do not infer reviewer DONE from merge.
-- No runtime claim in this docs update; 18 planned UI scenarios remain unexecuted. M3-07 BACKLOG; M3 OPEN/M4 LOCKED.
+## Current post-PR92 handoff — 2026-10-02
+
+- PR88 merged `a339af6`; PR92 merged main `c29e4a7`, closes [adapter card](../done/M3-COMPLETION-01.md) DONE and confirms Vinh handoff. Runtime unchanged from `68580ed`; reviewed final PR88 head `e6a3940`, CI 2/2 PASS.
+- [M3-06 card](../active/M3-06.md) READY; Dương must record runtime branch/controller/UI/tests file claim before READY → IN PROGRESS. No additional Vinh closure is pending. PR90 docs does not block the UI claim.
+- 18 UI scenarios remain planned; M3-07 BACKLOG until M3-06 acceptance. M3 OPEN/M4 LOCKED.

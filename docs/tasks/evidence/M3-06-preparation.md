@@ -1,7 +1,7 @@
 # M3-06 — Completion/profile preparation
 
 > Status: APPROVED preparation — agreement D1–D7 ghi trong card ngày 2026-10-02; adapter contract đã triển khai trên PR88, chưa merge
-> Date: 2026-10-01
+> Date: 2026-10-02; runtime contract `68580ed`; PR88 MERGED, PR92 handoff complete, M3-06 READY.
 
 ## Inputs and gaps tại thời điểm preparation 2026-10-01
 
@@ -12,7 +12,7 @@
 
 ## Contract proposal — approved with agreement D1–D7
 
-Thiết kế sau đã được review; agreement D1–D7 trong [task card](../blocked/M3-06.md) chốt các quyết định. Vinh vẫn phải claim files và triển khai/test trước UI consumer:
+Thiết kế sau đã được review; agreement D1–D7 trong [task card](../active/M3-06.md) chốt các quyết định. Vinh vẫn phải claim files và triển khai/test trước UI consumer:
 
 - `completion.completeLesson({ lessonId, operationId })`: service kiểm tra authored version và required block progress/attempts đã lưu; trả completion receipt với lesson/version identity, confirmed completion time và reward receipt. Caller không gửi XP, streak, passed hay eligibility flag.
 - `completion.getLessonCompletion(lessonId)`: phục hồi receipt confirmed khi remount/reload; phân biệt chưa complete và lỗi đọc.
@@ -64,12 +64,12 @@ Loading/error announcements dùng status/alert phù hợp; heading/focus sau nav
 
 ## Consumer controller preparation — 2026-10-02
 
-- [Thiết kế controller, operation lifetime, error mapping và test cases](./M3-06-controller-plan.md) bám contract runtime PR88 68580ed (head c816ec7 docs-only hiện OPEN); nguồn gap phía trên là lịch sử ngày 2026-10-01, không mô tả adapter branch hiện tại.
+- [Controller/test preparation](./M3-06-controller-plan.md) uses unchanged contract runtime 68580ed; PR88 merged and PR92 handoff complete. Earlier gap notes are historical.
 - Plan đã ghi thành tài liệu; implementation/tests chưa chạy, không runtime claim hoặc acceptance UI.
 
-## Current post-merge handoff — 2026-10-02
 
-- PR88 MERGED to main `a339af644758f965a2f851a56ede466d6f5bd5f6`, final head `e6a3940`; Quality 2/2 SUCCESS. Source/tests/config unchanged from consumer-approved `c816ec7` and runtime `68580ed`; final delta is docs/main integration and review-history correction.
-- Supersedes earlier OPEN/conflict/CI checkpoints above. Hưng ACCEPTED fixes at `68580ed`; Dương APPROVED consumer `c816ec7`. Baseline `5a771db` was Hưng CHANGES REQUESTED, not ACCEPTED.
-- Main adapter card still REVIEW, without explicit final Vinh handoff/closure. Vinh confirms integration handoff and reviewer closes adapter card; then Dương moves M3-06 BLOCKED → READY → IN PROGRESS with runtime file claim. Do not infer reviewer DONE from merge.
-- No runtime claim in this docs update; 18 planned UI scenarios remain unexecuted. M3-07 BACKLOG; M3 OPEN/M4 LOCKED.
+## Current post-PR92 handoff — 2026-10-02
+
+- PR88 merged `a339af6`; PR92 merged main `c29e4a7`, closes [adapter card](../done/M3-COMPLETION-01.md) DONE and confirms Vinh handoff. Runtime unchanged from `68580ed`; reviewed final PR88 head `e6a3940`, CI 2/2 PASS.
+- [M3-06 card](../active/M3-06.md) READY; Dương must record runtime branch/controller/UI/tests file claim before READY → IN PROGRESS. No additional Vinh closure is pending. PR90 docs does not block the UI claim.
+- 18 UI scenarios remain planned; M3-07 BACKLOG until M3-06 acceptance. M3 OPEN/M4 LOCKED.

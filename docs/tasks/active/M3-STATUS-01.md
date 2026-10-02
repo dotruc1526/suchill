@@ -9,7 +9,7 @@
 - Started: 2026-10-02.
 - Branch: codex/m3-status-sync.
 - Dependency: M3 OPEN; đối chiếu main và PR83/88 hiện tại.
-- Files claimed: card này, docs/project/TASK-BOARD.md, docs/tasks/active/README.md, docs/tasks/done/QA-002.md, docs/tasks/blocked/M3-06.md, docs/tasks/blocked/README.md, docs/tasks/evidence/M3-status-2026-10-02.md.
+- Files claimed: card này, docs/project/TASK-BOARD.md, docs/tasks/active/README.md, docs/tasks/done/QA-002.md, docs/tasks/active/M3-06.md, docs/tasks/blocked/README.md, docs/tasks/evidence/M3-status-2026-10-02.md.
 - Acceptance: trạng thái/owner/dependency/next action có nguồn; không coi merge là đầy đủ acceptance; không đổi runtime hoặc milestone gate.
 - Next action: cập nhật snapshot và checkpoint, kiểm tra diff/link, mở PR docs để review.
 ## Handoff
@@ -24,7 +24,7 @@
 ## Controller preparation claim — 2026-10-02
 
 - User authorized Dương preparation; dependency docs available, PR88 still OPEN at 68580ed.
-- Files claimed for this checkpoint: this card, docs/tasks/evidence/M3-06-controller-plan.md, docs/tasks/evidence/M3-06-preparation.md, docs/tasks/blocked/M3-06.md, M3-06/M3-STATUS-01 board rows.
+- Files claimed for this checkpoint: this card, docs/tasks/evidence/M3-06-controller-plan.md, docs/tasks/evidence/M3-06-preparation.md, docs/tasks/active/M3-06.md, M3-06/M3-STATUS-01 board rows.
 - Acceptance: state/controller design, operation lifetime, account isolation, error mapping and executable test scenarios with expected results; label all tests planned.
 - Next action: write and verify docs-only plan, return REVIEW on PR90; M3-06 runtime stays BLOCKED.
 
@@ -60,3 +60,11 @@
 - Next: integrate main a339af6, refresh merged adapter evidence, preserve reviewer-only closure and handoff gate.
 
 - Post-merge handoff: integrated main a339af6; no source delta relative main. Vinh approval of earlier PR90 and Hưng request for delta sign-off preserved; final PR90 delta needs Hưng review. Local docs checks and new CI required. No env/migration impact.
+
+## PR92 remediation claim — 2026-10-02
+- Owner/executor/reviewer/started unchanged. Claim: this card, board/indexes, active/M3-06.md and preparation/controller/snapshot evidence.
+- Next: preserve main c29e4a7 adapter DONE and UI READY; refresh current sections, verify and return REVIEW. No runtime claim.
+
+## Current PR92 remediation handoff
+- Supersedes all earlier waiting notes: main c29e4a7 adapter DONE, M3-06 READY and Vinh handoff complete. Preserved main claim-before-IN-PROGRESS condition.
+- Kept controller plan, refreshed snapshot, M3-07 BACKLOG and this REVIEW card. No source/env/migration impact. Next Hưng re-review new PR90 delta before merge; Dương may separately claim M3-06.

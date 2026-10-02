@@ -1,6 +1,6 @@
 # M3-COMPLETION-01 — Completion/account-summary mock adapter
 
-> Status: REVIEW
+> Status: DONE
 > Last updated: 2026-10-02
 
 ## Assignment
@@ -109,3 +109,15 @@ Hưng review contract/architecture and new explicit-action API; Dương confirm 
 - `5a771db`: CHANGES REQUESTED, not ACCEPTED; video-range/episode-streak fixes did not resolve the separate optional-only/backwards-day findings.
 - `68580ed`: Hưng confirms no new contract/architecture blocker after those remaining fixes; chat verdict and committed reviewer record do not imply a new GitHub approval submission. Dương consumer re-review of current runtime and CI is still required.
 - Pulled remote `0580fe1` first; preserved Hưng latest reviewer record and merged QA-002 DONE/main update. No source/test changes; adapter REVIEW and M3-06 BLOCKED.
+
+## Final acceptance / handoff sync claim — 2026-10-02
+- Executor Vinh/Codex; reviewers Hưng/Dương accepted implementation as recorded above; PR88 merged a339af6 with user authorization.
+- Files claimed: adapter card (move to done), adapter evidence, M3-06 card (blocked to active/READY), active/blocked/done indexes and affected board rows/links and `docs/tasks/evidence/M3-06-preparation.md` link repair. No runtime file claim for Dương and no UI implementation.
+- Next: record final acceptance source/revision/CI, mark adapter DONE, remove satisfied adapter blocker from M3-06. M3-07 remains unclaimed until M3-06 accepted; M3 OPEN/M4 LOCKED.
+
+## Final acceptance and adapter handoff — 2026-10-02
+- Decision: DONE for adapter scope; Hưng contract/architecture ACCEPTED runtime 68580ed in reviewer record, Dương APPROVED runtime 68580ed and docs c816ec7 on PR88. Corrected history at e6a3940 changes docs only; no runtime delta.
+- PR88 merged to main at a339af644758f965a2f851a56ede466d6f5bd5f6; merged head e6a394025c50d06bb43f30c593a31f06c8049bcd, Quality 2/2 SUCCESS. [PR/review evidence](https://github.com/dotruc1526/suchill/pull/88).
+- Acceptance verified: typed outcomes/receipts, version-bound evidence, optional-only rejection, chronological account completion, activity/eligibility dedupe, account isolation and summary read semantics. Latest runtime quality 95 unit/22 component/7 E2E; scan 338/0.
+- Handoff to Dương: adapter/contracts/tests available on main. M3-06 is READY for an explicit UI file claim; configure author-controlled fixture metadata, shared store and stable operation IDs. UI renders confirmed summary totals, not receipt XP deltas; errors remain distinct from zero/empty.
+- Existing limits remain: in-memory mock, no completion/profile browser UI certification or production reward/RLS authority. M3-07 waits for UI acceptance. No milestone gate change. Earlier REVIEW/BLOCKED notes are historical checkpoints, superseded by this handoff.
