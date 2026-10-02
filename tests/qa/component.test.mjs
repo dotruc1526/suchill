@@ -64,6 +64,11 @@ test('M3 journey home exposes labeled stable-ID navigation', async () => {
 
   assert.ok(html.includes('XIN CHÀO, Nguyễn Thị Dương Anh Minh'))
   assert.ok(html.includes('data-testid="journey-greeting"'))
+  assert.match(html, /<h1[^>]*id="journey-heading"[^>]*>.*data-testid="journey-greeting"/)
+  const fallback = renderToStaticMarkup(React.createElement(JourneyHome, {
+    chapters: [chapter], headingRef: null, chapterButtonRef: () => {}, onChapter: () => {},
+  }))
+  assert.match(fallback, /data-testid="journey-greeting"[^>]*>XIN CHÀO<\/span>/)
   assert.ok(html.includes('break-words'))
   assert.ok(html.includes('aria-labelledby="journey-heading"'))
   assert.ok(html.includes('aria-label="Mở chương Chương mẫu"'))

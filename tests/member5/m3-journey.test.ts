@@ -2,7 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { createMockLearningServices } from '../../src/services/next/mock.ts'
 import type { Chapter, Lesson } from '../../src/types/v2/content.ts'
-import { loadJourney, startLesson } from '../../src/features/learning/journey/journeyModel.ts'
+import { getHomeContinuation, loadJourney, startLesson } from '../../src/features/learning/journey/journeyModel.ts'
 import { videoPlayerContext, visualNovelPlayerContext } from '../../src/features/learning/journey/lessonPlayerContexts.ts'
 
 const lesson: Lesson = {
@@ -17,6 +17,24 @@ const chapter: Chapter = {
   id: 'chapter-stable', slug: 'chapter', title: 'Chương', summary: 'Fixture', historicalPeriodLabel: '1972',
   learningObjectiveIds: [], lessonRefs: [{ id: lesson.id, order: 0 }], estimatedMinutes: 5, status: 'published',
 }
+
+test('Home continues an active lesson across chapters before offering a new lesson', () => {
+  const fresh = { ...chapter, lessons: [{ ...lesson, progressStatus: 'not_started' as const }], completedCount: 0 }
+  const active = { ...chapter, id: 'second-chapter', lessons: [{ ...lesson, id: 'active-lesson', progressStatus: 'in_progress' as const }], completedCount: 0 }
+  assert.equal(getHomeContinuation([fresh, active])?.lesson.id, 'active-lesson')
+  assert.equal(getHomeContinuation([fresh])?.lesson.id, lesson.id)
+  assert.equal(getHomeContinuation([{ ...fresh, lessons: [{ ...lesson, progressStatus: 'completed' }] }]), undefined)
+})
+
+test('optional Home activity failure does not block the learning catalog', async () => {
+  const services = createMockLearningServices(
+    { chapters: [chapter], lessons: [lesson], storyVersions: [], mediaAssets: [] }, { userId: 'home-activity-failure' },
+  )
+  const result = await loadJourney(services, { getSummary: async () => ({ ok: false, error: 'offline' }) })
+  assert.equal(result.ok, true)
+  assert.equal(result.ok && result.value.chapters.length, 1)
+  assert.equal(result.ok && result.value.activity, undefined)
+})
 
 test('M3 journey loads stable IDs through services and derives mock progress', async () => {
   const services = createMockLearningServices(

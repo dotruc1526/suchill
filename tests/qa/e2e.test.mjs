@@ -164,7 +164,11 @@ test('learning journey stays usable and uncut at mobile widths', async () => {
               const cardRect = card.getBoundingClientRect()
               const buttonRect = button.getBoundingClientRect()
               const greetingRect = greeting.getBoundingClientRect()
+              greeting.textContent = 'XIN CHÀO'
+              const fallbackFits = greeting.scrollWidth <= greeting.clientWidth && greeting.getBoundingClientRect().right <= innerWidth
+              greeting.textContent = 'XIN CHÀO, Nguyễn Thị Dương Anh Minh với tên tiếng Việt rất dài'
               return {
+                fallbackFits,
                 viewport: innerWidth,
                 documentWidth: document.documentElement.scrollWidth,
                 greetingRight: greetingRect.right,
@@ -175,6 +179,8 @@ test('learning journey stays usable and uncut at mobile widths', async () => {
                 cardRight: cardRect.right,
                 buttonHeight: buttonRect.height,
                 title: title.textContent,
+                dashboardCards: ['home-streak-card', 'home-goal-card', 'home-continue-card'].every(id => document.querySelector('[data-testid="' + id + '"]')),
+                greetingCount: document.querySelectorAll('[data-testid="journey-greeting"]').length,
               }
             })()`,
             returnByValue: true,
@@ -184,17 +190,22 @@ test('learning journey stays usable and uncut at mobile widths', async () => {
           await new Promise(resolve => setTimeout(resolve, 50))
         }
         assert.ok(metrics, `${width}px journey elements mounted`)
+        assert.ok(metrics.dashboardCards, `${width}px dashboard activity/goal/continuation remain mounted`)
+        assert.equal(metrics.greetingCount, 1)
+        assert.ok(metrics.fallbackFits, `${width}px fallback fits dashboard heading`)
         assert.equal(metrics.viewport, width)
         assert.equal(metrics.documentWidth, width, `${width}px document has no horizontal overflow`)
         assert.equal(metrics.personalizedGreeting, 'XIN CHÀO, Dương')
         assert.ok(metrics.greetingRight <= width && metrics.greetingScrollWidth <= metrics.greetingClientWidth, `${width}px long Vietnamese greeting wraps inside viewport`)
-        assert.equal(metrics.title, 'HÀNH TRÌNH LỊCH SỬ')
+        assert.equal(metrics.title, 'XIN CHÀO, Nguyễn Thị Dương Anh Minh với tên tiếng Việt rất dài')
         assert.ok(metrics.cardLeft >= 0 && metrics.cardRight <= width, `${width}px chapter card stays within viewport`)
         assert.ok(metrics.buttonHeight >= 44, `${width}px primary action keeps a 44px touch target`)
 
-        if (process.env.UPDATE_M1_08_EVIDENCE === '1') {
+        if (process.env.UPDATE_M1_08_EVIDENCE === '1' || process.env.UPDATE_M3_HOME_EVIDENCE === '1') {
           const screenshot = await cdp('Page.captureScreenshot', { format: 'png', captureBeyondViewport: false })
-          const path = new URL(`../../docs/tasks/active/M1-08-${width}.png`, import.meta.url)
+          const path = new URL(process.env.UPDATE_M3_HOME_EVIDENCE === '1'
+            ? `../../docs/engineering/m3-home-restore/home-${width}.png`
+            : `../../docs/tasks/active/M1-08-${width}.png`, import.meta.url)
           await writeFile(path, screenshot.data, 'base64')
         }
       }
@@ -223,18 +234,36 @@ test('learning journey moves focus on forward and back navigation', async () => 
         assert.fail(`Timed out waiting for focus on ${label}`)
       }
 
-      await waitFor("Boolean(document.querySelector('[data-testid^=\"journey-open-chapter-\"]'))", 'chapter trigger')
-      await evaluate("document.querySelector('[data-testid^=\"journey-open-chapter-\"]').click()")
-      await waitFor("document.activeElement?.id === 'chapter-heading'", 'chapter heading')
+      for (const [width, height] of [[375, 812], [430, 932]]) {
+        await cdp('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: false })
+        await cdp('Page.reload', { ignoreCache: true })
+        await waitFor("Boolean(document.querySelector('[data-testid^=\"journey-open-chapter-\"]'))", 'chapter trigger')
+        await waitFor("document.querySelector('[data-testid=\"journey-continue-lesson\"]')?.textContent.includes('BẮT ĐẦU HỌC')", 'start action')
+        await evaluate("document.querySelector('[data-testid=\"journey-continue-lesson\"]').click()")
+        await waitFor("document.activeElement?.id === 'lesson-entry-heading'", 'start lesson heading')
+        await evaluate("document.querySelector('[data-testid=\"journey-lesson-back\"]').click()")
+        await waitFor("document.activeElement?.dataset.testid?.startsWith('journey-open-lesson-')", 'start lesson trigger')
+        await evaluate("document.querySelector('[data-testid=\"journey-chapter-back\"]').click()")
+        await waitFor("document.activeElement?.dataset.testid?.startsWith('journey-open-chapter-')", 'start chapter trigger')
+        await evaluate("document.querySelector('[data-testid^=\"journey-open-chapter-\"]').click()")
+        await waitFor("document.activeElement?.id === 'chapter-heading'", 'chapter heading')
 
-      await evaluate("document.querySelector('[data-testid^=\"journey-open-lesson-\"]').click()")
-      await waitFor("document.activeElement?.id === 'lesson-entry-heading'", 'lesson heading')
+        await evaluate("document.querySelector('[data-testid^=\"journey-open-lesson-\"]').click()")
+        await waitFor("document.activeElement?.id === 'lesson-entry-heading'", 'lesson heading')
 
-      await evaluate("document.querySelector('[data-testid=\"journey-lesson-back\"]').click()")
-      await waitFor("document.activeElement?.dataset.testid?.startsWith('journey-open-lesson-')", 'lesson trigger')
+        await evaluate("document.querySelector('[data-testid=\"journey-lesson-back\"]').click()")
+        await waitFor("document.activeElement?.dataset.testid?.startsWith('journey-open-lesson-')", 'lesson trigger')
 
-      await evaluate("document.querySelector('[data-testid=\"journey-chapter-back\"]').click()")
-      await waitFor("document.activeElement?.dataset.testid?.startsWith('journey-open-chapter-')", 'chapter trigger')
+        await evaluate("document.querySelector('[data-testid=\"journey-chapter-back\"]').click()")
+        await waitFor("document.activeElement?.dataset.testid?.startsWith('journey-open-chapter-')", 'chapter trigger')
+        await evaluate("document.querySelector('[data-testid=\"journey-continue-lesson\"]').click()")
+        await waitFor("document.activeElement?.id === 'lesson-entry-heading'", 'continuation lesson heading')
+        await evaluate("document.querySelector('[data-testid=\"journey-lesson-back\"]').click()")
+        await waitFor("document.activeElement?.dataset.testid?.startsWith('journey-open-lesson-')", 'continuation lesson trigger')
+        await evaluate("document.querySelector('[data-testid=\"journey-chapter-back\"]').click()")
+        await waitFor("document.activeElement?.dataset.testid?.startsWith('journey-open-chapter-')", 'continuation chapter trigger')
+        await waitFor("document.querySelector('[data-testid=\"journey-continue-lesson\"]')?.textContent.includes('TIẾP TỤC HỌC')", 'resume action')
+      }
     })
   } finally {
     await new Promise((resolve, reject) => server.httpServer.close(error => error ? reject(error) : resolve()))
