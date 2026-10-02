@@ -23,3 +23,8 @@
 - Evidence: [Vinh contract review](../evidence/M3-06-vinh-contract-review.md).
 - Docs-only; local links/diff checked. No env/migration/dependency/runtime impact.
 - REVIEW: Hưng validates placement/schema; PO confirms mock-only scope/evidence decisions; Dương consumer fit. Once agreed, create separate contract/mock task and source claim before unblocking UI. No M3-07 implementation yet.
+
+
+## Current-context clarification — 2026-10-02
+- The proposal above is a historical 2026-10-01 review, not the current contract or implementation blocker. Approved D1–D7 in PR84 and accepted adapter PR88 (a339af6) supersede its open decisions. PR92 (c29e4a7) records adapter DONE and M3-06 READY for Dương UI claim.
+- Preserve original recommendations as evidence; no new runtime claim or contract decision here. Hưng reviews this archived proposal record only. M3-07 still waits for accepted M3-06 UI; M3 OPEN/M4 LOCKED.

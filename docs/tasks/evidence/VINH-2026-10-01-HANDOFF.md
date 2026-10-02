@@ -15,3 +15,8 @@ Branch `codex/vinh-qa001-content014`, base main `30d0a4f`. No push/merge in this
 Details: [QA-001](./QA-001-validation.md), [CONTENT-014 technical QA](./CONTENT-014-technical-qa.md), [G2/G5 review](./M3-06-vinh-contract-review.md).
 
 No canonical publication, backend, migration, env/dependency changes. .DS_Store untouched. Device/screen-reader/real caption sync and licensed media remain separate gates.
+
+
+## Current integration context — 2026-10-02
+- Table above records the original 2026-10-01 snapshot. Current main c29e4a7: FE-011 and M3-UX-02 DONE; QA-002 DONE (PR83/91); completion adapter DONE (PR88/92), M3-06 READY, authored D1–D7 approved. Those completed reviews are not waiting actions.
+- PR85 only retains QA-001 validator/checklist and CONTENT-014 technical authoring evidence, plus historical proposal records. Historical/content/media approval remains separate. M3-07 waits for M3-06; no gate change.

@@ -38,3 +38,8 @@ These are open contract decisions, not new XP/threshold policy: defaults already
 - Tests: missing/stale/foreign evidence rejects; optional video accepted; required video seek-only rejects; fallback without recap rejects; same operation/same payload returns same receipt; same operation/different payload conflicts; new operation replay no extra reward; day/timezone and user isolation; recreate adapter restores receipt; summary read failure preserves confirmed receipt.
 - UI: loading/error/empty/offline/pending/confirmed/already-rewarded, same retry payload, no client XP calculation; long Vietnamese copy and keyboard/status/focus at 375px/430px.
 - M3-07 waits for accepted M3-06 runtime. This review claims documentation only; no completion adapter, production reward or M4 implementation.
+
+
+## Current-context clarification — 2026-10-02
+- The proposal above is a historical 2026-10-01 review, not the current contract or implementation blocker. Approved D1–D7 in PR84 and accepted adapter PR88 (a339af6) supersede its open decisions. PR92 (c29e4a7) records adapter DONE and M3-06 READY for Dương UI claim.
+- Preserve original recommendations as evidence; no new runtime claim or contract decision here. Hưng reviews this archived proposal record only. M3-07 still waits for accepted M3-06 UI; M3 OPEN/M4 LOCKED.
