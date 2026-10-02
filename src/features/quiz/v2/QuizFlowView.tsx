@@ -20,7 +20,7 @@ export function QuizFlowView({ session, receipt, submitting, submissionError, an
   const complete = session.delivery.questions.every(question => (session.answers[question.id]?.length ?? 0) > 0)
   const resultRef = useRef<HTMLElement>(null)
   useEffect(() => { if (receipt) resultRef.current?.focus() }, [receipt])
-  return <main aria-labelledby="quiz-heading" className="space-y-4" data-testid="quiz-flow-v2">
+  return <section aria-labelledby="quiz-heading" className="space-y-4" data-testid="quiz-flow-v2">
     <h1 id="quiz-heading" className="font-bold text-2xl" style={{ color: theme.colors.textPrimary }}>{session.delivery.set.title}</h1>
     <p>{session.delivery.set.mode === 'practice' ? 'Luyện tập — có thể làm lại sau khi xem giải thích.' : 'Bài kiểm tra tính điểm — kết quả do hệ thống chấm.'}</p>
     {session.delivery.questions.map((question, questionIndex) => {
@@ -49,5 +49,5 @@ export function QuizFlowView({ session, receipt, submitting, submissionError, an
     </section>}
     {!receipt && <Button disabled={!complete || submitting} onClick={onSubmit}>{submitting ? 'ĐANG GỬI...' : submissionError ? 'THỬ GỬI LẠI' : 'NỘP BÀI'}</Button>}
     {receipt?.mode === 'practice' && <Button onClick={onRetryPractice}>LÀM LẠI BÀI LUYỆN TẬP</Button>}
-  </main>
+  </section>
 }

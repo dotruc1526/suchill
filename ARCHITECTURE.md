@@ -1,5 +1,7 @@
 # Sử Chill — Canonical Architecture
 
+> Latest PO scope decision — 2026-10-03: current MVP changes to [1954 / Trước cơn bão](docs/content/MVP-1954-BRIEF.md) by explicit user instruction. This is an approved topic exception to the prior anti-US-only pilot scope; historical/media/publication gates remain separate. The prior 1968 selection below is historical.
+
 > Status: TARGET ARCHITECTURE — Phase 5–9 approved; M0–M5 closed, Milestone 6 open
 > Last updated: 2026-10-02
 

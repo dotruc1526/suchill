@@ -45,7 +45,10 @@ export function PasswordRecovery({ auth, onDismiss }: Props) {
           <h2 className="font-bold">Chưa thể đổi mật khẩu</h2>
           {recovery.error && <p>{recovery.error}</p>}
           {errors.length > 0 && <ul className="list-disc pl-5 space-y-1">{errors.map(([key, message]) =>
-            <li key={key}><a className="underline" href={`#${key === 'password' ? passwordId : repeatId}`}>{message}</a></li>)}</ul>}
+            <li key={key}><a className="underline" href={`#${key === 'password' ? passwordId : repeatId}`} onClick={event => {
+              const field = document.getElementById(key === 'password' ? passwordId : repeatId)
+              if (field) { event.preventDefault(); field.focus() }
+            }}>{message}</a></li>)}</ul>}
         </div>}
         <AuthField id={passwordId} name="password" label="Mật khẩu mới" type="password" autoComplete="new-password"
           required minLength={8} maxLength={128} value={recovery.password} disabled={recovery.phase === 'busy'}

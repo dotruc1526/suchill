@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import Mascot from '../../Mascot'
 import { aiSuggestions, initialAIConversation } from '../../data'
 import type { AIMessage } from '../../types'
+import { theme } from '../../theme/tokens'
 
 const AI_KNOWLEDGE_BASE: Record<string, string> = {
   '1954': 'Năm 1954 là bước ngoặt khi Chiến thắng Điện Biên Phủ (7/5/1954) buộc Pháp ký Hiệp định Genève, chấm dứt chiến tranh và tạm thời chia đôi Việt Nam tại vĩ tuyến 17.',
@@ -71,7 +72,7 @@ export function AIScreen() {
       </div>
 
       {/* Messages */}
-      <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-3 space-y-4">
+      <div ref={scrollRef} role="log" aria-label="Hội thoại với SỬu" aria-live="polite" aria-relevant="additions text" className="flex-1 overflow-y-auto px-4 py-3 space-y-4">
         {messages.map((msg, i) => (
           <div key={i} className={`flex items-end gap-2 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
             {msg.role === 'ai' && <Mascot emotion="happy" size={40} className="shrink-0" />}
@@ -89,7 +90,7 @@ export function AIScreen() {
           </div>
         ))}
         {thinking && (
-          <div className="flex items-end gap-2">
+          <div role="status" className="flex items-end gap-2">
             <Mascot emotion="thinking" size={40} animate />
             <div
               className="px-4 py-3 rounded-2xl font-sans text-sm"
@@ -97,7 +98,7 @@ export function AIScreen() {
                 background: '#FBF4E8',
                 border: '1.5px solid rgba(61,26,0,0.15)',
                 borderRadius: '18px 18px 18px 4px',
-                color: '#A0622A',
+                color: theme.colors.textMuted,
               }}
             >
               Đang tra cứu tư liệu...
@@ -108,7 +109,7 @@ export function AIScreen() {
 
       {/* Disclaimer */}
       <div className="px-4 shrink-0">
-        <div className="font-hand text-xs text-center" style={{ color: '#A0622A' }}>
+        <div className="font-hand text-xs text-center" style={{ color: theme.colors.textMuted }}>
           Thông tin dựa trên nguồn tư liệu lịch sử đã kiểm chứng
         </div>
       </div>
@@ -119,6 +120,7 @@ export function AIScreen() {
         style={{ borderTop: '1.5px solid rgba(61,26,0,0.12)' }}
       >
         <input
+          aria-label="Câu hỏi lịch sử"
           value={input}
           onChange={e => setInput(e.target.value)}
           onKeyDown={e => e.key === 'Enter' && sendMessage(input)}
@@ -131,6 +133,7 @@ export function AIScreen() {
           }}
         />
         <button
+          aria-label="Gửi câu hỏi"
           onClick={() => sendMessage(input)}
           className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 transition-transform active:scale-95"
           style={{ background: '#8B1A1A' }}

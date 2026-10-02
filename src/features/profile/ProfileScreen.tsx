@@ -7,8 +7,8 @@ export function ProfileScreen() {
   const state = useSyncExternalStore(summary.subscribe, summary.getSnapshot, summary.getSnapshot)
   const heading = useRef<HTMLHeadingElement>(null)
   useEffect(() => { heading.current?.focus(); void summary.refresh() }, [summary])
-  return <main className="px-4 py-4 space-y-4" style={{ color: theme.colors.textPrimary }}>
-    <h1 ref={heading} tabIndex={-1} className="text-2xl font-bold outline-none">CUỐN SỔ HÀNH TRÌNH</h1>
+  return <section aria-labelledby="profile-heading" className="px-4 py-4 space-y-4" style={{ color: theme.colors.textPrimary }}>
+    <h1 id="profile-heading" ref={heading} tabIndex={-1} className="text-2xl font-bold outline-none">CUỐN SỔ HÀNH TRÌNH</h1>
     <AccountSummaryView state={state} onRetry={() => void summary.refresh()} />
-  </main>
+  </section>
 }

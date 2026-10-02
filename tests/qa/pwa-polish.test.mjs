@@ -1,6 +1,9 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { preview } from 'vite'
+import { preview, createServer } from 'vite'
+import React from 'react'
+import { fileURLToPath } from 'node:url'
+import { renderToStaticMarkup } from 'react-dom/server'
 import { mkdir, writeFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { findBrowser, withChromePage } from './chromeHarness.mjs'
@@ -30,8 +33,7 @@ test('actual mock production app: keyboard bypass, mobile/landscape/large text a
       await cdp('Input.dispatchKeyEvent',{type:'keyDown',key:'Enter',code:'Enter',windowsVirtualKeyCode:13})
       await cdp('Input.dispatchKeyEvent',{type:'keyUp',key:'Enter',code:'Enter',windowsVirtualKeyCode:13})
       assert.equal(await cdp.evaluate('document.activeElement.id'),'main-content')
-      // Follow an in-page skip link without mistaking its anchor for an Auth callback or cache proof.
-      await cdp.evaluate('history.replaceState(history.state,"",location.pathname)')
+      assert.equal(await cdp.evaluate('location.hash'),'')
       await cdp('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]})
       await cdp('Network.emulateNetworkConditions',{offline:true,latency:0,downloadThroughput:-1,uploadThroughput:-1})
       await cdp.waitFor('document.body.innerText.includes("Bạn đang ngoại tuyến")')
@@ -55,6 +57,46 @@ test('actual mock production app: keyboard bypass, mobile/landscape/large text a
       }
       await cdp('Network.emulateNetworkConditions',{offline:false,latency:0,downloadThroughput:-1,uploadThroughput:-1})
       await cdp.waitFor('!document.body.innerText.includes("Bạn đang ngoại tuyến")')
+      await cdp.evaluate('document.documentElement.style.fontSize="100%"')
+      const tab = label => cdp.evaluate('Array.from(document.querySelectorAll("nav button")).find(button=>button.textContent===' + JSON.stringify(label) + ').click()')
+      await tab('HỒ SƠ')
+      await cdp.waitFor('Boolean(document.querySelector("#profile-heading"))')
+      assert.equal(await cdp.evaluate('document.querySelectorAll("main").length'),1)
+      await tab('AI')
+      await cdp.waitFor('Boolean(document.querySelector("[role=log]"))')
+      const aiTree=await cdp('Accessibility.getFullAXTree')
+      for(const name of ['Câu hỏi lịch sử','Gửi câu hỏi']) assert.ok(aiTree.nodes.some(node=>!node.ignored&&node.name?.value===name))
+      await cdp.evaluate('const input=document.querySelector("input"); Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,"value").set.call(input,"1954"); input.dispatchEvent(new Event("input",{bubbles:true}))')
+      await cdp.evaluate('Array.from(document.querySelectorAll("button")).find(button=>button.getAttribute("aria-label")==="Gửi câu hỏi").click()')
+      await cdp.waitFor('document.querySelector("[role=status]")?.textContent.includes("Đang tra cứu") || Array.from(document.querySelectorAll("[role=status]")).some(el=>el.textContent.includes("Đang tra cứu"))')
+      assert.equal(await cdp.evaluate('getComputedStyle(document.querySelector("[role=log] [role=status] > div:last-child")).color'),'rgb(133, 80, 34)')
+      await tab('HỌC')
+      await cdp.evaluate('document.querySelector("[data-testid^=journey-open-chapter-]").click()')
+      await cdp.waitFor('document.querySelectorAll("[data-testid^=journey-open-lesson-]").length===2')
+      await cdp.evaluate('document.querySelectorAll("[data-testid^=journey-open-lesson-]")[1].click()')
+      await cdp.waitFor('Boolean(document.querySelector("[data-testid=lesson-content]"))')
+      assert.equal(await cdp.evaluate('document.querySelectorAll("main").length'),1)
+      assert.equal(await cdp.evaluate('document.querySelector("[data-testid=lesson-content]").tagName'),'SECTION')
+
     })
   } finally { await new Promise((resolveServer,reject)=>server.httpServer.close(error=>error?reject(error):resolveServer())) }
+})
+
+test('lesson and quiz regions retain labels inside one application main landmark', async()=>{
+  const server=await createServer({configFile:false,envDir:false,resolve:{alias:{'@':fileURLToPath(new URL('../../src',import.meta.url))}},optimizeDeps:{noDiscovery:true,entries:[]},server:{middlewareMode:true,hmr:false},appType:'custom'})
+  try {
+    const {LessonContentView}=await server.ssrLoadModule('/src/features/learning/lesson/LessonRenderer.tsx')
+    const {QuizFlowView}=await server.ssrLoadModule('/src/features/quiz/v2/QuizFlowView.tsx')
+    const lesson={lesson:{id:'qa-lesson',title:'Bài học kiểm thử',summary:'Fixture kỹ thuật'},blocks:[{id:'qa-text',kind:'text',documentId:'qa-doc',order:0,document:{id:'qa-doc',title:'Nội dung',sections:[{id:'qa-section',kind:'paragraph',text:'Nội dung kiểm thử'}]}}]}
+    const session={delivery:{set:{id:'qa-quiz',title:'Bài kiểm tra',mode:'practice',questionIds:['qa-q'],learningObjectiveIds:[]},questions:[{id:'qa-q',prompt:'Câu hỏi kiểm thử',options:[{id:'a',label:'Lựa chọn'}]}]},answers:{}}
+    const noop=()=>{}
+    const html=renderToStaticMarkup(React.createElement('main',{id:'qa-main'},
+      React.createElement(LessonContentView,{content:lesson}),
+      React.createElement(QuizFlowView,{session,submitting:false,answersLocked:false,onToggle:noop,onSubmit:noop,onEditAfterError:noop,onRetryPractice:noop})))
+    assert.equal((html.match(/<main[ >]/g)||[]).length,1)
+    for(const id of ['lesson-entry-heading','quiz-heading']) {
+      assert.ok(html.includes('aria-labelledby="'+id+'"'))
+      assert.ok(html.includes('id="'+id+'"'))
+    }
+  } finally { await server.close() }
 })

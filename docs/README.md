@@ -1,5 +1,7 @@
 # Sử Chill Documentation
 
+> Latest PO scope decision — 2026-10-03: current MVP changes to [1954 / Trước cơn bão](./content/MVP-1954-BRIEF.md) by explicit user instruction. This is an approved topic exception to the prior anti-US-only pilot scope; historical/media/publication gates remain separate. The prior 1968 selection below is historical.
+
 Đây là điểm vào chung cho product owner, designer, frontend, backend, content, QA và AI. Sử Chill tập trung vào giai đoạn kháng chiến chống Mỹ ở Việt Nam; curriculum có nhiều chapter/lesson, còn MVP đầu tiên dùng một chapter mẫu gồm nhiều lesson.
 
 ## Nên đọc gì trước?

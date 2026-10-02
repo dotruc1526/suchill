@@ -20,7 +20,7 @@ export function LessonContentView({ content, slots, headingRef, documentAction }
     return <EmptyState title="Bài học chưa có nội dung" message="Nội dung sẽ xuất hiện sau khi được duyệt." />
   }
   return (
-    <main aria-labelledby="lesson-entry-heading" className="space-y-4" data-testid="lesson-content">
+    <section aria-labelledby="lesson-entry-heading" className="space-y-4" data-testid="lesson-content">
       <header>
         <h1 ref={headingRef} tabIndex={-1} id="lesson-entry-heading" className="font-bold text-2xl outline-none" style={{ color: theme.colors.textPrimary }}>
           {content.lesson.title}
@@ -30,7 +30,7 @@ export function LessonContentView({ content, slots, headingRef, documentAction }
       {content.blocks.map(block => <div key={block.id}><LessonBlockRenderer block={block} slots={slots} />
         {(block.kind === 'text' || block.kind === 'recap') && documentAction?.(block.id)}
       </div>)}
-    </main>
+    </section>
   )
 }
 

@@ -1,0 +1,59 @@
+{
+  "id": "media.c006.preview1954.v1",
+  "title": "Tập 1 — Trước cơn bão",
+  "reviewStatus": "in_review",
+  "scope": "academic_non_commercial",
+  "publicationScope": "internal_reference_only",
+  "provider": "Microsoft Neural TTS via Edge TTS (reported provenance)",
+  "voice": "vi-VN-NamMinhNeural",
+  "audioIdentityVerified": false,
+  "sourceIds": [
+    "SRC-DBP54-01",
+    "SRC-DBP54-02",
+    "SRC-DBP54-03"
+  ],
+  "sourceVideo": {
+    "fileName": "episode-portrait-no-box-text-v3.mp4",
+    "sha256": "2b7def3cd371275f73f062707b9cd212bca663b4b8e66eeb980272b5c092f0ec",
+    "bytes": 19289629
+  },
+  "video": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 24,
+    "durationSeconds": 93.389
+  },
+  "narrationSha256": "b4b6857fba193064b070dc45a270c5531504e3087c30d333ce17163efe995cda",
+  "files": {
+    "pilot-mobile.mp4": "2b7def3cd371275f73f062707b9cd212bca663b4b8e66eeb980272b5c092f0ec",
+    "poster.png": "2278d1f268f8f6dbfc51d90483e3b239acced78be1d8f7dbcbfa797b69ae3062",
+    "captions.vi.vtt": "80947ea56e1c1aa21874d6cebf061d9af618c81329e981e10853d14aa1d33e59",
+    "transcript.vi.txt": "38d325311ee856ee8d65f124bc8ef7aa000ee39068137e82d1b1ef41cb80ba28"
+  },
+  "timing": {
+    "captionsVerified": true,
+    "evidence": "Trúc 2026-09-27 listen-through, original CONTENT-006 recovered sidecars; unchanged video hash"
+  },
+  "audio": {
+    "reencoded": false,
+    "retimed": false,
+    "insertedSilenceSeconds": 0,
+    "originalFileCopiedUnchanged": true
+  },
+  "altText": "SỬu trước tranh minh họa thung lũng miền núi, dẫn nhập bối cảnh trước Điện Biên Phủ.",
+  "fallback": "Video chưa tải được. Hãy mở bản chép lời hoặc thử tải lại.",
+  "pending": [
+    "Existing wording finding at cue27 remains open for final publication",
+    "Voice/music/SFX final rights acceptance",
+    "Full 1954 curriculum and historical/media signoff",
+    "Canonical publication and real device tests"
+  ],
+  "credits": {
+    "illustrations": "Codex-generated illustrations per Trúc provenance; full source manifest remains pending",
+    "mascot": "SỬu, supplied project asset",
+    "audio": "Reported Microsoft Neural TTS via edge-tts; internal-reference approval only",
+    "sourceNotes": "SOURCE-NOTES.md"
+  },
+  "createdAt": "2026-10-03",
+  "publicationPerformed": false
+}

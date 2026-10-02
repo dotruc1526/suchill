@@ -1,5 +1,7 @@
 # Bản Tóm tắt Chương Mẫu (MVP Chapter Brief)
 
+> Latest PO scope decision — 2026-10-03: current MVP changes to [1954 / Trước cơn bão](./MVP-1954-BRIEF.md) by explicit user instruction. This is an approved topic exception to the prior anti-US-only pilot scope; historical/media/publication gates remain separate. The prior 1968 selection below is historical.
+
 > Thuộc Task: [CONTENT-002](../tasks/done/CONTENT-002.md)
 > Người phê duyệt: Thọ (Product Owner)
 

@@ -424,13 +424,32 @@ AI phải đọc task board trước khi làm việc. Nếu task `BLOCKED` hoặ
 | ID | Owner / Executor | Reviewer | Status | Depends on | Card / next action |
 |---|---|---|---|---|---|
 | M6-01 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | REVIEW | M1, M3, DOC-021 | [Card](../tasks/active/M6-01.md); software/evidence delivered; final reviewer acceptance outstanding |
-| M6-02 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | REVIEW | M3, M5, DOC-021 | [Card](../tasks/active/M6-02.md); software/evidence delivered; final reviewer acceptance outstanding |
-| M6-03 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | REVIEW | M3, DOC-021 | [Card](../tasks/active/M6-03.md); software/evidence delivered; final reviewer acceptance outstanding |
-| M6-04 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | BLOCKED | M3-04, CONTENT-007 | [Card](../tasks/blocked/M6-04.md); resolve stated dependency; no false DONE |
-| M6-05 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | REVIEW | M1, M3, DOC-021 | [Card](../tasks/active/M6-05.md); software/evidence delivered; final reviewer acceptance outstanding |
-| M6-06 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | BLOCKED | M3, M6-05 | [Card](../tasks/blocked/M6-06.md); resolve stated dependency; no false DONE |
+| M6-02 | Codex root | Independent Codex software APPROVE | DONE | accepted software prerequisites | [Card](../tasks/done/M6-02.md); skip-link fix/typecheck/Chrome10 PASS; milestone/device/media gates separate |
+| M6-03 | Codex root | Independent Codex software APPROVE | DONE | accepted software prerequisites | [Card](../tasks/done/M6-03.md); skip-link fix/typecheck/Chrome10 PASS; milestone/device/media gates separate |
+| M6-04 | Codex root, coordinated lanes | Historical/media verdict separate | BLOCKED | M3-04 DONE;1954media final review | [Card](../tasks/blocked/M6-04.md); resolve stated dependency; no false DONE |
+| M6-05 | Codex root | Independent Codex software APPROVE | DONE | accepted software prerequisites | [Card](../tasks/done/M6-05.md); skip-link fix/typecheck/Chrome10 PASS; milestone/device/media gates separate |
+| M6-06 | Codex root / delegated audit | Independent source re-review; actual screen-reader evidence separate | REVIEW | M3 DONE, M6-05 DONE | [Card](../tasks/active/M6-06.md); four source findings fixed; targeted checks PASS; manual acceptance pending |
 | M6-07 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | BLOCKED | M6-01..06; approved video; real Android/iOS testers | [Card](../tasks/blocked/M6-07.md); resolve stated dependency; no false DONE |
 
-### Current M6 software handoff — 2026-10-03
+### Earlier M6 handoff — superseded by current1954decision
 
 Mainb9a0f0d/PR111 incorporated without conflict. [M6 review](../engineering/m6-pwa/REVIEW.md): Quality379PASS,0failures,3native-onlySQLskips; original M3 tests unchanged; optional desktop icon-install protocol unavailable (not PASS). M6-01/02/03/05REVIEW, M6-04/06/07BLOCKED; M6OPEN/M7LOCKED. CONTENT-003 preproductionDONE and CONTENT-007INPROGRESS on main supersede earlier plan blockers. User confirms no9audio exports yet. Final media, actual device/screen-reader tests and QA/PO milestone acceptance remain required. Auth optional real-mail recovery remainsREVIEW.
+
+
+## User trial scope — 2026-10-03
+
+User requests completion work through M7, only one or two trial videos, and streamlined board review. [M6-M7-TRIAL-001](../tasks/done/M6-M7-TRIAL-001.md) DONE for offline release preparation; new video renderer scope was cancelled by the user. Existing CONTENT-007 canonical production claim is preserved; historical/media, genuine-device and deployment evidence are recorded when actually obtained.
+
+
+## Current MVP decision — 2026-10-03
+
+Product Owner explicitly selects **1954 / Trước cơn bão**, replacing the current 1968 pilot choice; new video production is cancelled. [MVP-1954-001](../tasks/done/MVP-1954-001.md) DONE for the bounded unchanged-file internal reference preview. CONTENT-006 prior final wording/rights findings remain; no canonical publication or false milestone closure. M6-02/03/05 software accepted DONE by independent Codex reviewer with typecheck/Chrome10 PASS. M6 remains OPEN, M7 release gated.
+
+### Current1954technical handoff — 2026-10-03
+
+| ID | Owner / Executor | Reviewer | Status | Files / next action |
+|---|---|---|---|---|
+| MVP-1954-001 | Codex root / delegated preview | Root independent preview review APPROVE | DONE | [Card](../tasks/done/MVP-1954-001.md); actual player4/4PASS, package12checks; final media gates separate |
+| M6-M7-TRIAL-001 | Codex / delegated release prep | Root independent code/test review APPROVE | DONE | [Card](../tasks/done/M6-M7-TRIAL-001.md);7/7tests, short release plans; new video cancelled |
+
+[Current handoff](../engineering/m6-pwa/1954-HANDOFF.md): M6-02/03/05DONE; M6-01/06REVIEW; M6-04/07BLOCKED. Topic1954approved, unchanged clip playable internally. Remaining final1954wording/rights, multi-lesson curriculum/canonical import, real device/manual accessibility, Firebase/internal-user/privacy/release acceptance are not fabricated. Full M6 remains OPEN and M7 release gated.

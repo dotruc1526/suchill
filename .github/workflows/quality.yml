@@ -27,3 +27,8 @@ jobs:
       - run: npm run quality
         env:
           CHROME_PATH: ${{ steps.chrome.outputs.chrome-path }}
+
+      - name: Check internal media preview and release evidence boundaries
+        run: node --test scripts/release/release-validation.test.mjs scripts/content/reference-preview/preview.test.mjs
+        env:
+          CHROME_PATH: ${{ steps.chrome.outputs.chrome-path }}
