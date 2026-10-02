@@ -1,6 +1,6 @@
 # M3-STATUS-01 — Đồng bộ tiến độ M3
 
-> Status: REVIEW
+> Status: IN PROGRESS
 > Last updated: 2026-10-02
 
 - Owner: Dương (Member 4).
@@ -9,7 +9,7 @@
 - Started: 2026-10-02.
 - Branch: codex/m3-status-sync.
 - Dependency: M3 OPEN; đối chiếu main và PR83/88 hiện tại.
-- Files claimed: card này, docs/project/TASK-BOARD.md, docs/tasks/active/README.md, docs/tasks/active/QA-002.md, docs/tasks/blocked/M3-06.md, docs/tasks/blocked/README.md, docs/tasks/evidence/M3-status-2026-10-02.md.
+- Files claimed: card này, docs/project/TASK-BOARD.md, docs/tasks/active/README.md, docs/tasks/done/QA-002.md, docs/tasks/blocked/M3-06.md, docs/tasks/blocked/README.md, docs/tasks/evidence/M3-status-2026-10-02.md.
 - Acceptance: trạng thái/owner/dependency/next action có nguồn; không coi merge là đầy đủ acceptance; không đổi runtime hoặc milestone gate.
 - Next action: cập nhật snapshot và checkpoint, kiểm tra diff/link, mở PR docs để review.
 ## Handoff
@@ -29,3 +29,9 @@
 - Next action: write and verify docs-only plan, return REVIEW on PR90; M3-06 runtime stays BLOCKED.
 
 - Checkpoint completed: controller/state/operation/error design và 19 test scenarios đã ghi; tất cả tests mới là planned, không runtime acceptance. Local links/diff check PASS; no source/env/migration changes. Next Hưng/Vinh review docs trên PR90, Dương runtime sau PR88 handoff.
+
+## PR91 reconciliation claim — 2026-10-02
+
+- Owner/Executor/Reviewer/Started: unchanged above; user authorized PR90/91 processing.
+- Files claimed: this card, TASK-BOARD.md, active/README.md, done/QA-002.md, done/README.md and M3-status-2026-10-02.md; QA closure follows Hưng acceptance in PR91.
+- Next action: integrate merged PR91, preserve controller preparation and QA DONE, validate docs and return REVIEW for Hưng/Vinh.

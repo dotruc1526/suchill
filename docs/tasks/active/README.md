@@ -6,7 +6,7 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOC
 
 ## M3 QA
 
-- [QA-002](./QA-002.md) — `REVIEW`; mobile/player matrix và browser regressions đạt trên mock; PR83 merged `cda4a69`, Dương APPROVED `9718317`; chờ Hưng xác nhận harness/accessibility mới trước DONE.
+- [QA-002](../done/QA-002.md) — DONE; mobile/player matrix và browser regressions đạt trên mock; PR83 merged `cda4a69`, Dương APPROVED player, Hưng ACCEPTED harness/accessibility.
 
 ## Milestone 3 — Home visual follow-up
 
