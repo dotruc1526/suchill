@@ -6,7 +6,7 @@
 - Owner: Trúc (Member 2), theo quyền Thọ giao làm toàn bộ phần sửa còn lại.
 - Executor: Trúc; Codex hỗ trợ. Một executor duy nhất.
 - Reviewer: Trúc phụ trách historical/learning/media theo quyền được giao; Vinh giữ vai trò technical QA. Historical/language verdict được đồng bộ riêng theo artifact hashes bên dưới; media/production chưa sign-off.
-- Branch: `codex/vinh-qa001-content014`, PR #85 head `5959175` (unmerged); đối chiếu gate với `origin/main` `c29e4a7`.
+- Branch: `codex/vinh-qa001-content014`, PR #85 technical-QA head `5959175`; review-state reconciliation pushed at `3210776` (PR remains unmerged). Gate comparison source: `origin/main` `c29e4a7`.
 - Depends on: DOC-003/004/006/009 đã DONE; bản nháp PR #21 đã có trên main. Đây là task sửa tài liệu/authoring, không claim sản xuất. `CONTENT-004` giữ `REVIEW` cùng gói technical QA/media/handoff này; `CONTENT-007` hiện BLOCKED cho đến khi artifact pilot và review record nhất quán.
 - Files claimed: `docs/content/PILOT-SCREENPLAY.md`, `PILOT-NARRATION.json`, `PILOT-CAPTIONS.vtt`, `LESSON-02-INTERACTIVE.md`, `LESSON-02-STORY.json`, `MAP-MT68.json`, `PRODUCTION-NOTES.md`, `CURRICULUM-MAP.md`, `HISTORICAL-SOURCES.md`, `DETAILED-MEDIA-CATALOG.csv`, `MEDIA-REVIEW-MT68.md`; board, card CONTENT-003/004/010/011/012 và PR21-HANDOFF.
 - Started: 2026-10-02 (review-state reconciliation)
