@@ -8,6 +8,9 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOC
 
 - [QA-002](./QA-002.md) — `REVIEW`; mobile/player matrix và browser regressions đạt trên mock; Hưng review shared Button/evidence, Dương xác nhận player.
 
+## Milestone 3 — Home visual follow-up
+
+- [M3-UX-02](./M3-UX-02.md) — REVIEW; restore Home visual layout while keeping PR #72 service journey.
 
 ## Content track
 

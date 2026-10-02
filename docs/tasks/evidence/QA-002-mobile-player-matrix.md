@@ -49,3 +49,10 @@
 - Mutation probes: separately replaced the service-load and playback retry callbacks with no-ops for diagnostic runs at each viewport. All four runs failed at the expected new assertion (service reads / video mount). All temporary runtime mutations were restored; no production player change remains.
 - Final verification, 2026-10-01: focused browser test PASS at both widths; `npm run quality` PASS, 72 unit / 22 component / 6 E2E, scan 321 files / 0 unsafe; `git diff --check` PASS.
 - Status: remediation complete locally; QA-002 remains REVIEW pending Dương re-review. Hưng's Button/UI approval applies to `10491f0`; no milestone gate decision is changed.
+
+## Main integration — 2026-10-02
+
+- Integrated main `30d0a4f` (PR #82 dashboard) with `d5daaed` (QA-002 accepted retry remediation).
+- Resolved active index conflict by retaining both task entries; Home runtime kept identical to main. Existing mobile Home test now asserts restored XIN CHÀO heading and keeps screenshot export paths; both QA-002 browser regressions remain intact.
+- Full quality PASS: 74 unit / 22 component / 6 Chrome E2E, typecheck/build, 325 scanned / 0 unsafe, diff check PASS. Shared Button and video/VN fixture unchanged from reviewed QA revision.
+- Task REVIEW pending integrated-head/CI confirmation; no device/screen-reader/canonical media certification or milestone decision.
