@@ -128,7 +128,10 @@ test('reach_end needs a stored played near-end range; optional video does not bl
   unwrap(await watch(services, [{ start: 94, end: 99 }], 'near-end'))
   assert.equal((await complete(services)).kind, 'completed')
   block.completionPolicy = 'optional'
-  assert.equal((await complete(setup(value))).kind, 'completed')
+  assert.deepEqual(await setup(value).completion.completeLesson({ lessonId: 'lesson', operationId: 'optional-only' }), { ok: false, error: 'validation' })
+  value.lessons[0].blocks.push({ kind: 'text', id: 'text', documentId: 'doc', order: 1, required: true })
+  const optional = setup(value); await ack(optional)
+  assert.equal((await complete(optional)).kind, 'completed')
 })
 
 test('fallback requires published transcript, authored linkage and explicit recap evidence', async () => {
@@ -275,4 +278,45 @@ test('episode qualifies streak outside required lessons; replay/version/lesson r
   assert.equal(unwrap(await services.users.getAccountSummary())?.requiredLessonCount, 0)
   assert.equal(store.completion.days.get('a')?.size, 1)
   assert.equal(unwrap(await setup(value, store, 'b').users.getAccountSummary())?.currentStreak, 0)
+})
+
+test('optional-only catalog cannot complete or grant XP/streak without required learning evidence', async () => {
+  for (const format of ['mixed', 'visual_novel', 'quiz'] as const) {
+    const value = catalog(); const store = createMockProgressStore()
+    value.lessons[0].format = format
+    value.lessons[0].blocks[0].required = false
+    const services = setup(value, store)
+    assert.deepEqual(await services.completion.completeLesson({ lessonId: 'lesson', operationId: 'complete' }), { ok: false, error: 'validation' })
+    await ack(services)
+    assert.deepEqual(await services.completion.completeLesson({ lessonId: 'lesson', operationId: 'complete' }), { ok: false, error: 'validation' })
+    assert.equal(store.completion.receipts.size, 0); assert.equal(store.completion.rewards.size, 0)
+    assert.equal(store.completion.days.size, 0); assert.equal(store.completion.requiredLessons.size, 0)
+    assert.equal(unwrap(await services.progress.getLessonProgress('lesson')), null)
+    value.lessons[0].blocks[0].required = true
+    assert.equal((await complete(services)).kind, 'completed')
+  }
+})
+
+test('backwards completion day rolls back; retry stays stable and summary excludes future days', async () => {
+  const value = catalog(); const store = createMockProgressStore()
+  value.lessons.push({ ...value.lessons[0], id: 'second' })
+  value.completionPolicies!.push({ ...value.completionPolicies![0], lessonId: 'second' })
+  let clock = '2026-10-03T05:00:00Z'
+  const services = setup(value, store, 'a', () => clock)
+  await ack(services)
+  const first = await complete(services)
+  unwrap(await services.completion.recordBlockAction({ lessonId: 'second', blockId: 'text', operationId: 'ack-second', action: 'acknowledge' }))
+  clock = '2026-10-02T05:00:00Z'
+  const before = structuredClone(store)
+  assert.deepEqual(await services.completion.completeLesson({ lessonId: 'second', operationId: 'second-complete' }), { ok: false, error: 'validation' })
+  assert.deepEqual(store, before)
+  assert.deepEqual(await complete(services), first)
+  const summary = unwrap(await services.users.getAccountSummary())!
+  assert.equal(summary.currentStreak, 0); assert.equal(summary.longestStreak, 0)
+  const other = setup(value, store, 'b', () => clock); await ack(other)
+  assert.equal((await complete(other)).kind, 'completed')
+  clock = '2026-10-03T06:00:00Z'
+  assert.equal(unwrap(await services.completion.completeLesson({ lessonId: 'second', operationId: 'second-complete' })).kind, 'completed')
+  assert.equal(unwrap(await services.users.getAccountSummary())?.currentStreak, 1)
+  assert.equal(unwrap(await services.users.getAccountSummary())?.requiredLessonCount, 2)
 })

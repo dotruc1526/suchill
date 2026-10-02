@@ -6,7 +6,7 @@ export function localDate(instant: string, timezone: string): string {
   return `${field('year')}-${field('month')}-${field('day')}`
 }
 export function streakSummary(days: Set<string>, today: string) {
-  const sorted = [...days].sort()
+  const sorted = [...days].filter(day => day <= today).sort()
   const number = (day: string) => Date.parse(`${day}T00:00:00Z`) / 86_400_000
   let current = 0; let longest = 0; let last: string | undefined
   for (const day of sorted) {

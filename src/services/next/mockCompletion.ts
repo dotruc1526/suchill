@@ -68,12 +68,18 @@ export function createMockCompletionServices(
       }
       const reasons = lesson.blocks.filter(block => block.required && !evidence.valid(block))
         .map(block => ({ blockId: block.id, reason: 'required_evidence_missing' }))
-      if (!lesson.blocks.length) return failure('validation')
+      // Optional engagement alone is not authored completion authority.
+      if (!lesson.blocks.some(block => block.required && !(block.kind === 'video' && block.completionPolicy === 'optional'))) return failure('validation')
       if (reasons.length) return success({ kind: 'ineligible', reasons })
       // Prepare all fallible values before the synchronous mock transaction writes.
       const confirmedAt = now()
       let day: string
-      try { day = localDate(confirmedAt, timezone) } catch { return failure('validation') }
+      try {
+        day = localDate(confirmedAt, timezone)
+        const confirmedDays = [...store.receipts.values()].filter(item => item.userId === session.userId)
+          .map(item => localDate(item.confirmedAt, timezone))
+        if (confirmedDays.some(previous => previous > day)) return failure('validation')
+      } catch { return failure('validation') }
       const requested: Array<{ type: Exclude<RewardType, 'daily_review'>; id: string }> = []
       if (lesson.format !== 'visual_novel' && lesson.format !== 'quiz') requested.push({ type: 'lesson', id: lesson.id })
       for (const block of lesson.blocks.filter(item => item.required)) {
