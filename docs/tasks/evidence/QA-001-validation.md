@@ -28,3 +28,9 @@ Baseline objective table failed three tests: chapter/story accepted empty object
 - `git diff --check`: PASS.
 - No package/dependency/env/migration change. Source changed only the two claimed validator modules.
 - Next: Hưng review and acceptance; keep QA-001 REVIEW, no gate change.
+
+## PR85 integrated-head verification — 2026-10-02
+- Integrated current main c29e4a7. Resolved board/index content conflicts and M3-UX-02 rename/delete + add/add by retaining current main's accepted Home card and completed FE-011/QA-002 states. Preserved QA-001 and CONTENT-014 evidence; historical G2/G5 proposal explicitly superseded by D1–D7/PR88/92.
+- No Home/UI/adapter/QA83 changes versus main; validators and tests unchanged from original PR85. M3-COMPLETION-01 DONE, M3-06 READY and milestone gates preserved. QA-001 REVIEW; CONTENT-014 historical/media sign-off remains separate.
+- Full npm run quality PASS: typecheck/build, 100 unit / 22 component / 7 E2E; scan 347/0 unsafe; 149 changed Markdown-file links checked, zero missing targets; diff check PASS. Log /tmp/suchill-pr85-integration-quality.log (local only).
+- Next: Hưng/Dương confirm integrated docs/scope and CI before merge. No dependency/env/migration impact; .DS_Store untouched.
