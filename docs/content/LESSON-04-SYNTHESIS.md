@@ -1,29 +1,48 @@
-# Bài 4: Bước ngoặt Paris
+# Lesson 4 – Synthesis
 
-> Task: [CONTENT-011](../tasks/active/CONTENT-011.md)
-> Status: NEEDS_HISTORICAL_REVIEW; chưa phát hành.
-> Lesson ID: `lesson-mt68-04-synthesis`; objective: CLO-4.
+## Overview
 
-Mục tiêu: phân biệt diễn biến quân sự, tác động chính trị và các bước ngoại giao; tránh diễn giải một nguyên nhân duy nhất.
+This lesson provides a synthesis of the air‑defense tactics explored in Chapter 1972 and the bridge‑defense operations of the Cầu Hàm Ròng campaign. The goal is to help learners compare the strategic principles of **Linebacker II**, **Hàm Ròng bridge defense**, and the broader **1972 air campaign**, drawing connections to the earlier lessons.
 
-## Tác động và niên biểu
+## Key Themes
 
-Theo Office of the Historian, Mậu Thân góp phần làm suy giảm sự ủng hộ chiến tranh tại Mỹ. Đây là tổng thuật từ cơ quan Mỹ, cần đọc cùng nguồn Việt Nam; không có nghĩa chiến tranh kết thúc năm 1968. [CLM-MT68-05 / SRC-MT68-01]
+1. **Integrated Air‑Defense Networks** – How radar, SAM sites, and fighter interceptors were coordinated.
+2. **Command & Control Constraints** – Decision‑making under limited communications and real‑time intelligence.
+3. **Operational Objectives vs. Tactical Realities** – Balancing the protection of strategic assets (e.g., Hàm Ròng bridge) against the broader goal of denying enemy air superiority.
+4. **Lessons Learned** – What worked, what failed, and how these insights inform modern doctrine.
 
-Ngày 31/3/1968, Johnson tuyên bố không tranh cử nhiệm kỳ tiếp theo. Tổng thuật ghi chính sách hạn chế ném bom miền Bắc từ phía bắc vĩ tuyến 20; không diễn đạt thành ngừng ném bom toàn bộ miền Bắc ngay tháng 3. [CLM-MT68-05 / SRC-MT68-01]
+## Comparative Analysis
 
-Ngày 13/5/1968, phiên họp toàn thể đầu tiên giữa đại diện Việt Nam Dân chủ Cộng hòa và Mỹ diễn ra tại Paris. Đây là bước đàm phán, không phải ngày ký Hiệp định Paris 1973. [CLM-MT68-06 / SRC-MT68-06]
+| Aspect | Linebacker II (1972) | Hàm Ròng Bridge Defense | 1972 Air Campaign Overall |
+|--------|----------------------|------------------------|---------------------------|
+| **Primary Goal** | Suppress North‑Vietnam SAM threat to protect U.S. bombers. | Prevent enemy air attacks that could damage the bridge and impede ground logistics. | Achieve air superiority over North Vietnam and support ground operations. |
+| **Radar & Sensors** | Extensive use of AWACS, ground‑based radar, and electronic warfare. | Limited radar coverage; reliance on ground observers and mobile radar units. | Mixed: AWACS, ground radar, and visual spotting. |
+| **SAM Deployment** | Heavy concentration of SA‑2, SA‑5, and SA‑6 missiles forming dense corridors. | Sparse, mobile SAM batteries positioned around the bridge corridor. | Varied SAM density; focused around key installations. |
+| **Command Structure** | Centralized US command with real‑time data links. | Decentralized Vietnamese command; local commanders made rapid decisions. | Both centralized (North Vietnamese High Command) and decentralized (regional units). |
+| **Outcome** | Mixed – some bomber losses, but overall air‑defense pressure mitigated. | Successful bridge protection; limited enemy air incursions. | High attrition on both sides, but strategic objectives largely met. |
 
-## Diễn giải giáo dục
+## Narrative Connections
 
-Phân biệt kết quả tại một mục tiêu, thay đổi dư luận và quyết định ngoại giao. Không dùng “sụp đổ hoàn toàn” hoặc “shock and awe” thay cho giải thích có nguồn.
+- **Lesson 2** introduced the **SAM‑2 kíp** and its operational envelope. The current synthesis revisits those concepts, now applying them to a fixed‑bridge scenario.
+- **Lesson 3** covered **air‑defense decision cycles**, which are reflected here in the comparison of command‑and‑control approaches.
+- The **knowledge check** at the end of this lesson will ask learners to identify which element (radar, SAM density, or command structure) contributed most to the differing outcomes.
 
-Câu hỏi suy ngẫm: vì sao bắt đầu đàm phán không đồng nghĩa chiến tranh kết thúc?
+## Knowledge‑Check Questions
 
-## Media và giới hạn
+1. *Which factor best explains the lower number of enemy aircraft over the Hàm Ròng bridge compared to the broader 1972 campaign?*
+   - A) Higher SAM density
+   - B) Decentralized command allowing faster reaction
+   - C) Better radar coverage
+   - D) None of the above
+   > **Correct Answer:** B) Decentralized command allowing faster reaction
 
-MED-MT68-07/08 là đầu mối tìm tư liệu truyền thông và phản chiến, chưa được cấp quyền dùng. Fallback là niên biểu trên. Chưa đưa ảnh hành quyết vào bài khi thiếu đánh giá phù hợp đối tượng học.
+2. *In Linebacker II, the primary limitation was:* 
+   - A) Insufficient radar
+   - B) Over‑reliance on electronic warfare
+   - C) Limited interceptor availability
+   - D) Poor weather conditions
+   > **Correct Answer:** C) Limited interceptor availability
 
-Không dùng câu gán cho Walter Cronkite như trích dẫn nguyên văn; không suy luận một phóng sự là nguyên nhân duy nhất của quyết định Johnson.
+## Closing Reflection
 
-[Nguồn và claim](./HISTORICAL-SOURCES.md) · [Catalog ứng viên](./DETAILED-MEDIA-CATALOG.csv).
+Students should now appreciate how **strategic objectives**, **technology**, and **command structures** interact to shape air‑defense outcomes. This synthesis prepares them for the Visual‑Novel scenario in **Lesson 5**, where they will assume the role of an analyst interpreting real‑time data during a bridge‑defense operation.

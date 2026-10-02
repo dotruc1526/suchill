@@ -1,3 +1,5 @@
+import type { AccountSummary, CompletionService } from './completionContracts.ts'
+export type * from './completionContracts.ts'
 import type { Chapter, LearningDocument, Lesson, Locale, MediaAsset, MultipleChoiceQuestion, QuestionSet, StoryVersion } from '../../types/v2/content.ts'
 import type { EpisodeProgress, LessonProgress, VideoProgress } from '../../types/v2/progress.ts'
 
@@ -89,6 +91,7 @@ export interface QuizService {
 export type CurrentUserProfile = { id: string; displayName: string; locale: Locale }
 export interface UserService {
   getCurrentProfile(): Promise<Result<CurrentUserProfile | null>>
+  getAccountSummary(): Promise<Result<AccountSummary | null>>
 }
 export type LearningServices = {
   chapters: ChapterService
@@ -98,5 +101,6 @@ export type LearningServices = {
   media: MediaService
   progress: ProgressService
   quiz: QuizService
+  completion: CompletionService
   users: UserService
 }

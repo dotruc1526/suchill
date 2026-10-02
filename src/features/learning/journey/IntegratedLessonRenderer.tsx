@@ -38,10 +38,11 @@ function VisualNovelLessonBlock({ lessonId, block, services }: {
   />
 }
 
-export function IntegratedLessonRenderer({ lessonId, services, headingRef }: {
+export function IntegratedLessonRenderer({ lessonId, services, headingRef, documentAction }: {
   lessonId: string
   services: LearningServices
   headingRef: Ref<HTMLHeadingElement>
+  documentAction?: (blockId: string) => import('react').ReactNode
 }) {
   const slots = useMemo<LessonBlockSlots>(() => ({
     visualNovel: ({ block }) => <VisualNovelLessonBlock lessonId={lessonId} block={block} services={services} />,
@@ -49,5 +50,5 @@ export function IntegratedLessonRenderer({ lessonId, services, headingRef }: {
     quiz: ({ block }) => <QuizFlow services={services} questionSetId={block.questionSetId} />,
   }), [lessonId, services])
 
-  return <LessonRenderer lessonId={lessonId} services={services} slots={slots} headingRef={headingRef} />
+  return <LessonRenderer lessonId={lessonId} services={services} slots={slots} headingRef={headingRef} documentAction={documentAction} />
 }

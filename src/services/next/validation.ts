@@ -17,6 +17,8 @@ export function validateChapter(chapter: Chapter, lookup: ContentLookup = {}): V
   }
   errors.push(...checkReferences(chapter.lessonRefs.map(ref => ref.id), lookup.lessonIds, 'lessonRefs', 'missing_lesson'))
   if (chapter.status === 'published') {
+    if (!chapter.learningObjectiveIds.length) errors.push(issue('objective', 'learningObjectiveIds', 'Published chapter needs an objective'))
+    errors.push(...requireUnique(chapter.learningObjectiveIds, 'learningObjectiveIds', 'objective'))
     if (chapter.lessonRefs.length) {
       errors.push(...requireLookup(lookup, 'lessonIds', 'lessonRefs'))
       errors.push(...requireLookup(lookup, 'approvedLessonIds', 'lessonRefs'))
@@ -82,8 +84,9 @@ export function validateLesson(lesson: Lesson, lookup: ContentLookup = {}): Vali
       errors.push(issue('completion_policy', path, 'Required video cannot have optional completion policy'))
     }
   }
-  if (lesson.status === 'published' && lesson.learningObjectiveIds.length === 0) {
-    errors.push(issue('objective', 'learningObjectiveIds', 'Published lesson needs an objective'))
+  if (lesson.status === 'published') {
+    if (!lesson.learningObjectiveIds.length) errors.push(issue('objective', 'learningObjectiveIds', 'Published lesson needs an objective'))
+    errors.push(...requireUnique(lesson.learningObjectiveIds, 'learningObjectiveIds', 'objective'))
   }
   if (lesson.status === 'published') errors.push(...requireLookup(lookup, 'chapterIds', 'chapterId'))
   return errors

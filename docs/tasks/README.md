@@ -9,6 +9,7 @@ docs/tasks/
 ├── active/      # READY, IN PROGRESS hoặc REVIEW
 ├── blocked/     # đang chờ dependency/quyết định/quyền truy cập
 ├── done/        # đã đạt acceptance và được review
+├── archived/    # CANCELLED/superseded; no false DONE
 └── TASK-TEMPLATE.md
 ```
 
@@ -49,4 +50,6 @@ Ví dụ sau khi Member 3 được giao `FE-001`: ghi tên Member 3 vào `Owner`
 
 Quy tắc đồng bộ: một task có một ID; board và card phải cùng status/owner/next action. Mỗi lần đổi trạng thái hoặc handoff thì cập nhật cả hai trong cùng thay đổi. Không chép toàn bộ checkpoint vào board và không duy trì thêm bảng phần trăm riêng cho từng người, vì sẽ dễ lệch dữ liệu.
 
-Ví dụ cho Member 1: content track có thể chạy độc lập với milestone code khi dependency riêng đã đạt. `CONTENT-004` đang `REVIEW`: historical review đã đạt nhưng technical QA/media/handoff chưa sign-off; `CONTENT-007` vẫn `BLOCKED` vì các artifact pilot còn ghi `NEEDS_HISTORICAL_REVIEW`. Việc mở milestone kỹ thuật không tự mở content production.
+Ví dụ cho Member 1: content track có thể chạy độc lập với milestone code khi dependency riêng đã đạt. `CONTENT-004` đang `REVIEW`: historical/language review đã được đồng bộ cho screenplay/narration đúng revision/hash, nhưng technical QA/media/audio/handoff chưa sign-off; `CONTENT-012` quiz vẫn chờ verdict lịch sử/learning riêng. `CONTENT-007` vẫn `BLOCKED` theo dependency content/media. M3 đang OPEN, M4 LOCKED; việc mở milestone kỹ thuật không tự mở content production.
+
+Superseded proposals may be CANCELLED and moved to [archived](./archived/README.md); preserve evidence and reason, distinguish cancellation from reviewer acceptance.

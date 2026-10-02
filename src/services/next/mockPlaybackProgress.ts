@@ -1,3 +1,4 @@
+import { completionPolicy, evidenceKey } from './mockCompletionEvidence.ts'
 import type { EpisodeProgress, VideoProgress } from '../../types/v2/progress.ts'
 import { failure, success, type ProgressService, type StoryCheckpointContext } from './contracts.ts'
 import type { MockCatalog } from './mock.ts'
@@ -24,6 +25,16 @@ export function createPlaybackProgress(
       startedAt: prior?.startedAt ?? now(), completedAt: prior?.completedAt, updatedAt: now(),
     }
     store.episodes.set(key, next)
+    const policy = completionPolicy(catalog, input.lessonId)
+    if (policy) {
+      const evidence = evidenceKey(userId, input.lessonId, policy.contentVersionId, input.blockId)
+      store.completion.episodes.set(evidence, copy(next))
+      if (choiceId) {
+        const choices = store.completion.choices.get(evidence) ?? new Map<string, string>()
+        choices.set(visited[0], choiceId)
+        store.completion.choices.set(evidence, choices)
+      }
+    }
     touchLesson(userId, input.lessonId, input.blockId)
     return success(copy(next))
   }
@@ -94,6 +105,12 @@ export function createPlaybackProgress(
           watchedRanges: merged, completed: prior?.completed ?? false, updatedAt: now(),
         }
         store.videos.set(key, next)
+        const policy = completionPolicy(catalog, input.lessonId)
+        if (policy) {
+          const evidence = evidenceKey(userId, input.lessonId, policy.contentVersionId, input.blockId)
+          const priorEvidence = store.completion.videos.get(evidence)
+          store.completion.videos.set(evidence, { ...copy(next), watchedRanges: [...(priorEvidence?.watchedRanges ?? []), ...copy(ranges)] })
+        }
         touchLesson(userId, input.lessonId, input.blockId)
         return success(copy(next))
       })

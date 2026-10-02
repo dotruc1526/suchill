@@ -50,7 +50,11 @@ const chapters: Chapter[] = [{
   lessonRefs: lessons.map((lesson, order) => ({ id: lesson.id, order })),
 }]
 
+/** Author-controlled technical completion versions, not UI-derived eligibility. */
+export const m3CompletionVersions: Record<string, string> = Object.fromEntries(lessons.map(lesson => [lesson.id, 'fixture.content.1972.v1']))
+export const m3Session = { userId: 'fixture.user.duong', displayName: 'Dương', locale: 'vi-VN' as const, timezone: 'Asia/Ho_Chi_Minh' }
 export const m3JourneyServices = createMockLearningServices(
-  { chapters, lessons, documents, storyVersions, mediaAssets: [] },
-  { userId: 'fixture.user.duong', displayName: 'Dương', locale: 'vi-VN' },
+  { chapters, lessons, documents, storyVersions, mediaAssets: [],
+    completionPolicies: lessons.map(lesson => ({ lessonId: lesson.id, contentVersionId: m3CompletionVersions[lesson.id], eligibilityVersion: 'fixture.eligibility.v1', requiredLesson: true })),
+  }, m3Session,
 )

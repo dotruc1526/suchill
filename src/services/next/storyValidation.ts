@@ -17,6 +17,8 @@ export function validateStoryVersion(version: StoryVersion, lookup: ContentLooku
   errors.push(...checkReferences(version.sourceIds, lookup.sourceIds, 'sourceIds', 'missing_source'))
   errors.push(...requireUnique(version.sourceIds, 'sourceIds', 'source_reference'))
   if (version.status === 'published') {
+    if (!version.learningObjectiveIds.length) errors.push(issue('objective', 'learningObjectiveIds', 'Published story needs an objective'))
+    errors.push(...requireUnique(version.learningObjectiveIds, 'learningObjectiveIds', 'objective'))
     if (version.sourceIds.length) {
       errors.push(...requireLookup(lookup, 'sourceIds', 'sourceIds'))
       errors.push(...requireLookup(lookup, 'approvedSourceIds', 'sourceIds'))

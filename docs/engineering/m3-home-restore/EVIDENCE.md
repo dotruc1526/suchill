@@ -24,3 +24,7 @@ Screenshots captured from the built application by mobile E2E:
 Reproduce screenshots: PowerShell `$env:UPDATE_M3_HOME_EVIDENCE='1'; node --test --test-name-pattern="learning journey stays usable" tests/qa/e2e.test.mjs` after `npm run build`.
 
 Catalog remains the technical 1972 fixture; no invented 1954/1965 chapters or completion percentage. Device/screen-reader and canonical media acceptance remain separate gates. Hưng/Dương/Vinh review before DONE.
+
+## Final reviewer record — 2026-10-01
+
+M3-UX-02 DONE after Hưng/Dương GitHub approvals and Vinh QA acceptance at `fb02f7d`; [PR #82](https://github.com/dotruc1526/suchill/pull/82) merged `30d0a4f`. Details in [done card](../../tasks/done/M3-UX-02.md). Historical REVIEW text above describes the original handoff, superseded by this task acceptance. Scope and real-device/canonical limits remain unchanged; M3 gate remains OPEN.
