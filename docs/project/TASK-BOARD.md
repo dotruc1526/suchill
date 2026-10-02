@@ -1,6 +1,6 @@
 # Sử Chill — Shared Task Board
 
-> Last updated: 2026-10-02\
+> Last updated: 2026-10-03\
 > Owner: Project team\
 > Purpose: Nguồn context chung cho product owner, thành viên nhóm và AI agents
 
@@ -388,7 +388,7 @@ AI phải đọc task board trước khi làm việc. Nếu task `BLOCKED` hoặ
 
 | ID | Owner | Status | Depends on | Evidence / next action |
 |---|---|---|---|---|
-| M4-M5-INTEGRATION-001 | Codex; QA/PO review pending | DONE | DOC-021, M4/M5 CLOSED | [Task card](../tasks/active/M4-M5-INTEGRATION-001.md); main2ee9c51 incorporated;330Quality/native72/hosted9 PASS; M4 technical cardsDONE; M5 technical evidence ready; PR #106 merged; independent post-merge review passed; PO accepted M4/M5 via DOC-020/DOC-021 |
+| M4-M5-INTEGRATION-001 | Codex; QA/PO review pending | DONE | DOC-021, M4/M5 CLOSED | [Task card](../tasks/done/M4-M5-INTEGRATION-001.md); main2ee9c51 incorporated;330Quality/native72/hosted9 PASS; M4 technical cardsDONE; M5 technical evidence ready; PR #106 merged; independent post-merge review passed; PO accepted M4/M5 via DOC-020/DOC-021 |
 
 
 ### Backend integration task acceptance (PO gates accepted by DOC-020/DOC-021)
@@ -410,7 +410,7 @@ AI phải đọc task board trước khi làm việc. Nếu task `BLOCKED` hoặ
 | M5-05 | Codex technical candidate; QA/PO approval pending | DONE | M4 CLOSED, M5 CLOSED (PO approved) | [Card](../tasks/done/M5-05.md); reused implementation technically APPROVED,330Quality/native72/hosted9 PASS; [evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO accepted M5 closure |
 | M5-06 | Codex technical candidate; QA/PO approval pending | DONE | M4 CLOSED, M5 CLOSED (PO approved) | [Card](../tasks/done/M5-06.md); reused implementation technically APPROVED,330Quality/native72/hosted9 PASS; [evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO accepted M5 closure |
 | M5-07 | Codex technical candidate; QA/PO approval pending | DONE | M4 CLOSED, M5 CLOSED (PO approved) | [Card](../tasks/done/M5-07.md); reused implementation technically APPROVED,330Quality/native72/hosted9 PASS; [evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO accepted M5 closure |
-| AUTH-USERNAME-001 | Codex; independent recovery software APPROVE | REVIEW | Existing Auth integration | [Card](../tasks/active/AUTH-USERNAME-001.md); core username browser flow PASS; dedicated recovery callback/reset software APPROVE,44checks PASS; live sender/email/redirect acceptance remains pending |
+| AUTH-USERNAME-001 | Codex; helper independently APPROVE, integrated boundary review pending | REVIEW | Existing Auth integration | [Card](../tasks/active/AUTH-USERNAME-001.md); core username browser flow PASS; dedicated recovery callback/reset software APPROVE,44checks PASS; live sender/email/redirect acceptance remains pending |
 | MAIN-INTEGRATION-AUDIT-002 | Codex; QA/PO review pending | REVIEW | Prior branch audit | [Card](../tasks/active/MAIN-INTEGRATION-AUDIT-002.md); historical audit, candidate now tracked by M4-M5-INTEGRATION-001 |
 
 ### Post-merge sequential delivery review — 2026-10-02
@@ -423,10 +423,14 @@ AI phải đọc task board trước khi làm việc. Nếu task `BLOCKED` hoặ
 
 | ID | Owner / Executor | Reviewer | Status | Depends on | Card / next action |
 |---|---|---|---|---|---|
-| M6-01 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | IN PROGRESS | M1, M3, DOC-021 | [Card](../tasks/active/M6-01.md); implement/test/review claimed software scope |
-| M6-02 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | IN PROGRESS | M3, M5, DOC-021 | [Card](../tasks/active/M6-02.md); implement/test/review claimed software scope |
-| M6-03 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | IN PROGRESS | M3, DOC-021 | [Card](../tasks/active/M6-03.md); implement/test/review claimed software scope |
+| M6-01 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | REVIEW | M1, M3, DOC-021 | [Card](../tasks/active/M6-01.md); software/evidence delivered; final reviewer acceptance outstanding |
+| M6-02 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | REVIEW | M3, M5, DOC-021 | [Card](../tasks/active/M6-02.md); software/evidence delivered; final reviewer acceptance outstanding |
+| M6-03 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | REVIEW | M3, DOC-021 | [Card](../tasks/active/M6-03.md); software/evidence delivered; final reviewer acceptance outstanding |
 | M6-04 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | BLOCKED | M3-04, CONTENT-007 | [Card](../tasks/blocked/M6-04.md); resolve stated dependency; no false DONE |
-| M6-05 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | IN PROGRESS | M1, M3, DOC-021 | [Card](../tasks/active/M6-05.md); implement/test/review claimed software scope |
-| M6-06 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | BACKLOG | M3, M6-05 | [Card](../tasks/active/M6-06.md); resolve stated dependency; no false DONE |
+| M6-05 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | REVIEW | M1, M3, DOC-021 | [Card](../tasks/active/M6-05.md); software/evidence delivered; final reviewer acceptance outstanding |
+| M6-06 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | BLOCKED | M3, M6-05 | [Card](../tasks/blocked/M6-06.md); resolve stated dependency; no false DONE |
 | M6-07 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | BLOCKED | M6-01..06; approved video; real Android/iOS testers | [Card](../tasks/blocked/M6-07.md); resolve stated dependency; no false DONE |
+
+### Current M6 software handoff — 2026-10-03
+
+Mainb9a0f0d/PR111 incorporated without conflict. [M6 review](../engineering/m6-pwa/REVIEW.md): Quality379PASS,0failures,3native-onlySQLskips; original M3 tests unchanged; optional desktop icon-install protocol unavailable (not PASS). M6-01/02/03/05REVIEW, M6-04/06/07BLOCKED; M6OPEN/M7LOCKED. CONTENT-003 preproductionDONE and CONTENT-007INPROGRESS on main supersede earlier plan blockers. User confirms no9audio exports yet. Final media, actual device/screen-reader tests and QA/PO milestone acceptance remain required. Auth optional real-mail recovery remainsREVIEW.

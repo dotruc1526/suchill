@@ -40,3 +40,11 @@ Các file `active.md`, `CONTENT-003-004-REVIEW.md`, `PR21-HANDOFF.md`, `BEQA-LOC
 
 - [M3-GATE-01](../done/M3-GATE-01.md) — DONE preparation; Hưng/Dương accepted PR101, merged 71d9cd7; separate PO gate decision pending.
 - [CONTENT-012-QA-01](../done/CONTENT-012-QA-01.md) — DONE technical authoring scope; Hưng QA ACCEPTED, Trúc handoff confirmed, PR99 merged; parent media/production remains REVIEW.
+
+## Milestone6 software candidate — 2026-10-03
+
+- [M6-01](./M6-01.md) — REVIEW; software/evidence delivered, final acceptance pending.
+- [M6-02](./M6-02.md) — REVIEW; software/evidence delivered, final acceptance pending.
+- [M6-03](./M6-03.md) — REVIEW; software/evidence delivered, final acceptance pending.
+- [M6-05](./M6-05.md) — REVIEW; software/evidence delivered, final acceptance pending.
+- [AUTH-USERNAME-001](./AUTH-USERNAME-001.md) — REVIEW; integrated callback/software ready, actual mail/sender/reset acceptance pending.

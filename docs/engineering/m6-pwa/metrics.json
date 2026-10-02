@@ -1,0 +1,42 @@
+{
+  "candidate": "1ec31c5216c0cb87a2adbc757720f4514c18ce2a",
+  "main": "b9a0f0d",
+  "buildVersion": "be658197ae0d6cedb431",
+  "bootstrap": [
+    {
+      "file": "/assets/index-CIyALnsl.js",
+      "bytes": 611509,
+      "gzip": 173197
+    },
+    {
+      "file": "/assets/jsx-runtime-Cx0BB4qO.js",
+      "bytes": 1088,
+      "gzip": 612
+    },
+    {
+      "file": "/assets/react-IDFlRUvQ.js",
+      "bytes": 7871,
+      "gzip": 3004
+    }
+  ],
+  "baselineBootstrapBytes": 659611,
+  "baselineReportedGzipBytes": 185790,
+  "images": [
+    {
+      "name": "image-1",
+      "width": 1420,
+      "height": 940,
+      "pngBytes": 1615784,
+      "webpBytes": 1056812,
+      "pngSha256": "ae79ebb3742aaba7821aa9815e9b64f743b941b78d9a7e6a3e415d4ffd8a1714"
+    },
+    {
+      "name": "su-chill-logo-transparent",
+      "width": 1356,
+      "height": 1160,
+      "pngBytes": 1597140,
+      "webpBytes": 1099468,
+      "pngSha256": "a1020085404817814e3ed7a4c42f8475f54ac9715f0d9d2039d230046b6b7c2a"
+    }
+  ]
+}

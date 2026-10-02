@@ -8,3 +8,11 @@
 - [PLATFORM-004](./PLATFORM-004.md) — đánh giá Capacitor/Android sau PWA và approval riêng.
 - [PLATFORM-005](./PLATFORM-005.md) — đánh giá iOS sau Android và approval riêng.
 - [BATTLE-002](./BATTLE-002.md) — review AI Battle sau prototype handoff và approval tích hợp.
+
+## Milestone6 remaining gates — 2026-10-03
+
+- [M6-04](./M6-04.md) — final canonical video/audio package pending.
+- [M6-06](./M6-06.md) — M6-05 acceptance and full manual accessibility/screen-reader evidence pending.
+- [M6-07](./M6-07.md) — approved media and actual Android/iOS/desktop installation matrix pending.
+
+CONTENT-003 is DONE by latest PO decision; CONTENT-007 is IN PROGRESS on main, awaiting9audio exports. Older REVIEW/blocked planning notes above are superseded by those cards.
