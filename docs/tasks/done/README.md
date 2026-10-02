@@ -45,3 +45,6 @@
 - [QA-001](./QA-001.md) — DONE; Hưng/Dương ACCEPTED, PR85 merged ed234e9; validation 17/17, final quality 100/22/7 and CI 2/2 PASS.
 
 - [M3-06](./M3-06.md) — DONE; PR94 merged 20e3263; Hưng/Vinh runtime accepted; Quality 2/2 PASS.
+
+- [M3-07](./M3-07.md) — DONE; Hưng/Dương text ACCEPTED1541cb9; PR98 merged f0a2bdf, Quality2/2 PASS.
+- [M3-07-A11Y-01](./M3-07-A11Y-01.md) — DONE; shared-state announcements/reduced motion accepted in the same review; regression assertions at375/430px PASS.
