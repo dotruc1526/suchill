@@ -92,3 +92,14 @@ Hưng review contract/architecture and new explicit-action API; Dương confirm 
 - Regression verifies optional-only mixed/VN/quiz, no writes/XP/streak, optional video alone, required+optional success, full store rollback, idempotent retry, account isolation, same-day recovered-clock success and summary not counting future days. Focused completion suite 19/19 PASS.
 - Full quality PASS: typecheck/build, 95 unit / 22 component / 7 E2E, scan 338 files / 0 unsafe; diff check PASS. Log `/tmp/suchill-pr88-optional-clock-quality.log` (local only).
 - Hưng/Dương re-review these new changes and current CI before acceptance/merge. Earlier partial acceptance does not cover these findings. Adapter REVIEW, UI M3-06 BLOCKED; no milestone gate, Home, QA83, env/migration/dependency changes.
+
+## Reviewer acceptance (Hưng — optional-only/backwards-day fixes) — 2026-10-02
+
+- Reviewer: Hưng (Member 3); scope: contract/architecture của runtime delta `68580ed` (hai fix + tests). Dương re-review consumer/integrated head vẫn đang chờ.
+- Head đã xác nhận: `68580ed` trên `codex/m3-completion-mock` (PR88 OPEN). Baseline đã ACCEPT trước đó: `5a771db`.
+- Verdict: ACCEPTED cả hai fix, không blocker. Adapter giữ REVIEW đến khi Dương xác nhận và CI xanh.
+- Fix 1 (optional-only): gate `.some(required && !(video && optional))` fail-closed bằng `validation` trước mọi write, bao trùm cả lesson rỗng; `completionPolicy` chỉ tồn tại trên `VideoBlock` trong canonical types nên điều kiện là đầy đủ; lịch sử already_completed và mixed required+optional giữ nguyên; operation ID không bị tiêu thụ.
+- Fix 2 (backwards-day): watermark ngày theo account trước write, rollback toàn phần (test deep-equal store); retry cùng operation giữ receipt gốc; summary lọc ngày tương lai, không xóa ledger; cùng-ngày và khác account độc lập. Khớp D6 (không suy eligibility từ device clock).
+- Tests: 2 regression mới + 1 cập nhật, assertions zero-write/rollback/isolation/recovery đầy đủ. Tự kiểm sensitivity: chạy suite trên source pre-fix `6c5a777` FAIL đúng 3 test, khôi phục fix PASS 19/19.
+- Tự verify độc lập trên `68580ed`: typecheck PASS, build PASS (E2E), 95 unit / 22 component / 7 browser E2E PASS, scan 338/0, `git diff --check` sạch. Không đổi UI/Home/QA83/env/migration.
+- Next: Dương re-review và CI xanh trên head hiện tại; sau đó Vinh mở/merge PR88 theo handoff. Không quyết gate M3.
