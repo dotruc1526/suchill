@@ -588,7 +588,7 @@ test('completion/profile loop retains confirmed service totals, retry intent and
   } finally { await new Promise((resolve, reject) => server.httpServer.close(error => error ? reject(error) : resolve())) }
 })
 
-test('M3-07 deterministic renderer states, quiz retry, long Vietnamese and mute persistence at mobile widths', async t => {
+test('M3-07 deterministic renderer states, quiz retry, long Vietnamese and mute persistence at mobile widths', async () => {
   const browser = findBrowser(); assert.ok(browser, 'Chromium is required')
   const server = await createServer({ server: { host: '127.0.0.1', port: 0 } }); await server.listen()
   try {
@@ -608,12 +608,18 @@ test('M3-07 deterministic renderer states, quiz retry, long Vietnamese and mute 
       await cdp('Emulation.setDeviceMetricsOverride', { width, height: 850, deviceScaleFactor: 1, mobile: false })
       await cdp('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] })
       await waitFor("Boolean(window.loopFixture) && document.body.textContent.includes('Đang tải nội dung bài học')", 'held loading state')
-      const loadingAudit = await evaluate("({ announcement: Boolean(document.querySelector('[role=status],[aria-live]')), motion: getComputedStyle(document.querySelector('.animate-spin')).animationName })")
-      t.diagnostic(`M3-07 accessibility audit ${width}px: loading ${JSON.stringify(loadingAudit)}`)
+      assert.equal(await evaluate("document.querySelector('[role=status]')?.textContent.includes('Đang tải nội dung bài học')"), true, `loading announcement ${width}px`)
+      assert.equal(await evaluate("document.querySelector('[role=status]')?.getAttribute('aria-atomic')"), 'true')
+      assert.equal(await evaluate("document.querySelector('.animate-spin')?.getAttribute('aria-hidden')"), 'true')
+      await waitFor("getComputedStyle(document.querySelector('.animate-spin')).animationName === 'none'", 'spinner stops under reduced motion')
+      await cdp('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'no-preference' }] })
+      await waitFor("getComputedStyle(document.querySelector('.animate-spin')).animationName === 'spin'", 'spinner available without reduced motion')
+      await cdp('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] })
+      await waitFor("getComputedStyle(document.querySelector('.animate-spin')).animationName === 'none'", 'spinner responds to live preference change')
       // Readiness is controlled by the service promise, not an arbitrary timeout.
       await evaluate('window.loopFixture.offline(true); window.loopFixture.release()')
       await waitFor("document.body.textContent.includes('Không thể tải bài học (offline)')", 'typed offline error')
-      t.diagnostic(`M3-07 accessibility audit ${width}px: load error has alert/live region = ${await evaluate("Boolean(document.querySelector('[role=alert],[aria-live]'))")}`)
+      assert.equal(await evaluate("document.querySelector('[role=alert]')?.textContent.includes('Không thể tải bài học (offline)')"), true, `load error announcement ${width}px`)
       const retry = "[...document.querySelectorAll('button')].find(b => b.textContent === 'Thử lại')"
       await evaluate('window.loopFixture.offline(false)'); await press(retry)
       await waitFor("document.body.textContent.includes('Đang tải nội dung bài học')", 'retry loading')

@@ -1,8 +1,8 @@
 # M3-07 — Learning-loop execution and findings
 
-> Status: REVIEW — automated functional suite PASS; accessibility audit has two open P2 findings
+> Status: REVIEW — full quality and accessibility regressions PASS; fixes await reviewer acceptance
 > Date: 2026-10-02; owner Vinh; branch codex/m3-07-learning-loop-qa
-> Base: main 2abd202 (PR97 claim/checklist merged). No runtime/contract changes.
+> Base: main 2abd202 (PR97 claim/checklist merged). Runtime delta: shared LoadingState/ErrorState accessibility only; service contracts unchanged.
 
 [Task card](../active/M3-07.md). PR97 Hưng/Dương acceptance covered the claim only. This execution record does not imply reviewer acceptance, DONE, Gate M3 closure or M4 opening.
 
@@ -22,27 +22,27 @@ Browser names below refer to [e2e.test.mjs](../../../tests/qa/e2e.test.mjs). New
 | Scored quiz → completion | NEW `learning loop: scored quiz consumer gates confirmed rewards and retry`; wrong grade ineligible, correct trusted receipt retry stable, confirmed25XP, replay never grants twice | PASS |
 | Lost response + summary outage | NEW `learning loop: lost completion response and summary outage recover without minting twice`; mock writes once but first response offline; controller retry same operation ID; confirmed receipt survives summary error; read retry total10XP and no extra completion calls | PASS |
 | Completion/profile pending, read retry, re-entry | EXISTING `completion/profile loop retains confirmed service totals, retry intent and mobile focus`, plus m3-completion-controller.test.ts stable intents/stale reads/foreign account tests | PASS |
-| Deterministic loading/error/offline/empty | NEW browser `M3-07 deterministic renderer states, quiz retry, long Vietnamese and mute persistence at mobile widths`; learning-loop.tsx holds real renderer service promise, typed offline error, Enter retry, empty blocks after reload | Functional PASS; announcements FAIL below |
+| Deterministic loading/error/offline/empty | NEW browser `M3-07 deterministic renderer states, quiz retry, long Vietnamese and mute persistence at mobile widths`; learning-loop.tsx holds real renderer service promise, typed offline error, Enter retry, empty blocks after reload | PASS including loading/error announcements after remediation |
 | Valid zero/empty vs error summary | EXISTING `account summary distinguishes empty/error from confirmed zero and exposes retry` component test; controller `null, zero XP and unauthorized summaries remain distinct` | PASS |
-| Status/error announcements | NEW browser checks quiz submit failure role=alert, feedback role=status, result focus; existing completion/profile regions. Loader/error audit outputs announcement:false and alert/live:false at both widths | Quiz/completion PASS; loader/error P2-01 OPEN |
+| Status/error announcements | NEW browser checks quiz submit failure role=alert, feedback role=status, result focus; existing completion/profile regions. Loader/error role/status message assertions now enforced at both widths | PASS; P2-01 fixed, re-review pending |
 | Long Vietnamese | NEW integrated renderer + practice/scored quiz fixture has long Vietnamese titles/prompts/options/feedback; no horizontal overflow before/after results at375/430px | PASS; system-font fallback interaction only |
 | Mute persistence | NEW browser uses real soundService via fixture button, verifies localStorage and aria-pressed after document reload | PASS for preference; audible output/autoplay not certified by this fixture |
-| Keyboard, targets, reduced motion | NEW browser Enter retry/submit/mute, result focus, labels/buttons >=44px. Existing VN/back/mobile tests. Emulated prefers-reduced-motion:reduce; loader animationName remains spin at both widths | Keyboard/targets PASS; loader motion P2-02 OPEN |
+| Keyboard, targets, reduced motion | NEW browser Enter retry/submit/mute, result focus, labels/buttons >=44px. Existing VN/back/mobile tests. Emulated reduce/no-preference/reduce; loader animationName none/spin/none at both widths | PASS; P2-02 fixed, re-review pending |
 
-## Open findings — do not mark task DONE
+## Historical findings at23e810a — fixed in remediation, re-review pending
 
-1. **P2-01 — lesson loading/load failure has no live announcement.** Affected M1 shared states and M3 lesson/quiz initial loading/read error. Reproduce: open learning-loop.html, hold lesson promise, release offline; visible Vietnamese message changes but neither state exposes role=status/alert or aria-live. Both widths produce `announcement:false`, `load error has alert/live region = false`. Locations: `src/components/ui/states/LoadingState.tsx`, `src/components/ui/states/ErrorState.tsx`; consumed by LessonRenderer/QuizFlow. Missing acceptance: Phase8 status/error announcements. Dương/Hưng should coordinate a separate runtime claim and confirm semantics before repair; these source files are outside M3-07's test/docs claim.
-2. **P2-02 — loading spinner keeps spinning under reduced motion.** Same controlled loading state with CDP prefers-reduced-motion:reduce: computed animationName `spin` at375/430px. Location: `src/components/ui/states/LoadingState.tsx`. Missing acceptance: Phase8 reduced-motion handling. Remediation can share the UI-state claim above. Browser diagnostics deliberately record this audit finding; green functional tests do not claim this requirement passes.
+1. **P2-01 — lesson loading/load failure has no live announcement.** Affected M1 shared states and M3 lesson/quiz initial loading/read error. Reproduce: open learning-loop.html, hold lesson promise, release offline; visible Vietnamese message changes but neither state exposes role=status/alert or aria-live. Both widths produce `announcement:false`, `load error has alert/live region = false`. Locations: `src/components/ui/states/LoadingState.tsx`, `src/components/ui/states/ErrorState.tsx`; consumed by LessonRenderer/QuizFlow. Missing acceptance: Phase8 status/error announcements. User authorized repair after both reviewers confirmed the finding; separate runtime claim [M3-07-A11Y-01](../active/M3-07-A11Y-01.md) recorded before source edits. Fix: role=status/alert with aria-atomic and decorative elements aria-hidden.
+2. **P2-02 — loading spinner keeps spinning under reduced motion.** Same controlled loading state with CDP prefers-reduced-motion:reduce: computed animationName `spin` at375/430px. Location: `src/components/ui/states/LoadingState.tsx`. Missing acceptance: Phase8 reduced-motion handling. Fix under the separate claim: motion-reduce:animate-none. Diagnostic-only audit replaced with assertions for computed animationName none/spin/none under live preference changes; both widths pass.
 
 No new reward, account isolation or learning transition blocker was reproduced. Two initial test-authoring failures were corrected: practice correctly grants0XP; disabled fieldset descendants must be queried with :disabled rather than the input.disabled attribute. No product behavior was changed to make tests pass.
 
-## Verification and handoff
+## Verification and handoff after remediation
 
 - `node --test tests/member5/m3-learning-loop.test.ts`: 6/6 PASS.
-- Focused new browser test: 1/1 PASS, both mobile widths; audit findings above reproduced.
-- `npm run quality`: exit0; typecheck/build PASS, **117 unit / 23 component / 9 browser E2E PASS**; client scan361 files /0 unsafe. Local log: /tmp/suchill-m3-07-quality.log (ephemeral, not repository evidence storage).
+- Focused new browser test: 1/1 PASS, both mobile widths; loading/error semantics and reduced-motion assertions pass. Before source fixes, the new assertion failed on missing loading status, proving the regression detects P2-01.
+- `npm run quality`: exit0; typecheck/build PASS, **117 unit / 23 component / 9 browser E2E PASS**; client scan365 files /0 unsafe. Local log: /tmp/suchill-m3-07-a11y-quality.log (ephemeral, not repository evidence storage).
 - `git diff --check`: PASS. No new CI result claimed until implementation is pushed.
-- Changed files: new integration unit suite, new learning-loop HTML/TSX fixture, appended browser case and four existing task/status docs plus this evidence.
-- Runtime/source, env, migrations and dependencies: unchanged. No Home/hotspot changes; existing QA-002 assertions preserved.
+- Changed files since23e810a: LoadingState.tsx, ErrorState.tsx, browser assertions, remediation card and parent card/index/board/status/evidence. Original integration suite and fixtures unchanged.
+- Runtime impact: all shared LoadingState/ErrorState consumers gain live semantics; spinner honors CSS media preference. Env, migrations, dependencies and public component APIs unchanged. No Home/hotspot changes; existing QA-002 assertions preserved.
 - Limits: technical fixtures and shared in-memory mock, no real-device/screen-reader/audio/canonical-media/webfont-visual/backend-persistence certification. Scored grading and watched video evidence are mock service outcomes; no production reward/security guarantee.
-- Next: Hưng architecture/accessibility and Dương consumer review these results, coordinate fixes for P2-01/02 under a separate UI-state file claim, then rerun affected QA before accepting M3-07. PO audits Gate M3 only after task acceptance. M3 OPEN/M4 LOCKED.
+- Next: Hưng architecture/accessibility and Dương consumer re-review the new runtime delta and assertions before accepting M3-07. Both P2 fixed in executor verification; no final reviewer acceptance inferred. PO audits Gate M3 only after task acceptance. M3 OPEN/M4 LOCKED.
