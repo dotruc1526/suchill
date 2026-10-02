@@ -1,7 +1,7 @@
 # CONTENT-003 — Historical source and media review pilot
 
 > Status: REVIEW\
-> Review Verdict: **PENDING_REVIEWER_CONFIRMATION** cho registry revision 2026-10-02\
+> Review Verdict: **SOURCE_SCOPE_ACCEPTED_BY_TRÚC** cho registry hash `369205fc…e3bba5`; audio rights riêng còn BLOCKED_FOR_COMMERCIAL_USE\
 > Date: 2026-10-02\
 > Reviewer: Trúc historical/media; Vinh technical QA\
 > Reference Report: [source review 2026-10-02](../evidence/CONTENT-003-source-review-2026-10-02.md). Báo cáo cũ bên dưới chỉ để truy vết.
@@ -44,7 +44,7 @@
 - [x] 7/7 claim có nguồn đọc được hỗ trợ; SRC-MT68-02 chưa đọc trực tiếp được ghi candidate, SRC-MT68-07 bổ sung evidence cho danh sách mục tiêu.
 - [x] Phương án bắt buộc chữ/sơ đồ nguyên bản; 6 BLOCKED/2 NEEDS_MEDIA_REVIEW loại khỏi mandatory route; không cấp quyền ảnh/clip optional.
 - [x] Checklist quyền audio, consent và ranh giới preproduction/production outputs đã ghi rõ.
-- [ ] Trúc xác nhận source verdict/Tier 3/phạm vi claim theo registry hash hiện hành (kết luận đề nghị ở evidence mục 8).
+- [x] Trúc ACCEPT source verdict/Tier 3/phạm vi claim ngày 2026-10-02 theo registry SHA-256 `369205fcbd713a74acaa0149e6c21d2c3734260d4265e7b8f87edd5868e3bba5` (evidence mục 8 và xác nhận cuối).
 - [x] Trúc cung cấp voice ID `5g2DMFQF8xR0KmnuNr4U`, gói Free, Eleven v4 ngày 2026-10-02 (user-provided).
 - [ ] Audio rights cho mục đích phát hành: BLOCKED_FOR_COMMERCIAL_USE vì gói Free; cần phương án/gói phù hợp và evidence trước sign-off.
 - [ ] Vinh technical QA/reviewer nghiệm thu task; PO production decision riêng.
@@ -181,3 +181,9 @@ Tuy nhiên, hội đồng thẩm định ghi nhận **04 lỗi lịch sử & k�
 - Đã nhận voice ID `5g2DMFQF8xR0KmnuNr4U`, gói Free, Eleven v4; supersede ghi chú thiếu voice ID/gói bên trên. Chưa xác minh profile độc lập, chưa có audio final.
 - Audio Free không có quyền thương mại: `BLOCKED_FOR_COMMERCIAL_USE`. Next: xác định phạm vi phát hành và phương án quyền phù hợp; nếu thương mại, tạo output mới trên gói đủ quyền sau content gate và kiểm tra Beta/điều khoản. Không coi nâng gói là cấp quyền hồi tố output Free.
 - Source verdict đề nghị vẫn chờ Trúc xác nhận đúng hash. CONTENT-003 REVIEW; CONTENT-007 BLOCKED, không có production sign-off.
+
+## Historical/source sign-off của Trúc — 2026-10-02
+
+- Trúc trả lời trực tiếp: “ACCEPT phạm vi nguồn nêu trên”. Chấp nhận đúng registry SHA-256 `369205fcbd713a74acaa0149e6c21d2c3734260d4265e7b8f87edd5868e3bba5`: SRC-MT68-07 Tier 3 chỉ danh sách năm mục tiêu; SRC-MT68-05 Tier 3, đối chiếu SRC-MT68-04, chỉ vai trò hậu cần căn hầm; SRC-MT68-02 vẫn candidate. Các giới hạn/perspective/locator khác giữ nguyên.
+- Supersede các ghi chú chờ human source confirmation ở trên. Registry không sửa byte để giữ binding sign-off. Không cấp verdict mới cho authored artifacts hoặc quyền ảnh/audio.
+- Next: Vinh recheck metadata/diff; chốt phương án audio có quyền phù hợp với phạm vi sử dụng (Free không có quyền thương mại); PO quyết định handoff riêng. CONTENT-003 REVIEW, CONTENT-007 BLOCKED.

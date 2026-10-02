@@ -101,3 +101,7 @@ Sau human source confirmation và đủ audio plan evidence: Vinh recheck, PO qu
 Trúc cung cấp voice ID `5g2DMFQF8xR0KmnuNr4U`, gói **Free**, model **Eleven v4**. Provider/label/language vẫn ElevenLabs / Hoa - Smooth, Gentle and Poetic / Vietnamese. Identity là thông tin user-provided; chưa đối chiếu profile trong tài khoản.
 
 Audio verdict cập nhật: **BLOCKED_FOR_COMMERCIAL_USE**, do Free không có commercial license theo chính sách chính thức nêu trên. Voice ID/gói không còn là thông tin thiếu; không coi phản hồi này là xác nhận quyền thương mại hoặc source verdict. Audio chưa được tạo. Với nhánh phát hành thương mại: chọn gói có quyền phù hợp, tạo audio mới khi gói có hiệu lực, kiểm tra service/model không thuộc Beta và lưu evidence. Với nhánh phi thương mại: phải xác định phạm vi và attribution theo điều khoản, không tự cho phép tích hợp production.
+
+### Xác nhận source scope của Trúc — 2026-10-02
+
+Trúc trả lời câu hỏi review trên chat: **“ACCEPT phạm vi nguồn nêu trên”**. Verdict **ACCEPTED_BY_TRÚC** bound registry SHA-256 `369205fcbd713a74acaa0149e6c21d2c3734260d4265e7b8f87edd5868e3bba5`: SRC-MT68-07 Tier 3 chỉ xác nhận danh sách năm mục tiêu; SRC-MT68-05 Tier 3 đối chiếu SRC-MT68-04 chỉ xác nhận vai trò hậu cần căn hầm; SRC-MT68-02 candidate. Supersede trạng thái source human confirmation pending tại các snapshot trước; không sửa registry, không suy rộng thành media/audio/production acceptance. Audio Free vẫn BLOCKED_FOR_COMMERCIAL_USE; Vinh QA và PO handoff còn riêng.
