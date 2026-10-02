@@ -15,6 +15,6 @@ Scope is **research-preparation-v1**. Both roots must stay REVIEW with canonical
 
 PASS does not verify historical truth, URL availability, source independence, media rights or permission to release. Counts are reported rather than pinned to 15/42, allowing preparation additions with valid mappings. Seven episodes remain fixed by the approved outline. Dates are metadata strings, not a chronology audit.
 
-This tool is manually invoked. No package.json or CI workflow changes are included, avoiding active hotspots; integration into shared Quality requires a separate file claim. The included test command must be run for this PR because existing Quality does not discover this new test directory.
+The tool can be invoked manually with the commands above. The separate Chapter 1954 register quality workflow runs the validator and dedicated tests automatically on every push and pull request, without modifying package.json or the existing Quality workflow. A structural PASS remains separate from historical acceptance.
 
 Task: [M7-1954-REGISTER-CHECK-003](../../../docs/tasks/active/M7-1954-REGISTER-CHECK-003.md). Evidence: [2026-10-03](../../../docs/tasks/evidence/M7-1954-register-check-2026-10-03.md).
