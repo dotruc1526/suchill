@@ -87,3 +87,19 @@
 - **TEXT APPROVED** closeout CONTENT-017 trên PR #99 (thay cho GitHub approve theo thỏa thuận; không bấm approve trên GitHub).
 - Đã đối chiếu: PR #54 MERGED `0075079` ngày 2026-09-30; Trúc APPROVED historical/media và PO APPROVED nghiệm thu tại head cuối; Quality checks 2/2 SUCCESS; `validate-1972-authoring.mjs` PASS trên main; card `done/`, board DONE, index đồng bộ; không còn link sống trỏ card `active/` (một dòng checkpoint lịch sử giữ tên file cũ đúng bản chất ghi chép).
 - Phạm vi approval: xác nhận hồ sơ closeout trung thực. Không quyết định gate milestone; production/integration cần task/gate riêng.
+
+## PR99 final integration claim — Vinh / Codex, 2026-10-02
+
+- User authorized final verification and merge PR99. Executor Vinh/Codex handles integration only; authoring/content ownership remains Thọ/Trúc.
+- Branch: local `codex/pr99-final-integration`, updates remote `codex/tho-content017-closeout`.
+- Files claimed: conflict resolution in TASK-BOARD.md, active/CONTENT-014.md, active/README.md; this final integration checkpoint; PR description.
+- Scope: preserve quiz verdict and authored bytes from `7d94d94`, preserve Hưng independent recheck from main `b716b41`, synchronize current next actions. No runtime/media/gate changes.
+- Next: run both authoring validators, hash/content-delta checks, links and CI on integrated head; merge only when checks pass.
+
+## Final integration verification — 2026-10-02
+
+- Resolved three documentation conflicts against main `b716b41`, preserving both Trúc quiz/media records and Hưng independent sync recheck. No authored artifact bytes changed from PR99 `7d94d94`.
+- Verified PR54: Trúc and PO `Compuerte` APPROVED final head `8a8a4a1`, merged `0075079`; both Quality checks SUCCESS. Existing closeout relies on that accepted authoring scope, not new production approval.
+- Quiz current LF hash `44b9eed6fc1c94cbf8b4b662eaeb2580ad55b08994286bba2b86cf1891103912`; net content delta against main is exactly one reviewStatus line. Quiz stays draft/authoringOnly; map review remains pending.
+- MT68 validator PASS (5 nodes/7 scenes/6 paths/5 questions/9 cues); 1972 validator PASS (5 nodes/8 scenes/narration); 196 changed-doc local links resolve, diff check PASS.
+- Runtime/env/migration/dependency impact: none; runtime suite not rerun for record-only integration. CI must pass on pushed head before merge; no M3 closure/M4 opening or media publication.
