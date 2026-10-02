@@ -1,0 +1,224 @@
+# CONTENT-003 — Historical source and media review pilot
+
+> Status: DONE\
+> Review Verdict: **SOURCE_SCOPE_ACCEPTED_BY_TRÚC** cho registry hash `369205fc…e3bba5`; audio plan APPROVED cho MVP học tập phi thương mại theo PO Dương; commercial use không được cấp quyền\
+> Date: 2026-10-02\
+> Reviewer: Trúc historical/media; Vinh technical QA\
+> Reference Report: [source review 2026-10-02](../evidence/CONTENT-003-source-review-2026-10-02.md). Báo cáo cũ bên dưới chỉ để truy vết.
+
+## Assignment hiện hành — 2026-10-02
+
+- Owner: Trúc (Member 2).
+- Executor: Codex hỗ trợ Trúc theo yêu cầu triển khai ngày 2026-10-02.
+- Reviewer: Trúc historical/media; Vinh technical QA; Product Owner quyết định production gate.
+- Status: DONE theo PO closeout bên dưới; Started: 2026-10-02 (đã claim IN PROGRESS trước khi sửa).
+- Branch: `codex/truc-content003-source-review`; base main `c7a5ad5`.
+- Depends on: CONTENT-002 và DOC-004 DONE trên board; acceptance CONTENT-002 đã tick đủ. Handoff cũ còn ghi ô trống sẽ được ghi rõ là superseded.
+- Files claimed: `docs/content/HISTORICAL-SOURCES.md`, `MEDIA-REVIEW-MT68.md`, `PRODUCTION-NOTES.md`; card này, `docs/tasks/evidence/CONTENT-003-source-review-2026-10-02.md`, `docs/tasks/active/README.md`, các row CONTENT-003/007 và checkpoint trong `docs/project/TASK-BOARD.md`.
+- Next action: Vinh đã ACCEPTED phạm vi metadata/diff tại lượt recheck bên dưới; hồ sơ Trúc source ACCEPT tại 00c8d92 đã có, Trúc đã chốt Free/internal reference only; PO quyết định handoff riêng, commercial/production audio chưa đủ quyền.
+- Out of scope: runtime, chapter 1972, MP4/thu âm production, duyệt quyền ảnh optional, tự mở CONTENT-007 hoặc milestone.
+
+### Cập nhật phương án voice — 2026-10-02
+
+- Owner: Trúc; Executor: Codex theo yêu cầu Trúc; Reviewer: Trúc media/historical, Vinh technical QA.
+- Status: REVIEW; Started: 2026-10-02 (hiệu chỉnh phương án audio).
+- Files claimed: card này, `docs/content/MEDIA-REVIEW-MT68.md`, `docs/content/PRODUCTION-NOTES.md`, dòng CONTENT-003 và checkpoint tương ứng trong task board.
+- Scope / acceptance: ghi đúng nhà cung cấp, giọng, model và ngôn ngữ do Trúc chọn; phân biệt lựa chọn cấu hình với nghiệm thu quyền và file audio.
+- Quyết định của Trúc: dùng **ElevenLabs**, giọng **Hoa - Smooth, Gentle and Poetic**, giọng người Việt Nam theo mô tả Trúc cung cấp; model **Eleven v4**, ngôn ngữ **Vietnamese**. Chi tiết/evidence tại [media review](../../content/MEDIA-REVIEW-MT68.md#phương-án-voice-do-trúc-chọn--2026-10-02).
+- Next action: ghi voice ID/link thư viện đúng giọng Hoa, gói tài khoản và bằng chứng quyền sử dụng; khi production đủ gate mới tạo audio, ghi file/hash và QA timing/caption.
+- Pending: chưa có voice ID, evidence quyền tài khoản/giọng hoặc file audio mới; source review/handoff còn theo card. CONTENT-007 vẫn BLOCKED.
+- Handoff: chỉ sửa 4 tài liệu nêu trên, không đổi narration/caption hoặc review verdict; không có thay đổi env/migration. Không chạy build/test ứng dụng vì chỉ cập nhật tài liệu; kiểm tra diff của các file đã sửa.
+
+## Lượt xử lý review theo yêu cầu Trúc — 2026-10-02
+
+- Owner: Trúc; Executor: Codex; Reviewer: Trúc historical/media, Vinh technical QA; Status: REVIEW; Started: 2026-10-02.
+- Files claimed: card này, evidence CONTENT-003, MEDIA-REVIEW-MT68 và các dòng CONTENT-003 trong task board.
+- Scope / acceptance: đối chiếu lại các nguồn Tier 3 đang chờ, cung cấp kết luận để Trúc duyệt đúng hash; bổ sung điều kiện quyền ElevenLabs và tách các mục pending. Không ký human verdict thay Trúc.
+- Checkpoint: Nhân Dân 2008 xác nhận list-membership năm mục tiêu; VOH 2023 và Nhân Dân 2013 đối chiếu vai trò hậu cần. Đề nghị ACCEPT source scope giới hạn; sách source 02 vẫn candidate. Xem mục 8 của [evidence](../evidence/CONTENT-003-source-review-2026-10-02.md).
+- Next action: Trúc xác nhận riêng source verdict trên hash `369205fcbd713a74acaa0149e6c21d2c3734260d4265e7b8f87edd5868e3bba5`; cung cấp voice ID/link và tên gói ElevenLabs để chốt quyền audio; Vinh QA độc lập.
+- Handoff: chỉ tài liệu, không env/migration/runtime; registry và authored artifacts không đổi. Chưa có bằng chứng gói tài khoản hoặc voice profile. Không chạy app build/test cho cập nhật review docs; kiểm tra diff whitespace.
+
+## Quyết định audio hiện hành của Trúc — 2026-10-02
+
+- Owner/reviewer media: Trúc; Executor: Codex ghi nhận; Reviewer technical: Vinh (ACCEPTED tại d17968b); Status: REVIEW; Started: 2026-10-02.
+- Files claimed: card này, evidence CONTENT-003, MEDIA-REVIEW-MT68, PRODUCTION-NOTES, active index và các dòng CONTENT-003/checkpoint trong task board.
+- Quyết định: Trúc trả lời “1” cho lựa chọn “Giữ Free, chỉ làm bản tham khảo nội bộ”. Scope `INTERNAL_REFERENCE_ONLY`, phi thương mại; không phải canonical lesson audio hoặc quyền production.
+- Cấu hình giữ nguyên: ElevenLabs Free; Hoa - Smooth, Gentle and Poetic; voice ID `5g2DMFQF8xR0KmnuNr4U`; Eleven v4; Vietnamese. Cấu hình/ID là user-provided, chưa xác minh profile trong tài khoản.
+- Acceptance phần lựa chọn: đã chốt phạm vi sử dụng; không còn chờ Trúc chọn phương án audio. File cuối/license evidence/timing QA chưa được nghiệm thu; commercial use vẫn BLOCKED_FOR_COMMERCIAL_USE.
+- Next action: reviewer/PO xem xét hồ sơ review theo phạm vi này; production CONTENT-007 vẫn BLOCKED theo dependency/quyền riêng. Nếu cần phát hành, phải có phương án audio đủ quyền mới và duyệt lại trước production.
+- Handoff: chỉ 6 tài liệu, không tạo audio, không sửa registry/authoring, không env/migration/runtime impact; không chạy build/test ứng dụng vì docs-only. Kiểm tra diff whitespace; các snapshot “chờ Trúc chốt audio” bên dưới được quyết định này thay thế.
+
+## Acceptance và handoff hiện hành — 2026-10-02
+
+- [x] Source IDs/claim IDs Mậu Thân có một nghĩa duy nhất, locator/tier/perspective và giới hạn wording rõ.
+- [x] 7/7 claim có nguồn đọc được hỗ trợ; SRC-MT68-02 chưa đọc trực tiếp được ghi candidate, SRC-MT68-07 bổ sung evidence cho danh sách mục tiêu.
+- [x] Phương án bắt buộc chữ/sơ đồ nguyên bản; 6 BLOCKED/2 NEEDS_MEDIA_REVIEW loại khỏi mandatory route; không cấp quyền ảnh/clip optional.
+- [x] Checklist quyền audio, consent và ranh giới preproduction/production outputs đã ghi rõ.
+- [x] Trúc ACCEPT source verdict/Tier 3/phạm vi claim ngày 2026-10-02 theo registry SHA-256 `369205fcbd713a74acaa0149e6c21d2c3734260d4265e7b8f87edd5868e3bba5` (evidence mục 8 và xác nhận cuối).
+- [x] Trúc cung cấp voice ID `5g2DMFQF8xR0KmnuNr4U`, gói Free, Eleven v4 ngày 2026-10-02 (user-provided).
+- [x] Trúc chốt Free/internal reference only ngày 2026-10-02; acceptance chỉ cho lựa chọn phạm vi, không nghiệm thu file/license production.
+- [x] PO Dương chốt MVP học tập phi thương mại và APPROVED audio rights plan ElevenLabs Free cho scope này; title credit bắt buộc, final output QA thuộc CONTENT-007.
+- [x] Vinh technical QA metadata/diff ACCEPTED theo evidence recheck bên dưới; không thay historical/media verdict.
+- [ ] PO production decision riêng sau khi dependency và rights/source plan được reviewer nghiệm thu.
+
+Verification: authoring validator PASS (5 node, 7 scene, 6 đường đi, 5 quiz, 9 cue 110s); 7 source rows/7 claim rows unique; chapter 1972 byte-identical; 10 authoring/catalog inputs unchanged; local Markdown links PASS; `git diff --check` PASS. Không chạy app build/typecheck vì docs-only, không runtime/env/migration/dependency impact.
+
+Changed files: registry, MEDIA-REVIEW-MT68, PRODUCTION-NOTES, card/evidence CONTENT-003, task board và active index. Known issues: book scan/source 02 chưa truy cập; Tier 3 mới chờ reviewer; audio đã chọn ElevenLabs/Hoa/Eleven v4/Vietnamese, chưa có voice ID/quyền/file xuất; map còn pending, sourceIds production revision cần owner/reviewer; chưa có asset final. Không yêu cầu phải có MP4 cuối trước khi mở task dựng MP4. M4/M5 đã CLOSED, M6 OPEN theo DOC-020/021; CONTENT-007 BLOCKED cho tới dependency/PO decision và claim riêng.
+
+## Lượt review và sửa regression — 2026-09-28 (snapshot cũ)
+
+Các dependency/next action cũ bên dưới được assignment/acceptance 2026-10-02 thay thế; CONTENT-002 hiện DONE với bốn checkbox reviewer đạt. Không dùng ô trống trong handoff cũ làm blocker mới.
+
+- Owner / Executor: Trúc; Codex thực hiện đối chiếu và sửa tài liệu theo yêu cầu.
+- Reviewer: Trúc historical/learning/media; Vinh technical QA.
+- Status: REVIEW; Started: 2026-09-28; Branch: `codex/content-status-sync`.
+- Files claimed: `docs/content/HISTORICAL-SOURCES.md`, `PILOT-SCREENPLAY.md`, `CURRICULUM-MAP.md`; card CONTENT-003/004, task board và `CONTENT-003-004-REVIEW.md` cùng thư mục.
+- Scope: review bản authoring, sửa regression của ba tài liệu về bản có source/claim và narration v2; không claim sản xuất CONTENT-007.
+- Next action: Trúc bổ sung nguồn đọc được cho CLM-MT68-01, xác nhận historical/learning và nguồn audio; Vinh review kỹ thuật. Xem [báo cáo](./CONTENT-003-004-REVIEW.md).
+- Checkpoint: đã sửa regression ba tài liệu, validator PASS; bốn nhóm fact pilot có nguồn hỗ trợ, nhóm năm mục tiêu chưa đọc lại được URL. Verdict vẫn NEEDS_REVISION.
+- Blocker: CONTENT-002 còn ô reviewer chưa xác nhận; historical/media sign-off và audio chưa có evidence. Chỉ review/sửa bản nháp hiện hữu.
+
+### Checkpoint cập nhật trạng thái — 2026-10-02
+
+- Historical/language review được ghi nhận riêng cho artifact screenplay/narration trong CONTENT-004 tại revision khớp verdict 2026-09-28 (chi tiết/hash ở [CONTENT-014](./CONTENT-014.md)). Điều này không tự phê duyệt toàn bộ CONTENT-003, source registry, quyền media, audio hay production.
+- Task CONTENT-003 vẫn `REVIEW`; các ghi chú cũ rằng chính pilot screenplay còn `NEEDS_HISTORICAL_REVIEW` đã được thay bằng checkpoint hash-bound. Giữ các source/claim chưa có locator và các media/rightsholder pending ở trạng thái tương ứng.
+- Gate hiện hành: M3 OPEN / M4 LOCKED; content production có gate riêng. Next: hoàn tất source/media evidence và handoff review trước mọi production.
+
+### Assignment trước lượt review
+
+- Owner: Trúc (historical/media review theo quyền Thọ giao ngày 2026-09-27).
+- Executor: Trúc (sửa hồ sơ PR #21 theo quyền Thọ cấp), Codex hỗ trợ.
+- Reviewer: Trúc phụ trách historical/learning/media; Vinh technical QA. Codex không thay sign-off.
+- Started: 2026-09-27 (revision); Branch: `codex/mt68-complete-handoff`.
+- Depends on: CONTENT-002 (board ghi DONE; card còn ô reviewer chưa xác nhận), DOC-004 (DONE).
+- Files claimed: registry/catalog, card này, board và [handoff](./PR21-HANDOFF.md).
+- Next action: reviewer kiểm tra Bài 2–4/quiz đã sửa, hoàn tất pilot và quyền từng asset.
+- Blocker: bản authoring pilot/scene đã sửa theo CONTENT-014; chờ Trúc xác nhận nội dung và bằng chứng audio/media cuối. Không mở CONTENT-007.
+- Acceptance: nguồn/claim truy vết được; fact/fiction và quyền media được xác nhận; verdict có người ký. Hiện chưa đủ.
+- Checkpoint: bản sửa bổ sung registry; trạng thái REVIEW không đồng nghĩa verdict APPROVED.
+- Lịch sử 2026-09-23: card ban đầu BLOCKED chờ chọn chapter và reviewer; hợp nhất card trùng từ thư mục blocked.
+- Kiểm tra/build/env: xem handoff; chỉ tài liệu, không migration.
+
+## Báo cáo cũ — lưu để truy vết, không phải phê duyệt
+
+Các nhận định dưới đây là nội dung review cũ chưa được xác nhận toàn bộ. Đặc biệt đề xuất pháp lý về blur/16+, ưu tiên độc tôn nguồn, quan hệ lịch âm và lời tuyên bố “đã phê duyệt” không phải quyết định APPROVED của nhóm. Bản sửa hiện hành và Phase 3/8 là căn cứ cho bước tiếp theo.
+
+---
+
+## 1. Assignment
+
+- **Phase / milestone:** MVP Content Track; Thẩm định Sử liệu & Kịch bản Pilot
+- **Workstream:** Historical & Educational Media Review
+- **Target Documents Reviewed:**
+  - `docs/content/PILOT-SCREENPLAY.md` (Segment 1: pilot_screenplay)
+  - `docs/content/HISTORICAL-SOURCES.md` (Segment 2: sources_and_research)
+  - `docs/content/RESEARCH-CANDIDATES.md` (Segment 2: sources_and_research)
+  - `docs/content/CURRICULUM-MAP.md` (Segment 3: curriculum_map)
+- **Accountable Reviewer:** Historical Reviewer (teamwork_preview_document_1)
+- **Review Architecture:** Recursive Self-Aggregation (RSA) Tournament Tree (3 Segment Group Orchestrators [4, 2, 1] + Synthesis RSA Group Orchestrator [4, 1] Root Reducer).
+
+---
+
+## 2. Executive Summary & Review Verdict
+
+### Kết quả thẩm định: **NEEDS_REVISION** (Yêu cầu hiệu chỉnh bắt buộc)
+
+Toàn bộ gói tài liệu thể hiện xuất sắc lập trường tư tưởng chính trị cách mạng Việt Nam, tuân thủ nghiêm ngặt quy chuẩn R3 (*"Kháng chiến chống Mỹ cứu nước"*, *"Đế quốc Mỹ"*, *"Biệt động Sài Gòn — Gia Định"*), loại bỏ triệt để quan điểm phiến diện hoặc thuật ngữ sai lệch của phương Tây. Nội dung tái hiện hào hùng và trung thực các trụ cột lịch sử: Hầm vũ khí 287/70 Trần Quý Cáp, Tiệm phở Bình, Thơ chúc Tết Bác Hồ 1968, 5 mục tiêu thọc sâu nội đô Sài Gòn, thế trận lòng dân và bước ngoặt đàm phán Paris.
+
+Tuy nhiên, hội đồng thẩm định ghi nhận **04 lỗi lịch sử & kỹ thuật cấp độ Nghiêm trọng (Critical)** cùng **15 khuyến nghị Trọng yếu (Major)** cần phải được khắc phục dứt điểm trước khi bàn giao sang khâu sản xuất video (Member 2 — Trúc) và triển khai Frontend/Database (Member 4 — Dương):
+
+---
+
+## 3. Các Lỗi Lịch sử và Kỹ thuật Nghiêm trọng (Critical Deficiencies)
+
+1. **Sai lệch địa giới hành chính và gán sai hướng xuất kích của Biệt động tại Hầm 287/70 (`HISTORICAL-SOURCES.md` Mục 2, dòng 23):**
+   - *Thực tế lịch sử:* Căn hầm tại số 287/70 đường Trần Quý Cáp (nay đổi tên thành **đường Võ Văn Tần**, không phải đường Nguyễn Đình Chiểu) do Anh hùng Trần Văn Lai cùng vợ đào ngụy trang là căn cứ xuất phát và cung cấp vũ khí cho **Đội 5 Biệt động tiến công Dinh Độc Lập** (do đồng chí Ba Thanh chỉ huy). Đội 11 (do Ba Đen chỉ huy) đánh Tòa Đại sứ Mỹ xuất phát từ trạm cơ sở khác.
+   - *Yêu cầu sửa đổi:* Đính chính dòng 23 `HISTORICAL-SOURCES.md` thành đường Võ Văn Tần và là nơi xuất phát của Đội 5 đánh Dinh Độc Lập; đồng bộ dòng 137 của `CURRICULUM-MAP.md`.
+
+2. **Xung đột danh mục 5 mục tiêu đầu não trọng yếu (`HISTORICAL-SOURCES.md` Mục 2, dòng 18):**
+   - *Thực tế lịch sử:* 5 mục tiêu thọc sâu trung tâm nội đô của Biệt động Sài Gòn là: *(1) Tòa Đại sứ Mỹ, (2) Dinh Độc Lập, (3) Đài Phát thanh Sài Gòn, (4) Bộ Tổng Tham mưu, và (5) **Bộ Tư lệnh Hải quân***. Căn cứ Biệt khu Thủ đô là mục tiêu đánh chiếm của các tiểu đoàn bộ binh mũi nhọn (Tiểu đoàn 6 Bình Tân) ở vùng ven Tây Nam, không thuộc 5 mũi cảm tử nội đô của Biệt động.
+   - *Yêu cầu sửa đổi:* Thay thế cụm từ "Biệt khu Thủ đô" bằng "Bộ Tư lệnh Hải quân" tại dòng 18 `HISTORICAL-SOURCES.md`.
+
+3. **Quá tải nhịp độ Voiceover gây rủi ro vỡ timeline video 110 giây (`PILOT-SCREENPLAY.md` Scene 03 & 05):**
+   - *Hiện trạng:* Scene 05 nhồi 53 từ trong 10 giây (tốc độ >300–318 từ/phút); Scene 03 nhồi 60 từ dẫn trong 16 giây (>225 từ/phút), vượt quá giới hạn phát âm chuẩn (~135–140 từ/phút) của phát thanh viên và Microsoft Azure TTS.
+   - *Yêu cầu sửa đổi:* Rút gọn lời thoại Scene 05 xuống còn 23 từ (*"Đòn tập kích làm sụp đổ ảo tưởng của đối phương, buộc Mỹ phải xuống thang và ngồi vào bàn đàm phán Paris!"*), chuyển lời hiệu triệu sang nút bấm UI; phân định rõ 9 giây im lặng của voiceover trong Scene 03 nhường sóng trọn vẹn cho bản ghi âm thơ Bác Hồ.
+
+4. **Sai lệch niên biểu thiên văn lịch pháp & ngôn ngữ học ("31 tháng Giêng năm 1968" trong `PILOT-SCREENPLAY.md`):**
+   - *Thực tế:* Tháng Giêng âm lịch chỉ có tối đa 29 hoặc 30 ngày, hoàn toàn không có ngày "31 tháng Giêng".
+   - *Yêu cầu sửa đổi:* Sửa toàn bộ kịch bản Voiceover, Transcript và WebVTT thành danh xưng chuẩn: **"ngày 31 tháng 1 năm 1968"** (Dương lịch) hoặc **"rạng sáng Mùng 2 Tết Mậu Thân — ngày 31 tháng 1 năm 1968"**.
+
+---
+
+## 4. Các Vấn đề Trọng yếu Cần Hoàn thiện (Major Recommendations)
+
+1. **Kỷ luật Cổng Chất lượng (Quality Gate):** Hạ trạng thái phê duyệt sớm của `PILOT-SCREENPLAY.md` (`APPROVED / READY_FOR_PRODUCTION`), `HISTORICAL-SOURCES.md` (`Verified`), và `CURRICULUM-MAP.md` (`APPROVED / PUBLISHED`, `status: "published"`) về `IN_REVIEW` cho đến khi hoàn tất bản vá revision.
+2. **Hiện vật Nắp hầm 287/70 Trần Quý Cáp (`PILOT-SCREENPLAY.md` Scene 02):** Sửa mô tả 3D "sàn gỗ mở ra" và SFX "ván sàn gỗ kẽo kẹt" thành nền gạch bông xi măng cổ điển và nắp hầm 4 viên gạch bông khung thép gioăng cao su ngầm mở êm ru bằng giác hút chân không.
+3. **Mốc thời gian nổ súng Tòa Đại sứ Mỹ (`PILOT-SCREENPLAY.md` Scene 04):** Bộc phá phá thủng tường rào Tòa Đại sứ phát nổ vào khoảng 02h45–02h47 sáng ngày 31/1/1968 (không phải 02h05).
+4. **Chuẩn hóa Phụ đề WebVTT (`PILOT-SCREENPLAY.md` Mục 4):** Đồng bộ định dạng timestamp `00:mm:ss.ttt` từ giây 70 trở đi và bổ sung cue phụ đề Call-To-Action điều hướng cuối video.
+5. **Tuân thủ Thuật ngữ R3 trong Voiceover (`PILOT-SCREENPLAY.md`):** Bổ sung cụm từ định danh "Kháng chiến chống Mỹ cứu nước" và "Đế quốc Mỹ" vào văn bản lời thoại phát thanh viên.
+6. **Chiến lược Bản quyền Media Quốc tế 4 Tầng (`HISTORICAL-SOURCES.md` & `RESEARCH-CANDIDATES.md`):** Bác bỏ ngộ nhận Educational Fair-Use đối với việc tải và lưu trữ video thương mại AP Archive / British Pathé. Chuyển sang khai thác tư liệu Public Domain (NARA, LOC), hợp tác bản quyền VTV/TTXVN, nhúng Deep-Linking qua YouTube IFrame API và ứng dụng Motion Graphics.
+7. **Gắn nhãn Góc nhìn & Bộ lọc Nhạy cảm:** Gán metadata `perspective: western_archive` cho tư liệu nước ngoài; áp dụng bộ lọc mờ (Blur 15px) kèm cảnh báo `[16+ Sensitive Historic Photo]` cho ảnh chiến trường theo Luật Trẻ em 2016.
+8. **Đính chính Cơ quan Quản lý Bảo tàng Biệt động Sài Gòn:** Bảo tàng Biệt động Sài Gòn — Gia Định là bảo tàng ngoài công lập do Sở Văn hóa và Thể thao TP.HCM cấp phép hoạt động (Cục Di sản văn hóa quản lý hồ sơ di tích quốc gia).
+9. **Số liệu Thương vong (Casualty Figures):** Thiết lập nguyên tắc độc tôn số liệu Sách giáo khoa Lịch sử và Viện Lịch sử Quân sự Việt Nam làm chuẩn mực (Canonical Standard); bóc trần bản chất ngụy tạo của chỉ số "Body Count" của MACV; hướng trọng tâm sư phạm vào bước ngoặt chính trị tối cao tại Hội nghị Paris.
+10. **Pre-instruction Grounding cho Câu hỏi Khảo thí số 4 (`CURRICULUM-MAP.md`):** Bổ sung chỉ dẫn sư phạm trong Lesson 1 Recap hoặc Lesson 2 về cơ chế điểm Sóc lịch âm vượt ranh giới nửa đêm giữa múi giờ GMT+7 và GMT+8 làm hai miền đón Tết lệch nhau 24 giờ.
+11. **Chuẩn hóa Technical Schema IDs (`CURRICULUM-MAP.md` Mục 3.5):** Bổ sung mã `id: "q-mt68-01"` đến `"q-mt68-05"`, `options`, `correctOptionId`, và `sourceIds` cho ngân hàng câu hỏi Quiz.
+
+---
+
+## 5. Action Items & Next Steps
+
+| Thành viên / Bộ phận | Nhiệm vụ Hiệu chỉnh (Action Item) | Trạng thái |
+|---|---|---|
+| **Thọ (Member 1 — Content Lead)** | Hiệu chỉnh 4 lỗi Critical và các điểm Major trong `PILOT-SCREENPLAY.md`, `HISTORICAL-SOURCES.md`, `RESEARCH-CANDIDATES.md`, `CURRICULUM-MAP.md`. | PENDING_REVISION |
+| **Trúc (Member 2 — Media Lead)** | Cập nhật kịch bản dựng video, timing voiceover 110s, nắp hầm gạch bông, và WebVTT cue. Giữ task `CONTENT-007` ở trạng thái BLOCKED cho đến khi Member 1 hoàn tất bản vá. | BLOCKED |
+| **Dương (Member 4 — Frontend Lead)** | Tích hợp Schema IDs chuẩn cho Quiz và Video-led Player component theo khế ước dữ liệu đã hiệu chỉnh. | BLOCKED_BY_CONTENT_AND_MILESTONE |
+| **Vinh (Member 5 — QA Lead)** | Đối soát lại toàn bộ checklist sau khi Member 1 phát hành bản cập nhật. | PENDING_QA |
+
+---
+*Báo cáo cũ chưa là sign-off; xem assignment và blocker hiện hành ở đầu card.*
+
+
+## Vinh technical recheck — claim 2026-10-02
+
+- Owner: Trúc (CONTENT-003); Executor/reviewer technical QA: Vinh, Codex hỗ trợ theo yêu cầu người dùng.
+- Status: REVIEW cho lượt recheck đã hoàn tất; parent CONTENT-003 giữ REVIEW.
+- Started: 2026-10-02; Branch: codex/truc-content003-source-review; reviewed head: cd9f998.
+- Depends on: CONTENT-002/DOC-004 DONE; PR111 đã có hồ sơ source remediation để review.
+- Files claimed cho lượt này: card CONTENT-003, evidence CONTENT-003-source-review-2026-10-02, MEDIA-REVIEW-MT68, PRODUCTION-NOTES, dòng CONTENT-003/007 và checkpoint trong TASK-BOARD, active index.
+- Acceptance: đối chiếu hash/IDs/references, authoring bytes và section 1972 với base 818e24d; validator/diff/local links đạt; next action tách technical QA khỏi historical/audio/PO verdict.
+- Next action: technical QA hoàn tất; chờ Trúc xử lý quyền audio và PO production handoff riêng. Source acceptance được ghi ở 00c8d92, không ký historical/media thay reviewer.
+
+## Checkpoint audio sau phản hồi Trúc — 2026-10-02
+
+- Đã nhận voice ID `5g2DMFQF8xR0KmnuNr4U`, gói Free, Eleven v4; supersede ghi chú thiếu voice ID/gói bên trên. Chưa xác minh profile độc lập, chưa có audio final.
+- Audio Free không có quyền thương mại: `BLOCKED_FOR_COMMERCIAL_USE`. Next: xác định phạm vi phát hành và phương án quyền phù hợp; nếu thương mại, tạo output mới trên gói đủ quyền sau content gate và kiểm tra Beta/điều khoản. Không coi nâng gói là cấp quyền hồi tố output Free.
+- Source verdict đề nghị vẫn chờ Trúc xác nhận đúng hash. CONTENT-003 REVIEW; CONTENT-007 BLOCKED, không có production sign-off.
+
+## Historical/source sign-off của Trúc — 2026-10-02
+
+- Trúc trả lời trực tiếp: “ACCEPT phạm vi nguồn nêu trên”. Chấp nhận đúng registry SHA-256 `369205fcbd713a74acaa0149e6c21d2c3734260d4265e7b8f87edd5868e3bba5`: SRC-MT68-07 Tier 3 chỉ danh sách năm mục tiêu; SRC-MT68-05 Tier 3, đối chiếu SRC-MT68-04, chỉ vai trò hậu cần căn hầm; SRC-MT68-02 vẫn candidate. Các giới hạn/perspective/locator khác giữ nguyên.
+- Supersede các ghi chú chờ human source confirmation ở trên. Registry không sửa byte để giữ binding sign-off. Không cấp verdict mới cho authored artifacts hoặc quyền ảnh/audio.
+- Next: Vinh technical metadata/diff ACCEPTED theo mục bên dưới; chờ Trúc chốt phương án audio có quyền phù hợp với phạm vi sử dụng; PO quyết định handoff riêng. CONTENT-003 REVIEW, CONTENT-007 BLOCKED.
+
+
+### Technical result — Vinh, 2026-10-02
+
+- Verdict: **ACCEPTED trong phạm vi structural metadata/diff** trên PR111 cd9f998; các sửa tiếp theo chỉ cập nhật hồ sơ recheck/gate, không đổi registry hay authored content.
+- Registry SHA-256: `369205fcbd713a74acaa0149e6c21d2c3734260d4265e7b8f87edd5868e3bba5`; 7 source IDs và 7 claim IDs unique. Section nguồn/claim 1972 và 8 authoring/catalog inputs đối chiếu byte-identical với base 818e24d.
+- Bốn authoring validators PASS; 203 local Markdown paths trong 7 file diff ban đầu tồn tại; diff whitespace PASS. Xem [evidence recheck](../evidence/CONTENT-003-source-review-2026-10-02.md#7-vinh-technical-recheck--2026-10-02).
+- Full task-doc checker còn báo `M4-M5-INTEGRATION-001: board/card status mismatch`; lỗi cũng tái hiện ở workspace main, ngoài CONTENT-003. Không báo toàn project-doc suite PASS.
+- Không chạy runtime suite vì docs-only; không env/migration impact. Không xác nhận source history/Tier 3, license, voice profile hoặc audio timing bằng structural checks.
+- Remaining: hồ sơ Trúc source ACCEPT tại 00c8d92 đã ghi nhận đúng hash; voice ID/gói Free đã có trong checkpoint mới, quyền audio phù hợp phạm vi phát hành vẫn chờ Trúc theo yêu cầu người dùng. PO quyết định production riêng; CONTENT-003 REVIEW, CONTENT-007 BLOCKED. DOC-020/021 đã đóng M4/M5, mở M6; nhắc M4 OPEN/M5 LOCKED trước đó là snapshot cũ, không dùng làm gate hiện hành.
+
+## Nghiệm thu Product Owner Dương — 2026-10-02 (quyết định mới nhất)
+
+- Dương tự xác nhận Product Owner, chốt Sử Chill hiện tại là đồ án học tập phi thương mại; phê duyệt ElevenLabs Free cho phạm vi MVP này và yêu cầu nghiệm thu CONTENT-003, UNBLOCK CONTENT-007, gắn video canonical vào lesson.
+- Quyết định này supersede giới hạn nội bộ trước đó của Trúc: audio được phép lên MVP academic/non-commercial sau khi tạo file, kiểm tra đúng cấu hình và hoàn thiện credit. Không cấp quyền thương mại hoặc bỏ kiểm tra output.
+- CONTENT-003 DONE trong phạm vi source/media plan/preproduction: source scope Trúc ACCEPT hash 369205fc…e3bba5; Vinh metadata/diff ACCEPT d17968b; PO chốt scope/license plan và handoff. Các checkbox production audio/final assets không thuộc nghiệm thu đầu vào CONTENT-003.
+- Credit bắt buộc trong **tiêu đề video**: “Kế hoạch Giao Thừa — elevenlabs.io”; attribution hiện trên player và credit app. Chính sách Free yêu cầu domain trong title, nên credit app đơn lẻ không thay credit tiêu đề. Kiểm tra Beta/service-specific terms tại generation; approval PO không miễn các điều kiện provider này.
+- CONTENT-007 được PO mở production theo authoring handoff CONTENT-004 hiện có (script/narration/VTT đã historical/technical review); không lấy REVIEW task-level cũ làm blocker cho handoff đã được PO cho phép. Final video/content acceptance vẫn riêng.
+- Chưa có MP4/audio canonical: ElevenLabs mở tới trang Sign In, không có phiên đăng nhập/connector TTS. Production tiếp tục chuẩn bị; cần Trúc/Dương đăng nhập hoặc cung cấp bản xuất. Không đánh dấu asset published, không dùng video CONTENT-006 thay thế.
+- Files claimed cho closeout/production: card/index/board/evidence CONTENT-003/007, media/production notes, production export package trong docs/content/production/mt68-v1 và script dựng; không env/migration/runtime impact ở closeout này.
+- Next: Trúc/Codex claim CONTENT-007, tạo video từ narration đã duyệt, credits/poster/VTT/transcript/hash; gắn media qua service interface sau khi có asset thật và reviewer final acceptance.
+
+Checkpoint truy cập sau đó: Dương đăng nhập ElevenLabs, Codex quan sát đúng Hoa/Eleven v4/Vietnamese/MP3 trên UI. Dương yêu cầu gói lời đọc để tự xuất; không còn blocker đăng nhập, đang chờ 9 audio exports cho CONTENT-007.

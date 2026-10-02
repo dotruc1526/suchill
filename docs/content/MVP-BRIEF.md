@@ -26,4 +26,4 @@ Dựa trên nghiên cứu sơ bộ, Product Owner đã chọn chủ đề sau l�
   2. *Bản quyền Media:* Các thước phim tài liệu về cuộc tấn công Đại sứ quán Mỹ chủ yếu từ các nguồn phương Tây (CBS, NBC). Cần xác định tính khả thi của Educational Fair-use.
 
 ## 4. Next Action
-Bản Brief này là đầu vào cho [CONTENT-008](../tasks/done/CONTENT-008.md) và [CONTENT-003](../tasks/active/CONTENT-003.md). Chọn chủ đề không phải duyệt từng fact, media hoặc sản xuất; xem [handoff PR21](../tasks/active/PR21-HANDOFF.md).
+Bản Brief này là đầu vào cho [CONTENT-008](../tasks/done/CONTENT-008.md) và [CONTENT-003](../tasks/done/CONTENT-003.md). Chọn chủ đề không phải duyệt từng fact, media hoặc sản xuất; xem [handoff PR21](../tasks/active/PR21-HANDOFF.md).
