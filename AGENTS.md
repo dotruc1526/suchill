@@ -17,7 +17,7 @@ Không dùng chat cũ làm nguồn sự thật duy nhất. Nếu tài liệu mâ
 ## 2. Trạng thái triển khai
 
 - Phase 0–9: `APPROVED` (Phase 9 được product owner duyệt ngày 2026-09-23).
-- **Spec-first freeze đã kết thúc**; M0–M3 đã được đóng và Milestone 4 được Product Owner mở theo audit gate ngày 2026-10-02. Việc mở M4 không tự mở content/media production: từng content task vẫn phải đạt review status, dependency, card và file claim riêng trước khi bắt đầu.
+- **Spec-first freeze đã kết thúc**; M0–M5 đã được đóng và Milestone 6 được Product Owner mở theo audit gate ngày 2026-10-02. Việc mở M6 không tự mở content/media production: từng content task vẫn phải đạt review status, dependency, card và file claim riêng trước khi bắt đầu.
 - Mỗi milestone tiếp theo chỉ bắt đầu khi gate và dependency tương ứng đạt **và Product Owner duyệt rõ ràng milestone trước đó trên task board**. Task `DONE` riêng lẻ không tự mở milestone tiếp theo.
 - Demo Genève/vĩ tuyến 17 hiện tại là fixture kỹ thuật, không phải pilot/canonical content hay chuẩn nội dung mục tiêu.
 - Nội dung canonical chỉ nằm trong phạm vi kháng chiến chống Mỹ ở Việt Nam; ví dụ lịch sử ngoài phạm vi trong tài liệu cũ chỉ minh họa cấu trúc học, không tự trở thành lesson phát hành.
@@ -71,7 +71,7 @@ Luồng phụ thuộc: `UI → feature hook/controller → service interface →
 ## 7. Security và backend
 
 - Browser chỉ dùng Supabase publishable/anon key. Service-role/privileged secret chỉ ở trusted backend và không commit, log, chat hoặc bundle client.
-- Privileged key đã từng được chia sẻ phải rotate trước Milestone 4/production integration.
+- Privileged key đã từng được chia sẻ phải rotate trước Milestone 6/production integration.
 - RLS default-deny cho dữ liệu user; bắt buộc test user A không đọc/ghi user B.
 - Completion, XP, streak và reward là trusted/idempotent operation; UI không tự quyết định reward.
 - Không sửa migration đã áp dụng; tạo migration mới.

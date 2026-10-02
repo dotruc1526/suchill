@@ -50,3 +50,7 @@ Minimum genuine inputs: explicit sequentialPOgate decision; historicalreviewer-a
 ## Next work
 
 After PO response and recorded M4/M5 acceptance, createM6cards and claim eligible01/02/03/05/06 scopes, implement/test/review them on this separatebranch.04/07 remainblocked by actualmedia/device dependencies. OpenM7 only after fullM6gate; no falseDONE or automaticrelease. Optionalusername recovery sender+dedicatedcallback/reset remainsAUTH-USERNAME-001REVIEW and may be completed under its separate activeclaim.
+
+## Superseding prerequisite approval — 2026-10-02
+
+Merged PR #110 (main818e24d) records PO closure of M4/M5 and opening of M6 in DOC-020/DOC-021. The earlier locked/pending statements above describe the initial audit snapshot only. Root integrated the approved decisions, reconciled stale gate headers, and may now execute eligible M6 cards. M7/media/physical-device/production acceptance remains unchanged and unproved. Quality330 consists of230unit+29component+62SQL+9Chrome; native72 is separate reused evidence, not included in330.
