@@ -1,6 +1,6 @@
 # M3-GATE-01 — M3 QA closeout and Product Owner gate handoff
 
-> Status: REVIEW
+> Status: DONE
 > Last updated: 2026-10-02
 
 ## Assignment / explicit claim
@@ -34,3 +34,10 @@
 - [Gate audit](../evidence/M3-gate-handoff-2026-10-02.md) maps three checks to executed tests/CI/task acceptance with unsigned PO decision.
 - Validation: scoped links/status checks and git diff --check PASS. Docs only; no runtime suite rerun required for this closeout. Runtime baseline117/23/9 and scan365/0 reused transparently.
 - Environment/migration/dependency impact: none. Next: Hưng technical/docs review, Dương PO audit; this preparation task REVIEW, not PO-approved gate. M3 OPEN/M4 LOCKED.
+
+## Preparation acceptance / closeout — 2026-10-02
+
+- Hưng and Dương text ACCEPTED the preparation/closeout at PR101 head `1fbf415`; user supplied both reviewer records in this chat. No formal GitHub approval is inferred.
+- PR101 merged `71d9cd7e44ec62fea2a3c4ecc13af2552c30bd9b`; its docs/evidence have been integrated. All preparation acceptance criteria above are satisfied; preparation task DONE.
+- Earlier “review pending” checkpoints are historical. Next belongs to Product Owner Dương: sign the separate gate decision in the evidence and milestone table. **M3 stays OPEN; M4 stays LOCKED.**
+- Current closeout claim: Vinh/Codex, branch `codex/vinh-content012-qa-gate-closeout`; move this card active→done and synchronize its board/index/evidence links only. No runtime or milestone approval claim.

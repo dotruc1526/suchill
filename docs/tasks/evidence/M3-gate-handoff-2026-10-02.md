@@ -47,3 +47,7 @@ Source: [Phase9 Gate M3](../../specs/phases/09-implementation-roadmap.md), [Phas
 - Requested audit: validate the three checks above and technical scope limits, then explicitly record APPROVED close M3/open M4 or CHANGES REQUESTED with remaining gate requirements, date, signed owner and reviewed revision.
 - **Current decision: not provided.** Neither Dương consumer ACCEPTED, Hưng task acceptance, Vinh merge authorization nor this prepared audit equals PO milestone sign-off.
 - Only after explicit approval should the milestone-gate row and current context docs be updated. No M4 task may be claimed/implemented yet.
+
+## Evidence-preparation closeout — 2026-10-02
+
+Hưng/Dương text ACCEPTED PR101 head `1fbf415`; merged `71d9cd7`. [M3-GATE-01](../done/M3-GATE-01.md) preparation is DONE. This closes evidence preparation only; the PO decision above remains PENDING / UNSIGNED.
