@@ -1,7 +1,7 @@
 # CONTENT-017 — Soạn kịch bản chi tiết Scene-by-Scene và Story Data Bài 2 Visual Novel Chapter 1972 ("Kíp chiến đấu SAM-2 — Vạch nhiễu tìm thù")
 
-> Status: REVIEW\
-> Last updated: 2026-09-30
+> Status: DONE\
+> Last updated: 2026-10-02
 
 ## Assignment
 
@@ -29,7 +29,7 @@
   - Viết bộ kiểm thử kiểm tra tính toàn vẹn của dữ liệu: `docs/content/validate-1972-authoring.mjs`.
 - Out of scope: Dựng video MP4, lập trình renderer/UI runtime, seed DB hay mở Milestone M2.
 - Files claimed:
-  - `docs/tasks/active/CONTENT-017.md`
+  - `docs/tasks/done/CONTENT-017.md`
   - `docs/content/LESSON-02-1972-NARRATION.md`
   - `docs/content/LESSON-02-1972-STORY.json`
   - `docs/content/DIAGRAM-SAM2-1972.json`
@@ -48,7 +48,7 @@
 - [x] 100% dữ kiện bám sát Claim ID từ `CONTENT-016-EVIDENCE.md` và nguồn chính thống (Báo QĐND, Lịch sử QCPK-KQ, Cẩm nang bìa đỏ).
 - [x] Script kiểm thử tự động `validate-1972-authoring.mjs` chạy PASS.
 - [x] Trúc (Historical Reviewer) thẩm định sử liệu và ngôn ngữ: Trúc đã APPROVE trên PR #54 (review lúc 07:53 ngày 2026-09-30 trên head `f641530`).
-- [ ] Product Owner nghiệm thu phê duyệt (chờ PO nghiệm thu sau khi blocker N1/N2/N3 được dọn dẹp).
+- [x] Product Owner nghiệm thu phê duyệt: PO (`@Compuerte`) APPROVED trên PR #54 ngày 2026-09-30; PR merged `0075079`, Quality 2/2 SUCCESS.
 
 ## Verification
 
@@ -71,7 +71,13 @@
 
 ## Handoff
 
-- Changed files: `docs/tasks/active/CONTENT-017.md`, `docs/content/LESSON-02-1972-NARRATION.md`, `docs/content/LESSON-02-1972-STORY.json`, `docs/content/DIAGRAM-SAM2-1972.json`, `docs/content/validate-1972-authoring.mjs`, `docs/project/TASK-BOARD.md`, `docs/content/HISTORICAL-REVIEW-REPORT-2026-09-28.md`.
+- Changed files: `docs/tasks/done/CONTENT-017.md`, `docs/content/LESSON-02-1972-NARRATION.md`, `docs/content/LESSON-02-1972-STORY.json`, `docs/content/DIAGRAM-SAM2-1972.json`, `docs/content/validate-1972-authoring.mjs`, `docs/project/TASK-BOARD.md`, `docs/content/HISTORICAL-REVIEW-REPORT-2026-09-28.md`.
 - Test/build result: `validate-1972-authoring.mjs` PASS; `npm run quality` local PASS; markdown link validation PASS 0 broken links.
 - Environment/migration impact: docs/content-only, không ảnh hưởng runtime; không cài thêm dependencies.
-- Next owner/action: Dương (Member 4) và PO (`@Compuerte`) phê duyệt nghiệm thu PR #54. Task remains `REVIEW`.
+- Next owner/action: không còn; task `DONE`, không quyết định gate milestone.
+
+## Closeout — 2026-10-02
+
+- PR #54 (`content/tho-lesson-02-1972-vn-v2`) merged `0075079` ngày 2026-09-30: Trúc APPROVED historical/media, PO APPROVED nghiệm thu, Quality checks 2/2 SUCCESS.
+- Re-verified trên main `2abd202`: `validate-1972-authoring.mjs` PASS (5 nodes, 8/8 scenes, narration đủ 8 scene, không từ ngữ quy trình vi mô).
+- Card chuyển `active/` → `done/`; board và index đồng bộ. M3 vẫn OPEN; production/integration cần task/gate riêng.

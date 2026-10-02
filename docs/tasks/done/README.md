@@ -45,3 +45,5 @@
 - [QA-001](./QA-001.md) — DONE; Hưng/Dương ACCEPTED, PR85 merged ed234e9; validation 17/17, final quality 100/22/7 and CI 2/2 PASS.
 
 - [M3-06](./M3-06.md) — DONE; PR94 merged 20e3263; Hưng/Vinh runtime accepted; Quality 2/2 PASS.
+
+- [CONTENT-017](./CONTENT-017.md) — DONE; PR #54 merged `0075079`, Trúc APPROVED historical/media, PO APPROVED nghiệm thu; validator PASS trên main.
