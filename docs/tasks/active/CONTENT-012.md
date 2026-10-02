@@ -12,8 +12,8 @@
 - Branch revision hiện hành: `codex/mt68-complete-handoff`; PR #21 đã merge.
 - Depends on: CONTENT-008 (DONE trên nhánh PR); sửa bản nháp trong content track, không mở M1.
 - Files claimed: `docs/content/QUIZ-MT68.json`; card này. Registry/catalog/board do cùng executor Trúc đồng bộ theo [handoff PR21](./PR21-HANDOFF.md).
-- Next action: Trúc xác nhận nội dung/media bản hiện hành; Vinh technical QA; xem CONTENT-014.
-- Blocker: chưa có sign-off lịch sử/media; không phát hành, tích hợp hoặc seed.
+- Next action: Trúc/historical reviewer đưa verdict riêng cho quiz revision `4013b39954779b0b43640372b668c329662ca30386aff52c2c4cd8a664e667eb`; Vinh technical QA sau đó.
+- Blocker: historical/learning verdict của CONTENT-012 chưa có. Không suy diễn từ CONTENT-010; không phát hành, tích hợp hoặc seed.
 
 ## Acceptance
 
@@ -26,6 +26,12 @@
 
 - 2026-09-27: nhận sửa PR #21 từ `4fa6cd0`; chuẩn hóa ACTIVE, hoàn tất bản sửa tài liệu và chuyển REVIEW. Không ghi sign-off thay reviewer.
 - Evidence, kết quả kiểm tra và phần thiếu: [PR21-HANDOFF.md](./PR21-HANDOFF.md).
+
+## Checkpoint — 2026-10-02
+
+- `QUIZ-MT68.json` vẫn `draft` / `NEEDS_HISTORICAL_REVIEW` tại SHA-256 `4013b39954779b0b43640372b668c329662ca30386aff52c2c4cd8a664e667eb`.
+- Historical report ngày 2026-09-28 không liệt kê CONTENT-012 trong phạm vi verdict; technical QA của Vinh chỉ kiểm tra schema/ID/objectives/answer explanations, không phải historical/learning acceptance.
+- Next: Trúc/historical reviewer review và ghi verdict riêng đúng hash; tới lúc đó giữ trạng thái pending và chưa tích hợp quiz.
 
 - Checkpoint bổ sung 2026-09-27: Trúc được giao toàn bộ revision; [CONTENT-014](./CONTENT-014.md) chứa bản authoring và kiểm tra mới. Không ký sign-off thay người review.
 

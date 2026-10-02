@@ -31,6 +31,12 @@
 
 - Checkpoint 2026-09-28: Historical Reviewer hoàn tất thẩm định (Báo cáo HISTORICAL-REVIEW-REPORT-2026-09-28.md). 5 node bản đồ, story branching và knowledge check đạt phạm vi sử liệu/ngôn ngữ. Verdict này không thay technical QA/media sign-off; task giữ `REVIEW`.
 
+### Checkpoint đồng bộ artifact — 2026-10-02
+
+- `LESSON-02-INTERACTIVE.md` và `LESSON-02-STORY.json` được xác nhận byte-identical giữa verdict commit `02c1128` và technical snapshot `30d0a4f`; review SHA và current SHA sau cập nhật trạng thái được ghi tại [CONTENT-014](./CONTENT-014.md). Historical/language status được đồng bộ cho đúng hai artifact này.
+- `MAP-MT68.json` giữ `NEEDS_HISTORICAL_REVIEW`: report không ràng buộc verdict tới hash/revision cụ thể của map. Technical validation không thay historical review.
+- Task còn `REVIEW`; media/source/technical handoff và production chưa được duyệt.
+
 ## Technical QA checkpoint — Vinh, 2026-10-01
 
 - Technical structure/reference checks **ACCEPTED** trên snapshot `30d0a4f` trong [CONTENT-014 QA report](../evidence/CONTENT-014-technical-qa.md); giới hạn/checked inputs có SHA-256 trong report.
