@@ -39,3 +39,7 @@ PvP thử nghiệm dùng phiên khách trên server; account chỉ cung cấp t�
 Next action: review bản tích hợp và chọn hosting để deploy backend, cấu hình frontend public URL, nghiệm thu Wi-Fi ↔ 4G. Người dùng đã chọn “Chưa có hosting — chuẩn bị bản deploy trước”. Không tự claim DONE/Internet PASS.
 
 Follow-up: đã có tài khoản Render/xác minh email; cần đăng nhập lại sau browser interruption. Người dùng yêu cầu xác nhận trước mọi merge/gộp main hoặc thay đổi dự án chính. Scope hoàn thiện UI/standings/controls vẫn trên nhánh riêng PR115; chưa tự merge/deploy Firebase hoặc chỉnh DB/Auth. Acceptance code đạt; Internet acceptance chờ backend public.
+
+## Product-owner merge authorization — 2026-10-03
+
+The user explicitly authorized review, fixes, and merging the shared PR115/PR119 feature set into `main`, with PR115 (branch `codex/dautri-online-pr109`) as the priority. This supersedes the prior request to wait for merge confirmation. The PR109 PWA/internal preview base is already merged as PR #109. This authorization does not mark PVP-ONLINE-001 DONE: public backend deployment, Wi-Fi↔4G acceptance, historical question review, and specialist review remain open.

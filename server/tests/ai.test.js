@@ -1,6 +1,28 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createGameServer } from '../server.js';
+import { askSuu } from '../aiService.js';
+
+test('AI prompt does not claim to retrieve sources it did not fetch', async () => {
+  const previousKey = process.env.GEMINI_API_KEY;
+  const previousFetch = globalThis.fetch;
+  let request;
+  process.env.GEMINI_API_KEY = 'test-key';
+  globalThis.fetch = async (_url, options) => {
+    request = JSON.parse(options.body);
+    return Response.json({ candidates: [{ content: { parts: [{ text: 'Không chắc.' }] } }] });
+  };
+  try {
+    assert.deepEqual(await askSuu('Hỏi thử'), { reply: 'Không chắc.' });
+    const instruction = request.systemInstruction.parts[0].text;
+    assert.match(instruction, /không tra cứu nguồn/i);
+    assert.match(instruction, /đối chiếu tài liệu chính thống/i);
+  } finally {
+    globalThis.fetch = previousFetch;
+    if (previousKey === undefined) delete process.env.GEMINI_API_KEY;
+    else process.env.GEMINI_API_KEY = previousKey;
+  }
+});
 
 test('AI endpoint validates input and responds with reply', async t => {
   const origin = 'http://localhost:8443';

@@ -128,7 +128,7 @@ export function AIScreen() {
       {/* Disclaimer */}
       <div className="px-4 shrink-0">
         <div className="font-hand text-xs text-center" style={{ color: theme.colors.textMuted }}>
-          Thông tin được SỬu tổng hợp từ các nguồn tư liệu lịch sử chính thống
+          Câu trả lời do AI tạo, có thể sai và chưa kèm nguồn trích dẫn. Hãy đối chiếu với tài liệu chính thống.
         </div>
       </div>
 

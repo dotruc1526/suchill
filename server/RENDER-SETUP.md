@@ -18,6 +18,8 @@ Nếu thêm origin khác, phân cách bằng dấu phẩy; không dùng wildcard
 
 Sau deploy, lấy origin HTTPS thực của service từ Dashboard, ví dụ `https://<service-thực>.onrender.com`. Không suy đoán hostname từ tên blueprint.
 
+Nếu bật AI chatbot, nhập `GEMINI_API_KEY` trực tiếp trong mục Environment của Render. Đây là biến server-only; không đặt trong `.env.local`, `VITE_*`, Firebase hoặc commit. Không có key thì chatbot dùng câu trả lời dự phòng.
+
 ## Frontend Firebase
 
 Trong file `.env.local` riêng của bản frontend PR109, giữ public Supabase config và thêm:

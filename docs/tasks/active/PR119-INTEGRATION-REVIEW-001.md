@@ -1,14 +1,14 @@
 # PR119-INTEGRATION-REVIEW-001
 
 - Owner / Executor: Codex integration
-- Reviewer: Codex requested technical review; Hưng/Vinh specialist acceptance remains separate
-- Status: IN PROGRESS
+- Reviewer: Codex technical review complete; Hưng/Vinh specialist acceptance remains separate
+- Status: REVIEW
 - Started: 2026-10-03
-- Dependency: PR119 exists; user explicitly requested review, fixes and merge to PR109 branch.
-- Files claimed: src/services/gameServerConfig.ts, tests/member5/game-server-config.test.ts, server/server.js, server/tests/ai.test.js, server/tests/deployment.test.js, this card and review evidence.
+- Dependency: PR109 merged to `main`; user explicitly requested PR115-first integration of the shared PR115/PR119 feature head into `main`.
+- Files claimed: src/services/gameServerConfig.ts, tests/member5/game-server-config.test.ts, src/services/supabase/usernameAuth.ts, src/features/ai-assistant/AIScreen.tsx, server/server.js, server/aiService.js, server/env.example, server/RENDER-SETUP.md, render.yaml, server/tests/ai.test.js, this card and review evidence.
 - Existing uncommitted Socket.IO CORS callback correction in server/server.js is preserved and included as a relevant integration fix.
 - Acceptance: resolve CI failure; preserve HTTP LAN support; no public production account-access proxy; bound AI endpoint calls; related tests and required CI pass before merge.
-- Next action: remediate review findings, push, inspect final diff and CI, merge exact reviewed head to PR109 branch only.
+- Next action: update PR115 to the reviewed head, target `main`, then merge it after final CI. PR119 carries the same feature commits and becomes redundant; close it as superseded after verifying PR115's merge. Keep Internet/backend deployment and specialist acceptance as separate REVIEW gates.
 
 ## Review remediation
 
@@ -19,5 +19,7 @@
 - Focused regression 6/6 PASS. Full quality running; merge remains contingent on final required checks.
 - Additional review claim: src/services/supabase/usernameAuth.ts. Anchored private IPv4 matching and HTTP development gate prevent credential forwarding to public hosts such as 10.attacker.com; HTTPS keeps trusted SDK path.
 - CI quality failure in tests/qa/pwa-polish.test.mjs:74 resolved: AIScreen.tsx status text updated to start with 'Đang tra cứu' (matching case-sensitive contract) and hold a natural 800ms minimum thinking state so aria status is perceivable and reliably asserted in headless Chrome.
-- Full local quality suite (typecheck, build, env audit, unit, component, db, authoring, e2e, pwa, pvp, pvp:ui) PASS with 0 failures and 0 unsafe client secrets.
-- PR119 -> PR109 merge evaluation: PR109 is in DRAFT awaiting PO M6 Android trial closure with clean CI. Merging PR119 (+4k lines: Socket.IO PvP backend, Gemini AI, LAN proxy) into PR109 directly would cause scope creep on M6 closure. PR119 should remain targeted to PR109 as a reviewed integration candidate, pushed to green CI, but kept unmerged until PO / Vinh / Hưng approve and public backend hosting is provisioned.
+- Review found the AI UI implied source retrieval although the service only sends a prompt to Gemini. The UI and system prompt now state that answers are AI-generated, may be wrong, and are not source-verified. The model timeout is also cleared on every response/error path.
+- Local verification on the main-synced candidate: typecheck/build/env scan PASS; unit 275/275; component/browser 38/38; database 62 PASS / 3 native-only SKIP; authoring PASS; fixture E2E 11/11; PWA 2/2; PvP server 22/22; PvP browser 4/4. Server dependencies were installed separately from `server/package-lock.json`; no provider secret was used. The three skips require a dedicated native PostgreSQL 17 instance. Vite reports existing native-config-loader compatibility warnings and a missing optional reference-preview virtual module during browser suites; those suites still passed.
+- User's 2026-10-03 instruction explicitly authorizes merging the reviewed feature to `main`, superseding the earlier requirement to wait for the user's merge confirmation. This does not close PVP-ONLINE-001: public backend deployment, Wi-Fi↔4G acceptance and Hưng/Vinh specialist acceptance remain pending. Do not claim production readiness or task DONE.
+- Render setup now declares the Gemini key as a server-only optional environment variable; the deployment guide explains that leaving it unset keeps the assistant on its local fallback.
