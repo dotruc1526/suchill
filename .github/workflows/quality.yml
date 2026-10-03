@@ -13,6 +13,8 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
+        with:
+          lfs: true
       - uses: actions/setup-node@v7
         with:
           node-version: '26'
@@ -23,5 +25,10 @@ jobs:
           install-dependencies: true
       - run: npm ci
       - run: npm run quality
+        env:
+          CHROME_PATH: ${{ steps.chrome.outputs.chrome-path }}
+
+      - name: Check internal media preview and release evidence boundaries
+        run: node --test scripts/release/release-validation.test.mjs scripts/release/hosting-preview.test.mjs scripts/release/hosting-auth-origin.test.mjs scripts/content/reference-preview/preview.test.mjs scripts/content/reference-preview/video-source.test.mjs tests/qa/preview1954-ui.test.mjs
         env:
           CHROME_PATH: ${{ steps.chrome.outputs.chrome-path }}

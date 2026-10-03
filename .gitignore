@@ -18,3 +18,8 @@ logs/
 # Platform-managed state
 /.plugins/
 /.opencode-skills/
+
+# Owned Hosting preview build/cache; never commit local tool/auth state
+/.firebase/
+/output/hosting-preview/
+/firebase-debug.log

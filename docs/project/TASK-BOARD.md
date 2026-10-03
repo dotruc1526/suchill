@@ -1,8 +1,16 @@
 # Sử Chill — Shared Task Board
 
-> Last updated: 2026-10-02\
+> Last updated: 2026-10-03\
 > Owner: Project team\
 > Purpose: Nguồn context chung cho product owner, thành viên nhóm và AI agents
+
+## Latest APPROVED PO decision — 2026-10-03
+
+Dương yêu cầu “Tôi là Dương, mở M07 đi” sau báo cáo trạng thái M6/M7. **M7 OPEN song song M6 OPEN** theo ngoại lệ lịch trình do PO duyệt. Quyết định này thay thế yêu cầu đóng M6 trước khi mở M7 và các checkpoint “M7 LOCKED” phía dưới (lưu làm lịch sử). Không nghiệm thu M6 hoặc tự chuyển task DONE. Dependency từng task, historical/media review, security/accessibility và release acceptance giữ nguyên. [M7-GATE-OPEN-001](../tasks/active/M7-GATE-OPEN-001.md) ghi nguồn, scope và handoff.
+
+| ID | Owner / Executor | Reviewer | Status | Started | Files / Next action |
+|---|---|---|---|---|---|
+| M7-GATE-OPEN-001 | Dương / Codex | Dương (PO decision); integration review pending | REVIEW | 2026-10-03 | Board + decision card only; integrate documentation decision, then claim eligible M7 tasks with valid dependencies. |
 
 ## Cách dùng file này
 
@@ -61,8 +69,10 @@ Phase 9 đã được product owner duyệt ngày 2026-09-23; `SPEC-FIRST FREEZE
 | M1 | DONE | Gate M1 trong Phase 9 có evidence và reviewer kiểm tra | Product Owner nghiệm thu M1-07 và M1-08; approved close, 2026-09-29; evidence: PR #53/#56, QA keyboard 26 checkpoints, quality PASS và ảnh 375px/430px |
 | M2 | DONE | Ba gate Phase 9 đạt; M2-01..06 đã được reviewer nghiệm thu và Quality pass | Product Owner Dương approved close, 2026-10-01; evidence: PR #70 / `a4d22b2`, DOC-018 |
 | M3 | DONE | Learning frontend hoàn chỉnh trên mock services theo Gate M3 | Product Owner Dương approved close, 2026-10-02; evidence: PR #98 / `f0a2bdf`, M3-01..07 DONE, DOC-019 |
-| M4 | OPEN | Supabase foundation thay mock adapter không đổi UI theo Gate M4 | Product Owner Dương approved open, 2026-10-02; M4 tasks chỉ bắt đầu sau claim hợp lệ; rotate privileged key trước integration môi trường dùng chung |
-| M5–M7 | LOCKED | Mở từng milestone sau khi milestone trước được duyệt | Chưa có |
+| M4 | DONE | Supabase foundation gate accepted on the development target | Product Owner Dương approved close, 2026-10-02; [DOC-020](../tasks/done/DOC-020.md), merged PR #110, PR #106 and independent post-merge review |
+| M5 | DONE | Trusted progress/reward/streak/analytics gate accepted | Product Owner Dương approved close, 2026-10-02; [DOC-021](../tasks/done/DOC-021.md), merged PR #110 |
+| M6 | OPEN | PWA install/update/offline, mobile performance and accessibility evidence plus PO acceptance | Product Owner Dương approved open, 2026-10-02, DOC-021. Content/media/physical-device gates remain distinct. |
+| M7 | OPEN | Task dependencies and full content/security/accessibility/release gates remain required | Dương (Product Owner) approved open, 2026-10-03, explicit chat instruction; scheduling exception allows M7 alongside M6 OPEN; [decision](../tasks/active/M7-GATE-OPEN-001.md). |
 
 `DONE` của từng task không tự mở milestone tiếp theo. Executor ghi evidence theo gate Phase 9; reviewer/QA kiểm tra; Product owner duyệt rõ ràng và ghi ngày, evidence, milestone được mở vào bảng này trước khi nhóm bắt đầu implementation milestone kế tiếp. Content track có task/dependency riêng: Member 1 có thể nhận `CONTENT-009` nghiên cứu nguồn sơ bộ trong khi M0 đang mở; việc đó không mở milestone implementation hoặc chốt nội dung canonical.
 
@@ -387,21 +397,21 @@ AI phải đọc task board trước khi làm việc. Nếu task `BLOCKED` hoặ
 
 | ID | Owner | Status | Depends on | Evidence / next action |
 |---|---|---|---|---|
-| M4-M5-INTEGRATION-001 | Codex; QA/PO review pending | DONE | DOC-021, M4/M5 CLOSED | [Task card](../tasks/active/M4-M5-INTEGRATION-001.md); main2ee9c51 incorporated;330Quality/native72/hosted9 PASS; M4 technical cardsDONE; M5 technical evidence ready; current-head CI/merge review pending; formal gates unchanged |
+| M4-M5-INTEGRATION-001 | Codex; QA/PO review pending | DONE | DOC-021, M4/M5 CLOSED | [Task card](../tasks/done/M4-M5-INTEGRATION-001.md); main2ee9c51 incorporated;330Quality/native72/hosted9 PASS; M4 technical cardsDONE; M5 technical evidence ready; PR #106 merged; independent post-merge review passed; PO accepted M4/M5 via DOC-020/DOC-021 |
 
 
-### Backend integration task acceptance (main-first; gates unchanged)
+### Backend integration task acceptance (PO gates accepted by DOC-020/DOC-021)
 
 | ID | Owner | Status | Depends on | Evidence / next action |
 |---|---|---|---|---|
-| M4-01 | Codex; independent delegated reviewer | DONE | M3 DONE; M4/M5 CLOSED | [Card](../tasks/done/M4-01.md); main-based technical acceptance APPROVED; [final evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO milestone acceptance remains separate |
-| M4-02 | Codex; independent delegated reviewer | DONE | M3 DONE; M4/M5 CLOSED | [Card](../tasks/done/M4-02.md); main-based technical acceptance APPROVED; [final evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO milestone acceptance remains separate |
-| M4-03 | Codex; independent delegated reviewer | DONE | M3 DONE; M4/M5 CLOSED | [Card](../tasks/done/M4-03.md); main-based technical acceptance APPROVED; [final evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO milestone acceptance remains separate |
-| M4-04 | Codex; independent delegated reviewer | DONE | M3 DONE; M4/M5 CLOSED | [Card](../tasks/done/M4-04.md); main-based technical acceptance APPROVED; [final evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO milestone acceptance remains separate |
-| M4-05 | Codex; independent delegated reviewer | DONE | M3 DONE; M4/M5 CLOSED | [Card](../tasks/done/M4-05.md); main-based technical acceptance APPROVED; [final evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO milestone acceptance remains separate |
-| M4-06 | Codex; independent delegated reviewer | DONE | M3 DONE; M4/M5 CLOSED | [Card](../tasks/done/M4-06.md); main-based technical acceptance APPROVED; [final evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO milestone acceptance remains separate |
-| M4-07 | Codex; independent delegated reviewer | DONE | M3 DONE; M4/M5 CLOSED | [Card](../tasks/done/M4-07.md); main-based technical acceptance APPROVED; [final evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO milestone acceptance remains separate |
-| M4-08 | Codex; independent delegated reviewer | DONE | M3 DONE; M4/M5 CLOSED | [Card](../tasks/done/M4-08.md); main-based technical acceptance APPROVED; [final evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO milestone acceptance remains separate |
+| M4-01 | Codex; independent delegated reviewer | DONE | M3 DONE; M4/M5 CLOSED | [Card](../tasks/done/M4-01.md); main-based technical acceptance APPROVED; [final evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO accepted milestone closure via DOC-020/DOC-021; historical key revocation remains a production gate |
+| M4-02 | Codex; independent delegated reviewer | DONE | M3 DONE; M4/M5 CLOSED | [Card](../tasks/done/M4-02.md); main-based technical acceptance APPROVED; [final evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO accepted milestone closure via DOC-020/DOC-021; historical key revocation remains a production gate |
+| M4-03 | Codex; independent delegated reviewer | DONE | M3 DONE; M4/M5 CLOSED | [Card](../tasks/done/M4-03.md); main-based technical acceptance APPROVED; [final evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO accepted milestone closure via DOC-020/DOC-021; historical key revocation remains a production gate |
+| M4-04 | Codex; independent delegated reviewer | DONE | M3 DONE; M4/M5 CLOSED | [Card](../tasks/done/M4-04.md); main-based technical acceptance APPROVED; [final evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO accepted milestone closure via DOC-020/DOC-021; historical key revocation remains a production gate |
+| M4-05 | Codex; independent delegated reviewer | DONE | M3 DONE; M4/M5 CLOSED | [Card](../tasks/done/M4-05.md); main-based technical acceptance APPROVED; [final evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO accepted milestone closure via DOC-020/DOC-021; historical key revocation remains a production gate |
+| M4-06 | Codex; independent delegated reviewer | DONE | M3 DONE; M4/M5 CLOSED | [Card](../tasks/done/M4-06.md); main-based technical acceptance APPROVED; [final evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO accepted milestone closure via DOC-020/DOC-021; historical key revocation remains a production gate |
+| M4-07 | Codex; independent delegated reviewer | DONE | M3 DONE; M4/M5 CLOSED | [Card](../tasks/done/M4-07.md); main-based technical acceptance APPROVED; [final evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO accepted milestone closure via DOC-020/DOC-021; historical key revocation remains a production gate |
+| M4-08 | Codex; independent delegated reviewer | DONE | M3 DONE; M4/M5 CLOSED | [Card](../tasks/done/M4-08.md); main-based technical acceptance APPROVED; [final evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO accepted milestone closure via DOC-020/DOC-021; historical key revocation remains a production gate |
 | M5-01 | Codex technical candidate; QA/PO approval pending | DONE | M4 CLOSED, M5 CLOSED (PO approved) | [Card](../tasks/done/M5-01.md); reused implementation technically APPROVED,330Quality/native72/hosted9 PASS; [evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO accepted M5 closure |
 | M5-02 | Codex technical candidate; QA/PO approval pending | DONE | M4 CLOSED, M5 CLOSED (PO approved) | [Card](../tasks/done/M5-02.md); reused implementation technically APPROVED,330Quality/native72/hosted9 PASS; [evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO accepted M5 closure |
 | M5-03 | Codex technical candidate; QA/PO approval pending | DONE | M4 CLOSED, M5 CLOSED (PO approved) | [Card](../tasks/done/M5-03.md); reused implementation technically APPROVED,330Quality/native72/hosted9 PASS; [evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO accepted M5 closure |
@@ -409,5 +419,96 @@ AI phải đọc task board trước khi làm việc. Nếu task `BLOCKED` hoặ
 | M5-05 | Codex technical candidate; QA/PO approval pending | DONE | M4 CLOSED, M5 CLOSED (PO approved) | [Card](../tasks/done/M5-05.md); reused implementation technically APPROVED,330Quality/native72/hosted9 PASS; [evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO accepted M5 closure |
 | M5-06 | Codex technical candidate; QA/PO approval pending | DONE | M4 CLOSED, M5 CLOSED (PO approved) | [Card](../tasks/done/M5-06.md); reused implementation technically APPROVED,330Quality/native72/hosted9 PASS; [evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO accepted M5 closure |
 | M5-07 | Codex technical candidate; QA/PO approval pending | DONE | M4 CLOSED, M5 CLOSED (PO approved) | [Card](../tasks/done/M5-07.md); reused implementation technically APPROVED,330Quality/native72/hosted9 PASS; [evidence](../engineering/main-first-integration/FINAL-ACCEPTANCE.md); PO accepted M5 closure |
-| AUTH-USERNAME-001 | Codex; QA/PO review pending | REVIEW | Existing Auth integration | [Card](../tasks/active/AUTH-USERNAME-001.md); core username browser flow PASS; optional recovery sender/email/redirect acceptance remains pending |
+| AUTH-USERNAME-001 | Codex; helper independently APPROVE, integrated boundary review pending | REVIEW | Existing Auth integration | [Card](../tasks/active/AUTH-USERNAME-001.md); core username browser flow PASS; dedicated recovery callback/reset software APPROVE,44checks PASS; live sender/email/redirect acceptance remains pending |
 | MAIN-INTEGRATION-AUDIT-002 | Codex; QA/PO review pending | REVIEW | Prior branch audit | [Card](../tasks/active/MAIN-INTEGRATION-AUDIT-002.md); historical audit, candidate now tracked by M4-M5-INTEGRATION-001 |
+
+### Post-merge sequential delivery review — 2026-10-02
+
+| ID | Owner / executor | Reviewer | Status | Started | Files / next action |
+|---|---|---|---|---|---|
+| POSTMERGE-REVIEW-001 | Codex root | Independent Codex postmerge reviewer APPROVE; PO gates pending | REVIEW |2026-10-02| [Card](../tasks/active/POSTMERGE-REVIEW-001.md); main8b5ae10 Quality330/hosted9 PASS; [M6/M7 readiness and blockers](../engineering/postmerge-m6-m7/READINESS.md); PO gate supplied by merged PR #110/DOC-020/DOC-021; M6 eligible scopes may be claimed |
+
+### M6 execution after approved DOC-021 — 2026-10-02
+
+| ID | Owner / Executor | Reviewer | Status | Depends on | Card / next action |
+|---|---|---|---|---|---|
+| M6-01 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | REVIEW | M1, M3, DOC-021 | [Card](../tasks/active/M6-01.md); software/evidence delivered; final reviewer acceptance outstanding |
+| M6-02 | Codex root | Independent Codex software APPROVE | DONE | accepted software prerequisites | [Card](../tasks/done/M6-02.md); skip-link fix/typecheck/Chrome10 PASS; milestone/device/media gates separate |
+| M6-03 | Codex root | Independent Codex software APPROVE | DONE | accepted software prerequisites | [Card](../tasks/done/M6-03.md); skip-link fix/typecheck/Chrome10 PASS; milestone/device/media gates separate |
+| M6-04 | Codex root, coordinated lanes | Historical/media verdict separate | BLOCKED | M3-04 DONE;1954media final review | [Card](../tasks/blocked/M6-04.md); resolve stated dependency; no false DONE |
+| M6-05 | Codex root | Independent Codex software APPROVE | DONE | accepted software prerequisites | [Card](../tasks/done/M6-05.md); skip-link fix/typecheck/Chrome10 PASS; milestone/device/media gates separate |
+| M6-06 | Codex root / delegated audit | Independent source re-review; actual screen-reader evidence separate | REVIEW | M3 DONE, M6-05 DONE | [Card](../tasks/active/M6-06.md); source/ARIA/keyboard/duplicate-ID fixes independently APPROVE; axe8 + Quality381 PASS; manual acceptance pending |
+| M6-07 | Codex root, coordinated lanes | Independent software review; human media/device verdict separate | BLOCKED | M6-01..06; approved video; real Android/iOS testers | [Card](../tasks/blocked/M6-07.md); resolve stated dependency; no false DONE |
+
+### Earlier M6 handoff — superseded by current1954decision
+
+Mainb9a0f0d/PR111 incorporated without conflict. [M6 review](../engineering/m6-pwa/REVIEW.md): Quality379PASS,0failures,3native-onlySQLskips; original M3 tests unchanged; optional desktop icon-install protocol unavailable (not PASS). M6-01/02/03/05REVIEW, M6-04/06/07BLOCKED; M6OPEN/M7LOCKED. CONTENT-003 preproductionDONE and CONTENT-007INPROGRESS on main supersede earlier plan blockers. User confirms no9audio exports yet. Final media, actual device/screen-reader tests and QA/PO milestone acceptance remain required. Auth optional real-mail recovery remainsREVIEW.
+
+
+## User trial scope — 2026-10-03
+
+User requests completion work through M7, only one or two trial videos, and streamlined board review. [M6-M7-TRIAL-001](../tasks/done/M6-M7-TRIAL-001.md) DONE for offline release preparation; new video renderer scope was cancelled by the user. Existing CONTENT-007 canonical production claim is preserved; historical/media, genuine-device and deployment evidence are recorded when actually obtained.
+
+
+## Current MVP decision — 2026-10-03
+
+Product Owner explicitly selects **1954 / Trước cơn bão**, replacing the current 1968 pilot choice; new video production is cancelled. [MVP-1954-001](../tasks/done/MVP-1954-001.md) DONE for the bounded unchanged-file internal reference preview. CONTENT-006 prior final wording/rights findings remain; no canonical publication or false milestone closure. M6-02/03/05 software accepted DONE by independent Codex reviewer with typecheck/Chrome10 PASS. M6 remains OPEN, M7 release gated.
+
+### Current1954technical handoff — 2026-10-03
+
+| ID | Owner / Executor | Reviewer | Status | Files / next action |
+|---|---|---|---|---|
+| MVP-1954-001 | Codex root / delegated preview | Root independent preview review APPROVE | DONE | [Card](../tasks/done/MVP-1954-001.md); actual player4/4PASS, package12checks; final media gates separate |
+| M6-M7-TRIAL-001 | Codex / delegated release prep | Root independent code/test review APPROVE | DONE | [Card](../tasks/done/M6-M7-TRIAL-001.md);7/7tests, short release plans; new video cancelled |
+
+[Current handoff](../engineering/m6-pwa/1954-HANDOFF.md): M6-02/03/05DONE; M6-01/06REVIEW; M6-04/07BLOCKED. Topic1954approved, unchanged clip playable internally. Remaining final1954wording/rights, multi-lesson curriculum/canonical import, real device/manual accessibility, Firebase/internal-user/privacy/release acceptance are not fabricated. Full M6 remains OPEN and M7 release gated.
+
+### HTTPS test preparation — 2026-10-03
+
+| ID | Owner / Executor | Reviewer | Status | Depends on | Card / next action |
+|---|---|---|---|---|---|
+| HOSTING-PREVIEW-001 | Codex root | Independent Codex technical APPROVE; actual basic Android user PASS | DONE | M6-02/03/05; supplied1954reference preview; explicit Firebase project approval | [Card](../tasks/done/HOSTING-PREVIEW-001.md); temporary HTTPS preview accepted, independent24/24 + HTTPS smoke PASS; full device/media/M6/M7/live gates separate |
+
+## Current preview UI request — 2026-10-03
+
+| Task | Scope | Owner / Reviewer | Status | Dependencies | Evidence / Next action |
+|---|---|---|---|---|---|
+| MVP-1954-CATALOG-001 | Existing HTTPS HỌC preview: Chapter1—1954, only episode1 open, episodes2–7 temporarily locked | Codex root / independent Codex preview APPROVE | DONE | MVP-1954-001 DONE; M6-02/03/05 DONE; Hosting preview available; explicit user outline/request | [Card](../tasks/done/MVP-1954-CATALOG-001.md); repaired build37ad329a8f1a2abd4cff independently verified, catalog4/4 + HTTPS smoke PASS; physical/manual/media/XP/canonical/release acceptance separate |
+
+## Final acceptance continuation — 2026-10-03
+
+| Task | Owner / Executor | Reviewer | Status | Dependencies / next action |
+|---|---|---|---|---|
+| M6-ACCEPTANCE-002 | Codex root / root + independent audit lanes | Independent bounded technical APPROVE; human media/device/PO release gates distinct | DONE | [Card](../tasks/done/M6-ACCEPTANCE-002.md); Quality381/reference19/catalog4 + repaired HTTPS smoke PASS; rollback exercised; M6 OPEN/M7 OPEN scheduling decision retained, full milestone/release acceptance separate |
+
+## Current M7 execution — 2026-10-03
+
+M7 OPEN alongside M6 by latest APPROVED PO decision. Existing preview/readiness checkpoints saying LOCKED are historical; full individual prerequisites still apply.
+
+| Task | Owner / Executor | Reviewer | Status | Dependencies / next action |
+|---|---|---|---|---|
+| M7-01 | Codex / content_release_audit | root APPROVE bounded selection | DONE | Phase3/MVP-1954-001/PO decision accepted; [card](../tasks/done/M7-01.md); Chapter1/1954, pilot Trước cơn bão, objective/perspective reused; onlyepisode1 preview, six remain locked |
+| M7-02 | Codex / content_release_audit | Independent source preparation APPROVE; historical/media final gate separate | REVIEW | M7-01 DONE; [card](../tasks/active/M7-02.md); original28cues mapped, three official sources checked; cue27/strategic framing and final media review still pending |
+
+M7-03 waits for reviewed1954curriculum/media, not old1968inputs; M7-04 sign-off then M7-05 canonical import. M7-06 needs fullM6 + import; M7-07..09 follow regression → canonical preview → internal journey → release. No downstream task claimed through unresolved dependencies. Existing internal preview stays available with episode2–7locked.
+
+## PR109 review and M7 preparation — 2026-10-03
+
+| ID | Owner / Executor | Reviewer | Status | Started | Files / Next action |
+|---|---|---|---|---|---|
+| PR109-REVIEW-001 | Codex integration / Codex | Dương handoff; specialists separate | REVIEW | 2026-10-03 | [Card](../tasks/active/PR109-REVIEW-001.md); bounded SOFTWARE APPROVE51a7eed; Quality381/reference22/latest context preview4/build/E2E11 PASS; [evidence](../tasks/evidence/PR109-review-2026-10-03.md). |
+| M7-1954-SCOPE-002 | Dương / Codex | Independent learning preparation APPROVE; Dương content handoff | REVIEW | 2026-10-03 | [Card](../tasks/active/M7-1954-SCOPE-002.md); [scope brief](../content/CHAPTER-1954-SCOPE.md) complete chapter scope from Phase1 and approved outline; preserve bounded M7-01 DONE. |
+
+M7-02 is REVIEW per the accepted upstream pilot-source checkpoint; the chapter extension below does not clear its final historical gate. M7-03..09 preserve roadmap dependencies; temporary preview is not canonical content or release acceptance.
+
+## Chapter source preparation — 2026-10-03
+
+| Task | Owner / Executor | Reviewer | Status | Started | Files / next action |
+|---|---|---|---|---|---|
+| M7-02-CHAPTER-001 | Codex integration / disjoint research lanes | Independent preparation APPROVE; historical final gate separate | DONE | 2026-10-03 | [Card](../tasks/done/M7-02-CHAPTER-001.md); authoritative source/claim register for7episodes; keep parent M7-02 REVIEW. |
+
+## Current preview clarification — 2026-10-03
+
+| Task | Owner / Executor | Reviewer | Status | Dependencies / next action |
+|---|---|---|---|---|
+| M7-1954-CONTEXT-001 | Codex root | independent hosting_catalog_review APPROVE | DONE | [Card](../tasks/done/M7-1954-CONTEXT-001.md); deployed9abdb3f1df7a3759e34d verified; independent4/4 +8remotehashes PASS; visible cue27 clarification, immutable video and six locks retained; final M7-02/media/manual/release gates separate |

@@ -1,0 +1,22 @@
+name: Chapter 1954 register quality
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  register-quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '26'
+      - name: Validate preparation register bindings and review boundaries
+        run: node scripts/content/chapter1954-register/validate.mjs
+      - name: Exercise malformed inputs and CLI failure behavior
+        run: node --test scripts/content/chapter1954-register/validate.test.mjs

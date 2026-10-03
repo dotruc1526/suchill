@@ -1,4 +1,4 @@
-import brandLogo from '../../imports/su-chill-logo-transparent.png'
+import brandLogo from '../../imports/su-chill-logo-transparent.webp'
 import { FlameIcon, StarIcon, TrophyIcon } from '../icons/NavIcon'
 import { theme } from '../../theme/tokens'
 
@@ -28,15 +28,15 @@ export function TopBar({ xp, streak, achievements }: { xp: number; streak: numbe
         className="grid grid-cols-3 text-xs font-semibold leading-tight"
         style={{ gap: theme.spacing.sm, marginTop: theme.spacing.sm, color: theme.colors.textSecondary }}
       >
-        <span className="flex min-w-0 items-center gap-1" aria-label={`${streak} ngày liên tiếp`}>
+        <span role="group" className="flex min-w-0 items-center gap-1" aria-label={`${streak} ngày liên tiếp`}>
           <FlameIcon size={16} aria-hidden="true" className="shrink-0" />
           <span className="min-w-0">{streak} ngày</span>
         </span>
-        <span className="flex min-w-0 items-center gap-1" aria-label={`${xp} XP`}>
+        <span role="group" className="flex min-w-0 items-center gap-1" aria-label={`${xp} XP`}>
           <StarIcon size={16} aria-hidden="true" className="shrink-0" />
           <span className="min-w-0">{xp} XP</span>
         </span>
-        <span className="flex min-w-0 items-center gap-1" aria-label={`${achievements} huy hiệu`}>
+        <span role="group" className="flex min-w-0 items-center gap-1" aria-label={`${achievements} huy hiệu`}>
           <TrophyIcon size={16} aria-hidden="true" className="shrink-0" />
           <span className="min-w-0">{achievements} huy hiệu</span>
         </span>

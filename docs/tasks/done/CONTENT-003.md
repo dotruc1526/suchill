@@ -74,13 +74,13 @@ Các dependency/next action cũ bên dưới được assignment/acceptance 2026
 - Status: REVIEW; Started: 2026-09-28; Branch: `codex/content-status-sync`.
 - Files claimed: `docs/content/HISTORICAL-SOURCES.md`, `PILOT-SCREENPLAY.md`, `CURRICULUM-MAP.md`; card CONTENT-003/004, task board và `CONTENT-003-004-REVIEW.md` cùng thư mục.
 - Scope: review bản authoring, sửa regression của ba tài liệu về bản có source/claim và narration v2; không claim sản xuất CONTENT-007.
-- Next action: Trúc bổ sung nguồn đọc được cho CLM-MT68-01, xác nhận historical/learning và nguồn audio; Vinh review kỹ thuật. Xem [báo cáo](./CONTENT-003-004-REVIEW.md).
+- Next action: Trúc bổ sung nguồn đọc được cho CLM-MT68-01, xác nhận historical/learning và nguồn audio; Vinh review kỹ thuật. Xem [báo cáo](../active/CONTENT-003-004-REVIEW.md).
 - Checkpoint: đã sửa regression ba tài liệu, validator PASS; bốn nhóm fact pilot có nguồn hỗ trợ, nhóm năm mục tiêu chưa đọc lại được URL. Verdict vẫn NEEDS_REVISION.
 - Blocker: CONTENT-002 còn ô reviewer chưa xác nhận; historical/media sign-off và audio chưa có evidence. Chỉ review/sửa bản nháp hiện hữu.
 
 ### Checkpoint cập nhật trạng thái — 2026-10-02
 
-- Historical/language review được ghi nhận riêng cho artifact screenplay/narration trong CONTENT-004 tại revision khớp verdict 2026-09-28 (chi tiết/hash ở [CONTENT-014](./CONTENT-014.md)). Điều này không tự phê duyệt toàn bộ CONTENT-003, source registry, quyền media, audio hay production.
+- Historical/language review được ghi nhận riêng cho artifact screenplay/narration trong CONTENT-004 tại revision khớp verdict 2026-09-28 (chi tiết/hash ở [CONTENT-014](../active/CONTENT-014.md)). Điều này không tự phê duyệt toàn bộ CONTENT-003, source registry, quyền media, audio hay production.
 - Task CONTENT-003 vẫn `REVIEW`; các ghi chú cũ rằng chính pilot screenplay còn `NEEDS_HISTORICAL_REVIEW` đã được thay bằng checkpoint hash-bound. Giữ các source/claim chưa có locator và các media/rightsholder pending ở trạng thái tương ứng.
 - Gate hiện hành: M3 OPEN / M4 LOCKED; content production có gate riêng. Next: hoàn tất source/media evidence và handoff review trước mọi production.
 
@@ -91,7 +91,7 @@ Các dependency/next action cũ bên dưới được assignment/acceptance 2026
 - Reviewer: Trúc phụ trách historical/learning/media; Vinh technical QA. Codex không thay sign-off.
 - Started: 2026-09-27 (revision); Branch: `codex/mt68-complete-handoff`.
 - Depends on: CONTENT-002 (board ghi DONE; card còn ô reviewer chưa xác nhận), DOC-004 (DONE).
-- Files claimed: registry/catalog, card này, board và [handoff](./PR21-HANDOFF.md).
+- Files claimed: registry/catalog, card này, board và [handoff](../active/PR21-HANDOFF.md).
 - Next action: reviewer kiểm tra Bài 2–4/quiz đã sửa, hoàn tất pilot và quyền từng asset.
 - Blocker: bản authoring pilot/scene đã sửa theo CONTENT-014; chờ Trúc xác nhận nội dung và bằng chứng audio/media cuối. Không mở CONTENT-007.
 - Acceptance: nguồn/claim truy vết được; fact/fiction và quyền media được xác nhận; verdict có người ký. Hiện chưa đủ.

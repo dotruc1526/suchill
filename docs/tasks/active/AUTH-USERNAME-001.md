@@ -7,7 +7,7 @@
 
 - Owner / Executor: Codex root.
 - Reviewer: username_security source/security review PASS; browser/mail/human acceptance pending.
-- Branch: codex/m3-m5-complete.
+- Branch: codex/m6-pwa-completion, based on merged main 8b5ae10; original username implementation is retained.
 - Dependencies: M4-07, SUPABASE-HOSTED-001 technical delivery DONE.
 - Authorization: user requested username/password instead of mandatory email confirmation; selected optional recovery email without blocking learning.
 - Files claimed: this card, own board/index entries, new authentication design/evidence, `src/features/auth/`, auth-only additions to `src/services/next/accountContracts.ts`, `src/services/next/mockAccount.ts`, `src/services/supabase/auth.ts`, new trusted account-access backend/function, new auth migration and tests; dev-only middleware registration in `vite.config.ts` if needed. No App/tokens/global CSS/package/lockfile ownership taken.
@@ -41,3 +41,36 @@ No old account deletion or password reset is included in this task. User-supplie
 ## PR106 core username UI acceptance — 2026-10-02
 
 Actual configured Chrome UI on allowed origin localhost5173: signup without email/confirmation,375/430 mobile fit, repeat-password validation, immediate Home, persistent browser reload/same UUID/0XP, signout, wrong-password rejection, correct username login and own synthetic password change/new-password login PASS. [UI evidence](../../engineering/main-first-integration/username-browser.txt). Runtime is unchanged from reviewed5640f29. Disposable account deleted only after checking exact newly generated UUID/email/username metadata; retained account/password/progress untouched. No real recovery email sent. This supersedes the earlier pending complete new-user browser sequence; optional recovery sender/delivery/reset acceptance remains pending and this card stays REVIEW. Next action: configure verified recovery sender and callback allowlist, validate real recovery with authorized recipient, then obtain separate reviewer/PO acceptance.
+
+## Post-merge recovery rework — 2026-10-02
+
+Independent postmerge reviewer identified a concrete missing acceptance: the SDK PASSWORD_RECOVERY event is discarded and /?account=recovery opens the learning Home instead of a reset form. This resumes the existing active Auth scope, independently of locked M6/M7. Core username acceptance remains reusable; no original account credentials/progress are changed.
+
+- Owner / Executor: Codex root coordinating disjoint recovery client/UI work.
+- Reviewer: independent postmerge_main_review; final mail/sender/redirect acceptance still pending.
+- Started: 2026-10-02. Status: IN PROGRESS (reopened from REVIEW for the verified recovery gap).
+- Files claimed: root owns this card, its board row, docs/engineering/auth-username/recovery-callback.md and src/app/HostedApp.tsx; client lane owns auth-only additions to src/services/next/accountContracts.ts, src/services/supabase/auth.ts, a new passwordRecovery.ts helper and tests/member5/password-recovery.test.ts; UI lane owns new recovery feature files and tests/qa/password-recovery-ui.test.mjs. Package/lockfile, App.tsx, tokens, global CSS, all applied migrations and unrelated contributor files remain unclaimed.
+- Acceptance: a dedicated callback/reset form only becomes usable after an SDK recovery event plus server-verified matching Auth subject; valid, missing/expired, offline/retry, repeated-password and account-switch cases; callback secrets are not surfaced in domain/UI/logs; own pending progress is preserved. Ordinary signin/signup and existing M3/M4/M5 regression must pass. Hosted email delivery/sender and real authorized recipient acceptance remain separate and unverified.
+- Next action: agree the minimal optional AuthService recovery contract, implement in claimed lanes, verify meaningful unit/browser checks and obtain an independent review before returning to REVIEW. No task DONE or milestone gate is inferred.
+
+Client lane additionally claims only the concurrent-listener fixture in tests/member5/username-client.test.ts; all prior assertions remain unchanged. It must model multiple SDK subscriptions so the recovery observer cannot be accidentally overwritten by the fixture.
+
+## Recovery software review — 2026-10-02
+
+Independent recovery_review APPROVE final helper SHA256 e2e216fa1a831ae66985fe8f2e7daf2601bb554b9af5013e60fe5db7f2a91468. Independent44 unique checks PASS:21new recovery,11legacy username client,6legacy AuthUI+6new recovery Chrome/SSR. Includes SDK delayed event, expired/query-only existingaccount denial, refocus, ABA, mutation bearer pinning, transientnull503, concurrent submit, callback reload after memoized initialnetwork failure,375/430/reduced-motion/keyboard/200percent text and exact pending preservation. Added dedicated callback before HostedRuntime so learning/sync waits dismissal. No migration/backend/user account/env mutation.
+
+Status REVIEW remains required: verified optional sender, exact hosted redirect allowlist and authorized real mailbox/reset delivery acceptance are still unverified; unit/browser fixtures are not live email proof. Next action is finish that external acceptance when verified sender/project configuration is available. Existing core username/password access stays accepted.
+
+## Root integration finding — 2026-10-03
+
+React StrictMode re-runs useMemo initializers; createLearningRuntime constructs an SDK that consumes a one-time recovery URL. Root claims the existing HostedApp initializer plus a new owned hosted-recovery fixture and browser assertion. A per-document runtime is shared across StrictMode/remount, keeping the original verified recovery tracker. This is software rework under the active recovery card, not evidence of real email delivery. Previous helper approval is preserved; the new integrated boundary needs review with this evidence.
+
+## HTTPS login continuation claim — 2026-10-03
+
+User reported created account cannot sign in by username on the temporary Firebase preview. Read-only probe reproduces OPTIONS403/POST403 with no CORS header for exact origin https://suchill-preview--m6-android-1954-p8pbahbd.web.app. The default account-access origins only include local8443/5173. Root resumes this existing auth claim for exact-origin configuration repair, docs/engineering/m6-pwa/HOSTING-PREVIEW-20261003.md and a new scripts/release/hosting-auth-origin.test.mjs. Do not reset/delete/change the user's account/password/progress, disable authentication/JWT/RLS or add wildcard CORS. Reviewer remains pending; verify denied arbitrary origin and successful preflight/domain behavior before handoff. Inspect existing server origin setting before mutation to preserve authorized entries.
+
+## HTTPS repair evidence — 2026-10-03
+
+Exact preview origin was added to ACCOUNT_ACCESS_ORIGINS, preserving four original default local origins; no custom setting existed before. Live preflight204/exact ACAO, arbitrary-origin403 and localhost204PASS; CORS+username-server20/20PASS. Separate new QA signup/signout/username-login/sameUUID/0XP read and wrong-password rejectionPASS. User's account, password and progress untouched. No source Auth/RLS/JWT/redirect modification; only the exact CORS setting changes backend environment. [Evidence](../../engineering/m6-pwa/HOSTING-PREVIEW-20261003.md). Actual Android/user retest is pending; status REVIEW, no DONE. Temporary origin cleanup on channel retirement is recorded.
+
+User Android retest confirms “Đăng nhập được” after exact-origin repair2026-10-03. This reported login finding is resolved; optional recovery mail/reset and independent/full acceptance remain separate, so AUTH-USERNAME-001 stays REVIEW.

@@ -1,4 +1,4 @@
-import mascotSpriteUrl from '@/imports/image-1.png'
+import mascotSpriteUrl from '@/imports/image-1.webp'
 
 export type MascotEmotion =
   | 'happy' | 'excited' | 'thinking' | 'sad' | 'correct' | 'wrong'
@@ -36,9 +36,10 @@ type Props = {
   size?: number
   className?: string
   animate?: boolean
+  decorative?: boolean
 }
 
-export default function Mascot({ emotion = 'happy', size = 100, className = '', animate = false }: Props) {
+export default function Mascot({ emotion = 'happy', size = 100, className = '', animate = false, decorative = false }: Props) {
   return (
     <div
       className={`inline-block shrink-0 ${animate ? 'animate-mascot-idle' : ''} ${className}`}
@@ -52,7 +53,9 @@ export default function Mascot({ emotion = 'happy', size = 100, className = '', 
         transition: 'background-position 0.3s ease',
         imageRendering: 'auto',
       }}
-      aria-label={`Sử Chill mascot — ${emotion}`}
+      role={decorative ? undefined : 'img'}
+      aria-hidden={decorative || undefined}
+      aria-label={decorative ? undefined : 'SỬu — linh vật Sử Chill'}
     />
   )
 }

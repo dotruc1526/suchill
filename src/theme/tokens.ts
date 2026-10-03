@@ -23,7 +23,7 @@ export const theme = {
     // Typography Colors
     textPrimary: '#3D1A00',      // Mực nâu đậm (Tiêu đề, nội dung chính)
     textSecondary: '#7A4020',    // Mực nâu vừa (Mô tả phụ)
-    textMuted: '#A0622A',        // Nâu đất (Ghi chú nhỏ, thời gian)
+    textMuted: '#855022',        // Nâu đất, ≥4.5:1 trên nền app/card/nav (ghi chú nhỏ)
 
     // Feedback State (Bôi xanh / Bôi đỏ)
     correct: {
@@ -96,6 +96,8 @@ export const theme = {
     durationSlow: '400ms',
     easeDefault: 'cubic-bezier(0.4, 0, 0.2, 1)',
   },
+
+  layers: { skipLink: 100 },
 
   layout: {
     touchTarget: 44,

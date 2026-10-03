@@ -1,0 +1,494 @@
+
+> figma-make-app@1.0.0 quality
+> npm run typecheck && npm run build && node scripts/member5/check-client-env.mjs --require-bundle && npm test && node scripts/member5/check-client-env.mjs --require-bundle
+
+
+> figma-make-app@1.0.0 typecheck
+> tsc --noEmit
+
+
+> figma-make-app@1.0.0 build
+> vite build
+
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - `__dirname` (vite.config.ts:29:27). Use `import.meta.dirname` instead
+  - JSON import "./.figma/make/site.json" without import attributes (vite.config.ts:6:31). Add `with { type: 'json' }`
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+vite v8.3.0 building client environment for production...
+transforming...
+✓ 183 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/robots.txt                                         0.02 kB │ gzip:   0.04 kB
+dist/index.html                                         0.94 kB │ gzip:   0.43 kB
+dist/assets/su-chill-logo-transparent-BTRQbQWg.png  1,597.14 kB
+dist/assets/image-1-Coxssv1m.png                    1,615.78 kB
+dist/assets/index-BTNZFwT_.css                         31.41 kB │ gzip:   6.75 kB
+dist/assets/index-D-f30534.js                         659.61 kB │ gzip: 185.79 kB
+
+✓ built in 1.43s
+[plugin builtin:vite-reporter]
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+Checked 541 source/tracked/bundle files; 0 unsafe matches.
+
+> figma-make-app@1.0.0 test
+> npm run test:unit && npm run test:component && npm run test:db && npm run test:authoring && npm run test:e2e
+
+
+> figma-make-app@1.0.0 test:unit
+> node --test tests/member5/*.test.ts
+
+✔ explicit completion, retry, adapter recreation and concurrent requests grant one lesson reward (125.9992ms)
+✔ VN redacts answer keys, rejects checkpoint jumps, requires attempts, and replay never advances authority (6.265ms)
+✔ unique watched duration defeats seeking; fallback requires approved transcript plus required recap (6.0047ms)
+✔ trusted quiz pass and improved mastery earn base and bonus once across reload/account switching (12.1928ms)
+✔ authored daily review requires a complete owned practice attempt with minimum three questions (73.2604ms)
+✔ daily review deduplicates across sets/reload/races, rejects stale days and isolates accounts (12.5167ms)
+✔ every confirmed daily attempt retains its original day including zero-XP after a timezone change (16.3977ms)
+✔ a nonterminal debrief cannot award episode completion before the remaining story checks/end (7.7408ms)
+✔ published corrections retain stable episode reward eligibility instead of farming a version reward (68.8081ms)
+✔ completion rejects missing dependencies, missing content and unauthorized writes without rewards (3.5453ms)
+✔ video watch threshold counts union of ranges and optional policy does not block a lesson (9.4332ms)
+✔ streak uses account timezone, qualifies once/day, expires after a gap and preserves longest (103.3156ms)
+✔ account settings persist across adapters, isolate accounts and audit/cooldown timezone changes (5.2202ms)
+✔ timezone change cannot mint a second streak day from the same recent activity window (4.0646ms)
+✔ mock auth hides credentials, persists users, supports switching and notifies subscribers (2.9775ms)
+✔ analytics is opt-in, strips private/freeform fields and tolerates invalid events without blocking learning (2.81ms)
+✔ unlocked failed knowledge attempts can be replayed after reload without revealing an unsubmitted answer (43.2527ms)
+✔ knowledge replay access belongs to the original account, version, scene and submitted choice (23.77ms)
+✔ narrative replay requires the locked choice until completion, then allows other branches without mutation (63.3711ms)
+✔ lesson revision rejects new stale operation IDs while checkpoint hints remain distinct from trusted block receipts (79.4104ms)
+✔ story and video revisions reject stale writes; confirmed playback completion cannot rewind (23.5733ms)
+✔ an action from account A cannot bind to B before the completion microtask starts (24.4767ms)
+✔ old rendered settings, assessment, telemetry and read actions cannot affect a newly selected account (55.9813ms)
+✔ the currently rendered account retains normal completion and offline owner binding (6.2764ms)
+✔ settings and analytics caller subjects survive switching after the visible-account guard (4.1979ms)
+✔ scoped reads discard ABA settings and release their observer, while thrown transports stay safe (1.2433ms)
+✔ scoped security actions carry the rendered account through a switch during the guard await (0.8615ms)
+✔ account snapshot rejects mismatched owner instead of showing another account reward (2.4626ms)
+✔ account snapshot rejects ABA preference reads and always removes its observer (3.841ms)
+✔ account snapshot fails safely on transport throws and permits a later successful retry (0.8949ms)
+✔ signed-out snapshot contains no prior account settings or summary (0.927ms)
+✔ accepts browser-safe configuration (3.7175ms)
+✔ rejects privileged key in browser configuration without echoing it (1.42ms)
+✔ accepts a legacy anon JWT and rejects unknown browser key formats (3.9289ms)
+✔ completion retry retains its operation ID and waits for service confirmation (12.1755ms)
+✔ overlapping completion clicks share one pending request (0.6264ms)
+✔ transport exceptions remain retryable without changing the action identity (0.8184ms)
+✔ Home reads account streak without fabricating a weekly activity or minute goal (0.9767ms)
+✔ anonymous learners can inspect published catalog without seeing account progress (4.3688ms)
+10:21:59 PM [vite] (client) Re-optimizing dependencies because vite config has changed
+10:22:00 PM [vite] (client) [optimizer] scanning dependencies...
+✔ lesson completion waits for required blocks without claiming XP (2307.2402ms)
+✔ receipt renders only service-provided XP and streak, with a focusable status (3.8672ms)
+✔ pending and policy failures have text feedback without reward confirmation (2.0933ms)
+✔ previously confirmed block renders read-only confirmation without sending a request (18.2564ms)
+✔ text and recap document reads expose only published documents and return independent copies (6.7349ms)
+✔ practice and scored success require complete ordered outcomes; practice has no pass gate (54.8651ms)
+✔ practice validates all required answers and rejects malformed selections before grading (1.1577ms)
+✔ practice retries are idempotent, isolated per user and copied; changed payload conflicts (2.0665ms)
+✔ both submission modes fail closed for missing, duplicate, unknown or inconsistent grader feedback (2.7854ms)
+✔ practice strips client correctness and grader extras and allows retry after grader failure (1.2669ms)
+✔ shared root document aliases compile and require locale and discriminated sections (3380.8291ms)
+✔ plain text can grow into structured sections without changing document identity (0.8423ms)
+✔ FE-011 formats the domain display name and trims surrounding whitespace (1.6559ms)
+✔ FE-011 reads the user service and falls back without blocking Home (0.8148ms)
+WebSocket server error: Port 24678 is already in use
+✔ hosted Home uses confirmed account streak and omits unavailable goals and weekly evidence (26.737ms)
+✔ hosted rejected queue exposes recoverable owner actions and does not claim XP (2.921ms)
+✔ legacy chapter maps deterministically to unpublished domain fixture content (7.014ms)
+✔ legacy visual novel graph remains isolated until authored source review (1.1998ms)
+✔ domain validators and mock reads agree on published references (7.9658ms)
+✔ service boundary takes operation inputs without caller-supplied account identity (1.5362ms)
+✔ double submit is locked synchronously and summary is service-confirmed (3.3407ms)
+✔ offline, thrown and ineligible retries retain operation ID with no optimistic reward (1.23ms)
+✔ summary error retains receipt and confirmed values; read retry never resubmits (0.5497ms)
+✔ null, zero XP and unauthorized summaries remain distinct (0.4259ms)
+✔ restore errors cannot submit; restored receipts do not claim new rewards (0.7005ms)
+✔ stale read responses cannot overwrite a later restoration or summary (0.6429ms)
+✔ foreign account, lesson or version receipt and foreign summary are rejected (0.7084ms)
+✔ block acknowledgement flush blocks submission and retries stable action ID (1.2792ms)
+✔ validation retry preserves intent; conflict and not_found cannot be bypassed (1.4873ms)
+✔ technical catalog reads require explicit acknowledgement and do not duplicate XP (178.3311ms)
+✔ session registry preserves pending intent across remount and isolates account/services epochs (7.8214ms)
+✔ checkpoints alone cannot grant completion; explicit action confirms receipt and summary (70.3256ms)
+✔ race, same operation, fresh operation and adapter recreation grant once (3.7564ms)
+✔ invalid, unauthorized, unknown and reused payloads return typed failures (1.4393ms)
+✔ shared store isolates accounts and resets with a fresh store (2.0227ms)
+✔ minor version correction requires new evidence but cannot farm XP or streak (3.2532ms)
+✔ timezone boundary, same day, consecutive day, gap and invalid clocks (5.6576ms)
+✔ video threshold counts unique ranges, not seek/end or overlapped samples (2.723ms)
+✔ reach_end needs a stored played near-end range; optional video does not block (2.1077ms)
+✔ fallback requires published transcript, authored linkage and explicit recap evidence (1.6894ms)
+✔ new content version cannot reuse old video ranges (0.9748ms)
+✔ VN jump-to-end checkpoint cannot replace stored choice attempts on the selected path (2.9322ms)
+✔ stored quiz grading gates scored completion; practice only needs all answers (4.8039ms)
+✔ mixed lesson requires every stored block and cannot read another account evidence (3.9091ms)
+✔ fresh replay operation returns the same already_completed outcome on retry (1.1769ms)
+✔ invalid timezone rolls back all completion writes (0.6582ms)
+✔ reach_end merges adjacent and overlapping playback but never bridges gaps (2.0485ms)
+✔ episode qualifies streak outside required lessons; replay/version/lesson reuse cannot farm days (9.1977ms)
+✔ optional-only catalog cannot complete or grant XP/streak without required learning evidence (2.1037ms)
+✔ backwards completion day rolls back; retry stays stable and summary excludes future days (4.2451ms)
+✔ M3 mock completion stays pending offline and confirms the same intent only after reconnect (1.4812ms)
+✔ Home continues an active lesson across chapters before offering a new lesson (2.2622ms)
+✔ optional Home activity failure does not block the learning catalog (20.409ms)
+✔ M3 journey loads stable IDs through services and derives mock progress (6.4152ms)
+✔ M3 journey exposes empty and service failure states without reading fixtures in UI (2.246ms)
+✔ reopening a lesson preserves its existing checkpoint (0.7753ms)
+✔ M3 integration maps stable lesson and block identities into player contexts (0.4384ms)
+✔ learning loop: journey → ordered players → completion → profile → re-entry/account isolation (101.8791ms)
+✔ learning loop: practice quiz consumer gates confirmed rewards and retry (5.5988ms)
+✔ learning loop: scored quiz consumer gates confirmed rewards and retry (4.2481ms)
+✔ learning loop: lost completion response and summary outage recover without minting twice (2.8574ms)
+✔ learning loop: optional video never bypasses required acknowledgement (3.0359ms)
+✔ learning loop: fallback video never bypasses required acknowledgement (4.7256ms)
+✔ M3-02 resolves documents and returns every typed block in authored order (4.5804ms)
+✔ M3-02 fails closed when a referenced document is unavailable (0.7848ms)
+✔ M3-02 exposes an empty published lesson without inventing blocks (0.484ms)
+✔ M3-05 loads safe delivery and submits complete practice answers in authored question order (51.9127ms)
+✔ M3-05 uses trusted scored receipt and never derives score/pass in the client model (1.5814ms)
+✔ M3-05 blocks incomplete submission, toggles selections immutably and resets only local attempt state (1.0894ms)
+✔ M3-05 surfaces delivery and grading failures without fabricating feedback (1.3202ms)
+✔ M3-05 rejects a late submission after the active question set changes (0.9809ms)
+✔ M3-04 loads resolved video resources and resumes the exact saved position (5.8289ms)
+✔ M3-04 checkpoints bounded observed ranges without client completion authority (2.1265ms)
+✔ M3-04 fails closed for missing/non-video media and treats absent progress as a fresh start (0.9136ms)
+✔ M3-04 retains failed and later checkpoints, then retries them in order with stable operations (8.8441ms)
+✔ M3-04 isolates late checkpoint callbacks by video context (1.8104ms)
+✔ M3-04 creates a new writer when services change for the same video context (2.6907ms)
+✔ M3-03 traverses all scene types and honors both knowledge policies and narrative branching (7.812ms)
+✔ M3-03 resumes exact confirmed scene and replay never rolls progress back (3.1842ms)
+✔ M3-03 fails visibly for unavailable stories and invalid transitions (0.9153ms)
+✔ M3-03 distinguishes story contexts that share scene IDs (0.5222ms)
+✔ ready Visual Novel state is invalid as soon as context or services change (0.546ms)
+✔ M3-03 discards a late successful action after switching stories (15.0548ms)
+✔ M3-03 discards a late failed action instead of showing a stale error (0.9707ms)
+✔ canonical block actions translate before strict offline DTO validation (24.4926ms)
+✔ canonical acknowledgement queues safely and syncs the same intent after reconnect (6.0106ms)
+✔ canonical completion persists original intent across reload and confirms only after owner sync (4.9657ms)
+✔ queued canonical completion cannot be rewritten or replayed as another account (2.0855ms)
+✔ ambiguous canonical response queues its original ID and server-confirmed retry clears pending (1.9301ms)
+✔ ineligible queued canonical completion retains its ID, rejection and ordering until evidence is confirmed (4.19ms)
+✔ media resolves video, poster, Vietnamese captions, transcript and accessible fallback without storage paths (5.1568ms)
+✔ media fails closed for missing, draft or wrong-kind secondary references (2.7771ms)
+✔ fallback only uses published resources actually available in the media package (0.6388ms)
+✔ interactive technical media resolves only explicitly declared local public fixture resources (5.7429ms)
+✔ declared fixture media URLs reject external schemes, unrelated routes, traversal and ambiguous encodings (13.9581ms)
+✔ read services expose published content only and return copies (5.5288ms)
+✔ checkpoint is per session, idempotent and cannot mark authoritative completion (19.9058ms)
+✔ checkpoint and operation IDs stay isolated when one adapter changes account (1.2059ms)
+✔ quiz reads omit answer keys and scored submissions are trusted and idempotent (2.6052ms)
+✔ quiz adapter rejects unknown options and strips client correctness fields before grading (2.6876ms)
+✔ quiz delivery rejects missing, duplicate or unlabeled options (4.5655ms)
+✔ quiz delivery allowlists option labels and question/set fields even when fixtures carry answer keys (1.1863ms)
+✔ offline completion persists without fabricating confirmation and retains original operation across reload (10.937ms)
+✔ retry deduplicates operations and rejects changing a payload under the same ID (1.2275ms)
+✔ sync stops at a failed prerequisite, retains all records and never sends another account operations (2.0195ms)
+✔ unknown command/credential fields and inaccessible persistence fail closed (0.8283ms)
+✔ ambiguous lost response is queued with same operation ID for authoritative deduplication (0.488ms)
+✔ online retry checks durable signature before transport and removes its confirmed pending record (1.5305ms)
+✔ new online commands wait for their owner prerequisites without blocking another account (1.4025ms)
+✔ ambiguous sends retain the original payload even if the caller mutates its object (0.5511ms)
+✔ VN resumes ordered first block, then exact scene/version and locked choices across recreated adapters (12.7088ms)
+✔ video resumes position, merges unique watched ranges and never accepts client completion authority (2.4189ms)
+✔ playback rejects wrong version/block/scene, invalid ranges and unauthenticated writes (1.7617ms)
+✔ shared mock store isolates playback and operation IDs across accounts and preserves story versions (1.4942ms)
+✔ retryable wrong knowledge choice does not lock out a later correct choice (1.0627ms)
+✔ tracked nested private env paths are rejected without opening them (1.981ms)
+✔ QA-001 chapter: published objectives have stable nonempty unique identities (3.4963ms)
+✔ QA-001 lesson: published objectives have stable nonempty unique identities (2.5991ms)
+✔ QA-001 story: published objectives have stable nonempty unique identities (1.6844ms)
+✔ QA-001 broken references identify the affected chapter, lesson and story path (0.8471ms)
+✔ QA-001 published fixture needs both known and approved reference lookups (0.4633ms)
+✔ reward identity separates ambiguous activity IDs (2.4336ms)
+✔ quiz pass and bonus have distinct thresholds (0.5871ms)
+✔ video duration merges ranges and rejects seek-to-end shortcut (0.798ms)
+✔ streak qualifies once per day, increments consecutive day and resets after a gap (2.2387ms)
+✔ caller-bound initialization keeps its account precondition out of durable queue payloads (10.8783ms)
+✔ runtime auth changing before dispatch prevents transport from being invoked (1.7632ms)
+✔ account A precondition follows the command through asynchronous token binding and rejects B before any write (1.3706ms)
+✔ restored queue sends only its original account operations and retains A records when token changes to B (50.7953ms)
+✔ replay feedback remains account-owned and does not mutate progress or reward across switching (4.5591ms)
+✔ account checkpoint hints never masquerade as trusted completion when the session wrapper is active (3.4389ms)
+✔ grading captures the submitting account before a reentrant auth switch and never grants the next user (8.9996ms)
+✔ settings intent keeps the original account subject through a token switch and never changes B preferences (2.7904ms)
+✔ late analytics intent from A is dropped when token binding switches to opted-in B (2.4261ms)
+✔ RPC boundary routes exact IDs and original operation identity, without supplying a user ID (4.2027ms)
+✔ database, network and malformed responses become domain errors and never expose raw messages (0.9078ms)
+✔ published media resolves reviewed poster/captions/transcript and rejects draft/traversal paths (1.2672ms)
+✔ account reads reject an A to B to A transition even for settings DTOs without an owner field (0.8104ms)
+✔ account read checks returned progress ownership and does not reject same-user token refresh (0.6437ms)
+✔ username signup/login let the SDK own tokens, immediately return a session and do not initiate email setup (30.1998ms)
+✔ legacy email signup/login retain their SDK behavior and existing user identity (0.8921ms)
+✔ malformed sessions and unsafe function errors never reach the UI or session store (59.4891ms)
+✔ session projection trusts server app metadata and confirmed real emails, not user-controlled metadata (0.5808ms)
+✔ username claim refreshes the SDK session and recovery setup is a separate authenticated action (1.7379ms)
+✔ recovery proof refreshes the SDK and only confirmed Auth email becomes recoverable (1.5931ms)
+✔ recovery setup binds its initiating bearer and rejects an A to B to A switch (0.9356ms)
+✔ reset/update wrappers reject internal email and invalid passwords before touching SDK (1.3727ms)
+✔ scoped auth mutations refuse a different initiating actor before sending a credential or mailbox request (2.1593ms)
+✔ password recovery redirect uses only the current HTTP app origin and excludes fragments/foreign paths (0.7985ms)
+✔ mock username registration, alias claim and reload preserve UUID, password and account settings (58.3319ms)
+✔ CORS and input failures cannot reach privileged enrollment or password endpoints (111.2659ms)
+✔ oversized streaming bodies stop reading before allocating the entire request (4.0607ms)
+✔ password failures are generic for known and missing names and do not return identity mapping (75.5564ms)
+✔ quota refusal prevents credential checks and privileged user creation (6.3951ms)
+✔ claim binds the alias to the verified bearer actor and ignores forged user IDs/app metadata (10.69ms)
+✔ invalid/expired bearer cannot claim another account or update Auth metadata (14.0037ms)
+✔ duplicate signup never overwrites credentials or starts a session (66.9229ms)
+✔ username registration only returns SDK session tokens and creates a trusted internal identity (13.8374ms)
+✔ transport failures never echo a credential/secret; hashing is salted across deployments (6.0743ms)
+✔ recovery setup without delivery configuration has no request, mail, or Auth mutation side effect (6.565ms)
+✔ recovery setup/verification requires a verified bearer and cannot trust body actor IDs (5.9911ms)
+✔ mailbox setup sends only to the selected address and stores a hash with expiry, never returning its token (14.761ms)
+✔ mailbox proof binds consumption and confirmed email mutation to the same Auth UUID (12.239ms)
+✔ expired/replaced/replayed proof and email collision cannot change another account or credentials (13.0056ms)
+✔ custom first-mailbox proof cannot bypass secure email change on an existing real-email account (2.3213ms)
+✔ password update uses the verified actor bearer on the public Auth API and ignores forged actor IDs (1.9384ms)
+✔ password update rejects invalid credentials and invalid/expired bearers before any mutation (2.0958ms)
+✔ recovery reservation releases only on definitive rejection and survives ambiguous Auth failures (15.6435ms)
+✔ chapter and lesson validators check stable references, status and ordered identities (7.4515ms)
+✔ lesson validator accepts referenced block and rejects duplicate order (1.3735ms)
+✔ lesson validator resolves each block kind to its own reference lookup (0.778ms)
+✔ story validator catches broken links and narrative correctness (1.2948ms)
+✔ story validator rejects duplicate choice IDs across scenes in one version (1.4499ms)
+✔ story validator rejects empty and duplicate IDs within a choice scene (1.6334ms)
+✔ story validator requires a usable transition for every continuing choice (1.1459ms)
+✔ story validator checks source, claim and published media references (1.7457ms)
+✔ media validator requires accessibility and provenance before publication (3.1335ms)
+✔ media validator detects invalid review status and unknown provenance (3.8991ms)
+✔ published historical claims require known approved sources (1.235ms)
+✔ published content fails closed when approval lookups are omitted (1.8589ms)
+WebSocket server error: Port 24678 is already in use
+✔ fallback action retries retain their identity across offline, policy rejection and selection changes (3.313ms)
+✔ overlapping fallback confirmation clicks share one pending domain request (0.5371ms)
+✔ thrown transport errors remain unconfirmed and retry the same fallback identity (0.4437ms)
+✔ initial fallback UI names both routes and requires an explicit confirmation without optimistic rewards (17.3279ms)
+✔ pending fallback disables method changes and confirmation and announces unconfirmed state (1.8989ms)
+✔ offline and rejected evidence show retry feedback; only service confirmation hides the controls (2.222ms)
+✔ playback initialization is lazy, coalesces repeated plays and confirms before observed checkpoints (9.2205ms)
+✔ failed initialization and later observed payloads retain their original identity, data and order on retry (2.3787ms)
+✔ a thrown initialization transport retains its payload and releases the writer for retry (1.3337ms)
+✔ initialization state is isolated by service account and video context (1.3208ms)
+✔ actual SQL accepts initialized canonical video checkpoints while rejecting a first nonempty range (3745.3243ms)
+ℹ tests 230
+ℹ suites 0
+ℹ pass 230
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7345.3013
+
+> figma-make-app@1.0.0 test:component
+> node --test tests/qa/component.test.mjs tests/qa/auth-username-ui.test.mjs
+
+10:22:06 PM [vite] (client) [optimizer] scanning dependencies...
+✔ sign-in accepts username or legacy email and supports password managers (1282.5637ms)
+✔ username signup requires no mailbox and validates a repeated new password (3.4161ms)
+✔ forgotten-password form asks for a confirmed real recovery email (1.5371ms)
+✔ existing verified email and claimed username cannot be changed by enrollment forms (27.5203ms)
+✔ pending recovery stays optional and active requests disable editing (3.3883ms)
+✔ auth field links visible label, helper and error without hiding password controls (3.1687ms)
+WebSocket server error: Port 24678 is already in use
+✔ document opts into display around device safe areas (13.3252ms)
+✔ canonical BottomNav renders all tabs and selected state (742.9255ms)
+10:22:06 PM [vite] (client) [optimizer] scanning dependencies...
+✔ canonical TopBar renders streak, xp and safe-area header (456.6916ms)
+✔ M3 journey home exposes labeled stable-ID navigation (126.0698ms)
+✔ runtime typography loads only Inter and keeps legacy class aliases (2.3694ms)
+✔ UI primitives render with design tokens (9.8448ms)
+✔ Modal source contains focus trap and focus restoration behavior (6.0441ms)
+✔ M1 primitives route color and shadow decisions through tokens (16.8465ms)
+✔ Shared states render properly with Vietnamese content (5.9657ms)
+✔ M3-03 scene view keeps narrative choices neutral and knowledge feedback explicit (37.0196ms)
+✔ M3-03 error state preserves close and checkpoint retry actions (38.4077ms)
+✔ M3-03 moves focus by scene and feedback without returning to the player heading (0.9779ms)
+✔ M3-03 resets focus tracking when the story context changes (1.2424ms)
+✔ M3-03 gates late action results by story context (3.778ms)
+✔ M3-03 hides a ready session synchronously when context or services change (1.9399ms)
+✔ M3-04 video view exposes controls, Vietnamese captions, transcript and prepared fallback (17.6823ms)
+✔ M3-04 exposes load retry, retained-save retry and paused seek destination persistence (26.8908ms)
+✔ M3-04 resets media failure and guards old checkpoint callbacks when context changes (0.7542ms)
+✔ M3-05 quiz view is semantic, blocks incomplete submit and renders trusted feedback (13.194ms)
+✔ M3-02 lesson renderer routes ordered typed blocks through explicit slots (21.164ms)
+✔ M3-02 lesson renderer wires service failures to an explicit same-lesson retry (0.8536ms)
+✔ M3 integration replaces the lesson placeholder with accepted typed player slots (4.2702ms)
+✔ account summary distinguishes empty/error from confirmed zero and exposes retry (9.8352ms)
+ℹ tests 29
+ℹ suites 0
+ℹ pass 29
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2105.9299
+
+> figma-make-app@1.0.0 test:db
+> node --test supabase/tests/*.test.mjs
+
+▶ account settings, streak, daily review and analytics follow server policies
+  ✔ settings validate safe flags and audited timezone cooldown (552.8765ms)
+  ✔ enabled daily review earns5 once per account day; attempt cannot replay into another timezone day (393.0965ms)
+  ✔ yesterday extends streak, old gap resets current, longest survives (238.2574ms)
+  ✔ analytics is optional, event-specific and rejects personal data fields (153.7089ms)
+  ✔ expectedSubject is a session guard and never overrides authenticated identity (125.7276ms)
+✔ account settings, streak, daily review and analytics follow server policies (15746.9003ms)
+✔ actual adapter consumes normalized SQL catalog and media DTOs without exposing answer keys (15200.163ms)
+✔ actual adapter completes explicit text policy and exact retry receives same confirmed receipt (224.6551ms)
+✔ actual VN model initializes and traverses trusted SQL feedback; adapter grades authored quiz (324.7264ms)
+✔ queued expected subject mismatch rejects before any other-user write or reward (22.6035ms)
+✔ required VN checks apply to the visited branch; completed replay changes no records (15612.7688ms)
+✔ trusted account deletion removes personal learning data while ordinary ledger mutation fails (4288.9478ms)
+✔ 025 to 026 preserves authority and receipts while business conflicts become final HTTP409 (14987.8994ms)
+✔ 030 upgrades applied029 without changing public identity, existing receipts or private access (15233.5382ms)
+✔ canonical first completion emits trusted minimal events once; ineligible and replay emit none (4709.2478ms)
+✔ canonical VN confirms its implicit block and episode reward without leaking answer/private text (3475.3151ms)
+✔ canonical scored completion records block/lesson events without duplicating already-granted quiz telemetry (2868.856ms)
+✔ canonical analytics remains opt-in and enabling consent does not backfill completion events (3075.7194ms)
+✔ canonical analytics INSERT failure cannot reverse reward/progress or poison immutable replay (3900.1429ms)
+﹣ native canonical completion contenders serialize trusted telemetry once under the owner lock (0.7869ms) # Requires dedicated loopback PostgreSQL17 cluster
+✔ accepted main completion shape: ineligible retry, explicit acknowledgement, replay, restore and summary (14817.4856ms)
+✔ main RPC rejects account substitution, operation reuse and direct receipt access (79.0138ms)
+✔ main Visual Novel uses trusted feedback and server verifies episode before completion (364.5181ms)
+✔ main scored quiz completion retains authoritative reward scopes and no farming (134.4163ms)
+﹣ native main independent requests serialize canonical receipts and grant XP once (0.7882ms) # Requires dedicated native PostgreSQL cluster
+✔ receipt RLS default-deny and optional video fallback does not change required lesson method (150.0532ms)
+﹣ native PostgreSQL independent overlapping sessions preserve authority and atomicity (7.6016ms) # Set SUCHILL_NATIVE_PG_URL to a disposable loopback PostgreSQL17 cluster
+✔ native harness validates dedicated cluster and normalizes config before any connection (15.5504ms)
+✔ native bootstrap preserves PostgreSQL dollar quoting while adapting cluster roles (1.8181ms)
+▶ trusted SQL completion, grading, resume and retries preserve account rewards
+  ✔ checkpoints cannot spoof completed blocks and revision conflicts cannot rewind (236.5231ms)
+  ✔ explicit text completion and concurrent distinct completion operations grant exactly10 (211.5633ms)
+  ✔ story traversal, submitted feedback and required checks protect episode20 (311.1321ms)
+  ✔ video union, server-time budget and90percent policy resist seeking/duplicates (167.8057ms)
+  ✔ fallback requires approved transcript and completed authored recap (73.0689ms)
+  ✔ trusted quiz grading, feedback, mastery and retries grant25 only once (258.1833ms)
+✔ trusted SQL completion, grading, resume and retries preserve account rewards (16247.6774ms)
+✔ minor immutable corrections reuse reward identity and existing buckets become safe (15810.4703ms)
+✔ scored attempts respect prerequisites, incremental bonus and corrected assessment scopes (4559.0937ms)
+✔ analytics failure cannot roll back completion and successful commands emit minimal events once (3423.1622ms)
+✔ optional-policy video never blocks lesson completion even when the block flag is required (2810.0908ms)
+✔ roll-forward completion migration repairs an already-applied optional-video gate (3501.9897ms)
+✔ persisted PostgreSQL reopen preserves operation receipts and reward uniqueness (6183.1575ms)
+✔ pre-existing Auth accounts are initialized without replacing account settings (15602.0912ms)
+✔ question-set delivery exposes authored daily eligibility without grading keys (4456.5678ms)
+✔ publication rejects knowledge checks that cannot advance or pass (3435.7392ms)
+✔ publication rejects duplicate grading keys and unsafe or non-finite media metadata (2828.2891ms)
+✔ every published VN branch must have a playable end route (3291.7647ms)
+✔ a confirmed zero-XP daily attempt cannot become fresh after timezone reinterpretation (3995.6223ms)
+▶ SQL grants, RLS, publication and Storage protect anon/A/B boundaries
+  ✔ published relational DTOs have stable UUID identities and no keys (210.612ms)
+  ✔ anon cannot read private keys, user data or invoke writes (77.7018ms)
+  ✔ A cannot read/write B; identity body override and direct XP writes fail (309.5437ms)
+  ✔ private helpers have no direct client execution grants (91.3345ms)
+  ✔ published roots, children, choice keys and append-only ledger reject mutation (24.2397ms)
+  ✔ publication fails closed for draft references and unsafe fallback resources (25.4289ms)
+  ✔ Storage anon reads only approved paths; avatars stay account scoped (24.5342ms)
+✔ SQL grants, RLS, publication and Storage protect anon/A/B boundaries (16649.4321ms)
+▶ username identities preserve Auth identity while keeping mapping and quotas server-only
+  ✔ GoTrue insert then trusted metadata update enrolls only the final committed row (126.4233ms)
+  ✔ anon and A/B cannot enumerate identities, mutate mappings or consume trusted quota (396.7598ms)
+  ✔ enrollment rejects public user metadata spoofing and rolls back account/profile creation (292.1316ms)
+  ✔ claiming an existing email account is idempotent and preserves its UUID/progress rows (60.4001ms)
+  ✔ enrollment collision is atomic and cannot steal an existing email account alias (78.4113ms)
+  ✔ identity lookup follows verified Auth email changes without changing username/UUID (22.4206ms)
+  ✔ quota blocks only after the exact bound, expires and rejects malformed buckets (106.611ms)
+  ✔ recovery tokens are owner-bound, expire, cannot replay, and stale tokens lose to replacement (201.3636ms)
+✔ username identities preserve Auth identity while keeping mapping and quotas server-only (15642.5616ms)
+ℹ tests 65
+ℹ suites 0
+ℹ pass 62
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 3
+ℹ todo 0
+ℹ duration_ms 36695.0658
+
+> figma-make-app@1.0.0 test:authoring
+> node docs/content/validate-mt68-authoring.mjs && node docs/content/validate-1972-authoring.mjs
+
+PASS: 5 map nodes; 7 scenes; 6 complete paths; 5 quiz questions; 9 identical narration/VTT cues, 110s; source/claim IDs and local links.
+Not verified: recorded audio timing, media files, human sign-off, runtime behavior.
+--- Validating Chapter 1972 Lesson 2 Authoring Assets ---
+[PASS] Diagram data valid: 5 nodes with text-first fallback; no unapproved control relations.
+[PASS] Story graph valid: 8 reachable scenes, valid choices and transitions.
+[PASS] Narration markdown covers all 8 scenes; forbidden technical procedure terms absent.
+--- ALL CHAPTER 1972 LESSON 2 AUTHORING VALIDATIONS PASSED ---
+
+> figma-make-app@1.0.0 test:e2e
+> node scripts/member5/run-fixture-e2e.mjs
+
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - `__dirname` (vite.config.ts:29:27). Use `import.meta.dirname` instead
+  - JSON import "./.figma/make/site.json" without import attributes (vite.config.ts:6:31). Add `with { type: 'json' }`
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+vite v8.3.0 building client environment for production...
+transforming...
+✓ 183 modules transformed.
+rendering chunks...
+computing gzip size...
+../../../../AppData/Local/Temp/suchill-fixture-e2e-9U1P0b/robots.txt                                         0.02 kB │ gzip:   0.04 kB
+../../../../AppData/Local/Temp/suchill-fixture-e2e-9U1P0b/index.html                                         0.94 kB │ gzip:   0.43 kB
+../../../../AppData/Local/Temp/suchill-fixture-e2e-9U1P0b/assets/su-chill-logo-transparent-BTRQbQWg.png  1,597.14 kB
+../../../../AppData/Local/Temp/suchill-fixture-e2e-9U1P0b/assets/image-1-Coxssv1m.png                    1,615.78 kB
+../../../../AppData/Local/Temp/suchill-fixture-e2e-9U1P0b/assets/index-BTNZFwT_.css                         31.41 kB │ gzip:   6.75 kB
+../../../../AppData/Local/Temp/suchill-fixture-e2e-9U1P0b/assets/index-Ci2q1Eh8.js                         394.03 kB │ gzip: 117.20 kB
+
+✓ built in 692ms
+✔ Chrome waits for delayed cold navigation and a new document after reload (13550.0758ms)
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - `__dirname` (vite.config.ts:29:27). Use `import.meta.dirname` instead
+  - JSON import "./.figma/make/site.json" without import attributes (vite.config.ts:6:31). Add `with { type: 'json' }`
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+✔ built app renders its home screen in a real local browser (1853.7022ms)
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - `__dirname` (vite.config.ts:29:27). Use `import.meta.dirname` instead
+  - JSON import "./.figma/make/site.json" without import attributes (vite.config.ts:6:31). Add `with { type: 'json' }`
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+✔ learning journey stays usable and uncut at mobile widths (1338.386ms)
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - `__dirname` (vite.config.ts:29:27). Use `import.meta.dirname` instead
+  - JSON import "./.figma/make/site.json" without import attributes (vite.config.ts:6:31). Add `with { type: 'json' }`
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+✔ learning journey moves focus on forward and back navigation (1708.4535ms)
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - `__dirname` (vite.config.ts:29:27). Use `import.meta.dirname` instead
+  - JSON import "./.figma/make/site.json" without import attributes (vite.config.ts:6:31). Add `with { type: 'json' }`
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+✔ Visual Novel close and completion restore focus to the opener (986.5955ms)
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - `__dirname` (vite.config.ts:29:27). Use `import.meta.dirname` instead
+  - JSON import "./.figma/make/site.json" without import attributes (vite.config.ts:6:31). Add `with { type: 'json' }`
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+✔ Visual Novel remains keyboard operable and within 375px/430px mobile viewports (1263.1075ms)
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - `__dirname` (vite.config.ts:29:27). Use `import.meta.dirname` instead
+  - JSON import "./.figma/make/site.json" without import attributes (vite.config.ts:6:31). Add `with { type: 'json' }`
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+10:23:07 PM [vite] (client) Re-optimizing dependencies because vite config has changed
+10:23:09 PM [vite] (client) [optimizer] scanning dependencies...
+✔ player mock exposes mobile video fallback and Visual Novel error retry by keyboard (3513.1865ms)
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - `__dirname` (vite.config.ts:29:27). Use `import.meta.dirname` instead
+  - JSON import "./.figma/make/site.json" without import attributes (vite.config.ts:6:31). Add `with { type: 'json' }`
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+✔ completion/profile loop retains confirmed service totals, retry intent and mobile focus (1670.8726ms)
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - `__dirname` (vite.config.ts:29:27). Use `import.meta.dirname` instead
+  - JSON import "./.figma/make/site.json" without import attributes (vite.config.ts:6:31). Add `with { type: 'json' }`
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+✔ M3-07 deterministic renderer states, quiz retry, long Vietnamese and mute persistence at mobile widths (4112.5232ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 34798.1809
+Checked 542 source/tracked/bundle files; 0 unsafe matches.

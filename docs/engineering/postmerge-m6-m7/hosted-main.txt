@@ -1,0 +1,17 @@
+✔ hosted main content version, explicit text evidence, canonical replay and account summary (6936.5425ms)
+✔ hosted main JWT ownership rejects actor spoofing, operation reuse and direct private receipts (2832.2982ms)
+✔ hosted main simultaneous independent requests preserve one receipt and one lesson reward (2822.7553ms)
+✔ hosted main VN trusted feedback and required episode evidence gate one-time completion (2222.7236ms)
+✔ hosted main scored quiz keeps authoritative reward scopes and retries grant no additional XP (2989.8836ms)
+✔ hosted030 canonical completion emits trusted opt-in telemetry once across concurrent clients and replay (7066.9349ms)
+✔ hosted player queue initializes playback and independent account sessions resume the same video cursor (7300.9895ms)
+✔ hosted canonical offline intent survives real committed response loss and replays without duplicate XP (2025.5953ms)
+✔ hosted independent VN sessions resume trusted scene/revision and reject stale choices before one-time reward (3680.5113ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 22952.6793

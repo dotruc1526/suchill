@@ -1,5 +1,9 @@
 # Sử Chill — Project Instructions for Humans and AI
 
+> Latest PO milestone decision — 2026-10-03: M7 OPEN alongside M6 OPEN under the approved scheduling exception in [M7-GATE-OPEN-001](docs/tasks/active/M7-GATE-OPEN-001.md). Task dependencies, specialist reviews and release acceptance remain required; M6 is not closed.
+
+> Latest PO scope decision — 2026-10-03: current MVP changes to [1954 / Trước cơn bão](docs/content/MVP-1954-BRIEF.md) by explicit user instruction. This is an approved topic exception to the prior anti-US-only pilot scope; historical/media/publication gates remain separate. The prior 1968 selection below is historical.
+
 React 19 + Vite 8 + Tailwind CSS 4 + TypeScript. Sản phẩm là ứng dụng học lịch sử về giai đoạn kháng chiến chống Mỹ ở Việt Nam theo hướng mobile-first, phát hành PWA trước. Curriculum dài hạn có nhiều chapter/lesson; MVP đầu tiên dùng một chapter mẫu gồm nhiều lesson đa định dạng.
 
 ## 1. Context bắt buộc phải đọc
@@ -17,7 +21,7 @@ Không dùng chat cũ làm nguồn sự thật duy nhất. Nếu tài liệu mâ
 ## 2. Trạng thái triển khai
 
 - Phase 0–9: `APPROVED` (Phase 9 được product owner duyệt ngày 2026-09-23).
-- **Spec-first freeze đã kết thúc**; M0–M3 đã được đóng và Milestone 4 được Product Owner mở theo audit gate ngày 2026-10-02. Việc mở M4 không tự mở content/media production: từng content task vẫn phải đạt review status, dependency, card và file claim riêng trước khi bắt đầu.
+- **Spec-first freeze đã kết thúc**; M0–M5 đã được đóng và Milestone 6 được Product Owner mở theo audit gate ngày 2026-10-02. Việc mở M6 không tự mở content/media production: từng content task vẫn phải đạt review status, dependency, card và file claim riêng trước khi bắt đầu.
 - Mỗi milestone tiếp theo chỉ bắt đầu khi gate và dependency tương ứng đạt **và Product Owner duyệt rõ ràng milestone trước đó trên task board**. Task `DONE` riêng lẻ không tự mở milestone tiếp theo.
 - Demo Genève/vĩ tuyến 17 hiện tại là fixture kỹ thuật, không phải pilot/canonical content hay chuẩn nội dung mục tiêu.
 - Nội dung canonical chỉ nằm trong phạm vi kháng chiến chống Mỹ ở Việt Nam; ví dụ lịch sử ngoài phạm vi trong tài liệu cũ chỉ minh họa cấu trúc học, không tự trở thành lesson phát hành.

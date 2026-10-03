@@ -27,7 +27,7 @@ function choiceDescription(choice: SceneChoice) {
 export function VisualNovelSceneView({
   scene, feedback, busy, mediaSlot: Media, onChoice, onContinue, onComplete, sceneRef, feedbackRef,
 }: Props) {
-  return <div ref={sceneRef} tabIndex={-1} aria-label={scene.title ?? 'Nội dung Visual Novel hiện tại'}>
+  return <div ref={sceneRef} role="group" tabIndex={-1} aria-label={scene.title ?? 'Nội dung Visual Novel hiện tại'}>
     <Card data-testid="vn-scene" data-scene-id={scene.id} className="space-y-4">
     {scene.title && <h2 id="vn-scene-heading" tabIndex={-1} className="font-bold text-xl" style={{ color: theme.colors.textPrimary }}>{scene.title}</h2>}
     {scene.kind === 'narration' && <p className="leading-7">{scene.text}</p>}

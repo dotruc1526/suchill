@@ -1,0 +1,26 @@
+✔ production gating and insecure contexts never register or attach lifecycle listeners (2.924ms)
+✔ start is idempotent and waiting metadata never automatically activates or reloads (40.834ms)
+✔ registration failure is nonthrowing and a user retry reuses listeners while recovering (1.4465ms)
+✔ unsafe Home predicate, callback URL or missing Web Locks cannot activate an update (1.5338ms)
+✔ the safe predicate is rechecked after waiting for an in-flight queue write (6.3627ms)
+✔ a replaced waiting worker cannot receive activation after the lock wait (3.5846ms)
+✔ activation and reload wait for actual OfflineQueue persistence and preserve its exact bytes (40.6922ms)
+✔ becoming unsafe after activation defers only this exact controller reload until a later safe action (2.164ms)
+✔ foreign controller changes never satisfy activation and timeout clears the updating spinner (27.0136ms)
+✔ controller changes in another tab or normal activation never automatically reload this tab (15.7822ms)
+✔ malformed or silent waiting metadata is bounded and cannot grant a manual activation (35.8348ms)
+✔ waiting worker replaced during metadata exchange cannot overwrite the current target version (5.7254ms)
+✔ online/offline/focus updates snapshot and checks for new builds without activating; unsubscribe works (2.2522ms)
+✔ native lazy-import recovery reloads only from online clean safe Home under the queue lock (0.9799ms)
+✔ lazy recovery rechecks safe Home after queued persistence and refuses a concurrent second reload (7.1566ms)
+✔ lock wait timeout cancels only our queued request and never an existing progress operation (41.0653ms)
+﹣ owned desktop Chrome profile installs and launches manifest identity in standalone mode (2478.0084ms) # Chrome lacks experimental PWA.install; actual icon launch still requires desktop manual evidence
+✔ real Chrome: install/control, two-build safe update, queue serialization, multitab and failed install (6687.1493ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 1
+ℹ todo 0
+ℹ duration_ms 10211.0519

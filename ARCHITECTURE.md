@@ -1,7 +1,11 @@
 # Sử Chill — Canonical Architecture
 
-> Status: TARGET ARCHITECTURE — Phase 5–9 approved; M0–M3 closed, Milestone 4 open
-> Last updated: 2026-10-02
+> Latest PO milestone decision — 2026-10-03: M7 OPEN alongside M6 OPEN under the approved scheduling exception in [M7-GATE-OPEN-001](docs/tasks/active/M7-GATE-OPEN-001.md). Task dependencies, specialist reviews and release acceptance remain required; M6 is not closed.
+
+> Latest PO scope decision — 2026-10-03: current MVP changes to [1954 / Trước cơn bão](docs/content/MVP-1954-BRIEF.md) by explicit user instruction. This is an approved topic exception to the prior anti-US-only pilot scope; historical/media/publication gates remain separate. The prior 1968 selection below is historical.
+
+> Status: TARGET ARCHITECTURE — Phase 5–9 approved; M0–M5 closed, Milestones 6 and 7 open (PO scheduling exception)
+> Last updated: 2026-10-03
 
 Tài liệu này mô tả các ranh giới kỹ thuật mà frontend, backend và AI phải giữ. Schema chi tiết không lặp lại ở đây; nguồn chuẩn là các phase đã duyệt.
 
