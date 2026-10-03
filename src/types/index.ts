@@ -119,7 +119,9 @@ export type AIMessage = {
 }
 
 /** @deprecated Technical-demo navigation state; replace through the canonical app boundary. */
-export type Tab = 'home' | 'practice' | 'ai' | 'profile'
+export type Tab = 'home' | 'practice' | 'dautri' | 'ai' | 'profile'
+export type { GamePhase, PlayerInfo, QuestionData, AnswerResult, MatchStats, GameOverData, GameState, GameSnapshot, DauTriScreenProps } from './dauTri.ts'
+export type { TrialProfile, TrialStandings } from './dauTri.ts'
 
 /** @deprecated Numeric-index demo navigation state; replace through the canonical app boundary. */
 export type View =

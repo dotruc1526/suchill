@@ -1,7 +1,7 @@
 # BATTLE-002 — Review AI Battle để tích hợp
 
-> Status: BLOCKED\
-> Last updated: 2026-09-23
+> Status: CANCELLED
+> Last updated: 2026-10-03
 
 ## Assignment
 
@@ -47,3 +47,8 @@
 - Environment/migration impact: chưa biết; sẽ review sau handoff.
 - Known issues/risks: AI key và reward boundary chưa được review.
 - Next owner/action: nhóm AI Battle bàn giao BATTLE-001; Product owner quyết định mở review.
+
+
+## Quyết định PO thay scope — 2026-10-03
+
+Người dùng xác nhận PO bỏ task Đấu Trí cũ. Scope mới là PvP online 1vs1 từ prototype có sẵn, ghép ngẫu nhiên và đấu khác mạng. Card này CANCELLED, không phải DONE hoặc blocker của [PVP-ONLINE-001](../active/PVP-ONLINE-001.md). Lịch sử phía trên được giữ để tra cứu.

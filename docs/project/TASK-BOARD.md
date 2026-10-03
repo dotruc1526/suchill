@@ -88,7 +88,7 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 - Chapter, lesson, quiz, profile, practice và AI screen demo.
 - Visual Novel demo Genève/vĩ tuyến 17.
 - Domain types v2, validators, service interfaces, mock adapters, legacy mapper và contract tests của M2.
-- AI Battle đang được một nhánh của nhóm phát triển; chưa tích hợp vào app chính.
+- PO bỏ task AI Battle cũ; PvP Đấu Trí online 1vs1 được phát triển từ prototype người dùng theo PVP-ONLINE-001 (2026-10-03).
 - Supabase `.env.local` local-only.
 - Bộ docs và approval brief.
 
@@ -224,8 +224,9 @@ Sử Chill dạy giai đoạn kháng chiến chống Mỹ ở Việt Nam qua nhi
 | PLATFORM-003 | PWA | Manifest, service worker, icons và update flow | Hưng (Member 3) | BACKLOG | PLATFORM-002 | web/PWA config | Cài được trên màn hình chính; cache/update được kiểm thử |
 | PLATFORM-004 | Android | Đánh giá và xin duyệt Capacitor sau PWA | Unassigned | BLOCKED | PLATFORM-003, QA-005, product approval | [`docs/tasks/blocked/PLATFORM-004.md`](../tasks/blocked/PLATFORM-004.md) | Chưa triển khai cho đến khi PWA ổn định và product owner duyệt |
 | PLATFORM-005 | iOS | Đánh giá iOS sau Android | Unassigned | BLOCKED | PLATFORM-004, product approval | [`docs/tasks/blocked/PLATFORM-005.md`](../tasks/blocked/PLATFORM-005.md) | Chưa triển khai cho đến khi Android và product owner sẵn sàng |
-| BATTLE-001 | AI Battle | Prototype người học đấu trí với AI | Nhóm AI Battle | IN PROGRESS | — | [`docs/tasks/active/BATTLE-001.md`](../tasks/active/BATTLE-001.md) | Bàn giao code, rules, contract, AI key boundary, demo và blockers |
-| BATTLE-002 | AI Battle | Review để tích hợp vào Sử Chill | Product + Frontend + Backend + QA | BLOCKED | BATTLE-001, DOC-006, DOC-007 | [`docs/tasks/blocked/BATTLE-002.md`](../tasks/blocked/BATTLE-002.md) | Chỉ mở sau handoff và security/content review |
+| BATTLE-001 | AI Battle cũ | Prototype người học đấu trí với AI | Nhóm AI Battle | CANCELLED | — | [Archived card](../tasks/archived/BATTLE-001.md) | PO bỏ scope cũ; giữ lịch sử, thay bằng PVP-ONLINE-001 |
+| BATTLE-002 | AI Battle cũ | Review prototype external | Product + Frontend + Backend + QA | CANCELLED | — | [Archived card](../tasks/archived/BATTLE-002.md) | Không dùng làm blocker PvP mới; scope PO thay ngày 2026-10-03 |
+| PVP-ONLINE-001 | PvP thử nghiệm | Đấu Trí online 1vs1, ghép ngẫu nhiên, khác mạng | Người dùng / PO; Codex executor | REVIEW | PR109 merged to `main`; prototype local đã bàn giao | [Task card](../tasks/active/PVP-ONLINE-001.md) | PO authorized PR115-first merge to `main` on 2026-10-03. Code/browser checks pass; public backend deployment, Wi-Fi↔4G and specialist acceptance remain pending; [evidence](../tasks/evidence/PVP-ONLINE-001.md) |
 
 ## Active/review tasks
 
@@ -238,7 +239,7 @@ Chỉ các task có status `IN PROGRESS` được coi là đang có người là
 | CONTENT-014 | Trúc / Trúc; Codex hỗ trợ | Vinh technical QA; Hưng recheck độc lập | 2026-09-27 | Integrate PR103 quiz QA/handoff; PO production handoff remains separate | PR này chưa merge (mang verdict + sign-off) | Hưng recheck ACCEPTED (main) + Vinh recheck ACCEPTED (PR #100 merged 9b96968, Trúc reviewed); Trúc media/handoff sign-off trong PR này; validator PASS; [card](../tasks/active/CONTENT-014.md) |
 
 | CONTENT-006 | Trúc (Member 2) / Trúc | Trúc (historical/media; Thọ cấp quyền objective/wording; Product owner cấp quyền media/legal) | 2026-09-24 | Nếu dùng ngoài `REFERENCE_ONLY`, tạo media package mới: sửa wording, thay/xác minh audio/nhạc/SFX, khóa manifest/hash/source export và review lại | MP4 hiện tại vẫn chứa wording cũ; audio Edge TTS, nhạc/SFX và source export chưa đủ bằng chứng publish | [Evidence và phiếu thực hiện](../tasks/active/active.md): objective accepted; media/legal `APPROVED_FOR_INTERNAL_REFERENCE_ONLY`; 4 claim VERIFIED, 1 claim REVISION_REQUIRED_BEFORE_USE; REFERENCE_ONLY |
-| BATTLE-001 | Nhóm AI Battle / nhóm ngoài | Product + Security reviewer | 2026-09-22 | Hoàn thiện prototype và chuẩn bị gói bàn giao | Chưa có repo/branch và contract | Tính năng đang phát triển độc lập |
+| PVP-ONLINE-001 | Người dùng / Codex | PO + Frontend/Backend/QA | 2026-10-03 | Prototype bàn giao; tích hợp canonical và gói deploy | Chưa có hosting backend public | Ghép người thật, không bot; thử nghiệm chưa bật XP/rank |
 
 ## Task update log
 
@@ -512,3 +513,7 @@ M7-02 is REVIEW per the accepted upstream pilot-source checkpoint; the chapter e
 | Task | Owner / Executor | Reviewer | Status | Dependencies / next action |
 |---|---|---|---|---|
 | M7-1954-CONTEXT-001 | Codex root | independent hosting_catalog_review APPROVE | DONE | [Card](../tasks/done/M7-1954-CONTEXT-001.md); deployed9abdb3f1df7a3759e34d verified; independent4/4 +8remotehashes PASS; visible cue27 clarification, immutable video and six locks retained; final M7-02/media/manual/release gates separate |
+
+## PRACTICE-DEMO-001 — User requested navigation demo
+
+Owner/Executor: Codex (integration). Reviewer: Hưng / Vinh. Status: REVIEW. Started: 2026-10-03. Dependencies: M3-05 DONE, M6/M7 OPEN. Files and acceptance: [card](../tasks/active/PRACTICE-DEMO-001.md). Evidence: typecheck/build PASS; 29 related tests PASS. Next: reviewer checks navigation, mobile interaction and isolated demo boundary.

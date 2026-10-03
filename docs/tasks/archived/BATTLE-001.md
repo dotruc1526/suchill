@@ -1,7 +1,7 @@
 # BATTLE-001 — AI Battle prototype
 
-> Status: IN PROGRESS (external)\
-> Last updated: 2026-09-22
+> Status: CANCELLED
+> Last updated: 2026-10-03
 
 ## Assignment
 
@@ -48,3 +48,8 @@
 - Environment/migration impact: chưa biết.
 - Known issues/risks: secret exposure, accuracy, scoring/reward authority và duplicate question chưa đánh giá.
 - Next owner/action: nhóm AI Battle cung cấp handoff; project mở BATTLE-002 sau review.
+
+
+## Quyết định PO thay scope — 2026-10-03
+
+Người dùng xác nhận PO bỏ task Đấu Trí cũ. Scope mới là PvP online 1vs1 từ prototype có sẵn, ghép ngẫu nhiên và đấu khác mạng. Card này CANCELLED, không phải DONE hoặc blocker của [PVP-ONLINE-001](../active/PVP-ONLINE-001.md). Lịch sử phía trên được giữ để tra cứu.

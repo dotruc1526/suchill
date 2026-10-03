@@ -46,7 +46,7 @@ docs/
 ## Tài liệu theo chủ đề
 
 - [Visual Novel](./features/visual-novel/README.md)
-- [AI Battle](./features/ai-battle/README.md)
+- [Đấu Trí PvP online 1vs1](./features/dau-tri/README.md) — scope mới theo PO; [AI Battle cũ](./features/ai-battle/README.md) giữ làm lịch sử.
 - [UI/UX và reusable engineering](./engineering/UI-UX-ENGINEERING-GUIDE.md)
 - [PWA và hướng phát hành](./platform/APP-DEPLOYMENT-PLAN.md)
 

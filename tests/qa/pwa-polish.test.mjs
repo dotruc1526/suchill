@@ -44,7 +44,7 @@ test('actual mock production app: keyboard bypass, mobile/landscape/large text a
         await cdp.evaluate('document.documentElement.style.fontSize='+JSON.stringify(largeText?'200%':'100%'))
         assert.equal(await cdp.evaluate('document.documentElement.scrollWidth<=innerWidth'),true,'No horizontal overflow '+width+' largeText='+Boolean(largeText))
         const buttons=await cdp.evaluate('Array.from(document.querySelectorAll("nav button")).map(button=>({height:button.getBoundingClientRect().height,bottom:button.getBoundingClientRect().bottom,name:button.textContent}))')
-        assert.equal(buttons.length,4)
+        assert.equal(buttons.length,5)
         assert.ok(buttons.every(button=>button.height>=44&&button.bottom<=height),'Visible generous navigation targets')
         const tree=await cdp('Accessibility.getFullAXTree')
         assert.ok(tree.nodes.some(node=>!node.ignored&&node.role?.value==='main'))

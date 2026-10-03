@@ -4,7 +4,7 @@ import { join, relative, resolve } from 'node:path'
 import { isPrivateTrackedEnvPath } from './private-env-path.mjs'
 
 const root = resolve(import.meta.dirname, '../..')
-const targets = ['src', 'scripts', 'docs', 'dist']
+const targets = ['src', 'scripts', 'docs', 'server', 'dist']
 const bundlePresent = existsSync(join(root, 'dist'))
 const textExtensions = new Set(['.ts', '.tsx', '.js', '.jsx', '.mjs', '.html', '.css', '.json', '.md', '.yml', '.yaml', '.toml'])
 const forbidden = [
@@ -45,7 +45,7 @@ function walk(directory) {
   if (!existsSync(directory)) return
   for (const entry of readdirSync(directory, { withFileTypes: true })) {
     const file = join(directory, entry.name)
-    if (entry.isDirectory()) walk(file)
+    if (entry.isDirectory() && entry.name !== 'node_modules') walk(file)
     else if (entry.isFile() && [...textExtensions].some(ext => entry.name.endsWith(ext))) inspect(file)
   }
 }
@@ -77,7 +77,7 @@ if (!existsSync(example)) {
     const match = /^([A-Za-z_][A-Za-z0-9_]*)=(.*)$/.exec(line)
     if (!match) continue
     const [, name, value] = match
-    if (!['VITE_SUPABASE_URL', 'VITE_SUPABASE_PUBLISHABLE_KEY'].includes(name) ||
+    if (!['VITE_SUPABASE_URL', 'VITE_SUPABASE_PUBLISHABLE_KEY', 'VITE_GAME_SERVER_URL'].includes(name) ||
         !(value === '' || /^<[^>]+>$/.test(value) || /^your[_-]/i.test(value))) {
       process.stderr.write(`Unsafe example variable or value format: ${name}\n`)
       unsafeMatches++

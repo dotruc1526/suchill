@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Button, EmptyState, ErrorState, LoadingState } from '../../components/ui'
 import type { LearningServices } from '../../services/next/backendContracts'
 import { PracticeAssessment } from './PracticeAssessment'
+import { PracticeScreen } from './PracticeScreen'
 
 export function ServicePractice({ services, onAccountChange }: { services: LearningServices; onAccountChange?: () => void }) {
   const [sets, setSets] = useState<Array<{ id: string; title: string }>>()
@@ -24,10 +25,10 @@ export function ServicePractice({ services, onAccountChange }: { services: Learn
     })().catch(() => { if (active) setError(true) })
     return () => { active = false }
   }, [services, retry])
-  if (error) return <ErrorState message="Chưa tải được bài ôn tập." onRetry={() => setRetry(value => value + 1)} />
-  if (!sets) return <LoadingState message="Đang tải bài ôn tập..." />
   if (selected) return <section className="space-y-4 p-4"><Button variant="outline" onClick={() => { setSelected(undefined); onAccountChange?.() }}>VỀ ÔN TẬP</Button><PracticeAssessment services={services} questionSetId={selected} onAccountChange={onAccountChange} /></section>
-  return <section className="space-y-4 p-4"><h1 className="text-xl font-bold">ÔN TẬP</h1>{sets.length === 0
+  return <><PracticeScreen /><section className="space-y-4 p-4"><h2 className="text-xl font-bold">BÀI ÔN TẬP ĐÃ XUẤT BẢN</h2>{error
+    ? <ErrorState message="Chưa tải được bài ôn tập." onRetry={() => setRetry(value => value + 1)} />
+    : !sets ? <LoadingState message="Đang tải bài ôn tập..." /> : sets.length === 0
     ? <EmptyState title="Chưa có bài ôn tập" message="Bài kiểm tra sẽ xuất hiện sau khi nội dung được duyệt." />
-    : sets.map(set => <Button key={set.id} variant="secondary" onClick={() => setSelected(set.id)}>{set.title}</Button>)}</section>
+    : sets.map(set => <Button key={set.id} variant="secondary" onClick={() => setSelected(set.id)}>{set.title}</Button>)}</section></>
 }

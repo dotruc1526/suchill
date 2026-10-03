@@ -1,17 +1,19 @@
 import { BookOpenIcon, BrainIcon, MessageCircleIcon, type NavIcon, UserRoundIcon } from '../icons/NavIcon'
 import type { Tab } from '../../types'
 import { theme } from '../../theme/tokens'
+import { DauTriIcon } from '../../features/dau-tri/components/DauTriIcon'
 
 const NAV_TABS: { key: Tab; icon: NavIcon; label: string }[] = [
   { key: 'home', icon: BookOpenIcon, label: 'HỌC' },
   { key: 'practice', icon: BrainIcon, label: 'LUYỆN TẬP' },
+  { key: 'dautri', icon: DauTriIcon, label: 'ĐẤU TRÍ' },
   { key: 'ai', icon: MessageCircleIcon, label: 'AI' },
   { key: 'profile', icon: UserRoundIcon, label: 'HỒ SƠ' },
 ]
 
 export function BottomNav({ tab, onTab }: { tab: Tab; onTab: (t: Tab) => void }) {
   return (
-    <nav aria-label="Thanh điều hướng chính" className="grid grid-cols-4 shrink-0"
+    <nav aria-label="Thanh điều hướng chính" className="grid grid-cols-5 shrink-0"
       style={{
         borderTop: `1px solid ${theme.colors.borderLight}`,
         background: theme.colors.navBg,
