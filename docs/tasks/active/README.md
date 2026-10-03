@@ -26,7 +26,8 @@ Chỉ đặt task `READY`, `IN PROGRESS` hoặc `REVIEW` tại đây. Task `BLOC
 
 ## Experimental track
 
-- [BATTLE-001](./BATTLE-001.md) — `IN PROGRESS (external)`; chờ repo/demo/rules/security handoff trước integration review.
+- [PVP-ONLINE-001](./PVP-ONLINE-001.md) — REVIEW; canonical PvP local/tests đạt, đã có gói deploy; chờ hosting và Wi-Fi ↔ 4G thật; AI Battle cũ CANCELLED theo PO.
+- [PR119-INTEGRATION-REVIEW-001](./PR119-INTEGRATION-REVIEW-001.md) — REVIEW; technical/security review and local checks complete; PR115 is the authorized primary merge because it contains PR119's shared feature commits; specialist and Internet acceptance remain separate.
 
 Các file `active.md`, `CONTENT-003-004-REVIEW.md`, `PR21-HANDOFF.md`, `BEQA-LOCAL-001-MATRIX.md` và `M1-PR-REVIEW-GUIDE.md` là evidence/handoff, không phải task card độc lập.
 

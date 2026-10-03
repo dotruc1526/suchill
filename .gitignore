@@ -13,6 +13,7 @@ logs/
 *.log
 .claude-replay.*
 .tmp-*
+tmp/
 .pnpm-store/
 
 # Platform-managed state

@@ -7,7 +7,7 @@
 - [CONTENT-005](./CONTENT-005.md) — content/QA kiểm tra bài học và video; chờ nội dung hoàn chỉnh.
 - [PLATFORM-004](./PLATFORM-004.md) — đánh giá Capacitor/Android sau PWA và approval riêng.
 - [PLATFORM-005](./PLATFORM-005.md) — đánh giá iOS sau Android và approval riêng.
-- [BATTLE-002](./BATTLE-002.md) — review AI Battle sau prototype handoff và approval tích hợp.
+- [BATTLE-002](../archived/BATTLE-002.md) — CANCELLED theo PO; không còn là blocker PvP mới.
 
 ## Milestone6 remaining gates — 2026-10-03
 

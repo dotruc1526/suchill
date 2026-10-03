@@ -1,0 +1,21 @@
+# Trial backend only. Firebase continues hosting the frontend from PR109.
+services:
+  - type: web
+    name: suchill-dautri-pvp
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./server/Dockerfile
+    dockerContext: ./server
+    healthCheckPath: /health
+    numInstances: 1
+    autoDeployTrigger: "off"
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: ALLOWED_ORIGINS
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
