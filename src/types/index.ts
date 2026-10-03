@@ -119,7 +119,7 @@ export type AIMessage = {
 }
 
 /** @deprecated Technical-demo navigation state; replace through the canonical app boundary. */
-export type Tab = 'home' | 'practice' | 'ai' | 'profile'
+export type Tab = 'home' | 'practice' | 'dautri' | 'ai' | 'profile'
 
 /** @deprecated Numeric-index demo navigation state; replace through the canonical app boundary. */
 export type View =

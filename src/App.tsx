@@ -9,6 +9,7 @@ import { BottomNav } from './components/layout/BottomNav'
 import { LearningJourney } from './features/learning/journey/LearningJourney'
 const PracticeScreen = lazyFeature(() => import('./features/practice/PracticeScreen').then(module => ({default:module.PracticeScreen})))
 const AIScreen = lazyFeature(() => import('./features/ai-assistant/AIScreen').then(module => ({default:module.AIScreen})))
+const DauTriScreen = lazyFeature(() => import('./features/dau-tri/DauTriScreen'))
 const ProfileScreen = lazyFeature(() => import('./features/profile/ProfileScreen').then(module => ({default:module.ProfileScreen})))
 import { AppViewRouter } from './app/AppViewRouter'
 import { useAppNavigation } from './app/useAppNavigation'
@@ -18,17 +19,19 @@ import { pwaController } from './services/pwa/controller'
 
 function AppContent({ profile, practice, activity, syncStatus }: {profile?: ReactNode; practice?: ReactNode; activity?: HomeActivityService; syncStatus?: ReactNode}) {
   const navigation = useAppNavigation()
+  const [battleBusy, setBattleBusy] = useState(false)
   const journeySafe = useRef(false)
   const [, setJourneyReady] = useState(false)
   const navigationSafe = useRef(false)
   navigationSafe.current = navigation.tab === 'home' && !navigation.isOverlay
   const reportJourneySafety = useCallback((safe: boolean) => { journeySafe.current = safe; setJourneyReady(safe) }, [])
-  const canUpdate = useCallback(() => navigationSafe.current && journeySafe.current, [])
+  const canUpdate = useCallback(() => navigationSafe.current && journeySafe.current && !battleBusy, [battleBusy])
   const selectTab = (tab: Parameters<typeof navigation.selectTab>[0]) => {
+    if (tab !== navigation.tab && battleBusy && !window.confirm('Rời Đấu Trí sẽ hủy chờ hoặc ngắt kết nối trận. Bạn muốn rời?')) return
     navigationSafe.current = false
     navigation.selectTab(tab)
   }
-  const { summary } = useCompletionSession()
+  const { summary, userId, scopeId } = useCompletionSession()
   const account = useSyncExternalStore(summary.subscribe, summary.getSnapshot, summary.getSnapshot)
   useEffect(() => { void summary.refresh() }, [summary])
 
@@ -41,7 +44,6 @@ function AppContent({ profile, practice, activity, syncStatus }: {profile?: Reac
     navigationSafe.current = false
     navigation.showQuizResult(cid, score, total)
   }
-
   return (
     <main id="main-content" tabIndex={-1}
       className="flex items-center justify-center min-h-screen"
@@ -75,9 +77,10 @@ function AppContent({ profile, practice, activity, syncStatus }: {profile?: Reac
           {!navigation.isOverlay && syncStatus}
           {!navigation.isOverlay && (
             <div className="flex-1 overflow-y-auto" role="region" tabIndex={0}
-              aria-label={{ home: 'Nội dung học bài', practice: 'Nội dung luyện tập', ai: 'Nội dung trợ lý lịch sử', profile: 'Nội dung hồ sơ' }[navigation.tab]}>
+              aria-label={{ home: 'Nội dung học bài', practice: 'Nội dung luyện tập', dautri: 'Nội dung Đấu Trí online', ai: 'Nội dung trợ lý lịch sử', profile: 'Nội dung hồ sơ' }[navigation.tab]}>
               <div hidden={navigation.tab !== 'home'}><LearningJourney active={navigation.tab === 'home'} activityService={activity} offlineStatusProvided={import.meta.env.PROD && import.meta.env.BASE_URL === '/' && pwaController.getSnapshot().supported} onSafeToUpdateChange={reportJourneySafety} /></div>
               {navigation.tab === 'practice' && (practice ?? <PracticeScreen />)}
+              {navigation.tab === 'dautri' && <DauTriScreen userId={`${userId}:${scopeId}`} playerName={account.value?.displayName || 'Người chơi'} onNavigateTab={selectTab} onMatchActiveChange={setBattleBusy} />}
               {navigation.tab === 'ai' && <AIScreen />}
               {navigation.tab === 'profile' && <><ProfileScreen />{profile}</>}
             </div>
