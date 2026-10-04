@@ -125,6 +125,29 @@ test('two network clients share questions; answers are hidden, locked once and s
   assert.notEqual(snapshot.player.userId, 'forged');
 });
 
+test('pending answers disclose neither score nor correctness through snapshots or opponent events', async t => {
+  const f = await fixture(t, { questionMs: 3000, transitionMs: 500 });
+  const a = await f.player('A'), b = await f.player('B');
+  const q = await match(a.socket, b.socket);
+  const correct = questions.find(item => item.id === q.questionId).correctIndex;
+  const opponentAnswered = event(b.socket, 'opponent_answered');
+  const locked = event(a.socket, 'answer_locked');
+  a.socket.emit('submit_answer', { ...q, answerIndex: correct });
+  await locked;
+  assert.equal((await opponentAnswered).score, undefined);
+  const [mine, theirs] = await Promise.all([
+    event(a.socket, 'game_snapshot', s => s.phase === 'playing' && s.selectedAnswer === correct),
+    event(b.socket, 'game_snapshot', s => s.phase === 'playing' && s.opponentAnswered),
+  ]);
+  assert.equal(mine.myScore, 0); assert.equal(mine.myCombo, 0); assert.equal(mine.myExpEarned, 0);
+  assert.equal(theirs.opponentScore, 0); assert.equal(mine.answerResult, null);
+  const ended = event(a.socket, 'question_end');
+  b.socket.emit('submit_answer', { ...q, answerIndex: (correct + 1) % 4 });
+  assert.ok((await ended).myScore >= 100);
+  const revealed = await event(a.socket, 'game_snapshot', s => s.phase === 'question_end');
+  assert.ok(revealed.myScore >= 100); assert.equal(revealed.myCombo, 1);
+});
+
 test('private rooms reject self join and start with a second player', async t => {
   const f = await fixture(t); const a = await f.player('A'), b = await f.player('B');
   const created = event(a.socket, 'room_created'); a.socket.emit('create_room'); const room = await created;

@@ -11,7 +11,7 @@ export async function askSuu(question) {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
     return {
-      reply: 'Hiện tại SỬu chưa được gắn chìa khóa tư liệu (GEMINI_API_KEY). Hãy kiểm tra file cấu hình nhé! 🐮',
+      reply: 'SỬu đang tạm gián đoạn kết nối. Bạn thử lại sau nhé! 🐮',
     };
   }
 
@@ -20,18 +20,20 @@ export async function askSuu(question) {
     return { reply: 'Bạn muốn hỏi SỬu điều gì về lịch sử Việt Nam nào? Hãy gõ câu hỏi nhé! 🐮' };
   }
 
-  for (const model of CANDIDATE_MODELS) {
+  const candidateModels = [
+    ...(process.env.GEMINI_MODEL ? [process.env.GEMINI_MODEL.trim()] : []),
+    ...CANDIDATE_MODELS,
+  ].filter((model, idx, arr) => model && arr.indexOf(model) === idx);
+  const signal = AbortSignal.timeout(12000);
+  for (const model of candidateModels) {
+    if (signal.aborted) break;
     try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 12000);
-
-      try {
         const response = await fetch(
           `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`,
           {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            signal: controller.signal,
+            signal,
             body: JSON.stringify({
               systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
               contents: [{ parts: [{ text: trimmed }] }],
@@ -44,7 +46,9 @@ export async function askSuu(question) {
         );
 
         if (!response.ok) {
-          continue;
+          // Retry only an unavailable model, never multiply quota/auth failures.
+          if (response.status === 404) continue;
+          break;
         }
 
         const data = await response.json();
@@ -52,15 +56,12 @@ export async function askSuu(question) {
         if (reply) {
           return { reply: reply.trim() };
         }
-      } finally {
-        clearTimeout(timeoutId);
-      }
     } catch {
-      // Try next model on failure or timeout
+      break;
     }
   }
 
   return {
-    reply: 'SỬu đang tra cứu thêm tư liệu lưu trữ trong kho sách, bạn thử hỏi lại câu khác hoặc kiểm tra kết nối mạng nhé! 🐮',
+    reply: 'SỬu chưa thể trả lời lúc này. Bạn kiểm tra kết nối và thử lại sau nhé! 🐮',
   };
 }

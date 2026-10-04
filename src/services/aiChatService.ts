@@ -1,4 +1,5 @@
 import { resolveGameServerUrl } from './gameServerConfig'
+import { requestHistoryReply } from './aiChatRequest'
 
 export const FALLBACK_KNOWLEDGE_BASE: Record<string, string> = {
   '1954':
@@ -21,18 +22,8 @@ export async function askHistoryAssistant(question: string): Promise<string> {
 
   try {
     const serverUrl = resolveGameServerUrl(import.meta.env.VITE_GAME_SERVER_URL, window.location)
-    const response = await fetch(`${serverUrl}/api/ai/chat`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ question: trimmed }),
-    })
-
-    if (response.ok) {
-      const data = await response.json()
-      if (data?.reply && typeof data.reply === 'string') {
-        return data.reply
-      }
-    }
+    const reply = await requestHistoryReply(serverUrl, trimmed)
+    if (reply) return reply
   } catch {
     // Backend offline / network fallback
   }
@@ -44,5 +35,5 @@ export async function askHistoryAssistant(question: string): Promise<string> {
     return FALLBACK_KNOWLEDGE_BASE[matchedKey]
   }
 
-  return 'SỬu đang tạm gián đoạn kết nối tới máy chủ AI (bạn nhớ bật server Node nhé!). Nhưng bạn có thể hỏi SỬu về: Điện Biên Phủ, 1954, Hiệp định Genève, Mậu Thân 1968, 1972... 🐮📚'
+  return 'SỬu đang tạm gián đoạn kết nối. Bạn thử lại sau nhé! Bạn cũng có thể hỏi về: Điện Biên Phủ, 1954, Hiệp định Genève, Mậu Thân 1968, 1972... 🐮📚'
 }

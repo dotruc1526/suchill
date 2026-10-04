@@ -50,6 +50,10 @@ app.post('/session', (req, res) => {
   res.json(sessions.issue(req.body.username));
 });
 
+app.get('/', (req, res) => {
+  res.status(200).send('<h2>🐄 Sử Chill API Server đang chạy!</h2><p>Giao diện người dùng (Frontend) chạy tại: <a href="http://localhost:8443">http://localhost:8443</a></p>');
+});
+
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok' });
 });

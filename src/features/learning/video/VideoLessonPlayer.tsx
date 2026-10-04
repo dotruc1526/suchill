@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type SyntheticEvent } from 'react'
+import { useEffect, useMemo, useRef, useState, type SyntheticEvent, type ReactNode } from 'react'
 import { Button, ErrorState, LoadingState } from '../../../components/ui'
 import type { LearningServices, ServiceErrorCode } from '../../../services/next/contracts'
 import { VideoPlayerView } from './VideoPlayerView'
@@ -17,7 +17,7 @@ export function VideoProgressSaveError({ error, onRetry }: { error: ServiceError
   </div>
 }
 
-export function VideoLessonPlayer({ services, context }: { services: LearningServices; context: VideoPlayerContext }) {
+export function VideoLessonPlayer({ services, context, transcriptContent, attributionContent }: { services: LearningServices; context: VideoPlayerContext; transcriptContent?: ReactNode; attributionContent?: ReactNode }) {
   const [state, setState] = useState<LoadState>({ status: 'loading' })
   const [mediaFailed, setMediaFailed] = useState(false)
   const [retryKey, setRetryKey] = useState(0)
@@ -103,6 +103,7 @@ export function VideoLessonPlayer({ services, context }: { services: LearningSer
     {playbackStarting && <p role="status">Đang chuẩn bị lưu tiến độ video…</p>}
     {saveError && <VideoProgressSaveError error={saveError} onRetry={() => checkpointQueue.retry()} />}
     <VideoPlayerView
+    transcriptContent={transcriptContent} attributionContent={attributionContent}
     asset={session.asset} videoRef={videoRef} mediaFailed={mediaFailed} retryKey={retryKey}
     onLoadedMetadata={event => {
       event.currentTarget.currentTime = session.resumePositionSeconds

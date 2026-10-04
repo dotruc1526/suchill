@@ -1,4 +1,5 @@
 import type { SupabaseClient, User } from '@supabase/supabase-js'
+import { accountProxyUrl } from './accountProxyConfig.ts'
 import type { AuthSession } from '../next/accountContracts.ts'
 import { failure, success, type Result, type ServiceErrorCode } from '../next/backendContracts.ts'
 
@@ -30,10 +31,10 @@ const safeError = (value: unknown): ServiceErrorCode =>
 /** Auth identities are resolved only by the trusted function; no mapping is delivered to the browser. */
 export async function accountAccess(client: AuthClient, body: Record<string, unknown>, token?: string): Promise<Result<Record<string, unknown>>> {
   if (!online()) return failure('offline')
-  const isLan = typeof window !== 'undefined' && window.location.protocol === 'http:' && /^(192\.168\.\d+\.\d+|10\.\d+\.\d+\.\d+|172\.(1[6-9]|2\d|3[0-1])\.\d+\.\d+)$/.test(window.location.hostname)
-  if (isLan) {
+  const serverUrl = typeof window === 'undefined' ? undefined
+    : accountProxyUrl(window.location, import.meta.env?.VITE_GAME_SERVER_URL)
+  if (serverUrl) {
     try {
-      const serverUrl = `${window.location.protocol}//${window.location.hostname}:3001`
       const res = await fetch(`${serverUrl}/api/account-access`, {
         method: 'POST',
         headers: {
@@ -41,8 +42,12 @@ export async function accountAccess(client: AuthClient, body: Record<string, unk
           ...(token ? { Authorization: `Bearer ${token}` } : {}),
         },
         body: JSON.stringify(body),
+        signal: AbortSignal.timeout(25_000),
+        cache: 'no-store',
+        credentials: 'omit',
       })
       const data = await res.json()
+      if (!data || typeof data !== 'object' || Array.isArray(data)) return failure('server_error')
       if (!res.ok || (data && typeof data === 'object' && 'error' in data)) {
         return failure(data && typeof data === 'object' && 'error' in data ? safeError(data.error) : 'server_error')
       }
