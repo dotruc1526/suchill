@@ -30,6 +30,8 @@ jobs:
           CHROME_PATH: ${{ steps.chrome.outputs.chrome-path }}
 
       - name: Check internal media preview and release evidence boundaries
-        run: node --test --test-concurrency=1 scripts/release/release-validation.test.mjs scripts/release/hosting-preview.test.mjs scripts/release/hosting-auth-origin.test.mjs scripts/content/reference-preview/preview.test.mjs scripts/content/reference-preview/video-source.test.mjs tests/qa/preview1954-ui.test.mjs tests/qa/ai-answer.test.mjs tests/qa/novel-stage-navigation.test.mjs tests/qa/chrome-cleanup.test.mjs
+        run: node --test --test-concurrency=1 scripts/release/release-validation.test.mjs scripts/release/hosting-preview.test.mjs scripts/release/hosting-auth-origin.test.mjs scripts/content/reference-preview/preview.test.mjs scripts/content/reference-preview/video-source.test.mjs tests/qa/preview1954-ui.test.mjs tests/qa/ai-answer.test.mjs tests/qa/novel-stage-navigation.test.mjs tests/qa/chrome-cleanup.test.mjs tests/qa/chapter1954-candidate.test.mjs tests/qa/chapter1954-import-plan.test.mjs tests/qa/chapter-study.test.mjs
         env:
           CHROME_PATH: ${{ steps.chrome.outputs.chrome-path }}
+      - name: Verify corrected video preserves original and locks new narration
+        run: node docs/content/candidate1954-v2/verify_candidate.mjs

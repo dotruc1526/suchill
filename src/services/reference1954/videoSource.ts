@@ -14,7 +14,10 @@ const browserPlatform: Platform = {
 }
 
 /** The Hosting preview ignores Range requests. A verified in-memory copy enables native seek/resume. */
-export function createReferenceVideoLoader(expectedHash: string, platform = browserPlatform) {
+export function createReferenceVideoLoader(expectedHash: string, platform = browserPlatform,
+  resource = { url: '/reference-media/pilot-mobile.mp4', byteLength: expectedBytes }) {
+  const expectedBytes = resource.byteLength
+  if (!Number.isSafeInteger(expectedBytes) || expectedBytes <= 0 || expectedBytes > 50000000) throw new Error('Invalid video size')
   if (!/^[a-f0-9]{64}$/.test(expectedHash)) throw new Error('Invalid reference video identity')
   let pending: Promise<string> | undefined, objectUrl: string | undefined, disposed = false
   let controller: AbortController | undefined
@@ -23,7 +26,7 @@ export function createReferenceVideoLoader(expectedHash: string, platform = brow
     const timeout = setTimeout(() => activeController.abort(), 90000)
     let reader: ReadableStreamDefaultReader<Uint8Array> | undefined
     try {
-      const response = await platform.fetchFile('/reference-media/pilot-mobile.mp4', {
+      const response = await platform.fetchFile(resource.url, {
         credentials: 'omit', cache: 'no-store', signal: activeController.signal,
       })
       if (!response.ok || !response.headers.get('content-type')?.startsWith('video/mp4') || !response.body)

@@ -1,5 +1,9 @@
 # Sử Chill — Shared Task Board
 
+| ID | Owner / Executor | Reviewer | Status | Started | Next action |
+|---|---|---|---|---|---|
+| M6-M7-COMPLETE-CANDIDATE-20261004 | Codex integration + authorized work lanes | Independent software/source; final PO/specialist acceptance separate | IN PROGRESS | 2026-10-04 | [Card](../tasks/active/M6-M7-COMPLETE-CANDIDATE-20261004.md); finish substantial lesson/media/import candidates and available desktop QA rather than stop at audit. |
+
 ## Latest APPROVED PO decision — media exception, 2026-10-04
 
 PO explicitly assumes responsibility for use of existing project media and waives the license-documentation prerequisite: [PO-MEDIA-EXCEPTION-20261004](../tasks/active/PO-MEDIA-EXCEPTION-20261004.md). Missing rights paperwork no longer blocks the authorized work. Preserve actual provenance/technical evidence; historical content, device/accessibility and release acceptance continue under their own dependencies. Older rights-documentation blockers below are superseded by this decision.

@@ -1,0 +1,174 @@
+{
+  "id": "narration.c006.candidate.v2",
+  "reviewStatus": "in_review",
+  "cues": [
+    {
+      "id": "caption.c006.v3.1",
+      "start": "00:00:00.000",
+      "end": "00:00:02.833",
+      "text": "Hello, SỬu đây!"
+    },
+    {
+      "id": "caption.c006.v3.2",
+      "start": "00:00:02.833",
+      "end": "00:00:05.283",
+      "text": "Trước khi nói tới Điện Biên Phủ,"
+    },
+    {
+      "id": "caption.c006.v3.3",
+      "start": "00:00:05.283",
+      "end": "00:00:09.000",
+      "text": "cho SỬu tua ngược thời gian một chút nha."
+    },
+    {
+      "id": "caption.c006.v3.4",
+      "start": "00:00:09.000",
+      "end": "00:00:11.800",
+      "text": "Đầu những năm 1950,"
+    },
+    {
+      "id": "caption.c006.v3.5",
+      "start": "00:00:11.800",
+      "end": "00:00:16.283",
+      "text": "cuộc kháng chiến chống Pháp đã kéo dài nhiều năm rồi."
+    },
+    {
+      "id": "caption.c006.v3.6",
+      "start": "00:00:16.283",
+      "end": "00:00:20.383",
+      "text": "Và càng kéo dài thì chiến trường càng căng."
+    },
+    {
+      "id": "caption.c006.v3.7",
+      "start": "00:00:20.383",
+      "end": "00:00:25.233",
+      "text": "Về phía Pháp, vấn đề bắt đầu chất thành… một đống."
+    },
+    {
+      "id": "caption.c006.v3.8",
+      "start": "00:00:25.233",
+      "end": "00:00:27.183",
+      "text": "Chi phí chiến tranh lớn,"
+    },
+    {
+      "id": "caption.c006.v3.9",
+      "start": "00:00:27.183",
+      "end": "00:00:29.233",
+      "text": "tình hình quân sự khó khăn,"
+    },
+    {
+      "id": "caption.c006.v3.10",
+      "start": "00:00:29.233",
+      "end": "00:00:33.717",
+      "text": "mà thế chủ động thì cũng không còn dễ giữ như trước."
+    },
+    {
+      "id": "caption.c006.v3.11",
+      "start": "00:00:33.717",
+      "end": "00:00:35.467",
+      "text": "Nói đơn giản là:"
+    },
+    {
+      "id": "caption.c006.v3.12",
+      "start": "00:00:35.467",
+      "end": "00:00:39.033",
+      "text": "cứ tiếp tục như vậy thì không ổn."
+    },
+    {
+      "id": "caption.c006.v3.13",
+      "start": "00:00:39.033",
+      "end": "00:00:45.250",
+      "text": "Thế là năm 1953, Pháp triển khai Kế hoạch Navarre."
+    },
+    {
+      "id": "caption.c006.v3.14",
+      "start": "00:00:45.250",
+      "end": "00:00:47.333",
+      "text": "Mục tiêu?"
+    },
+    {
+      "id": "caption.c006.v3.15",
+      "start": "00:00:47.333",
+      "end": "00:00:50.167",
+      "text": "Tập trung lực lượng, giành lại thế chủ động"
+    },
+    {
+      "id": "caption.c006.v3.16",
+      "start": "00:00:50.167",
+      "end": "00:00:54.467",
+      "text": "và tìm cách tạo ra một chuyển biến quân sự có lợi."
+    },
+    {
+      "id": "caption.c006.v3.17",
+      "start": "00:00:54.467",
+      "end": "00:00:57.067",
+      "text": "Nghe ổn đúng không?"
+    },
+    {
+      "id": "caption.c006.v3.18",
+      "start": "00:00:57.067",
+      "end": "00:00:58.733",
+      "text": "Nhưng có một vấn đề nhỏ…"
+    },
+    {
+      "id": "caption.c006.v3.19",
+      "start": "00:00:58.733",
+      "end": "00:01:03.367",
+      "text": "Phía Việt Nam cũng đang chủ động hoạt động trên nhiều hướng."
+    },
+    {
+      "id": "caption.c006.v3.20",
+      "start": "00:01:03.367",
+      "end": "00:01:07.917",
+      "text": "Quân Pháp phải điều lực lượng đi đối phó ở nhiều nơi."
+    },
+    {
+      "id": "caption.c006.v3.21",
+      "start": "00:01:07.917",
+      "end": "00:01:10.067",
+      "text": "Thành ra trên bản đồ lúc này,"
+    },
+    {
+      "id": "caption.c006.v3.22",
+      "start": "00:01:10.067",
+      "end": "00:01:13.683",
+      "text": "mọi thứ bắt đầu… rối như tơ vò."
+    },
+    {
+      "id": "caption.c006.v3.23",
+      "start": "00:01:13.683",
+      "end": "00:01:17.817",
+      "text": "Và rồi có một cái tên bắt đầu xuất hiện."
+    },
+    {
+      "id": "caption.c006.v3.24",
+      "start": "00:01:17.817",
+      "end": "00:01:20.333",
+      "text": "Điện Biên Phủ."
+    },
+    {
+      "id": "caption.c006.v3.25",
+      "start": "00:01:20.333",
+      "end": "00:01:23.450",
+      "text": "Một thung lũng ở Tây Bắc."
+    },
+    {
+      "id": "caption.c006.candidate.v2.26",
+      "start": "00:01:23.458",
+      "end": "00:01:26.458",
+      "text": "Nhưng tại sao một thung lũng ở Tây Bắc"
+    },
+    {
+      "id": "caption.c006.candidate.v2.27",
+      "start": "00:01:26.833",
+      "end": "00:01:30.385",
+      "text": "lại trở thành điểm quyết chiến chiến lược của hai bên?"
+    },
+    {
+      "id": "caption.c006.candidate.v2.28",
+      "start": "00:01:30.750",
+      "end": "00:01:34.590",
+      "text": "Đó là chuyện của tập sau. Đi thôi!"
+    }
+  ]
+}
