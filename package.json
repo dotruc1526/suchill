@@ -14,7 +14,7 @@
     "format": "oxfmt",
     "typecheck": "tsc --noEmit",
     "test:unit": "node --test tests/member5/*.test.ts",
-    "test:component": "node --test tests/qa/component.test.mjs tests/qa/auth-username-ui.test.mjs tests/qa/password-recovery-ui.test.mjs tests/qa/pwa-lazy-ui.test.mjs",
+    "test:component": "node --test --test-concurrency=1 tests/qa/component.test.mjs tests/qa/auth-username-ui.test.mjs tests/qa/password-recovery-ui.test.mjs tests/qa/pwa-lazy-ui.test.mjs",
     "test:db": "node --test supabase/tests/*.test.mjs",
     "test:authoring": "node docs/content/validate-mt68-authoring.mjs && node docs/content/validate-1972-authoring.mjs",
     "test:e2e": "node scripts/member5/run-fixture-e2e.mjs",

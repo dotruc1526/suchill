@@ -1,5 +1,37 @@
 # Sử Chill — Shared Task Board
 
+## Latest APPROVED PO decision — media exception, 2026-10-04
+
+PO explicitly assumes responsibility for use of existing project media and waives the license-documentation prerequisite: [PO-MEDIA-EXCEPTION-20261004](../tasks/active/PO-MEDIA-EXCEPTION-20261004.md). Missing rights paperwork no longer blocks the authorized work. Preserve actual provenance/technical evidence; historical content, device/accessibility and release acceptance continue under their own dependencies. Older rights-documentation blockers below are superseded by this decision.
+
+| ID | Owner / Executor | Reviewer | Status | Started | Next action |
+|---|---|---|---|---|---|
+| M6-M7-FIVE-ROLE-DELIVERY-20261004 | Codex integration / Codex + scoped AI lanes | Independent technical; historical/device acceptance separate | REVIEW | 2026-10-04 | [Card](../tasks/active/M6-M7-FIVE-ROLE-DELIVERY-20261004.md); reviewed software fixes in PR124; final QA evidence linked; PO waived license documentation; source/historical and physical-device gates remain. |
+
+## Current delivery direction — 2026-10-04
+
+User confirms milestone-based completion. Local seven-episode access is draft review only and does not accept M6/M7 content or release. [Delivery sequence](M6-M7-NEXT-DELIVERY.md).
+
+| ID | Owner / Executor | Reviewer | Status | Started | Next action |
+|---|---|---|---|---|---|
+| M6-M7-ALIGNMENT-20261004 | Codex integration / Codex | PO; specialist reviewers | REVIEW | 2026-10-04 | [Card](../tasks/active/M6-M7-ALIGNMENT-20261004.md); actual gates reconciled; stale AI loading test repaired; isolated production/accessibility11PASS; draft boundaries retained. |
+
+| ID | Owner / Executor | Reviewer | Status | Started | Next action |
+|---|---|---|---|---|---|
+| CHAPTER-DRAFT-ACCESS-001 | Codex / Codex | User; Thọ pending | REVIEW | 2026-10-04 | [Card](../tasks/active/CHAPTER-DRAFT-ACCESS-001.md); all7preview entries open; draft text/video1/VN6; typecheck/build/Chrome6PASS. |
+
+| ID | Owner / Executor | Reviewer | Status | Started | Next action |
+|---|---|---|---|---|---|
+| VN-LESSON-PROTOTYPE-001 | Codex / Codex | Hưng/Vinh; Thọ; user pending | REVIEW | 2026-10-04 | [Card](../tasks/active/VN-LESSON-PROTOTYPE-001.md); lesson6 intro/VN/debrief, generated art, mobile/retry/noXP verified; five unfinished episodes stay locked. |
+
+| ID | Owner / Executor | Reviewer | Status | Started | Next action |
+|---|---|---|---|---|---|
+| AI-VN-PREVIEW-001 | Codex / Codex | Hưng/Vinh; user pending | REVIEW | 2026-10-04 | [Card](../tasks/active/AI-VN-PREVIEW-001.md); young-reader AI and playable VN demo; build/typecheck and live scene/choice/advance verified. |
+
+| ID | Owner / Executor | Reviewer | Status | Started | Next action |
+|---|---|---|---|---|---|
+| AI-READABILITY-001 | Codex / Codex | Hưng/Vinh; user pending | REVIEW | 2026-10-04 | [Card](../tasks/active/AI-READABILITY-001.md); emphasis/paragraph fixes, honest waiting; typecheck/build and25render checks PASS; visual acceptance pending. |
+
 ## Latest main repair audit — 2026-10-04
 
 | ID | Owner / Executor | Reviewer | Status | Started | Files / Next action |

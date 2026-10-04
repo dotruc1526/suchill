@@ -4,6 +4,7 @@ import { aiSuggestions, initialAIConversation } from '../../data'
 import type { AIMessage } from '../../types'
 import { theme } from '../../theme/tokens'
 import { askHistoryAssistant } from '../../services/aiChatService'
+import { AssistantAnswer } from './AssistantAnswer'
 
 export function AIScreen() {
   const [messages, setMessages] = useState<AIMessage[]>(initialAIConversation)
@@ -12,7 +13,8 @@ export function AIScreen() {
   const scrollRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    scrollRef.current?.scrollTo({ top: 9999, behavior: 'smooth' })
+    const container = scrollRef.current
+    container?.scrollTo({ top: container.scrollHeight, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
   }, [messages, thinking])
 
   const sendMessage = async (text: string) => {
@@ -24,17 +26,14 @@ export function AIScreen() {
     setThinking(true)
 
     try {
-      const [reply] = await Promise.all([
-        askHistoryAssistant(trimmed),
-        new Promise(resolve => setTimeout(resolve, 800)),
-      ])
+      const reply = await askHistoryAssistant(trimmed)
       setMessages(m => [...m, { role: 'ai', text: reply }])
     } catch {
       setMessages(m => [
         ...m,
         {
           role: 'ai',
-          text: 'SỬu gặp chút trục trặc khi tra cứu kho sách, bạn hỏi lại nhé! 🐮',
+          text: 'SỬu chưa thể trả lời lúc này. Bạn thử gửi lại câu hỏi nhé! 🐮',
         },
       ])
     } finally {
@@ -103,7 +102,7 @@ export function AIScreen() {
                 borderRadius: msg.role === 'ai' ? '18px 18px 18px 4px' : '18px 18px 4px 18px',
               }}
             >
-              {msg.text}
+              {msg.role === 'ai' ? <AssistantAnswer text={msg.text} /> : msg.text}
             </div>
           </div>
         ))}
@@ -119,7 +118,7 @@ export function AIScreen() {
                 color: theme.colors.textMuted,
               }}
             >
-              Đang tra cứu kho tư liệu lịch sử... 📚
+              SỬu đang soạn câu trả lời…
             </div>
           </div>
         )}
@@ -142,7 +141,7 @@ export function AIScreen() {
           value={input}
           disabled={thinking}
           onChange={e => setInput(e.target.value)}
-          onKeyDown={e => e.key === 'Enter' && void sendMessage(input)}
+          onKeyDown={e => e.key === 'Enter' && !e.nativeEvent.isComposing && void sendMessage(input)}
           placeholder="Hỏi SỬu về lịch sử Việt Nam..."
           className="flex-1 px-4 py-2.5 rounded-full font-sans text-sm outline-none disabled:opacity-60"
           style={{
