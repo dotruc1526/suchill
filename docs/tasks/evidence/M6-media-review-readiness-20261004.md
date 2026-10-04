@@ -68,6 +68,8 @@ Story-level requirements remain: reviewed scene graph/claims, no invented histor
 
 ## Handoff
 
+**Superseding PO decision:** [PO-MEDIA-EXCEPTION-20261004](../active/PO-MEDIA-EXCEPTION-20261004.md) is APPROVED by the user/PO. Missing license documentation is waived as a project gate and is no longer a blocker for authorized project media use. Earlier rights-blocker findings in this audit are historical observations, not current instructions to stop work or ask again. Preserve measured facts/provenance; remaining caption/narration corrections and historical/device acceptance still need their own evidence.
+
 ### Subsequent user authorization and provider terms
 
 The user states there are no rights records and authorizes use of the current resources, asserting ElevenLabs voice is permitted for students. Record this as user authorization for project work/internal demonstration, not independently established third-party licensing. Official [ElevenLabs billing documentation](https://elevenlabs.io/docs/overview/administration/billing) permits free-plan output for non-commercial use with attribution; paid-plan generation includes commercial rights. [Publication guidance](https://help.elevenlabs.io/hc/en-us/articles/13313564601361-Can-I-publish-the-content-I-generate-on-the-platform) specifies attribution for free-plan publication. These terms do not establish unrelated music/SFX rights or identify the generation plan/provider of this exact MP4. Keep the current package internal; verify the actual narration provenance before assigning provider credit to its immutable manifest. Student status alone is not the evidence recorded by those provider terms.

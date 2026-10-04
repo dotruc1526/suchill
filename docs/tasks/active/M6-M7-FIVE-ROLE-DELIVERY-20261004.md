@@ -2,7 +2,7 @@
 
 - Owner / Executor: Codex integration / Codex and scoped AI subagents
 - Reviewer: independent AI technical reviews; human historical/media/device acceptance where required by approved specs
-- Status: IN PROGRESS (READY claimed2026-10-04)
+- Status: REVIEW (eligible software delivery implemented; milestone acceptance remains separate)
 - Started: 2026-10-04
 - Authorization: user “hoàn thàn hết task milestone đi tôi cấp quyền5người cho bạn”. Codex executes all five work lanes; no named human identity/signature impersonated. This does not invent source/license evidence or real-device results.
 - Dependencies: M0–M5 accepted, M6/M7 OPEN; individual task dependencies remain evaluated. Phase3 explicitly states AI is not the historical reviewer; AI source audits are preparations, not human historical verdicts.
@@ -10,8 +10,11 @@
 - Lane assignments: content/source evidence → source audit agent; design/media rights/remediation evidence → media audit agent; independent frontend/backend/accessibility/release QA → technical audit agent; root owns foundation/backend integration and deliverable PR. Agents serve delegated work roles, not impersonated humans.
 - Acceptance: complete eligible software work and independently review it; resolve evidenced defects; prepare concrete source/media remediation for remaining gates; verified GitHub candidate; accurate final task/milestone state and precise external acceptance gaps.
 - Files delegated: source report docs/tasks/evidence/M7-source-review-readiness-20261004.md; media report docs/tasks/evidence/M6-media-review-readiness-20261004.md; technical report docs/tasks/evidence/M6-technical-rereview-20261004.md. Agents may propose focused fixes and request root claim before mutations.
-- Next action: parallel disjoint audits, root full quality verification, remedy findings then technical reviewer acceptance and GitHub integration.
+- Next action: integrate verified software PR124; finish remaining historical/source and real-device/accessibility acceptance before canonical import/release. License paperwork is waived by PO.
+- Final software evidence: [handoff](../evidence/M6-M7-five-role-delivery-20261004.md); npm quality422PASS/0FAIL/3native-PostgreSQL SKIP, original media12PASS/full decode0, code-head GitHub checks4SUCCESS. Independent software review accepted; no milestone closure inferred.
 - Environment/migration: no privileged/live account mutation, migration or public deployment without actual applicable gate acceptance.
+
+Latest PO decision: [PO-MEDIA-EXCEPTION-20261004](PO-MEDIA-EXCEPTION-20261004.md) supersedes missing license-documentation blockers for authorized project media use. PO assumes responsibility; do not continue requesting rights paperwork or manufacture it. Historical/source, actual device/accessibility and release dependencies remain separate.
 
 Root integration claim: `.github/workflows/quality.yml` adds the AI/source and scene-navigation regressions to the existing preview boundary check. Own board row and delivery card are updated for the verified GitHub handoff; no other milestone status is promoted.
 
@@ -22,6 +25,8 @@ Technical diagnostic claim: `tests/qa/chromeHarness.mjs` may retain a bounded st
 Technical cleanup claim extension: gracefully close that isolated browser before disconnecting, and if necessary terminate only its recorded child process tree on Windows. Preserve the original test failure if owned-profile cleanup also fails. No broad browser/process termination or user profile access is permitted.
 
 Technical ownership regression claim: `tests/qa/chrome-cleanup.test.mjs` verifies the helper uses only a live owned child PID and preserves prior failure. CI includes this check with the preview regressions.
+
+Root handoff evidence claim: `docs/tasks/evidence/M6-M7-five-role-delivery-20261004.md` records final verification, fixes, PO exception and remaining task dependencies.
 
 Owned-browser isolation claim: diagnostic stderr shows host extensions, background account registration and updater IPC in QA startup. Disable extensions, background networking, component updates and browser sync only in the fresh test profile. Application networking/service workers and all assertions/deadlines remain enabled.
 

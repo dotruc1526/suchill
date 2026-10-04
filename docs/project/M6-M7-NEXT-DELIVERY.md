@@ -2,6 +2,8 @@
 
 M0–M5 CLOSED. M6 OPEN và M7 OPEN song song theo M7-GATE-OPEN-001; không tự đóng M6. Việc mở7tập theo yêu cầu người dùng là mở xem bản nháp, không nghiệm thu bài học hay thay trạng thái milestone. Các bản AI/VN/đề cương local chưa thành canonical content.
 
+Quyết định PO mới nhất2026-10-04: [ngoại lệ media](../tasks/active/PO-MEDIA-EXCEPTION-20261004.md) bỏ yêu cầu hồ sơ giấy phép làm điều kiện chặn công việc; PO chịu trách nhiệm sử dụng. Các dòng cũ nhắc quyền media phải được đọc cùng ngoại lệ này. Việc sửa lời dẫn/caption đúng phiên bản và nghiệm thu lịch sử/thiết bị vẫn cần thực hiện.
+
 | Thứ tự | Card / đầu ra | Còn phải làm | Điều kiện và người nhận |
 |---|---|---|---|
 | 1 | M6-01, M6-06 — PWA/install/accessibility | Đối chiếu bản hiện hành, khắc phục lỗi nếu có; bổ sung nghiệm thu install/launch, screen-reader/browser zoom thực tế | Codex có thể làm software regression; QA/tester cung cấp nghiệm thu thực tế. Không thay bằng mô phỏng |
