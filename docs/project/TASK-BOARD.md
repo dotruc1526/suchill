@@ -2,6 +2,10 @@
 
 | ID | Owner / Executor | Reviewer | Status | Started | Next action |
 |---|---|---|---|---|---|
+| CHAPTER-DRAFT-ACCESS-001 | Codex / Codex | User; Thọ pending | REVIEW | 2026-10-04 | [Card](../tasks/active/CHAPTER-DRAFT-ACCESS-001.md); all7preview entries open; draft text/video1/VN6; typecheck/build/Chrome6PASS. |
+
+| ID | Owner / Executor | Reviewer | Status | Started | Next action |
+|---|---|---|---|---|---|
 | VN-LESSON-PROTOTYPE-001 | Codex / Codex | Hưng/Vinh; Thọ; user pending | REVIEW | 2026-10-04 | [Card](../tasks/active/VN-LESSON-PROTOTYPE-001.md); lesson6 intro/VN/debrief, generated art, mobile/retry/noXP verified; five unfinished episodes stay locked. |
 
 | ID | Owner / Executor | Reviewer | Status | Started | Next action |

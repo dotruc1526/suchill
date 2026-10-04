@@ -3,16 +3,19 @@ import { Button, Card, OfflineState } from '../../../components/ui'
 import { BookOpenIcon } from '../../../components/icons/NavIcon'
 import { lazyFeature } from '../../../app/LazyFeature'
 import { theme } from '../../../theme/tokens'
-import { canOpenEpisode, canPreviewLesson, previewChapter, viewForHash, type PreviewView } from '../../../services/reference1954/catalog'
+import { canOpenEpisode, canPreviewLesson, draftEpisode, previewChapter, previewHashes, previewViewForEpisode, viewForHash, type DraftView, type PreviewView } from '../../../services/reference1954/catalog'
 
 const PreviewEpisode = lazyFeature(() => import('./PreviewEpisode'))
 const PreviewLessonSix = lazyFeature(() => import('./PreviewLessonSix'))
-const hashes = { home: '', chapter: '#chapter-1954', video: '#episode-1954-01', lessonSix: '#episode-1954-06-preview' } as const
+const PreviewDraftLesson = lazyFeature(() => import('./PreviewDraftLesson'))
+const hashes = previewHashes
 export type PreviewLearningProps = { active?: boolean; offlineStatusProvided?: boolean; onSafeToUpdateChange?: (safe: boolean) => void }
 
 export default function Preview1954Learning({ active = true, offlineStatusProvided = false, onSafeToUpdateChange }: PreviewLearningProps) {
   const [view, setView] = useState<PreviewView>(() => viewForHash(window.location.hash))
   const [offline, setOffline] = useState(() => !navigator.onLine)
+  const draft = draftEpisode(view)
+  const lessonView = view !== 'home' && view !== 'chapter'
   const heading = useRef<HTMLHeadingElement>(null)
   const returnFocus = useRef<'chapter' | 'episode' | null>(null)
   const chapterButton = useRef<HTMLDivElement>(null)
@@ -46,8 +49,8 @@ export default function Preview1954Learning({ active = true, offlineStatusProvid
     setView(next)
   }
   function goBack() {
-    const parent: PreviewView = view === 'video' || view === 'lessonSix' ? 'chapter' : 'home'
-    returnFocus.current = view === 'video' ? 'episode' : view === 'lessonSix' ? null : 'chapter'
+    const parent: PreviewView = lessonView ? 'chapter' : 'home'
+    returnFocus.current = view === 'video' ? 'episode' : lessonView ? null : 'chapter'
     if (history.state?.suchillPreview1954?.from === parent) {
       history.back()
     } else {
@@ -59,30 +62,30 @@ export default function Preview1954Learning({ active = true, offlineStatusProvid
   }
   function openEpisode(id: string) {
     if (canOpenEpisode(id)) navigate('video')
-    else if (canPreviewLesson(id)) navigate('lessonSix')
+    else if (canPreviewLesson(id)) navigate(previewViewForEpisode(id))
   }
   if (!active) return null
 
   return <section data-testid="preview1954-learning" aria-labelledby="preview1954-heading" className="space-y-4 px-4 py-4" style={{ color: theme.colors.textPrimary }}>
     {offline && !offlineStatusProvided && <OfflineState />}
-    {view !== 'home' && <Button variant="outline" data-testid="preview1954-back" onClick={goBack}>‹ {view === 'video' || view === 'lessonSix' ? 'VỀ DANH SÁCH TẬP' : 'VỀ HỌC BÀI'}</Button>}
+    {view !== 'home' && <Button variant="outline" data-testid="preview1954-back" onClick={goBack}>‹ {lessonView ? 'VỀ DANH SÁCH TẬP' : 'VỀ HỌC BÀI'}</Button>}
     <header>
       {view !== 'home' && <p className="text-xs font-bold" style={{ color: theme.colors.textSecondary }}>{previewChapter.label} · NĂM 1954</p>}
-      <h1 id="preview1954-heading" ref={heading} tabIndex={-1} className="text-2xl font-bold outline-none">{view === 'home' ? 'Học bài' : view === 'chapter' ? 'Năm 1954' : view === 'lessonSix' ? 'Tập 6 — Từ Điện Biên Phủ đến Genève' : 'Tập 1 — Trước cơn bão'}</h1>
-      <p className="mt-2 text-sm" style={{ color: theme.colors.textSecondary }}>{view === 'home' ? 'Khám phá lịch sử qua từng tập.' : view === 'chapter' ? '7 tập · Video tập 1 và bản mẫu bài học tập 6.' : view === 'lessonSix' ? 'Bản mẫu bài học · Chưa tính điểm' : 'Bản xem thử · Video Tập 1'}</p>
+      <h1 id="preview1954-heading" ref={heading} tabIndex={-1} className="text-2xl font-bold outline-none">{draft ? `Tập ${Number(view.slice(-2))} — ${draft.title}` : view === 'home' ? 'Học bài' : view === 'chapter' ? 'Năm 1954' : view === 'lessonSix' ? 'Tập 6 — Từ Điện Biên Phủ đến Genève' : 'Tập 1 — Trước cơn bão'}</h1>
+      <p className="mt-2 text-sm" style={{ color: theme.colors.textSecondary }}>{draft ? 'Bản nháp bài học · Mở để đọc và góp ý' : view === 'home' ? 'Khám phá lịch sử qua từng tập.' : view === 'chapter' ? '7 tập đã mở để xem nội dung và góp ý.' : view === 'lessonSix' ? 'Bản mẫu bài học · Chưa tính điểm' : 'Bản xem thử · Video Tập 1'}</p>
     </header>
     {view === 'home' && <Card className="space-y-4" accentColor={theme.colors.primary} accentPosition="top">
       <div className="flex items-start gap-3">
         <BookOpenIcon size={32} aria-hidden="true" className="shrink-0" style={{ color: theme.colors.primary }} />
-        <div className="min-w-0"><p className="text-xs font-bold" style={{ color: theme.colors.textSecondary }}>CHƯƠNG 01</p><h2 className="mt-1 text-xl font-bold">NĂM 1954</h2><p className="mt-2 text-sm" style={{ color: theme.colors.textSecondary }}>7 tập · 1 tập đang mở</p></div>
+        <div className="min-w-0"><p className="text-xs font-bold" style={{ color: theme.colors.textSecondary }}>CHƯƠNG 01</p><h2 className="mt-1 text-xl font-bold">NĂM 1954</h2><p className="mt-2 text-sm" style={{ color: theme.colors.textSecondary }}>7/7 tập đã mở để xem trước</p></div>
       </div>
       <p className="text-sm">Tập 1 — Trước cơn bão</p>
       <Button data-testid="preview1954-start" className="w-full" onClick={() => openEpisode(previewChapter.episodes[0].id)}>XEM TẬP 1</Button>
       <div ref={chapterButton}><Button data-testid="preview1954-chapter" className="w-full" variant="outline" onClick={() => navigate('chapter')}>XEM DANH SÁCH 7 TẬP</Button></div>
-      <p className="text-sm" style={{ color: theme.colors.textMuted }}>Tập 6 có bản mẫu bài học với Visual Novel trong danh sách. Các tập khác đang chuẩn bị.</p>
+      <p className="text-sm" style={{ color: theme.colors.textMuted }}>Tập 1 có video, tập 6 có Visual Novel. Các tập còn lại mở bản nháp nội dung.</p>
     </Card>}
     {view === 'chapter' && <>
-      <p id="preview1954-lock-note" className="text-sm" style={{ color: theme.colors.textSecondary }}>Tập 6 có bản mẫu không tính XP. Tập 2–5 và 7 chưa có bài học hoàn chỉnh để mở.</p>
+      <p id="preview1954-lock-note" className="text-sm" style={{ color: theme.colors.textSecondary }}>Tất cả tập đã mở bản xem trước. Nội dung chưa hoàn thiện và chưa tính XP.</p>
       <ol aria-label="Danh sách tập năm 1954" className="space-y-3">
         {previewChapter.episodes.map((episode, index) => <li key={episode.id}>
           <Card className="space-y-3">
@@ -90,12 +93,13 @@ export default function Preview1954Learning({ active = true, offlineStatusProvid
             <h2 className="break-words text-base font-bold">{episode.title}</h2>
             <div ref={episode.available ? episodeButton : undefined}><Button data-testid={episode.id} disabled={!episode.available && !canPreviewLesson(episode.id)} aria-describedby={!episode.available ? 'preview1954-lock-note' : undefined}
               variant={episode.available ? 'primary' : 'outline'} className={`w-full ${episode.available || canPreviewLesson(episode.id) ? '' : 'cursor-not-allowed'}`}
-              onClick={() => openEpisode(episode.id)}>{episode.available ? 'XEM VIDEO' : canPreviewLesson(episode.id) ? 'XEM BÀI HỌC MẪU' : 'TẠM KHÓA'}</Button></div>
+              onClick={() => openEpisode(episode.id)}>{episode.available ? 'XEM VIDEO' : episode.id === 'preview.1954.episode06' ? 'XEM BÀI HỌC MẪU' : 'ĐỌC BẢN NHÁP'}</Button></div>
           </Card>
         </li>)}
       </ol>
     </>}
     {view === 'video' && <PreviewEpisode />}
     {view === 'lessonSix' && <PreviewLessonSix />}
+    {draft && <PreviewDraftLesson view={view as DraftView} />}
   </section>
 }
