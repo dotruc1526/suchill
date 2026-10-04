@@ -2,6 +2,8 @@
 
 ## Current verified M6/M7 checkpoint — 2026-10-04
 
+Renewed five-role execution delivered [M7-1954-SCENE-BINDINGS-005](../tasks/active/M7-1954-SCENE-BINDINGS-005.md), REVIEW: exact scene-level sources/claims, explicit fiction boundaries, corrected version-specific video notice and isolated import regressions. Current normalized candidate has510pending rows (the earlier518row snapshot remains historical evidence). Software review APPROVE; exact-head CI pending. No formal milestone closure or canonical publication inferred.
+
 PR125 MERGED as f5b6734; four exact-head checks SUCCESS. Seven internal lessons are open with21sections/20checks, integrated VN6 and correctedvideo candidate. Prior statements that episodes2–7 are locked, cue27 correction has not been rendered, or CI/PO preview permission is pending are historical snapshots. Final historical/device/publication acceptance remains separate.
 
 Firebase update is authorized but unperformed: current Google account is logged in; Firebase project access returns403 and list is empty. User elects to defer Hosting while the team resolves its existing project. No new project, live deployment or release has occurred.

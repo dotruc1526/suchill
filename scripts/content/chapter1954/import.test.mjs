@@ -29,7 +29,14 @@ test('stable namespaced UUIDs and normalized pending rows preserve authored iden
   assert.equal(plan.rows['public.media_sources'].length, 3)
   assert.equal(plan.mediaSourceBindings.length, 3)
   assert.equal(plan.mediaSourceBindings[0].equivalentSourceId, 'SRC-1954-VNMH-NAVARRE-2013')
-  assert.ok(plan.pendingBindings.some(item => item.kind === 'scene_claim_review'))
+  assert.equal(plan.rows['public.scene_claims'].length, 6)
+  const factual = plan.pendingBindings.find(item => item.kind === 'scene_historical_review').scenes
+  assert.equal(factual.length, 3)
+  assert.ok(factual.every(scene => scene.claimIds.length && scene.reviewStatus === 'needs_historical_review'))
+  const fictional = plan.pendingBindings.find(item => item.kind === 'fictional_narrative_review').scenes
+  assert.equal(fictional.length, 2)
+  assert.ok(fictional.every(scene => !scene.claimIds.length && !scene.sourceIds.length && !scene.claimsRequired))
+  assert.ok(!factual.some(scene => fictional.some(fiction => fiction.sceneId === scene.sceneId)))
   const reordered = structuredClone(inputs)
   reordered.candidate.lessons.reverse()
   assert.deepEqual(prepareImport(reordered).identities, plan.identities)
@@ -39,6 +46,25 @@ test('stable namespaced UUIDs and normalized pending rows preserve authored iden
   const invalidAlias = structuredClone(inputs)
   invalidAlias.sources.sources.find(source => source.id === 'SRC-1954-VNMH-NAVARRE-2013').url = 'https://invalid.example/'
   assert.throws(() => prepareImport(invalidAlias), /alias evidence/)
+  const unknownClaim = structuredClone(inputs)
+  const bound = unknownClaim.candidate.story.scenes.find(scene => scene.claimIds.length)
+  bound.claimIds[0] = 'CLM-UNKNOWN'
+  unknownClaim.candidate.sceneTraceability.find(scene => scene.sceneId === bound.id).claimIds[0] = 'CLM-UNKNOWN'
+  assert.throws(() => prepareImport(unknownClaim), /Unknown claim/)
+  const unknownSource = structuredClone(inputs)
+  const sourced = unknownSource.candidate.story.scenes.find(scene => scene.sourceIds.length)
+  sourced.sourceIds[0] = 'SRC-UNKNOWN'
+  unknownSource.candidate.sceneTraceability.find(scene => scene.sceneId === sourced.id).sourceIds[0] = 'SRC-UNKNOWN'
+  assert.throws(() => prepareImport(unknownSource), /Unknown source/)
+  const missingFact = structuredClone(inputs)
+  const required = missingFact.candidate.sceneTraceability.find(scene => scene.claimsRequired)
+  required.claimIds = []
+  missingFact.candidate.story.scenes.find(scene => scene.id === required.sceneId).claimIds = []
+  assert.throws(() => prepareImport(missingFact), /Missing factual claim/)
+  const bypassReview = structuredClone(inputs)
+  const factualReview = bypassReview.candidate.sceneTraceability.find(scene => scene.claimsRequired)
+  factualReview.claimsRequired = false
+  assert.throws(() => prepareImport(bypassReview), /retain factual review/)
 })
 
 test('real migrated PostgreSQL validates all rows, keeps drafts invisible and private keys denied, then rolls back repeatably', async () => {

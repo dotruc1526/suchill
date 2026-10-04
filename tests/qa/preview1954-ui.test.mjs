@@ -32,6 +32,45 @@ const url = `http://127.0.0.1:${server.httpServer.address().port}/tests/qa/fixtu
 const key = previewStorageKey(metadata.videoSha256)
 const click = (cdp, id) => cdp.evaluate(`document.querySelector('[data-testid="${id}"]').click()`)
 
+test('version-specific source notes render correct wording and preserve sources in SSR', async () => {
+  const { default: React } = await import('react')
+  const { renderToStaticMarkup } = await import('react-dom/server')
+  const { PreviewSourceNotes } = await server.ssrLoadModule('/src/features/learning/preview1954/PreviewSourceNotes.tsx')
+  const original = renderToStaticMarkup(React.createElement(PreviewSourceNotes))
+  const corrected = renderToStaticMarkup(React.createElement(PreviewSourceNotes, { corrected: true }))
+  assert.match(original, /tâm điểm của cả cuộc chiến.*diễn đạt quá rộng/s)
+  assert.doesNotMatch(original, /Bản v2 đã sửa/)
+  assert.match(corrected, /Bản v2 đã sửa.*điểm quyết chiến chiến lược của hai bên.*chờ nghiệm thu.*lượt nghe cuối/s)
+  assert.doesNotMatch(corrected, /tâm điểm của cả cuộc chiến|diễn đạt quá rộng/)
+  for (const html of [original, corrected]) {
+    assert.equal((html.match(/<a /g) ?? []).length, 3)
+    assert.match(html, /minh họa, không phải tư liệu hoặc lời chứng lịch sử/)
+  }
+})
+
+test('video version switch shows the matching correction note and transcript without inventing acceptance', async () => {
+  await withChromePage(findBrowser(), url + '#episode-1954-01', async cdp => {
+    try {
+      const note = () => cdp.evaluate('document.querySelector("[data-testid=preview1954-context-note]").innerText')
+      const press = text => cdp.evaluate(`Array.from(document.querySelectorAll('button')).find(button=>button.textContent.trim()===${JSON.stringify(text)}).click()`)
+      await cdp.waitFor('Boolean(document.querySelector("[data-testid=preview1954-context-note]"))')
+      assert.match(await note(), /diễn đạt quá rộng/)
+      await press('XEM BẢN VIDEO ĐÃ SỬA LỜI DẪN')
+      await cdp.waitFor('document.querySelector("[data-testid=preview1954-context-note]").innerText.includes("Bản v2 đã sửa")')
+      assert.match(await note(), /điểm quyết chiến chiến lược của hai bên.*chờ nghiệm thu.*lượt nghe cuối/s)
+      assert.doesNotMatch(await note(), /tâm điểm của cả cuộc chiến|diễn đạt quá rộng/)
+      assert.equal(await cdp.evaluate('document.querySelectorAll("[data-testid=preview1954-source-notes] a").length'), 3)
+      await cdp.evaluate('Array.from(document.querySelectorAll("summary")).find(item=>item.textContent.trim()==="Đọc bản chép lời").click()')
+      await cdp.waitFor('document.body.innerText.includes("Nhưng tại sao một thung lũng ở Tây Bắc")')
+      assert.doesNotMatch(await cdp.evaluate('Array.from(document.querySelectorAll("details")).find(item=>item.querySelector("summary")?.textContent.trim()==="Đọc bản chép lời").innerText'), /tâm điểm của cả cuộc chiến/)
+      await press('ĐỐI CHIẾU VIDEO GỐC')
+      await cdp.waitFor('document.querySelector("[data-testid=preview1954-context-note]").innerText.includes("diễn đạt quá rộng")')
+      assert.doesNotMatch(await note(), /Bản v2 đã sửa/)
+      assert.equal(await cdp.evaluate('performance.getEntriesByType("resource").some(item=>/supabase|account-access/.test(item.name))'), false)
+    } finally { await cdp.browser('Browser.close').catch(() => {}) }
+  })
+})
+
 test('locked episodes and unknown direct routes cannot open the preview video', () => {
   assert.equal(previewChapter.episodes.length, 7)
   assert.equal(previewChapter.episodes.filter(e => canOpenEpisode(e.id)).length, 1)

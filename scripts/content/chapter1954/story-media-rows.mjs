@@ -2,6 +2,23 @@ export function addStoryMediaRows(candidate, manifest, collector, references) {
   const { id, add } = collector, { source, claim, objective } = references
   const story = candidate.story, storyId = id('public.visual_novel_stories', story.storyId)
   const versionId = id('public.story_versions', story.id)
+  const traceability = new Map()
+  for (const item of candidate.sceneTraceability ?? []) {
+    if (traceability.has(item.sceneId) || !story.scenes.some(scene => scene.id === item.sceneId)) throw new Error('Unknown or duplicate scene traceability')
+    if (!['fictional_narrative','mixed_fiction_and_claims','educational_explanation'].includes(item.boundary) ||
+      typeof item.claimsRequired !== 'boolean' || item.reviewStatus !== 'needs_historical_review') throw new Error('Invalid scene review boundary')
+    traceability.set(item.sceneId, item)
+  }
+  for (const scene of story.scenes) {
+    const item = traceability.get(scene.id)
+    if (!item) throw new Error(`Missing scene traceability ${scene.id}`)
+    const same = (left, right) => JSON.stringify([...left].sort()) === JSON.stringify([...right].sort())
+    if (!same(scene.claimIds, item.claimIds) || !same(scene.sourceIds, item.sourceIds)) throw new Error('Scene traceability disagrees with authored references')
+    if (scene.claimIds.length && !item.claimsRequired) throw new Error('Bound claims must retain factual review')
+    if (item.claimsRequired && !scene.claimIds.length) throw new Error(`Missing factual claim ${scene.id}`)
+    if (item.boundary === 'mixed_fiction_and_claims' && !item.claimsRequired) throw new Error('Mixed scene must retain factual review')
+    if (item.boundary === 'fictional_narrative' && (item.claimsRequired || scene.claimIds.length || scene.sourceIds.length)) throw new Error('Fiction cannot be presented as sourced fact')
+  }
   add('public.visual_novel_stories', { id: storyId, slug: 'candidate-1954-geneva-v2', title: 'Genève 1954 — bản nháp', summary: 'Authoring candidate; not published' })
   add('public.story_versions', { id: versionId, story_id: storyId, version_number: story.versionNumber,
     eligibility_version: story.id, status: 'in_review', start_scene_id: id('public.scenes', story.startSceneId), created_at: story.createdAt })
@@ -39,7 +56,9 @@ export function addStoryMediaRows(candidate, manifest, collector, references) {
     locale: 'vi-VN', label: 'Bản chép lời', storage_ref: storage('transcript.vi.txt'), document_id: null })
   for (const value of manifest.sourceIds) add('public.media_sources', { media_asset_id: videoId, source_id: source(value) })
   return [
-    { kind: 'scene_claim_review', sceneIds: story.scenes.filter(scene => !scene.claimIds.length).map(scene => scene.id) },
+    { kind: 'scene_historical_review', scenes: [...traceability.values()].filter(item => item.claimsRequired) },
+    { kind: 'fictional_narrative_review', scenes: [...traceability.values()].filter(item => item.boundary === 'fictional_narrative') },
+    { kind: 'scene_pedagogical_review', scenes: [...traceability.values()].filter(item => !item.claimsRequired && item.boundary !== 'fictional_narrative') },
     { kind: 'media_storage_upload', refs: ['pilot-mobile.mp4','poster.png','captions.vi.vtt','transcript.vi.txt'].map(storage) },
     { kind: 'historical_learning_media_acceptance' },
   ]
