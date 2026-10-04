@@ -56,7 +56,7 @@ export function NovelStage({ story, onBack, onComplete }: {
           {feedback.note && <p className="text-sm leading-6">{feedback.note}</p>}
           <Button className="w-full" onClick={advance}>{feedback.correct === false ? 'THỬ CHỌN LẠI' : 'TIẾP TỤC ›'}</Button>
         </div>}
-        {!scene.choices && <Button className="w-full" onClick={onComplete}>ĐẾN PHẦN NHÌN LẠI BÀI HỌC ›</Button>}
+        {!scene.choices && <Button className="w-full" onClick={index === story.scenes.length - 1 ? onComplete : advance}>{index === story.scenes.length - 1 ? 'ĐẾN PHẦN NHÌN LẠI BÀI HỌC ›' : 'TIẾP TỤC ›'}</Button>}
       </div>
     </div>
   </section>

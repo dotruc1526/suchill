@@ -1,5 +1,9 @@
 # Sử Chill — Shared Task Board
 
+| ID | Owner / Executor | Reviewer | Status | Started | Next action |
+|---|---|---|---|---|---|
+| M6-M7-FIVE-ROLE-DELIVERY-20261004 | Codex integration / Codex + scoped AI lanes | Independent technical; required historical/media/device acceptance separate | IN PROGRESS | 2026-10-04 | [Card](../tasks/active/M6-M7-FIVE-ROLE-DELIVERY-20261004.md); user delegates five work lanes; audit/remediate/validate eligible milestone deliverables. |
+
 ## Current delivery direction — 2026-10-04
 
 User confirms milestone-based completion. Local seven-episode access is draft review only and does not accept M6/M7 content or release. [Delivery sequence](M6-M7-NEXT-DELIVERY.md).

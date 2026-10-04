@@ -14,17 +14,17 @@ export const draftLessons: Record<DraftView, { objective: string; points: string
   },
   draft04: {
     objective: 'Hiểu diễn biến lớn của chiến dịch mà không bắt học sinh nhớ quá nhiều chi tiết.',
-    points: ['Đợt 1: Bắt đầu ngày 13/3/1954. Quân ta tiến công một số cứ điểm phía bắc như Him Lam, Độc Lập.', 'Đợt 2: Giao tranh diễn ra ác liệt ở khu vực phía đông trung tâm. Cuộc chiến kéo dài và khó khăn hơn.', 'Đợt 3: Quân ta mở cuộc tổng công kích. Hệ thống phòng thủ của Pháp dần bị phá vỡ.'],
+    points: ['Đợt 1: Bắt đầu ngày 13/3/1954. Quân ta tiến công một số cứ điểm phía bắc như Him Lam, Độc Lập.', 'Đợt 2: Giao tranh diễn ra ác liệt ở khu vực phía đông trung tâm. Cuộc chiến kéo dài và khó khăn hơn.', 'Đợt 3 bắt đầu ngày 1/5, tiếp tục đánh các vị trí còn lại; ngày 7/5 diễn ra cuộc tổng công kích vào khu trung tâm.'],
     reflection: 'Hãy thử kể lại thứ tự: mở màn chiến dịch → tiến công các cứ điểm → tổng công kích → kết thúc chiến dịch.',
   },
   draft05: {
     objective: 'Hiểu điều gì xảy ra vào ngày chiến dịch kết thúc và ý nghĩa trực tiếp của chiến thắng.',
-    points: ['Ngày 7/5/1954, quân ta tiến công vào khu trung tâm.', 'Sở chỉ huy của Pháp tại Điện Biên Phủ bị chiếm. Tướng De Castries cùng bộ chỉ huy bị bắt.', 'Tập đoàn cứ điểm Điện Biên Phủ bị đánh bại. Chiến dịch kết thúc sau 56 ngày đêm.'],
+    points: ['Ngày 7/5/1954, quân ta tiến công vào khu trung tâm.', 'Sở chỉ huy tại Mường Thanh bị chiếm. Tướng De Castries cùng bộ chỉ huy bị bắt; hoạt động tại phân khu Nam còn tiếp diễn trong đêm.', 'Tập đoàn cứ điểm Điện Biên Phủ bị đánh bại. Chiến dịch diễn ra từ ngày 13/3 đến ngày 7/5/1954.'],
     reflection: 'Chiến dịch Điện Biên Phủ kết thúc ngày nào? Điều gì xảy ra với sở chỉ huy Pháp?',
   },
   draft07: {
     objective: 'Hiểu 1954 là kết thúc một giai đoạn nhưng mở đầu cho một giai đoạn mới.',
-    points: ['Cuộc kháng chiến chống Pháp kết thúc. Pháp rút dần khỏi Đông Dương theo các thỏa thuận.', 'Miền Bắc bước vào giai đoạn khôi phục và xây dựng.', 'Việt Nam tạm thời bị chia thành hai khu vực tập kết quân sự. Vấn đề thống nhất đất nước vẫn chưa được giải quyết hoàn toàn.'],
+    points: ['Ở Việt Nam, văn kiện quy định hai bên chuyển quân về các khu tập kết; việc thi hành diễn ra theo từng bước.', 'Miền Bắc bước vào giai đoạn khôi phục và xây dựng.', 'Việt Nam tạm thời bị chia thành hai khu vực tập kết quân sự. Vấn đề thống nhất đất nước vẫn chưa được giải quyết hoàn toàn.'],
     reflection: 'Vì sao nói 1954 vừa là kết thúc vừa là khởi đầu? Vĩ tuyến 17 có phải biên giới quốc gia vĩnh viễn không?',
   },
 }
