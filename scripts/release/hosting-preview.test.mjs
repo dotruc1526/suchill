@@ -48,6 +48,21 @@ test('hosted output inventory refuses secrets and any unclaimed output file', as
   try {
     await writeFile(join(temporary, 'index.html'), '<h1>Owned preview</h1>')
     assert.equal((await auditOutput(temporary)).length, 1)
+    const { mkdir } = await import('node:fs/promises')
+    await mkdir(join(temporary, 'assets'))
+    await writeFile(join(temporary, 'assets', 'pilot-mobile-ownedhash.mp4'), Buffer.from([0, 1, 2]))
+    await writeFile(join(temporary, 'assets', 'captions.vi-ownedhash.vtt'), 'WEBVTT\n')
+    await writeFile(join(temporary, 'assets', 'transcript.vi-ownedhash.txt'), 'Owned transcript')
+    assert.equal((await auditOutput(temporary)).length, 4)
+    await writeFile(join(temporary, 'assets', 'private-ownedhash.mp4'), Buffer.from([0, 1, 2]))
+    await assert.rejects(auditOutput(temporary), /Unexpected hosted output/)
+    const { unlink } = await import('node:fs/promises')
+    await unlink(join(temporary, 'assets', 'private-ownedhash.mp4'))
+    for (const name of ['captions.vi-ownedhash.mp4', 'pilot-mobile-ownedhash.txt', 'transcript.vi-ownedhash.vtt', 'pilot-mobile.mp4']) {
+      await writeFile(join(temporary, 'assets', name), 'Unclaimed')
+      await assert.rejects(auditOutput(temporary), /Unexpected hosted output/)
+      await unlink(join(temporary, 'assets', name))
+    }
     await writeFile(join(temporary, 'index.html'), 'sb_' + 'secret_ownedtest')
     await assert.rejects(auditOutput(temporary), /Secret/)
     await writeFile(join(temporary, 'index.html'), '<h1>Owned preview</h1>')

@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { Button, Card } from '../../../components/ui'
 import { theme } from '../../../theme/tokens'
 import { lazyFeature } from '../../../app/LazyFeature'
+import { StudyCompanion } from './StudyCompanion'
+import { lessonSixCandidate } from '../../../services/reference1954/candidateLessons'
 
 const PreviewNovel = lazyFeature(() => import('./PreviewNovel'))
 export default function PreviewLessonSix() {
@@ -21,8 +23,9 @@ export default function PreviewLessonSix() {
     {step === 'debrief' && <Card className="space-y-4">
       <h2 ref={title} tabIndex={-1} className="text-lg font-bold outline-none">Nhìn lại câu chuyện</h2>
       <p className="text-sm leading-7">Bạn đã đi qua 5 cảnh và các lựa chọn của bản mẫu. Hãy thử kể lại bằng lời của mình: câu chuyện nói gì về tính tạm thời của giới tuyến, và vì sao những thỏa thuận cũng ảnh hưởng đến đời sống con người?</p>
-      <p className="text-sm">Phần video, quiz và nghiệm thu nội dung của tập 6 vẫn đang chuẩn bị. Lượt đọc này không ghi hoàn thành bài học hoặc cấp XP.</p>
+      <p className="text-sm">Tiếp tục đọc phần giải thích và tự kiểm tra bên dưới. Lượt đọc này không ghi hoàn thành bài học hoặc cấp XP.</p>
       <Button variant="outline" className="w-full" onClick={() => setStep('story')}>ĐỌC LẠI CÂU CHUYỆN</Button>
     </Card>}
+    {step !== 'story' && <StudyCompanion lesson={lessonSixCandidate} />}
   </div>
 }

@@ -65,7 +65,7 @@ export async function auditOutput(outDir) {
       if (entry.isSymbolicLink()) throw new Error('Symlink in hosted output')
       if (entry.isDirectory()) { await walk(file); continue }
       const name = relative(outDir, file).split(sep).join('/')
-      if (!/^(?:index\.html|offline\.html|sw\.js|pwa-build\.json|hosting-build\.json|robots\.txt|manifest\.webmanifest|scripts\/content\/reference-preview\/index\.html|assets\/[A-Za-z0-9_.-]+\.(?:js|css|png|svg|webp|avif|woff2)|icons\/[A-Za-z0-9_.-]+\.(?:png|svg)|technical-fixtures\/fallback-(?:captions\.vtt|poster\.svg|transcript\.txt)|reference-media\/(?:pilot-mobile\.mp4|poster\.png|captions\.vi\.vtt|transcript\.vi\.txt))$/.test(name))
+      if (!/^(?:index\.html|offline\.html|sw\.js|pwa-build\.json|hosting-build\.json|robots\.txt|manifest\.webmanifest|scripts\/content\/reference-preview\/index\.html|assets\/[A-Za-z0-9_.-]+\.(?:js|css|png|svg|webp|avif|woff2)|assets\/(?:pilot-mobile-[A-Za-z0-9_-]+\.mp4|captions\.vi-[A-Za-z0-9_-]+\.vtt|transcript\.vi-[A-Za-z0-9_-]+\.txt)|icons\/[A-Za-z0-9_.-]+\.(?:png|svg)|technical-fixtures\/fallback-(?:captions\.vtt|poster\.svg|transcript\.txt)|reference-media\/(?:pilot-mobile\.mp4|poster\.png|captions\.vi\.vtt|transcript\.vi\.txt))$/.test(name))
         throw new Error('Unexpected hosted output: ' + name)
       if (!/\.(?:mp4|png|woff2)$/.test(name)) {
         const text = await readFile(file, 'utf8')
@@ -118,4 +118,10 @@ export async function buildHostingPreview() {
   console.log('Hosting preview verified: ' + inventory.length + ' files; unchanged 1954 video; no privileged client configuration')
 }
 
-if (process.argv[1] && pathToFileURL(resolve(process.argv[1])).href === import.meta.url) await buildHostingPreview()
+// Vite bundles this module into its config via the local-preview plugin. That
+// retains the original import.meta.url; do not recursively run the CLI again.
+const cliStarted = Symbol.for('suchill.hosting-preview.cli-started')
+if (process.argv[1] && pathToFileURL(resolve(process.argv[1])).href === import.meta.url && !globalThis[cliStarted]) {
+  globalThis[cliStarted] = true
+  await buildHostingPreview()
+}

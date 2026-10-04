@@ -1,0 +1,71 @@
+{
+  "id": "media.c006.candidate1954.v2",
+  "title": "Tập 1 — Trước cơn bão · bản sửa lời dẫn v2",
+  "reviewStatus": "in_review",
+  "scope": "academic_non_commercial",
+  "publicationScope": "candidate_only",
+  "provider": "Original supplied narration + Microsoft Neural TTS via edge-tts for new ending",
+  "voice": "vi-VN-NamMinhNeural",
+  "audioIdentityVerified": false,
+  "sourceIds": [
+    "SRC-DBP54-01",
+    "SRC-DBP54-02",
+    "SRC-DBP54-03"
+  ],
+  "sourceVideoSha256": "2b7def3cd371275f73f062707b9cd212bca663b4b8e66eeb980272b5c092f0ec",
+  "originalPreserved": true,
+  "replacementStartSeconds": 83.45,
+  "correction": "Final scene, spoken cue26–28 and baked captions replaced; strategic wording from CONTENT-006.",
+  "video": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 24,
+    "durationSeconds": 94.979667
+  },
+  "narrationSha256": "e922b7b58e3f0bea10218e800a28618e8c05ed6e485bf8a21f5e839dbd4f9887",
+  "newAudioInputs": [
+    {
+      "cue": 26,
+      "text": "Nhưng tại sao một thung lũng ở Tây Bắc",
+      "file": "source/cue26.mp3",
+      "sha256": "c8850f31e3d822d94ac26db35baf545a6e3a63c29db2c7a8390d5ab3d079cd5b",
+      "durationSeconds": 3.0
+    },
+    {
+      "cue": 27,
+      "text": "lại trở thành điểm quyết chiến chiến lược của hai bên?",
+      "file": "source/cue27.mp3",
+      "sha256": "7c266da46ce8fd4085d07237091de055eea83da088d23f16fc4c313c4dc9e894",
+      "durationSeconds": 3.552
+    },
+    {
+      "cue": 28,
+      "text": "Đó là chuyện của tập sau. Đi thôi!",
+      "file": "source/cue28.mp3",
+      "sha256": "31628ad4da874c2135dabd2e3bddd1fa4bc080d755e33d52c156dea4516f031c",
+      "durationSeconds": 3.84
+    }
+  ],
+  "font": {
+    "fileName": "arial.ttf",
+    "sha256": "b3658eadae55e682b5f69eb64c439c1ecc8f196c0bb8d4756d145d13bc86476a"
+  },
+  "timing": {
+    "captionsVerified": false,
+    "evidence": "Mechanical cue timing measured from new audio; human listen-through pending"
+  },
+  "mediaUseDecision": "PO supplied materials and assumes media responsibility; no rights paperwork gate under latest exception.",
+  "pending": [
+    "final historical/learning acceptance",
+    "new ending listening/caption sync and visual acceptance",
+    "real device test"
+  ],
+  "files": {
+    "pilot-mobile.mp4": "82e6cf658d3c47575ac107a8f56a096616ba847ae1acc3a6628a9b85fde95716",
+    "poster.png": "d6affb44101264c89236503e82e352af282d476d1724ed00a226c6be21c9eb2f",
+    "captions.vi.vtt": "71f70e4a2cda10fcb583bd6a6eac02561a74e650b99657d62c68af2a87f77ffc",
+    "transcript.vi.txt": "85895473d8fb5e9e4cfd7da55fd92f60b26bfbfc3cb90cccae7a9d9260d06d08"
+  },
+  "createdAt": "2026-10-04",
+  "publicationPerformed": false
+}

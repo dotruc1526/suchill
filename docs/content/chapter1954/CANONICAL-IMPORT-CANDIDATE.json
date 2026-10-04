@@ -1,0 +1,1939 @@
+{
+  "chapter": {
+    "id": "candidate.chapter1954.v1",
+    "slug": "nam-1954",
+    "title": "Năm 1954",
+    "summary": "Từ Điện Biên Phủ đến các thỏa thuận Genève và chặng đường tiếp theo.",
+    "historicalPeriodLabel": "1953–1954",
+    "learningObjectiveIds": [
+      "preview.1954.episode01.candidate.objective",
+      "preview.1954.episode02.candidate.objective",
+      "preview.1954.episode03.candidate.objective",
+      "preview.1954.episode04.candidate.objective",
+      "preview.1954.episode05.candidate.objective",
+      "preview.1954.episode06.candidate.objective",
+      "preview.1954.episode07.candidate.objective"
+    ],
+    "estimatedMinutes": 42,
+    "lessonRefs": [
+      {
+        "id": "preview.1954.episode01.candidate",
+        "order": 0
+      },
+      {
+        "id": "preview.1954.episode02.candidate",
+        "order": 1
+      },
+      {
+        "id": "preview.1954.episode03.candidate",
+        "order": 2
+      },
+      {
+        "id": "preview.1954.episode04.candidate",
+        "order": 3
+      },
+      {
+        "id": "preview.1954.episode05.candidate",
+        "order": 4
+      },
+      {
+        "id": "preview.1954.episode06.candidate",
+        "order": 5
+      },
+      {
+        "id": "preview.1954.episode07.candidate",
+        "order": 6
+      }
+    ],
+    "status": "in_review"
+  },
+  "lessons": [
+    {
+      "id": "preview.1954.episode01.candidate",
+      "contentVersionId": "preview.1954.episode01.candidate.1954-study-v1",
+      "chapterId": "candidate.chapter1954.v1",
+      "slug": "1954-01",
+      "title": "Trước cơn bão",
+      "summary": "Hiểu bối cảnh năm 1953 và phân biệt mục tiêu kế hoạch với diễn biến thực tế.",
+      "format": "mixed",
+      "estimatedMinutes": 6,
+      "learningObjectiveIds": [
+        "preview.1954.episode01.candidate.objective"
+      ],
+      "prerequisites": [],
+      "blocks": [
+        {
+          "id": "preview.1954.episode01.candidate.read",
+          "order": 0,
+          "required": true,
+          "kind": "text",
+          "documentId": "preview.1954.episode01.candidate.reading.1954-study-v1"
+        },
+        {
+          "id": "preview.1954.episode01.candidate.video",
+          "order": 1,
+          "required": false,
+          "kind": "video",
+          "mediaAssetId": "candidate.1954.video.corrected.v2",
+          "completionPolicy": "optional"
+        },
+        {
+          "id": "preview.1954.episode01.candidate.check",
+          "order": 2,
+          "required": true,
+          "kind": "quiz",
+          "questionSetId": "preview.1954.episode01.candidate.practice.1954-study-v1",
+          "assessmentMode": "practice"
+        },
+        {
+          "id": "preview.1954.episode01.candidate.recap",
+          "order": 3,
+          "required": true,
+          "kind": "recap",
+          "documentId": "preview.1954.episode01.candidate.recap.1954-study-v1"
+        }
+      ],
+      "status": "in_review"
+    },
+    {
+      "id": "preview.1954.episode02.candidate",
+      "contentVersionId": "preview.1954.episode02.candidate.1954-study-v1",
+      "chapterId": "candidate.chapter1954.v1",
+      "slug": "1954-02",
+      "title": "Vì sao lại là Điện Biên Phủ?",
+      "summary": "Đọc vị trí, hiểu tập đoàn cứ điểm và phân biệt hai thời điểm quan trọng.",
+      "format": "standard",
+      "estimatedMinutes": 6,
+      "learningObjectiveIds": [
+        "preview.1954.episode02.candidate.objective"
+      ],
+      "prerequisites": [],
+      "blocks": [
+        {
+          "id": "preview.1954.episode02.candidate.read",
+          "order": 0,
+          "required": true,
+          "kind": "text",
+          "documentId": "preview.1954.episode02.candidate.reading.1954-study-v1"
+        },
+        {
+          "id": "preview.1954.episode02.candidate.check",
+          "order": 1,
+          "required": true,
+          "kind": "quiz",
+          "questionSetId": "preview.1954.episode02.candidate.practice.1954-study-v1",
+          "assessmentMode": "practice"
+        },
+        {
+          "id": "preview.1954.episode02.candidate.recap",
+          "order": 2,
+          "required": true,
+          "kind": "recap",
+          "documentId": "preview.1954.episode02.candidate.recap.1954-study-v1"
+        }
+      ],
+      "status": "in_review"
+    },
+    {
+      "id": "preview.1954.episode03.candidate",
+      "contentVersionId": "preview.1954.episode03.candidate.1954-study-v1",
+      "chapterId": "candidate.chapter1954.v1",
+      "slug": "1954-03",
+      "title": "Chuẩn bị cho trận quyết chiến",
+      "summary": "Hiểu vai trò hậu cần và vì sao phương án tác chiến có thể được điều chỉnh.",
+      "format": "standard",
+      "estimatedMinutes": 6,
+      "learningObjectiveIds": [
+        "preview.1954.episode03.candidate.objective"
+      ],
+      "prerequisites": [],
+      "blocks": [
+        {
+          "id": "preview.1954.episode03.candidate.read",
+          "order": 0,
+          "required": true,
+          "kind": "text",
+          "documentId": "preview.1954.episode03.candidate.reading.1954-study-v1"
+        },
+        {
+          "id": "preview.1954.episode03.candidate.check",
+          "order": 1,
+          "required": true,
+          "kind": "quiz",
+          "questionSetId": "preview.1954.episode03.candidate.practice.1954-study-v1",
+          "assessmentMode": "practice"
+        },
+        {
+          "id": "preview.1954.episode03.candidate.recap",
+          "order": 2,
+          "required": true,
+          "kind": "recap",
+          "documentId": "preview.1954.episode03.candidate.recap.1954-study-v1"
+        }
+      ],
+      "status": "in_review"
+    },
+    {
+      "id": "preview.1954.episode04.candidate",
+      "contentVersionId": "preview.1954.episode04.candidate.1954-study-v1",
+      "chapterId": "candidate.chapter1954.v1",
+      "slug": "1954-04",
+      "title": "56 ngày đêm",
+      "summary": "Kể đúng ba đợt chính mà không nhầm chuẩn bị với dừng chiến dịch.",
+      "format": "standard",
+      "estimatedMinutes": 6,
+      "learningObjectiveIds": [
+        "preview.1954.episode04.candidate.objective"
+      ],
+      "prerequisites": [],
+      "blocks": [
+        {
+          "id": "preview.1954.episode04.candidate.read",
+          "order": 0,
+          "required": true,
+          "kind": "text",
+          "documentId": "preview.1954.episode04.candidate.reading.1954-study-v1"
+        },
+        {
+          "id": "preview.1954.episode04.candidate.check",
+          "order": 1,
+          "required": true,
+          "kind": "quiz",
+          "questionSetId": "preview.1954.episode04.candidate.practice.1954-study-v1",
+          "assessmentMode": "practice"
+        },
+        {
+          "id": "preview.1954.episode04.candidate.recap",
+          "order": 2,
+          "required": true,
+          "kind": "recap",
+          "documentId": "preview.1954.episode04.candidate.recap.1954-study-v1"
+        }
+      ],
+      "status": "in_review"
+    },
+    {
+      "id": "preview.1954.episode05.candidate",
+      "contentVersionId": "preview.1954.episode05.candidate.1954-study-v1",
+      "chapterId": "candidate.chapter1954.v1",
+      "slug": "1954-05",
+      "title": "Ngày 7/5/1954",
+      "summary": "Phân biệt mốc chiếm sở chỉ huy với toàn bộ diễn biến và tiến trình đình chiến.",
+      "format": "standard",
+      "estimatedMinutes": 6,
+      "learningObjectiveIds": [
+        "preview.1954.episode05.candidate.objective"
+      ],
+      "prerequisites": [],
+      "blocks": [
+        {
+          "id": "preview.1954.episode05.candidate.read",
+          "order": 0,
+          "required": true,
+          "kind": "text",
+          "documentId": "preview.1954.episode05.candidate.reading.1954-study-v1"
+        },
+        {
+          "id": "preview.1954.episode05.candidate.check",
+          "order": 1,
+          "required": true,
+          "kind": "quiz",
+          "questionSetId": "preview.1954.episode05.candidate.practice.1954-study-v1",
+          "assessmentMode": "practice"
+        },
+        {
+          "id": "preview.1954.episode05.candidate.recap",
+          "order": 2,
+          "required": true,
+          "kind": "recap",
+          "documentId": "preview.1954.episode05.candidate.recap.1954-study-v1"
+        }
+      ],
+      "status": "in_review"
+    },
+    {
+      "id": "preview.1954.episode06.candidate",
+      "contentVersionId": "preview.1954.episode06.candidate.1954-study-v1",
+      "chapterId": "candidate.chapter1954.v1",
+      "slug": "1954-06",
+      "title": "Từ Điện Biên Phủ đến Genève",
+      "summary": "Đọc đúng các văn kiện Genève và tách tình huống hư cấu khỏi sự kiện có nguồn.",
+      "format": "mixed",
+      "estimatedMinutes": 6,
+      "learningObjectiveIds": [
+        "preview.1954.episode06.candidate.objective"
+      ],
+      "prerequisites": [],
+      "blocks": [
+        {
+          "id": "preview.1954.episode06.candidate.read",
+          "order": 0,
+          "required": true,
+          "kind": "text",
+          "documentId": "preview.1954.episode06.candidate.reading.1954-study-v1"
+        },
+        {
+          "id": "preview.1954.episode06.candidate.story",
+          "order": 1,
+          "required": true,
+          "kind": "visual_novel",
+          "storyVersionId": "candidate.1954.geneva.story.v2"
+        },
+        {
+          "id": "preview.1954.episode06.candidate.check",
+          "order": 2,
+          "required": true,
+          "kind": "quiz",
+          "questionSetId": "preview.1954.episode06.candidate.practice.1954-study-v1",
+          "assessmentMode": "practice"
+        },
+        {
+          "id": "preview.1954.episode06.candidate.recap",
+          "order": 3,
+          "required": true,
+          "kind": "recap",
+          "documentId": "preview.1954.episode06.candidate.recap.1954-study-v1"
+        }
+      ],
+      "status": "in_review"
+    },
+    {
+      "id": "preview.1954.episode07.candidate",
+      "contentVersionId": "preview.1954.episode07.candidate.1954-study-v1",
+      "chapterId": "candidate.chapter1954.v1",
+      "slug": "1954-07",
+      "title": "Việt Nam sau năm 1954",
+      "summary": "Phân biệt quy định ngừng bắn, tập kết và kế hoạch thống nhất với việc thực hiện.",
+      "format": "standard",
+      "estimatedMinutes": 6,
+      "learningObjectiveIds": [
+        "preview.1954.episode07.candidate.objective"
+      ],
+      "prerequisites": [],
+      "blocks": [
+        {
+          "id": "preview.1954.episode07.candidate.read",
+          "order": 0,
+          "required": true,
+          "kind": "text",
+          "documentId": "preview.1954.episode07.candidate.reading.1954-study-v1"
+        },
+        {
+          "id": "preview.1954.episode07.candidate.check",
+          "order": 1,
+          "required": true,
+          "kind": "quiz",
+          "questionSetId": "preview.1954.episode07.candidate.practice.1954-study-v1",
+          "assessmentMode": "practice"
+        },
+        {
+          "id": "preview.1954.episode07.candidate.recap",
+          "order": 2,
+          "required": true,
+          "kind": "recap",
+          "documentId": "preview.1954.episode07.candidate.recap.1954-study-v1"
+        }
+      ],
+      "status": "in_review"
+    }
+  ],
+  "documents": [
+    {
+      "id": "preview.1954.episode01.candidate.reading.1954-study-v1",
+      "title": "Trước cơn bão",
+      "locale": "vi-VN",
+      "status": "in_review",
+      "sourceIds": [
+        "SRC-1954-FRUS-337",
+        "SRC-1954-FRUS-472",
+        "SRC-1954-VNMH-NAVARRE-2013"
+      ],
+      "sections": [
+        {
+          "id": "study01.context",
+          "kind": "heading",
+          "text": "Trước khi nhìn vào một trận đánh",
+          "level": 2
+        },
+        {
+          "id": "study01.context.p.55ee30dd",
+          "kind": "paragraph",
+          "text": "Đến năm 1953, cuộc chiến ở Đông Dương đã kéo dài nhiều năm. Pháp gặp sức ép quân sự và tài chính. “Sức ép tài chính” nghĩa là việc tiếp tục chiến tranh đặt ra nhu cầu chi phí và nguồn lực."
+        },
+        {
+          "id": "study01.context.p.88aa0c81",
+          "kind": "paragraph",
+          "text": "Khi xem video, hãy tìm những điều thuộc bối cảnh trước chiến dịch. Chúng giúp ta hiểu vì sao các bên tính toán kế hoạch, nhưng chưa đủ để dự đoán chính xác mọi sự kiện sau đó."
+        },
+        {
+          "id": "study01.plan",
+          "kind": "heading",
+          "text": "Một kế hoạch muốn đạt điều gì?",
+          "level": 2
+        },
+        {
+          "id": "study01.plan.p.97d971a1",
+          "kind": "paragraph",
+          "text": "Kế hoạch Navarre được trình bày trong các cuộc trao đổi Mỹ–Pháp năm 1953 với mục tiêu tăng lực lượng cơ động và giành lại chủ động quân sự. “Cơ động” có nghĩa là lực lượng có thể được điều chuyển để hoạt động ở những nơi cần thiết."
+        },
+        {
+          "id": "study01.plan.p.be4c4bd1",
+          "kind": "paragraph",
+          "text": "Tài liệu khi ấy ghi dự tính và đánh giá của người tham gia. Chẳng hạn, một kế hoạch có thể dự kiến bước này trước, bước kia sau. Đó là mục tiêu người lập kế hoạch hướng đến, chưa phải bằng chứng rằng tất cả đã thực hiện thành công."
+        },
+        {
+          "id": "study01.directions",
+          "kind": "heading",
+          "text": "Hai phía cùng có hoạt động",
+          "level": 2
+        },
+        {
+          "id": "study01.directions.p.74e1efd6",
+          "kind": "paragraph",
+          "text": "Chủ trương Đông Xuân 1953–1954 của phía Việt Nam hướng đến buộc Pháp phân tán lực lượng cơ động trên nhiều chiến trường. “Phân tán” nghĩa là phải chia lực lượng ra nhiều nơi thay vì tập trung như dự định."
+        },
+        {
+          "id": "study01.directions.p.cd3d95b8",
+          "kind": "paragraph",
+          "text": "Vì thế, học một kế hoạch cần nhìn cả hoạt động của phía bên kia. Hãy giữ câu hỏi cho tập sau: Điện Biên Phủ ở đâu và trở thành địa điểm đối đầu như thế nào? Không cần gọi một nơi là tâm điểm của toàn bộ cuộc chiến mới hiểu được vai trò của nó."
+        }
+      ]
+    },
+    {
+      "id": "preview.1954.episode01.candidate.recap.1954-study-v1",
+      "title": "Nhìn lại bài học",
+      "locale": "vi-VN",
+      "status": "in_review",
+      "sourceIds": [
+        "SRC-1954-FRUS-337",
+        "SRC-1954-FRUS-472",
+        "SRC-1954-VNMH-NAVARRE-2013"
+      ],
+      "sections": [
+        {
+          "id": "preview.1954.episode01.candidate.recap.1954-study-v1.takeaway",
+          "kind": "paragraph",
+          "text": "Phân biệt bối cảnh, mục tiêu kế hoạch và điều đã xảy ra."
+        },
+        {
+          "id": "preview.1954.episode01.candidate.recap.1954-study-v1.reflection",
+          "kind": "paragraph",
+          "text": "Em cần nguồn nào để kiểm tra một kế hoạch có đạt mục tiêu hay không?"
+        }
+      ]
+    },
+    {
+      "id": "preview.1954.episode02.candidate.reading.1954-study-v1",
+      "title": "Vì sao lại là Điện Biên Phủ?",
+      "locale": "vi-VN",
+      "status": "in_review",
+      "sourceIds": [
+        "SRC-1954-VNMH-NAVARRE-2013",
+        "SRC-1954-FRUS-337",
+        "SRC-1954-FRUS-472",
+        "SRC-1954-BTLSQG-PHASE-1"
+      ],
+      "sections": [
+        {
+          "id": "study02.location",
+          "kind": "heading",
+          "text": "Một thung lũng ở Tây Bắc",
+          "level": 2
+        },
+        {
+          "id": "study02.location.p.60d22667",
+          "kind": "paragraph",
+          "text": "Điện Biên Phủ nằm ở vùng Tây Bắc Việt Nam. Đây là một thung lũng. Khi tìm địa điểm trên bản đồ, hãy xác định khu vực trước, rồi mới nhìn các vị trí bên trong."
+        },
+        {
+          "id": "study02.location.p.a931b687",
+          "kind": "paragraph",
+          "text": "Địa điểm này liên quan đến hướng Tây Bắc và Thượng Lào. “Chiến lược” ở đây nói đến vị trí và việc tổ chức lực lượng trong một kế hoạch lớn. Không phải cứ nhìn thấy một nơi trên bản đồ là hiểu được toàn bộ kế hoạch của hai bên."
+        },
+        {
+          "id": "study02.fortifications",
+          "kind": "heading",
+          "text": "Tập đoàn cứ điểm là gì?",
+          "level": 2
+        },
+        {
+          "id": "study02.fortifications.p.aab33dcc",
+          "kind": "paragraph",
+          "text": "Trong các ngày 20–22/11/1953, Pháp đưa quân nhảy dù chiếm Điện Biên Phủ. Sau đó, nơi này được xây dựng thành tập đoàn cứ điểm: một hệ thống gồm nhiều vị trí phòng thủ, không phải một ngôi nhà hay một đồn riêng lẻ."
+        },
+        {
+          "id": "study02.fortifications.p.46585ad7",
+          "kind": "paragraph",
+          "text": "Có ba khu cần nhớ: khu trung tâm Mường Thanh, khu Bắc và khu Nam Hồng Cúm. Khi đọc diễn biến sau này, tên các khu giúp ta hiểu sự kiện xảy ra ở đâu. Một khu thất thủ không có nghĩa mọi khu khác dừng hoạt động cùng lúc."
+        },
+        {
+          "id": "study02.sequence",
+          "kind": "heading",
+          "text": "Kế hoạch và quyết định cụ thể",
+          "level": 2
+        },
+        {
+          "id": "study02.sequence.p.290568e2",
+          "kind": "paragraph",
+          "text": "Kế hoạch Navarre được trình bày từ mùa hè năm 1953. Việc chiếm và củng cố Điện Biên Phủ diễn ra vào cuối năm đó. Hãy đặt hai việc lên dòng thời gian thay vì coi chúng là cùng một quyết định vào cùng một ngày."
+        },
+        {
+          "id": "study02.sequence.p.441244d1",
+          "kind": "paragraph",
+          "text": "Các tài liệu Mỹ–Pháp khi ấy ghi những dự tính và đánh giá của người tham gia. Một dự tính là điều người ta muốn làm, chưa phải kết quả chắc chắn. Khi học lịch sử, phân biệt “dự định” với “đã xảy ra” giúp chúng ta đọc nguồn cẩn thận hơn."
+        }
+      ]
+    },
+    {
+      "id": "preview.1954.episode02.candidate.recap.1954-study-v1",
+      "title": "Nhìn lại bài học",
+      "locale": "vi-VN",
+      "status": "in_review",
+      "sourceIds": [
+        "SRC-1954-VNMH-NAVARRE-2013",
+        "SRC-1954-FRUS-337",
+        "SRC-1954-FRUS-472",
+        "SRC-1954-BTLSQG-PHASE-1"
+      ],
+      "sections": [
+        {
+          "id": "preview.1954.episode02.candidate.recap.1954-study-v1.takeaway",
+          "kind": "paragraph",
+          "text": "Đọc đúng vị trí và thứ tự sự kiện trước khi giải thích ý nghĩa chiến lược."
+        },
+        {
+          "id": "preview.1954.episode02.candidate.recap.1954-study-v1.reflection",
+          "kind": "paragraph",
+          "text": "Nếu vẽ một sơ đồ ba khu, em sẽ đặt tên Mường Thanh và Hồng Cúm như thế nào để không nhầm?"
+        }
+      ]
+    },
+    {
+      "id": "preview.1954.episode03.candidate.reading.1954-study-v1",
+      "title": "Chuẩn bị cho trận quyết chiến",
+      "locale": "vi-VN",
+      "status": "in_review",
+      "sourceIds": [
+        "SRC-1954-VNMH-BULLETIN-2024",
+        "SRC-1954-VNMH-NOTEBOOK-2024",
+        "SRC-1954-DNLIB-GIAP-EXCERPT-2024"
+      ],
+      "sections": [
+        {
+          "id": "study03.supplies",
+          "kind": "heading",
+          "text": "Phía sau một trận đánh",
+          "level": 2
+        },
+        {
+          "id": "study03.supplies.p.7a07f8e0",
+          "kind": "paragraph",
+          "text": "Muốn chiến đấu, bộ đội cần lương thực, đạn dược và trang thiết bị. “Hậu cần” là công việc bảo đảm những nhu cầu ấy. Chuẩn bị cho Điện Biên Phủ vì vậy không chỉ có việc đưa quân đến mặt trận."
+        },
+        {
+          "id": "study03.supplies.p.2180624c",
+          "kind": "paragraph",
+          "text": "Dân công góp sức vận chuyển bằng gánh bộ, xe đạp thồ và các phương tiện khác. Công binh cùng lực lượng phục vụ chiến dịch mở đường, bảo đảm giao thông và đưa pháo vào trận địa. Những công việc khác nhau cùng phục vụ việc tiếp tế và chuẩn bị chiến đấu."
+        },
+        {
+          "id": "study03.notebook",
+          "kind": "heading",
+          "text": "Một cuốn sổ kể được điều gì?",
+          "level": 2
+        },
+        {
+          "id": "study03.notebook.p.79a58822",
+          "kind": "paragraph",
+          "text": "Bảo tàng Lịch sử Quốc gia giới thiệu cuốn sổ tay của dân công Phú Thọ. Trong đó có ghi chép giao nhận gạo, phụ tùng xe và quy định phục vụ chiến dịch. Đây là dấu vết cụ thể về công việc tiếp tế."
+        },
+        {
+          "id": "study03.notebook.p.e4eda830",
+          "kind": "paragraph",
+          "text": "Xe đạp thồ có thể hoạt động trên những tuyến đường mà ô tô khó đi. Khi nhìn phương tiện, hãy hỏi nó giải quyết khó khăn gì. Một cuốn sổ cho thấy công việc của những người ghi chép, nhưng không tự kể hết trải nghiệm của mọi người tham gia chiến dịch."
+        },
+        {
+          "id": "study03.change",
+          "kind": "heading",
+          "text": "Điều chỉnh để chuẩn bị chắc hơn",
+          "level": 2
+        },
+        {
+          "id": "study03.change.p.ce9f5c6a",
+          "kind": "paragraph",
+          "text": "Theo đoạn hồi ức được Thư viện Đồng Nai tuyển đăng, ngày 26/1/1954, Võ Nguyên Giáp quyết định chuyển sang phương châm “đánh chắc, tiến chắc”. Phương án trước đó là “đánh nhanh, giải quyết nhanh”. Đây là thay đổi cách tổ chức tác chiến, không phải chiến dịch đã kết thúc."
+        },
+        {
+          "id": "study03.change.p.25d4859b",
+          "kind": "paragraph",
+          "text": "Việc thay đổi đi kèm hoãn tiến công, kéo pháo ra và chuẩn bị lại hậu cần cho một chiến dịch kéo dài hơn. Bài học cần nhớ là quyết định và công việc chuẩn bị gắn với nhau. Khi điều kiện thay đổi, người chỉ huy phải đánh giá lại phương án."
+        }
+      ]
+    },
+    {
+      "id": "preview.1954.episode03.candidate.recap.1954-study-v1",
+      "title": "Nhìn lại bài học",
+      "locale": "vi-VN",
+      "status": "in_review",
+      "sourceIds": [
+        "SRC-1954-VNMH-BULLETIN-2024",
+        "SRC-1954-VNMH-NOTEBOOK-2024",
+        "SRC-1954-DNLIB-GIAP-EXCERPT-2024"
+      ],
+      "sections": [
+        {
+          "id": "preview.1954.episode03.candidate.recap.1954-study-v1.takeaway",
+          "kind": "paragraph",
+          "text": "Chuẩn bị, tiếp tế và quyết định tác chiến đều góp phần vào diễn biến chiến dịch."
+        },
+        {
+          "id": "preview.1954.episode03.candidate.recap.1954-study-v1.reflection",
+          "kind": "paragraph",
+          "text": "Nếu một kế hoạch gặp điều kiện mới, em cần kiểm tra những thông tin nào trước khi đề nghị điều chỉnh?"
+        }
+      ]
+    },
+    {
+      "id": "preview.1954.episode04.candidate.reading.1954-study-v1",
+      "title": "56 ngày đêm",
+      "locale": "vi-VN",
+      "status": "in_review",
+      "sourceIds": [
+        "SRC-1954-BTLSQG-PHASE-1",
+        "SRC-1954-BTLSQG-PHASE-2",
+        "SRC-1954-BTLSQG-PHASE-3"
+      ],
+      "sections": [
+        {
+          "id": "study04.first",
+          "kind": "heading",
+          "text": "Đợt I: các vị trí vòng ngoài",
+          "level": 2
+        },
+        {
+          "id": "study04.first.p.94dd868d",
+          "kind": "paragraph",
+          "text": "Ngày 13/3/1954, chiến dịch mở màn với trận tiến công Him Lam. Đợt I kéo dài đến ngày 17/3. Him Lam, Độc Lập và Bản Kéo là các vị trí vòng ngoài được nhắc đến khi học giai đoạn này."
+        },
+        {
+          "id": "study04.first.p.8a6c117f",
+          "kind": "paragraph",
+          "text": "Không phải mọi vị trí đều có cùng cách kết thúc giao tranh. Có vị trí bị đánh chiếm, có vị trí buộc ra hàng. Khi tóm tắt, hãy giữ sự khác biệt ấy thay vì nói ba nơi là một trận giống hệt nhau."
+        },
+        {
+          "id": "study04.second",
+          "kind": "heading",
+          "text": "Đợt II: bao vây và tiến công",
+          "level": 2
+        },
+        {
+          "id": "study04.second.p.38406d29",
+          "kind": "paragraph",
+          "text": "Bảo tàng Lịch sử Quốc gia xác định đợt II từ ngày 30/3 đến 30/4/1954. Bộ đội tiến công các cao điểm phía Đông, đồng thời xây dựng trận địa bao vây và đào giao thông hào."
+        },
+        {
+          "id": "study04.second.p.e0a5d946",
+          "kind": "paragraph",
+          "text": "Giao thông hào giúp tổ chức trận địa và tiến gần các vị trí. Việc bao vây nhằm hạn chế tiếp tế và thu hẹp khu vực quân Pháp kiểm soát. Đợt này kéo dài; không nên hiểu rằng mọi cao điểm đều bị chiếm ngay ngày đầu."
+        },
+        {
+          "id": "study04.third",
+          "kind": "heading",
+          "text": "Đợt III và ngày tổng công kích",
+          "level": 2
+        },
+        {
+          "id": "study04.third.p.c9357c8c",
+          "kind": "paragraph",
+          "text": "Đợt III bắt đầu ngày 1/5 và kéo dài đến ngày 7/5/1954. Bộ đội tiếp tục đánh các vị trí còn lại và chuẩn bị tiến tới tổng công kích. Ngày 7/5, cuộc tổng công kích vào khu trung tâm diễn ra. Bắt đầu đợt III và tổng công kích cuối cùng là hai mốc khác nhau."
+        },
+        {
+          "id": "study04.third.p.bd95e6a0",
+          "kind": "paragraph",
+          "text": "Nhìn ba đợt trên dòng thời gian, em sẽ thấy có khoảng giữa đợt I và đợt II. Khoảng đó có công việc chuẩn bị trận địa; không thể suy ra chiến dịch đã dừng hoàn toàn. Hãy dùng mốc 13/3–7/5 để nhớ diễn biến; bài này không kiểm tra cách đếm 55 hay 56 ngày."
+        }
+      ]
+    },
+    {
+      "id": "preview.1954.episode04.candidate.recap.1954-study-v1",
+      "title": "Nhìn lại bài học",
+      "locale": "vi-VN",
+      "status": "in_review",
+      "sourceIds": [
+        "SRC-1954-BTLSQG-PHASE-1",
+        "SRC-1954-BTLSQG-PHASE-2",
+        "SRC-1954-BTLSQG-PHASE-3"
+      ],
+      "sections": [
+        {
+          "id": "preview.1954.episode04.candidate.recap.1954-study-v1.takeaway",
+          "kind": "paragraph",
+          "text": "Ba đợt là ba giai đoạn chính; mỗi đợt vẫn có nhiều hoạt động và diễn biến."
+        },
+        {
+          "id": "preview.1954.episode04.candidate.recap.1954-study-v1.reflection",
+          "kind": "paragraph",
+          "text": "Em sẽ giải thích thế nào cho bạn nếu bạn nghĩ chiến dịch dừng hoàn toàn giữa hai đợt?"
+        }
+      ]
+    },
+    {
+      "id": "preview.1954.episode05.candidate.reading.1954-study-v1",
+      "title": "Ngày 7/5/1954",
+      "locale": "vi-VN",
+      "status": "in_review",
+      "sourceIds": [
+        "SRC-1954-BTLSQG-PHASE-3",
+        "SRC-1954-BCP-THREE-PHASES",
+        "SRC-1954-GENEVA-CEASE"
+      ],
+      "sections": [
+        {
+          "id": "study05.assault",
+          "kind": "heading",
+          "text": "Chiều 7/5 ở khu trung tâm",
+          "level": 2
+        },
+        {
+          "id": "study05.assault.p.96df8ea0",
+          "kind": "paragraph",
+          "text": "Chiều ngày 7/5/1954, sau các hoạt động tiến công gần Mường Thanh, bộ đội nhận lệnh tổng công kích lúc 15 giờ. Mốc này nói về diễn biến cuối chiến dịch, không phải ngày đầu mở màn 13/3."
+        },
+        {
+          "id": "study05.assault.p.76708558",
+          "kind": "paragraph",
+          "text": "Khi đọc một giờ cụ thể trong nguồn, hãy hỏi: giờ của sự kiện nào, ở đâu? Dùng câu hỏi ấy giúp em tránh nhầm một sự kiện ở khu trung tâm với toàn bộ chiến dịch."
+        },
+        {
+          "id": "study05.headquarters",
+          "kind": "heading",
+          "text": "Sở chỉ huy và phân khu Nam",
+          "level": 2
+        },
+        {
+          "id": "study05.headquarters.p.5efed3ac",
+          "kind": "paragraph",
+          "text": "Lúc 17 giờ 30 ngày 7/5, sở chỉ huy tại Mường Thanh bị chiếm. De Castries cùng bộ tham mưu bị bắt. Đây là mốc nổi bật của thắng lợi tại khu trung tâm."
+        },
+        {
+          "id": "study05.headquarters.p.fd96a60e",
+          "kind": "paragraph",
+          "text": "Hoạt động tại phân khu Nam còn tiếp diễn trong đêm. Vì vậy, không nên nói mọi hoạt động ở tất cả các khu đều kết thúc đúng 17 giờ 30. Bài này giữ sự phân biệt giữa khu trung tâm và phân khu Nam, không đặt một giờ kết thúc duy nhất cho mọi vị trí."
+        },
+        {
+          "id": "study05.after",
+          "kind": "heading",
+          "text": "Thắng lợi quân sự và đình chiến",
+          "level": 2
+        },
+        {
+          "id": "study05.after.p.f43b7cac",
+          "kind": "paragraph",
+          "text": "Chiến dịch Điện Biên Phủ diễn ra từ ngày 13/3 đến 7/5/1954. Sau diễn biến chiến trường, việc đình chỉ chiến sự được quy định qua các văn kiện đàm phán. Đây là hai phần lịch sử có liên hệ nhưng không phải cùng một sự kiện."
+        },
+        {
+          "id": "study05.after.p.9c57f09f",
+          "kind": "paragraph",
+          "text": "Văn bản đình chỉ chiến sự ở Việt Nam đề ngày 20/7/1954. Nếu chỉ nhìn ngày chiến thắng rồi kết luận mọi nơi ngừng bắn ngay hôm ấy, chúng ta đã bỏ qua tiến trình sau đó. Tập tiếp theo giúp em tìm hiểu các văn kiện và sự khác nhau giữa quy định với việc thực hiện."
+        }
+      ]
+    },
+    {
+      "id": "preview.1954.episode05.candidate.recap.1954-study-v1",
+      "title": "Nhìn lại bài học",
+      "locale": "vi-VN",
+      "status": "in_review",
+      "sourceIds": [
+        "SRC-1954-BTLSQG-PHASE-3",
+        "SRC-1954-BCP-THREE-PHASES",
+        "SRC-1954-GENEVA-CEASE"
+      ],
+      "sections": [
+        {
+          "id": "preview.1954.episode05.candidate.recap.1954-study-v1.takeaway",
+          "kind": "paragraph",
+          "text": "Một mốc nổi bật cần đi cùng tên sự kiện và phạm vi của nó."
+        },
+        {
+          "id": "preview.1954.episode05.candidate.recap.1954-study-v1.reflection",
+          "kind": "paragraph",
+          "text": "Nếu chỉ được viết một câu về 17 giờ 30, em sẽ thêm địa điểm nào để câu chính xác hơn?"
+        }
+      ]
+    },
+    {
+      "id": "preview.1954.episode06.candidate.reading.1954-study-v1",
+      "title": "Từ Điện Biên Phủ đến Genève",
+      "locale": "vi-VN",
+      "status": "in_review",
+      "sourceIds": [
+        "SRC-1954-GENEVA-CEASE",
+        "SRC-1954-GENEVA-DECL",
+        "SRC-1954-GENEVA-MUSEUM"
+      ],
+      "sections": [
+        {
+          "id": "study06.documents",
+          "kind": "heading",
+          "text": "Một hội nghị, nhiều văn kiện",
+          "level": 2
+        },
+        {
+          "id": "study06.documents.p.13813ef",
+          "kind": "paragraph",
+          "text": "Phần bàn về Đông Dương của hội nghị Genève bắt đầu ngày 8/5/1954. Khi gọi chung “các văn kiện Genève”, ta đang nói đến nhiều văn bản khác nhau, không phải một tờ giấy mà mọi phái đoàn cùng ký."
+        },
+        {
+          "id": "study06.documents.p.fc06a519",
+          "kind": "paragraph",
+          "text": "Văn bản đình chỉ chiến sự ở Việt Nam đề ngày 20/7/1954. Tuyên bố cuối cùng của hội nghị đề ngày 21/7/1954. Hãy nhớ tên văn kiện cùng ngày tháng để không đánh đồng hai văn bản."
+        },
+        {
+          "id": "study06.line",
+          "kind": "heading",
+          "text": "Hiểu chữ “tạm thời”",
+          "level": 2
+        },
+        {
+          "id": "study06.line.p.4f1a92d1",
+          "kind": "paragraph",
+          "text": "Văn bản đình chỉ chiến sự quy định giới tuyến quân sự và khu vực tập kết lực lượng của hai bên. Đoạn 6 của Tuyên bố cuối cùng xác định giới tuyến là tạm thời, không phải biên giới chính trị hay lãnh thổ."
+        },
+        {
+          "id": "study06.line.p.9432cd35",
+          "kind": "paragraph",
+          "text": "Trong câu chuyện, nhân vật Minh và hội thoại là hư cấu để giúp em luyện đọc thông tin. Lựa chọn của em không đổi kết quả lịch sử. Không dùng một lá thư hư cấu như bằng chứng về đời sống của mọi gia đình."
+        },
+        {
+          "id": "study06.plan",
+          "kind": "heading",
+          "text": "Kế hoạch và việc thực hiện",
+          "level": 2
+        },
+        {
+          "id": "study06.plan.p.5538782f",
+          "kind": "paragraph",
+          "text": "Đoạn 7 của Tuyên bố cuối cùng dự kiến tổng tuyển cử tháng 7/1956. Đây là nội dung kế hoạch nêu trong văn kiện. Nó không tự chứng minh việc thực hiện về sau đã diễn ra như thế nào."
+        },
+        {
+          "id": "study06.plan.p.3eecc322",
+          "kind": "paragraph",
+          "text": "Văn bản đình chỉ chiến sự còn quy định lịch ngừng bắn theo từng khu vực của Việt Nam. Vì thế, một ngày ghi trên văn kiện không có nghĩa mọi hoạt động dừng ngay cùng lúc. Tập 7 sẽ giúp em phân biệt lịch, quy định và những bước chuyển tiếp."
+        }
+      ]
+    },
+    {
+      "id": "preview.1954.episode06.candidate.recap.1954-study-v1",
+      "title": "Nhìn lại bài học",
+      "locale": "vi-VN",
+      "status": "in_review",
+      "sourceIds": [
+        "SRC-1954-GENEVA-CEASE",
+        "SRC-1954-GENEVA-DECL",
+        "SRC-1954-GENEVA-MUSEUM"
+      ],
+      "sections": [
+        {
+          "id": "preview.1954.episode06.candidate.recap.1954-study-v1.takeaway",
+          "kind": "paragraph",
+          "text": "Tên văn kiện, ngày tháng và tính chất tạm thời đều cần được đọc chính xác."
+        },
+        {
+          "id": "preview.1954.episode06.candidate.recap.1954-study-v1.reflection",
+          "kind": "paragraph",
+          "text": "Một điều khoản có thể ảnh hưởng đời sống con người thế nào, và em cần biết thêm điều gì về một gia đình cụ thể?"
+        }
+      ]
+    },
+    {
+      "id": "preview.1954.episode07.candidate.reading.1954-study-v1",
+      "title": "Việt Nam sau năm 1954",
+      "locale": "vi-VN",
+      "status": "in_review",
+      "sourceIds": [
+        "SRC-1954-GENEVA-CEASE",
+        "SRC-1954-HANOI-MUSEUM",
+        "SRC-1954-REGROUP-MUSEUM",
+        "SRC-1954-GENEVA-DECL"
+      ],
+      "sections": [
+        {
+          "id": "study07.regrouping",
+          "kind": "heading",
+          "text": "Tập kết quân sự là gì?",
+          "level": 2
+        },
+        {
+          "id": "study07.regrouping.p.6f2af34a",
+          "kind": "paragraph",
+          "text": "Văn kiện quy định lực lượng Quân đội nhân dân Việt Nam tập kết ở phía Bắc giới tuyến; lực lượng Liên hiệp Pháp ở phía Nam. “Tập kết” ở đây là chuyển quân về khu vực được quy định. Không nên gọi đó là việc tạo ra hai quốc gia."
+        },
+        {
+          "id": "study07.regrouping.p.bab27f7b",
+          "kind": "paragraph",
+          "text": "Văn kiện đặt thời hạn chuyển quân và trang bị không quá 300 ngày. Đây là thời hạn trong thỏa thuận; bản thân câu quy định chưa chứng minh mọi việc đã hoàn tất đúng như dự kiến."
+        },
+        {
+          "id": "study07.ceasefire",
+          "kind": "heading",
+          "text": "Ngày văn kiện khác ngày ngừng bắn",
+          "level": 2
+        },
+        {
+          "id": "study07.ceasefire.p.c0fef0f2",
+          "kind": "paragraph",
+          "text": "Văn bản đình chỉ chiến sự ở Việt Nam đề ngày 20/7/1954. Điều 11 quy định ngừng bắn theo các khu vực: miền Bắc ngày 27/7, miền Trung ngày 1/8 và miền Nam ngày 11/8. Vì vậy, không kể rằng mọi nơi đều đồng loạt ngừng bắn ngay ngày ký văn bản."
+        },
+        {
+          "id": "study07.ceasefire.p.f8713662",
+          "kind": "paragraph",
+          "text": "Văn kiện còn quy định giúp dân cư muốn chuyển sang vùng do bên kia quản lý trong thời gian chuyển quân. Đây là nội dung thỏa thuận. Khi tìm hiểu trải nghiệm của một gia đình cụ thể, ta cần thêm nguồn, không đoán rằng mọi gia đình đều có cùng lựa chọn và hoàn cảnh."
+        },
+        {
+          "id": "study07.transition",
+          "kind": "heading",
+          "text": "Những bước chuyển tiếp",
+          "level": 2
+        },
+        {
+          "id": "study07.transition.p.6886380b",
+          "kind": "paragraph",
+          "text": "Ngày 10/10/1954, Hà Nội được tiếp quản. Sau đó là việc tổ chức quản lý và khôi phục hoạt động. Sầm Sơn là một địa điểm đón người tập kết từ miền Nam trong giai đoạn 1954–1955. Đó là các ví dụ ở những địa điểm cụ thể, không phải toàn bộ đời sống Việt Nam khi ấy."
+        },
+        {
+          "id": "study07.transition.p.9f96f656",
+          "kind": "paragraph",
+          "text": "Tuyên bố cuối cùng của hội nghị Genève dự kiến tổng tuyển cử vào tháng 7/1956. Giới tuyến quân sự được xác định là tạm thời, không phải biên giới chính trị hay lãnh thổ. Muốn tìm hiểu kế hoạch được thực hiện ra sao về sau, cần tiếp tục đọc nguồn cho giai đoạn tiếp theo."
+        }
+      ]
+    },
+    {
+      "id": "preview.1954.episode07.candidate.recap.1954-study-v1",
+      "title": "Nhìn lại bài học",
+      "locale": "vi-VN",
+      "status": "in_review",
+      "sourceIds": [
+        "SRC-1954-GENEVA-CEASE",
+        "SRC-1954-HANOI-MUSEUM",
+        "SRC-1954-REGROUP-MUSEUM",
+        "SRC-1954-GENEVA-DECL"
+      ],
+      "sections": [
+        {
+          "id": "preview.1954.episode07.candidate.recap.1954-study-v1.takeaway",
+          "kind": "paragraph",
+          "text": "Phân biệt thỏa thuận, lịch thực hiện và trải nghiệm thực tế của con người."
+        },
+        {
+          "id": "preview.1954.episode07.candidate.recap.1954-study-v1.reflection",
+          "kind": "paragraph",
+          "text": "Nếu tìm hiểu chuyện tập kết của một gia đình, em sẽ hỏi thêm những loại nguồn nào?"
+        }
+      ]
+    }
+  ],
+  "questionSets": [
+    {
+      "id": "preview.1954.episode01.candidate.practice.1954-study-v1",
+      "title": "Kiểm tra: Trước cơn bão",
+      "questionIds": [
+        "check01.goal",
+        "check01.directions"
+      ],
+      "learningObjectiveIds": [
+        "preview.1954.episode01.candidate.objective"
+      ],
+      "mode": "practice"
+    },
+    {
+      "id": "preview.1954.episode02.candidate.practice.1954-study-v1",
+      "title": "Kiểm tra: Vì sao lại là Điện Biên Phủ?",
+      "questionIds": [
+        "check02.location",
+        "check02.system",
+        "check02.sequence"
+      ],
+      "learningObjectiveIds": [
+        "preview.1954.episode02.candidate.objective"
+      ],
+      "mode": "practice"
+    },
+    {
+      "id": "preview.1954.episode03.candidate.practice.1954-study-v1",
+      "title": "Kiểm tra: Chuẩn bị cho trận quyết chiến",
+      "questionIds": [
+        "check03.logistics",
+        "check03.evidence",
+        "check03.change"
+      ],
+      "learningObjectiveIds": [
+        "preview.1954.episode03.candidate.objective"
+      ],
+      "mode": "practice"
+    },
+    {
+      "id": "preview.1954.episode04.candidate.practice.1954-study-v1",
+      "title": "Kiểm tra: 56 ngày đêm",
+      "questionIds": [
+        "check04.opening",
+        "check04.middle",
+        "check04.third"
+      ],
+      "learningObjectiveIds": [
+        "preview.1954.episode04.candidate.objective"
+      ],
+      "mode": "practice"
+    },
+    {
+      "id": "preview.1954.episode05.candidate.practice.1954-study-v1",
+      "title": "Kiểm tra: Ngày 7/5/1954",
+      "questionIds": [
+        "check05.capture",
+        "check05.scope",
+        "check05.sequence"
+      ],
+      "learningObjectiveIds": [
+        "preview.1954.episode05.candidate.objective"
+      ],
+      "mode": "practice"
+    },
+    {
+      "id": "preview.1954.episode06.candidate.practice.1954-study-v1",
+      "title": "Kiểm tra: Từ Điện Biên Phủ đến Genève",
+      "questionIds": [
+        "check06.documents",
+        "check06.line",
+        "check06.fiction"
+      ],
+      "learningObjectiveIds": [
+        "preview.1954.episode06.candidate.objective"
+      ],
+      "mode": "practice"
+    },
+    {
+      "id": "preview.1954.episode07.candidate.practice.1954-study-v1",
+      "title": "Kiểm tra: Việt Nam sau năm 1954",
+      "questionIds": [
+        "check07.border",
+        "check07.schedule",
+        "check07.plan"
+      ],
+      "learningObjectiveIds": [
+        "preview.1954.episode07.candidate.objective"
+      ],
+      "mode": "practice"
+    }
+  ],
+  "questions": [
+    {
+      "id": "check01.goal",
+      "prompt": "Mục tiêu được trình bày của kế hoạch Navarre là gì?",
+      "optionIds": [
+        "check01.goal.initiative",
+        "check01.goal.election",
+        "check01.goal.border"
+      ],
+      "explanation": "Biên bản cuộc họp Mỹ–Pháp tháng 7/1953 trình bày mục tiêu tăng lực lượng cơ động và chủ động quân sự. Mục tiêu chưa phải kết quả.",
+      "sourceIds": [
+        "SRC-1954-FRUS-337"
+      ],
+      "difficulty": "intro",
+      "status": "in_review"
+    },
+    {
+      "id": "check01.directions",
+      "prompt": "Chủ trương Đông Xuân 1953–1954 của phía Việt Nam hướng đến điều gì?",
+      "optionIds": [
+        "check01.directions.disperse",
+        "check01.directions.idle",
+        "check01.directions.automatic"
+      ],
+      "explanation": "Nguồn bảo tàng mô tả chủ trương phân tán lực lượng cơ động của Pháp. Không nên suy thành kết quả chắc chắn cho mọi diễn biến sau đó.",
+      "sourceIds": [
+        "SRC-1954-VNMH-NAVARRE-2013"
+      ],
+      "difficulty": "intro",
+      "status": "in_review"
+    },
+    {
+      "id": "check02.location",
+      "prompt": "Điện Biên Phủ thuộc khu vực nào?",
+      "optionIds": [
+        "check02.location.northwest",
+        "check02.location.delta",
+        "check02.location.coast"
+      ],
+      "explanation": "Điện Biên Phủ nằm ở Tây Bắc. Xác định khu vực là bước đầu để đọc bản đồ chiến dịch.",
+      "sourceIds": [
+        "SRC-1954-VNMH-NAVARRE-2013"
+      ],
+      "difficulty": "intro",
+      "status": "in_review"
+    },
+    {
+      "id": "check02.system",
+      "prompt": "Cách hiểu nào phù hợp với “tập đoàn cứ điểm”?",
+      "optionIds": [
+        "check02.system.single",
+        "check02.system.system",
+        "check02.system.country"
+      ],
+      "explanation": "Ở Điện Biên Phủ, hệ thống này gồm khu trung tâm Mường Thanh, khu Bắc và khu Nam Hồng Cúm.",
+      "sourceIds": [
+        "SRC-1954-VNMH-NAVARRE-2013"
+      ],
+      "difficulty": "intro",
+      "status": "in_review"
+    },
+    {
+      "id": "check02.sequence",
+      "prompt": "Việc Pháp chiếm Điện Biên Phủ cuối năm 1953 diễn ra khi nào so với ngày mở màn chiến dịch 13/3/1954?",
+      "optionIds": [
+        "check02.sequence.before",
+        "check02.sequence.same",
+        "check02.sequence.after"
+      ],
+      "explanation": "Pháp chiếm Điện Biên Phủ trong tháng 11/1953. Chiến dịch của phía Việt Nam mở màn tháng 3/1954; đó là hai sự kiện khác nhau.",
+      "sourceIds": [
+        "SRC-1954-VNMH-NAVARRE-2013",
+        "SRC-1954-BTLSQG-PHASE-1"
+      ],
+      "difficulty": "intro",
+      "status": "in_review"
+    },
+    {
+      "id": "check03.logistics",
+      "prompt": "Việc nào thuộc hậu cần?",
+      "optionIds": [
+        "check03.logistics.supplies",
+        "check03.logistics.election",
+        "check03.logistics.treaty"
+      ],
+      "explanation": "Hậu cần bảo đảm những nhu cầu phục vụ bộ đội, như lương thực, đạn dược và trang thiết bị.",
+      "sourceIds": [
+        "SRC-1954-VNMH-BULLETIN-2024"
+      ],
+      "difficulty": "intro",
+      "status": "in_review"
+    },
+    {
+      "id": "check03.evidence",
+      "prompt": "Sổ tay dân công giúp tìm hiểu điều gì trực tiếp nhất?",
+      "optionIds": [
+        "check03.evidence.all",
+        "check03.evidence.records",
+        "check03.evidence.future"
+      ],
+      "explanation": "Sổ có ghi giao nhận gạo, phụ tùng và quy định. Không nên gán cho nó những thông tin nằm ngoài nội dung ghi chép.",
+      "sourceIds": [
+        "SRC-1954-VNMH-NOTEBOOK-2024"
+      ],
+      "difficulty": "intro",
+      "status": "in_review"
+    },
+    {
+      "id": "check03.change",
+      "prompt": "Việc chuyển sang “đánh chắc, tiến chắc” đi kèm điều gì?",
+      "optionIds": [
+        "check03.change.prepare",
+        "check03.change.finish",
+        "check03.change.stop"
+      ],
+      "explanation": "Đoạn hồi ức nói đến hoãn tiến công, kéo pháo ra và chuẩn bị hậu cần cho chiến dịch dài hơn.",
+      "sourceIds": [
+        "SRC-1954-DNLIB-GIAP-EXCERPT-2024"
+      ],
+      "difficulty": "intro",
+      "status": "in_review"
+    },
+    {
+      "id": "check04.opening",
+      "prompt": "Trận mở màn được nhắc đến trong bài là trận nào?",
+      "optionIds": [
+        "check04.opening.himlam",
+        "check04.opening.geneva",
+        "check04.opening.hanoi"
+      ],
+      "explanation": "Chiến dịch mở màn ngày 13/3/1954 với trận tiến công Him Lam.",
+      "sourceIds": [
+        "SRC-1954-BTLSQG-PHASE-1"
+      ],
+      "difficulty": "intro",
+      "status": "in_review"
+    },
+    {
+      "id": "check04.middle",
+      "prompt": "Trong đợt II, việc bao vây có mục đích nào?",
+      "optionIds": [
+        "check04.middle.expand",
+        "check04.middle.limit",
+        "check04.middle.vote"
+      ],
+      "explanation": "Tiến công cao điểm và xây dựng trận địa bao vây là những hoạt động gắn với nhau trong đợt II.",
+      "sourceIds": [
+        "SRC-1954-BTLSQG-PHASE-2"
+      ],
+      "difficulty": "intro",
+      "status": "in_review"
+    },
+    {
+      "id": "check04.third",
+      "prompt": "Cách kể nào phân biệt đúng hai mốc?",
+      "optionIds": [
+        "check04.third.same",
+        "check04.third.distinct",
+        "check04.third.reverse"
+      ],
+      "explanation": "Nguồn bảo tàng phân biệt đợt III từ 1–7/5 với lệnh tổng công kích chiều 7/5.",
+      "sourceIds": [
+        "SRC-1954-BTLSQG-PHASE-3"
+      ],
+      "difficulty": "intro",
+      "status": "in_review"
+    },
+    {
+      "id": "check05.capture",
+      "prompt": "Mốc 17 giờ 30 ngày 7/5 gắn với sự kiện nào?",
+      "optionIds": [
+        "check05.capture.capture",
+        "check05.capture.opening",
+        "check05.capture.declaration"
+      ],
+      "explanation": "Nguồn bảo tàng gắn mốc này với sở chỉ huy và việc bắt De Castries cùng bộ tham mưu.",
+      "sourceIds": [
+        "SRC-1954-BTLSQG-PHASE-3"
+      ],
+      "difficulty": "intro",
+      "status": "in_review"
+    },
+    {
+      "id": "check05.scope",
+      "prompt": "Vì sao không dùng 17 giờ 30 làm giờ kết thúc mọi hoạt động?",
+      "optionIds": [
+        "check05.scope.south",
+        "check05.scope.nothing",
+        "check05.scope.election"
+      ],
+      "explanation": "Nguồn tách khu trung tâm thất thủ khỏi hoạt động tiếp diễn tại phân khu Nam.",
+      "sourceIds": [
+        "SRC-1954-BCP-THREE-PHASES"
+      ],
+      "difficulty": "intro",
+      "status": "in_review"
+    },
+    {
+      "id": "check05.sequence",
+      "prompt": "Cách kể nào đúng thứ tự?",
+      "optionIds": [
+        "check05.sequence.militaryfirst",
+        "check05.sequence.same",
+        "check05.sequence.reverse"
+      ],
+      "explanation": "Ngày 7/5 và văn bản ngày 20/7 thuộc hai thời điểm, hai loại sự kiện khác nhau.",
+      "sourceIds": [
+        "SRC-1954-BTLSQG-PHASE-3",
+        "SRC-1954-GENEVA-CEASE"
+      ],
+      "difficulty": "intro",
+      "status": "in_review"
+    },
+    {
+      "id": "check06.documents",
+      "prompt": "Cặp ngày và văn kiện nào được phân biệt đúng?",
+      "optionIds": [
+        "check06.documents.distinct",
+        "check06.documents.single",
+        "check06.documents.all"
+      ],
+      "explanation": "Hai văn bản có tên và ngày ghi khác nhau: thỏa thuận đình chỉ chiến sự Việt Nam ngày 20/7, Tuyên bố cuối cùng ngày 21/7.",
+      "sourceIds": [
+        "SRC-1954-GENEVA-CEASE",
+        "SRC-1954-GENEVA-DECL"
+      ],
+      "difficulty": "intro",
+      "status": "in_review"
+    },
+    {
+      "id": "check06.line",
+      "prompt": "Giới tuyến quân sự tạm thời có nghĩa là gì?",
+      "optionIds": [
+        "check06.line.temporary",
+        "check06.line.permanent",
+        "check06.line.election"
+      ],
+      "explanation": "Đoạn 6 của Tuyên bố cuối cùng nêu rõ tính tạm thời và phân biệt với biên giới chính trị, lãnh thổ.",
+      "sourceIds": [
+        "SRC-1954-GENEVA-DECL"
+      ],
+      "difficulty": "intro",
+      "status": "in_review"
+    },
+    {
+      "id": "check06.fiction",
+      "prompt": "Nên dùng lá thư trong câu chuyện hư cấu như thế nào?",
+      "optionIds": [
+        "check06.fiction.reflection",
+        "check06.fiction.proof",
+        "check06.fiction.quote"
+      ],
+      "explanation": "Nhân vật và hội thoại được ghi là hư cấu. Muốn biết trải nghiệm thật cần nguồn riêng, thay vì biến tình huống minh họa thành lời chứng.",
+      "sourceIds": [
+        "SRC-1954-GENEVA-CEASE"
+      ],
+      "difficulty": "intro",
+      "status": "in_review"
+    },
+    {
+      "id": "check07.border",
+      "prompt": "Giới tuyến quân sự được hiểu thế nào theo Tuyên bố cuối cùng?",
+      "optionIds": [
+        "check07.border.temporary",
+        "check07.border.permanent",
+        "check07.border.city"
+      ],
+      "explanation": "Đoạn 6 của Tuyên bố cuối cùng phân biệt rõ giới tuyến quân sự tạm thời với biên giới chính trị, lãnh thổ.",
+      "sourceIds": [
+        "SRC-1954-GENEVA-DECL"
+      ],
+      "difficulty": "intro",
+      "status": "in_review"
+    },
+    {
+      "id": "check07.schedule",
+      "prompt": "Ngày văn kiện và lịch ngừng bắn có phải luôn là cùng một ngày?",
+      "optionIds": [
+        "check07.schedule.same",
+        "check07.schedule.different",
+        "check07.schedule.none"
+      ],
+      "explanation": "Điều 11 nêu lịch miền Bắc 27/7, miền Trung 1/8, miền Nam 11/8/1954.",
+      "sourceIds": [
+        "SRC-1954-GENEVA-CEASE"
+      ],
+      "difficulty": "intro",
+      "status": "in_review"
+    },
+    {
+      "id": "check07.plan",
+      "prompt": "Câu “dự kiến tổng tuyển cử tháng 7/1956” chứng minh điều gì?",
+      "optionIds": [
+        "check07.plan.plan",
+        "check07.plan.result",
+        "check07.plan.family"
+      ],
+      "explanation": "Một văn kiện nêu kế hoạch không tự chứng minh kết quả thực hiện về sau. Cần nguồn cho giai đoạn sau để trả lời câu hỏi ấy.",
+      "sourceIds": [
+        "SRC-1954-GENEVA-DECL"
+      ],
+      "difficulty": "intro",
+      "status": "in_review"
+    }
+  ],
+  "options": [
+    {
+      "id": "check01.goal.initiative",
+      "questionId": "check01.goal",
+      "text": "Tăng lực lượng cơ động và giành lại chủ động quân sự"
+    },
+    {
+      "id": "check01.goal.election",
+      "questionId": "check01.goal",
+      "text": "Tổ chức tổng tuyển cử tháng 7/1956"
+    },
+    {
+      "id": "check01.goal.border",
+      "questionId": "check01.goal",
+      "text": "Biến giới tuyến thành biên giới vĩnh viễn"
+    },
+    {
+      "id": "check01.directions.disperse",
+      "questionId": "check01.directions",
+      "text": "Buộc Pháp phân tán lực lượng trên nhiều hướng"
+    },
+    {
+      "id": "check01.directions.idle",
+      "questionId": "check01.directions",
+      "text": "Không hoạt động ở các chiến trường khác"
+    },
+    {
+      "id": "check01.directions.automatic",
+      "questionId": "check01.directions",
+      "text": "Làm mọi cuộc đàm phán tự động thành công"
+    },
+    {
+      "id": "check02.location.northwest",
+      "questionId": "check02.location",
+      "text": "Tây Bắc Việt Nam"
+    },
+    {
+      "id": "check02.location.delta",
+      "questionId": "check02.location",
+      "text": "Đồng bằng sông Cửu Long"
+    },
+    {
+      "id": "check02.location.coast",
+      "questionId": "check02.location",
+      "text": "Duyên hải miền Trung"
+    },
+    {
+      "id": "check02.system.single",
+      "questionId": "check02.system",
+      "text": "Chỉ một căn nhà chỉ huy"
+    },
+    {
+      "id": "check02.system.system",
+      "questionId": "check02.system",
+      "text": "Hệ thống nhiều vị trí phòng thủ"
+    },
+    {
+      "id": "check02.system.country",
+      "questionId": "check02.system",
+      "text": "Tên của một quốc gia"
+    },
+    {
+      "id": "check02.sequence.before",
+      "questionId": "check02.sequence",
+      "text": "Trước ngày mở màn chiến dịch"
+    },
+    {
+      "id": "check02.sequence.same",
+      "questionId": "check02.sequence",
+      "text": "Cùng một ngày"
+    },
+    {
+      "id": "check02.sequence.after",
+      "questionId": "check02.sequence",
+      "text": "Sau khi chiến dịch kết thúc"
+    },
+    {
+      "id": "check03.logistics.supplies",
+      "questionId": "check03.logistics",
+      "text": "Vận chuyển lương thực và đạn dược"
+    },
+    {
+      "id": "check03.logistics.election",
+      "questionId": "check03.logistics",
+      "text": "Quy định ngày tổng tuyển cử"
+    },
+    {
+      "id": "check03.logistics.treaty",
+      "questionId": "check03.logistics",
+      "text": "Soạn Tuyên bố cuối cùng Genève"
+    },
+    {
+      "id": "check03.evidence.all",
+      "questionId": "check03.evidence",
+      "text": "Suy nghĩ của mọi người trong chiến dịch"
+    },
+    {
+      "id": "check03.evidence.records",
+      "questionId": "check03.evidence",
+      "text": "Các việc giao nhận và phục vụ được ghi lại"
+    },
+    {
+      "id": "check03.evidence.future",
+      "questionId": "check03.evidence",
+      "text": "Kết quả của một cuộc bầu cử về sau"
+    },
+    {
+      "id": "check03.change.prepare",
+      "questionId": "check03.change",
+      "text": "Hoãn tiến công và chuẩn bị lại"
+    },
+    {
+      "id": "check03.change.finish",
+      "questionId": "check03.change",
+      "text": "Kết thúc ngay toàn chiến dịch"
+    },
+    {
+      "id": "check03.change.stop",
+      "questionId": "check03.change",
+      "text": "Không cần tiếp tế nữa"
+    },
+    {
+      "id": "check04.opening.himlam",
+      "questionId": "check04.opening",
+      "text": "Him Lam"
+    },
+    {
+      "id": "check04.opening.geneva",
+      "questionId": "check04.opening",
+      "text": "Hội nghị Genève"
+    },
+    {
+      "id": "check04.opening.hanoi",
+      "questionId": "check04.opening",
+      "text": "Tiếp quản Hà Nội"
+    },
+    {
+      "id": "check04.middle.expand",
+      "questionId": "check04.middle",
+      "text": "Mở rộng khu vực quân Pháp kiểm soát"
+    },
+    {
+      "id": "check04.middle.limit",
+      "questionId": "check04.middle",
+      "text": "Hạn chế tiếp tế và thu hẹp khu vực quân Pháp kiểm soát"
+    },
+    {
+      "id": "check04.middle.vote",
+      "questionId": "check04.middle",
+      "text": "Tổ chức tổng tuyển cử"
+    },
+    {
+      "id": "check04.third.same",
+      "questionId": "check04.third",
+      "text": "Đợt III và tổng công kích cuối cùng đều bắt đầu 1/5"
+    },
+    {
+      "id": "check04.third.distinct",
+      "questionId": "check04.third",
+      "text": "Đợt III bắt đầu 1/5; tổng công kích cuối cùng diễn ra 7/5"
+    },
+    {
+      "id": "check04.third.reverse",
+      "questionId": "check04.third",
+      "text": "Tổng công kích kết thúc trước đợt I"
+    },
+    {
+      "id": "check05.capture.capture",
+      "questionId": "check05.capture",
+      "text": "Chiếm sở chỉ huy tại Mường Thanh"
+    },
+    {
+      "id": "check05.capture.opening",
+      "questionId": "check05.capture",
+      "text": "Mở màn chiến dịch"
+    },
+    {
+      "id": "check05.capture.declaration",
+      "questionId": "check05.capture",
+      "text": "Công bố Tuyên bố cuối cùng Genève"
+    },
+    {
+      "id": "check05.scope.south",
+      "questionId": "check05.scope",
+      "text": "Phân khu Nam còn có hoạt động trong đêm"
+    },
+    {
+      "id": "check05.scope.nothing",
+      "questionId": "check05.scope",
+      "text": "Không có sự kiện nào lúc đó"
+    },
+    {
+      "id": "check05.scope.election",
+      "questionId": "check05.scope",
+      "text": "Tổng tuyển cử diễn ra lúc đó"
+    },
+    {
+      "id": "check05.sequence.militaryfirst",
+      "questionId": "check05.sequence",
+      "text": "Diễn biến ngày 7/5 trước văn bản đình chiến tháng 7"
+    },
+    {
+      "id": "check05.sequence.same",
+      "questionId": "check05.sequence",
+      "text": "Hai việc là một sự kiện cùng ngày"
+    },
+    {
+      "id": "check05.sequence.reverse",
+      "questionId": "check05.sequence",
+      "text": "Văn bản tháng 7 xuất hiện trước chiến dịch tháng 3"
+    },
+    {
+      "id": "check06.documents.distinct",
+      "questionId": "check06.documents",
+      "text": "Đình chỉ chiến sự Việt Nam: 20/7; Tuyên bố cuối cùng: 21/7/1954"
+    },
+    {
+      "id": "check06.documents.single",
+      "questionId": "check06.documents",
+      "text": "Chỉ có một văn bản duy nhất ngày 7/5/1954"
+    },
+    {
+      "id": "check06.documents.all",
+      "questionId": "check06.documents",
+      "text": "Mọi văn kiện là một bản cùng ký ngày 13/3/1954"
+    },
+    {
+      "id": "check06.line.temporary",
+      "questionId": "check06.line",
+      "text": "Sắp xếp quân sự, không phải biên giới chính trị hay lãnh thổ"
+    },
+    {
+      "id": "check06.line.permanent",
+      "questionId": "check06.line",
+      "text": "Biên giới quốc gia vĩnh viễn"
+    },
+    {
+      "id": "check06.line.election",
+      "questionId": "check06.line",
+      "text": "Bằng chứng tổng tuyển cử đã diễn ra"
+    },
+    {
+      "id": "check06.fiction.reflection",
+      "questionId": "check06.fiction",
+      "text": "Gợi suy nghĩ và đặt câu hỏi tìm hiểu thêm"
+    },
+    {
+      "id": "check06.fiction.proof",
+      "questionId": "check06.fiction",
+      "text": "Bằng chứng rằng mọi gia đình có cùng trải nghiệm"
+    },
+    {
+      "id": "check06.fiction.quote",
+      "questionId": "check06.fiction",
+      "text": "Lời chứng nguyên văn của một nhân vật lịch sử có thật"
+    },
+    {
+      "id": "check07.border.temporary",
+      "questionId": "check07.border",
+      "text": "Tạm thời, không phải biên giới chính trị hay lãnh thổ"
+    },
+    {
+      "id": "check07.border.permanent",
+      "questionId": "check07.border",
+      "text": "Biên giới vĩnh viễn của hai quốc gia"
+    },
+    {
+      "id": "check07.border.city",
+      "questionId": "check07.border",
+      "text": "Ranh giới riêng của Hà Nội"
+    },
+    {
+      "id": "check07.schedule.same",
+      "questionId": "check07.schedule",
+      "text": "Có, mọi nơi dừng ngay ngày 20/7"
+    },
+    {
+      "id": "check07.schedule.different",
+      "questionId": "check07.schedule",
+      "text": "Không, văn kiện quy định các ngày theo khu vực"
+    },
+    {
+      "id": "check07.schedule.none",
+      "questionId": "check07.schedule",
+      "text": "Văn kiện không đề cập ngừng bắn"
+    },
+    {
+      "id": "check07.plan.plan",
+      "questionId": "check07.plan",
+      "text": "Nội dung kế hoạch nêu trong văn kiện"
+    },
+    {
+      "id": "check07.plan.result",
+      "questionId": "check07.plan",
+      "text": "Cuộc tuyển cử chắc chắn đã diễn ra"
+    },
+    {
+      "id": "check07.plan.family",
+      "questionId": "check07.plan",
+      "text": "Mọi gia đình đã đoàn tụ"
+    }
+  ],
+  "privateAnswerKeys": [
+    {
+      "questionId": "check01.goal",
+      "correctOptionId": "check01.goal.initiative"
+    },
+    {
+      "questionId": "check01.directions",
+      "correctOptionId": "check01.directions.disperse"
+    },
+    {
+      "questionId": "check02.location",
+      "correctOptionId": "check02.location.northwest"
+    },
+    {
+      "questionId": "check02.system",
+      "correctOptionId": "check02.system.system"
+    },
+    {
+      "questionId": "check02.sequence",
+      "correctOptionId": "check02.sequence.before"
+    },
+    {
+      "questionId": "check03.logistics",
+      "correctOptionId": "check03.logistics.supplies"
+    },
+    {
+      "questionId": "check03.evidence",
+      "correctOptionId": "check03.evidence.records"
+    },
+    {
+      "questionId": "check03.change",
+      "correctOptionId": "check03.change.prepare"
+    },
+    {
+      "questionId": "check04.opening",
+      "correctOptionId": "check04.opening.himlam"
+    },
+    {
+      "questionId": "check04.middle",
+      "correctOptionId": "check04.middle.limit"
+    },
+    {
+      "questionId": "check04.third",
+      "correctOptionId": "check04.third.distinct"
+    },
+    {
+      "questionId": "check05.capture",
+      "correctOptionId": "check05.capture.capture"
+    },
+    {
+      "questionId": "check05.scope",
+      "correctOptionId": "check05.scope.south"
+    },
+    {
+      "questionId": "check05.sequence",
+      "correctOptionId": "check05.sequence.militaryfirst"
+    },
+    {
+      "questionId": "check06.documents",
+      "correctOptionId": "check06.documents.distinct"
+    },
+    {
+      "questionId": "check06.line",
+      "correctOptionId": "check06.line.temporary"
+    },
+    {
+      "questionId": "check06.fiction",
+      "correctOptionId": "check06.fiction.reflection"
+    },
+    {
+      "questionId": "check07.border",
+      "correctOptionId": "check07.border.temporary"
+    },
+    {
+      "questionId": "check07.schedule",
+      "correctOptionId": "check07.schedule.different"
+    },
+    {
+      "questionId": "check07.plan",
+      "correctOptionId": "check07.plan.plan"
+    }
+  ],
+  "story": {
+    "id": "candidate.1954.geneva.story.v2",
+    "storyId": "candidate.1954.geneva",
+    "versionNumber": 2,
+    "status": "in_review",
+    "startSceneId": "candidate.1954.geneva.story.v2.arrival",
+    "scenes": [
+      {
+        "id": "candidate.1954.geneva.story.v2.arrival",
+        "title": "GENÈVE · ĐÊM 20.07.1954",
+        "sourceIds": [
+          "SRC-1954-GENEVA-CEASE",
+          "SRC-1954-GENEVA-DECL",
+          "SRC-1954-GENEVA-MUSEUM"
+        ],
+        "claimIds": [],
+        "kind": "choice",
+        "prompt": "Bạn là Minh, thư ký trẻ của đoàn Việt Nam. Sau chiến thắng Điện Biên Phủ, cả hành lang hội nghị im lặng trước giờ họp cuối. Tối nay, từng câu trong biên bản có thể đi vào lịch sử.",
+        "policy": "continue_after_feedback",
+        "choices": [
+          {
+            "id": "candidate.1954.geneva.story.v2.arrival.cc7918a5",
+            "kind": "reflection",
+            "label": "Ưu tiên chấm dứt chiến sự để người dân được trở về.",
+            "response": "Bạn đánh dấu vào sổ: hòa bình không chỉ là chữ ký, mà còn là mái nhà và những cuộc đoàn tụ.",
+            "nextSceneId": "candidate.1954.geneva.story.v2.map-17"
+          },
+          {
+            "id": "candidate.1954.geneva.story.v2.arrival.50d4c856",
+            "kind": "reflection",
+            "label": "Ưu tiên con đường thống nhất đất nước.",
+            "response": "Bạn đánh dấu vào sổ: một đất nước thống nhất là điều không thể bị quên trong bất kỳ thỏa thuận nào.",
+            "nextSceneId": "candidate.1954.geneva.story.v2.map-17"
+          },
+          {
+            "id": "candidate.1954.geneva.story.v2.arrival.8fdae6fa",
+            "kind": "reflection",
+            "label": "Tìm hiểu kỹ đề xuất tập kết quân sự.",
+            "response": "Bạn mở bản đồ. Muốn hiểu ngày mai, trước hết phải đọc thật đúng từng nét mực hôm nay.",
+            "nextSceneId": "candidate.1954.geneva.story.v2.map-17"
+          }
+        ]
+      },
+      {
+        "id": "candidate.1954.geneva.story.v2.map-17",
+        "title": "BẢN ĐỒ TRÊN BÀN HỌP",
+        "sourceIds": [
+          "SRC-1954-GENEVA-CEASE",
+          "SRC-1954-GENEVA-DECL",
+          "SRC-1954-GENEVA-MUSEUM"
+        ],
+        "claimIds": [],
+        "kind": "choice",
+        "prompt": "Trưởng đoàn đẩy bản đồ về phía bạn: “Minh, hãy ghi thật chính xác. Vĩ tuyến 17 trong dự thảo này là gì?”",
+        "policy": "retry_until_correct",
+        "choices": [
+          {
+            "id": "candidate.1954.geneva.story.v2.map-17.1f1b1932",
+            "kind": "knowledge_check",
+            "label": "Biên giới vĩnh viễn giữa hai quốc gia.",
+            "isCorrect": false,
+            "explanation": "Hiệp định Genève quy định đây là giới tuyến quân sự tạm thời để tập kết, chuyển quân; không phải biên giới chính trị hay lãnh thổ."
+          },
+          {
+            "id": "candidate.1954.geneva.story.v2.map-17.91b48e4c",
+            "kind": "knowledge_check",
+            "label": "Giới tuyến quân sự tạm thời để các lực lượng tập kết, chuyển quân.",
+            "isCorrect": true,
+            "explanation": "Đúng. Vĩ tuyến 17 gắn với khu vực sông Bến Hải, là một sắp xếp quân sự tạm thời.",
+            "nextSceneId": "candidate.1954.geneva.story.v2.letter"
+          },
+          {
+            "id": "candidate.1954.geneva.story.v2.map-17.2466df3c",
+            "kind": "knowledge_check",
+            "label": "Một tên gọi khác của sông Hồng.",
+            "isCorrect": false,
+            "explanation": "Sông Bến Hải gắn với giới tuyến quân sự tạm thời. Sông Hồng không phải nội dung của quy định này."
+          }
+        ]
+      },
+      {
+        "id": "candidate.1954.geneva.story.v2.letter",
+        "title": "LÁ THƯ BÊN NGOÀI PHÒNG HỌP",
+        "sourceIds": [
+          "SRC-1954-GENEVA-CEASE",
+          "SRC-1954-GENEVA-DECL",
+          "SRC-1954-GENEVA-MUSEUM"
+        ],
+        "claimIds": [],
+        "kind": "choice",
+        "prompt": "Bên ngoài, một người mẹ đưa bạn lá thư cho người thân ở phía bên kia khu tập kết: “Sau này, chúng tôi còn gặp nhau được không?” Bạn sẽ nói điều gì?",
+        "policy": "continue_after_feedback",
+        "choices": [
+          {
+            "id": "candidate.1954.geneva.story.v2.letter.ef45ba01",
+            "kind": "reflection",
+            "label": "“Điều đầu tiên là tiếng súng phải dừng lại để mọi người được sống bình yên.”",
+            "response": "Bà nắm chặt lá thư. Bạn nhận được mảnh ghi chép: HÒA BÌNH & ĐỜI SỐNG.",
+            "nextSceneId": "candidate.1954.geneva.story.v2.summary"
+          },
+          {
+            "id": "candidate.1954.geneva.story.v2.letter.4cc1901a",
+            "kind": "reflection",
+            "label": "“Sự chia cắt này chỉ là tạm thời; đất nước vẫn là một.”",
+            "response": "Bà lặng im nhìn bản đồ. Bạn nhận được mảnh ghi chép: THỐNG NHẤT & HY VỌNG.",
+            "nextSceneId": "candidate.1954.geneva.story.v2.summary"
+          },
+          {
+            "id": "candidate.1954.geneva.story.v2.letter.415f0cb1",
+            "kind": "reflection",
+            "label": "“Tôi sẽ ghi lại câu hỏi này, vì một hiệp định luôn chạm đến đời sống con người.”",
+            "response": "Bạn cất lá thư vào sổ. Bạn nhận được mảnh ghi chép: CON NGƯỜI & KÝ ỨC.",
+            "nextSceneId": "candidate.1954.geneva.story.v2.summary"
+          }
+        ]
+      },
+      {
+        "id": "candidate.1954.geneva.story.v2.summary",
+        "title": "CÂU CUỐI TRONG BIÊN BẢN",
+        "sourceIds": [
+          "SRC-1954-GENEVA-CEASE",
+          "SRC-1954-GENEVA-DECL",
+          "SRC-1954-GENEVA-MUSEUM"
+        ],
+        "claimIds": [],
+        "kind": "choice",
+        "prompt": "Gần sáng, trưởng đoàn nhìn trang biên bản chưa khép: “Hãy tóm tắt ý nghĩa của thỏa thuận này, nhưng đừng để lịch sử bị hiểu sai.”",
+        "policy": "retry_until_correct",
+        "choices": [
+          {
+            "id": "candidate.1954.geneva.story.v2.summary.2758bdb2",
+            "kind": "knowledge_check",
+            "label": "Chia cắt Việt Nam lâu dài để đổi lấy hòa bình.",
+            "isCorrect": false,
+            "explanation": "Cách diễn đạt này làm sai bản chất tạm thời của giới tuyến và mục tiêu thống nhất đất nước."
+          },
+          {
+            "id": "candidate.1954.geneva.story.v2.summary.b22878bb",
+            "kind": "knowledge_check",
+            "label": "Đình chỉ chiến sự, tập kết tạm thời và hướng tới thống nhất bằng tổng tuyển cử.",
+            "isCorrect": true,
+            "explanation": "Văn bản đình chỉ chiến sự ở Việt Nam đề ngày 20/7; Tuyên bố cuối cùng của hội nghị đề ngày 21/7/1954. Đây là hai văn kiện khác nhau.",
+            "nextSceneId": "candidate.1954.geneva.story.v2.dawn"
+          },
+          {
+            "id": "candidate.1954.geneva.story.v2.summary.aedc480c",
+            "kind": "knowledge_check",
+            "label": "Đàm phán không quan trọng vì chỉ thắng lợi quân sự mới quyết định tất cả.",
+            "isCorrect": false,
+            "explanation": "Chiến thắng Điện Biên Phủ tạo điều kiện cho đàm phán; ngoại giao là một phần quan trọng của kết quả lịch sử."
+          }
+        ]
+      },
+      {
+        "id": "candidate.1954.geneva.story.v2.dawn",
+        "title": "BÌNH MINH TRÊN HỒ LÉMAN",
+        "sourceIds": [
+          "SRC-1954-GENEVA-CEASE",
+          "SRC-1954-GENEVA-DECL",
+          "SRC-1954-GENEVA-MUSEUM"
+        ],
+        "claimIds": [],
+        "kind": "debrief",
+        "summary": "Các văn kiện đặt ra việc đình chỉ chiến sự và tập kết quân. Tuyên bố cuối cùng dự kiến tổng tuyển cử tháng 7/1956. Việc thực hiện thuộc chặng lịch sử tiếp theo. Bạn khép sổ: còn nhiều điều cần tìm hiểu.",
+        "nextSceneId": "candidate.1954.geneva.story.v2.end"
+      },
+      {
+        "id": "candidate.1954.geneva.story.v2.end",
+        "kind": "end",
+        "summary": "Tên văn kiện, ngày tháng và tính chất tạm thời đều cần được đọc chính xác.",
+        "sourceIds": [
+          "SRC-1954-GENEVA-CEASE",
+          "SRC-1954-GENEVA-DECL",
+          "SRC-1954-GENEVA-MUSEUM"
+        ],
+        "claimIds": []
+      }
+    ],
+    "learningObjectiveIds": [
+      "preview.1954.episode06.candidate.objective"
+    ],
+    "sourceIds": [
+      "SRC-1954-GENEVA-CEASE",
+      "SRC-1954-GENEVA-DECL",
+      "SRC-1954-GENEVA-MUSEUM"
+    ],
+    "createdAt": "2026-10-04T00:00:00Z"
+  },
+  "objectives": [
+    {
+      "id": "preview.1954.episode01.candidate.objective",
+      "text": "Hiểu bối cảnh năm 1953 và phân biệt mục tiêu kế hoạch với diễn biến thực tế."
+    },
+    {
+      "id": "preview.1954.episode02.candidate.objective",
+      "text": "Đọc vị trí, hiểu tập đoàn cứ điểm và phân biệt hai thời điểm quan trọng."
+    },
+    {
+      "id": "preview.1954.episode03.candidate.objective",
+      "text": "Hiểu vai trò hậu cần và vì sao phương án tác chiến có thể được điều chỉnh."
+    },
+    {
+      "id": "preview.1954.episode04.candidate.objective",
+      "text": "Kể đúng ba đợt chính mà không nhầm chuẩn bị với dừng chiến dịch."
+    },
+    {
+      "id": "preview.1954.episode05.candidate.objective",
+      "text": "Phân biệt mốc chiếm sở chỉ huy với toàn bộ diễn biến và tiến trình đình chiến."
+    },
+    {
+      "id": "preview.1954.episode06.candidate.objective",
+      "text": "Đọc đúng các văn kiện Genève và tách tình huống hư cấu khỏi sự kiện có nguồn."
+    },
+    {
+      "id": "preview.1954.episode07.candidate.objective",
+      "text": "Phân biệt quy định ngừng bắn, tập kết và kế hoạch thống nhất với việc thực hiện."
+    }
+  ],
+  "publicationAllowed": false,
+  "pendingBindings": [
+    "Reviewed media asset candidate.1954.video.corrected.v2",
+    "Historical/learning acceptance",
+    "Domain IDs mapped to database UUIDs in trusted import transaction"
+  ]
+}
