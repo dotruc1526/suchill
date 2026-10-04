@@ -20,8 +20,12 @@ export async function askSuu(question) {
     return { reply: 'Bạn muốn hỏi SỬu điều gì về lịch sử Việt Nam nào? Hãy gõ câu hỏi nhé! 🐮' };
   }
 
+  const candidateModels = [
+    ...(process.env.GEMINI_MODEL ? [process.env.GEMINI_MODEL.trim()] : []),
+    ...CANDIDATE_MODELS,
+  ].filter((model, idx, arr) => model && arr.indexOf(model) === idx);
   const signal = AbortSignal.timeout(12000);
-  for (const model of CANDIDATE_MODELS) {
+  for (const model of candidateModels) {
     if (signal.aborted) break;
     try {
         const response = await fetch(
