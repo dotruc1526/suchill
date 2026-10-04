@@ -1,0 +1,5 @@
+# Preserve byte-locked authoring/media metadata across Windows and Linux.
+manifest.json -text
+locked-narration.json -text
+captions.vi.vtt -text
+transcript.vi.txt -text

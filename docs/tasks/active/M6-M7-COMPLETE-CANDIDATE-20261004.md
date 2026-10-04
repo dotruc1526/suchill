@@ -19,4 +19,6 @@ Root CI claim: `.github/workflows/quality.yml` includes source/import/all-seven-
 
 Root additionally claims `docs/content/chapter1954/CANONICAL-IMPORT-CANDIDATE.json`, generated from the validated typed preparation: seven lessons, fourteen documents, twenty questions, six story scenes, separate internal answer keys. All content remains in_review and publicationAllowed=false; trusted UUID mapping/transaction and specialist acceptance remain pending.
 
+Root claims `scripts/release/build-hosting-preview.mjs` and its existing test for a narrow packaging update: permit bundled candidate MP4/VTT/TXT assets in the same audited internal preview output. Original reference package hash verification, secret scanning and release boundaries remain required. Existing authorized temporary Firebase channel only; no live promotion, backend/Auth change or canonical publication.
+
 Content lane additional claim: root requests substantive episode01/06 companions alongside five drafts. Own new `src/services/reference1954/companionCandidates.ts`, re-export from candidateLessons; three sections and source-bound checks each. Original video/story/register immutable. Reviewer root technical/source-fit; final historical remains pending.
