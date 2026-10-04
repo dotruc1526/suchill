@@ -1,5 +1,13 @@
 # Sử Chill — Shared Task Board
 
+## Current delivery direction — 2026-10-04
+
+User confirms milestone-based completion. Local seven-episode access is draft review only and does not accept M6/M7 content or release. [Delivery sequence](M6-M7-NEXT-DELIVERY.md).
+
+| ID | Owner / Executor | Reviewer | Status | Started | Next action |
+|---|---|---|---|---|---|
+| M6-M7-ALIGNMENT-20261004 | Codex integration / Codex | PO; specialist reviewers | REVIEW | 2026-10-04 | [Card](../tasks/active/M6-M7-ALIGNMENT-20261004.md); actual gates reconciled; stale AI loading test repaired; isolated production/accessibility11PASS; draft boundaries retained. |
+
 | ID | Owner / Executor | Reviewer | Status | Started | Next action |
 |---|---|---|---|---|---|
 | CHAPTER-DRAFT-ACCESS-001 | Codex / Codex | User; Thọ pending | REVIEW | 2026-10-04 | [Card](../tasks/active/CHAPTER-DRAFT-ACCESS-001.md); all7preview entries open; draft text/video1/VN6; typecheck/build/Chrome6PASS. |
