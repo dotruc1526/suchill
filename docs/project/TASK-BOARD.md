@@ -5,6 +5,17 @@
 | ID | Owner / Executor | Reviewer | Status | Started | Files / Next action |
 |---|---|---|---|---|---|
 | POSTMERGE-AUDIT-20261004 | Codex integration / Codex | Hưng / Vinh; user integration pending | REVIEW | 2026-10-04 | [Card](../tasks/active/POSTMERGE-AUDIT-20261004.md); PvP disclosure/AI timeout/LAN auth repairs, local quality418PASS/0FAIL/3SKIP + release55PASS; final GitHub CI and integration review next. |
+## Current integration — 2026-10-04
+
+| ID | Owner / Executor | Reviewer | Status | Started | Next action |
+|---|---|---|---|---|---|
+| LOCAL-MAIN-INTEGRATION-001 | Codex integration / Codex | Hưng/Vinh; user pending | IN PROGRESS | 2026-10-04 | [Card](../tasks/active/LOCAL-MAIN-INTEGRATION-001.md); preserve local preview/tunnel work, integrate main/PR122 and validate combined PR. |
+
+## Local learning repair — 2026-10-04
+
+| ID | Owner / Executor | Reviewer | Status | Started | Next action |
+|---|---|---|---|---|---|
+| LOCAL-1954-001 | Codex integration / Codex | User preview acceptance; Hưng/Vinh pending | REVIEW | 2026-10-04 | [Card](../tasks/active/LOCAL-1954-001.md); localhost1954/video verified; typecheck/build/Chrome8/practice1PASS; accept local repair, preserve historical/release gates. |
 
 > Last updated: 2026-10-03\
 > Owner: Project team\

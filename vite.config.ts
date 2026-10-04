@@ -1,13 +1,14 @@
-import { defineConfig, type HtmlTagDescriptor, type Plugin } from 'vite'
+import { defineConfig, type HtmlTagDescriptor, type Plugin, type UserConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'node:path'
 import { pwaBuildPlugin } from './scripts/pwa/build-plugin.ts'
+import { local1954Preview } from './scripts/content/reference-preview/dev-plugin.ts'
 
 import siteConfiguration from './.figma/make/site.json'
 
 // Vite config — https://vitejs.dev/config/
-export default defineConfig(({ mode }) => {
+export default defineConfig(async ({ mode, command, isPreview }): Promise<UserConfig> => {
   // .figma/make/deploy-preview passes `--mode development` for cached-preview builds.
   const emitSourcemaps = mode === 'development'
 
@@ -21,6 +22,7 @@ export default defineConfig(({ mode }) => {
       react(),
       tailwindcss(),
       pwaBuildPlugin(),
+      command === 'serve' && !isPreview ? await local1954Preview(import.meta.dirname) : undefined,
       figmaSiteConfiguration(siteConfiguration),
       figmaErrorOverlayReplay(),
       figmaReactRefreshBoundaryFallback(),
