@@ -118,4 +118,10 @@ export async function buildHostingPreview() {
   console.log('Hosting preview verified: ' + inventory.length + ' files; unchanged 1954 video; no privileged client configuration')
 }
 
-if (process.argv[1] && pathToFileURL(resolve(process.argv[1])).href === import.meta.url) await buildHostingPreview()
+// Vite bundles this module into its config via the local-preview plugin. That
+// retains the original import.meta.url; do not recursively run the CLI again.
+const cliStarted = Symbol.for('suchill.hosting-preview.cli-started')
+if (process.argv[1] && pathToFileURL(resolve(process.argv[1])).href === import.meta.url && !globalThis[cliStarted]) {
+  globalThis[cliStarted] = true
+  await buildHostingPreview()
+}

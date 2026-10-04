@@ -19,6 +19,8 @@ PR125 initial GitHub runs passed full Quality and all 40 boundary tests, then co
 
 Internal Hosting packaging now permits only correctly paired hashed candidate video/caption/transcript names. Wrong extension, missing hash and private asset are rejected. Existing secret/symlink and original-package checks stay active. Hosting tests5PASS; independent read-only review SOFTWARE APPROVE. No Auth, backend or PWA video-cache expansion.
 
+The actual Hosting CLI uncovered recursive execution when Vite bundled the imported CLI guard into config; a process-global one-shot prevents re-entry. CLI build now exits0 with55auditedfiles. Local production browser smoke PASS: controlled worker, reference route, installability, captions/video/resume, three mobile viewports, fallback and private/reference cache exclusion. PWA build9e6d1d29c4af86527503. Original package remains verified; candidate video is bundled and excluded from persistent PWA media caching.
+
 ## Acceptance remaining
 
 PO license-documentation exception is APPROVED and applies; no renewed paperwork request. Specialist historical acceptance of exact authoring/media, human listening, physical-device/accessibility/update observations and final release acceptance remain separate. Desktop app control was stopped by the user with Escape; installation/icon or screen-reader acceptance is not claimed. M6/M7 remain OPEN. The candidate completes reversible authoring/software/media/import preparation and is reviewable now; it does not fabricate milestone closure or canonical publication.
