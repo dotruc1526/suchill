@@ -2,7 +2,7 @@
 
 | ID | Owner / Executor | Reviewer | Status | Started | Next action |
 |---|---|---|---|---|---|
-| M6-M7-COMPLETE-CANDIDATE-20261004 | Codex integration + authorized work lanes | Independent software/source; final PO/specialist acceptance separate | IN PROGRESS | 2026-10-04 | [Card](../tasks/active/M6-M7-COMPLETE-CANDIDATE-20261004.md); finish substantial lesson/media/import candidates and available desktop QA rather than stop at audit. |
+| M6-M7-COMPLETE-CANDIDATE-20261004 | Codex integration + authorized work lanes | Independent software/source; final PO/specialist acceptance separate | REVIEW | 2026-10-04 | [Card](../tasks/active/M6-M7-COMPLETE-CANDIDATE-20261004.md); PR125:7lessons/21sections/20checks, correctedvideo, importJSON, Hostingbuild/smoke ready; software APPROVE; exactCI and explicit preview deploy answer pending. |
 
 ## Latest APPROVED PO decision — media exception, 2026-10-04
 
