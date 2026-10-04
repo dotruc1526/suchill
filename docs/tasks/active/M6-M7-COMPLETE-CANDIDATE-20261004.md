@@ -24,3 +24,8 @@ Root claims `scripts/release/build-hosting-preview.mjs` and its existing test fo
 Completion checkpoint: seven substantial lessons/21sections/20checks, corrected spoken/baked video version, typed seven-lesson import JSON, all-seven interactive browser regression and internal Hosting build/smoke are complete. Independent software and narrow Hosting review APPROVE. [Evidence](../evidence/M6-M7-complete-candidate-20261004.md). PR125 initial Quality/40boundary passed; cross-platform byte locking repaired without weakening assertions. Exact final CI pending. Firebase deployment was rejected by automatic approval review for missing explicit current payload/destination authorization; concrete preview is ready and the user confirmation is pending. No attempt to bypass that rejection or claim deployment occurred.
 
 Content lane additional claim: root requests substantive episode01/06 companions alongside five drafts. Own new `src/services/reference1954/companionCandidates.ts`, re-export from candidateLessons; three sections and source-bound checks each. Original video/story/register immutable. Reviewer root technical/source-fit; final historical remains pending.
+
+
+## Verified continuation — 2026-10-04
+
+PR125 MERGED f5b6734, all4exact-head checks SUCCESS. User explicitly approved Firebase payload/project/channel, completed login; project access returned403/emptylist, then user elected to defer Hosting. Earlier pending-CI/authorization statements are superseded. Candidate remains REVIEW for PO/specialist acceptance.

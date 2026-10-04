@@ -1,8 +1,28 @@
 # Sử Chill — Shared Task Board
 
+## Current verified M6/M7 checkpoint — 2026-10-04
+
+PR125 MERGED as f5b6734; four exact-head checks SUCCESS. Seven internal lessons are open with21sections/20checks, integrated VN6 and correctedvideo candidate. Prior statements that episodes2–7 are locked, cue27 correction has not been rendered, or CI/PO preview permission is pending are historical snapshots. Final historical/device/publication acceptance remains separate.
+
+Firebase update is authorized but unperformed: current Google account is logged in; Firebase project access returns403 and list is empty. User elects to defer Hosting while the team resolves its existing project. No new project, live deployment or release has occurred.
+
+| ID | Owner / Executor | Status | Current next action |
+|---|---|---|---|
+| M6-M7-RECONCILE-20261004 | Codex integration | REVIEW | [Card](../tasks/active/M6-M7-RECONCILE-20261004.md);7missingcards/evidence reconciled; isolated518row import/rollback/RLS3PASS; root code review accepted; exactCI/integration pending. |
+| M7-03 — Chapter curriculum, screenplay and media | Thọ / Trúc; Codex integration | BLOCKED | [Card](../tasks/blocked/M7-03.md); preparation delivered separately; exact dependencies/acceptance recorded. |
+| M7-04 — Historical, learning and media sign-off | Thọ coordinates; designated historical reviewer / Trúc / PO | BLOCKED | [Card](../tasks/blocked/M7-04.md); preparation delivered separately; exact dependencies/acceptance recorded. |
+| M7-05 — Trusted canonical import | Vinh / Codex integration | BLOCKED | [Card](../tasks/blocked/M7-05.md); preparation delivered separately; exact dependencies/acceptance recorded. |
+| M7-06 — Full release regression, security and content QA | Vinh / all lanes / Codex integration | BLOCKED | [Card](../tasks/blocked/M7-06.md); preparation delivered separately; exact dependencies/acceptance recorded. |
+| M7-07 — Canonical Firebase Hosting preview | Hưng / Vinh / Codex integration | BLOCKED | [Card](../tasks/blocked/M7-07.md); preparation delivered separately; exact dependencies/acceptance recorded. |
+| M7-08 — Internal user testing and fixes | PO / Vinh / all lanes | BLOCKED | [Card](../tasks/blocked/M7-08.md); preparation delivered separately; exact dependencies/acceptance recorded. |
+| M7-09 — PWA release and rollback acceptance | PO / Codex integration | BLOCKED | [Card](../tasks/blocked/M7-09.md); preparation delivered separately; exact dependencies/acceptance recorded. |
+
+M6 formal statuses:01/06 REVIEW;02/03/05 DONE;04/07 BLOCKED. M7:01 DONE;02 REVIEW;03–09 BLOCKED under explicit cards. Delivered drafts/import preparations are not counted as formal DONE.
+
+
 | ID | Owner / Executor | Reviewer | Status | Started | Next action |
 |---|---|---|---|---|---|
-| M6-M7-COMPLETE-CANDIDATE-20261004 | Codex integration + authorized work lanes | Independent software/source; final PO/specialist acceptance separate | REVIEW | 2026-10-04 | [Card](../tasks/active/M6-M7-COMPLETE-CANDIDATE-20261004.md); PR125:7lessons/21sections/20checks, correctedvideo, importJSON, Hostingbuild/smoke ready; software APPROVE; exactCI and explicit preview deploy answer pending. |
+| M6-M7-COMPLETE-CANDIDATE-20261004 | Codex integration + authorized work lanes | Independent software/source; final PO/specialist acceptance separate | REVIEW | 2026-10-04 | [Card](../tasks/active/M6-M7-COMPLETE-CANDIDATE-20261004.md); PR125:7lessons/21sections/20checks, correctedvideo, importJSON, Hostingbuild/smoke ready; software APPROVE; PR125 merged/all4checks SUCCESS; preview authorized but deferred for team project access. |
 
 ## Latest APPROVED PO decision — media exception, 2026-10-04
 
