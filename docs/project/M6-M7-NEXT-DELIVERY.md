@@ -1,5 +1,10 @@
 # Tiếp tục theo milestone — 2026-10-04
 
+Latest verified checkpoint: PR125 merged f5b6734/all4GitHubchecks SUCCESS. All7internal lessons have21sections/20checks, VN6 and correctedvideo candidate. Seven downstream cards M7-03..09 now exist in blocked/. Current task statuses/nextactions are at the top of TASK-BOARD.md; historical snapshots below are superseded where contradictory.
+
+User defers Firebase until team existingproject access is resolved; no newproject/deployment. License paperwork is waived; exact-version historical/media listening, physical accessibility/device acceptance and canonical publication are still required. Trusted import preparation is being completed in isolated local storage under M6-M7-RECONCILE-20261004; no remote database or pending-content publication.
+
+
 M0–M5 CLOSED. M6 OPEN và M7 OPEN song song theo M7-GATE-OPEN-001; không tự đóng M6. Việc mở7tập theo yêu cầu người dùng là mở xem bản nháp, không nghiệm thu bài học hay thay trạng thái milestone. Các bản AI/VN/đề cương local chưa thành canonical content.
 
 Quyết định PO mới nhất2026-10-04: [ngoại lệ media](../tasks/active/PO-MEDIA-EXCEPTION-20261004.md) bỏ yêu cầu hồ sơ giấy phép làm điều kiện chặn công việc; PO chịu trách nhiệm sử dụng. Các dòng cũ nhắc quyền media phải được đọc cùng ngoại lệ này. Việc sửa lời dẫn/caption đúng phiên bản và nghiệm thu lịch sử/thiết bị vẫn cần thực hiện.
