@@ -68,4 +68,8 @@ Story-level requirements remain: reviewed scene graph/claims, no invented histor
 
 ## Handoff
 
+### Subsequent user authorization and provider terms
+
+The user states there are no rights records and authorizes use of the current resources, asserting ElevenLabs voice is permitted for students. Record this as user authorization for project work/internal demonstration, not independently established third-party licensing. Official [ElevenLabs billing documentation](https://elevenlabs.io/docs/overview/administration/billing) permits free-plan output for non-commercial use with attribution; paid-plan generation includes commercial rights. [Publication guidance](https://help.elevenlabs.io/hc/en-us/articles/13313564601361-Can-I-publish-the-content-I-generate-on-the-platform) specifies attribution for free-plan publication. These terms do not establish unrelated music/SFX rights or identify the generation plan/provider of this exact MP4. Keep the current package internal; verify the actual narration provenance before assigning provider credit to its immutable manifest. Student status alone is not the evidence recorded by those provider terms.
+
 Files changed: this report only. Temporary verified portable tool download and process-local environment override only; no persistent environment, migration, source media, runtime publication or account impact. No build needed for this docs-only audit. Parent integration may cite actual package12PASS and full decode exit0; claim any renderer/media production separately once prerequisites are valid. Delegation of the five work roles supplies execution capacity; it cannot supply a missing authorized replacement narration, license evidence, historical verdict or physical-device observation.

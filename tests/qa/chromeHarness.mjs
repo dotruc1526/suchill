@@ -15,13 +15,16 @@ export function findBrowser() {
     '/usr/bin/chromium', '/usr/bin/chromium-browser', '/usr/bin/google-chrome',
   ].find(path => path && existsSync(path))
 }
-async function terminateChild(child) {
+export async function terminateChild(child, { platform = process.platform, spawnProcess = spawn, wait = delay } = {}) {
   if (child.exitCode !== null || child.signalCode !== null) return
   const exited = once(child, 'exit').then(() => true)
-  child.kill()
-  if (!await Promise.race([exited, delay(3000).then(() => false)])) {
+  if (platform === 'win32' && Number.isSafeInteger(child.pid) && child.pid > 0) {
+    const killer = spawnProcess('taskkill', ['/PID', String(child.pid), '/T', '/F'], { stdio: 'ignore', windowsHide: true })
+    await Promise.race([once(killer, 'exit'), once(killer, 'error').catch(() => {}), wait(3000)])
+  } else child.kill()
+  if (!await Promise.race([exited, wait(3000).then(() => false)])) {
     child.kill('SIGKILL')
-    await Promise.race([exited, delay(3000)])
+    await Promise.race([exited, wait(3000)])
   }
 }
 
@@ -33,14 +36,19 @@ export async function withChromePage(browser, url, run, { mountedSelector = '#ro
   assert.ok(resolve(profile).startsWith(temporaryRoot + sep), 'Owned Chrome profile must remain in the temporary directory')
   const chrome = spawn(browser, [
     '--headless=new', '--no-sandbox', '--disable-gpu', '--no-first-run', '--no-default-browser-check',
+    '--disable-extensions', '--disable-background-networking', '--disable-component-update', '--disable-sync',
     '--remote-debugging-port=0', `--user-data-dir=${profile}`, 'about:blank',
   ], { stdio: ['ignore', 'ignore', 'pipe'] })
   let socket
+  let closeOwnedBrowser
+  let originalError
+  let stderrTail = ''
+  chrome.stderr.on('data', chunk => { stderrTail = (stderrTail + chunk.toString()).slice(-4000) })
   const pending = new Map()
   try {
     const endpoint = await new Promise((resolveEndpoint, reject) => {
       let output = ''
-      const timer = setTimeout(() => reject(new Error('Chrome startup timeout')), 20000)
+      const timer = setTimeout(() => reject(new Error(`Chrome startup timeout; owned Chrome stderr: ${stderrTail}`)), 20000)
       chrome.once('error', error => { clearTimeout(timer); reject(error) })
       chrome.stderr.on('data', chunk => {
         output += chunk
@@ -60,10 +68,11 @@ export async function withChromePage(browser, url, run, { mountedSelector = '#ro
     })
     const send = (method, params = {}, sessionId) => new Promise((resolveRequest, reject) => {
       const requestId = ++id
-      const timer = setTimeout(() => { pending.delete(requestId); reject(new Error(`Chrome timeout: ${method}`)) }, 15000)
+      const timer = setTimeout(() => { pending.delete(requestId); reject(new Error(`Chrome timeout: ${method}; owned Chrome stderr: ${stderrTail}`)) }, 15000)
       pending.set(requestId, { resolve: resolveRequest, reject, timer })
       socket.send(JSON.stringify({ id: requestId, method, params, sessionId }))
     })
+    closeOwnedBrowser = () => send('Browser.close')
     const attach = async (targetId, initialUrl) => {
       const { sessionId } = await send('Target.attachToTarget', { targetId, flatten: true })
       const raw = (method, params) => send(method, params, sessionId)
@@ -134,11 +143,22 @@ export async function withChromePage(browser, url, run, { mountedSelector = '#ro
     const { targetId } = await send('Target.createTarget', { url: 'about:blank' })
     const command = await attach(targetId, url)
     return await run(command)
+  } catch (error) {
+    originalError = error
+    throw error
   } finally {
-    socket?.close()
-    for (const request of pending.values()) clearTimeout(request.timer)
-    await terminateChild(chrome)
-    assert.ok(resolve(profile).startsWith(temporaryRoot + sep), 'Only the owned temporary Chrome profile may be removed')
-    await rm(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 })
+    try {
+      if (socket?.readyState === WebSocket.OPEN && chrome.exitCode === null) {
+        await Promise.race([closeOwnedBrowser?.().catch(() => {}), delay(3000)])
+      }
+      socket?.close()
+      for (const request of pending.values()) clearTimeout(request.timer)
+      await terminateChild(chrome)
+      assert.ok(resolve(profile).startsWith(temporaryRoot + sep), 'Only the owned temporary Chrome profile may be removed')
+      await rm(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 })
+    } catch (cleanupError) {
+      if (!originalError) throw cleanupError
+      console.warn(`Owned Chrome cleanup also failed: ${cleanupError.message}`)
+    }
   }
 }

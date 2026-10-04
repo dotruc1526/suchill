@@ -7,6 +7,8 @@ import { findBrowser, withChromePage } from './chromeHarness.mjs'
 
 const root = resolve(import.meta.dirname, '../..')
 const server = await createServer({ root, configFile: false, envDir: false,
+  resolve: { alias: { '@': resolve(root, 'src') } },
+  cacheDir: 'node_modules/.vite-novel-navigation-qa',
   plugins: [react()], optimizeDeps: { entries: ['tests/qa/fixtures/novel-stage-navigation.html'] },
   server: { host: '127.0.0.1', port: 0, hmr: false } })
 await server.listen()

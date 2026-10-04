@@ -17,6 +17,14 @@ Root integration claim: `.github/workflows/quality.yml` adds the AI/source and s
 
 Root test-execution claim: `package.json` component script uses `--test-concurrency=1`. Repeated parallel runs timed out at Chrome CDP startup before assertions; serial execution preserves all tests and assertions and has passed the previously failing recovery startup. No harness timeout or retry is increased.
 
+Technical diagnostic claim: `tests/qa/chromeHarness.mjs` may retain a bounded stderr tail from its own isolated Chrome child and include it in startup/CDP timeout errors. This adds diagnostic evidence only, without changing deadlines/assertions or attaching to a user browser.
+
+Technical cleanup claim extension: gracefully close that isolated browser before disconnecting, and if necessary terminate only its recorded child process tree on Windows. Preserve the original test failure if owned-profile cleanup also fails. No broad browser/process termination or user profile access is permitted.
+
+Technical ownership regression claim: `tests/qa/chrome-cleanup.test.mjs` verifies the helper uses only a live owned child PID and preserves prior failure. CI includes this check with the preview regressions.
+
+Owned-browser isolation claim: diagnostic stderr shows host extensions, background account registration and updater IPC in QA startup. Disable extensions, background networking, component updates and browser sync only in the fresh test profile. Application networking/service workers and all assertions/deadlines remain enabled.
+
 ## Content lane correction claim — 2026-10-04
 
 Executor: delegated source lane; reviewer: root technical review, historical acceptance separate. Status: IN PROGRESS. Dependency: source evidence report completed; root authorizes scoped internal-draft corrections. Files claimed: `src/services/reference1954/lessonSixStory.ts`, `src/services/reference1954/draftLessons.ts`, `src/features/learning/preview1954/PreviewNovel.tsx`, `tests/qa/ai-answer.test.mjs`, own source evidence report and this checkpoint. Original Genève fixture/register/media remain unchanged. Acceptance: separate draft identity, no remote images, correct document/date/phase distinction, no later-election outcome assertion, preserve original, typecheck/focused tests. Next: implement and verify; no canonical/reward publication.
