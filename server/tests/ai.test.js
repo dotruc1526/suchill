@@ -17,6 +17,9 @@ test('AI prompt does not claim to retrieve sources it did not fetch', async () =
     const instruction = request.systemInstruction.parts[0].text;
     assert.match(instruction, /không tra cứu nguồn/i);
     assert.match(instruction, /đối chiếu tài liệu chính thống/i);
+    assert.match(instruction, /trẻ em và người trẻ/);
+    assert.match(instruction, /Giải thích ngay từ khó/);
+    assert.match(instruction, /không dùng chi tiết bạo lực ghê rợn/);
   } finally {
     globalThis.fetch = previousFetch;
     if (previousKey === undefined) delete process.env.GEMINI_API_KEY;

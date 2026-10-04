@@ -1,5 +1,17 @@
 # Sử Chill — Shared Task Board
 
+| ID | Owner / Executor | Reviewer | Status | Started | Next action |
+|---|---|---|---|---|---|
+| VN-LESSON-PROTOTYPE-001 | Codex / Codex | Hưng/Vinh; Thọ; user pending | REVIEW | 2026-10-04 | [Card](../tasks/active/VN-LESSON-PROTOTYPE-001.md); lesson6 intro/VN/debrief, generated art, mobile/retry/noXP verified; five unfinished episodes stay locked. |
+
+| ID | Owner / Executor | Reviewer | Status | Started | Next action |
+|---|---|---|---|---|---|
+| AI-VN-PREVIEW-001 | Codex / Codex | Hưng/Vinh; user pending | REVIEW | 2026-10-04 | [Card](../tasks/active/AI-VN-PREVIEW-001.md); young-reader AI and playable VN demo; build/typecheck and live scene/choice/advance verified. |
+
+| ID | Owner / Executor | Reviewer | Status | Started | Next action |
+|---|---|---|---|---|---|
+| AI-READABILITY-001 | Codex / Codex | Hưng/Vinh; user pending | REVIEW | 2026-10-04 | [Card](../tasks/active/AI-READABILITY-001.md); emphasis/paragraph fixes, honest waiting; typecheck/build and25render checks PASS; visual acceptance pending. |
+
 ## Latest main repair audit — 2026-10-04
 
 | ID | Owner / Executor | Reviewer | Status | Started | Files / Next action |

@@ -5,7 +5,7 @@ import { createServer } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { verifiedPackage } from '../../scripts/release/build-hosting-preview.mjs'
-import { canOpenEpisode, previewChapter, viewForHash } from '../../src/services/reference1954/catalog.ts'
+import { canOpenEpisode, canPreviewLesson, previewChapter, viewForHash } from '../../src/services/reference1954/catalog.ts'
 import { previewStorageKey } from '../../src/services/reference1954/localPreview.ts'
 import { findBrowser, withChromePage } from './chromeHarness.mjs'
 
@@ -39,9 +39,57 @@ test('locked episodes and unknown direct routes cannot open the preview video', 
   assert.equal(canOpenEpisode('preview.1954.episode99'), false)
   for (const hash of ['#episode-1954-02', '#episode-1954-07', '#episode-1954-01/../02']) assert.equal(viewForHash(hash), 'home')
   assert.equal(viewForHash('#episode-1954-01'), 'video')
+  assert.equal(viewForHash('#episode-1954-06-preview'), 'lessonSix')
+  assert.equal(viewForHash('#visual-novel-demo'), 'lessonSix')
+  assert.equal(canPreviewLesson('preview.1954.episode06'), true)
+  assert.equal(canPreviewLesson('preview.1954.episode02'), false)
 })
 
-test('Chrome integrates Chapter1/1954, six disabled episodes, focus/back and verified original video resume', async () => {
+test('lesson6 contains VN, retries knowledge errors, completes debrief without reward and returns to chapter', async () => {
+  await withChromePage(findBrowser(), url, async cdp => {
+    try {
+      await cdp.waitFor('Boolean(document.querySelector("[data-testid=preview1954-chapter]"))')
+      assert.equal(await cdp.evaluate('document.body.innerText.includes("CHƠI THỬ VISUAL NOVEL")'), false)
+      await click(cdp, 'preview1954-chapter')
+      await click(cdp, 'preview.1954.episode06')
+      await cdp.waitFor('Boolean(document.querySelector("[data-testid=preview1954-lesson-six]"))')
+      const pressText = text => cdp.evaluate(`Array.from(document.querySelectorAll('button')).find(button=>button.textContent.trim()===${JSON.stringify(text)}).click()`)
+      await cdp.evaluate('localStorage.setItem("unrelated-owned-account-fixture", "keep")')
+      await pressText('BẮT ĐẦU VISUAL NOVEL')
+      await cdp.waitFor('Boolean(document.querySelector("[data-testid=preview1954-novel-stage]"))')
+      await cdp.waitFor('Array.from(document.images).some(img=>img.alt.startsWith("Tranh minh họa") && img.complete && img.naturalWidth>0)')
+      const choose = index => cdp.evaluate(`document.querySelectorAll('[aria-label="Lựa chọn lời đáp"] button')[${index}].click()`)
+      await choose(0)
+      assert.match(await cdp.evaluate('document.querySelector("[role=status]").innerText'), /Lời đáp của bạn/)
+      assert.equal(await cdp.evaluate('document.querySelector("[role=status]").style.backgroundColor'), 'rgb(245, 230, 208)')
+      await pressText('TIẾP TỤC ›')
+      await choose(0)
+      assert.match(await cdp.evaluate('document.querySelector("[role=status]").innerText'), /Cùng xem lại/)
+      await pressText('THỬ CHỌN LẠI')
+      await choose(1)
+      await pressText('TIẾP TỤC ›')
+      await choose(0)
+      await pressText('TIẾP TỤC ›')
+      await choose(1)
+      await pressText('TIẾP TỤC ›')
+      for (const [width,height] of [[375,812],[844,390]]) {
+        await cdp('Emulation.setDeviceMetricsOverride', { width,height,deviceScaleFactor:1,mobile:true })
+        await cdp.evaluate('document.documentElement.style.fontSize="200%"')
+        assert.equal(await cdp.evaluate('document.documentElement.scrollWidth <= innerWidth'), true)
+      }
+      await pressText('ĐẾN PHẦN NHÌN LẠI BÀI HỌC ›')
+      await cdp.waitFor('document.body.innerText.includes("Nhìn lại câu chuyện")')
+      assert.equal(await cdp.evaluate('document.activeElement.textContent'), 'Nhìn lại câu chuyện')
+      assert.equal(await cdp.evaluate(`localStorage.getItem(${JSON.stringify(key)})`), null)
+      assert.equal(await cdp.evaluate('localStorage.getItem("unrelated-owned-account-fixture")'), 'keep')
+      assert.equal(await cdp.evaluate('performance.getEntriesByType("resource").some(item=>/supabase|account-access/.test(item.name))'), false)
+      await click(cdp, 'preview1954-back')
+      await cdp.waitFor('location.hash==="#chapter-1954"')
+    } finally { await cdp.browser('Browser.close').catch(() => {}) }
+  })
+})
+
+test('Chrome integrates Chapter1/1954, five locked episodes and lesson6 preview, focus/back and verified original video resume', async () => {
   await withChromePage(findBrowser(), url, async cdp => {
     try {
       await cdp.waitFor('Boolean(document.querySelector("[data-testid=preview1954-learning]"))')
@@ -50,7 +98,7 @@ test('Chrome integrates Chapter1/1954, six disabled episodes, focus/back and ver
       assert.equal(await cdp.evaluate('performance.getEntriesByType("resource").some(e=>e.name.endsWith("pilot-mobile.mp4"))'), false)
       await cdp.evaluate('localStorage.setItem("unrelated-owned-account-fixture", "keep-exact")')
       await click(cdp, 'preview1954-chapter')
-      await cdp.waitFor('document.querySelectorAll("ol button:disabled").length === 6')
+      await cdp.waitFor('document.querySelectorAll("ol button:disabled").length === 5')
       assert.equal(await cdp.evaluate('window.preview1954Safe'), false)
       assert.equal(await cdp.evaluate('document.activeElement.id'), 'preview1954-heading')
       assert.deepEqual(await cdp.evaluate('Array.from(document.querySelectorAll("ol h2"), e=>e.textContent)'), previewChapter.episodes.map(e=>e.title))
@@ -101,7 +149,7 @@ test('Chrome integrates Chapter1/1954, six disabled episodes, focus/back and ver
       assert.equal(await cdp.evaluate('localStorage.getItem("unrelated-owned-account-fixture")'), 'keep-exact')
       assert.equal(await cdp.evaluate('performance.getEntriesByType("resource").some(e=>/supabase|account-access/.test(e.name))'), false)
       await click(cdp, 'preview1954-back')
-      await cdp.waitFor('document.querySelectorAll("ol button:disabled").length===6')
+      await cdp.waitFor('document.querySelectorAll("ol button:disabled").length===5')
       assert.equal(await cdp.evaluate('document.activeElement.dataset.testid'), 'preview.1954.episode01')
       await click(cdp, 'preview1954-back')
       await cdp.waitFor('Boolean(document.querySelector("[data-testid=preview1954-chapter]"))')
@@ -124,7 +172,7 @@ test('Chrome offline video retains transcript/retry and locks instead of grantin
       assert.equal(await cdp.evaluate('Array.from(document.querySelectorAll("a")).some(a=>a.getAttribute("href")==="/reference-media/transcript.vi.txt")'), false)
       assert.equal(await cdp.evaluate(`localStorage.getItem(${JSON.stringify(key)})`), null)
       await click(cdp, 'preview1954-back')
-      await cdp.waitFor('document.querySelectorAll("ol button:disabled").length===6')
+      await cdp.waitFor('document.querySelectorAll("ol button:disabled").length===5')
     } finally { await cdp.browser('Browser.close').catch(() => {}) }
   })
 })
@@ -138,7 +186,7 @@ test('UI parent Back pops history; subsequent Android/browser Back does not reop
       await click(cdp, 'preview.1954.episode01')
       await cdp.waitFor('Boolean(document.querySelector("[data-testid=preview1954-source-notes]"))')
       await click(cdp, 'preview1954-back')
-      await cdp.waitFor('location.hash==="#chapter-1954" && document.querySelectorAll("ol button:disabled").length===6')
+      await cdp.waitFor('location.hash==="#chapter-1954" && document.querySelectorAll("ol button:disabled").length===5')
       await cdp.evaluate('history.back()')
       await cdp.waitFor('location.hash==="" && Boolean(document.querySelector("[data-testid=preview1954-chapter]"))')
       assert.equal(await cdp.evaluate('Boolean(document.querySelector("video"))'), false)

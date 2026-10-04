@@ -11,8 +11,9 @@ export const previewChapter = {
     { id: 'preview.1954.episode07', title: 'Việt Nam sau năm 1954', available: false },
   ],
 } as const
-export type PreviewView = 'home' | 'chapter' | 'video'
+export type PreviewView = 'home' | 'chapter' | 'video' | 'lessonSix'
 export function viewForHash(hash: string): PreviewView {
+  if (hash === '#visual-novel-demo' || hash === '#episode-1954-06-preview') return 'lessonSix'
   if (hash === '#chapter-1954') return 'chapter'
   if (hash === '#episode-1954-01' && previewChapter.episodes[0].available) return 'video'
   return 'home'
@@ -20,3 +21,5 @@ export function viewForHash(hash: string): PreviewView {
 export function canOpenEpisode(id: string) {
   return previewChapter.episodes.some(episode => episode.id === id && episode.available)
 }
+// User-authorized UI prototype; does not change canonical lesson availability.
+export function canPreviewLesson(id: string) { return id === 'preview.1954.episode06' }
