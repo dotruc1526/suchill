@@ -22,3 +22,5 @@ The CLI constructs a fresh in-memory PostgreSQL/PGlite harness, applies all30cur
 Root independently executed the actual dry-run CLI: exit0,518normalizedrows inserted/validated and rolled back; output/chapter1954-import/normalized-plan.json generated for internal authoring review. This file includes private answer keys and is not added to client/public payloads or committed as published content.
 
 No runtime UI, rewards, environment, remote schema or immutable published content changed. Formal historical review, real device/screen-reader observations, canonical import/publication and final release decisions remain external acceptance, not results inferred from this preparation.
+
+Final integration: PR126 MERGED81635b5 after allfour checks SUCCESS on exact4b3cd99 (fullQuality,43boundary including new3importtests, lockedmedia verifier and registerworkflow). Localmain synchronized. Independent docs review APPROVE after dependency correction, root import-code review APPROVE; bounded reconciliation/preparation task DONE. Formal M6/M7 statuses remain as recorded.
