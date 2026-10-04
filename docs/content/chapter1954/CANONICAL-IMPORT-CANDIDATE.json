@@ -1722,14 +1722,10 @@
       {
         "id": "candidate.1954.geneva.story.v2.arrival",
         "title": "GENÈVE · ĐÊM 20.07.1954",
-        "sourceIds": [
-          "SRC-1954-GENEVA-CEASE",
-          "SRC-1954-GENEVA-DECL",
-          "SRC-1954-GENEVA-MUSEUM"
-        ],
+        "sourceIds": [],
         "claimIds": [],
         "kind": "choice",
-        "prompt": "Bạn là Minh, thư ký trẻ của đoàn Việt Nam. Sau chiến thắng Điện Biên Phủ, cả hành lang hội nghị im lặng trước giờ họp cuối. Tối nay, từng câu trong biên bản có thể đi vào lịch sử.",
+        "prompt": "[NHÂN VẬT VÀ HỘI THOẠI HƯ CẤU] Bạn là Minh, thư ký trẻ của đoàn Việt Nam. Sau chiến thắng Điện Biên Phủ, cả hành lang hội nghị im lặng trước giờ họp cuối. Tối nay, từng câu trong biên bản có thể đi vào lịch sử.",
         "policy": "continue_after_feedback",
         "choices": [
           {
@@ -1759,13 +1755,13 @@
         "id": "candidate.1954.geneva.story.v2.map-17",
         "title": "BẢN ĐỒ TRÊN BÀN HỌP",
         "sourceIds": [
-          "SRC-1954-GENEVA-CEASE",
-          "SRC-1954-GENEVA-DECL",
-          "SRC-1954-GENEVA-MUSEUM"
+          "SRC-1954-GENEVA-DECL"
         ],
-        "claimIds": [],
+        "claimIds": [
+          "CLM-1954-06-003"
+        ],
         "kind": "choice",
-        "prompt": "Trưởng đoàn đẩy bản đồ về phía bạn: “Minh, hãy ghi thật chính xác. Vĩ tuyến 17 trong dự thảo này là gì?”",
+        "prompt": "[NHÂN VẬT VÀ HỘI THOẠI HƯ CẤU] Trưởng đoàn đẩy bản đồ về phía bạn: “Minh, hãy ghi thật chính xác. Vĩ tuyến 17 trong dự thảo này là gì?”",
         "policy": "retry_until_correct",
         "choices": [
           {
@@ -1795,14 +1791,10 @@
       {
         "id": "candidate.1954.geneva.story.v2.letter",
         "title": "LÁ THƯ BÊN NGOÀI PHÒNG HỌP",
-        "sourceIds": [
-          "SRC-1954-GENEVA-CEASE",
-          "SRC-1954-GENEVA-DECL",
-          "SRC-1954-GENEVA-MUSEUM"
-        ],
+        "sourceIds": [],
         "claimIds": [],
         "kind": "choice",
-        "prompt": "Bên ngoài, một người mẹ đưa bạn lá thư cho người thân ở phía bên kia khu tập kết: “Sau này, chúng tôi còn gặp nhau được không?” Bạn sẽ nói điều gì?",
+        "prompt": "[NHÂN VẬT VÀ HỘI THOẠI HƯ CẤU] Bên ngoài, một người mẹ đưa bạn lá thư cho người thân ở phía bên kia khu tập kết: “Sau này, chúng tôi còn gặp nhau được không?” Bạn sẽ nói điều gì?",
         "policy": "continue_after_feedback",
         "choices": [
           {
@@ -1833,12 +1825,15 @@
         "title": "CÂU CUỐI TRONG BIÊN BẢN",
         "sourceIds": [
           "SRC-1954-GENEVA-CEASE",
-          "SRC-1954-GENEVA-DECL",
-          "SRC-1954-GENEVA-MUSEUM"
+          "SRC-1954-GENEVA-DECL"
         ],
-        "claimIds": [],
+        "claimIds": [
+          "CLM-1954-06-002",
+          "CLM-1954-06-003",
+          "CLM-1954-06-004"
+        ],
         "kind": "choice",
-        "prompt": "Gần sáng, trưởng đoàn nhìn trang biên bản chưa khép: “Hãy tóm tắt ý nghĩa của thỏa thuận này, nhưng đừng để lịch sử bị hiểu sai.”",
+        "prompt": "[NHÂN VẬT VÀ HỘI THOẠI HƯ CẤU] Gần sáng, trưởng đoàn nhìn trang biên bản chưa khép: “Hãy tóm tắt ý nghĩa của thỏa thuận này, nhưng đừng để lịch sử bị hiểu sai.”",
         "policy": "retry_until_correct",
         "choices": [
           {
@@ -1870,10 +1865,12 @@
         "title": "BÌNH MINH TRÊN HỒ LÉMAN",
         "sourceIds": [
           "SRC-1954-GENEVA-CEASE",
-          "SRC-1954-GENEVA-DECL",
-          "SRC-1954-GENEVA-MUSEUM"
+          "SRC-1954-GENEVA-DECL"
         ],
-        "claimIds": [],
+        "claimIds": [
+          "CLM-1954-06-002",
+          "CLM-1954-06-004"
+        ],
         "kind": "debrief",
         "summary": "Các văn kiện đặt ra việc đình chỉ chiến sự và tập kết quân. Tuyên bố cuối cùng dự kiến tổng tuyển cử tháng 7/1956. Việc thực hiện thuộc chặng lịch sử tiếp theo. Bạn khép sổ: còn nhiều điều cần tìm hiểu.",
         "nextSceneId": "candidate.1954.geneva.story.v2.end"
@@ -1882,11 +1879,7 @@
         "id": "candidate.1954.geneva.story.v2.end",
         "kind": "end",
         "summary": "Tên văn kiện, ngày tháng và tính chất tạm thời đều cần được đọc chính xác.",
-        "sourceIds": [
-          "SRC-1954-GENEVA-CEASE",
-          "SRC-1954-GENEVA-DECL",
-          "SRC-1954-GENEVA-MUSEUM"
-        ],
+        "sourceIds": [],
         "claimIds": []
       }
     ],
@@ -1894,9 +1887,8 @@
       "preview.1954.episode06.candidate.objective"
     ],
     "sourceIds": [
-      "SRC-1954-GENEVA-CEASE",
       "SRC-1954-GENEVA-DECL",
-      "SRC-1954-GENEVA-MUSEUM"
+      "SRC-1954-GENEVA-CEASE"
     ],
     "createdAt": "2026-10-04T00:00:00Z"
   },
@@ -1928,6 +1920,79 @@
     {
       "id": "preview.1954.episode07.candidate.objective",
       "text": "Phân biệt quy định ngừng bắn, tập kết và kế hoạch thống nhất với việc thực hiện."
+    }
+  ],
+  "sceneTraceability": [
+    {
+      "sceneId": "candidate.1954.geneva.story.v2.arrival",
+      "boundary": "fictional_narrative",
+      "claimsRequired": false,
+      "claimIds": [],
+      "sourceIds": [],
+      "reviewStatus": "needs_historical_review",
+      "note": "Minh, thư ký và hành lang im lặng là tình huống hư cấu; không xác nhận cuộc họp cụ thể đêm20/7."
+    },
+    {
+      "sceneId": "candidate.1954.geneva.story.v2.map-17",
+      "boundary": "mixed_fiction_and_claims",
+      "claimsRequired": true,
+      "claimIds": [
+        "CLM-1954-06-003"
+      ],
+      "sourceIds": [
+        "SRC-1954-GENEVA-DECL"
+      ],
+      "reviewStatus": "needs_historical_review",
+      "note": "Đoạn6 xác nhận giới tuyến tạm thời. Hội thoại trưởng đoàn là hư cấu; chi tiết địa lý vĩ tuyến17/sôngBếnHải cần binding riêng trước canonical approval."
+    },
+    {
+      "sceneId": "candidate.1954.geneva.story.v2.letter",
+      "boundary": "fictional_narrative",
+      "claimsRequired": false,
+      "claimIds": [],
+      "sourceIds": [],
+      "reviewStatus": "needs_historical_review",
+      "note": "Người mẹ, lá thư và phản ứng là hư cấu; không gắn claim07-004 về quyền chuyển vùng như bằng chứng cho trải nghiệm này."
+    },
+    {
+      "sceneId": "candidate.1954.geneva.story.v2.summary",
+      "boundary": "mixed_fiction_and_claims",
+      "claimsRequired": true,
+      "claimIds": [
+        "CLM-1954-06-002",
+        "CLM-1954-06-003",
+        "CLM-1954-06-004"
+      ],
+      "sourceIds": [
+        "SRC-1954-GENEVA-CEASE",
+        "SRC-1954-GENEVA-DECL"
+      ],
+      "reviewStatus": "needs_historical_review",
+      "note": "Header/footerhai văn kiện; Đoạn6/7. Lời nói và đóng dấu hư cấu. Tác động của chiến thắng lên đàm phán vẫn là review riêng, không được coi đã xác nhận nhờ claim06-006."
+    },
+    {
+      "sceneId": "candidate.1954.geneva.story.v2.dawn",
+      "boundary": "educational_explanation",
+      "claimsRequired": true,
+      "claimIds": [
+        "CLM-1954-06-002",
+        "CLM-1954-06-004"
+      ],
+      "sourceIds": [
+        "SRC-1954-GENEVA-CEASE",
+        "SRC-1954-GENEVA-DECL"
+      ],
+      "reviewStatus": "needs_historical_review",
+      "note": "Văn kiện đình chỉ chiến sự/tập kết và kế hoạch tổng tuyển cử; không khẳng định kết quả thực hiện. Hành động khép sổ là lời dẫn hư cấu."
+    },
+    {
+      "sceneId": "candidate.1954.geneva.story.v2.end",
+      "boundary": "educational_explanation",
+      "claimsRequired": false,
+      "claimIds": [],
+      "sourceIds": [],
+      "reviewStatus": "needs_historical_review",
+      "note": "Recap kỹ năng đọc tên/ngày văn kiện; không bổ sung fact mới."
     }
   ],
   "publicationAllowed": false,

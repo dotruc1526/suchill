@@ -15,7 +15,7 @@ export default function PreviewEpisode() {
   return <div className="space-y-3">
     <Button variant="outline" onClick={() => setCorrected(value => !value)} className="w-full">{corrected ? 'ĐỐI CHIẾU VIDEO GỐC' : 'XEM BẢN VIDEO ĐÃ SỬA LỜI DẪN'}</Button>
     <p className="text-sm" style={{ color: theme.colors.textSecondary }}>Video tải khoảng {corrected ? '16' : '19'} MB trước khi phát. Tiến độ xem được lưu trên máy này.</p>
-    <PreviewSourceNotes />
+    <PreviewSourceNotes corrected={corrected} />
     <VideoLessonPlayer key={corrected ? 'corrected-v2' : 'original-v1'} services={corrected ? getCorrectedLearningServices() : getReferenceLearningServices()} context={previewContext}
       transcriptContent={false}
       attributionContent={<details className="border-t pt-2 text-sm" style={{ color: theme.colors.textSecondary }}>

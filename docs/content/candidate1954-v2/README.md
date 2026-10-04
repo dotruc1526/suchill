@@ -36,3 +36,9 @@ Validation: package **12/12 checks PASS, zero errors**; FFmpeg full decode with 
 `node docs/content/candidate1954-v2/verify_candidate.mjs` checks unchanged original files, retained initial cues, corrected exact ending, new audio/art hashes, and absence of old wording from new narration/captions/transcript.
 
 Regenerable intermediate segment MP4s are ignored. Final candidate MP4, poster, new audio/art source, locked narration and sidecars are retained. No environment or database change required. Known limits: abrupt art-style transition at the new ending; narrator timbre/volume continuity and final caption listening need concrete review; attractive scene artwork, mobile performance and final historical acceptance remain separate from this exact wording correction.
+
+## Subsequent read-only technical audit
+
+Measured volume at the splice: original 80–83.4s mean −20.4dB/max −4.6dB; new ending 83.46–93.46s mean −21.1dB/max −3.0dB. No clipping or large measured level discontinuity was detected. This does not certify voice timbre or pronunciation; no new human listening approval is asserted.
+
+Runtime integration was inspected: corrected media URL/hash/15,724,204-byte length and duration match this version; inline transcript uses this exact bundled text independently of video download; fallback points to the corrected transcript. One actionable presentation issue was sent to integration: the old-video wording warning in `PreviewSourceNotes` was also displayed when the corrected version was selected. The requested narrow repair is a version-aware note preserving original warning for original v1 and describing the actual correction for candidate v2.

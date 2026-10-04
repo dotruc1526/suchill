@@ -3,6 +3,7 @@ import type { CandidateLesson } from './candidateTypes'
 import { previewChapter } from './catalog'
 import { lessonSixStory } from './lessonSixStory'
 import { validateStoryVersion } from '../next/storyValidation'
+import { lessonSixBindings, resolveLessonSixBindings, type LessonSixBinding } from './lessonSixBindings'
 
 // Preparation only: every authored entity remains in_review; no DB or publication operation.
 const storyId = 'candidate.1954.geneva.story.v2'
@@ -14,7 +15,7 @@ function textId(text: string) {
 function unique(values: string[], label: string) {
   if (new Set(values).size !== values.length) throw new Error(`Duplicate ${label}`)
 }
-export function buildCandidateImport(studies: CandidateLesson[], knownSources: ReadonlySet<string>) {
+export function buildCandidateImport(studies: CandidateLesson[], knownSources: ReadonlySet<string>, bindings: LessonSixBinding[] = lessonSixBindings) {
   unique(studies.map(study => study.id), 'lesson IDs')
   const ordered = previewChapter.episodes.map(episode => {
     const study = studies.find(item => item.id === `${episode.id}.candidate`)
@@ -78,24 +79,28 @@ export function buildCandidateImport(studies: CandidateLesson[], knownSources: R
     learningObjectiveIds: lessons.flatMap(lesson => lesson.learningObjectiveIds), estimatedMinutes: 42,
     lessonRefs: lessons.map((lesson, order) => ({ id: lesson.id, order })), status: 'in_review' }
   const sceneId = (id: string) => `${storyId}.${id}`
-  const sourceIds = sourcesFor(ordered[5].study)
+  const bindingMap = resolveLessonSixBindings([...lessonSixStory.scenes.map(scene => scene.id), 'end'], knownSources, bindings)
+  const sourceIds = [...new Set(bindings.flatMap(binding => binding.sourceIds))]
   const scenes: VisualNovelScene[] = lessonSixStory.scenes.map((scene, index) => {
-    const base = { id: sceneId(scene.id), title: scene.title, sourceIds, claimIds: [] }
+    const binding = bindingMap.get(scene.id)!
+    const base = { id: sceneId(scene.id), title: scene.title, sourceIds: [...binding.sourceIds], claimIds: [...binding.claimIds] }
     const nextSceneId = index < lessonSixStory.scenes.length - 1 ? sceneId(lessonSixStory.scenes[index + 1].id) : `${storyId}.end`
     if (!scene.choices) return { ...base, kind: 'debrief', summary: scene.text, nextSceneId }
-    return { ...base, kind: 'choice', prompt: scene.text,
+    return { ...base, kind: 'choice', prompt: `[NHÂN VẬT VÀ HỘI THOẠI HƯ CẤU] ${scene.text}`,
       policy: scene.choices.some(choice => choice.correct !== undefined) ? 'retry_until_correct' : 'continue_after_feedback',
       choices: scene.choices.map(choice => choice.correct === undefined
         ? { id: `${base.id}.${textId(choice.label)}`, kind: 'reflection' as const, label: choice.label, response: choice.response, nextSceneId }
         : { id: `${base.id}.${textId(choice.label)}`, kind: 'knowledge_check' as const, label: choice.label,
           isCorrect: choice.correct, explanation: choice.note ?? choice.response, ...(choice.correct ? { nextSceneId } : {}) }) }
   })
-  scenes.push({ id: `${storyId}.end`, kind: 'end', summary: ordered[5].study.takeaway, sourceIds, claimIds: [] })
+  const endBinding = bindingMap.get('end')!
+  scenes.push({ id: `${storyId}.end`, kind: 'end', summary: ordered[5].study.takeaway, sourceIds: [...endBinding.sourceIds], claimIds: [...endBinding.claimIds] })
   const story: StoryVersion = { id: storyId, storyId: 'candidate.1954.geneva', versionNumber: 2, status: 'in_review',
     startSceneId: scenes[0].id, scenes, learningObjectiveIds: lessons[5].learningObjectiveIds, sourceIds, createdAt: '2026-10-04T00:00:00Z' }
-  if (validateStoryVersion(story, { sourceIds: knownSources }).length) throw new Error('Invalid candidate story graph')
+  if (validateStoryVersion(story, { sourceIds: knownSources, claimIds: new Set(bindings.flatMap(binding => binding.claimIds)) }).length) throw new Error('Invalid candidate story graph')
   const objectives = ordered.map(({ study }) => ({ id: `${study.id}.objective`, text: study.objective }))
   return { chapter, lessons, documents, questionSets, questions, options, privateAnswerKeys, story, objectives,
+    sceneTraceability: bindings.map(binding => ({ ...binding, sceneId: sceneId(binding.sceneId) })),
     publicationAllowed: false as const,
     pendingBindings: ['Reviewed media asset candidate.1954.video.corrected.v2', 'Historical/learning acceptance',
       'Domain IDs mapped to database UUIDs in trusted import transaction'] }
