@@ -8,7 +8,7 @@ Firebase update is authorized but unperformed: current Google account is logged 
 
 | ID | Owner / Executor | Status | Current next action |
 |---|---|---|---|
-| M6-M7-RECONCILE-20261004 | Codex integration | REVIEW | [Card](../tasks/active/M6-M7-RECONCILE-20261004.md);7missingcards/evidence reconciled; isolated518row import/rollback/RLS3PASS; root code review accepted; exactCI/integration pending. |
+| M6-M7-RECONCILE-20261004 | Codex integration | DONE | [Card](../tasks/done/M6-M7-RECONCILE-20261004.md);7missingcards/evidence reconciled; isolated518row import/rollback/RLS3PASS; cross-review APPROVE; PR126 merged/all4exactchecks SUCCESS. Formal M6/M7 gates unchanged. |
 | M7-03 — Chapter curriculum, screenplay and media | Thọ / Trúc; Codex integration | BLOCKED | [Card](../tasks/blocked/M7-03.md); preparation delivered separately; exact dependencies/acceptance recorded. |
 | M7-04 — Historical, learning and media sign-off | Thọ coordinates; designated historical reviewer / Trúc / PO | BLOCKED | [Card](../tasks/blocked/M7-04.md); preparation delivered separately; exact dependencies/acceptance recorded. |
 | M7-05 — Trusted canonical import | Vinh / Codex integration | BLOCKED | [Card](../tasks/blocked/M7-05.md); preparation delivered separately; exact dependencies/acceptance recorded. |
