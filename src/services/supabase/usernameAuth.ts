@@ -1,4 +1,5 @@
 import type { SupabaseClient, User } from '@supabase/supabase-js'
+import { accountProxyUrl } from './accountProxyConfig.ts'
 import type { AuthSession } from '../next/accountContracts.ts'
 import { failure, success, type Result, type ServiceErrorCode } from '../next/backendContracts.ts'
 
@@ -30,15 +31,10 @@ const safeError = (value: unknown): ServiceErrorCode =>
 /** Auth identities are resolved only by the trusted function; no mapping is delivered to the browser. */
 export async function accountAccess(client: AuthClient, body: Record<string, unknown>, token?: string): Promise<Result<Record<string, unknown>>> {
   if (!online()) return failure('offline')
-  const isLan = typeof window !== 'undefined' && window.location.protocol === 'http:' && /^(192\.168\.\d+\.\d+|10\.\d+\.\d+\.\d+|172\.(1[6-9]|2\d|3[0-1])\.\d+\.\d+)$/.test(window.location.hostname)
-  const isTunnel = typeof window !== 'undefined' && window.location.hostname.endsWith('.trycloudflare.com')
-  const hasGameServer = typeof window !== 'undefined' && Boolean(import.meta.env.VITE_GAME_SERVER_URL) && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1'
-
-  if (isLan || isTunnel || hasGameServer) {
+  const serverUrl = typeof window === 'undefined' ? undefined
+    : accountProxyUrl(window.location, import.meta.env?.VITE_GAME_SERVER_URL)
+  if (serverUrl) {
     try {
-      const serverUrl = (isTunnel || hasGameServer)
-        ? (import.meta.env.VITE_GAME_SERVER_URL || `${window.location.origin}`)
-        : `${window.location.protocol}//${window.location.hostname}:3001`
       const res = await fetch(`${serverUrl}/api/account-access`, {
         method: 'POST',
         headers: {

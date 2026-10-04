@@ -136,11 +136,10 @@ console.log('   - Chrome: Nhấn menu (⋮) > Chọn "Cài đặt ứng dụng" 
 console.log('   - Safari: Nhấn nút Chia sẻ (Share) > Chọn "Thêm vào MH chính".');
 console.log('   - App sẽ xuất hiện trên màn hình chính và mở như App native!');
 console.log('------------------------------------------------------------');
-console.log('🎮 CÁC TÍNH NĂNG ĐÃ KÍCH HOẠT ĐẦY ĐỦ:');
-console.log('   [x] Hành trình học lịch sử 1954 (Visual Novel, Video, Quiz)');
-console.log('   [x] Trợ lý AI Sửu Ca (Hỏi đáp kiến thức lịch sử qua Gemini)');
-console.log('   [x] Đấu Trí Online 1v1 (Ghép ngẫu nhiên & Phòng bạn bè)');
-console.log('   [x] Đồng bộ tài khoản, XP, Streak qua Supabase Cloud');
+console.log('🎮 BẢN THỬ NGHIỆM QUA TUNNEL:');
+console.log('   - HỌC 1954: video tham chiếu tập 1 và bản chép lời; các tập còn lại chưa mở.');
+console.log('   - Trợ lý AI và Đấu Trí cần kết nối backend hoạt động.');
+console.log('   - Tài khoản dùng Supabase; preview 1954 không cấp XP hoặc completion.');
 console.log('============================================================');
 console.log('Nhấn Ctrl+C để dừng hệ thống.\n');
 

@@ -9,7 +9,7 @@
 
 | ID | Owner / Executor | Reviewer | Status | Started | Next action |
 |---|---|---|---|---|---|
-| LOCAL-MAIN-INTEGRATION-001 | Codex integration / Codex | Hưng/Vinh; user pending | IN PROGRESS | 2026-10-04 | [Card](../tasks/active/LOCAL-MAIN-INTEGRATION-001.md); preserve local preview/tunnel work, integrate main/PR122 and validate combined PR. |
+| LOCAL-MAIN-INTEGRATION-001 | Codex integration / Codex | Hưng/Vinh; user pending | REVIEW | 2026-10-04 | [Card](../tasks/active/LOCAL-MAIN-INTEGRATION-001.md); main+PR122+local preview integrated; quality422PASS/0FAIL/3SKIP and release55PASS; final GitHub CI/reviewer acceptance next. |
 
 ## Local learning repair — 2026-10-04
 
