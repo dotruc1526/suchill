@@ -9,6 +9,11 @@ export function gameSnapshot(session, playerId) {
   const opponent = session.players[opponentId];
   const question = session.questions[session.currentQ];
   const ended = session.phase === 'question_end';
+  // An answer's score/combo also reveals correctness. Publish the previous
+  // question's totals until both players lock this question or its timer ends.
+  const visible = value => !ended && value.answeredCurrent && value.beforeAnswer
+    ? value.beforeAnswer : value;
+  const visiblePlayer = visible(player), visibleOpponent = visible(opponent);
   return {
     roomId: session.roomId, phase: session.phase,
     player: { userId: player.userId, username: player.username, exp: player.exp, level: player.level },
@@ -19,8 +24,8 @@ export function gameSnapshot(session, playerId) {
       questionId: question.id, deadlineAt: session.timerExpiresAt,
     } : null,
     timeLeft: Math.max(0, Math.ceil((session.timerExpiresAt - Date.now()) / 1000) || 0),
-    myScore: player.totalScore, opponentScore: opponent.totalScore,
-    myCombo: player.combo, myExpEarned: player.totalExpEarned,
+    myScore: visiblePlayer.totalScore, opponentScore: visibleOpponent.totalScore,
+    myCombo: visiblePlayer.combo, myExpEarned: visiblePlayer.totalExpEarned,
     selectedAnswer: player.selectedAnswer ?? null,
     answerResult: ended ? { ...player.lastAnswerInfo, correctIndex: question.correctIndex, explanation: question.explanation } : null,
     opponentAnswered: opponent.answeredCurrent, opponentConnected: opponent.connected !== false,

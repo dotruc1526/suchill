@@ -133,6 +133,10 @@ export default function socketHandler(io, config = {}) {
 
       const playerState = session.players[playerId];
       if (playerState.answeredCurrent) return;
+      playerState.beforeAnswer = {
+        totalScore: playerState.totalScore, combo: playerState.combo,
+        totalExpEarned: playerState.totalExpEarned,
+      };
 
       const question = session.questions[session.currentQ];
       const timeLeft = session.timerExpiresAt ? Math.max(0, Math.floor((session.timerExpiresAt - Date.now()) / 1000)) : 0;
@@ -174,7 +178,6 @@ export default function socketHandler(io, config = {}) {
       if (opponentId && !session.players[opponentId].isBot) {
         io.to(opponentId).emit('opponent_answered', {
           hasAnswered: true,
-          score: playerState.totalScore,
           userId: playerState.userId
         });
       }
@@ -299,6 +302,7 @@ export default function socketHandler(io, config = {}) {
         p.answeredCurrent = false;
         p.lastAnswerInfo = null;
         p.selectedAnswer = null;
+        p.beforeAnswer = null;
       });
 
       const q = session.questions[session.currentQ];

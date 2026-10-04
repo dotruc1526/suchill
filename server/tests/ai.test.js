@@ -60,6 +60,29 @@ test('AI endpoint validates input and responds with reply', async t => {
   assert.ok(data.reply.length > 0);
 });
 
+test('provider quota failures are not retried and model fallbacks share one deadline', async () => {
+  const savedKey = process.env.GEMINI_API_KEY, savedFetch = globalThis.fetch;
+  process.env.GEMINI_API_KEY = 'test-key';
+  try {
+    for (const status of [401, 429, 503]) {
+      let calls = 0;
+      globalThis.fetch = async () => { calls++; return new Response('', { status }); };
+      await askSuu('Hỏi thử'); assert.equal(calls, 1);
+    }
+    const signals = [];
+    globalThis.fetch = async (_url, options) => {
+      signals.push(options.signal);
+      return signals.length === 1 ? new Response('', { status: 404 })
+        : Response.json({ candidates: [{ content: { parts: [{ text: 'Trả lời' }] } }] });
+    };
+    assert.equal((await askSuu('Hỏi thử')).reply, 'Trả lời');
+    assert.equal(signals.length, 2); assert.equal(signals[0], signals[1]);
+  } finally {
+    globalThis.fetch = savedFetch;
+    if (savedKey === undefined) delete process.env.GEMINI_API_KEY; else process.env.GEMINI_API_KEY = savedKey;
+  }
+});
+
 test('AI calls are rate limited before the provider is contacted', async t => {
   const origin = 'http://localhost:8443';
   let calls = 0;

@@ -41,8 +41,12 @@ export async function accountAccess(client: AuthClient, body: Record<string, unk
           ...(token ? { Authorization: `Bearer ${token}` } : {}),
         },
         body: JSON.stringify(body),
+        signal: AbortSignal.timeout(25_000),
+        cache: 'no-store',
+        credentials: 'omit',
       })
       const data = await res.json()
+      if (!data || typeof data !== 'object' || Array.isArray(data)) return failure('server_error')
       if (!res.ok || (data && typeof data === 'object' && 'error' in data)) {
         return failure(data && typeof data === 'object' && 'error' in data ? safeError(data.error) : 'server_error')
       }
