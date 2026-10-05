@@ -1,0 +1,59 @@
+{
+  "pilot_summary": {
+    "total_books": 10,
+    "verified": 6,
+    "partially_verified": 4,
+    "needs_review": 4,
+    "unverified": 0
+  },
+  "claims_summary": {
+    "claims_checked": 42,
+    "claims_verified": 38,
+    "claims_partially_verified": 1,
+    "claims_unverified": 3
+  },
+  "sources_summary": {
+    "total_sources_found": 16,
+    "source_levels": {
+      "Level 5": 5,
+      "Level 4": 7,
+      "Level 3": 1,
+      "Level 2": 2,
+      "Level 1": 1
+    },
+    "urls_verified_http_status_200": 16,
+    "urls_rejected_http_404_or_invalid_ssl": 2,
+    "conflicting_sources": 0
+  },
+  "human_review_required": [
+    {
+      "book_id": "book_002993",
+      "title": "Gỏi khô bò VS McDonald’s",
+      "problem": "Đây là 1 truyện ngắn đơn lẻ trong tập sách 'Sài Gòn ẩm thực trong tôi' của Lưu Quang Minh chứ không phải 1 đầu sách độc lập.",
+      "conflicting_sources": "Không xung đột nguồn; lệch phạm vi xuất bản (truyện ngắn vs đầu sách).",
+      "recommended_action": "Gắn metadata trường collection = 'Sài Gòn ẩm thực trong tôi' (NXB Văn Học 2014) và đánh dấu loại tài liệu là short_story."
+    },
+    {
+      "book_id": "book_000013",
+      "title": "1984",
+      "problem": "Tác phẩm kinh điển quốc tế nhưng chưa có bản in thương mại được cấp phép chính thức tại VN; bản dịch lưu hành là bản dịch mạng.",
+      "conflicting_sources": "Không có NXB thương mại trong nước.",
+      "recommended_action": "Giữ publisher = null, publication_year = null; ghi nhận dịch giả Phạm Nguyên Trường / Phạm Minh Ngọc và gắn cờ translated_unofficial."
+    },
+    {
+      "book_id": "book_003026",
+      "title": "Huyền thoại Hồ Chí Minh",
+      "problem": "Tiểu luận nghiên cứu chính trị/lịch sử độc lập của tác giả Lữ Phương lưu hành trên mạng, không qua NXB thương mại.",
+      "conflicting_sources": "Không có NXB thương mại; Báo QĐND chỉ trích dẫn để phê phán quan điểm.",
+      "recommended_action": "Gán category = 'Khảo cứu chính trị - lịch sử (Phi thương mại)', để trống publisher và ISBN."
+    },
+    {
+      "book_id": "book_008752",
+      "title": "Tản bút đường dài",
+      "problem": "Tác phẩm văn học tự sáng tác trên diễn đàn Việt Nam Thư Quán, không có bản in giấy chính thức.",
+      "conflicting_sources": "Chỉ có nguồn diễn đàn văn học mạng (Level 1).",
+      "recommended_action": "Đánh dấu là tác phẩm xuất bản số cộng đồng (digital/web novel); không cố suy đoán ISBN hay nhà xuất bản."
+    }
+  ],
+  "generated_at": "2026-10-05T06:26:41.655160+00:00"
+}

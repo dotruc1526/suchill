@@ -1,0 +1,56 @@
+{
+  "total_books": 10,
+  "total_claims": 42,
+  "verified_claims": 38,
+  "unverified_claims": 3,
+  "needs_review": 4,
+
+  "total_sources": 16,
+  "valid_urls": 11,
+  "invalid_urls": 5,
+
+  "independent_sources": 10,
+  "duplicate_sources": 0,
+
+  "citation_failures": 4,
+  "fabrication_flags": 1,
+
+  "overall_status": "NEEDS_REVIEW",
+
+  "audit_details": {
+    "book_claim_integrity": "PASS (10/10 books have claims, 0 orphan claims, 0 orphan books)",
+    "data_consistency": "PASS (Numbers match 100% across pilot_books.jsonl, claims.jsonl, sources.jsonl, research_report.json)",
+    "invalid_urls_breakdown": [
+      {
+        "source_id": "src_wiki_1984_vi",
+        "url": "https://vi.wikipedia.org/wiki/M%E1%BB%99t_ch%C3%ADn_t%C3%A1m_b%E1%BB%91n",
+        "error": "HTTP 404 Not Found",
+        "reason": "Slug URL bị đoán sai dạng ('bốn' thay vì 'tư' - slug chuẩn trên Wikipedia là 'Một_chín_tám_tư'). Vi phạm quy tắc không đoán URL."
+      },
+      {
+        "source_id": "src_fahasa_tamquoc_at",
+        "url": "https://www.fahasa.com/tam-quoc-dien-nghia.html",
+        "error": "HTTP 403 Forbidden",
+        "reason": "Tường lửa Fahasa WAF chặn bot/scraper HTTP tự động hoặc slug sản phẩm chưa chính xác."
+      },
+      {
+        "source_id": "src_qdnd_lu_phuong",
+        "url": "https://www.qdnd.vn/cuoc-thi-chinh-luan-ve-bao-ve-nen-tang-tu-tuong-cua-dang/phe-phan-cac-quan-diem-sai-trai-724109",
+        "error": "HTTP 302 Redirect Loop",
+        "reason": "Cổng Báo QĐND chuyển hướng lặp khi truy cập không có cookie phiên duyệt."
+      },
+      {
+        "source_id": "src_vnthuquan_knt",
+        "url": "https://vnthuquan.net/truyen/tacgia.aspx?tacgia=Kh%E1%BA%A3i+Nguy%C3%AAn+HT",
+        "error": "DNS Resolution Failed (Errno 11002)",
+        "reason": "Domain vnthuquan.net không phân giải được DNS từ môi trường máy chủ hiện tại."
+      },
+      {
+        "source_id": "src_laodong_luuquangminh",
+        "url": "https://amp.laodong.vn/archived/luu-quang-minh-va-sai-gon-am-thuc-trong-toi-673412.ldo",
+        "error": "Content Empty / Archived Stub (Match Rate: 0%)",
+        "reason": "Trang lưu trữ AMP của Báo Lao Động là trang giữ chỗ, không chứa nội dung bài viết gốc."
+      }
+    ]
+  }
+}

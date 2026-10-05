@@ -16,6 +16,9 @@ logs/
 tmp/
 .pnpm-store/
 
+# Book data pipeline — keep heavy raw Kaggle dataset out of git (1.7GB)
+/data/raw/
+
 # Platform-managed state
 /.plugins/
 /.opencode-skills/
