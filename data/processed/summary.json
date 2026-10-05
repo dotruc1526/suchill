@@ -1,0 +1,9 @@
+{
+  "total_books": 10415,
+  "valid_books": 10415,
+  "missing_title": 0,
+  "missing_author": 0,
+  "duplicate_titles": 341,
+  "duplicate_title_author": 0,
+  "needs_review": 6
+}
